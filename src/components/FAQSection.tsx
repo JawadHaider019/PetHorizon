@@ -1,0 +1,130 @@
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown, HelpCircle } from 'lucide-react';
+
+interface FAQ {
+  q: string;
+  a: string;
+}
+
+const FAQS: FAQ[] = [
+  {
+    q: 'Which companion species does Pet Horizon support?',
+    a: 'Pet Horizon has dedicated support for Dogs, Cats, Birds, Rabbits, Hamsters, and other household companions. You can record species-specific breeds, birthdates for age calculation, and toggle weight measurements between KG and LBS.'
+  },
+  {
+    q: 'How does Family Sharing work with QR codes?',
+    a: 'From the Family Hub tab, you can generate an instant 6-digit invitation code or present a QR code. Your partner, family member, or pet sitter opens their Pet Horizon app, taps "Join Another Family", and scans your QR code to instantly co-manage your pet without manual setup.'
+  },
+  {
+    q: 'Can I use Pet Horizon for free?',
+    a: 'Yes! The Standard Plan is completely free forever. It includes 1 pet profile with complete access to daily feeding schedules, medication reminders, vaccination alerts, walk tracking, expense budgeting, and 1 daily journal photo upload.'
+  },
+  {
+    q: 'What extra benefits does Premium unlock?',
+    a: 'Premium is designed for multi-pet households and families. It unlocks unlimited pet profiles, collaborative Family Hub with Admin and Member permissions, up to 5 daily photo uploads in the journal, and priority support agent access.'
+  },
+  {
+    q: 'Is Pet Horizon available on iPhone (iOS)?',
+    a: 'Pet Horizon is currently live and available worldwide on Android via the Google Play Store. Our iOS version is actively in development and will be launching on the Apple App Store soon.'
+  },
+  {
+    q: 'Will I receive reminders if the app is closed?',
+    a: 'Yes. Pet Horizon schedules native device push notifications for scheduled meals, medication intervals, and veterinary vaccinations (like DHPP) so you and your care team never miss an important pet care event.'
+  }
+];
+
+export default function FAQSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const toggle = (idx: number) => {
+    setOpenIndex(openIndex === idx ? null : idx);
+  };
+
+  return (
+    <section id="faq" className="py-20 sm:py-28 bg-white relative overflow-hidden">
+      <div className="max-w-4xl mx-auto px-5 sm:px-8 relative z-10">
+        
+        {/* Header */}
+        <div className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-3">
+            <HelpCircle className="w-3.5 h-3.5 text-emerald-600" />
+            <span>Frequently Asked Questions</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+            Common Questions About Pet Horizon
+          </h2>
+          <p className="text-slate-600 text-base sm:text-lg mt-3 font-normal">
+            Everything you need to know about the product, platform compatibility, and features.
+          </p>
+        </div>
+
+        {/* FAQ Accordion List */}
+        <div className="space-y-4">
+          {FAQS.map((faq, idx) => {
+            const isOpen = openIndex === idx;
+            return (
+              <div
+                key={idx}
+                className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
+                  isOpen
+                    ? 'border-emerald-300 bg-emerald-50/30 shadow-xs'
+                    : 'border-slate-200 bg-white hover:border-slate-300'
+                }`}
+              >
+                <button
+                  onClick={() => toggle(idx)}
+                  className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
+                  aria-expanded={isOpen}
+                >
+                  <span className="font-bold text-slate-900 text-base sm:text-lg">
+                    {faq.q}
+                  </span>
+                  <div
+                    className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-200 ${
+                      isOpen
+                        ? 'bg-emerald-600 text-white rotate-180'
+                        : 'bg-slate-100 text-slate-500'
+                    }`}
+                  >
+                    <ChevronDown className="w-4 h-4" />
+                  </div>
+                </button>
+
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25 }}
+                    >
+                      <div className="px-5 sm:px-6 pb-6 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-emerald-100/60 pt-4">
+                        {faq.a}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Still have questions banner */}
+        <div className="mt-12 text-center p-6 bg-slate-50 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="text-left">
+            <h4 className="text-sm font-bold text-slate-900">Have a question not listed here?</h4>
+            <p className="text-xs text-slate-500 mt-0.5">Reach out to our support team and we will be happy to assist.</p>
+          </div>
+          <a
+            href="#contact"
+            className="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-5 py-2.5 rounded-xl shrink-0 transition-colors"
+          >
+            Contact Support
+          </a>
+        </div>
+
+      </div>
+    </section>
+  );
+}
