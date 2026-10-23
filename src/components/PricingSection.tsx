@@ -7,7 +7,7 @@ export default function PricingSection() {
   const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon';
 
   return (
-    <section id="pricing" className="py-20 sm:py-28 bg-slate-50 relative overflow-hidden">
+    <section id="pricing" className="py-20 sm:py-28 bg-[#F5F6F8] relative overflow-hidden">
       {/* Background blobs */}
       <div className="absolute top-1/4 right-1/4 w-[450px] h-[450px] bg-emerald-500/5 rounded-full blur-[130px] pointer-events-none" />
 
