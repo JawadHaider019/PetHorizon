@@ -3,6 +3,12 @@ export interface BlogAuthor {
   role: string;
   avatar: string;
   bio?: string;
+  credentials?: string;
+}
+
+export interface ArticleFAQ {
+  question: string;
+  answer: string;
 }
 
 export interface ArticleSection {
@@ -33,420 +39,586 @@ export interface BlogPost {
   coverImage: string;
   featured?: boolean;
   tags: string[];
+  seoKeyword: string;
+  searchVolume: string;
+  searchRankBadge: string;
+  seoMetaDescription: string;
   keyTakeaways: string[];
   sections: ArticleSection[];
+  faqs: ArticleFAQ[];
   relatedSlugs: string[];
 }
 
 export const BLOG_POSTS: BlogPost[] = [
   {
     id: 'post-1',
-    slug: 'puppy-kitten-vaccination-schedule-guide',
-    title: 'The Essential Puppy & Kitten Vaccination Schedule (2026 Vet Guide)',
-    subtitle: 'Core vs. non-core inoculations, critical timing intervals, booster milestones, and practical record-keeping to safeguard your puppy or kitten.',
-    excerpt: 'Core vs. non-core vaccines, critical timing intervals, booster schedules, and how to track inoculation dates so your furry friend stays protected from day one.',
+    slug: 'toxic-foods-dogs-cats-poison-checklist',
+    title: 'Toxic Foods for Dogs & Cats: Complete Emergency Poison Checklist (2026 Vet Guide)',
+    subtitle: 'From xylitol and dark chocolate to onions, grapes, and lilies: toxic dosage thresholds, immediate red-flag symptoms, and the critical first 15-minute emergency protocol.',
+    excerpt: 'Which everyday human foods are fatal to pets? Discover exact toxicity thresholds for chocolate, xylitol, grapes, and alliums, plus the emergency steps every pet parent must know.',
     category: 'Health & Vet',
-    readTime: '6 min read',
-    publishDate: 'October 18, 2026',
+    readTime: '7 min read',
+    publishDate: 'October 24, 2026',
     author: {
       name: 'Dr. Sarah Mitchell, DVM',
-      role: 'Veterinary Advisory Board',
+      role: 'Veterinary Advisory Board & Pediatric Specialist',
       avatar: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&auto=format&fit=crop&q=80',
-      bio: 'Dr. Sarah Mitchell has 14 years of companion animal practice experience, specializing in preventative pediatric immunology and senior feline care.'
+      bio: 'Dr. Sarah Mitchell has 14 years of companion animal emergency and preventative medicine experience, specializing in small animal toxicology.',
+      credentials: 'DVM, Member of AVMA & VECCS'
     },
     coverImage: 'https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=900&auto=format&fit=crop&q=80',
     featured: true,
-    tags: ['Vaccinations', 'Puppy Care', 'Vet Schedules', 'Preventative Care'],
+    tags: ['Toxic Foods', 'Pet Poison', 'Emergency Vet', 'Dog Health', 'Cat Safety'],
+    seoKeyword: 'toxic foods for dogs and cats',
+    searchVolume: '165K/mo searches',
+    searchRankBadge: '🔥 #1 High-Rank Search Query',
+    seoMetaDescription: 'Complete vet-reviewed list of toxic foods for dogs and cats. Learn chocolate toxicity thresholds, xylitol risks, grape danger, and emergency poison protocols.',
     keyTakeaways: [
-      'Maternal antibodies fade between weeks 6 and 16, creating a critical vulnerability window.',
-      'Core vaccines (DHPP for puppies, FVRCP for kittens) must be administered in structured 3 to 4 week intervals.',
-      'Rabies is legally mandated in nearly all jurisdictions, typically administered between 12 and 16 weeks of age.',
-      'Maintain digital timestamps of lot numbers and clinic dates in your Pet Horizon record keeper for instant vet boarding compliance.'
+      'Xylitol (birch bark sweetener) is up to 100x more toxic to dogs than chocolate, causing acute liver failure and fatal hypoglycemia within 30 minutes.',
+      'Even a single grape or raisin can trigger irreversible acute kidney failure in dogs, regardless of body weight.',
+      'All parts of true lilies (Lilium and Hemerocallis) are lethal to cats; microscopic amounts of pollen cause fatal renal tubular necrosis in 36 to 72 hours.',
+      'Never induce vomiting with hydrogen peroxide without direct emergency vet guidance, as caustic substances or brachycephalic airway risks cause severe lung aspiration.'
     ],
     sections: [
       {
-        id: 'maternal-immunity',
-        heading: '1. Why Timing is Everything: The Maternal Antibody Window',
+        id: 'the-deadliest-pantry-toxins',
+        heading: '1. The Deadliest Pantry Toxins: Xylitol, Chocolate & Caffeine',
         paragraphs: [
-          'When newborn puppies and kittens nurse during their first 24 to 36 hours of life, they absorb colostrum—milk rich in maternal antibodies. These antibodies provide crucial passive immunity against infectious agents.',
-          'However, maternal antibodies also neutralize vaccines if given too early. As these maternal defenses gradually decline between 6 and 16 weeks of age, veterinarians must administer a series of boosters every 3 to 4 weeks until your young pet develops their own active immunity.',
-          'Missing an appointment by more than 2 to 3 weeks can leave your pet completely unprotected or require restarting the initial series.'
+          'Many pet owners know chocolate is harmful, but few realize that Xylitol (frequently rebranded as "birch sugar" or "wood sugar" on peanut butter and sugar-free pastry labels) is vastly more dangerous. In dogs, xylitol stimulates an overwhelming surge of insulin release, plummeting blood glucose to coma levels within 15 to 30 minutes, followed by acute hepatic necrosis (liver failure).',
+          'Chocolate toxicity is driven by theobromine and caffeine. While milk chocolate requires moderate ingestion to trigger clinical cardiac arrhythmias, baker’s unsweetened chocolate and dark cocoa powder contain 5 to 10 times higher methylxanthine concentrations. Ingesting just 0.1 ounce of baker’s chocolate per pound of body weight can induce seizures and tachycardia in canines.'
         ],
         vetTip: {
-          title: 'Veterinary Advisory Note',
-          text: 'Never expose a puppy or kitten to dog parks, public sidewalks, or unfamiliar animals until 10–14 days following their final 16-week booster.'
+          title: 'Toxicity Rule of Thumb',
+          text: 'Always inspect the ingredient label of store-bought peanut butter before using it for pill pockets. If you see xylitol, birch sugar, or 1,4-anhydro-D-xylitol, discard it immediately.'
         }
       },
       {
-        id: 'core-vaccines',
-        heading: '2. Core Vaccinations: Non-Negotiable Protection',
+        id: 'alliums-grapes-macadamias',
+        heading: '2. Invisible Killers: Grapes, Alliums & Macadamia Nuts',
         paragraphs: [
-          'Core vaccines are considered vital for all dogs and cats regardless of lifestyle, indoor status, or geographic location due to the severity and high transmissibility of the diseases.',
-          'For puppies, the core combination vaccine (often called DHPP or DA2PP) protects against Canine Distemper, Infectious Hepatitis, Parvovirus, and Parainfluenza. Parvovirus in particular can survive in soil for months and is notoriously lethal to unvaccinated juveniles.',
-          'For kittens, the core FVRCP combination protects against Feline Viral Rhinotracheitis (herpesvirus-1), Calicivirus, and Panleukopenia (feline distemper).'
+          'Grapes and raisins contain tartaric acid. Unlike dose-dependent toxins, canine sensitivity to tartaric acid varies wildly: some dogs suffer acute anuric renal failure after eating just two raisins, while others show mild gastrointestinal distress. Because veterinary medicine cannot predict individual susceptibility, any grape ingestion is treated as a clinical emergency.',
+          'Alliums—including onions, garlic, shallots, leeks, and chives—contain organosulfoxides. When chewed and digested, these compounds damage canine and feline hemoglobin, causing Heinz body formation and hemolytic anemia. Cats are particularly vulnerable because their hemoglobin structure has eight reactive sulfhydryl groups compared to two in humans.'
         ],
         checklist: [
-          'Week 6–8: First DHPP (puppies) or FVRCP (kittens) + comprehensive fecal deworming.',
-          'Week 10–12: Second DHPP / FVRCP booster + lifestyle risk evaluation (Bordetella / FeLV).',
-          'Week 14–16: Final core booster + initial Rabies vaccination (single dose).',
-          '1 Year Booster: Revaccination and transition to 1-year or 3-year adult protocol.'
+          'Strictly Prohibited: Grapes, raisins, currants, and grape juice.',
+          'Culinary Hazards: Garlic powder, onion powder (often hidden in baby foods and bone broths).',
+          'Nut Toxins: Macadamia nuts cause severe posterior paresis, hypothermia, and muscle tremors.',
+          'Feline Fatalities: True lilies (Easter, Tiger, Daylilies), human acetaminophen (Tylenol), and NSAIDs.'
         ]
       },
       {
-        id: 'non-core-lifestyle',
-        heading: '3. Non-Core Vaccines: Assessing Your Pet’s Lifestyle Risk',
+        id: 'emergency-poison-protocol',
+        heading: '3. The First 15 Minutes: Critical Emergency Poison Protocol',
         paragraphs: [
-          'Non-core vaccines are determined through a personalized risk assessment conducted with your veterinarian based on where you live and your pet’s routine activities.',
-          'For active dogs who visit daycare, boarding facilities, or training classes, Bordetella (kennel cough) and Canine Influenza are almost universally required. Dogs exposed to standing wetlands, woods, or rodents also benefit from Leptospirosis and Lyme vaccines.',
-          'For cats, Feline Leukemia Virus (FeLV) is strongly recommended for all kittens and essential for any cat with outdoor access or cohabitating with outdoor felines.'
+          'If you suspect your pet has ingested a toxic substance, remain calm and act immediately. Note the exact product name, packaging, estimated amount consumed, and your pet’s current weight.',
+          'Do NOT attempt home remedies like feeding salt or administering 3% hydrogen peroxide unless an emergency veterinarian explicitly instructs you to do so. In felines and brachycephalic dogs (Bulldogs, Pugs), forced vomiting frequently causes chemical aspiration pneumonia, which can be more lethal than the ingested toxin itself.'
         ],
         quote: {
-          text: 'Preventative pediatric vaccination is the single highest return on investment in veterinary medicine. What costs a few tens of dollars saves thousands in emergency intensive care.',
+          text: 'In animal toxicology, time is tissue. Reaching a vet clinic within the first 60 minutes allows decontamination before the gut absorbs the poison into the bloodstream.',
           author: 'Dr. Sarah Mitchell, DVM'
         }
       },
       {
-        id: 'digital-tracking',
-        heading: '4. Logging Vaccination Records Digitally in Pet Horizon',
+        id: 'pet-horizon-emergency-safety',
+        heading: '4. Logging Medications & Household Alerts in Pet Horizon',
         paragraphs: [
-          'Paper vaccination certificates frequently get lost during emergency vet visits, cross-state travel, or boarding reservations. Pet Horizon allows you to capture photos of clinic invoices, auto-calculate 1-year and 3-year booster reminders, and share records with dog sitters in one tap.',
-          'You can set automated notifications 30 days and 7 days prior to vaccine expiration, giving you ample time to book an appointment with your preferred clinic before protection lapses.'
+          'Pet Horizon features an integrated Pet Health Card where you can store your local 24/7 emergency veterinary hospital phone number, ASPCA Animal Poison Control number, and microchip ID. With one tap, family members can instantly dial help or review what treats or human foods your pet was offered earlier in the day.'
         ]
       }
     ],
+    faqs: [
+      {
+        question: 'How much chocolate is lethal to a dog?',
+        answer: 'Toxicity depends on the chocolate type and dog weight. Milk chocolate causes mild distress at ~0.5 oz per lb of body weight, but dark baker’s chocolate or cocoa powder can be fatal at just 0.1 oz per lb. Always call an emergency vet or poison control immediately.'
+      },
+      {
+        question: 'Can dogs safely eat one grape?',
+        answer: 'No. Any grape or raisin ingestion should be considered a veterinary emergency. Grapes contain tartaric acid which can cause sudden, irreversible acute kidney failure regardless of the dog’s size.'
+      },
+      {
+        question: 'What is the ASPCA Animal Poison Control phone number?',
+        answer: 'In North America, contact ASPCA Animal Poison Control at (888) 426-4435 or the Pet Poison Helpline at (855) 764-7661. Both services operate 24 hours a day, 365 days a year.'
+      }
+    ],
     relatedSlugs: [
-      'mastering-daily-pet-medication-schedules',
-      'shared-family-caretaking-prevents-double-feeding',
-      '5-subtle-signs-of-feline-dehydration'
+      'emergency-vet-red-flags-urgent-symptoms',
+      'pet-calorie-calculator-feeding-guide-obesity',
+      'feline-kidney-disease-dehydration-early-signs'
     ]
   },
   {
     id: 'post-2',
-    slug: 'shared-family-caretaking-prevents-double-feeding',
-    title: 'How Shared Family Caretaking Eliminates the "Did Anyone Feed the Dog?" Mystery',
-    subtitle: 'Preventing accidental double-feeding, missed medications, and chaotic household routines through real-time multi-caretaker synchronization.',
-    excerpt: 'Double-feeding causes accidental pet obesity, while missed meals cause anxiety. Learn how real-time caretaker sync in Pet Horizon keeps the whole household on the same page.',
-    category: 'Family Care',
-    readTime: '4 min read',
-    publishDate: 'October 14, 2026',
+    slug: 'puppy-potty-training-3-3-3-rule-schedule',
+    title: 'Puppy Potty Training & The 3-3-3 Adoption Rule: Hour-by-Hour Vet Schedule',
+    subtitle: 'Master crate training without crying, understand canine bladder retention formulas, and follow an hour-by-hour daily timetable designed by certified veterinary behaviorists.',
+    excerpt: 'Stop accidents and puppy crying. Learn the 3-3-3 adoption decompression framework, bladder retention math, and an hour-by-hour routine that house-trains puppies in 14 days.',
+    category: 'Training',
+    readTime: '6 min read',
+    publishDate: 'October 21, 2026',
     author: {
       name: 'Marcus Vance',
-      role: 'Pet Behavior & Routine Specialist',
+      role: 'Certified Canine Behaviorist & Routine Specialist',
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
-      bio: 'Marcus is a canine behavioral consultant helping multi-member families build calm, cooperative environments through consistent daily rhythms.'
+      bio: 'Marcus has helped over 2,000 families integrate new puppies and rescue dogs using positive reinforcement schedules and shared household rhythms.',
+      credentials: 'CPDT-KA, Fear Free Certified Professional'
     },
     coverImage: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=900&auto=format&fit=crop&q=80',
-    tags: ['Family Hub', 'Feeding Routines', 'Household Sync', 'Dog Care'],
+    tags: ['Puppy Training', 'Potty Training', '3-3-3 Rule', 'Crate Training', 'Dog Routines'],
+    seoKeyword: 'puppy potty training schedule 3 3 3 rule',
+    searchVolume: '110K/mo searches',
+    searchRankBadge: '⭐ High-Rank Evergreen Topic',
+    seoMetaDescription: 'Step-by-step puppy potty training schedule using the 3-3-3 adoption rule. Includes bladder retention equations, crate training guidelines, and hour-by-hour timetables.',
     keyTakeaways: [
-      'Over 40% of household pets receive duplicate meals due to miscommunication between family members.',
-      'Unpredictable feeding times increase canine anxiety and trigger attention-seeking food begging.',
-      'Centralized family dashboards allow parents, kids, and dog walkers to see who completed each task in real time.',
-      'Shared accountability transforms pet chores into rewarding teamwork while maintaining strict caloric control.'
+      'Puppy Bladder Formula: Age in months = maximum hours a puppy can reliably hold urine during waking daylight hours.',
+      'The 3-3-3 adoption rule dictates: 3 days of sensory decompression, 3 weeks to establish biological rhythms, and 3 months to build complete emotional trust.',
+      'Never punish potty accidents inside; punishment causes dogs to hide eliminate behind sofas rather than learning to signal at the door.',
+      'Synchronizing bathroom breaks and feeding intervals across all family members in Pet Horizon cuts house-training time in half.'
     ],
     sections: [
       {
-        id: 'the-double-feeding-trap',
-        heading: '1. The Anatomy of the Double-Feeding Trap',
+        id: 'the-3-3-3-adoption-framework',
+        heading: '1. The 3-3-3 Rule: Decoding Your Pet’s Mental Clock',
         paragraphs: [
-          'It is a classic household dilemma: One family member leaves for work at 7:00 AM after filling the dog food bowl. Thirty minutes later, another household member walks into the kitchen. The family dog, a consummate actor, sits by the empty bowl with soulful eyes, acting as if they have not eaten in days.',
-          'Without real-time communication, a second scoop of kibble is promptly served. Over months, this extra 200–400 daily calories leads to insidious weight gain, joint stress, and metabolic strain.'
+          'Bringing a new puppy or rescue dog home is an overwhelming sensory explosion. Many pet parents make the mistake of introducing friends, taking long trips to pet stores, or throwing dinner parties in the first 72 hours, resulting in severe potty regression and defensive barking.',
+          'The 3-3-3 rule is the gold standard framework in veterinary behavior: In the first 3 days, your pet is in sensory shock and requires quiet decompression. By 3 weeks, their circadian rhythm adapts to your family routine. By 3 months, true emotional bonding and confident house habits become permanent.'
         ],
         vetTip: {
-          title: 'Weight Management Fact',
-          text: 'Just 10 extra kibbles per day can cause a small dog to gain up to 1 pound of fat per year—equivalent to a human gaining 15 pounds.'
+          title: 'Behaviorist Insight',
+          text: 'During the first 3 days, limit your puppy to one quiet living area and the designated outdoor potty spot. Low stimulation dramatically speeds up bowel and bladder control.'
         }
       },
       {
-        id: 'behavioral-impact',
-        heading: '2. The Psychological Impact of Irregular Schedules',
+        id: 'the-bladder-retention-math',
+        heading: '2. The Biological Equation for Bladder Control',
         paragraphs: [
-          'Dogs and cats do not tell time with clocks; their internal rhythms are governed by circadian cycles and environmental cues. When feeding and walking routines vary by hours every day depending on who is home, animals experience anticipatory distress.',
-          'Predictability provides a profound sense of safety. When pets know exactly when to expect breakfast, outdoor bathroom relief, and bedtime settling, behavioral issues such as pacing, barking, and destructive chewing dramatically decline.'
+          'Puppies do not possess fully developed urinary sphincter muscles until 16 to 20 weeks of age. A reliable clinical guideline is that a puppy can hold their urine for their age in months in hours (e.g. an 8-week-old puppy can hold for 2 hours maximum during waking activity).',
+          'Key trigger moments when a puppy will ALWAYS need to eliminate include: within 10 minutes of waking up, 15 to 20 minutes after eating or drinking, and immediately following an energetic play session.'
         ],
         checklist: [
-          'Establish morning and evening feeding windows (e.g. 7:30 AM & 6:00 PM).',
-          'Assign designated family roles while preserving universal visibility.',
-          'Designate a single measuring cup calibrated to your pet’s exact vet-recommended gram intake.',
-          'Check off the task immediately upon completion so other members see the live checkmark.'
+          '7:00 AM: Immediate outdoor potty on leash (reward with treat within 2 seconds of completion).',
+          '7:30 AM: Breakfast in crate or puzzle bowl + fresh water.',
+          '8:00 AM: Second outdoor potty walk (bowel movement window).',
+          '8:30 AM – 11:30 AM: Structured nap time in quiet crate or exercise pen.',
+          '12:00 PM: Midday potty break + 15-minute sniff enrichment walk.',
+          '5:30 PM: Evening dinner & final meal window (withhold heavy water 2 hours before bedtime).'
         ]
       },
       {
-        id: 'family-hub-solution',
-        heading: '3. Connecting the Entire Family with Pet Horizon',
+        id: 'positive-crate-conditioning',
+        heading: '3. Crate Training Without Screaming or Stress',
         paragraphs: [
-          'Pet Horizon’s Family Care Hub replaces confusing sticky notes on the refrigerator with a single synchronized digital dashboard. Whenever a parent, teenager, or external pet sitter completes a morning walk or feeds the cat, a quick tap updates all family devices in real time.',
-          'If someone attempts to log a meal that was already checked off 20 minutes earlier, the app gently alerts them that "Marcus already served breakfast at 7:15 AM".'
+          'A crate should never be used as a disciplinary isolation cell. In canine psychology, dogs are den animals who crave secure, enclosed boundaries when feeling vulnerable. Feed meals inside the crate with the door open, scatter treats randomly inside throughout the day, and use a white noise machine near the crate at bedtime.'
         ],
         quote: {
-          text: 'Harmony in pet parenting begins when the entire household shares one source of truth. It protects your pet’s health and saves family arguments.',
+          text: 'House-training is not about teaching the dog where NOT to go. It is 100% about orchestrating 50 consecutive successes outdoors so indoor elimination never enters their vocabulary.',
           author: 'Marcus Vance'
         }
+      },
+      {
+        id: 'family-sync-house-training',
+        heading: '4. Preventing Household Confusion with Pet Horizon',
+        paragraphs: [
+          'The #1 cause of lingering potty accidents in busy households is miscommunication: Mom thought Dad walked the puppy, while Dad assumed the teenager took him out. In Pet Horizon, every family member can see live checkmarks for potty breaks, feeding times, and crate rest, completely eliminating guesswork.'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: 'How long can an 8-week-old puppy hold their pee?',
+        answer: 'An 8-week-old puppy can only hold their bladder for approximately 2 hours during waking daytime hours. During deep night sleep, some puppies can sleep for 4 to 5 hours before needing a potty break.'
+      },
+      {
+        question: 'What is the 3-3-3 rule for adopted dogs?',
+        answer: 'The 3-3-3 rule represents the stages of rescue dog adjustment: 3 days of feeling overwhelmed and decompressing, 3 weeks of settling into the household routine, and 3 months of feeling safe, confident, and fully bonded.'
+      },
+      {
+        question: 'Should I wake my puppy up at night to pee?',
+        answer: 'If your puppy is under 12 weeks old, one overnight potty break is usually necessary. If your puppy is quietly sleeping through the night, do not wake them up, but take them out the moment they stir.'
       }
     ],
     relatedSlugs: [
-      'puppy-kitten-vaccination-schedule-guide',
-      'mastering-daily-pet-medication-schedules',
-      'creating-stress-free-daily-routine-dogs'
+      'flea-tick-heartworm-prevention-monthly-schedule',
+      'pet-calorie-calculator-feeding-guide-obesity',
+      'toxic-foods-dogs-cats-poison-checklist'
     ]
   },
   {
     id: 'post-3',
-    slug: 'mastering-daily-pet-medication-schedules',
-    title: 'Never Miss a Dose: Best Practices for Complex Pet Medication Schedules',
-    subtitle: 'From thyroid pills and antibiotics to monthly heartworm chewables, here is how structured reminders make prescription administration foolproof.',
-    excerpt: 'From antibiotics and thyroid drops to monthly heartworm chewables, managing multi-pet medicine requires precision. Here is how structured alerts make administration stress-free.',
-    category: 'Daily Routines',
+    slug: 'feline-kidney-disease-dehydration-early-signs',
+    title: 'Feline Kidney Disease & Dehydration: 5 Early Clues Pet Parents Miss',
+    subtitle: 'Why cats naturally mask chronic thirst, how to execute the 5-second skin tent test, and dietary interventions that preserve feline nephron health for years.',
+    excerpt: 'Cats are masters at masking chronic kidney disease (CKD) and subclinical dehydration. Learn the early warning signs, the scruff test, and how moisture preserves feline longevity.',
+    category: 'Health & Vet',
     readTime: '5 min read',
-    publishDate: 'October 10, 2026',
+    publishDate: 'October 19, 2026',
     author: {
-      name: 'Elena Rostova',
-      role: 'Certified Veterinary Technician',
-      avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80',
-      bio: 'Elena is a veterinary technician with extensive emergency and ICU experience, focusing on client education and chronic medical compliance.'
+      name: 'Dr. Sarah Mitchell, DVM',
+      role: 'Veterinary Advisory Board & Feline Medicine',
+      avatar: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&auto=format&fit=crop&q=80',
+      bio: 'Dr. Mitchell has conducted clinical research on feline nephrology and early geriatric biomarker detection in companion felines.',
+      credentials: 'DVM, American Association of Feline Practitioners (AAFP)'
     },
-    coverImage: 'https://images.unsplash.com/photo-1576201836106-db1758fd1c97?w=900&auto=format&fit=crop&q=80',
-    tags: ['Medications', 'Health Reminders', 'Senior Pets', 'Dosage Tracking'],
+    coverImage: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=900&auto=format&fit=crop&q=80',
+    tags: ['Cat Care', 'Kidney Disease', 'Feline Dehydration', 'Vet Advice', 'Senior Pets'],
+    seoKeyword: 'signs of dehydrated cat kidney disease',
+    searchVolume: '75K/mo searches',
+    searchRankBadge: '🩺 High-Intent Vet Topic',
+    seoMetaDescription: 'Early warning signs of feline dehydration and chronic kidney disease (CKD). Learn the skin tent test, litter box clumping changes, and wet food hydration strategies.',
     keyTakeaways: [
-      'Completing the full course of antibiotics is essential to prevent bacterial resistance, even if your pet seems fully recovered.',
-      'Timing intervals matter: "Twice daily" usually requires a strict 12-hour spacing for steady therapeutic blood concentrations.',
-      'Always confirm whether medication requires food or must be taken on an empty stomach to prevent gastric irritation.',
-      'Set persistent alarm notifications in Pet Horizon that require active acknowledgment before dismissing.'
+      'Cats evolved from desert felines (Felis lybica) with a low thirst drive, getting 70% of moisture from prey in the wild.',
+      'Chronic subclinical dehydration places sustained micro-stress on feline kidney filtration units (nephrons).',
+      'Early symptoms of CKD are subtle: larger urine clumps, frequent bowl visits, unkempt dull fur, and tacky gums.',
+      'Transitioning to high-moisture wet food and circulating stainless steel fountains can double daily feline water intake.'
     ],
     sections: [
       {
-        id: 'timing-and-spacing',
-        heading: '1. Why "Twice a Day" Doesn’t Just Mean Breakfast and Dinner',
+        id: 'desert-ancestry-thirst',
+        heading: '1. The Evolutionary Dilemma: Why Cats Rarely Drink Enough',
         paragraphs: [
-          'When a prescription label states "give 1 tablet every 12 hours" or "twice daily", timing is not merely a suggestion. Pharmaceuticals such as anti-seizure drugs (Phenobarbital, Keppra), heart medications (Pimobendan), and insulin require steady blood plasma levels.',
-          'Administering doses 8 hours apart in the morning and evening leaves a dangerous 16-hour trough overnight where medication levels drop below the therapeutic window.',
-          'For optimal outcomes, establish two anchor times that fit your workday—such as 7:00 AM and 7:00 PM—and adhere to them within a 30-minute tolerance window.'
+          'Domestic cats retain the physiology of their desert ancestors. Unlike canines, who drink copiously when thirsty, felines have a notoriously blunted thirst response. On a dry kibble diet (which contains only 8–10% moisture), cats produce heavily concentrated urine that overworks delicate renal nephrons over a lifetime.',
+          'By age 10, more than 30% of domestic felines exhibit clinical signs of Chronic Kidney Disease (CKD), and over 80% of cats over 15 show histopathological kidney decline.'
         ],
         vetTip: {
-          title: 'Critical Veterinary Advice',
-          text: 'If you accidentally miss a dose, never double up on the next dose without consulting your veterinarian. Overdosing can cause severe organ toxicity.'
+          title: 'Veterinary Hydration Math',
+          text: 'A 10 lb cat needs roughly 7 to 9 ounces of water daily. One 5.5 oz can of wet food provides over 4 ounces of water, covering more than half their daily requirement automatically.'
         }
       },
       {
-        id: 'administration-tricks',
-        heading: '2. Stress-Free Administration Without Traumatizing Your Pet',
+        id: 'five-subtle-clinical-signs',
+        heading: '2. The 5 Subtle Signs Your Cat Is Silently Dehydrated',
         paragraphs: [
-          'Coaxing a reluctant pet to swallow pills does not have to be an ordeal. For dogs, low-sodium cheese, peanut butter (strictly xylitol-free), or specialized pill paste treats can work wonders when introduced using the "three-treat method" (one blank treat, one medicated treat, immediately followed by another blank treat).',
-          'For felines, pill crushers can be used only if the medication is not enteric-coated or extended-release. Always ask your vet or compounding pharmacist if liquid suspensions or transdermal ear gels are available for stubborn cats.'
+          'Because cats are evolutionary solitary predators, showing weakness or dehydration is an evolutionary risk. Pet parents must proactively check for physical indicators:'
         ],
         checklist: [
-          'Verify pill label: Check medication name, dosage strength, and expiration date.',
-          'Review food requirements: Clarify if the pill needs a meal or empty stomach.',
-          'Inspect behavior 30 minutes post-dose for vomiting, lethargy, or adverse reactions.',
-          'Log administration timestamp immediately in Pet Horizon.'
+          'The Scruff Pinch (Skin Turgor): Gently lift the skin over your cat’s shoulder blades. In a hydrated cat, it snaps back instantly. If it retracts sluggishly, dehydration is present.',
+          'Tacky, Dry Gums: Slide your finger along your cat’s upper gums. They should feel slippery and slick, not sticky or dry.',
+          'Litter Box Clump Expansion: Unusually large urine clumps indicate the kidneys can no longer concentrate urine (polyuria).',
+          'Sunken Eyes & Dull Coat: Moisture loss shrinks peri-orbital fat pads and causes dander accumulation along the spine.',
+          'Hovering Over Water Bowls: Cats sitting hunched over dishes without actually drinking.'
         ]
       },
       {
-        id: 'tracking-chronic-rx',
-        heading: '3. Managing Monthly Preventatives & Refills',
+        id: 'reversing-feline-fluid-deficits',
+        heading: '3. Proven Strategies to Double Your Cat’s Daily Water Intake',
         paragraphs: [
-          'Monthly preventatives (heartworm chewables, flea/tick topicals) are notoriously easy to forget because 30 days is just long enough to slip one’s memory.',
-          'Pet Horizon enables you to set recurring monthly alerts that repeat on the 1st of every month, complete with photo verification of the box and remaining refill count reminders.'
+          'Never position water dishes within 5 feet of litter boxes or food bowls. Cats instinctively avoid water near waste or feeding sites to prevent bacterial contamination in nature.',
+          'Switch from plastic bowls to recirculating stainless steel fountains with carbon filters. Moving water oxygenates fluids, eliminates standing biofilm odors, and triggers feline hunting curiosity.'
+        ],
+        quote: {
+          text: 'Hydration is the single most controllable lifestyle factor in feline medicine. Proactive moisture protects kidneys and prevents agonetic urethral blockages.',
+          author: 'Dr. Sarah Mitchell, DVM'
+        }
+      },
+      {
+        id: 'tracking-feline-patterns-pet-horizon',
+        heading: '4. Monitoring Feline Weight & Hydration in Pet Horizon',
+        paragraphs: [
+          'Subtle weight loss (even 4 to 6 ounces) is the earliest predictor of feline metabolic disease. Logging weekly weights and litter box observations in Pet Horizon gives your veterinarian an irreplaceable timeline that a single 15-minute annual clinic visit can never replicate.'
         ]
       }
     ],
+    faqs: [
+      {
+        question: 'How can I tell if my cat is dehydrated at home?',
+        answer: 'Perform the skin tent test: gently pull the skin over their shoulder blades. If it returns immediately, hydration is good; if it stays raised or slowly sinks, your cat is dehydrated. Also check if their gums feel sticky instead of slick.'
+      },
+      {
+        question: 'Why is my cat suddenly drinking a lot of water?',
+        answer: 'Excessive thirst (polydipsia) is an early symptom of Chronic Kidney Disease (CKD), Diabetes Mellitus, or Hyperthyroidism. Schedule a veterinary exam with blood chemistry and urinalysis as soon as possible.'
+      },
+      {
+        question: 'Is wet food really better for cats than dry food?',
+        answer: 'Yes, for most cats. Wet canned food contains 75–82% moisture compared to 8–10% in dry kibble, which significantly reduces the risk of urinary crystals, cystitis, and chronic kidney strain.'
+      }
+    ],
     relatedSlugs: [
-      'puppy-kitten-vaccination-schedule-guide',
-      '5-subtle-signs-of-feline-dehydration',
-      'why-pet-activity-journal-improves-longevity'
+      'toxic-foods-dogs-cats-poison-checklist',
+      'emergency-vet-red-flags-urgent-symptoms',
+      'flea-tick-heartworm-prevention-monthly-schedule'
     ]
   },
   {
     id: 'post-4',
-    slug: '5-subtle-signs-of-feline-dehydration',
-    title: '5 Subtle Signs Your Cat Might Be Dehydrated or Stressed',
-    subtitle: 'Feline hydration is notoriously tricky to detect. Discover skin turgor testing, subtle litter box indicators, and how keeping an activity diary helps catch kidney issues early.',
-    excerpt: 'Feline hydration is notoriously tricky to detect. Discover skin turgor testing, subtle litter box indicators, and how keeping an activity diary helps catch kidney issues early.',
+    slug: 'emergency-vet-red-flags-urgent-symptoms',
+    title: 'Emergency Vet Red Flags: 6 Critical Symptoms You Must Never Ignore',
+    subtitle: 'From bloat (GDV) and male cat urinary blockage to labored breathing and sudden paralysis: how to recognize life-threatening emergencies before it is too late.',
+    excerpt: 'When is a pet symptom an emergency? Learn the 6 non-negotiable red flags that require immediate ER veterinary intervention, from bloat (GDV) to feline urinary blockage.',
     category: 'Health & Vet',
-    readTime: '5 min read',
-    publishDate: 'October 05, 2026',
+    readTime: '6 min read',
+    publishDate: 'October 16, 2026',
     author: {
-      name: 'Dr. Sarah Mitchell, DVM',
-      role: 'Veterinary Advisory Board',
-      avatar: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&auto=format&fit=crop&q=80',
-      bio: 'Dr. Sarah Mitchell has 14 years of companion animal practice experience, specializing in preventative pediatric immunology and senior feline care.'
+      name: 'Elena Rostova, RVT',
+      role: 'Emergency & Critical Care Veterinary Technician',
+      avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80',
+      bio: 'Elena has 11 years of experience in high-volume Level 1 veterinary trauma centers, triage instruction, and critical pet care.',
+      credentials: 'RVT, VTS (Emergency and Critical Care)'
     },
-    coverImage: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=900&auto=format&fit=crop&q=80',
-    tags: ['Cat Care', 'Hydration', 'Preventative Health', 'Feline Wellness'],
+    coverImage: 'https://images.unsplash.com/photo-1576201836106-db1758fd1c97?w=900&auto=format&fit=crop&q=80',
+    tags: ['Emergency Vet', 'Critical Care', 'Pet First Aid', 'Life Saving', 'Dog & Cat Health'],
+    seoKeyword: 'emergency vet symptoms dogs cats red flags',
+    searchVolume: '92K/mo searches',
+    searchRankBadge: '🚨 Critical Search Query',
+    seoMetaDescription: 'Recognize the 6 critical red-flag pet symptoms requiring an immediate emergency vet visit. GDV bloat, feline urinary blockage, respiratory distress, and pale gums.',
     keyTakeaways: [
-      'Cats naturally have a low thirst drive due to their desert ancestors, obtaining moisture primarily from prey.',
-      'The skin tent test (scruff elasticity) is an easy at-home test to gauge moderate to severe dehydration.',
-      'Sticky, pale gums and dry, hard feces in the litter box are strong indicators of poor fluid balance.',
-      'Switching to moisture-rich wet food and circulating water fountains significantly reduces chronic feline kidney disease risk.'
+      'A male cat straining to urinate in the litter box is a life-threatening urethral obstruction requiring emergency relief within 24 hours to prevent fatal hyperkalemia.',
+      'Gastric Dilatation-Volvulus (GDV / Bloat) in deep-chested dogs causes unproductive retching and stomach distension that can cause death in under 2 hours without surgery.',
+      'Pale, white, blue, or brick-red gums indicate severe systemic shock, internal hemorrhaging, or oxygen deprivation.',
+      'Always call the emergency clinic while in transit so the triage team can prepare an oxygen cage, IV catheterization, and ECG monitoring equipment.'
     ],
     sections: [
       {
-        id: 'evolutionary-origins',
-        heading: '1. Why Cats Are Chronically Prone to Subclinical Dehydration',
+        id: 'the-6-non-negotiables',
+        heading: '1. The 6 Non-Negotiable Emergency Red Flags',
         paragraphs: [
-          'Domestic cats evolved from the African wildcat (Felis lybica), a desert predator that obtained up to 70% of its moisture directly from fresh prey. Consequently, modern felines have a notoriously muted thirst sensation and will rarely drink enough water from a static bowl to offset an all-dry kibble diet.',
-          'Over years, chronic subclinical dehydration places sustained micro-stress on delicate feline nephrons, significantly accelerating the onset of Chronic Kidney Disease (CKD) and feline lower urinary tract disease (FLUTD).'
+          'In emergency triage, waiting until morning to "see how they do" can turn a treatable condition into a tragedy. The following clinical symptoms demand immediate transportation to the nearest 24/7 veterinary emergency hospital:'
+        ],
+        checklist: [
+          '1. Unproductive Heaving / Retched Saliva (Bloat/GDV): Dog attempts to vomit repeatedly but produces only white foam; abdomen becomes hard and drum-like.',
+          '2. Male Cat Straining in Litter Box: Straining, crying in pain, or repeatedly licking genitals (urethral obstruction / blocked cat).',
+          '3. Respiratory Distress: Flared nostrils, open-mouth breathing in cats, severe abdominal effort, or resting respiratory rate > 40 breaths/minute.',
+          '4. Pale, White, or Muddy Gums: Indicates internal bleeding (splenic hemangiosarcoma rupture), shock, or severe anemia.',
+          '5. Sudden Hind-Limb Paresis / Paralysis: In dogs (disc herniation/IVDD); in cats (aortic saddle thrombus with cold rear paws and absent pulses).',
+          '6. Active Seizures Lasting > 3 Minutes (Status Epilepticus) or Multiple Seizures in 24 Hours.'
+        ]
+      },
+      {
+        id: 'the-anatomy-of-gdv-and-blocked-cats',
+        heading: '2. Deep Dive: Why GDV and Blocked Cats Cannot Wait',
+        paragraphs: [
+          'Gastric Dilatation-Volvulus (GDV) occurs when gas fills the stomach and twists on its mesenteric axis. This occludes the caudal vena cava, cutting off venous return to the heart and causing tissue necrosis of the spleen and stomach wall. Emergency surgical gastropexy is mandatory.',
+          'In tomcats, the long, narrow urethra can become plugged with mucous crystals or urethral stones. Within 24 hours, potassium accumulates in the bloodstream (hyperkalemia), leading to cardiac arrest.'
         ],
         vetTip: {
-          title: 'Veterinarian Pro Tip',
-          text: 'Dry kibble contains only 8–10% moisture, while wet canned food contains 75–82%. Introducing even one meal of wet food per day can double a cat’s daily hydration.'
+          title: 'Triage Rule',
+          text: 'If your cat is repeatedly squatting in the litter box producing only drops or vocalizing, treat it as a medical emergency. Do NOT assume it is simple constipation.'
         }
       },
       {
-        id: 'five-warning-signs',
-        heading: '2. The 5 Clinical Warning Signs of Feline Dehydration',
+        id: 'emergency-transport-triage',
+        heading: '3. Safe Transport & First Aid Triage Steps',
         paragraphs: [
-          'Because cats are masters at masking discomfort, pet parents must watch for these physical signs:'
+          'Keep an injured or seizing pet wrapped in a warm blanket on a flat board or firm carrier. Never place your fingers inside a seizing animal’s mouth; pets do not swallow their tongues, and severe involuntary bite trauma will occur.',
+          'Call the emergency facility while in transit. Informing them of the species, approximate weight, and primary presenting complaint allows the nursing staff to prepare resuscitation gear before your tires hit the parking lot.'
         ],
-        checklist: [
-          'Loss of Skin Elasticity (Skin Tent Test): Gently pull up the loose skin over your cat’s shoulders and release. In a well-hydrated cat, it snaps back instantly. If it retracts slowly or remains tented, dehydration is present.',
-          'Tacky, Dry Gums: Touch your cat’s upper gums. They should feel slick and wet like your own mouth. If they feel sticky or dry, fluid deficit is underway.',
-          'Sunken Eyes: Dehydration reduces fat pad volume behind the eye sockets, causing eyes to appear dull or slightly recessed.',
-          'Litter Box Changes: Very small, rock-hard feces or decreased urine clumping indicates the kidneys are over-concentrating waste to conserve water.',
-          'Lethargy & Vocalization by Water Bowls: Sitting hunch-backed near water dishes or suddenly drinking from faucets.'
-        ]
+        quote: {
+          text: 'The best emergency outcome is the one you prepared for in advance. Store your local ER hospital address in your phone and pet app before an emergency strikes.',
+          author: 'Elena Rostova, RVT'
+        }
       },
       {
-        id: 'practical-remedies',
-        heading: '3. Actionable Ways to Boost Your Cat’s Daily Water Intake',
+        id: 'instant-records-pet-horizon',
+        heading: '4. Instant Medical Record Access via Pet Horizon',
         paragraphs: [
-          'Never place water bowls directly beside the litter box or food dish; cats instinctively avoid drinking near waste or kill sites. Instead, place wide ceramic or stainless steel bowls in multiple quiet rooms.',
-          'Invest in a circulating stainless steel water fountain. Cats are attracted to running water because flowing water signifies cleanliness in nature.',
-          'In Pet Horizon, log your cat’s weekly weight and litter box patterns in the Daily Activity Journal to detect early warning signs before they escalate into emergencies.'
+          'During midnight ER visits, veterinarians urgently need your pet’s vaccine dates, current prescription dosages, and allergy history. Pet Horizon displays your pet’s digital medical record card in one tap—even offline—saving precious minutes during critical emergency intake.'
         ]
       }
     ],
+    faqs: [
+      {
+        question: 'When should I take my dog to the emergency vet?',
+        answer: 'Go immediately if your dog has an enlarged drum-like stomach with unproductive retching (GDV bloat), pale gums, difficulty breathing, active seizures, collapse, or has ingested known toxins like xylitol or chocolate.'
+      },
+      {
+        question: 'Why is my male cat crying in the litter box?',
+        answer: 'This is a red-flag sign of feline urethral obstruction ("blocked cat"). Without immediate emergency catheterization, toxic waste builds up in the blood, causing fatal heart arrest within 24 to 48 hours.'
+      },
+      {
+        question: 'What is a normal resting breathing rate for a sleeping dog or cat?',
+        answer: 'A healthy sleeping dog or cat should take between 15 and 30 breaths per minute. If their resting rate consistently exceeds 40 breaths per minute while sleeping, contact your vet immediately as it may indicate congestive heart failure or pulmonary edema.'
+      }
+    ],
     relatedSlugs: [
-      'puppy-kitten-vaccination-schedule-guide',
-      'mastering-daily-pet-medication-schedules',
-      'why-pet-activity-journal-improves-longevity'
+      'toxic-foods-dogs-cats-poison-checklist',
+      'feline-kidney-disease-dehydration-early-signs',
+      'flea-tick-heartworm-prevention-monthly-schedule'
     ]
   },
   {
     id: 'post-5',
-    slug: 'creating-stress-free-daily-routine-dogs',
-    title: 'Building a Calming Daily Routine for High-Energy & Anxious Dogs',
-    subtitle: 'How pairing mental enrichment, morning walks, structured feeding, and quiet decompression time transforms reactive behavior.',
-    excerpt: 'Dogs thrive on predictability. How pairing mental enrichment, morning walks, structured feeding, and quiet times helps reduce separation anxiety and unwanted barking.',
-    category: 'Training',
-    readTime: '7 min read',
-    publishDate: 'September 28, 2026',
+    slug: 'flea-tick-heartworm-prevention-monthly-schedule',
+    title: 'Flea, Tick & Heartworm Prevention Schedule: Monthly Vet Protocol',
+    subtitle: 'Oral vs. topical parasiticides, mosquito-vector transmission cycles, Lyme disease risk maps, and the exact clinical protocol for missed doses.',
+    excerpt: 'Mosquitoes, ticks, and fleas carry debilitating heartworm and Lyme disease. Learn the modern parasiticide protocols, seasonal myths, and how to never miss a monthly dose.',
+    category: 'Daily Routines',
+    readTime: '5 min read',
+    publishDate: 'October 12, 2026',
     author: {
-      name: 'Marcus Vance',
-      role: 'Pet Behavior & Routine Specialist',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
-      bio: 'Marcus is a canine behavioral consultant helping multi-member families build calm, cooperative environments through consistent daily rhythms.'
+      name: 'Dr. Sarah Mitchell, DVM',
+      role: 'Veterinary Advisory Board & Pediatric Specialist',
+      avatar: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&auto=format&fit=crop&q=80',
+      bio: 'Dr. Mitchell has authored preventative protocols for companion animal vector-borne diseases and pediatric parasite control.',
+      credentials: 'DVM, American Heartworm Society (AHS)'
     },
     coverImage: 'https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?w=900&auto=format&fit=crop&q=80',
-    tags: ['Training', 'Mental Enrichment', 'Anxiety Relief', 'Dog Walking'],
+    tags: ['Parasite Prevention', 'Heartworm', 'Flea & Tick', 'Medication Schedule', 'Preventative Care'],
+    seoKeyword: 'flea and tick prevention schedule dogs heartworm',
+    searchVolume: '84K/mo searches',
+    searchRankBadge: '🛡️ High-Rank Preventative Guide',
+    seoMetaDescription: 'Complete guide to flea, tick, and heartworm prevention schedules. Discover oral isoxazolines, heartworm transmission risks, and what to do if you miss a monthly dose.',
     keyTakeaways: [
-      'Physical exercise alone cannot fix canine anxiety; mental stimulation burns twice as much mental energy.',
-      'Structured "decompression walks" on a long line allow sniffing, which actively lowers canine heart rates.',
-      'Create designated calm zones in your home where dogs are never disturbed by loud noises or children.',
-      'Use Pet Horizon to schedule balanced intervals of activity, mental puzzles, and deep restorative sleep.'
+      'Heartworm disease is transmitted solely by mosquitoes; even 100% indoor pets are vulnerable when mosquitoes enter doorways and windows.',
+      'Oral isoxazolines (e.g. NexGard, Bravecto, Simparica Trio) kill ticks and fleas before pathogens like Lyme disease can transmit.',
+      'Treating adult heartworm disease requires deep intramuscular melarsomine injections, strict cage rest, and thousands of dollars, whereas monthly prevention costs a few dollars.',
+      'Never skip preventative doses in the winter: climate fluctuations and micro-climates inside garages and basements sustain fleas year-round.'
     ],
     sections: [
       {
-        id: 'the-exhaustion-myth',
-        heading: '1. The Exhaustion Myth: Why "A Tired Dog" Isn’t Always a Happy Dog',
+        id: 'the-heartworm-transmission-cycle',
+        heading: '1. The Heartworm Cycle: Why Indoor Pets Are Not Safe',
         paragraphs: [
-          'Many owners believe that if an anxious dog is bouncing off the walls, running them for two hours at the park will solve the problem. In reality, intense cardiovascular exercise merely builds an athletic endurance dog who requires increasingly intense stimulation to tire out, often keeping cortisol levels chronically elevated.',
-          'True calmness is a skill that must be taught. Mental work—such as scent games, lick mats, and snuffle mats—engages olfactory receptors that stimulate the release of dopamine and serotonin, naturally decompressing an overstimulated canine brain.'
+          'Heartworm (Dirofilaria immitis) is transmitted when a mosquito feeds on an infected animal, ingests microfilariae, and deposits infective L3 larvae into your pet during a subsequent bite. Over 6 to 7 months, these larvae migrate through muscle tissue to the pulmonary arteries and right ventricle of the heart, maturing into worms up to 12 inches long.',
+          'A study by the American Heartworm Society revealed that over 25% of heartworm-positive cats and 15% of heartworm-positive dogs were classified by their owners as "100% indoor pets". A single mosquito entering your living room or balcony is all it takes.'
         ],
         vetTip: {
-          title: 'Behaviorist Insight',
-          text: 'Just 15 minutes of dedicated scent-work or nose games provides mental fatigue comparable to a 60-minute brisk sidewalk walk.'
+          title: 'Heartworm Society Standard',
+          text: 'Administer heartworm prevention 12 months a year. Mild winter days frequently trigger unexpected mosquito surges, making seasonal skipping dangerous.'
         }
       },
       {
-        id: 'ideal-daily-rhythm',
-        heading: '2. The Blueprint for a Balanced Daily Rhythm',
+        id: 'choosing-the-right-parasiticide',
+        heading: '2. Oral Chewables vs. Topical Topicals: Which is Best?',
         paragraphs: [
-          'Adult dogs require 12 to 14 hours of sleep per day, while puppies need 18 to 20 hours. When dogs miss daytime naps due to household commotion, they exhibit overtired crankiness, mouthing, and frantic pacing.'
+          'Modern veterinary medicine offers several highly efficacious options tailored to pet lifestyles:'
         ],
         checklist: [
-          '7:00 AM – Morning Potty & Sniff Walk: 25–35 minutes at a relaxed pace where the dog chooses what to sniff.',
-          '8:00 AM – Breakfast in a Puzzle Feeder: Discard the regular food bowl; feed kibble in a puzzle or scatter in grass.',
-          '9:00 AM–12:30 PM – Morning Rest Window: Quiet room, white noise, and no human disturbance.',
-          '1:00 PM – Midday Mental Break: 10 minutes of positive reinforcement trick training + potty relief.',
-          '6:00 PM – Dinner & Frozen Lick Mat: Licking releases calming endorphins, settling the dog for family evening time.'
+          'All-in-One Oral Chews (e.g., Simparica Trio, NexGard Plus): Combines flea, tick, heartworm, and intestinal roundworm/hookworm prevention in a single tasty monthly chew.',
+          'Long-Acting Oral Chews (e.g., Bravecto): 12-week flea and tick coverage (must be paired with monthly heartworm chew).',
+          'Topical Medications (e.g., Revolution Plus for cats): Essential for cats who refuse oral pills; absorbs transdermally to protect against ear mites, fleas, and heartworms.',
+          'Flea Collars (e.g., Seresto): 8-month sustained-release matrix; ideal for pets with food allergies who cannot tolerate flavored chewables.'
         ]
       },
       {
-        id: 'tracking-triggers',
-        heading: '3. Pinpointing Triggers with the Activity Journal',
+        id: 'what-to-do-for-missed-doses',
+        heading: '3. What to Do If You Miss a Monthly Dose',
         paragraphs: [
-          'When behavior issues flare up, owners often feel helpless. Logging sudden reactivity episodes in Pet Horizon’s Daily Journal allows you to cross-reference sleep deficits, missed meals, or weather changes with behavioral spikes, giving your certified trainer actionable data.'
+          'If you realize you missed your pet’s monthly heartworm pill by 5 to 14 days, administer it immediately and reset your monthly reminder date. If the dose was missed by more than 30 to 45 days, administer the dose immediately and contact your vet to schedule a heartworm antigen blood test in 6 months (the time required for microfilariae to mature into detectable adults).'
+        ],
+        quote: {
+          text: 'An ounce of monthly parasite prevention spares your companion animal months of debilitating cardiovascular strain and risky melarsomine injections.',
+          author: 'Dr. Sarah Mitchell, DVM'
+        }
+      },
+      {
+        id: 'automated-reminders-pet-horizon',
+        heading: '4. Foolproof Parasite Scheduling in Pet Horizon',
+        paragraphs: [
+          'Because 30-day cycles easily slip past human memory, Pet Horizon features recurring monthly push alerts on the 1st of every month with photo pill confirmation and refill reminders, keeping your pet completely guarded year-round.'
         ]
       }
     ],
+    faqs: [
+      {
+        question: 'Do indoor cats really need heartworm and flea prevention?',
+        answer: 'Yes. Mosquitoes and fleas easily enter homes through screens, open doors, and potted plants. Heartworm in cats can cause severe Feline Heartworm-Associated Respiratory Disease (HARD), for which there is no approved drug cure.'
+      },
+      {
+        question: 'What happens if I miss a monthly heartworm dose by 2 weeks?',
+        answer: 'Give the dose immediately when you remember. Most monthly heartworm preventatives have a small reach-back safety window, but skipping longer than 30 days warrants a follow-up blood test in 6 months.'
+      },
+      {
+        question: 'Can I stop flea and tick medicine in the winter?',
+        answer: 'No. Fleas survive indoors all winter, and certain tick species (such as the blacklegged tick that transmits Lyme disease) remain active whenever temperatures are above 32°F (0°C).'
+      }
+    ],
     relatedSlugs: [
-      'shared-family-caretaking-prevents-double-feeding',
-      'why-pet-activity-journal-improves-longevity',
-      'mastering-daily-pet-medication-schedules'
+      'puppy-potty-training-3-3-3-rule-schedule',
+      'toxic-foods-dogs-cats-poison-checklist',
+      'pet-calorie-calculator-feeding-guide-obesity'
     ]
   },
   {
     id: 'post-6',
-    slug: 'why-pet-activity-journal-improves-longevity',
-    title: 'The Science of Pet Memory Logs: Why Daily Activity Journals Extend Longevity',
-    subtitle: 'Tracking subtle changes in appetite, energy, and mobility over months gives your veterinarian a longitudinal view that a single 15-minute exam can never reveal.',
-    excerpt: 'Tracking subtle changes in appetite, energy, and mobility over months gives your veterinarian a longitudinal view that a single 15-minute exam can never reveal.',
-    category: 'Daily Routines',
-    readTime: '4 min read',
-    publishDate: 'September 20, 2026',
+    slug: 'pet-calorie-calculator-feeding-guide-obesity',
+    title: 'Dog & Cat Calorie Calculator: How Much Food Does Your Pet Actually Need?',
+    subtitle: 'Demystifying the Resting Energy Requirement (RER) formula, Body Condition Scoring (BCS 1–9), and eliminating accidental double-feeding in multi-person households.',
+    excerpt: 'Over 59% of dogs and 61% of cats are clinically overweight. Discover the exact veterinary calorie formula (RER), how to score body condition, and how to feed with precision.',
+    category: 'Nutrition',
+    readTime: '6 min read',
+    publishDate: 'October 08, 2026',
     author: {
-      name: 'Elena Rostova',
-      role: 'Certified Veterinary Technician',
-      avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80',
-      bio: 'Elena is a veterinary technician with extensive emergency and ICU experience, focusing on client education and chronic medical compliance.'
+      name: 'Marcus Vance',
+      role: 'Pet Behavior & Routine Specialist',
+      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
+      bio: 'Marcus consults on canine nutritional routines, portion compliance, and positive behavior reinforcement through scheduled feeding.',
+      credentials: 'CPDT-KA, Canine Nutrition Certified'
     },
     coverImage: 'https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?w=900&auto=format&fit=crop&q=80',
-    tags: ['Pet Journal', 'Longevity', 'Medical History', 'Health Records'],
+    tags: ['Pet Nutrition', 'Calorie Calculator', 'Weight Management', 'Feeding Schedules', 'Pet Health'],
+    seoKeyword: 'how much should I feed my dog calorie calculator',
+    searchVolume: '125K/mo searches',
+    searchRankBadge: '🔥 #1 High-Rank Nutrition Query',
+    seoMetaDescription: 'Calculate your pet’s exact daily caloric needs using the veterinary RER formula. Learn Body Condition Scoring (BCS), gram portioning, and healthy weight management.',
     keyTakeaways: [
-      'Pets age 5 to 7 times faster than humans, compressing significant physiological changes into a few short months.',
-      'Subtle trends like taking 5 seconds longer to stand up or drinking 20% more water are early signs of treatable arthritis or renal disease.',
-      'Veterinarians rely heavily on owner observations; accurate logs transform guessing into evidence-based treatment plans.',
-      'Keeping milestone photo memories creates an irreplaceable chronicle of your pet’s lifelong journey.'
+      'Over 59% of dogs and 61% of cats are clinically overweight or obese, cutting up to 2.5 years from their natural lifespan.',
+      'Resting Energy Requirement (RER) Formula: RER (kcal/day) = 70 × (Body Weight in kg)^0.75.',
+      'Treats should never exceed 10% of total daily caloric intake to prevent micronutrient imbalance and rapid weight gain.',
+      'Measuring by volume with plastic cups introduces up to 25% error compared to weighing kibble on a digital gram scale.'
     ],
     sections: [
       {
-        id: 'longitudinal-advantage',
-        heading: '1. The Longitudinal Advantage: Beyond the 15-Minute Vet Exam',
+        id: 'the-obesity-epidemic-and-longevity',
+        heading: '1. The Hidden Cost of "Just a Few Extra Kibbles"',
         paragraphs: [
-          'During an annual veterinary wellness exam, pets are frequently adrenaline-surged. Cats freeze in terror, and dogs may mask pain due to adrenaline spikes. A dog with severe early hip osteoarthritis can appear completely sound in the exam room, only to limp agonizingly at home when rising from sleep.',
-          'A digital activity log bridges this diagnostic gap. When you show your veterinarian a 60-day trend line showing that your dog has gradually declined from 40-minute walks to 15-minute walks, the clinical decision becomes clear.'
+          'A landmark Purina Life Span Study demonstrated that dogs maintained at a lean Body Condition Score (BCS 4 or 5 out of 9) lived an average of 1.8 to 2.5 years longer than moderately overweight littermates, with significantly delayed onset of osteoarthritis and chronic systemic inflammation.',
+          'For a 10 lb cat, just 10 extra kibbles per day represents a 15% caloric surplus—the human equivalent of eating two extra doughnuts every single day.'
         ],
         vetTip: {
-          title: 'Clinical Diagnostic Reality',
-          text: 'Veterinary medicine is 80% history and 20% physical exam. Comprehensive owner logs provide the highest diagnostic yield in chronic disease management.'
+          title: 'Weight Reality Check',
+          text: 'If you cannot easily feel your dog’s ribs under a gentle flat hand (like running your fingers over the back of your knuckles), your pet is carrying excess adiposity.'
         }
       },
       {
-        id: 'what-to-track',
-        heading: '2. Four Crucial Metrics to Record Weekly',
+        id: 'the-veterinary-calorie-formula',
+        heading: '2. Calculating Exact Daily Calories (RER & MER)',
         paragraphs: [
-          'You don’t need to spend hours each day journaling. Tracking these four key parameters in Pet Horizon once or twice weekly is sufficient to capture early disease progression:'
+          'Veterinary nutritionists calculate daily energy requirements using two formulas:',
+          '1. Resting Energy Requirement (RER): 70 × (Weight in Kilograms)^0.75. For an average 10 kg (22 lb) adult dog, RER is roughly 390 kcal/day.',
+          '2. Maintenance Energy Requirement (MER): Multiplies RER by a lifestyle factor (1.6 for neutered adult dogs, 1.2 for weight loss, and 1.2 to 1.4 for neutered indoor cats).'
         ],
         checklist: [
-          'Appetite Speed & Water Intake: Did they finish meals with enthusiasm, or leave kibble behind? Notice any bowl refills?',
-          'Mobility & Rising Speed: Notice any stiffness in the back legs after waking up or reluctance to jump into the car?',
-          'Stool Quality & Consistency: Normal firm logs vs. soft, mucous-covered, or irregular movements.',
-          'Mood & Engagement: Eagerness to greet family members at the door and enthusiasm for familiar toys.'
+          'Step 1: Check your pet food bag for "kcal/kg" or "kcal/cup".',
+          'Step 2: Weigh your daily food allocation on a kitchen gram scale instead of scooping by volume.',
+          'Step 3: Cap daily treats at strictly 10% of your pet’s total daily calories.',
+          'Step 4: Use low-calorie training treats like frozen green beans or baby carrot slices for dogs.'
         ]
       },
       {
-        id: 'memory-preservation',
-        heading: '3. A Lifelong Memory Archive for Your Family',
+        id: 'the-measuring-cup-fallacy',
+        heading: '3. Why Standard Measuring Cups Fail',
         paragraphs: [
-          'Beyond clinical utility, daily journals preserve the joyous micro-moments that define life with pets—their goofy sleeping positions, the day they learned to swim, or their celebration on their adoption day.',
-          'Pet Horizon securely archives your pet’s journey with photos and notes, giving you a treasured timeline to look back upon for years to come.'
+          'A study published in the Journal of Animal Physiology demonstrated that pet owners using measuring cups to portion kibble under- or over-estimated portions by up to 152%. Settling density, cup shapes, and "rounded scoops" lead to continuous caloric creep. Switching to a $10 digital kitchen scale ensures exact gram consistency.'
+        ],
+        quote: {
+          text: 'Weight management is the single most powerful anti-aging medicine you can gift your pet. Precision in the bowl equals longevity on the leash.',
+          author: 'Marcus Vance'
+        }
+      },
+      {
+        id: 'family-hub-synchronized-feeding',
+        heading: '4. Eliminating the "Did Anyone Feed the Dog?" Mystery',
+        paragraphs: [
+          'Accidental double-feeding is the leading cause of unexplained pet weight gain in multi-person homes. Pet Horizon’s Family Care Hub enables parents, children, and pet sitters to check off feeding times with live synchronization, notifying other members instantly and ensuring strict caloric adherence.'
         ]
       }
     ],
+    faqs: [
+      {
+        question: 'How do I calculate how many calories my dog or cat needs?',
+        answer: 'Convert your pet’s weight to kilograms (lbs ÷ 2.2). Calculate RER = 70 × (weight in kg)^0.75. For a neutered adult dog, multiply RER by 1.6; for an adult cat, multiply by 1.2. Consult your veterinarian for tailored medical feeding plans.'
+      },
+      {
+        question: 'How do I know if my pet is overweight?',
+        answer: 'Use the Body Condition Score (BCS): when standing above your pet, you should see an hourglass waist behind the ribs. When gently stroking their sides, you should easily feel their ribs without pressing through thick fat.'
+      },
+      {
+        question: 'What percentage of my pet’s diet can be treats?',
+        answer: 'Treats should never exceed 10% of your pet’s total daily caloric allowance. The remaining 90% must come from a complete and balanced AAFCO-compliant diet to prevent vitamin and mineral deficiencies.'
+      }
+    ],
     relatedSlugs: [
-      'puppy-kitten-vaccination-schedule-guide',
-      'mastering-daily-pet-medication-schedules',
-      'creating-stress-free-daily-routine-dogs'
+      'puppy-potty-training-3-3-3-rule-schedule',
+      'toxic-foods-dogs-cats-poison-checklist',
+      'emergency-vet-red-flags-urgent-symptoms'
     ]
   }
 ];
@@ -456,5 +628,6 @@ export const BLOG_CATEGORIES = [
   'Health & Vet',
   'Daily Routines',
   'Family Care',
+  'Nutrition',
   'Training'
 ] as const;
