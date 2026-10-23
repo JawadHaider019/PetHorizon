@@ -23,12 +23,12 @@ import {
   HardDrive,
   Server
 } from 'lucide-react';
-import { PRIVACY_POLICY, TERMS_OF_SERVICE, DATA_DELETION_GUIDE, LegalDocument } from '../data/legalData';
+import { PRIVACY_POLICY, DATA_DELETION_GUIDE, LegalDocument } from '../data/legalData';
 
 interface LegalPortalProps {
-  initialDoc?: 'privacy' | 'terms' | 'deletion';
+  initialDoc?: 'privacy' | 'deletion';
   onNavigateHome: () => void;
-  onSelectDoc?: (docId: 'privacy' | 'terms' | 'deletion') => void;
+  onSelectDoc?: (docId: 'privacy' | 'deletion') => void;
 }
 
 export default function LegalPortal({
@@ -36,7 +36,7 @@ export default function LegalPortal({
   onNavigateHome,
   onSelectDoc
 }: LegalPortalProps) {
-  const [activeDocId, setActiveDocId] = useState<'privacy' | 'terms' | 'deletion'>(initialDoc);
+  const [activeDocId, setActiveDocId] = useState<'privacy' | 'deletion'>(initialDoc);
   const [activeSectionId, setActiveSectionId] = useState<string>('');
   const [copied, setCopied] = useState(false);
   const [readPercent, setReadPercent] = useState(0);
@@ -58,8 +58,6 @@ export default function LegalPortal({
   const currentDoc: LegalDocument =
     activeDocId === 'privacy'
       ? PRIVACY_POLICY
-      : activeDocId === 'terms'
-      ? TERMS_OF_SERVICE
       : DATA_DELETION_GUIDE;
 
   // Track reading percentage
@@ -137,7 +135,7 @@ export default function LegalPortal({
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const handleDocChange = (docId: 'privacy' | 'terms' | 'deletion') => {
+  const handleDocChange = (docId: 'privacy' | 'deletion') => {
     setActiveDocId(docId);
     setSectionDropdownOpen(false);
     if (onSelectDoc) {
@@ -187,8 +185,6 @@ export default function LegalPortal({
             <span className="text-xs font-bold text-slate-800 hidden md:inline truncate max-w-[160px]">
               {currentDoc.id === 'privacy'
                 ? 'Privacy Policy'
-                : currentDoc.id === 'terms'
-                ? 'Terms of Service'
                 : 'Account Deletion'}
             </span>
           </div>
@@ -204,19 +200,7 @@ export default function LegalPortal({
               }`}
             >
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-              <span>Privacy</span>
-            </button>
-
-            <button
-              onClick={() => handleDocChange('terms')}
-              className={`flex items-center gap-1.5 px-3 py-1 rounded-lg font-bold transition-all cursor-pointer ${
-                activeDocId === 'terms'
-                  ? 'bg-white text-blue-800 shadow-2xs'
-                  : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              <FileText className="w-3.5 h-3.5 text-blue-600" />
-              <span>Terms</span>
+              <span>Privacy Policy</span>
             </button>
 
             <button
@@ -228,7 +212,7 @@ export default function LegalPortal({
               }`}
             >
               <Trash2 className="w-3.5 h-3.5 text-rose-600" />
-              <span>Deletion</span>
+              <span>Account Deletion</span>
             </button>
           </div>
 
@@ -707,23 +691,7 @@ export default function LegalPortal({
                 </button>
               )}
 
-              {activeDocId !== 'terms' && (
-                <button
-                  onClick={() => handleDocChange('terms')}
-                  className="p-5 rounded-2xl bg-white border border-slate-200 hover:border-blue-300 hover:bg-blue-50/30 transition-all text-left group cursor-pointer shadow-xs"
-                >
-                  <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-1">
-                    Read Document
-                  </div>
-                  <div className="font-bold text-slate-900 group-hover:text-blue-700 text-base flex items-center justify-between">
-                    <span>Terms of Service</span>
-                    <ChevronRight className="w-4 h-4 text-slate-400 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                  <p className="text-xs text-slate-500 mt-1">
-                    Veterinary disclaimers and Google Play subscription rules.
-                  </p>
-                </button>
-              )}
+
 
               {activeDocId !== 'deletion' && (
                 <button
@@ -791,15 +759,7 @@ export default function LegalPortal({
             >
               Privacy Policy
             </button>
-            <span>&bull;</span>
-            <button
-              onClick={() => handleDocChange('terms')}
-              className={`hover:text-emerald-700 transition-colors cursor-pointer ${
-                activeDocId === 'terms' ? 'text-emerald-700 font-bold' : ''
-              }`}
-            >
-              Terms of Service
-            </button>
+
             <span>&bull;</span>
             <button
               onClick={() => handleDocChange('deletion')}

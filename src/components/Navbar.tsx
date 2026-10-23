@@ -125,13 +125,6 @@ export default function Navbar({ currentView = 'home', onNavigate }: NavbarProps
       color: 'text-emerald-600 bg-emerald-50'
     },
     {
-      title: 'Terms of Service',
-      desc: 'Veterinary health disclaimers & subscription rules',
-      icon: FileText,
-      view: 'terms' as NavView,
-      color: 'text-blue-600 bg-blue-50'
-    },
-    {
       title: 'Account & Data Deletion',
       desc: 'Step-by-step instructions for 30-day data purging',
       icon: Trash2,

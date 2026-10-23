@@ -124,15 +124,6 @@ export default function Footer({ onNavigateLegal }: FooterProps) {
               </li>
               <li>
                 <button
-                  onClick={(e) => handleLegalClick(e, 'terms')}
-                  className="text-slate-600 hover:text-emerald-700 transition-colors font-medium text-left cursor-pointer flex items-center gap-1.5"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
-                  Terms of Service
-                </button>
-              </li>
-              <li>
-                <button
                   onClick={(e) => handleLegalClick(e, 'deletion')}
                   className="text-slate-600 hover:text-rose-700 transition-colors font-medium text-left cursor-pointer flex items-center gap-1.5"
                 >
@@ -155,7 +146,7 @@ export default function Footer({ onNavigateLegal }: FooterProps) {
                   href="mailto:pethorizon2026@gmail.com"
                   className="text-emerald-700 hover:text-emerald-800 transition-colors font-semibold text-xs block truncate"
                 >
-                  pethorizon2026@gmail.com
+                  support@pethorizon.com
                 </a>
               </li>
             </ul>
@@ -176,7 +167,16 @@ export default function Footer({ onNavigateLegal }: FooterProps) {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p className="font-medium text-center sm:text-left">
-            Pet Horizon &copy; {new Date().getFullYear()} &bull; Developer: Pet Horizon Development Team &bull; All Rights Reserved.
+            Pet Horizon &copy; {new Date().getFullYear()} &bull; Built by{' '}
+            <a
+              href="https://aqibfolio.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-700 font-bold hover:text-emerald-700 transition-colors underline decoration-slate-300 hover:decoration-emerald-500"
+            >
+              Aqib Mansoor
+            </a>{' '}
+            &bull; All Rights Reserved.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 font-medium">
             <button
@@ -195,13 +195,6 @@ export default function Footer({ onNavigateLegal }: FooterProps) {
               className="hover:text-emerald-700 transition-colors cursor-pointer"
             >
               Privacy Policy
-            </button>
-            <span>&bull;</span>
-            <button
-              onClick={(e) => handleLegalClick(e, 'terms')}
-              className="hover:text-emerald-700 transition-colors cursor-pointer"
-            >
-              Terms of Service
             </button>
             <span>&bull;</span>
             <button

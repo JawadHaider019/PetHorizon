@@ -10,7 +10,7 @@ export interface LegalSection {
 }
 
 export interface LegalDocument {
-  id: 'privacy' | 'terms' | 'deletion';
+  id: 'privacy' | 'deletion';
   title: string;
   subtitle: string;
   effectiveDate: string;
@@ -24,8 +24,8 @@ export interface LegalDocument {
 
 export const PRIVACY_POLICY: LegalDocument = {
   id: 'privacy',
-  title: 'Official Privacy Policy & User Data Protection',
-  subtitle: 'Comprehensive overview of how Pet Horizon collects, manages, and safeguards your personal data and pet care records in compliance with Google Play Developer Policies and global data protection standards.',
+  title: 'Pet Horizon – Official Privacy Policy & User Data Protection',
+  subtitle: 'Official Privacy Policy explaining how Pet Horizon collects, uses, stores, processes, and protects your information in compliance with Google Play Developer Policies and user data protection standards.',
   effectiveDate: 'September 17, 2026',
   lastUpdated: 'September 17, 2026',
   app: 'Pet Horizon (Android)',
@@ -38,14 +38,14 @@ export const PRIVACY_POLICY: LegalDocument = {
       title: '1. Introduction & Overview',
       content: [
         'Pet Horizon ("we", "our", or "us") is dedicated to safeguarding your privacy and ensuring the security of your personal data and pet care records. This Privacy Policy explains how Pet Horizon collects, uses, stores, processes, and protects your information when you use the Pet Horizon mobile application and associated backend services.',
-        'By accessing or using Pet Horizon, you acknowledge that you have read, understood, and agreed to the data practices described in this policy. If you do not agree with any aspect of this Privacy Policy, please discontinue use of the application.'
+        'By accessing or using Pet Horizon, you acknowledge that you have read, understood, and agreed to the data practices described in this policy.'
       ]
     },
     {
       id: 'information-collected',
       title: '2. Information We Collect',
       content: [
-        'We collect only the information strictly necessary to provide and enhance your pet care management experience. Data collected is grouped into the following categories:'
+        'We collect only the information strictly necessary to provide and enhance your pet care management experience:'
       ],
       subsections: [
         {
@@ -58,21 +58,21 @@ export const PRIVACY_POLICY: LegalDocument = {
         {
           subtitle: 'B. Pet Profiles, Health & Care Records',
           items: [
-            'Pet Details: Names, species, breeds, gender, birth dates, adoption dates, and pet avatar photos.',
-            'Medical & Health Logs: Vaccination histories, veterinary visit records, medication dosages, prescribed schedules, and weight logs.',
-            'Routine & Care Tasks: Reminders for daily feeding, grooming routines, outdoor exercise, and scheduled medication alerts.'
+            'Pet Details: Names, species, breeds, gender, birth dates and Pet picture.',
+            'Medical & Health Logs: Vaccination histories, veterinary visit records, medication dosages and schedules.',
+            'Routine & Care Tasks: Reminders for feeding, grooming, exercise, and scheduled medication alerts.'
           ]
         },
         {
           subtitle: 'C. User-Generated Media',
           items: [
-            'Photographs: Pet pictures and profile avatars that you voluntarily capture using your device camera or select from your photo library to personalize your pet profiles and journal timeline.'
+            'Photographs: Pet pictures and profile avatars that you voluntarily capture using your device camera or select from your photo library.'
           ]
         },
         {
           subtitle: 'D. Technical, Device & Diagnostic Data',
           items: [
-            'Notification Identifiers: Device push notification tokens (Firebase Cloud Messaging) used exclusively to deliver your scheduled care reminders, vaccine alerts, and task notifications.',
+            'Notification Identifiers: Device push notification tokens (Firebase Cloud Messaging ) used exclusively to deliver your scheduled reminders and alerts.',
             'System Information: Operating system version, app version, language, and locale settings to ensure layout and regional date formatting compatibility.'
           ]
         },
@@ -80,7 +80,7 @@ export const PRIVACY_POLICY: LegalDocument = {
           subtitle: 'E. Payment & Subscription Information',
           items: [
             'In-app purchases and premium tier subscriptions are processed exclusively and securely through Google Play Billing.',
-            'Pet Horizon never receives, handles, or stores your credit card numbers, bank details, or billing credentials. All financial transactions are managed by Google.'
+            'Pet Horizon never receives, handles, or stores your credit card numbers, bank details, or billing credentials.'
           ]
         }
       ]
@@ -93,13 +93,13 @@ export const PRIVACY_POLICY: LegalDocument = {
       ],
       subsections: [
         {
-          subtitle: 'Legitimate Operational Uses',
+          subtitle: 'Legitimate Purposes',
           items: [
-            'Core App Functionality: Storing and displaying your pet profiles, care routines, daily journal logs, and medical records across your authorized devices.',
-            'Timely Care Reminders: Delivering local and push notifications for upcoming medication times, vet appointments, and feeding schedules so you never miss a pet care task.',
-            'Account Administration: Authenticating your identity, managing account preferences, syncing shared family caretaker access, and maintaining account security.',
-            'Customer Support: Responding to your inquiries, diagnosing technical support requests, and fulfilling data deletion requests.',
-            'Continuous App Improvement: Ensuring device compatibility, optimizing application performance, and preventing fraudulent or unauthorized activity.'
+            'Core App Functionality: Storing and displaying your pet profiles, care routines, daily logs, and medical records.',
+            'Timely Care Reminders: Delivering local and push notifications for upcoming medication times, vet appointments, and feeding schedules.',
+            'Account Administration: Authenticating your identity, managing account preferences, and maintaining account security.',
+            'Customer Support: Responding to your inquiries, technical support requests, and data deletion requests.',
+            'Continuous App Improvement: Ensuring compatibility, optimizing application performance, and preventing fraudulent activity.'
           ]
         }
       ]
@@ -108,15 +108,15 @@ export const PRIVACY_POLICY: LegalDocument = {
       id: 'device-permissions',
       title: '4. Device Permissions & System Access',
       content: [
-        'Pet Horizon only requests device permissions when required for specific user-initiated features. We do not access sensitive hardware or background sensors without your explicit permission:'
+        'Pet Horizon only requests device permissions when required for specific user-initiated features:'
       ],
       subsections: [
         {
-          subtitle: 'Requested Android Permissions',
+          subtitle: 'System Access Overview',
           items: [
-            'Camera (CAMERA): Required only when you choose to take a photo of your pet or profile directly within the app.',
-            'Photo Library / Storage (READ_MEDIA_IMAGES / READ_EXTERNAL_STORAGE): Required only when you choose to upload an existing pet picture from your device gallery. We do not scan, browse, or access your private photos or unrelated media files.',
-            'Notifications (POST_NOTIFICATIONS): Required to send timely alerts for medication schedules, vaccinations, and pet care reminders. You can toggle notifications on or off anytime in your device settings.'
+            'Camera: Required only when you choose to take a photo of your pet or profile directly within the app.',
+            'Photo Library / Storage: Required only when you choose to upload an existing pet picture from your device gallery. We do not scan, browse, or access your private photos or media files.',
+            'Notifications: Required to send timely alerts for medication schedules, vaccinations, and pet care reminders. You can toggle notifications on or off anytime in your device settings.'
           ]
         }
       ]
@@ -125,19 +125,16 @@ export const PRIVACY_POLICY: LegalDocument = {
       id: 'data-sharing',
       title: '5. Data Sharing and Third-Party Disclosures',
       content: [
-        'We maintain a strict and unambiguous policy regarding your personal and pet data:'
+        'We maintain a strict policy regarding your personal and pet data:'
       ],
       subsections: [
         {
-          subtitle: 'Zero Data Monetization Guarantee',
-          paragraph: 'No Sale of Data: We never sell, rent, trade, lease, or monetize your personal information or pet data to third parties, data brokers, or advertising networks. Your information is never used for behavioral ad tracking.'
-        },
-        {
-          subtitle: 'Trusted Infrastructure Partners',
+          subtitle: 'Strict Sharing Guidelines',
           items: [
-            'Google Identity Services (OAuth 2.0): For secure authentication and account sign-in.',
-            'Google Play In-App Billing: For secure subscription transactions and purchase verification.',
-            'Cloud Infrastructure (Firebase / Supabase): For encrypted database storage, real-time sync, and notification dispatch.'
+            'No Sale of Data: We never sell, rent, trade, lease, or monetize your personal information or pet data to third parties, data brokers, or advertising networks.',
+            'Google Identity Services (OAuth 2.0) for secure authentication.',
+            'Google Play In-App Billing for secure subscription transactions.',
+            'Cloud Infrastructure for encrypted database storage and synchronization.'
           ]
         }
       ]
@@ -146,15 +143,15 @@ export const PRIVACY_POLICY: LegalDocument = {
       id: 'data-security',
       title: '6. Data Security & Encryption',
       content: [
-        'We implement industry-grade administrative, physical, and technical safeguards to keep your data secure against unauthorized access, loss, or alteration:'
+        'We implement robust administrative, physical, and technical safeguards:'
       ],
       subsections: [
         {
           subtitle: 'Security Safeguards',
           items: [
-            'In-Transit Encryption: All communication between the Pet Horizon mobile app and our backend servers is encrypted using modern Transport Layer Security (TLS 1.2 / TLS 1.3 / HTTPS).',
-            'At-Rest Encryption: User account credentials, health records, and stored pet photos are protected using industry-standard Advanced Encryption Standard (AES-256).',
-            'Strict Access Control: Access to backend infrastructure is strictly restricted through secure multi-factor authentication (MFA) and least-privilege role-based permissions.'
+            'In-Transit Encryption: All communication between the Pet Horizon mobile app and our servers is encrypted using Transport Layer Security (TLS 1.2 / TLS 1.3 / HTTPS).',
+            'At-Rest Encryption: User account credentials, health records, and stored media are protected using industry-standard AES encryption.',
+            'Access Control: Access to backend infrastructure is strictly restricted through secure multi-factor authentication and role-based permissions.'
           ]
         }
       ]
@@ -163,20 +160,20 @@ export const PRIVACY_POLICY: LegalDocument = {
       id: 'data-retention-deletion',
       title: '7. Data Retention & Account Deletion Policy',
       content: [
-        'In full compliance with Google Play Developer Policies, GDPR, and CCPA, you retain complete ownership and control over your personal information and pet data:'
+        'In full compliance with Google Play Developer Policies, GDPR, and CCPA:'
       ],
       subsections: [
         {
-          subtitle: 'A. Direct In-App Deletion',
-          paragraph: 'You can permanently delete your account and all associated data at any time directly inside the app by navigating to: Settings / Profile > Account Settings > Delete Account.'
+          subtitle: 'A. In-App Deletion',
+          paragraph: 'You can permanently delete your account and all associated data at any time directly in the app by navigating to: Settings / Profile > Account Settings > Delete Account.'
         },
         {
           subtitle: 'B. Deletion by Email Request',
-          paragraph: 'You can also request complete deletion of your account and all associated records by sending an email to pethorizon2026@gmail.com with the subject line "Data Deletion Request" from your registered account email.'
+          paragraph: 'You can also request complete deletion of your account and all associated records by sending an email to: pethorizon2026@gmail.com with the subject line "Data Deletion Request" from your registered email address.'
         },
         {
           subtitle: 'C. Irreversible Data Removal',
-          paragraph: 'Upon deletion confirmation, all user account records, registered pet profiles, medical histories, vaccination logs, journal entries, uploaded photos, and device identifiers are permanently and irreversibly purged from our live databases and cloud storage within 30 days.'
+          paragraph: 'Upon deletion confirmation, all user account records, registered pet profiles, medical histories, vaccination logs, entries, uploaded photos, and device identifiers are permanently and irreversibly purged from our live databases and cloud storage within 30 days.'
         }
       ]
     },
@@ -184,118 +181,31 @@ export const PRIVACY_POLICY: LegalDocument = {
       id: 'childrens-privacy',
       title: '8. Children\'s Privacy',
       content: [
-        'Pet Horizon is designed for general audiences and pet owners and is not directed at children under the age of 13 (or under 16 in certain jurisdictions). We do not knowingly collect or solicit personal data from children.',
-        'If we discover that a child has provided us with personal information without verifiable parental consent, we will immediately delete that information. If you believe a minor has registered an account, please contact us immediately at pethorizon2026@gmail.com.'
+        'Pet Horizon is designed for general audiences and pet owners and is not directed at children under the age of 13 (or under 16 in certain jurisdictions). We do not knowingly collect or solicit personal data from children. If we discover that a child has provided us with personal information without parental consent, we will immediately delete that information.'
       ]
     },
     {
       id: 'changes-to-policy',
       title: '9. Changes to This Privacy Policy',
       content: [
-        'We may periodically update this Privacy Policy to reflect enhancements in our application features, legal requirements, or Google Play policies. Any modifications will be posted directly on this page with an updated "Last Updated" revision date.',
-        'Significant changes will also be accompanied by a notification within the Pet Horizon mobile application or delivered via email where applicable.'
+        'We may periodically update this Privacy Policy to reflect enhancements in our application features, legal requirements, or Google Play policies. Any modifications will be posted directly on this page with an updated "Last Updated" revision date.'
       ]
     },
     {
       id: 'contact-info',
       title: '10. Contact & Support Information',
       content: [
-        'If you have any questions, concerns, feedback, or requests regarding this Privacy Policy or your data rights, please contact our team directly:'
+        'If you have any questions, concerns, feedback, or requests regarding this Privacy Policy or your data rights, please contact us:'
       ],
       subsections: [
         {
           subtitle: 'Official Contact Details',
           items: [
             'Developer / Support Team: Pet Horizon Support',
-            'Official Support Email: pethorizon2026@gmail.com',
-            'Application Name: Pet Horizon (Android)',
-            'Package Identifier: com.anonymous.PetHorizon'
+            'Official Email: pethorizon2026@gmail.com',
+            'Application: Pet Horizon'
           ]
         }
-      ]
-    }
-  ]
-};
-
-export const TERMS_OF_SERVICE: LegalDocument = {
-  id: 'terms',
-  title: 'Terms of Service & User Agreement',
-  subtitle: 'The terms and conditions governing your use of the Pet Horizon mobile application, subscription services, and pet care tracking platform.',
-  effectiveDate: 'September 17, 2026',
-  lastUpdated: 'September 17, 2026',
-  app: 'Pet Horizon (Android)',
-  developer: 'Pet Horizon Development Team',
-  email: 'pethorizon2026@gmail.com',
-  playStoreUrl: 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon',
-  sections: [
-    {
-      id: 'acceptance',
-      title: '1. Acceptance of Terms',
-      content: [
-        'By downloading, installing, accessing, or using the Pet Horizon mobile application, you agree to be bound by these Terms of Service ("Terms") and our Privacy Policy. If you do not agree to these Terms, please do not use Pet Horizon.'
-      ]
-    },
-    {
-      id: 'vet-disclaimer',
-      title: '2. Veterinary Health & Medical Information Disclaimer',
-      content: [
-        'Pet Horizon is designed exclusively as an organizational companion tool to assist pet owners in logging feeding schedules, medication schedules, vaccination dates, and daily activities.',
-        'IMPORTANT: Pet Horizon DOES NOT provide certified veterinary medical advice, diagnosis, or clinical treatment recommendations. The application is not a substitute for professional veterinary consultations, examinations, or emergency clinical care.',
-        'Always consult a licensed veterinarian for medical concerns, sudden behavioral changes, drug dosages, or illness concerning your pet. Never delay seeking professional veterinary medical advice because of information recorded or viewed in the app.'
-      ]
-    },
-    {
-      id: 'user-accounts',
-      title: '3. User Accounts & Responsibilities',
-      content: [
-        'To access cloud synchronization, multi-pet tracking, and shared family hub features, you must create an account using Google Sign-In or a verified email address.',
-        'You are solely responsible for maintaining the confidentiality of your login credentials and for all activities that occur under your account. You agree to notify us immediately of any unauthorized access at pethorizon2026@gmail.com.'
-      ]
-    },
-    {
-      id: 'subscriptions-billing',
-      title: '4. In-App Purchases & Subscriptions',
-      content: [
-        'Pet Horizon offers free core features as well as optional premium subscription tiers (PetHorizon Gold / Family Pack).',
-        'All purchases, auto-renewing subscriptions, and payment methods are processed exclusively through Google Play Billing in adherence with Google Play Developer Distribution agreements.',
-        'Subscriptions automatically renew unless canceled at least 24 hours prior to the end of the current billing cycle. You may manage, modify, or cancel your active subscriptions anytime via the Google Play Store app under "Payments & Subscriptions".'
-      ]
-    },
-    {
-      id: 'acceptable-use',
-      title: '5. Acceptable Use & User Content',
-      content: [
-        'You retain ownership of any photos, notes, and records you upload to Pet Horizon. By uploading content, you grant Pet Horizon a non-exclusive license solely to host, display, and synchronize this content to provide our services to you and your authorized family caretakers.',
-        'You agree not to upload harmful, abusive, illegal, or infringing content, nor attempt to reverse engineer, decompile, or compromise the security of the application or backend systems.'
-      ]
-    },
-    {
-      id: 'intellectual-property',
-      title: '6. Intellectual Property Rights',
-      content: [
-        'The Pet Horizon name, logo, application design, graphics, UI components, code, and features are the exclusive intellectual property of the Pet Horizon Development Team and are protected by applicable copyright, trademark, and intellectual property laws.'
-      ]
-    },
-    {
-      id: 'limitation-of-liability',
-      title: '7. Limitation of Liability',
-      content: [
-        'To the fullest extent permitted by applicable law, Pet Horizon and its developers shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of pet health data, resulting from your use of or inability to use the service.',
-        'Pet Horizon is provided on an "AS IS" and "AS AVAILABLE" basis without warranties of any kind, whether express or implied.'
-      ]
-    },
-    {
-      id: 'termination',
-      title: '8. Termination & Account Deletion',
-      content: [
-        'You may terminate your agreement with Pet Horizon at any time by deleting your account via in-app settings or emailing pethorizon2026@gmail.com. Upon termination, your data will be permanently purged in accordance with our 30-day retention policy.'
-      ]
-    },
-    {
-      id: 'contact-terms',
-      title: '9. Contact Us',
-      content: [
-        'For inquiries regarding these Terms of Service, contact the Pet Horizon team at pethorizon2026@gmail.com.'
       ]
     }
   ]
