@@ -1,5 +1,3 @@
-import React from 'react';
-
 /**
  * Authentic 4-color Google Play triangle icon
  */
