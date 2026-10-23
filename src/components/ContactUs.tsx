@@ -27,7 +27,6 @@ import {
   X
 } from 'lucide-react';
 
-const BACKEND_EMAIL = 'pethorizon2026@gmail.com';
 const DISPLAY_SUPPORT_EMAIL = 'pethorizon2026@gmail.com';
 const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon';
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mnppnazk';
