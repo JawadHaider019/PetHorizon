@@ -147,34 +147,26 @@ export default function Hero() {
             className="lg:col-span-5 relative flex items-center justify-center pt-8 pb-10 lg:py-0"
           >
             <div className="relative">
-              {/* Background 3D Pet Mascot Card (Framing top-right without covering screen) */}
-              <motion.div
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute -top-10 -right-2 sm:-top-14 sm:right-auto sm:left-[82%] lg:left-[86%] w-36 sm:w-44 lg:w-48 rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white z-20 pointer-events-none sm:pointer-events-auto"
-              >
-                <img
-                  src="/3d-pets-hero.jpg"
-                  alt="3D Puppy and Kitten Pet Horizon Mascots"
-                  className="w-full h-auto object-cover"
-                />
-                <div className="p-2 sm:p-2.5 bg-gradient-to-t from-emerald-950/95 to-emerald-900/80 text-white text-left">
-                  <p className="text-[8px] sm:text-[9px] font-black uppercase tracking-wider text-emerald-300">
-                    All Companions Welcome
-                  </p>
-                  <p className="text-[10px] sm:text-[11px] font-bold leading-tight mt-0.5">
-                    Dogs, Cats, Birds, Rabbits &amp; More
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Central Phone Mockup with Status Bar, Bottom Bar, and No Notch */}
+              {/* Central Phone Mockup with Clean White Status Bar, Bottom Bar, and No Notch */}
               <PhoneFrame
                 src="/screenshots/home-screen.png"
                 alt="Pet Horizon Home Dashboard Screen"
                 frameClassName="w-[280px] sm:w-[310px]"
-                statusTheme="emerald"
+                statusTheme="light"
               />
+
+              {/* 3D Pet Companions (Cutout blending naturally on the bottom side, no bulky card) */}
+              <motion.div
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
+                className="hidden sm:block absolute -bottom-6 sm:-bottom-8 left-[80%] lg:left-[84%] w-40 sm:w-48 lg:w-52 pointer-events-none z-20 mix-blend-multiply select-none"
+              >
+                <img
+                  src="/3d-pets-hero.jpg"
+                  alt="Pet Horizon Puppy and Kitten Companions"
+                  className="w-full h-auto object-contain"
+                />
+              </motion.div>
 
               {/* Floating Live Card: Daily Routine Task Status (Positioned completely outside on left) */}
               <motion.div
@@ -192,11 +184,11 @@ export default function Hero() {
                 </div>
               </motion.div>
 
-              {/* Floating Live Card: Family Hub Connection (Positioned completely outside on right) */}
+              {/* Floating Live Card: Family Hub Connection (Positioned completely outside on upper right) */}
               <motion.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-                className="hidden sm:flex absolute top-1/2 -translate-y-1/2 left-[88%] lg:left-[92%] bg-white/95 backdrop-blur-md rounded-2xl p-3 shadow-xl border border-emerald-100 items-center gap-2.5 w-[200px] sm:w-[210px] text-left z-30"
+                className="hidden sm:flex absolute top-1/4 -translate-y-1/2 left-[86%] lg:left-[90%] bg-white/95 backdrop-blur-md rounded-2xl p-3 shadow-xl border border-emerald-100 items-center gap-2.5 w-[200px] sm:w-[210px] text-left z-30"
               >
                 <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold shrink-0">
                   <Users className="w-4 h-4" />

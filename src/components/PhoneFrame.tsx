@@ -13,12 +13,12 @@ export default function PhoneFrame({
   alt,
   className = '',
   frameClassName = 'w-[275px] sm:w-[310px]',
-  statusTheme = 'emerald'
+  statusTheme = 'light'
 }: PhoneFrameProps) {
-  // Emerald top bar matches PetHorizon app header seamlessly
-  const headerBg = statusTheme === 'emerald' ? 'bg-[#297845]' : statusTheme === 'dark' ? 'bg-slate-900' : 'bg-slate-100';
-  const textColor = statusTheme === 'emerald' || statusTheme === 'dark' ? 'text-white' : 'text-slate-800';
-  const iconColor = statusTheme === 'emerald' || statusTheme === 'dark' ? '#FFFFFF' : '#1E293B';
+  // Clean white status bar with crisp slate icons by default, matching device bezels
+  const headerBg = statusTheme === 'light' ? 'bg-white border-b border-slate-100' : statusTheme === 'dark' ? 'bg-slate-900' : 'bg-[#297845]';
+  const textColor = statusTheme === 'light' ? 'text-slate-800' : 'text-white';
+  const iconColor = statusTheme === 'light' ? '#1E293B' : '#FFFFFF';
 
   return (
     <div

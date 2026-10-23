@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, ArrowUpRight, Smartphone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import googlePlayImg from '../assets/google-play.svg';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -82,11 +83,11 @@ export default function Navbar() {
                 href={playStoreUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-full font-bold shadow-md shadow-emerald-600/25 hover:shadow-lg hover:shadow-emerald-600/35 transition-all duration-200 hover:-translate-y-0.5 text-sm"
+                className="inline-flex items-center gap-2.5 bg-slate-900 hover:bg-slate-800 text-white px-4.5 py-2.5 rounded-full font-bold shadow-md shadow-slate-900/15 border border-emerald-500/35 hover:border-emerald-400/70 transition-all duration-200 hover:-translate-y-0.5 text-xs sm:text-sm group"
               >
-                <Smartphone className="w-4 h-4" />
+                <img src={googlePlayImg} alt="Google Play" className="w-4 h-4 object-contain" />
                 <span>Get on Google Play</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-emerald-200" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-400 transition-colors" />
               </a>
             </div>
 
@@ -131,10 +132,10 @@ export default function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsOpen(false)}
-                  className="w-full text-center bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-2xl font-bold shadow-md shadow-emerald-600/20 text-sm flex items-center justify-center gap-2"
+                  className="w-full text-center bg-slate-900 hover:bg-slate-800 text-white py-3 rounded-2xl font-bold shadow-md shadow-slate-900/20 text-sm flex items-center justify-center gap-2.5 border border-emerald-500/30"
                 >
-                  <Smartphone className="w-4 h-4" />
-                  <span>Download on Google Play</span>
+                  <img src={googlePlayImg} alt="Google Play" className="w-4 h-4 object-contain" />
+                  <span>Get on Google Play</span>
                 </a>
               </div>
             </div>
