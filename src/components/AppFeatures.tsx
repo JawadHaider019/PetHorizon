@@ -224,7 +224,6 @@ export default function AppFeatures() {
                     src={activeFeature.screenshot}
                     alt={activeFeature.screenshotAlt}
                     frameClassName="w-[260px] sm:w-[290px]"
-                    statusTheme="light"
                   />
 
                   {/* Ambient Decorative Badge (Positioned outside) */}

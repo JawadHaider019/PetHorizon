@@ -199,7 +199,6 @@ export default function InteractiveTour() {
                     src={current.screenshot}
                     alt={current.title}
                     frameClassName="w-[260px] sm:w-[290px]"
-                    statusTheme="light"
                   />
                 </motion.div>
               </AnimatePresence>

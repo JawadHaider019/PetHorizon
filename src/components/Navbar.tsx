@@ -83,11 +83,11 @@ export default function Navbar() {
                 href={playStoreUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 bg-slate-900 hover:bg-slate-800 text-white px-4.5 py-2.5 rounded-full font-bold shadow-md shadow-slate-900/15 border border-emerald-500/35 hover:border-emerald-400/70 transition-all duration-200 hover:-translate-y-0.5 text-xs sm:text-sm group"
+                className="inline-flex items-center gap-2.5 bg-slate-900 hover:bg-slate-800 text-slate-100 hover:text-white px-4 py-2 rounded-xl font-semibold shadow-xs hover:shadow-md border border-slate-700/80 hover:border-slate-600 transition-all duration-200 text-xs sm:text-sm group"
               >
                 <img src={googlePlayImg} alt="Google Play" className="w-4 h-4 object-contain" />
-                <span>Get on Google Play</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-400 transition-colors" />
+                <span>Google Play</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-slate-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
               </a>
             </div>
 
@@ -132,7 +132,7 @@ export default function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsOpen(false)}
-                  className="w-full text-center bg-slate-900 hover:bg-slate-800 text-white py-3 rounded-2xl font-bold shadow-md shadow-slate-900/20 text-sm flex items-center justify-center gap-2.5 border border-emerald-500/30"
+                  className="w-full text-center bg-slate-900 hover:bg-slate-800 text-white py-2.5 rounded-xl font-semibold shadow-xs text-sm flex items-center justify-center gap-2.5 border border-slate-700/80"
                 >
                   <img src={googlePlayImg} alt="Google Play" className="w-4 h-4 object-contain" />
                   <span>Get on Google Play</span>

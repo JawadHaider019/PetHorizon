@@ -147,22 +147,21 @@ export default function Hero() {
             className="lg:col-span-5 relative flex items-center justify-center pt-8 pb-10 lg:py-0"
           >
             <div className="relative">
-              {/* Central Phone Mockup with Clean White Status Bar, Bottom Bar, and No Notch */}
+              {/* Central Phone Mockup with Transparent Status Bar, Bottom Bar, and No Notch */}
               <PhoneFrame
                 src="/screenshots/home-screen.png"
                 alt="Pet Horizon Home Dashboard Screen"
                 frameClassName="w-[280px] sm:w-[310px]"
-                statusTheme="light"
               />
 
-              {/* 3D Pet Companions (Cutout blending naturally on the bottom side, no bulky card) */}
+              {/* 3D Pet Companions (Clean Transparent Cutout on the bottom side) */}
               <motion.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
-                className="hidden sm:block absolute -bottom-6 sm:-bottom-8 left-[80%] lg:left-[84%] w-40 sm:w-48 lg:w-52 pointer-events-none z-20 mix-blend-multiply select-none"
+                className="hidden sm:block absolute -bottom-8 left-[80%] lg:left-[84%] w-40 sm:w-48 lg:w-52 pointer-events-none z-20 select-none drop-shadow-md"
               >
                 <img
-                  src="/3d-pets-hero.jpg"
+                  src="/3d-pets-transparent.png"
                   alt="Pet Horizon Puppy and Kitten Companions"
                   className="w-full h-auto object-contain"
                 />

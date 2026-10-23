@@ -47,7 +47,6 @@ export default function FamilyHubSection() {
                 src="/screenshots/family-screen.png"
                 alt="Pet Horizon Family Hub Co-Parenting Screen"
                 frameClassName="w-[270px] sm:w-[300px]"
-                statusTheme="light"
               />
 
               {/* Floating QR Code Badge (Repositioned outward so screen is unobstructed) */}
