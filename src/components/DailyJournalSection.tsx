@@ -1,5 +1,6 @@
 import { BookOpen, Camera } from 'lucide-react';
 import { motion } from 'framer-motion';
+import PhoneFrame from './PhoneFrame';
 
 export default function DailyJournalSection() {
   const activities = [
@@ -96,21 +97,12 @@ export default function DailyJournalSection() {
 
           {/* Right Column: Screenshot Phone Frame */}
           <div className="lg:col-span-5 flex justify-center relative">
-            <div className="relative w-[270px] sm:w-[300px] rounded-[3rem] p-3 bg-slate-950 shadow-2xl border-4 border-slate-800">
-
-              {/* Phone Camera Punch-Hole */}
-              <div className="absolute top-3.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-slate-950 rounded-full z-30 flex items-center justify-center border border-slate-700/60 shadow-xs">
-                <div className="w-1 h-1 rounded-full bg-slate-900" />
-              </div>
-
-              {/* Screen Frame */}
-              <div className="rounded-[2.2rem] overflow-hidden bg-slate-100 aspect-[9/19.2] relative">
-                <img
-                  src="/screenshots/journal-screen.png"
-                  alt="Pet Horizon Pet Daily Journal Timeline Screen"
-                  className="w-full h-full object-cover object-top"
-                />
-              </div>
+            <div className="relative">
+              <PhoneFrame
+                src="/screenshots/journal-screen.png"
+                alt="Pet Horizon Pet Daily Journal Timeline Screen"
+                frameClassName="w-[270px] sm:w-[300px]"
+              />
 
               {/* Floating Today's Photos Indicator */}
               <motion.div
