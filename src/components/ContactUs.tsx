@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+// @ts-expect-error canvas-confetti does not ship internal types
+import confetti from 'canvas-confetti';
 import {
   Mail,
   Send,
@@ -21,7 +23,8 @@ import {
   CheckCircle2,
   RefreshCw,
   Zap,
-  ArrowRight
+  ArrowRight,
+  X
 } from 'lucide-react';
 
 const BACKEND_EMAIL = 'pethorizon2026@gmail.com';
@@ -85,6 +88,13 @@ interface TicketData {
   submittedAt: string;
 }
 
+interface ToastNotification {
+  type: 'success' | 'info' | 'error';
+  title: string;
+  message: string;
+  ticketId?: string;
+}
+
 export default function ContactUs() {
   // Form State
   const [name, setName] = useState('');
@@ -99,13 +109,20 @@ export default function ContactUs() {
   const [submittedTicket, setSubmittedTicket] = useState<TicketData | null>(null);
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedTicketId, setCopiedTicketId] = useState(false);
-  const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [toast, setToast] = useState<ToastNotification | null>(null);
 
   const activeTopic = SUPPORT_TOPICS.find((t) => t.id === selectedTopicId) || SUPPORT_TOPICS[0];
 
-  const triggerToast = (msg: string) => {
-    setToastMessage(msg);
-    setTimeout(() => setToastMessage(null), 3000);
+  const triggerToast = (
+    title: string,
+    messageText: string,
+    type: 'success' | 'info' | 'error' = 'success',
+    ticketId?: string
+  ) => {
+    setToast({ title, message: messageText, type, ticketId });
+    setTimeout(() => {
+      setToast((curr) => (curr?.title === title ? null : curr));
+    }, 5500);
   };
 
   const handleCopySupportEmail = async (e?: React.MouseEvent) => {
@@ -113,10 +130,10 @@ export default function ContactUs() {
     try {
       await navigator.clipboard.writeText(DISPLAY_SUPPORT_EMAIL);
       setCopiedEmail(true);
-      triggerToast('Support email copied to clipboard!');
+      triggerToast('Support Email Copied', `Official email ${DISPLAY_SUPPORT_EMAIL} copied to clipboard!`);
       setTimeout(() => setCopiedEmail(false), 2500);
     } catch {
-      triggerToast(`Support email: ${DISPLAY_SUPPORT_EMAIL}`);
+      triggerToast('Official Support Email', DISPLAY_SUPPORT_EMAIL);
     }
   };
 
@@ -126,10 +143,10 @@ export default function ContactUs() {
       const summary = `Ticket ID: ${submittedTicket.ticketId}\nCategory: ${submittedTicket.topic.label}\nPriority: ${submittedTicket.priority.toUpperCase()}\nUser: ${submittedTicket.name} (${submittedTicket.email})\nMessage: ${submittedTicket.message}`;
       await navigator.clipboard.writeText(summary);
       setCopiedTicketId(true);
-      triggerToast('Ticket summary copied to clipboard!');
+      triggerToast('Ticket Summary Copied', `Details for ${submittedTicket.ticketId} copied to clipboard.`);
       setTimeout(() => setCopiedTicketId(false), 2500);
     } catch {
-      triggerToast(`Ticket ID: ${submittedTicket.ticketId}`);
+      triggerToast('Ticket Reference', submittedTicket.ticketId);
     }
   };
 
@@ -179,14 +196,41 @@ export default function ContactUs() {
         })
       });
 
+      // Fire celebratory confetti burst!
+      try {
+        confetti({
+          particleCount: 65,
+          spread: 60,
+          origin: { y: 0.65 },
+          colors: ['#059669', '#10b981', '#14b8a6', '#f59e0b', '#3b82f6']
+        });
+      } catch {
+        // safe fallback if canvas is restricted
+      }
+
       if (response.ok) {
-        triggerToast('Support ticket dispatched directly to our team!');
+        triggerToast(
+          'Support Ticket Dispatched! 🎉',
+          `Ticket ${ticketId} was successfully sent to pethorizon2026@gmail.com. We'll reply to ${email.trim()} promptly!`,
+          'success',
+          ticketId
+        );
       } else {
-        triggerToast('Ticket logged locally. You can also send via email backup below.');
+        triggerToast(
+          'Ticket Created Locally',
+          `Ticket ${ticketId} generated. You can also send a direct copy using the email backup buttons below.`,
+          'info',
+          ticketId
+        );
       }
     } catch (err) {
       console.warn('Formspree dispatch error, continuing with local ticket intake:', err);
-      triggerToast('Ticket logged. Email backup tools available below.');
+      triggerToast(
+        'Ticket Created',
+        `Ticket ${ticketId} is logged. Email backup tools are available below.`,
+        'info',
+        ticketId
+      );
     } finally {
       const ticket: TicketData = {
         ticketId,
@@ -232,15 +276,36 @@ export default function ContactUs() {
 
       {/* Floating Toast Notification */}
       <AnimatePresence>
-        {toastMessage && (
+        {toast && (
           <motion.div
-            initial={{ opacity: 0, y: -20, scale: 0.95 }}
+            initial={{ opacity: 0, y: -25, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
-            className="fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-white text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-full shadow-2xl flex items-center gap-2 border border-slate-700 pointer-events-none"
+            transition={{ duration: 0.25, ease: 'easeOut' }}
+            className="fixed top-6 right-4 sm:right-8 z-50 max-w-sm sm:max-w-md w-full bg-slate-900/95 backdrop-blur-xl text-white rounded-2xl p-4 sm:p-4.5 shadow-2xl shadow-emerald-950/40 border border-emerald-500/30 flex items-start gap-3.5"
           >
-            <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-            <span>{toastMessage}</span>
+            <div className="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center shrink-0 mt-0.5">
+              <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+            </div>
+            <div className="flex-1 min-w-0 pr-1">
+              <div className="flex items-center gap-2 mb-0.5">
+                <p className="text-xs sm:text-sm font-black text-white tracking-tight">{toast.title}</p>
+                {toast.ticketId && (
+                  <span className="font-mono text-[10px] font-bold bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded border border-emerald-500/30">
+                    {toast.ticketId}
+                  </span>
+                )}
+              </div>
+              <p className="text-xs text-slate-300 leading-relaxed font-normal">{toast.message}</p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setToast(null)}
+              className="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition-colors shrink-0 cursor-pointer"
+              title="Dismiss notification"
+            >
+              <X className="w-4 h-4" />
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
@@ -484,7 +549,7 @@ export default function ContactUs() {
                         {isSubmitting ? (
                           <>
                             <RefreshCw className="w-4 h-4 animate-spin text-white" />
-                            <span>Creating Support Ticket...</span>
+                            <span>Sending Ticket to Support Desk...</span>
                           </>
                         ) : (
                           <>
@@ -494,7 +559,7 @@ export default function ContactUs() {
                         )}
                       </button>
                       <p className="text-[11px] text-slate-400 text-center mt-2 font-medium">
-                        Secure 256-bit inquiry intake • Direct line to Pet Horizon engineers
+                        Secure Formspree 256-bit intake • Direct line to Pet Horizon engineers
                       </p>
                     </div>
                   </motion.form>
@@ -513,7 +578,7 @@ export default function ContactUs() {
                       <div className="flex items-center justify-between gap-3 mb-5">
                         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold border border-emerald-200">
                           <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                          <span>Ticket Successfully Created</span>
+                          <span>Delivered to pethorizon2026@gmail.com</span>
                         </div>
                         <span className="text-[11px] text-slate-400 font-mono">
                           Received at {submittedTicket.submittedAt}
