@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import googlePlayImg from '../assets/google-play.svg';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
