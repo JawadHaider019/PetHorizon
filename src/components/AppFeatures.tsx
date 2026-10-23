@@ -120,7 +120,7 @@ export default function AppFeatures() {
     <section id="features" className="py-20 sm:py-28 bg-white relative overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute top-1/3 left-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-teal-500/5 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-emerald-600/5 rounded-full blur-[130px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
 

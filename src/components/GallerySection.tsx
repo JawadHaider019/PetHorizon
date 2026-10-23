@@ -144,7 +144,7 @@ export default function GallerySection() {
     <section id="gallery" className="py-14 sm:py-24 bg-white relative overflow-hidden">
       
       {/* Decorative Blur Blobs */}
-      <div className="absolute top-1/4 right-0 w-80 h-80 bg-teal-500/5 rounded-full blur-[100px] pointer-events-none -z-10" />
+      <div className="absolute top-1/4 right-0 w-80 h-80 bg-emerald-600/5 rounded-full blur-[100px] pointer-events-none -z-10" />
       <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10 text-left">
@@ -157,7 +157,7 @@ export default function GallerySection() {
             </span>
             <h2 className="text-4xl sm:text-5xl font-black text-slate-900 leading-tight">
               Pets Love{' '}
-              <span className="bg-gradient-to-r from-emerald-600 to-teal-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-emerald-700 to-emerald-600 bg-clip-text text-transparent">
                 Pet Horizon
               </span>
             </h2>

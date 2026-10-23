@@ -61,7 +61,7 @@ export default function Transformations() {
     <section id="transformations" className="py-14 sm:py-24 bg-white relative overflow-hidden">
       {/* Visual glowing backgrounds */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-emerald-500/5 rounded-full blur-[140px] pointer-events-none -z-10" />
-      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-teal-500/5 rounded-full blur-[160px] pointer-events-none -z-10" />
+      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-emerald-600/5 rounded-full blur-[160px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
 
@@ -85,7 +85,7 @@ export default function Transformations() {
             className="text-4xl sm:text-5xl font-black text-slate-900 mt-6 mb-4 leading-tight"
           >
             Real Pet Health{' '}
-            <span className="bg-gradient-to-r from-emerald-600 to-teal-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-emerald-700 to-emerald-600 bg-clip-text text-transparent">
               Transformations
             </span>
           </motion.h2>

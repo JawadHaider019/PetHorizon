@@ -218,10 +218,10 @@ export default function UserReviews() {
   const displayedReviews = sortedReviews.slice(0, visibleCount);
 
   return (
-    <section id="reviews" className="py-14 sm:py-24 bg-[#F8FAFC] relative overflow-hidden">
+    <section id="reviews" className="py-14 sm:py-24 bg-[#F5F6F8] relative overflow-hidden">
       {/* Glow layers */}
       <div className="absolute top-1/3 left-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none -z-10" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-teal-500/5 rounded-full blur-[150px] pointer-events-none -z-10" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-emerald-600/5 rounded-full blur-[150px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
         

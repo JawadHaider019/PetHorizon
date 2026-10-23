@@ -84,10 +84,10 @@ export default function CommunityHub() {
   };
 
   return (
-    <section id="community" className="py-14 sm:py-24 bg-[#F8FAFC] relative overflow-hidden">
+    <section id="community" className="py-14 sm:py-24 bg-[#F5F6F8] relative overflow-hidden">
       {/* Decorative overlays */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-80 h-80 bg-emerald-500/5 rounded-full blur-[110px] pointer-events-none -z-10" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-teal-500/5 rounded-full blur-[130px] pointer-events-none -z-10" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-emerald-600/5 rounded-full blur-[130px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
 

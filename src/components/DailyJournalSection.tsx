@@ -33,7 +33,7 @@ export default function DailyJournalSection() {
   ];
 
   return (
-    <section id="journal" className="py-20 sm:py-28 bg-slate-50 relative overflow-hidden">
+    <section id="journal" className="py-20 sm:py-28 bg-[#F5F6F8] relative overflow-hidden">
       {/* Background ambient lighting */}
       <div className="absolute top-1/2 left-1/4 w-[400px] h-[400px] bg-emerald-400/5 rounded-full blur-[120px] pointer-events-none" />
 

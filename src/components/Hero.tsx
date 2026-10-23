@@ -32,8 +32,8 @@ export default function Hero() {
       className="relative min-h-[92vh] flex items-center justify-center overflow-hidden pt-28 pb-16 sm:py-24 bg-gradient-to-b from-emerald-50/50 via-white to-slate-50/40"
     >
       {/* Background ambient light blobs */}
-      <div className="absolute top-12 left-1/4 w-[500px] h-[500px] bg-emerald-400/10 rounded-full blur-[130px] pointer-events-none -z-10" />
-      <div className="absolute bottom-10 right-1/4 w-[450px] h-[450px] bg-teal-400/10 rounded-full blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute top-12 left-1/4 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[130px] pointer-events-none -z-10" />
+      <div className="absolute bottom-10 right-1/4 w-[450px] h-[450px] bg-emerald-600/10 rounded-full blur-[140px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
@@ -59,7 +59,7 @@ export default function Hero() {
             {/* Main Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.12]">
               The Complete Daily Care &amp;{' '}
-              <span className="bg-gradient-to-r from-emerald-700 via-emerald-600 to-teal-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-emerald-700 via-emerald-600 to-emerald-500 bg-clip-text text-transparent">
                 Family Hub
               </span>{' '}
               For Your Pets

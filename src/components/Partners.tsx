@@ -16,7 +16,7 @@ export default function Partners() {
   const marqueeList = [...PARTNERS, ...PARTNERS, ...PARTNERS];
 
   return (
-    <section className="py-10 bg-[#F8FAFC] border-y border-slate-100 overflow-hidden relative select-none">
+    <section className="py-10 bg-[#F5F6F8] border-y border-slate-100 overflow-hidden relative select-none">
       
       {/* Dynamic isolated CSS Keyframe animation injection */}
       <style>{`
@@ -35,8 +35,8 @@ export default function Partners() {
       `}</style>
 
       {/* Horizontal mask overlay to fade bounds */}
-      <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#F8FAFC] to-transparent z-10 pointer-events-none" />
-      <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#F8FAFC] to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#F5F6F8] to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#F5F6F8] to-transparent z-10 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 mb-4 text-center">
         <span className="text-[10px] text-slate-400 uppercase tracking-widest font-black block">

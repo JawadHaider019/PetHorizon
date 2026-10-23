@@ -60,10 +60,10 @@ export default function Badges() {
   };
 
   return (
-    <section id="badges" className="py-14 sm:py-24 bg-[#F1F5F9] relative overflow-hidden">
+    <section id="badges" className="py-14 sm:py-24 bg-[#F5F6F8] relative overflow-hidden">
       {/* Decorative Blur Blobs */}
       <div className="absolute top-1/4 left-0 w-80 h-80 bg-emerald-500/5 rounded-full blur-[110px] pointer-events-none -z-10" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-teal-500/5 rounded-full blur-[130px] pointer-events-none -z-10" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-emerald-600/5 rounded-full blur-[130px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
 
@@ -123,7 +123,7 @@ export default function Badges() {
                       : badge.rarity === 'Rare'
                       ? 'text-purple-750 border-purple-200 bg-purple-50'
                       : badge.rarity === 'Epic'
-                      ? 'text-teal-700 border-teal-200 bg-teal-50'
+                      ? 'text-emerald-800 border-emerald-300 bg-emerald-100'
                       : 'text-emerald-700 border-emerald-200 bg-emerald-50'
                   }`}>
                     {badge.rarity}

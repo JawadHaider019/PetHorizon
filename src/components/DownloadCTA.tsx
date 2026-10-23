@@ -14,7 +14,7 @@ export default function DownloadCTA() {
           
           {/* Ambient decorative lighting */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/15 rounded-full blur-[120px] pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-teal-500/15 rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-emerald-600/15 rounded-full blur-[120px] pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
             

@@ -181,7 +181,7 @@ export default function InteractiveTour() {
         <div className="bg-slate-900 text-white rounded-3xl sm:rounded-[2.8rem] p-6 sm:p-10 lg:p-14 shadow-2xl relative overflow-hidden">
           {/* Subtle green ambient lighting */}
           <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-emerald-600/10 rounded-full blur-[130px] pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-[450px] h-[450px] bg-teal-500/10 rounded-full blur-[130px] pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-[450px] h-[450px] bg-emerald-700/10 rounded-full blur-[130px] pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative z-10">
             

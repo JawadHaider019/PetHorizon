@@ -34,7 +34,7 @@ export default function FamilyHubSection() {
     <section id="family-hub" className="py-20 sm:py-28 bg-emerald-900 text-white relative overflow-hidden">
       {/* Decorative background radial glows */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-700/20 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[450px] h-[450px] bg-teal-800/25 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[450px] h-[450px] bg-emerald-950/40 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
         
