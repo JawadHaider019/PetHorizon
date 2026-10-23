@@ -27,6 +27,7 @@ import {
 const BACKEND_EMAIL = 'pethorizon2026@gmail.com';
 const DISPLAY_SUPPORT_EMAIL = 'pethorizon2026@gmail.com';
 const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mnppnazk';
 
 interface TopicOption {
   id: string;
@@ -151,17 +152,44 @@ export default function ContactUs() {
     return Object.keys(errors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
 
     setIsSubmitting(true);
+    const randomTicketNum = Math.floor(1000 + Math.random() * 9000);
+    const ticketId = `#PTH-${randomTicketNum}`;
 
-    // Simulate realistic ticket intake
-    setTimeout(() => {
-      const randomTicketNum = Math.floor(1000 + Math.random() * 9000);
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          ticketId,
+          name: name.trim(),
+          email: email.trim(),
+          topic: activeTopic.label,
+          priority: priority.toUpperCase(),
+          message: message.trim(),
+          _replyto: email.trim(),
+          _subject: `[${ticketId}] [${activeTopic.subjectTag}] (${priority.toUpperCase()}) Support Ticket from ${name.trim()}`
+        })
+      });
+
+      if (response.ok) {
+        triggerToast('Support ticket dispatched directly to our team!');
+      } else {
+        triggerToast('Ticket logged locally. You can also send via email backup below.');
+      }
+    } catch (err) {
+      console.warn('Formspree dispatch error, continuing with local ticket intake:', err);
+      triggerToast('Ticket logged. Email backup tools available below.');
+    } finally {
       const ticket: TicketData = {
-        ticketId: `#PTH-${randomTicketNum}`,
+        ticketId,
         name: name.trim(),
         email: email.trim(),
         topic: activeTopic,
@@ -171,7 +199,7 @@ export default function ContactUs() {
       };
       setSubmittedTicket(ticket);
       setIsSubmitting(false);
-    }, 700);
+    }
   };
 
   const handleResetForm = () => {
