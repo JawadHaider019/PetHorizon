@@ -103,13 +103,13 @@ export default function Footer() {
           </div>
 
           {/* App Download (3 Cols) */}
-          <div className="md:col-span-3 text-left flex flex-col gap-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2">
+          <div className="md:col-span-3 text-left flex flex-col items-start gap-2.5">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900 mb-1">
               Download App
             </h4>
             
-            <GooglePlayBadge href={playStoreUrl} className="w-full justify-start" />
-            <AppStoreBadge className="w-full justify-between" />
+            <GooglePlayBadge href={playStoreUrl} />
+            <AppStoreBadge />
           </div>
 
         </div>
