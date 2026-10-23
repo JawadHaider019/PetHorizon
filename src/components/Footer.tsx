@@ -1,387 +1,157 @@
-import { useEffect, useRef } from 'react';
-import { Heart } from 'lucide-react';
-import { motion } from 'framer-motion';
-import * as THREE from 'three';
-import logoImg from '../assets/PH-logo.png';
-import appStoreImg from '../assets/app-store.svg';
+import { Heart, Smartphone, ArrowUpRight } from 'lucide-react';
 import googlePlayImg from '../assets/google-play.svg';
-import appAndroidImg from '../assets/app-android.svg';
-
-// Three.js background: slow ascending particles like fireflies
-function FooterBackground({ containerRef }: { containerRef: React.RefObject<HTMLElement | null> }) {
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-    const containerEl = container as HTMLElement;
-
-    let cleanup: (() => void) | null = null;
-
-    function init() {
-      const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
-
-      const canvas = renderer.domElement;
-      canvas.style.position = 'absolute';
-      canvas.style.inset = '0';
-      canvas.style.width = '100%';
-      canvas.style.height = '100%';
-      canvas.style.pointerEvents = 'none';
-      canvas.style.zIndex = '0';
-      containerEl.insertBefore(canvas, containerEl.firstChild);
-
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(60, 1, 0.1, 500);
-      camera.position.z = 20;
-
-      const resize = () => {
-        const w = containerEl.clientWidth;
-        const h = containerEl.clientHeight;
-        renderer.setSize(w, h, false);
-        camera.aspect = w / h;
-        camera.updateProjectionMatrix();
-      };
-      resize();
-      const ro = new ResizeObserver(resize);
-      ro.observe(containerEl);
-
-      // Firefly particles rising slowly
-      const count = 50;
-      const positions = new Float32Array(count * 3);
-      const velocities = new Float32Array(count);
-      const phases = new Float32Array(count);
-
-      for (let i = 0; i < count; i++) {
-        positions[i * 3] = (Math.random() - 0.5) * 40;
-        positions[i * 3 + 1] = (Math.random() - 0.5) * 20;
-        positions[i * 3 + 2] = (Math.random() - 0.5) * 8;
-        velocities[i] = Math.random() * 0.01 + 0.005;
-        phases[i] = Math.random() * Math.PI * 2;
-      }
-
-      const geo = new THREE.BufferGeometry();
-      geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-      const mat = new THREE.PointsMaterial({
-        color: 0x10b981,
-        size: 0.2,
-        transparent: true,
-        opacity: 0.4,
-        blending: THREE.AdditiveBlending,
-        depthWrite: false,
-      });
-      const points = new THREE.Points(geo, mat);
-      scene.add(points);
-
-      // Gentle wireframe sphere in corner
-      const sphereGeo = new THREE.IcosahedronGeometry(4, 1);
-      const sphereMat = new THREE.MeshBasicMaterial({
-        color: 0x10b981,
-        wireframe: true,
-        transparent: true,
-        opacity: 0.03,
-      });
-      const sphere = new THREE.Mesh(sphereGeo, sphereMat);
-      sphere.position.set(15, -5, -10);
-      scene.add(sphere);
-
-      let animId = 0;
-      const animate = () => {
-        animId = requestAnimationFrame(animate);
-        const time = Date.now() * 0.001;
-        const pos = geo.attributes.position.array as Float32Array;
-
-        for (let i = 0; i < count; i++) {
-          pos[i * 3 + 1] += velocities[i];
-          pos[i * 3] += Math.sin(time + phases[i]) * 0.003;
-          // Reset when too high
-          if (pos[i * 3 + 1] > 12) {
-            pos[i * 3 + 1] = -12;
-            pos[i * 3] = (Math.random() - 0.5) * 40;
-          }
-        }
-        geo.attributes.position.needsUpdate = true;
-
-        sphere.rotation.x += 0.001;
-        sphere.rotation.y += 0.002;
-
-        renderer.render(scene, camera);
-      };
-      animate();
-
-      return () => {
-        cancelAnimationFrame(animId);
-        ro.disconnect();
-        renderer.dispose();
-        if (canvas.parentNode) canvas.parentNode.removeChild(canvas);
-      };
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !cleanup) {
-          cleanup = init();
-        } else if (!entry.isIntersecting && cleanup) {
-          cleanup();
-          cleanup = null;
-        }
-      },
-      { rootMargin: '300px' }
-    );
-    observer.observe(containerEl);
-
-    return () => {
-      observer.disconnect();
-      if (cleanup) cleanup();
-    };
-  }, [containerRef]);
-
-  return null;
-}
+import appStoreImg from '../assets/app-store.svg';
 
 export default function Footer() {
-  const footerRef = useRef<HTMLElement>(null);
+  const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon';
 
   return (
-    <footer
-      ref={footerRef}
-      className="bg-slate-950 text-slate-400 pt-24 pb-12 relative overflow-hidden"
-      style={{ isolation: 'isolate' }}
-    >
-      <FooterBackground containerRef={footerRef} />
+    <footer className="bg-slate-950 text-white pt-16 pb-12 border-t border-slate-900 relative overflow-hidden">
+      {/* Background ambient lighting */}
+      <div className="absolute top-0 left-1/3 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[140px] pointer-events-none" />
 
-      {/* Top border shimmer */}
-      <div
-        className="absolute top-0 left-0 right-0 h-[1.5px]"
-        style={{
-          background: 'linear-gradient(90deg, transparent, #10b981, #34d399, #10b981, transparent)',
-          opacity: 0.6,
-        }}
-      />
-
-      {/* CSS Glow Effects */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-500/10 blur-[140px] rounded-full pointer-events-none translate-x-1/3 -translate-y-1/3" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-teal-500/10 blur-[120px] rounded-full pointer-events-none -translate-x-1/3 translate-y-1/3" />
-
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 relative animate-fade-in" style={{ zIndex: 1 }}>
-
-        {/* Top Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-10 md:gap-8 pb-16 mb-12 border-b border-slate-800/80">
-
-          {/* Column 1: Brand Info (4 Cols) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="sm:col-span-2 md:col-span-4 text-left"
-          >
-            <div className="flex items-center gap-3 text-xl font-bold mb-6">
-              <div
-                className="rounded-full p-1 bg-white border border-slate-200 shadow-sm"
-              >
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
+        
+        {/* Main Footer Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-14 border-b border-slate-900">
+          
+          {/* Brand Info (5 Cols) */}
+          <div className="md:col-span-5 text-left flex flex-col gap-4">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 rounded-2xl bg-emerald-600 flex items-center justify-center p-1 shadow-md shadow-emerald-500/20">
                 <img
-                  src={logoImg}
-                  alt="Pet Horizon Logo"
-                  className="h-9 w-auto object-contain rounded-full"
+                  src="/app-icon.png"
+                  alt="Pet Horizon"
+                  className="w-full h-full object-contain rounded-xl"
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).src = '/applogo.png';
+                  }}
                 />
               </div>
-              <span className="flex items-center text-xl font-black tracking-tight text-white select-none">
-                Pet<span className="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent font-extrabold">Horizon</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse ml-1 shadow-[0_0_8px_rgba(52,211,153,0.6)]" />
+              <span className="text-2xl font-black tracking-tight text-white">
+                Pet<span className="text-emerald-500 font-extrabold">Horizon</span>
               </span>
             </div>
-            <p className="text-slate-400 text-sm leading-relaxed mb-8 max-w-sm font-medium">
-              Your complete veterinary-approved smart pet longevity assistant. Log medication regimens, track fitness, calculate budgets, and sync family care logs seamlessly.
+
+            <p className="text-slate-400 text-sm leading-relaxed max-w-sm font-normal">
+              The complete pet companion assistant. Manage daily feeding routines, medication alerts, vaccination dates, shared family caretaking, and photo memories all in one app.
             </p>
 
-            {/* Social Links */}
-            <div className="flex items-center gap-3">
-              {[
-                {
-                  label: 'Facebook',
-                  href: '#facebook',
-                  svg: <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z" />,
-                },
-                {
-                  label: 'Twitter',
-                  href: '#twitter',
-                  svg: <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />,
-                },
-                {
-                  label: 'Instagram',
-                  href: '#instagram',
-                  svg: (
-                    <>
-                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" strokeWidth="2" />
-                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" strokeWidth="2" />
-                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" strokeWidth="2" />
-                    </>
-                  ),
-                  noFill: true,
-                },
-              ].map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="w-9 h-9 rounded-xl flex items-center justify-center text-slate-400 cursor-pointer group bg-slate-900 border border-slate-800 transition-all duration-300 hover:bg-emerald-500 hover:border-emerald-500 hover:text-white hover:shadow-lg hover:shadow-emerald-500/20"
-                >
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill={social.noFill ? 'none' : 'currentColor'}>
-                    {social.svg}
-                  </svg>
-                </a>
-              ))}
+            <div className="flex items-center gap-2 pt-2">
+              <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-400 bg-emerald-950/70 border border-emerald-800/80 px-3 py-1 rounded-full">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                Live on Google Play
+              </span>
+              <span className="text-xs text-slate-500">Android &bull; Worldwide</span>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Column 2: Platform Links (2 Cols) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="md:col-span-2 text-left"
-          >
-            <h3 className="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-6">
-              Platform
-            </h3>
-            <ul className="space-y-3.5 text-sm font-semibold">
-              {[
-                { label: 'Home Dashboard', href: '#home' },
-                { label: 'Feature Matrix', href: '#comparison' },
-                { label: 'Case Studies', href: '#transformations' },
-                { label: 'Profile Badges', href: '#badges' },
-              ].map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-slate-400 hover:text-emerald-400 transition-colors duration-200 flex items-center gap-2"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+          {/* Product Links (2 Cols) */}
+          <div className="md:col-span-2 text-left">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-4">
+              Product
+            </h4>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <a href="#features" className="text-slate-400 hover:text-emerald-400 transition-colors">
+                  Care Schedules
+                </a>
+              </li>
+              <li>
+                <a href="#family-hub" className="text-slate-400 hover:text-emerald-400 transition-colors">
+                  Family Hub
+                </a>
+              </li>
+              <li>
+                <a href="#journal" className="text-slate-400 hover:text-emerald-400 transition-colors">
+                  Daily Journal
+                </a>
+              </li>
+              <li>
+                <a href="#tour" className="text-slate-400 hover:text-emerald-400 transition-colors">
+                  Interactive Tour
+                </a>
+              </li>
+              <li>
+                <a href="#pricing" className="text-slate-400 hover:text-emerald-400 transition-colors">
+                  Pricing Plans
+                </a>
+              </li>
             </ul>
-          </motion.div>
+          </div>
 
-          {/* Column 3: Community Links (2 Cols) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="md:col-span-2 text-left"
-          >
-            <h3 className="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-6">
-              Community
-            </h3>
-            <ul className="space-y-3.5 text-sm font-semibold">
-              {[
-                { label: 'Community Hub', href: '#community' },
-                { label: 'Member Reviews', href: '#reviews' },
-                { label: 'Pet Photo Gallery', href: '#gallery' },
-                { label: 'Profile Badges', href: '#badges' },
-              ].map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-slate-400 hover:text-emerald-400 transition-colors duration-200 flex items-center gap-2"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Column 4: Contact & Support (2 Cols) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="md:col-span-2 text-left"
-          >
-            <h3 className="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-6">
+          {/* Support & Community (2 Cols) */}
+          <div className="md:col-span-2 text-left">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-4">
               Support
-            </h3>
-            <ul className="space-y-3.5 text-sm font-semibold">
-              {[
-                { label: 'Get in Touch', href: '#contact' },
-                { label: 'Help Center', href: '#contact' },
-                { label: 'Telemetry API', href: '#home' },
-                { label: 'Status Monitor', href: '#home' },
-              ].map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-slate-400 hover:text-emerald-400 transition-colors duration-200 flex items-center gap-2"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Column 5: Apps (2 Cols) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.25 }}
-            className="md:col-span-2 text-left"
-          >
-            <h3 className="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-6">
-              Apps
-            </h3>
-            <div className="flex flex-col gap-2.5 max-w-[140px]">
-              {[
-                {
-                  href: 'https://apps.apple.com',
-                  img: appStoreImg,
-                  alt: 'Download on the App Store',
-                },
-                {
-                  href: 'https://play.google.com',
-                  img: googlePlayImg,
-                  alt: 'Get it on Google Play',
-                },
-                {
-                  href: 'https://play.google.com',
-                  img: appAndroidImg,
-                  alt: 'Download for Android',
-                },
-              ].map((badge, index) => (
-                <a
-                  key={index}
-                  href={badge.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-xl p-2 block cursor-pointer group bg-slate-900 border border-slate-800 transition-all duration-300 hover:border-emerald-500/40 hover:bg-emerald-950/20 hover:shadow-sm hover:scale-[1.02]"
-                >
-                  <img src={badge.img} alt={badge.alt} className="w-full h-auto brightness-0 invert opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
+            </h4>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <a href="#faq" className="text-slate-400 hover:text-emerald-400 transition-colors">
+                  FAQs
                 </a>
-              ))}
+              </li>
+              <li>
+                <a href="#contact" className="text-slate-400 hover:text-emerald-400 transition-colors">
+                  Contact Us
+                </a>
+              </li>
+              <li>
+                <a href="mailto:support@pethorizon.app" className="text-slate-400 hover:text-emerald-400 transition-colors">
+                  Email Helpdesk
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* App Download (3 Cols) */}
+          <div className="md:col-span-3 text-left flex flex-col gap-3">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+              Download App
+            </h4>
+            
+            <a
+              href={playStoreUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-3 flex items-center gap-3 transition-all"
+            >
+              <img src={googlePlayImg} alt="Google Play" className="h-6 w-auto" />
+              <div className="flex flex-col text-left">
+                <span className="text-[9px] uppercase font-bold text-slate-400">Get it on</span>
+                <span className="text-xs font-black text-white">Google Play Store</span>
+              </div>
+            </a>
+
+            <div className="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-3 flex items-center justify-between opacity-75">
+              <div className="flex items-center gap-3">
+                <img src={appStoreImg} alt="App Store" className="h-6 w-auto grayscale" />
+                <div className="flex flex-col text-left">
+                  <span className="text-[9px] uppercase font-bold text-slate-500">App Store</span>
+                  <span className="text-xs font-bold text-slate-300">iOS Edition</span>
+                </div>
+              </div>
+              <span className="text-[9px] font-bold uppercase bg-amber-950 text-amber-300 border border-amber-800 px-2 py-0.5 rounded-full">
+                Soon
+              </span>
             </div>
-          </motion.div>
+          </div>
 
         </div>
 
-        {/* Bottom Panel */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4"
-        >
-          <p className="font-medium">Pet Horizon © 2026 | All Rights Reserved</p>
-          <div className="flex items-center gap-1.5 font-medium">
-            <span>Made with</span>
-            <Heart className="w-3.5 h-3.5 text-emerald-500 fill-emerald-500 animate-pulse" />
-            <span>for pet parents worldwide.</span>
+        {/* Bottom Bar */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <p className="font-medium text-center sm:text-left">
+            Pet Horizon &copy; {new Date().getFullYear()} &bull; All Rights Reserved. Built for pet lovers worldwide.
+          </p>
+          <div className="flex items-center gap-4 font-medium">
+            <a href="#faq" className="hover:text-slate-400 transition-colors">Privacy</a>
+            <span>&bull;</span>
+            <a href="#faq" className="hover:text-slate-400 transition-colors">Terms</a>
+            <span>&bull;</span>
+            <a href="#contact" className="hover:text-slate-400 transition-colors">Help</a>
           </div>
-        </motion.div>
+        </div>
 
       </div>
     </footer>

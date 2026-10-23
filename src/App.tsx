@@ -1,56 +1,54 @@
 import BackgroundCanvas from './components/BackgroundCanvas';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import UserReviews from './components/UserReviews';
-import GallerySection from './components/GallerySection';
-import Transformations from './components/Transformations';
-import CommunityHub from './components/CommunityHub';
-import Badges from './components/Badges';
+import AppFeatures from './components/AppFeatures';
+import FamilyHubSection from './components/FamilyHubSection';
+import DailyJournalSection from './components/DailyJournalSection';
+import InteractiveTour from './components/InteractiveTour';
+import PricingSection from './components/PricingSection';
+import FAQSection from './components/FAQSection';
 import ContactUs from './components/ContactUs';
-import Partners from './components/Partners';
-import Comparison from './components/Comparison';
+import DownloadCTA from './components/DownloadCTA';
 import Footer from './components/Footer';
 
 export default function App() {
   return (
     <div className="min-h-screen bg-white text-slate-800 antialiased font-sans select-none selection:bg-emerald-500/20 selection:text-emerald-700 relative overflow-hidden">
       
-      {/* Constellation Particle Network Backdrop */}
+      {/* Particle Network Backdrop */}
       <BackgroundCanvas />
 
-      {/* Sticky Navigation Navbar */}
+      {/* Sticky Navigation Bar */}
       <Navbar />
 
-      {/* Hero Section */}
+      {/* Hero Section with Play Store Device Showcase & 3D Pets Mascot */}
       <Hero />
 
-       {/* Community Photo Gallery */}
-      <GallerySection />
+      {/* 4 Core Pillars: Schedules, Family Hub, Daily Journal, Pet Profile */}
+      <AppFeatures />
 
-      {/* Pet Health Transformation Case Studies */}
-      <Transformations />
+      {/* Deep Dive: Family Hub & Caretaker Collaboration */}
+      <FamilyHubSection />
 
-      {/* Community Hub */}
-      <CommunityHub />
+      {/* Deep Dive: Daily Journal & Activity Timeline */}
+      <DailyJournalSection />
 
-      {/* Gamification & Achievement Badges */}
-      <Badges />
+      {/* Interactive App Screen Tour (5 Real Mobile Tabs) */}
+      <InteractiveTour />
 
-      {/* User Reviews & Testimonials */}
-      <UserReviews />
+      {/* Transparent Free vs Premium Pricing Matrix */}
+      <PricingSection />
 
-      {/* Contact Us Form */}
+      {/* Frequently Asked Questions */}
+      <FAQSection />
+
+      {/* Contact & Support Form */}
       <ContactUs />
 
-      {/* Partner Logos Ribbon */}
-      <Partners />
+      {/* High-Impact Download Banner */}
+      <DownloadCTA />
 
-      {/* Feature Comparison Matrix */}
-      <Comparison />
-
-  
-
-      {/* Footer */}
+      {/* Modern Footer */}
       <Footer />
       
     </div>
