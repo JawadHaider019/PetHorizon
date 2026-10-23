@@ -95,11 +95,11 @@ export default function Hero() {
                 href={playStoreUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-slate-900 hover:bg-slate-800 text-white font-bold px-6 py-3.5 rounded-2xl flex items-center gap-3.5 shadow-xl shadow-slate-900/15 border border-slate-700 transition-all duration-200"
+                className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3.5 rounded-2xl flex items-center gap-3.5 shadow-xl shadow-emerald-600/25 border border-emerald-500 transition-all duration-200"
               >
                 <img src={googlePlayImg} alt="Google Play" className="h-6 w-auto" />
                 <div className="flex flex-col text-left">
-                  <span className="text-[10px] uppercase font-bold text-slate-400 leading-none">Get it on</span>
+                  <span className="text-[10px] uppercase font-bold text-emerald-100 leading-none">Get it on</span>
                   <span className="text-sm font-black text-white leading-tight">Google Play</span>
                 </div>
               </motion.a>

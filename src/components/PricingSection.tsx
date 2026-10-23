@@ -208,7 +208,7 @@ export default function PricingSection() {
                 href={playStoreUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full text-center block bg-slate-900 hover:bg-slate-800 text-white py-3.5 rounded-2xl font-bold text-sm transition-colors"
+                className="w-full text-center block bg-emerald-600 hover:bg-emerald-700 text-white py-3.5 rounded-2xl font-bold text-sm shadow-md shadow-emerald-600/20 transition-all hover:scale-[1.01]"
               >
                 Subscribe Annually
               </a>

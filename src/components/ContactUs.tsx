@@ -43,9 +43,9 @@ export default function ContactUs() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-0 items-stretch">
             
             {/* Left Info Panel (5 Cols) */}
-            <div className="md:col-span-5 bg-gradient-to-br from-emerald-800 to-emerald-950 text-white p-8 sm:p-10 flex flex-col justify-between text-left relative overflow-hidden">
+            <div className="md:col-span-5 bg-gradient-to-br from-[#2E7D32] to-[#1B5E20] text-white p-8 sm:p-10 flex flex-col justify-between text-left relative overflow-hidden">
               <div className="flex flex-col gap-6 relative z-10">
-                <span className="text-[10px] text-emerald-300 font-extrabold uppercase tracking-widest px-3 py-1 rounded-full border border-emerald-700 bg-emerald-900/60 w-fit">
+                <span className="text-[10px] text-white font-extrabold uppercase tracking-widest px-3 py-1 rounded-full border border-white/30 bg-white/15 w-fit">
                   Direct Support
                 </span>
                 
