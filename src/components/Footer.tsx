@@ -1,5 +1,5 @@
-import googlePlayImg from '../assets/google-play.svg';
-import appStoreImg from '../assets/app-store.svg';
+import { ArrowUpRight } from 'lucide-react';
+import { GooglePlayIcon, AppleIcon } from './AppBadges';
 
 export default function Footer() {
   const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon';
@@ -113,25 +113,28 @@ export default function Footer() {
               href={playStoreUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white hover:bg-emerald-50/70 border border-slate-200 hover:border-emerald-300 rounded-2xl p-3 flex items-center gap-3 transition-all shadow-xs group"
+              className="bg-white hover:bg-emerald-50/70 border border-slate-200/90 hover:border-emerald-300 rounded-2xl p-3 sm:p-3.5 flex items-center justify-between transition-all shadow-xs hover:shadow-md group"
             >
-              <img src={googlePlayImg} alt="Google Play" className="h-6 w-auto" />
-              <div className="flex flex-col text-left">
-                <span className="text-[9px] uppercase font-bold text-slate-500">Get it on</span>
-                <span className="text-xs font-black text-slate-900 group-hover:text-emerald-700 transition-colors">Google Play Store</span>
-              </div>
-            </a>
-
-            <div className="bg-white/60 border border-slate-200 rounded-2xl p-3 flex items-center justify-between opacity-80">
               <div className="flex items-center gap-3">
-                <img src={appStoreImg} alt="App Store" className="h-6 w-auto grayscale" />
+                <GooglePlayIcon className="w-6 h-6 shrink-0" />
                 <div className="flex flex-col text-left">
-                  <span className="text-[9px] uppercase font-bold text-slate-400">App Store</span>
-                  <span className="text-xs font-bold text-slate-600">iOS Edition</span>
+                  <span className="text-[10px] uppercase font-bold text-slate-400 leading-none">Get it on</span>
+                  <span className="text-xs sm:text-sm font-black text-slate-900 group-hover:text-emerald-700 transition-colors leading-tight">Google Play Store</span>
                 </div>
               </div>
-              <span className="text-[9px] font-bold uppercase bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 rounded-full">
-                Soon
+              <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-emerald-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
+            </a>
+
+            <div className="bg-white/80 border border-slate-200/80 rounded-2xl p-3 sm:p-3.5 flex items-center justify-between shadow-xs select-none">
+              <div className="flex items-center gap-3">
+                <AppleIcon className="w-6 h-6 text-slate-800 shrink-0" />
+                <div className="flex flex-col text-left">
+                  <span className="text-[10px] uppercase font-bold text-slate-400 leading-none">Download on</span>
+                  <span className="text-xs sm:text-sm font-bold text-slate-700 leading-tight">Apple App Store</span>
+                </div>
+              </div>
+              <span className="text-[10px] font-extrabold uppercase tracking-wider bg-slate-100 text-slate-600 border border-slate-200 px-2.5 py-0.5 rounded-full shrink-0">
+                Coming Soon
               </span>
             </div>
           </div>

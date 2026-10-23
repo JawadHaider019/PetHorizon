@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { Smartphone, CheckCircle2 } from 'lucide-react';
-import googlePlayImg from '../assets/google-play.svg';
-import appStoreImg from '../assets/app-store.svg';
+import { GooglePlayIcon, AppleIcon } from './AppBadges';
 
 export default function DownloadCTA() {
   const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon';
@@ -37,26 +36,29 @@ export default function DownloadCTA() {
               {/* Download Buttons */}
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <motion.a
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.96 }}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
                   href={playStoreUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white hover:bg-emerald-50 text-slate-900 font-bold px-6 py-3.5 rounded-2xl flex items-center gap-3.5 shadow-xl transition-all"
+                  className="bg-white hover:bg-slate-50 text-slate-900 font-bold px-6 py-3.5 rounded-2xl flex items-center gap-3.5 shadow-xl transition-all"
                 >
-                  <img src={googlePlayImg} alt="Google Play" className="h-6 w-auto" />
+                  <GooglePlayIcon className="w-7 h-7 shrink-0" />
                   <div className="flex flex-col text-left">
-                    <span className="text-[10px] uppercase font-bold text-slate-500 leading-none">Get it on</span>
-                    <span className="text-sm font-black text-slate-900 leading-tight">Google Play</span>
+                    <span className="text-[10px] uppercase font-bold text-slate-400 leading-none tracking-wider">Get it on</span>
+                    <span className="text-sm sm:text-base font-black text-slate-900 leading-tight">Google Play</span>
                   </div>
                 </motion.a>
 
-                <div className="bg-white/15 border border-white/20 text-white px-5 py-3 rounded-2xl flex items-center gap-3">
-                  <img src={appStoreImg} alt="App Store" className="h-6 w-auto brightness-200 opacity-70" />
+                <div className="bg-white/15 border border-white/20 text-white px-5 sm:px-6 py-3.5 rounded-2xl flex items-center gap-3.5 select-none backdrop-blur-sm">
+                  <AppleIcon className="w-7 h-7 text-white shrink-0" />
                   <div className="flex flex-col text-left">
-                    <span className="text-[10px] uppercase font-bold text-emerald-100 leading-none">iOS Version</span>
-                    <span className="text-xs font-bold text-white leading-tight">Coming Soon</span>
+                    <span className="text-[10px] uppercase font-bold text-emerald-200 leading-none tracking-wider">Download on</span>
+                    <span className="text-sm sm:text-base font-bold text-white leading-tight">App Store</span>
                   </div>
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider bg-white/20 text-white border border-white/30 px-2.5 py-0.5 rounded-full ml-1">
+                    Coming Soon
+                  </span>
                 </div>
               </div>
 
