@@ -167,7 +167,7 @@ export default function Footer({ onNavigateLegal }: FooterProps) {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p className="font-medium text-center sm:text-left">
-            Pet Horizon &copy; {new Date().getFullYear()} &bull; Built by{' '}
+            Pet Horizon &copy; {new Date().getFullYear()} &bull; Designed &amp; Built by{' '}
             <a
               href="https://aqibfolio.vercel.app/"
               target="_blank"
