@@ -8,7 +8,7 @@ import {
   ArrowRight,
   ShieldCheck
 } from 'lucide-react';
-import { GooglePlayIcon, AppleIcon } from './AppBadges';
+import { GooglePlayBadge, AppStoreBadge } from './AppBadges';
 import PhoneFrame from './PhoneFrame';
 
 export default function Hero() {
@@ -88,31 +88,8 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap items-center gap-4 pt-3">
-              <motion.a
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                href={playStoreUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#2E7D32] hover:bg-[#1B5E20] text-white font-bold px-5 sm:px-6 py-3.5 rounded-2xl flex items-center gap-3.5 shadow-xl shadow-emerald-800/20 border border-emerald-600/40 transition-all duration-200"
-              >
-                <GooglePlayIcon className="w-7 h-7 shrink-0" />
-                <div className="flex flex-col text-left">
-                  <span className="text-[10px] uppercase font-bold text-emerald-200 leading-none tracking-wider">Get it on</span>
-                  <span className="text-sm sm:text-base font-black text-white leading-tight">Google Play</span>
-                </div>
-              </motion.a>
-
-              <div className="bg-white border border-slate-200/90 text-slate-800 font-bold px-5 sm:px-6 py-3.5 rounded-2xl flex items-center gap-3.5 shadow-xs select-none">
-                <AppleIcon className="w-7 h-7 text-slate-800 shrink-0" />
-                <div className="flex flex-col text-left">
-                  <span className="text-[10px] uppercase font-bold text-slate-400 leading-none tracking-wider">Download on</span>
-                  <span className="text-sm sm:text-base font-bold text-slate-800 leading-tight">App Store</span>
-                </div>
-                <span className="text-[10px] font-extrabold uppercase tracking-wider bg-slate-100 text-slate-600 border border-slate-200 px-2.5 py-1 rounded-full ml-1">
-                  Coming Soon
-                </span>
-              </div>
+              <GooglePlayBadge href={playStoreUrl} className="px-5 py-3 rounded-2xl shadow-lg" />
+              <AppStoreBadge className="px-5 py-3 rounded-2xl shadow-lg" />
 
               <a
                 href="#features"

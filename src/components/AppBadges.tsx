@@ -1,36 +1,102 @@
 /**
- * Authentic 4-color Google Play triangle icon
+ * Official Google Play 2022 Logo Vector (Exact authentic brand paths)
  */
 export function GooglePlayIcon({ className = "w-6 h-6" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 512 512" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1z"
-        fill="#EA4335"
-      />
-      <path
-        d="M47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0z"
-        fill="#4285F4"
-      />
-      <path
-        d="M47 512c12.1 0 24.2-4.8 33.3-10l245-140.7-60.1-60.1L47 512z"
-        fill="#34A853"
-      />
-      <path
-        d="M486.8 238.4l-60.6-34.9-61 61 61 61 60.9-35c17.1-9.9 27.9-27.1 27.9-46.1s-10.8-36.1-28.2-46z"
-        fill="#FBBC04"
-      />
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 466 512" className={className}>
+      <g fillRule="nonzero">
+        {/* Blue Left */}
+        <path
+          fill="#4285F4"
+          d="M1.39 41.86C0 46.04 0 51.63 0 57.2v397.64c0 5.57 0 9.76 1.4 15.34l216.27-214.86L1.39 41.86z"
+        />
+        {/* Green Top */}
+        <path
+          fill="#34A853"
+          d="M199.42 273.45 329.27 145.1 87.9 8.37C79.53 2.79 68.36 0 57.2 0 30.7 0 6.98 18.14 1.4 41.86l198.02 231.59z"
+        />
+        {/* Red Bottom */}
+        <path
+          fill="#EA4335"
+          d="M199.9 237.8 1.4 470.17c7.22 24.57 30.16 41.81 55.8 41.81 11.16 0 20.93-2.79 29.3-8.37l244.16-139.46L199.9 237.8z"
+        />
+        {/* Yellow Right */}
+        <path
+          fill="#FBBC04"
+          d="m433.91 205.1-104.65-60-111.61 110.22 113.01 108.83 104.64-58.6c18.14-9.77 30.7-29.3 30.7-50.23-1.4-20.93-13.95-40.46-32.09-50.22z"
+        />
+      </g>
     </svg>
   );
 }
 
 /**
- * Authentic Apple icon with currentColor fill
+ * Official Apple Logo Vector (Standard 384x512 Brand Silhouette)
  */
 export function AppleIcon({ className = "w-6 h-6" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 170 170" className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-      <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.69-3.04-7.56-7.71-11.61-14.01-6.19-9.59-11.08-20.47-14.68-32.65-3.6-12.18-5.4-23.77-5.4-34.78 0-14.82 3.72-27.15 11.16-36.98 7.44-9.84 16.89-14.86 28.34-15.08 4.8 0 10.16 1.25 16.07 3.75 5.92 2.5 9.77 3.86 11.57 4.09 1.48-.19 5.56-1.63 12.24-4.32 6.68-2.69 12.39-3.9 17.13-3.64 12.87.64 23.3 5.37 31.29 14.19-11.22 6.78-16.71 16.14-16.48 28.08.24 9.38 3.86 17.34 10.87 23.88 7 6.54 15.34 10.23 25.02 11.08-2.12 6.22-4.66 12.43-7.61 18.63zM119.22 33.24c0-7.23 2.65-14.02 7.94-20.36 5.3-6.34 11.75-10.42 19.36-12.24.43 2.03.65 3.99.65 5.88 0 7.23-2.73 14.24-8.19 21.03-5.46 6.79-11.96 10.9-19.5 12.33-.11-2.12-.26-4.34-.26-6.64z" />
+    <svg viewBox="0 0 384 512" className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90.1-61.7-91.9zm-56.6-162.7c17.3-21 29-50.2 25.8-79.4-24.8 1-55.5 16.5-73.5 37.6-15.6 18-29.4 47.4-25.7 75.8 27.7 2.1 56.1-13.6 73.4-34z" />
     </svg>
+  );
+}
+
+interface BadgeProps {
+  href?: string;
+  className?: string;
+}
+
+/**
+ * Official Google Play Store Badge
+ */
+export function GooglePlayBadge({
+  href = "https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon",
+  className = "",
+}: BadgeProps) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`inline-flex items-center gap-3 bg-black hover:bg-neutral-900 text-white px-4 py-2.5 rounded-xl border border-neutral-700/80 shadow-md hover:shadow-lg transition-all duration-200 group shrink-0 ${className}`}
+    >
+      <GooglePlayIcon className="w-6 h-6 shrink-0 group-hover:scale-105 transition-transform" />
+      <div className="flex flex-col text-left">
+        <span className="text-[9px] font-semibold tracking-wider uppercase text-neutral-300 leading-none">
+          GET IT ON
+        </span>
+        <span className="text-[15px] font-bold text-white tracking-tight leading-tight mt-0.5">
+          Google Play
+        </span>
+      </div>
+    </a>
+  );
+}
+
+/**
+ * Official Apple App Store Badge (with Coming Soon state)
+ */
+export function AppStoreBadge({
+  className = "",
+}: {
+  className?: string;
+}) {
+  return (
+    <div
+      className={`inline-flex items-center gap-3 bg-black text-white px-4 py-2.5 rounded-xl border border-neutral-700/80 shadow-md select-none shrink-0 ${className}`}
+    >
+      <AppleIcon className="w-6 h-6 text-white shrink-0" />
+      <div className="flex flex-col text-left">
+        <span className="text-[9px] font-semibold tracking-tight text-neutral-300 leading-none">
+          Download on the
+        </span>
+        <span className="text-[15px] font-bold text-white tracking-tight leading-tight mt-0.5">
+          App Store
+        </span>
+      </div>
+      <span className="text-[9px] font-bold uppercase tracking-wider bg-white/15 text-neutral-200 border border-white/20 px-2 py-0.5 rounded-md ml-1.5">
+        Soon
+      </span>
+    </div>
   );
 }
