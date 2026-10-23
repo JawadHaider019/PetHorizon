@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import {
   ShieldCheck,
   FileText,
@@ -16,7 +16,12 @@ import {
   Calendar,
   UserCheck,
   CheckCircle2,
-  AlertCircle
+  AlertCircle,
+  Eye,
+  Camera,
+  Bell,
+  HardDrive,
+  Server
 } from 'lucide-react';
 import { PRIVACY_POLICY, TERMS_OF_SERVICE, DATA_DELETION_GUIDE, LegalDocument } from '../data/legalData';
 
@@ -34,6 +39,14 @@ export default function LegalPortal({
   const [activeDocId, setActiveDocId] = useState<'privacy' | 'terms' | 'deletion'>(initialDoc);
   const [activeSectionId, setActiveSectionId] = useState<string>('');
   const [copied, setCopied] = useState(false);
+  const [readPercent, setReadPercent] = useState(0);
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   useEffect(() => {
     setActiveDocId(initialDoc);
@@ -46,6 +59,13 @@ export default function LegalPortal({
       : activeDocId === 'terms'
       ? TERMS_OF_SERVICE
       : DATA_DELETION_GUIDE;
+
+  // Track reading percentage
+  useEffect(() => {
+    return scrollYProgress.on('change', (latest) => {
+      setReadPercent(Math.min(100, Math.round(latest * 100)));
+    });
+  }, [scrollYProgress]);
 
   // Scroll to top when document changes
   useEffect(() => {
@@ -67,7 +87,7 @@ export default function LegalPortal({
       for (let i = sectionElements.length - 1; i >= 0; i--) {
         const item = sectionElements[i];
         if (item.el) {
-          const top = item.el.offsetTop - 160;
+          const top = item.el.offsetTop - 180;
           if (scrollY >= top) {
             setActiveSectionId(item.id);
             break;
@@ -96,21 +116,30 @@ export default function LegalPortal({
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
-      const yOffset = -100;
+      const yOffset = -110;
       const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
       setActiveSectionId(id);
     }
   };
 
+  const activeSectionIndex = currentDoc.sections.findIndex((s) => s.id === activeSectionId);
+  const activeSection = currentDoc.sections[activeSectionIndex >= 0 ? activeSectionIndex : 0];
+
   return (
-    <div className="min-h-screen bg-[#FDFDFC] text-slate-800 antialiased pt-[68px] sm:pt-[76px] selection:bg-emerald-500/20 selection:text-emerald-800">
+    <div className="min-h-screen bg-[#FDFDFC] text-slate-800 antialiased pt-[66px] sm:pt-[72px] selection:bg-emerald-500/20 selection:text-emerald-800 relative">
       
-      {/* Sticky Secondary Legal Sub-Bar */}
+      {/* 1. Global Reading Progress Line (Fixed Top) */}
+      <motion.div
+        style={{ scaleX }}
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 origin-left z-50 shadow-sm"
+      />
+
+      {/* 2. Secondary Legal Sub-Bar with Dynamic Reading Journey */}
       <header className="sticky top-[60px] sm:top-[68px] z-30 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-4">
           
-          {/* Breadcrumb & Back to Home */}
+          {/* Breadcrumb & Dynamic Section Pill */}
           <div className="flex items-center gap-3">
             <button
               onClick={onNavigateHome}
@@ -122,11 +151,13 @@ export default function LegalPortal({
 
             <div className="hidden sm:block h-4 w-px bg-slate-200" />
 
-            <div className="hidden sm:flex items-center gap-1.5 text-xs text-slate-500 font-medium">
-              <span>Legal Center</span>
-              <span className="text-slate-300">/</span>
-              <span className="text-slate-900 font-semibold truncate max-w-[200px]">
-                {currentDoc.title}
+            {/* Dynamic Reading Pill */}
+            <div className="hidden md:flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50/80 border border-emerald-200/70 text-[11px] font-semibold text-emerald-950">
+              <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse shrink-0" />
+              <span className="font-bold text-emerald-800">{readPercent}% read</span>
+              <span className="text-slate-300">&bull;</span>
+              <span className="truncate max-w-[240px] text-slate-700">
+                Sec {(activeSectionIndex >= 0 ? activeSectionIndex : 0) + 1}/{currentDoc.sections.length}: {activeSection?.title.replace(/^\d+\.\s*/, '')}
               </span>
             </div>
           </div>
@@ -137,7 +168,7 @@ export default function LegalPortal({
               onClick={() => handleDocChange('privacy')}
               className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                 activeDocId === 'privacy'
-                  ? 'bg-white text-emerald-700 shadow-xs border border-slate-200/60'
+                  ? 'bg-white text-emerald-700 shadow-xs border border-slate-200/60 font-bold'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
               }`}
             >
@@ -149,7 +180,7 @@ export default function LegalPortal({
               onClick={() => handleDocChange('terms')}
               className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                 activeDocId === 'terms'
-                  ? 'bg-white text-emerald-700 shadow-xs border border-slate-200/60'
+                  ? 'bg-white text-emerald-700 shadow-xs border border-slate-200/60 font-bold'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
               }`}
             >
@@ -161,7 +192,7 @@ export default function LegalPortal({
               onClick={() => handleDocChange('deletion')}
               className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                 activeDocId === 'deletion'
-                  ? 'bg-white text-rose-700 shadow-xs border border-slate-200/60'
+                  ? 'bg-white text-rose-700 shadow-xs border border-slate-200/60 font-bold'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
               }`}
             >
@@ -179,7 +210,7 @@ export default function LegalPortal({
             >
               {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
               {copied && (
-                <span className="absolute -bottom-8 right-0 bg-slate-900 text-white text-[10px] px-2 py-0.5 rounded shadow whitespace-nowrap animate-in fade-in">
+                <span className="absolute -bottom-8 right-0 bg-emerald-700 text-white text-[10px] px-2 py-0.5 rounded shadow whitespace-nowrap animate-in fade-in">
                   Link copied!
                 </span>
               )}
@@ -248,23 +279,44 @@ export default function LegalPortal({
         <div className="max-w-5xl mx-auto px-5 sm:px-8 relative z-10 text-center">
           
           {/* Compliance & Status Pill */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white shadow-xs border border-emerald-200 text-xs font-semibold text-emerald-800 mb-5">
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white shadow-xs border border-emerald-200 text-xs font-semibold text-emerald-800 mb-5"
+          >
             <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
             <span>Google Play Policy &amp; Data Safety Compliant</span>
             <span className="text-slate-300">&bull;</span>
             <span className="text-slate-500">Android Official</span>
-          </div>
+          </motion.div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight max-w-4xl mx-auto">
+          <motion.h1
+            key={currentDoc.id + '-title'}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35 }}
+            className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight max-w-4xl mx-auto"
+          >
             {currentDoc.title}
-          </h1>
+          </motion.h1>
 
-          <p className="mt-4 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
+          <motion.p
+            key={currentDoc.id + '-subtitle'}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="mt-4 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal"
+          >
             {currentDoc.subtitle}
-          </p>
+          </motion.p>
 
           {/* Document Metadata Badges Grid */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3 text-xs">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.15 }}
+            className="mt-8 flex flex-wrap items-center justify-center gap-3 text-xs"
+          >
             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-slate-200 shadow-xs text-slate-600">
               <Calendar className="w-3.5 h-3.5 text-emerald-600" />
               <span>Effective: <strong className="text-slate-900 font-semibold">{currentDoc.effectiveDate}</strong></span>
@@ -284,16 +336,19 @@ export default function LegalPortal({
               <UserCheck className="w-3.5 h-3.5 text-emerald-600" />
               <span>Developer: <strong className="text-slate-900 font-semibold">{currentDoc.developer}</strong></span>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Quick Notice Banner */}
-          <div className="mt-8 max-w-2xl mx-auto bg-emerald-50/80 border border-emerald-200/90 rounded-2xl p-4 text-left flex items-start gap-3.5 text-xs text-emerald-950 leading-relaxed shadow-xs">
-            <ShieldCheck className="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" />
+          {/* Quick Notice Banner with Subtle Float Animation */}
+          <motion.div
+            whileHover={{ scale: 1.01 }}
+            className="mt-8 max-w-2xl mx-auto bg-emerald-50/80 border border-emerald-200/90 rounded-2xl p-4 text-left flex items-start gap-3.5 text-xs text-emerald-950 leading-relaxed shadow-xs"
+          >
+            <ShieldCheck className="w-5 h-5 text-emerald-700 shrink-0 mt-0.5 animate-pulse" />
             <div>
               <strong className="font-semibold block mb-0.5 text-emerald-900">Your Data Belongs to You</strong>
               Pet Horizon does not sell, rent, or monetize your pet's medical records or personal details to advertisers. All communications are TLS encrypted, and you can delete your data at any time.
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </section>
@@ -304,34 +359,41 @@ export default function LegalPortal({
           
           {/* Left Column: Sticky Table of Contents (4 cols) */}
           <aside className="lg:col-span-4 hidden lg:block">
-            <div className="sticky top-24 space-y-6">
+            <div className="sticky top-32 space-y-6">
               
-              {/* Table of Contents Box */}
+              {/* Table of Contents Box with Animated Spring Indicator */}
               <div className="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-xs">
                 <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 mb-3">
                   <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 flex items-center gap-2">
                     <FileText className="w-4 h-4 text-emerald-600" />
                     Table of Contents
                   </h3>
-                  <span className="text-[11px] font-medium text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">
+                  <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">
                     {currentDoc.sections.length} Sections
                   </span>
                 </div>
 
-                <nav className="space-y-1 max-h-[calc(100vh-280px)] overflow-y-auto pr-1">
+                <nav className="space-y-1 max-h-[calc(100vh-320px)] overflow-y-auto pr-1">
                   {currentDoc.sections.map((section) => {
                     const isActive = activeSectionId === section.id;
                     return (
                       <button
                         key={section.id}
                         onClick={() => scrollToSection(section.id)}
-                        className={`w-full text-left px-3 py-2 rounded-xl text-xs font-medium transition-all flex items-center justify-between cursor-pointer ${
+                        className={`w-full text-left px-3 py-2.5 rounded-xl text-xs font-medium transition-all relative flex items-center justify-between cursor-pointer ${
                           isActive
-                            ? 'bg-emerald-50 text-emerald-800 font-semibold border-l-3 border-emerald-600'
+                            ? 'text-emerald-800 font-bold'
                             : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
                         }`}
                       >
-                        <span className="truncate">{section.title}</span>
+                        {isActive && (
+                          <motion.span
+                            layoutId="activeLegalTOCIndicator"
+                            className="absolute inset-0 bg-emerald-50 border-l-4 border-emerald-600 rounded-xl -z-10 shadow-2xs"
+                            transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                          />
+                        )}
+                        <span className="truncate pr-2">{section.title}</span>
                         {isActive && <ChevronRight className="w-3.5 h-3.5 text-emerald-600 shrink-0" />}
                       </button>
                     );
@@ -421,107 +483,245 @@ export default function LegalPortal({
             </div>
           </aside>
 
-          {/* Right Column: Full Document Reading Experience (8 cols) */}
+          {/* Right Column: Animated Document Content (8 cols) */}
           <main className="lg:col-span-8 space-y-10">
             
-            {currentDoc.sections.map((section, idx) => (
-              <section
-                key={section.id}
-                id={section.id}
-                className="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-8 shadow-xs scroll-mt-24 transition-all hover:border-slate-300"
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeDocId}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.25 }}
+                className="space-y-10"
               >
-                
-                {/* Section Header */}
-                <div className="flex items-start gap-4 pb-4 border-b border-slate-100">
-                  <div className="w-9 h-9 rounded-2xl bg-emerald-50 text-emerald-700 font-bold flex items-center justify-center text-sm shrink-0 border border-emerald-100">
-                    {idx + 1}
-                  </div>
-                  <div>
-                    <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
-                      {section.title}
-                    </h2>
-                  </div>
-                </div>
-
-                {/* Section Body Paragraphs */}
-                <div className="mt-5 space-y-4 text-slate-700 text-sm sm:text-base leading-relaxed">
-                  {section.content.map((p, pIdx) => (
-                    <p key={pIdx} className="font-normal">
-                      {p}
-                    </p>
-                  ))}
-                </div>
-
-                {/* Subsections if present */}
-                {section.subsections && (
-                  <div className="mt-6 space-y-5">
-                    {section.subsections.map((sub, sIdx) => (
-                      <div
-                        key={sIdx}
-                        className="bg-[#F9FAFB] rounded-2xl p-4 sm:p-5 border border-slate-200/60"
-                      >
-                        <h4 className="text-sm sm:text-base font-bold text-slate-900 mb-2 flex items-center gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                          {sub.subtitle}
-                        </h4>
-
-                        {sub.paragraph && (
-                          <p className="text-slate-600 text-sm leading-relaxed mb-3">
-                            {sub.paragraph}
-                          </p>
-                        )}
-
-                        {sub.items && (
-                          <ul className="space-y-2 mt-2">
-                            {sub.items.map((item, iIdx) => (
-                              <li
-                                key={iIdx}
-                                className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed"
-                              >
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0" />
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
+                {currentDoc.sections.map((section, idx) => (
+                  <motion.section
+                    key={section.id}
+                    id={section.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-60px' }}
+                    transition={{ duration: 0.4, delay: idx * 0.04 }}
+                    className={`bg-white rounded-3xl border p-6 sm:p-8 shadow-xs scroll-mt-32 transition-all ${
+                      activeSectionId === section.id
+                        ? 'border-emerald-300 ring-2 ring-emerald-500/10'
+                        : 'border-slate-200/80 hover:border-slate-300'
+                    }`}
+                  >
+                    
+                    {/* Section Header */}
+                    <div className="flex items-start gap-4 pb-4 border-b border-slate-100">
+                      <div className="w-9 h-9 rounded-2xl bg-emerald-50 text-emerald-700 font-black flex items-center justify-center text-sm shrink-0 border border-emerald-100 shadow-2xs">
+                        {idx + 1}
                       </div>
-                    ))}
-                  </div>
-                )}
-
-                {/* Specific highlight for Account Deletion in Section 7 */}
-                {section.id === 'data-retention-deletion' && (
-                  <div className="mt-6 p-4 rounded-2xl bg-rose-50 border border-rose-200 text-xs text-rose-950 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                    <div className="flex items-start gap-3">
-                      <AlertCircle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
                       <div>
-                        <strong className="font-bold block text-rose-900">Need Immediate Data Deletion?</strong>
-                        Submit an instant email deletion request or use in-app deletion.
+                        <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
+                          {section.title}
+                        </h2>
                       </div>
                     </div>
-                    <a
-                      href="mailto:pethorizon2026@gmail.com?subject=Data%20Deletion%20Request"
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-rose-600 text-white hover:bg-rose-700 shadow-xs transition-colors shrink-0"
-                    >
-                      <Trash2 className="w-3.5 h-3.5" />
-                      Send Deletion Email
-                    </a>
-                  </div>
-                )}
 
-                {/* Specific highlight for Veterinary disclaimer */}
-                {section.id === 'vet-disclaimer' && (
-                  <div className="mt-6 p-4 rounded-2xl bg-amber-50 border border-amber-200 text-xs text-amber-950 flex items-start gap-3">
-                    <AlertCircle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="font-bold block text-amber-900 mb-0.5">Important Veterinary Health Notice</strong>
-                      Pet Horizon is an organization tool, not a veterinary clinic. In any emergency or health anomaly with your pet, seek immediate examination by a certified veterinarian.
+                    {/* Section Body Paragraphs */}
+                    <div className="mt-5 space-y-4 text-slate-700 text-sm sm:text-base leading-relaxed">
+                      {section.content.map((p, pIdx) => (
+                        <p key={pIdx} className="font-normal">
+                          {p}
+                        </p>
+                      ))}
                     </div>
-                  </div>
-                )}
 
-              </section>
-            ))}
+                    {/* Subsections with Animated Interactive Cards */}
+                    {section.subsections && (
+                      <div className="mt-6 space-y-4">
+                        {section.subsections.map((sub, sIdx) => (
+                          <motion.div
+                            key={sIdx}
+                            whileHover={{ y: -2 }}
+                            transition={{ duration: 0.15 }}
+                            className="bg-[#F9FAFB] rounded-2xl p-4 sm:p-5 border border-slate-200/70 hover:border-emerald-200/80 transition-colors"
+                          >
+                            <h4 className="text-sm sm:text-base font-bold text-slate-900 mb-2 flex items-center gap-2">
+                              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                              {sub.subtitle}
+                            </h4>
+
+                            {sub.paragraph && (
+                              <p className="text-slate-600 text-sm leading-relaxed mb-3">
+                                {sub.paragraph}
+                              </p>
+                            )}
+
+                            {sub.items && (
+                              <ul className="space-y-2.5 mt-2">
+                                {sub.items.map((item, iIdx) => (
+                                  <li
+                                    key={iIdx}
+                                    className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed"
+                                  >
+                                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0 animate-pulse" />
+                                    <span>{item}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                          </motion.div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* INTERACTIVE VISUAL 1: Section 4 Device Permissions Interactive Pills */}
+                    {section.id === 'device-permissions' && (
+                      <div className="mt-7 pt-5 border-t border-slate-100">
+                        <div className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3 flex items-center gap-1.5">
+                          <Eye className="w-3.5 h-3.5 text-emerald-600" />
+                          Interactive Permissions Transparency Map
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                          <motion.div
+                            whileHover={{ y: -3, scale: 1.02 }}
+                            className="p-3.5 rounded-2xl bg-emerald-50/70 border border-emerald-200/80 text-left"
+                          >
+                            <div className="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center mb-2">
+                              <Camera className="w-4 h-4" />
+                            </div>
+                            <h5 className="font-bold text-xs text-slate-900">Camera Access</h5>
+                            <p className="text-[11px] text-slate-600 mt-1">Used exclusively when you snap pet photos.</p>
+                            <span className="mt-2 inline-block text-[10px] font-bold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded">
+                              User-Initiated Only
+                            </span>
+                          </motion.div>
+
+                          <motion.div
+                            whileHover={{ y: -3, scale: 1.02 }}
+                            className="p-3.5 rounded-2xl bg-teal-50/70 border border-teal-200/80 text-left"
+                          >
+                            <div className="w-7 h-7 rounded-lg bg-teal-100 text-teal-800 flex items-center justify-center mb-2">
+                              <HardDrive className="w-4 h-4" />
+                            </div>
+                            <h5 className="font-bold text-xs text-slate-900">Gallery / Storage</h5>
+                            <p className="text-[11px] text-slate-600 mt-1">Accesses only the photo you pick.</p>
+                            <span className="mt-2 inline-block text-[10px] font-bold text-teal-800 bg-teal-100/80 px-2 py-0.5 rounded">
+                              Zero Gallery Scanning
+                            </span>
+                          </motion.div>
+
+                          <motion.div
+                            whileHover={{ y: -3, scale: 1.02 }}
+                            className="p-3.5 rounded-2xl bg-blue-50/70 border border-blue-200/80 text-left"
+                          >
+                            <div className="w-7 h-7 rounded-lg bg-blue-100 text-blue-800 flex items-center justify-center mb-2">
+                              <Bell className="w-4 h-4" />
+                            </div>
+                            <h5 className="font-bold text-xs text-slate-900">Notifications</h5>
+                            <p className="text-[11px] text-slate-600 mt-1">Timely alarms for feeding &amp; meds.</p>
+                            <span className="mt-2 inline-block text-[10px] font-bold text-blue-800 bg-blue-100/80 px-2 py-0.5 rounded">
+                              Toggled In Settings
+                            </span>
+                          </motion.div>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* INTERACTIVE VISUAL 2: Section 5 & 6 Security & Zero-Sale Badges */}
+                    {(section.id === 'data-sharing' || section.id === 'data-security') && (
+                      <div className="mt-7 pt-5 border-t border-slate-100">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                          <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-emerald-50/80 border border-emerald-200">
+                            <div className="w-8 h-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0">
+                              <ShieldCheck className="w-4 h-4" />
+                            </div>
+                            <div>
+                              <div className="text-xs font-bold text-slate-900">Zero Data Monetization</div>
+                              <div className="text-[11px] text-slate-600">Your pet data is never sold to advertisers or brokers.</div>
+                            </div>
+                          </div>
+
+                          <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-slate-50 border border-slate-200">
+                            <div className="w-8 h-8 rounded-xl bg-slate-800 text-white flex items-center justify-center shrink-0">
+                              <Server className="w-4 h-4" />
+                            </div>
+                            <div>
+                              <div className="text-xs font-bold text-slate-900">TLS 1.3 &amp; AES-256</div>
+                              <div className="text-[11px] text-slate-600">Military-grade in-transit and at-rest cloud encryption.</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* INTERACTIVE VISUAL 3: Section 7 3-Step Data Deletion Path */}
+                    {(section.id === 'data-retention-deletion' || section.id === 'what-is-deleted') && (
+                      <div className="mt-6 p-5 rounded-2xl bg-rose-50/70 border border-rose-200/90 text-xs text-rose-950 space-y-4">
+                        <div className="flex items-start gap-3">
+                          <AlertCircle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
+                          <div>
+                            <strong className="font-bold text-sm block text-rose-900">
+                              Guaranteed 30-Day Irreversible Account Deletion
+                            </strong>
+                            <p className="text-slate-600 text-xs mt-0.5">
+                              In accordance with Google Play Data Safety policies, you can trigger full data purging directly:
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* 3 Steps Animated Path */}
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1 text-center">
+                          <div className="bg-white p-3 rounded-xl border border-rose-200/80 shadow-2xs">
+                            <span className="w-5 h-5 rounded-full bg-rose-100 text-rose-800 font-bold inline-flex items-center justify-center text-[10px] mb-1">
+                              1
+                            </span>
+                            <div className="font-bold text-slate-900 text-xs">Request Deletion</div>
+                            <div className="text-[10px] text-slate-500 mt-0.5">Via in-app settings or email</div>
+                          </div>
+
+                          <div className="bg-white p-3 rounded-xl border border-rose-200/80 shadow-2xs">
+                            <span className="w-5 h-5 rounded-full bg-rose-100 text-rose-800 font-bold inline-flex items-center justify-center text-[10px] mb-1">
+                              2
+                            </span>
+                            <div className="font-bold text-slate-900 text-xs">Immediate Lockout</div>
+                            <div className="text-[10px] text-slate-500 mt-0.5">Account tokens revoked</div>
+                          </div>
+
+                          <div className="bg-white p-3 rounded-xl border border-rose-200/80 shadow-2xs">
+                            <span className="w-5 h-5 rounded-full bg-rose-100 text-rose-800 font-bold inline-flex items-center justify-center text-[10px] mb-1">
+                              3
+                            </span>
+                            <div className="font-bold text-slate-900 text-xs">Permanent Purge</div>
+                            <div className="text-[10px] text-slate-500 mt-0.5">Wiped within 30 days</div>
+                          </div>
+                        </div>
+
+                        <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-rose-200/60">
+                          <span className="text-[11px] text-slate-600">
+                            Registered Email: <strong className="text-slate-900">pethorizon2026@gmail.com</strong>
+                          </span>
+                          <a
+                            href="mailto:pethorizon2026@gmail.com?subject=Data%20Deletion%20Request"
+                            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-rose-600 text-white hover:bg-rose-700 shadow-xs transition-colors shrink-0"
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
+                            Send Deletion Email
+                          </a>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Specific Veterinary Disclaimer Card */}
+                    {section.id === 'vet-disclaimer' && (
+                      <div className="mt-6 p-4 rounded-2xl bg-amber-50 border border-amber-200 text-xs text-amber-950 flex items-start gap-3">
+                        <AlertCircle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+                        <div>
+                          <strong className="font-bold block text-amber-900 mb-0.5">Important Veterinary Health Notice</strong>
+                          Pet Horizon is an organization tool, not a veterinary clinic. In any emergency or health anomaly with your pet, seek immediate examination by a certified veterinarian.
+                        </div>
+                      </div>
+                    )}
+
+                  </motion.section>
+                ))}
+              </motion.div>
+            </AnimatePresence>
 
             {/* Bottom Navigation between Legal Docs */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6">
