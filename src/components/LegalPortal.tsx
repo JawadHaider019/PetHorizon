@@ -8,7 +8,6 @@ import {
   Mail,
   Copy,
   Check,
-  Printer,
   ExternalLink,
   ChevronRight,
   ChevronDown,

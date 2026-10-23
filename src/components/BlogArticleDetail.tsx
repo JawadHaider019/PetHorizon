@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import {
   ArrowLeft,
@@ -250,7 +250,7 @@ export default function BlogArticleDetail({
                 </span>
               </div>
               <nav className="space-y-1">
-                {article.sections.map((section, idx) => {
+                {article.sections.map((section) => {
                   const isCurrent = activeSectionId === section.id;
                   return (
                     <button
