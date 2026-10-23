@@ -9,6 +9,7 @@ import {
   CheckCircle2,
   ArrowRight
 } from 'lucide-react';
+import PhoneFrame from './PhoneFrame';
 
 interface FeatureTab {
   id: string;
@@ -218,25 +219,18 @@ export default function AppFeatures() {
 
               {/* Feature Phone Device Frame (5 Cols) */}
               <div className="lg:col-span-5 flex justify-center items-center relative">
-                <div className="relative w-[260px] sm:w-[290px] rounded-[2.8rem] p-3 bg-slate-950 shadow-2xl border-4 border-slate-800">
-                  {/* Phone Camera Punch-Hole */}
-                  <div className="absolute top-3.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-slate-950 rounded-full z-30 flex items-center justify-center border border-slate-700/60 shadow-xs">
-                    <div className="w-1 h-1 rounded-full bg-slate-900" />
-                  </div>
+                <div className="relative">
+                  <PhoneFrame
+                    src={activeFeature.screenshot}
+                    alt={activeFeature.screenshotAlt}
+                    frameClassName="w-[260px] sm:w-[290px]"
+                    statusTheme="light"
+                  />
 
-                  {/* Device Screen */}
-                  <div className="rounded-[2.2rem] overflow-hidden bg-slate-100 aspect-[9/19.2] shadow-inner relative">
-                    <img
-                      src={activeFeature.screenshot}
-                      alt={activeFeature.screenshotAlt}
-                      className="w-full h-full object-cover object-top"
-                    />
+                  {/* Ambient Decorative Badge (Positioned outside) */}
+                  <div className="hidden sm:block absolute -bottom-4 -right-6 lg:-right-10 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-emerald-100 shadow-lg text-xs font-bold text-slate-800 z-20">
+                    ✨ Real App Interface
                   </div>
-                </div>
-
-                {/* Ambient Decorative Badge */}
-                <div className="hidden sm:block absolute -bottom-4 -right-4 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-emerald-100 shadow-lg text-xs font-bold text-slate-800">
-                  ✨ Real App Interface
                 </div>
               </div>
 

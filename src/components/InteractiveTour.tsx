@@ -12,6 +12,7 @@ import {
   Check,
   Wallet
 } from 'lucide-react';
+import PhoneFrame from './PhoneFrame';
 
 interface ScreenTab {
   id: string;
@@ -193,21 +194,13 @@ export default function InteractiveTour() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.3 }}
-                  className="relative w-[250px] sm:w-[280px] rounded-[2.8rem] p-3 bg-slate-950 shadow-2xl border-4 border-slate-800"
                 >
-                  {/* Phone Camera Punch-Hole */}
-                  <div className="absolute top-3.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-slate-950 rounded-full z-30 flex items-center justify-center border border-slate-700/60 shadow-xs">
-                    <div className="w-1 h-1 rounded-full bg-slate-900" />
-                  </div>
-
-                  {/* Device Screen */}
-                  <div className="rounded-[2.2rem] overflow-hidden bg-slate-900 aspect-[9/19.2] relative shadow-inner">
-                    <img
-                      src={current.screenshot}
-                      alt={current.title}
-                      className="w-full h-full object-cover object-top"
-                    />
-                  </div>
+                  <PhoneFrame
+                    src={current.screenshot}
+                    alt={current.title}
+                    frameClassName="w-[260px] sm:w-[290px]"
+                    statusTheme="light"
+                  />
                 </motion.div>
               </AnimatePresence>
             </div>

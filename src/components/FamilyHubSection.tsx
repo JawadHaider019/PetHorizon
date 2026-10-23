@@ -1,5 +1,6 @@
 import { Users, QrCode, CheckCircle, Smartphone, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import PhoneFrame from './PhoneFrame';
 
 export default function FamilyHubSection() {
   const steps = [
@@ -41,34 +42,26 @@ export default function FamilyHubSection() {
           
           {/* Left Column: Device Screenshot */}
           <div className="lg:col-span-5 flex justify-center order-2 lg:order-1 relative">
-            <div className="relative w-[270px] sm:w-[300px] rounded-[3rem] p-3 bg-slate-950 shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4 border-emerald-800/60">
-              
-              {/* Phone Camera Punch-Hole */}
-              <div className="absolute top-3.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-slate-950 rounded-full z-30 flex items-center justify-center border border-slate-700/60 shadow-xs">
-                <div className="w-1 h-1 rounded-full bg-slate-900" />
-              </div>
+            <div className="relative">
+              <PhoneFrame
+                src="/screenshots/family-screen.png"
+                alt="Pet Horizon Family Hub Co-Parenting Screen"
+                frameClassName="w-[270px] sm:w-[300px]"
+                statusTheme="light"
+              />
 
-              {/* Screen Frame */}
-              <div className="rounded-[2.2rem] overflow-hidden bg-emerald-800 aspect-[9/19.2] relative">
-                <img
-                  src="/screenshots/family-screen.png"
-                  alt="Pet Horizon Family Hub Co-Parenting Screen"
-                  className="w-full h-full object-cover object-top"
-                />
-              </div>
-
-              {/* Floating QR Code Badge */}
+              {/* Floating QR Code Badge (Repositioned outward so screen is unobstructed) */}
               <motion.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute -bottom-5 -right-4 sm:-right-8 bg-white text-slate-900 rounded-2xl p-3.5 shadow-2xl border border-emerald-300 flex items-center gap-3 z-30 max-w-[210px] text-left"
+                className="absolute -bottom-6 -right-4 sm:-right-14 lg:-right-16 bg-white text-slate-900 rounded-2xl p-3 sm:p-3.5 shadow-2xl border border-emerald-300 flex items-center gap-3 z-30 w-[190px] sm:w-[210px] text-left"
               >
-                <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold shrink-0">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold shrink-0">
                   <QrCode className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-wider text-emerald-800">QR Deep Linking</p>
-                  <p className="text-xs font-bold text-slate-900 leading-tight">Instant Caretaker Sync</p>
+                  <p className="text-[9px] sm:text-[10px] font-black uppercase tracking-wider text-emerald-800">QR Deep Linking</p>
+                  <p className="text-[11px] sm:text-xs font-bold text-slate-900 leading-tight">Instant Caretaker Sync</p>
                 </div>
               </motion.div>
             </div>

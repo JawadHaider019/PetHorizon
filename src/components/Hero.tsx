@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import googlePlayImg from '../assets/google-play.svg';
 import appStoreImg from '../assets/app-store.svg';
+import PhoneFrame from './PhoneFrame';
 
 export default function Hero() {
   const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon';
@@ -143,66 +144,59 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.2 }}
-            className="lg:col-span-5 relative flex items-center justify-center pt-4 lg:pt-0"
+            className="lg:col-span-5 relative flex items-center justify-center pt-8 pb-10 lg:py-0"
           >
-            {/* Background 3D Pet Mascot Card */}
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute -top-6 -right-4 sm:-right-8 w-44 sm:w-52 rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white z-20"
-            >
-              <img
-                src="/3d-pets-hero.jpg"
-                alt="3D Puppy and Kitten Pet Horizon Mascots"
-                className="w-full h-auto object-cover"
-              />
-              <div className="p-3 bg-gradient-to-t from-emerald-950/90 to-emerald-900/70 text-white text-left">
-                <p className="text-[10px] font-black uppercase tracking-wider text-emerald-300">
-                  All Companions Welcome
-                </p>
-                <p className="text-xs font-bold leading-tight mt-0.5">
-                  Dogs, Cats, Birds, Rabbits &amp; More
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Central Phone Mockup showcasing the authentic Play Store Schedule Screen */}
-            <div className="relative w-[280px] sm:w-[310px] rounded-[3rem] p-3 bg-slate-900 shadow-[0_25px_60px_-15px_rgba(16,185,129,0.25)] border-4 border-slate-800">
-              {/* Modern Phone Camera Punch-Hole */}
-              <div className="absolute top-3.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-slate-950 rounded-full z-30 flex items-center justify-center border border-slate-700/60 shadow-xs">
-                <div className="w-1 h-1 rounded-full bg-slate-900" />
-              </div>
-
-              {/* Screen Frame */}
-              <div className="relative rounded-[2.3rem] overflow-hidden bg-emerald-600 aspect-[9/19.5] shadow-inner">
-                <img
-                  src="/screenshots/home-screen.png"
-                  alt="Pet Horizon Home Dashboard Screen"
-                  className="w-full h-full object-cover object-top"
-                />
-              </div>
-
-              {/* Floating Live Card: Schedule Task Status */}
+            <div className="relative">
+              {/* Background 3D Pet Mascot Card (Framing top-right without covering screen) */}
               <motion.div
-                animate={{ y: [0, 6, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-                className="absolute -bottom-6 -left-4 sm:-left-8 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 shadow-xl border border-emerald-100 flex items-center gap-3 max-w-[240px] text-left z-30"
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+                className="absolute -top-10 -right-2 sm:-top-14 sm:right-auto sm:left-[82%] lg:left-[86%] w-36 sm:w-44 lg:w-48 rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white z-20 pointer-events-none sm:pointer-events-auto"
               >
-                <div className="w-9 h-9 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold shrink-0">
-                  🥣
-                </div>
-                <div>
-                  <p className="text-[10px] font-black uppercase tracking-wider text-slate-400">Daily Routine</p>
-                  <p className="text-xs font-bold text-slate-900">Breakfast (2 cups) • Completed</p>
-                  <p className="text-[10px] text-emerald-600 font-semibold mt-0.5">Logged at 11:20 AM</p>
+                <img
+                  src="/3d-pets-hero.jpg"
+                  alt="3D Puppy and Kitten Pet Horizon Mascots"
+                  className="w-full h-auto object-cover"
+                />
+                <div className="p-2 sm:p-2.5 bg-gradient-to-t from-emerald-950/95 to-emerald-900/80 text-white text-left">
+                  <p className="text-[8px] sm:text-[9px] font-black uppercase tracking-wider text-emerald-300">
+                    All Companions Welcome
+                  </p>
+                  <p className="text-[10px] sm:text-[11px] font-bold leading-tight mt-0.5">
+                    Dogs, Cats, Birds, Rabbits &amp; More
+                  </p>
                 </div>
               </motion.div>
 
-              {/* Floating Live Card: Family Hub Connection */}
+              {/* Central Phone Mockup with Status Bar, Bottom Bar, and No Notch */}
+              <PhoneFrame
+                src="/screenshots/home-screen.png"
+                alt="Pet Horizon Home Dashboard Screen"
+                frameClassName="w-[280px] sm:w-[310px]"
+                statusTheme="emerald"
+              />
+
+              {/* Floating Live Card: Daily Routine Task Status (Positioned completely outside on left) */}
+              <motion.div
+                animate={{ y: [0, 6, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+                className="absolute -bottom-6 left-1/2 -translate-x-1/2 sm:left-auto sm:translate-x-0 sm:right-[88%] lg:right-[92%] sm:bottom-12 bg-white/95 backdrop-blur-md rounded-2xl p-3 sm:p-3.5 shadow-xl border border-emerald-100 flex items-center gap-3 w-[220px] sm:w-[240px] text-left z-30"
+              >
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold shrink-0">
+                  🥣
+                </div>
+                <div>
+                  <p className="text-[9px] sm:text-[10px] font-black uppercase tracking-wider text-slate-400">Daily Routine</p>
+                  <p className="text-[11px] sm:text-xs font-bold text-slate-900">Breakfast (2 cups) • Done</p>
+                  <p className="text-[9px] sm:text-[10px] text-emerald-600 font-semibold mt-0.5">Logged at 11:20 AM</p>
+                </div>
+              </motion.div>
+
+              {/* Floating Live Card: Family Hub Connection (Positioned completely outside on right) */}
               <motion.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-                className="absolute top-1/2 -right-6 sm:-right-10 bg-white/95 backdrop-blur-md rounded-2xl p-3 shadow-xl border border-emerald-100 flex items-center gap-2.5 max-w-[210px] text-left z-30"
+                className="hidden sm:flex absolute top-1/2 -translate-y-1/2 left-[88%] lg:left-[92%] bg-white/95 backdrop-blur-md rounded-2xl p-3 shadow-xl border border-emerald-100 items-center gap-2.5 w-[200px] sm:w-[210px] text-left z-30"
               >
                 <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold shrink-0">
                   <Users className="w-4 h-4" />
@@ -214,7 +208,6 @@ export default function Hero() {
                 </div>
               </motion.div>
             </div>
-
           </motion.div>
 
         </div>
