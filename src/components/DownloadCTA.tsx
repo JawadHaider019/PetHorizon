@@ -10,19 +10,19 @@ export default function DownloadCTA() {
     <section className="py-16 sm:py-24 bg-gradient-to-b from-white to-emerald-50/60 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
         
-        <div className="bg-gradient-to-br from-emerald-900 via-slate-900 to-emerald-950 text-white rounded-3xl sm:rounded-[3rem] p-8 sm:p-12 lg:p-16 shadow-2xl relative overflow-hidden border border-emerald-800/40">
+        <div className="bg-gradient-to-br from-[#2E7D32] to-[#1B5E20] text-white rounded-3xl sm:rounded-[3rem] p-8 sm:p-12 lg:p-16 shadow-2xl relative overflow-hidden border border-emerald-500/40">
           
           {/* Ambient decorative lighting */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/15 rounded-full blur-[120px] pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-emerald-600/15 rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-emerald-400/10 rounded-full blur-[120px] pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
             
             {/* Copy & CTAs (7 Cols) */}
             <div className="lg:col-span-7 text-left flex flex-col gap-5">
               
-              <div className="inline-flex items-center gap-2 bg-emerald-800/60 border border-emerald-700/80 text-emerald-300 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full w-fit">
-                <Smartphone className="w-3.5 h-3.5 text-emerald-400" />
+              <div className="inline-flex items-center gap-2 bg-white/20 border border-white/30 text-white text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full w-fit">
+                <Smartphone className="w-3.5 h-3.5 text-emerald-200" />
                 <span>Start Today For Free</span>
               </div>
 
@@ -30,7 +30,7 @@ export default function DownloadCTA() {
                 Give Your Companion the Organized Care They Deserve
               </h2>
 
-              <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl">
+              <p className="text-emerald-50/90 text-base sm:text-lg leading-relaxed max-w-xl font-normal">
                 Download Pet Horizon today. Track feedings, manage medications, and co-ordinate your family care team effortlessly.
               </p>
 
@@ -42,7 +42,7 @@ export default function DownloadCTA() {
                   href={playStoreUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white hover:bg-slate-100 text-slate-900 font-bold px-6 py-3.5 rounded-2xl flex items-center gap-3.5 shadow-xl transition-all"
+                  className="bg-white hover:bg-emerald-50 text-slate-900 font-bold px-6 py-3.5 rounded-2xl flex items-center gap-3.5 shadow-xl transition-all"
                 >
                   <img src={googlePlayImg} alt="Google Play" className="h-6 w-auto" />
                   <div className="flex flex-col text-left">
@@ -51,27 +51,27 @@ export default function DownloadCTA() {
                   </div>
                 </motion.a>
 
-                <div className="bg-slate-800/60 border border-slate-700 text-slate-400 px-5 py-3 rounded-2xl flex items-center gap-3">
-                  <img src={appStoreImg} alt="App Store" className="h-6 w-auto grayscale opacity-50" />
+                <div className="bg-white/15 border border-white/20 text-white px-5 py-3 rounded-2xl flex items-center gap-3">
+                  <img src={appStoreImg} alt="App Store" className="h-6 w-auto brightness-200 opacity-70" />
                   <div className="flex flex-col text-left">
-                    <span className="text-[10px] uppercase font-bold text-slate-500 leading-none">iOS Version</span>
-                    <span className="text-xs font-bold text-slate-300 leading-tight">Coming Soon</span>
+                    <span className="text-[10px] uppercase font-bold text-emerald-100 leading-none">iOS Version</span>
+                    <span className="text-xs font-bold text-white leading-tight">Coming Soon</span>
                   </div>
                 </div>
               </div>
 
               {/* Reassurances */}
-              <div className="flex flex-wrap items-center gap-4 pt-2 text-xs text-emerald-200/80 font-medium">
+              <div className="flex flex-wrap items-center gap-4 pt-2 text-xs text-emerald-100/90 font-medium">
                 <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Free to download
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-200" /> Free to download
                 </span>
                 <span>•</span>
                 <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> No ads
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-200" /> No ads
                 </span>
                 <span>•</span>
                 <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Secure cloud synchronization
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-200" /> Secure cloud synchronization
                 </span>
               </div>
 
@@ -81,14 +81,14 @@ export default function DownloadCTA() {
             <div className="lg:col-span-5 flex justify-center items-center">
               <div className="relative">
                 {/* 3D Mascot preview */}
-                <div className="w-56 sm:w-64 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 bg-white">
+                <div className="w-56 sm:w-64 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/30 bg-white">
                   <img
                     src="/3d-pets-species.jpg"
                     alt="Pet Horizon 3D Mascot Companions"
                     className="w-full h-auto object-cover"
                   />
-                  <div className="p-3 bg-slate-900 text-white text-center">
-                    <p className="text-[11px] font-bold text-emerald-300">
+                  <div className="p-3 bg-emerald-900 text-white text-center">
+                    <p className="text-[11px] font-bold text-emerald-200">
                       Co-manage all pets in harmony
                     </p>
                   </div>

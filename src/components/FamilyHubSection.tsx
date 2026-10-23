@@ -31,10 +31,10 @@ export default function FamilyHubSection() {
   ];
 
   return (
-    <section id="family-hub" className="py-20 sm:py-28 bg-emerald-900 text-white relative overflow-hidden">
-      {/* Decorative background radial glows */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-700/20 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[450px] h-[450px] bg-emerald-950/40 rounded-full blur-[140px] pointer-events-none" />
+    <section id="family-hub" className="py-20 sm:py-28 bg-white text-slate-800 relative overflow-hidden">
+      {/* Decorative background ambient glows */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[450px] h-[450px] bg-emerald-600/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
         
@@ -49,17 +49,17 @@ export default function FamilyHubSection() {
                 frameClassName="w-[270px] sm:w-[300px]"
               />
 
-              {/* Floating QR Code Badge (Repositioned outward so screen is unobstructed) */}
+              {/* Floating QR Code Badge */}
               <motion.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute -bottom-6 -right-4 sm:-right-14 lg:-right-16 bg-white text-slate-900 rounded-2xl p-3 sm:p-3.5 shadow-2xl border border-emerald-300 flex items-center gap-3 z-30 w-[190px] sm:w-[210px] text-left"
+                className="absolute -bottom-6 -right-4 sm:-right-14 lg:-right-16 bg-white text-slate-900 rounded-2xl p-3 sm:p-3.5 shadow-xl border border-emerald-200 flex items-center gap-3 z-30 w-[190px] sm:w-[210px] text-left"
               >
                 <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold shrink-0">
                   <QrCode className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-[9px] sm:text-[10px] font-black uppercase tracking-wider text-emerald-800">QR Deep Linking</p>
+                  <p className="text-[9px] sm:text-[10px] font-black uppercase tracking-wider text-emerald-700">QR Deep Linking</p>
                   <p className="text-[11px] sm:text-xs font-bold text-slate-900 leading-tight">Instant Caretaker Sync</p>
                 </div>
               </motion.div>
@@ -69,17 +69,17 @@ export default function FamilyHubSection() {
           {/* Right Column: Explanatory Copy & 4 Steps */}
           <div className="lg:col-span-7 text-left flex flex-col gap-6 order-1 lg:order-2">
             
-            <div className="inline-flex items-center gap-2 bg-emerald-800/80 border border-emerald-700 text-emerald-200 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full w-fit">
-              <Users className="w-3.5 h-3.5 text-emerald-400" />
+            <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200/80 text-emerald-800 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full w-fit">
+              <Users className="w-3.5 h-3.5 text-emerald-600" />
               <span>Caretaker Collaboration</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
               Pet Care is a Team Effort. Manage It Together.
             </h2>
 
-            <p className="text-emerald-100/90 text-base sm:text-lg leading-relaxed">
-              No more texting <span className="italic">"Did you feed the dog?"</span> or wondering if evening medications were administered. Pet Horizon keeps everyone on the exact same page in real-time.
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-normal">
+              No more texting <span className="italic font-medium text-slate-800">"Did you feed the dog?"</span> or wondering if evening medications were administered. Pet Horizon keeps everyone on the exact same page in real-time.
             </p>
 
             {/* 4 Step Timeline */}
@@ -89,18 +89,18 @@ export default function FamilyHubSection() {
                 return (
                   <div
                     key={idx}
-                    className="bg-emerald-800/40 border border-emerald-700/60 rounded-2xl p-4.5 flex flex-col gap-2 hover:bg-emerald-800/60 transition-colors"
+                    className="bg-[#F5F6F8] border border-slate-200/80 rounded-2xl p-4.5 flex flex-col gap-2 hover:bg-emerald-50/50 hover:border-emerald-300 transition-all shadow-xs"
                   >
                     <div className="flex items-center justify-between">
-                      <div className="w-8 h-8 rounded-xl bg-emerald-700/80 text-emerald-200 flex items-center justify-center font-bold text-xs">
+                      <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs">
                         <Icon className="w-4 h-4" />
                       </div>
-                      <span className="text-xs font-black text-emerald-400 font-mono tracking-wider">
+                      <span className="text-xs font-black text-emerald-700 font-mono tracking-wider">
                         {st.num}
                       </span>
                     </div>
-                    <h4 className="text-sm font-bold text-white mt-1">{st.title}</h4>
-                    <p className="text-xs text-emerald-200/80 leading-relaxed font-normal">
+                    <h4 className="text-sm font-bold text-slate-900 mt-1">{st.title}</h4>
+                    <p className="text-xs text-slate-600 leading-relaxed font-normal">
                       {st.desc}
                     </p>
                   </div>
@@ -113,12 +113,12 @@ export default function FamilyHubSection() {
                 href="https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white hover:bg-emerald-50 text-emerald-950 font-bold px-6 py-3.5 rounded-2xl flex items-center gap-2 shadow-lg transition-all text-sm"
+                className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3.5 rounded-2xl flex items-center gap-2 shadow-lg shadow-emerald-600/25 transition-all text-sm"
               >
                 <span>Try Family Hub on Android</span>
-                <ArrowRight className="w-4 h-4 text-emerald-700" />
+                <ArrowRight className="w-4 h-4" />
               </a>
-              <span className="text-xs text-emerald-300 font-medium">
+              <span className="text-xs text-slate-500 font-medium">
                 Included in Free Plan • 1 Family &amp; Caretaker connection
               </span>
             </div>
