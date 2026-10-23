@@ -1,0 +1,16 @@
+const fs = require('fs');
+
+// Let's write a simple HTML file to preview or check the exact rendering
+const html = `
+<!DOCTYPE html>
+<html>
+<body style="background: #333; padding: 40px; display: flex; gap: 40px;">
+  <div>
+    <h3 style="color: white;">Original Screenshot</h3>
+    <img src="/screenshots/home-screen.png" style="width: 300px;" />
+  </div>
+</body>
+</html>
+`;
+fs.writeFileSync('scratch_preview.html', html);
+console.log('wrote scratch_preview.html');

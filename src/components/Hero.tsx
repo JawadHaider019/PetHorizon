@@ -147,7 +147,7 @@ export default function Hero() {
             className="lg:col-span-5 relative flex items-center justify-center pt-8 pb-10 lg:py-0"
           >
             <div className="relative">
-              {/* Central Phone Mockup with Transparent Status Bar, Bottom Bar, and No Notch */}
+              {/* Central Phone Mockup with direct screenshot fitting (No Status Bar, No Notch) */}
               <PhoneFrame
                 src="/screenshots/home-screen.png"
                 alt="Pet Horizon Home Dashboard Screen"
