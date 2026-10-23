@@ -17,9 +17,10 @@ import { BLOG_POSTS, BLOG_CATEGORIES, BlogPost } from '../data/blogData';
 interface BlogHubProps {
   onNavigateHome: () => void;
   onNavigateLegal?: (doc: 'privacy' | 'terms' | 'deletion') => void;
+  onSelectArticle?: (slug: string) => void;
 }
 
-export default function BlogHub({ onNavigateHome, onNavigateLegal }: BlogHubProps) {
+export default function BlogHub({ onNavigateHome, onNavigateLegal, onSelectArticle }: BlogHubProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>('All Articles');
   const [searchQuery, setSearchQuery] = useState('');
   const [newsletterEmail, setNewsletterEmail] = useState('');
@@ -185,8 +186,12 @@ export default function BlogHub({ onNavigateHome, onNavigateLegal }: BlogHubProp
                 </div>
 
                 <button
-                  onClick={() => setActiveModalPost(featuredPost)}
-                  className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl font-bold text-xs shadow-md shadow-emerald-700/20 transition-colors cursor-pointer"
+                  onClick={() =>
+                    onSelectArticle
+                      ? onSelectArticle(featuredPost.slug)
+                      : setActiveModalPost(featuredPost)
+                  }
+                  className="inline-flex items-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white px-5 py-2.5 rounded-xl font-bold text-xs shadow-md shadow-emerald-700/20 transition-colors cursor-pointer"
                 >
                   <span>Read Full Article</span>
                   <ArrowRight className="w-4 h-4" />
@@ -194,7 +199,14 @@ export default function BlogHub({ onNavigateHome, onNavigateLegal }: BlogHubProp
               </div>
             </div>
 
-            <div className="lg:col-span-5 h-64 lg:h-auto relative overflow-hidden bg-slate-100">
+            <div
+              onClick={() =>
+                onSelectArticle
+                  ? onSelectArticle(featuredPost.slug)
+                  : setActiveModalPost(featuredPost)
+              }
+              className="lg:col-span-5 h-64 lg:h-auto relative overflow-hidden bg-slate-100 cursor-pointer"
+            >
               <img
                 src={featuredPost.coverImage}
                 alt={featuredPost.title}
@@ -237,7 +249,9 @@ export default function BlogHub({ onNavigateHome, onNavigateLegal }: BlogHubProp
               {filteredPosts.map((post) => (
                 <article
                   key={post.id}
-                  onClick={() => setActiveModalPost(post)}
+                  onClick={() =>
+                    onSelectArticle ? onSelectArticle(post.slug) : setActiveModalPost(post)
+                  }
                   className="bg-white rounded-3xl border border-slate-200/80 overflow-hidden shadow-xs hover:shadow-md hover:border-emerald-300/80 transition-all duration-200 flex flex-col group cursor-pointer"
                 >
                   {/* Cover Image Container */}
