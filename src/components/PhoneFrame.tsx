@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface PhoneFrameProps {
   src: string;
   alt: string;
