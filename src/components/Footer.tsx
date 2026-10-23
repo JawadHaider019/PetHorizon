@@ -1,7 +1,20 @@
 import { GooglePlayBadge, AppStoreBadge } from './AppBadges';
 
-export default function Footer() {
+interface FooterProps {
+  onNavigateLegal?: (doc: 'privacy' | 'terms' | 'deletion') => void;
+}
+
+export default function Footer({ onNavigateLegal }: FooterProps) {
   const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon';
+
+  const handleLegalClick = (e: React.MouseEvent, doc: 'privacy' | 'terms' | 'deletion') => {
+    e.preventDefault();
+    if (onNavigateLegal) {
+      onNavigateLegal(doc);
+    } else {
+      window.location.href = `/${doc === 'privacy' ? 'privacy-policy' : doc === 'terms' ? 'terms-of-service' : 'data-deletion'}`;
+    }
+  };
 
   return (
     <footer className="bg-[#F5F6F8] text-slate-700 pt-16 pb-12 border-t border-slate-200 relative overflow-hidden">
@@ -14,7 +27,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-14 border-b border-slate-200">
           
           {/* Brand Info (5 Cols) */}
-          <div className="md:col-span-5 text-left flex flex-col gap-4">
+          <div className="md:col-span-4 text-left flex flex-col gap-4">
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 rounded-2xl bg-emerald-600 flex items-center justify-center p-1 shadow-md shadow-emerald-600/20">
                 <img
@@ -35,7 +48,7 @@ export default function Footer() {
               The complete pet companion assistant. Manage daily feeding routines, medication alerts, vaccination dates, shared family caretaking, and photo memories all in one app.
             </p>
 
-            <div className="flex items-center gap-2 pt-2">
+            <div className="flex flex-wrap items-center gap-2 pt-2">
               <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-800 bg-emerald-100/80 border border-emerald-200 px-3 py-1 rounded-full">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
                 Live on Google Play
@@ -78,25 +91,55 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Support & Community (2 Cols) */}
-          <div className="md:col-span-2 text-left">
+          {/* Legal & Compliance (3 Cols) */}
+          <div className="md:col-span-3 text-left">
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900 mb-4">
-              Support
+              Legal &amp; Privacy
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
+                <button
+                  onClick={(e) => handleLegalClick(e, 'privacy')}
+                  className="text-slate-600 hover:text-emerald-700 transition-colors font-medium text-left cursor-pointer flex items-center gap-1.5"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                  Privacy Policy
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={(e) => handleLegalClick(e, 'terms')}
+                  className="text-slate-600 hover:text-emerald-700 transition-colors font-medium text-left cursor-pointer flex items-center gap-1.5"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
+                  Terms of Service
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={(e) => handleLegalClick(e, 'deletion')}
+                  className="text-slate-600 hover:text-rose-700 transition-colors font-medium text-left cursor-pointer flex items-center gap-1.5"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0" />
+                  Account &amp; Data Deletion
+                </button>
+              </li>
+              <li>
                 <a href="#faq" className="text-slate-600 hover:text-emerald-700 transition-colors font-medium">
-                  FAQs
+                  FAQs &amp; Help Center
                 </a>
               </li>
               <li>
                 <a href="#contact" className="text-slate-600 hover:text-emerald-700 transition-colors font-medium">
-                  Contact Us
+                  Contact Support
                 </a>
               </li>
               <li>
-                <a href="mailto:support@pethorizon.app" className="text-slate-600 hover:text-emerald-700 transition-colors font-medium">
-                  Email Helpdesk
+                <a
+                  href="mailto:pethorizon2026@gmail.com"
+                  className="text-emerald-700 hover:text-emerald-800 transition-colors font-semibold text-xs block truncate"
+                >
+                  pethorizon2026@gmail.com
                 </a>
               </li>
             </ul>
@@ -117,14 +160,33 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p className="font-medium text-center sm:text-left">
-            Pet Horizon &copy; {new Date().getFullYear()} &bull; All Rights Reserved. Built for pet lovers worldwide.
+            Pet Horizon &copy; {new Date().getFullYear()} &bull; Developer: Pet Horizon Development Team &bull; All Rights Reserved.
           </p>
-          <div className="flex items-center gap-4 font-medium">
-            <a href="#faq" className="hover:text-emerald-700 transition-colors">Privacy</a>
+          <div className="flex flex-wrap items-center justify-center gap-4 font-medium">
+            <button
+              onClick={(e) => handleLegalClick(e, 'privacy')}
+              className="hover:text-emerald-700 transition-colors cursor-pointer"
+            >
+              Privacy Policy
+            </button>
             <span>&bull;</span>
-            <a href="#faq" className="hover:text-emerald-700 transition-colors">Terms</a>
+            <button
+              onClick={(e) => handleLegalClick(e, 'terms')}
+              className="hover:text-emerald-700 transition-colors cursor-pointer"
+            >
+              Terms of Service
+            </button>
             <span>&bull;</span>
-            <a href="#contact" className="hover:text-emerald-700 transition-colors">Help</a>
+            <button
+              onClick={(e) => handleLegalClick(e, 'deletion')}
+              className="hover:text-rose-700 transition-colors cursor-pointer"
+            >
+              Data Deletion
+            </button>
+            <span>&bull;</span>
+            <a href="#contact" className="hover:text-emerald-700 transition-colors">
+              Support
+            </a>
           </div>
         </div>
 
