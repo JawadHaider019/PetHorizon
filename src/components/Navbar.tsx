@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, Smartphone } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import googlePlayImg from '../assets/google-play.svg';
 
@@ -29,73 +29,72 @@ export default function Navbar() {
 
   return (
     <>
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
           isScrolled
-            ? 'bg-white/95 backdrop-blur-md border-b border-emerald-100 shadow-sm py-3.5'
-            : 'bg-transparent py-5'
+            ? 'bg-white/80 backdrop-blur-xl border-b border-slate-200/80 shadow-[0_1px_3px_0_rgba(0,0,0,0.03)] py-2.5'
+            : 'bg-white/40 backdrop-blur-md border-b border-slate-200/40 py-3.5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
           <div className="flex items-center justify-between">
-            {/* Logo */}
+            {/* Brand Logo */}
             <a
               href="#home"
-              className="flex items-center space-x-3 group"
+              className="flex items-center gap-2.5 group select-none"
             >
-              <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center p-1 shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform duration-200">
+              <div className="w-8 h-8 rounded-xl overflow-hidden ring-1 ring-slate-900/10 shadow-xs flex items-center justify-center bg-white group-hover:scale-105 transition-transform duration-200">
                 <img
                   src="/app-icon.png"
                   alt="Pet Horizon"
-                  className="w-full h-full object-contain rounded-xl"
+                  className="w-full h-full object-cover"
                   onError={(e) => {
-                    // Fallback to logo if app-icon fails
                     (e.currentTarget as HTMLImageElement).src = '/applogo.png';
                   }}
                 />
               </div>
-              <div className="flex flex-col text-left">
-                <span className="flex items-center text-xl sm:text-2xl font-black tracking-tight text-slate-900 leading-none">
-                  Pet<span className="text-emerald-600 font-extrabold ml-0.5">Horizon</span>
+              <div className="flex items-center">
+                <span className="text-[17px] font-bold tracking-tight text-slate-900 leading-none">
+                  Pet<span className="text-emerald-600 font-bold">Horizon</span>
                 </span>
-                <span className="text-[10px] font-bold tracking-wider text-emerald-700/80 uppercase mt-0.5">
-                  Smart Pet Care
+                <span className="hidden sm:inline-flex items-center text-[10px] font-semibold tracking-wide uppercase px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200/60 ml-2">
+                  Pet Care
                 </span>
               </div>
             </a>
 
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-7">
+            {/* Desktop Navigation Links */}
+            <nav className="hidden lg:flex items-center gap-1">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="font-semibold text-slate-600 hover:text-emerald-600 transition-colors duration-200 text-sm tracking-normal"
+                  className="text-[13px] font-medium text-slate-600 hover:text-slate-950 px-3 py-1.5 rounded-lg hover:bg-slate-100/70 transition-colors duration-150 tracking-normal"
                 >
                   {link.name}
                 </a>
               ))}
-            </div>
+            </nav>
 
-            {/* CTA Buttons */}
-            <div className="hidden sm:flex items-center space-x-3">
+            {/* Right Action */}
+            <div className="hidden sm:flex items-center gap-3">
               <a
                 href={playStoreUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 bg-slate-900 hover:bg-slate-800 text-slate-100 hover:text-white px-4 py-2 rounded-xl font-semibold shadow-xs hover:shadow-md border border-slate-700/80 hover:border-slate-600 transition-all duration-200 text-xs sm:text-sm group"
+                className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white text-[13px] font-medium px-3.5 py-1.5 rounded-lg shadow-xs hover:shadow transition-all duration-150 border border-slate-800 group"
               >
-                <img src={googlePlayImg} alt="Google Play" className="w-4 h-4 object-contain" />
-                <span>Google Play</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-slate-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                <img src={googlePlayImg} alt="Google Play" className="w-3.5 h-3.5 object-contain" />
+                <span>Get App</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-150" />
               </a>
             </div>
 
             {/* Mobile Menu Button */}
-            <div className="lg:hidden">
+            <div className="lg:hidden flex items-center">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="p-2.5 rounded-2xl bg-slate-100 text-slate-700 hover:text-emerald-600 hover:bg-emerald-50 transition-colors focus:outline-none"
+                className="p-1.5 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100/80 transition-colors focus:outline-none"
                 aria-label="Toggle menu"
               >
                 {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -103,39 +102,40 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-      </nav>
+      </header>
 
       {/* Mobile Drawer */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-18 z-40 bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-xl px-6 py-6 lg:hidden"
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.18, ease: 'easeOut' }}
+            className="fixed inset-x-0 top-[53px] z-40 bg-white/95 backdrop-blur-2xl border-b border-slate-200 shadow-xl px-5 py-4 lg:hidden"
           >
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-1">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="font-semibold text-slate-800 hover:text-emerald-600 py-2 border-b border-slate-100 text-base"
+                  className="font-medium text-slate-700 hover:text-slate-950 px-3 py-2 rounded-lg hover:bg-slate-100/70 text-sm transition-colors"
                 >
                   {link.name}
                 </a>
               ))}
-              <div className="pt-2 flex flex-col gap-3">
+              <div className="pt-3 mt-2 border-t border-slate-100">
                 <a
                   href={playStoreUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsOpen(false)}
-                  className="w-full text-center bg-slate-900 hover:bg-slate-800 text-white py-2.5 rounded-xl font-semibold shadow-xs text-sm flex items-center justify-center gap-2.5 border border-slate-700/80"
+                  className="w-full text-center bg-slate-900 hover:bg-slate-800 text-white py-2 rounded-lg font-medium text-sm flex items-center justify-center gap-2 border border-slate-800 shadow-xs"
                 >
-                  <img src={googlePlayImg} alt="Google Play" className="w-4 h-4 object-contain" />
+                  <img src={googlePlayImg} alt="Google Play" className="w-3.5 h-3.5 object-contain" />
                   <span>Get on Google Play</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-slate-400" />
                 </a>
               </div>
             </div>
