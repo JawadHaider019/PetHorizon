@@ -256,18 +256,6 @@ export default function ContactUs() {
     setFormErrors({});
   };
 
-  // Generate external email links for fallback
-  const emailSubject = submittedTicket
-    ? `[${submittedTicket.ticketId}] [${submittedTicket.topic.subjectTag}] Inquiry from ${submittedTicket.name}`
-    : `[Pet Horizon Support] [${activeTopic.subjectTag}] Inquiry`;
-
-  const emailBody = submittedTicket
-    ? `Ticket ID: ${submittedTicket.ticketId}\nName: ${submittedTicket.name}\nEmail: ${submittedTicket.email}\nTopic: ${submittedTicket.topic.label}\nPriority: ${submittedTicket.priority.toUpperCase()}\n\nMessage:\n${submittedTicket.message}\n\n---\nSent via Pet Horizon Support Center`
-    : `Hello Pet Horizon Support Team,\n\nI need assistance regarding ${activeTopic.label}.\n\n[Please describe your inquiry or issue here]\n\nThank you!`;
-
-  const mailtoUrl = `mailto:${BACKEND_EMAIL}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-  const gmailWebUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${BACKEND_EMAIL}&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-
   return (
     <section id="contact" className="py-20 sm:py-28 bg-[#FAFAF9] relative overflow-hidden">
       {/* Dynamic Ambient Background Glows */}
@@ -651,30 +639,16 @@ export default function ContactUs() {
                         </div>
                       </div>
 
-                      {/* 1-Click Mail Fallback Options */}
-                      <div className="mb-4">
-                        <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 block mb-2">
-                          Quick Email Backup Options
-                        </span>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                          <a
-                            href={gmailWebUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-slate-800 text-xs font-bold transition-all shadow-2xs hover:border-slate-300 text-center"
-                          >
-                            <Mail className="w-3.5 h-3.5 text-red-500" />
-                            <span>Open in Web Gmail</span>
-                            <ExternalLink className="w-3 h-3 text-slate-400" />
-                          </a>
-
-                          <a
-                            href={mailtoUrl}
-                            className="inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-slate-800 text-xs font-bold transition-all shadow-2xs hover:border-slate-300 text-center"
-                          >
-                            <Send className="w-3.5 h-3.5 text-emerald-600" />
-                            <span>Open Default Mail App</span>
-                          </a>
+                      {/* Delivery Reassurance Card */}
+                      <div className="bg-emerald-50/80 border border-emerald-200/90 rounded-2xl p-4 mb-4 flex items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                        <div className="text-xs">
+                          <span className="font-bold text-emerald-950 block mb-0.5">
+                            Automated Delivery Confirmed
+                          </span>
+                          <p className="text-emerald-850 leading-relaxed font-normal">
+                            Your inquiry was dispatched directly to our support inbox via Formspree. Our team reviews all incoming tickets and will reply directly to <strong className="text-emerald-950 font-bold">{submittedTicket.email}</strong>. No further action is required.
+                          </p>
                         </div>
                       </div>
                     </div>
