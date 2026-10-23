@@ -168,10 +168,9 @@ export default function Hero() {
 
             {/* Central Phone Mockup showcasing the authentic Play Store Schedule Screen */}
             <div className="relative w-[280px] sm:w-[310px] rounded-[3rem] p-3 bg-slate-900 shadow-[0_25px_60px_-15px_rgba(16,185,129,0.25)] border-4 border-slate-800">
-              {/* Phone Camera Notch */}
-              <div className="absolute top-5 left-1/2 -translate-x-1/2 w-24 h-4 bg-slate-950 rounded-full z-30 flex items-center justify-center">
-                <div className="w-2.5 h-2.5 rounded-full bg-slate-800 mr-2" />
-                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/80" />
+              {/* Modern Phone Camera Punch-Hole */}
+              <div className="absolute top-3.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-slate-950 rounded-full z-30 flex items-center justify-center border border-slate-700/60 shadow-xs">
+                <div className="w-1 h-1 rounded-full bg-slate-900" />
               </div>
 
               {/* Screen Frame */}

@@ -43,10 +43,9 @@ export default function FamilyHubSection() {
           <div className="lg:col-span-5 flex justify-center order-2 lg:order-1 relative">
             <div className="relative w-[270px] sm:w-[300px] rounded-[3rem] p-3 bg-slate-950 shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4 border-emerald-800/60">
               
-              {/* Phone Notch */}
-              <div className="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-3.5 bg-slate-900 rounded-full z-30 flex items-center justify-center">
-                <div className="w-2 h-2 rounded-full bg-slate-700 mr-2" />
-                <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              {/* Phone Camera Punch-Hole */}
+              <div className="absolute top-3.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-slate-950 rounded-full z-30 flex items-center justify-center border border-slate-700/60 shadow-xs">
+                <div className="w-1 h-1 rounded-full bg-slate-900" />
               </div>
 
               {/* Screen Frame */}

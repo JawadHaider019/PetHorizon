@@ -98,10 +98,9 @@ export default function DailyJournalSection() {
           <div className="lg:col-span-5 flex justify-center relative">
             <div className="relative w-[270px] sm:w-[300px] rounded-[3rem] p-3 bg-slate-950 shadow-2xl border-4 border-slate-800">
               
-              {/* Phone Notch */}
-              <div className="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-3.5 bg-slate-900 rounded-full z-30 flex items-center justify-center">
-                <div className="w-2 h-2 rounded-full bg-slate-700 mr-2" />
-                <div className="w-1 h-1 rounded-full bg-emerald-400" />
+              {/* Phone Camera Punch-Hole */}
+              <div className="absolute top-3.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-slate-950 rounded-full z-30 flex items-center justify-center border border-slate-700/60 shadow-xs">
+                <div className="w-1 h-1 rounded-full bg-slate-900" />
               </div>
 
               {/* Screen Frame */}
