@@ -14,7 +14,7 @@ import Footer from './components/Footer';
 import LegalPortal from './components/LegalPortal';
 import BlogHub from './components/BlogHub';
 import BlogArticleDetail from './components/BlogArticleDetail';
-import { BLOG_POSTS, BlogPost } from './data/blogData';
+import { BLOG_POSTS } from './data/blogData';
 
 export type ExtendedAppView = NavView | 'blog-article';
 

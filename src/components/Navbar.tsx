@@ -9,7 +9,6 @@ import {
   Camera,
   Smartphone,
   ShieldCheck,
-  FileText,
   Trash2,
   Sparkles,
   HelpCircle
