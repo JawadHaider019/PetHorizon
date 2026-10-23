@@ -111,13 +111,6 @@ export default function Navbar({ currentView = 'home', onNavigate }: NavbarProps
       icon: Smartphone,
       hash: '#tour',
       color: 'text-blue-600 bg-blue-50'
-    },
-    {
-      title: 'Routine Simulator',
-      desc: 'Interactive daily care planner for dogs, cats & bunnies',
-      icon: Sparkles,
-      hash: '#planner',
-      color: 'text-purple-600 bg-purple-50'
     }
   ];
 

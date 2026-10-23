@@ -3,7 +3,6 @@ import BackgroundCanvas from './components/BackgroundCanvas';
 import Navbar, { NavView } from './components/Navbar';
 import Hero from './components/Hero';
 import AppFeatures from './components/AppFeatures';
-import CareRoutinePlanner from './components/CareRoutinePlanner';
 import FamilyHubSection from './components/FamilyHubSection';
 import DailyJournalSection from './components/DailyJournalSection';
 import InteractiveTour from './components/InteractiveTour';
@@ -187,9 +186,6 @@ export default function App() {
 
           {/* 4 Core Pillars: Schedules, Family Hub, Daily Journal, Pet Profile */}
           <AppFeatures />
-
-          {/* Interactive Care Routine Planner Widget */}
-          <CareRoutinePlanner />
 
           {/* Deep Dive: Family Hub & Caretaker Collaboration */}
           <FamilyHubSection />
