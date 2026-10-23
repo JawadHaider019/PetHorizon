@@ -53,14 +53,9 @@ export default function Navbar() {
                   }}
                 />
               </div>
-              <div className="flex items-center">
-                <span className="text-[17px] font-bold tracking-tight text-slate-900 leading-none">
-                  Pet<span className="text-emerald-600 font-bold">Horizon</span>
-                </span>
-                <span className="hidden sm:inline-flex items-center text-[10px] font-semibold tracking-wide uppercase px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200/60 ml-2">
-                  Pet Care
-                </span>
-              </div>
+              <span className="text-[17px] font-bold tracking-tight text-slate-900 leading-none">
+                Pet<span className="text-emerald-600 font-bold">Horizon</span>
+              </span>
             </a>
 
             {/* Desktop Navigation Links */}
@@ -69,26 +64,12 @@ export default function Navbar() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-[13px] font-medium text-slate-600 hover:text-slate-950 px-3 py-1.5 rounded-lg hover:bg-slate-100/70 transition-colors duration-150 tracking-normal"
+                  className="text-[13px] font-medium text-slate-600 hover:text-slate-950 px-3.5 py-1.5 rounded-lg hover:bg-slate-100/70 transition-colors duration-150 tracking-normal"
                 >
                   {link.name}
                 </a>
               ))}
             </nav>
-
-            {/* Right Action */}
-            <div className="hidden sm:flex items-center gap-3">
-              <a
-                href={playStoreUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white text-[13px] font-medium px-3.5 py-1.5 rounded-lg shadow-xs hover:shadow transition-all duration-150 border border-slate-800 group"
-              >
-                <img src={googlePlayImg} alt="Google Play" className="w-3.5 h-3.5 object-contain" />
-                <span>Get App</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-150" />
-              </a>
-            </div>
 
             {/* Mobile Menu Button */}
             <div className="lg:hidden flex items-center">
