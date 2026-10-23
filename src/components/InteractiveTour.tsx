@@ -166,11 +166,11 @@ export default function InteractiveTour() {
                 onClick={() => setSelectedScreen(sc.id)}
                 className={`flex items-center gap-2 px-4.5 py-2.5 rounded-2xl font-bold text-xs sm:text-sm transition-all duration-200 cursor-pointer ${
                   isSelected
-                    ? 'bg-slate-900 text-white shadow-md shadow-slate-900/20 scale-105'
-                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200/80'
+                    ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/25 scale-105'
+                    : 'bg-[#F5F6F8] text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 border border-slate-200/80'
                 }`}
               >
-                <Icon className={`w-4 h-4 ${isSelected ? 'text-emerald-400' : 'text-slate-500'}`} />
+                <Icon className={`w-4 h-4 ${isSelected ? 'text-white' : 'text-slate-500'}`} />
                 <span>{sc.name}</span>
               </button>
             );
@@ -178,10 +178,10 @@ export default function InteractiveTour() {
         </div>
 
         {/* Interactive Showcase Canvas */}
-        <div className="bg-slate-900 text-white rounded-3xl sm:rounded-[2.8rem] p-6 sm:p-10 lg:p-14 shadow-2xl relative overflow-hidden">
+        <div className="bg-[#F5F6F8] border border-slate-200/90 rounded-3xl sm:rounded-[2.8rem] p-6 sm:p-10 lg:p-14 shadow-lg relative overflow-hidden">
           {/* Subtle green ambient lighting */}
-          <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-emerald-600/10 rounded-full blur-[130px] pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-[450px] h-[450px] bg-emerald-700/10 rounded-full blur-[130px] pointer-events-none" />
+          <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-emerald-500/10 rounded-full blur-[130px] pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-[450px] h-[450px] bg-emerald-600/10 rounded-full blur-[130px] pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative z-10">
             
@@ -215,15 +215,15 @@ export default function InteractiveTour() {
                   transition={{ duration: 0.3 }}
                   className="flex flex-col gap-4"
                 >
-                  <span className="text-[11px] font-black uppercase tracking-wider text-emerald-400 bg-emerald-950/80 border border-emerald-800 px-3 py-1 rounded-full w-fit">
+                  <span className="text-[11px] font-black uppercase tracking-wider text-emerald-800 bg-emerald-100/90 border border-emerald-200 px-3.5 py-1 rounded-full w-fit shadow-xs">
                     {current.badge}
                   </span>
 
-                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
                     {current.title}
                   </h3>
 
-                  <p className="text-slate-300 text-base sm:text-lg leading-relaxed font-normal">
+                  <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-normal">
                     {current.description}
                   </p>
 
@@ -231,10 +231,10 @@ export default function InteractiveTour() {
                   <div className="space-y-3 pt-2">
                     {current.highlights.map((hl, idx) => (
                       <div key={idx} className="flex items-start gap-3">
-                        <div className="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                        <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
                           <Check className="w-3.5 h-3.5" />
                         </div>
-                        <span className="text-sm text-slate-200 font-medium leading-relaxed">
+                        <span className="text-sm text-slate-700 font-medium leading-relaxed">
                           {hl}
                         </span>
                       </div>
@@ -246,7 +246,7 @@ export default function InteractiveTour() {
                       href="https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-3.5 rounded-2xl flex items-center gap-2 shadow-lg transition-all text-sm"
+                      className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3.5 rounded-2xl flex items-center gap-2 shadow-lg shadow-emerald-600/25 transition-all text-sm"
                     >
                       <span>Install App From Google Play</span>
                       <ArrowRight className="w-4 h-4" />
