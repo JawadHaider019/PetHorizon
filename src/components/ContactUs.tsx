@@ -1,228 +1,297 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Send, CheckCircle2, MessageSquare } from 'lucide-react';
+import { motion } from 'framer-motion';
+import {
+  Mail,
+  Send,
+  Check,
+  Copy,
+  Clock,
+  MessageSquare,
+  ShieldCheck,
+  LifeBuoy,
+  AlertTriangle,
+  ArrowRight,
+  ExternalLink,
+  Smartphone
+} from 'lucide-react';
+
+interface ContactCard {
+  id: string;
+  badge: string;
+  badgeColor: string;
+  title: string;
+  description: string;
+  displayEmail: string;
+  subject: string;
+  responseTime: string;
+  icon: typeof Mail;
+  quickLink: {
+    label: string;
+    href: string;
+    isExternal?: boolean;
+  };
+}
+
+const BACKEND_EMAIL = 'pethorizon2026@gmail.com';
+
+const CONTACT_CARDS: ContactCard[] = [
+  {
+    id: 'general-support',
+    badge: 'General & Family Hub',
+    badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200',
+    title: 'General Inquiries & App Help',
+    description:
+      'Questions regarding routine setup, medication schedule alerts, multi-caretaker sync, or subscription queries.',
+    displayEmail: 'support@pethorizon.app',
+    subject: '[Pet Horizon Support] Assistance Request',
+    responseTime: 'Typically responds within 24 hours',
+    icon: LifeBuoy,
+    quickLink: {
+      label: 'Read FAQs',
+      href: '#faq'
+    }
+  },
+  {
+    id: 'feedback-bugs',
+    badge: 'Product Feedback',
+    badgeColor: 'bg-blue-100 text-blue-800 border-blue-200',
+    title: 'Feature Ideas & Bug Reports',
+    description:
+      'Have an idea for a new pet tracker feature or encountered an issue in the Android app? Share your direct feedback with our engineering team.',
+    displayEmail: 'feedback@pethorizon.app',
+    subject: '[Pet Horizon Feedback] Feature Idea / Bug Report',
+    responseTime: 'Responds within 24–48 hours',
+    icon: MessageSquare,
+    quickLink: {
+      label: 'Explore Guides',
+      href: '/blog'
+    }
+  },
+  {
+    id: 'privacy-data',
+    badge: 'Privacy & Safety',
+    badgeColor: 'bg-teal-100 text-teal-800 border-teal-200',
+    title: 'Privacy & Data Rights',
+    description:
+      'Submit formal data export requests, account deletion verification, or questions regarding Google Play Data Safety compliance.',
+    displayEmail: 'privacy@pethorizon.app',
+    subject: '[Pet Horizon Privacy] Data or Account Deletion Request',
+    responseTime: 'Priority handling (< 24 hours)',
+    icon: ShieldCheck,
+    quickLink: {
+      label: 'Privacy Policy',
+      href: '/privacy-policy'
+    }
+  }
+];
 
 export default function ContactUs() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    topic: 'Support',
-    message: '',
-  });
-  const [isSuccess, setIsSuccess] = useState(false);
+  const [copiedId, setCopiedId] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) {
-      alert('Please fill out all required fields.');
-      return;
-    }
-    setIsSuccess(true);
+  const handleCopyEmail = (cardId: string, emailToCopy: string) => {
+    navigator.clipboard.writeText(emailToCopy);
+    setCopiedId(cardId);
+    setTimeout(() => {
+      setCopiedId(null);
+    }, 2200);
   };
 
   return (
-    <section id="contact" className="py-20 sm:py-28 bg-white relative overflow-hidden">
+    <section id="contact" className="py-20 sm:py-28 bg-[#FAFAF9] relative overflow-hidden">
+      {/* Subtle Background Glows */}
+      <div className="absolute top-10 left-1/3 w-[500px] h-[350px] bg-emerald-500/5 rounded-full blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute bottom-10 right-1/4 w-[450px] h-[350px] bg-teal-500/5 rounded-full blur-[130px] pointer-events-none -z-10" />
+
       <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
         
-        {/* Header */}
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center max-w-3xl mx-auto mb-14"
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center max-w-3xl mx-auto mb-16"
         >
-          <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-3">
+          <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-3.5">
             <Mail className="w-3.5 h-3.5 text-emerald-600" />
-            <span>We Are Here to Help</span>
+            <span>Direct Developer &amp; User Support</span>
           </div>
+
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-            Get in Touch With Our Team
+            Connect With Our Team Directly
           </h2>
-          <p className="text-slate-600 text-base sm:text-lg mt-3 font-normal">
-            Have questions about Pet Horizon features, need help setting up Family Sharing, or want to suggest an improvement? We would love to hear from you.
+
+          <p className="text-slate-600 text-base sm:text-lg mt-3.5 font-normal leading-relaxed">
+            No endless contact forms or automated bots. Send an email straight to our dedicated inboxes and a real member of the Pet Horizon team will respond.
           </p>
         </motion.div>
 
-        {/* Split Contact Container */}
-        <div className="max-w-5xl mx-auto rounded-3xl sm:rounded-[2.5rem] border border-slate-200 bg-slate-50 overflow-hidden shadow-xs">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-0 items-stretch">
-            
-            {/* Left Info Panel (5 Cols - Slides in from Left) */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-              className="md:col-span-5 bg-gradient-to-br from-[#2E7D32] to-[#1B5E20] text-white p-8 sm:p-10 flex flex-col justify-between text-left relative overflow-hidden"
-            >
-              <div className="flex flex-col gap-6 relative z-10">
-                <span className="text-[10px] text-white font-extrabold uppercase tracking-widest px-3 py-1 rounded-full border border-white/30 bg-white/15 w-fit">
-                  Direct Support
-                </span>
-                
-                <h3 className="text-2xl sm:text-3xl font-black leading-tight text-white">
-                  Built by Pet Lovers, for Pet Lovers.
-                </h3>
-                
-                <p className="text-emerald-100/90 text-sm leading-relaxed font-normal">
-                  Our developer and support team are dedicated to making Pet Horizon the most reliable companion tool on your phone.
-                </p>
+        {/* 3 Dedicated Direct Contact Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto mb-12">
+          {CONTACT_CARDS.map((card, index) => {
+            const Icon = card.icon;
+            const isCopied = copiedId === card.id;
+            const mailtoUrl = `mailto:${BACKEND_EMAIL}?subject=${encodeURIComponent(
+              card.subject
+            )}`;
 
-                <div className="space-y-4 pt-2">
-                  <div className="flex items-center gap-3.5">
-                    <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center text-emerald-300">
-                      <Mail className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-bold text-emerald-300 uppercase tracking-wider">Email Us</p>
-                      <p className="text-sm font-bold text-white">support@pethorizon.app</p>
+            return (
+              <motion.div
+                key={card.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white rounded-3xl border border-slate-200/90 p-7 sm:p-8 flex flex-col justify-between shadow-xs hover:shadow-md hover:border-emerald-300 transition-all duration-300 text-left group"
+              >
+                <div>
+                  {/* Card Header & Icon */}
+                  <div className="flex items-center justify-between gap-3 mb-5">
+                    <span
+                      className={`text-[11px] font-bold px-3 py-1 rounded-full border ${card.badgeColor}`}
+                    >
+                      {card.badge}
+                    </span>
+                    <div className="w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-700 border border-emerald-100 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                      <Icon className="w-5 h-5" />
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-3.5">
-                    <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center text-emerald-300">
-                      <MessageSquare className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-bold text-emerald-300 uppercase tracking-wider">Feedback &amp; Ideas</p>
-                      <p className="text-sm font-bold text-white">feedback@pethorizon.app</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                  {/* Title & Description */}
+                  <h3 className="text-xl font-extrabold text-slate-900 tracking-tight mb-2.5">
+                    {card.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal mb-6">
+                    {card.description}
+                  </p>
 
-              <div className="pt-8 text-xs text-emerald-300/80 font-medium relative z-10">
-                <span>Typically responds within 24 hours</span>
-              </div>
-            </motion.div>
-
-            {/* Right Interactive Form (7 Cols - Slides in from Right) */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-              className="md:col-span-7 p-8 sm:p-10 flex flex-col justify-center text-left bg-white"
-            >
-              <AnimatePresence mode="wait">
-                {!isSuccess ? (
-                  <form onSubmit={handleSubmit} className="space-y-5">
-                    <div>
-                      <h4 className="text-xl font-bold text-slate-900">Send a Message</h4>
-                      <p className="text-xs text-slate-500 mt-1">Leave your details and we will reply promptly.</p>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                          Your Name *
-                        </label>
-                        <input
-                          type="text"
-                          required
-                          value={formData.name}
-                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          placeholder="e.g. Ali Raza"
-                          className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                          Email Address *
-                        </label>
-                        <input
-                          type="email"
-                          required
-                          value={formData.email}
-                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          placeholder="you@domain.com"
-                          className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                        Topic
-                      </label>
-                      <select
-                        value={formData.topic}
-                        onChange={(e) => setFormData({ ...formData, topic: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 bg-white"
-                      >
-                        <option value="Support">General Support</option>
-                        <option value="Family Hub">Family Hub &amp; QR Help</option>
-                        <option value="Feature Request">Feature Request</option>
-                        <option value="Bug Report">Report a Bug</option>
-                        <option value="Billing">Premium Billing Inquiry</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                        Message *
-                      </label>
-                      <textarea
-                        required
-                        rows={4}
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        placeholder="Tell us what you need help with or share your thoughts..."
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 resize-none"
-                      />
+                  {/* Display Email Box */}
+                  <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-3.5 mb-5 flex items-center justify-between gap-2">
+                    <div className="truncate">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-0.5">
+                        Direct Inbox
+                      </span>
+                      <span className="text-xs sm:text-sm font-bold text-slate-800 truncate block">
+                        {card.displayEmail}
+                      </span>
                     </div>
 
                     <button
-                      type="submit"
-                      className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-2xl flex items-center justify-center gap-2 shadow-md shadow-emerald-600/20 transition-all text-sm cursor-pointer"
+                      onClick={() => handleCopyEmail(card.id, card.displayEmail)}
+                      title="Copy email address"
+                      className="px-2.5 py-1.5 rounded-xl bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 text-xs font-semibold flex items-center gap-1 transition-colors cursor-pointer shrink-0 shadow-2xs"
                     >
-                      <Send className="w-4 h-4" />
-                      <span>Send Message</span>
+                      {isCopied ? (
+                        <>
+                          <Check className="w-3.5 h-3.5 text-emerald-600" />
+                          <span className="text-emerald-700 text-[11px]">Copied</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-3.5 h-3.5 text-slate-500" />
+                          <span className="text-[11px]">Copy</span>
+                        </>
+                      )}
                     </button>
-                  </form>
-                ) : (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="py-12 text-center flex flex-col items-center justify-center gap-4"
+                  </div>
+                </div>
+
+                {/* Bottom Actions */}
+                <div className="space-y-3 pt-2 border-t border-slate-100">
+                  {/* Response time */}
+                  <div className="flex items-center gap-1.5 text-[11px] font-semibold text-slate-500">
+                    <Clock className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                    <span>{card.responseTime}</span>
+                  </div>
+
+                  {/* Primary Direct Mail Button */}
+                  <a
+                    href={mailtoUrl}
+                    className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs transition-colors shadow-xs shadow-emerald-700/10 cursor-pointer"
                   >
-                    <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center">
-                      <CheckCircle2 className="w-8 h-8" />
-                    </div>
-                    <h4 className="text-2xl font-black text-slate-900">Thank You, {formData.name}!</h4>
-                    <p className="text-sm text-slate-600 max-w-md">
-                      Your message has been received. Our support team will get back to you at <span className="font-bold text-slate-800">{formData.email}</span> shortly.
-                    </p>
-                    <div className="flex flex-col sm:flex-row items-center gap-3 mt-3">
-                      <a
-                        href={`mailto:support@pethorizon.app?subject=[${encodeURIComponent(
-                          formData.topic
-                        )}] From ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(
-                          formData.message
-                        )}`}
-                        className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all shadow-xs"
-                      >
-                        Open in Mail App (support@pethorizon.app)
-                      </a>
-                      <button
-                        onClick={() => {
-                          setIsSuccess(false);
-                          setFormData({ name: '', email: '', topic: 'Support', message: '' });
-                        }}
-                        className="px-4 py-2 rounded-xl border border-slate-200 text-xs font-bold text-slate-600 hover:bg-slate-50 transition-colors cursor-pointer"
-                      >
-                        Send another message
-                      </button>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
+                    <Send className="w-3.5 h-3.5" />
+                    <span>Email Us Directly</span>
+                  </a>
+
+                  {/* Quick Reference Link */}
+                  <a
+                    href={card.quickLink.href}
+                    className="w-full inline-flex items-center justify-center gap-1 text-[11px] font-bold text-slate-500 hover:text-emerald-700 transition-colors pt-1"
+                  >
+                    <span>{card.quickLink.label}</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </a>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Supplementary Support Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
+          className="max-w-6xl mx-auto rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 shadow-xs"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center text-left">
+            
+            {/* Hours */}
+            <div className="flex items-start gap-3.5">
+              <div className="w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-700 border border-emerald-100 flex items-center justify-center shrink-0">
+                <Clock className="w-5 h-5" />
+              </div>
+              <div>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-800">
+                  Support Coverage
+                </h4>
+                <p className="text-xs text-slate-600 mt-0.5 leading-relaxed">
+                  Monday – Friday: 9:00 AM – 6:00 PM (UTC). Weekend emails are reviewed for critical service inquiries.
+                </p>
+              </div>
+            </div>
+
+            {/* Google Play Store Direct Support */}
+            <div className="flex items-start gap-3.5 border-t md:border-t-0 md:border-l border-slate-100 pt-4 md:pt-0 md:pl-6">
+              <div className="w-10 h-10 rounded-2xl bg-blue-50 text-blue-700 border border-blue-100 flex items-center justify-center shrink-0">
+                <Smartphone className="w-5 h-5" />
+              </div>
+              <div>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-800">
+                  Google Play Official App
+                </h4>
+                <p className="text-xs text-slate-600 mt-0.5 leading-relaxed">
+                  Rate us or request assistance directly through our verified Google Play listing.
+                </p>
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 hover:underline mt-1"
+                >
+                  Visit Store Listing <ExternalLink className="w-3 h-3" />
+                </a>
+              </div>
+            </div>
+
+            {/* Emergency Vet Reminder */}
+            <div className="flex items-start gap-3.5 border-t md:border-t-0 md:border-l border-slate-100 pt-4 md:pt-0 md:pl-6">
+              <div className="w-10 h-10 rounded-2xl bg-amber-50 text-amber-700 border border-amber-200/80 flex items-center justify-center shrink-0">
+                <AlertTriangle className="w-5 h-5" />
+              </div>
+              <div>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-800">
+                  Pet Health Emergencies
+                </h4>
+                <p className="text-xs text-slate-600 mt-0.5 leading-relaxed">
+                  Pet Horizon is a wellness companion app. In any acute medical emergency, please contact your nearest 24/7 veterinary clinic.
+                </p>
+              </div>
+            </div>
 
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>
