@@ -1,4 +1,4 @@
-import { Users, QrCode, Shield, CheckCircle, Smartphone, ArrowRight, Share2 } from 'lucide-react';
+import { Users, QrCode, CheckCircle, Smartphone, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function FamilyHubSection() {

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Smartphone, QrCode, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Smartphone, CheckCircle2 } from 'lucide-react';
 import googlePlayImg from '../assets/google-play.svg';
 import appStoreImg from '../assets/app-store.svg';
 

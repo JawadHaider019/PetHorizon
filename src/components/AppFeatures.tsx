@@ -12,7 +12,8 @@ import {
   ShieldCheck,
   CheckCircle2,
   ArrowRight,
-  Heart
+  Heart,
+  Wallet
 } from 'lucide-react';
 
 interface FeatureTab {
@@ -79,6 +80,23 @@ const FEATURES_DATA: FeatureTab[] = [
       { title: 'Daily Photo Memories', desc: 'Snap and store cute daily milestones right within your pet’s log.' }
     ],
     tag: 'Pet Journal'
+  },
+  {
+    id: 'expenses',
+    badge: 'Budgeting & Spending',
+    title: 'Smart Pet Expense Tracker & Category Budgets',
+    subtitle: 'Track veterinary bills, food purchases, grooming, and medicine in one tap.',
+    description: 'Pet parenting comes with expenses. Pet Horizon helps you keep your budget healthy with a monthly limit calculator, category-based spending breakdown, and instant transaction logs so you always know where your money goes.',
+    icon: Wallet,
+    screenshot: '/screenshots/expenses-screen.png',
+    screenshotAlt: 'Pet Horizon Smart Pet Expense Tracker and Monthly Budget Screen',
+    points: [
+      { title: 'Monthly Spending Limits', desc: 'Set monthly budget limits with dynamic percentage-spent progress bars.' },
+      { title: 'Category Breakdown', desc: 'Sort costs cleanly by Food, Vet visits, Grooming, and Medication.' },
+      { title: 'Fast Transaction Logging', desc: 'Quickly record amounts with automatic timestamping and note tags.' },
+      { title: 'Financial Clarity', desc: 'Keep track of pet insurance, routine care, and emergency funds transparently.' }
+    ],
+    tag: 'Expense Tracker'
   },
   {
     id: 'profiles',

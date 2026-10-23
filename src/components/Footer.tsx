@@ -1,4 +1,3 @@
-import { Heart, Smartphone, ArrowUpRight } from 'lucide-react';
 import googlePlayImg from '../assets/google-play.svg';
 import appStoreImg from '../assets/app-store.svg';
 

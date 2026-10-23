@@ -5,10 +5,8 @@ import {
   Users, 
   Sparkles, 
   CheckCircle2, 
-  Smartphone, 
   ArrowRight,
-  ShieldCheck,
-  HeartHandshake
+  ShieldCheck
 } from 'lucide-react';
 import googlePlayImg from '../assets/google-play.svg';
 import appStoreImg from '../assets/app-store.svg';
@@ -179,8 +177,8 @@ export default function Hero() {
               {/* Screen Frame */}
               <div className="relative rounded-[2.3rem] overflow-hidden bg-emerald-600 aspect-[9/19.5] shadow-inner">
                 <img
-                  src="/screenshots/schedule-screen.png"
-                  alt="Pet Horizon Care Schedule App Screen"
+                  src="/screenshots/home-screen.png"
+                  alt="Pet Horizon Home Dashboard Screen"
                   className="w-full h-full object-cover object-top"
                 />
               </div>

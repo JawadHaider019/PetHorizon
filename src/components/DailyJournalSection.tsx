@@ -1,4 +1,4 @@
-import { BookOpen, Camera, CheckCircle2, Clock, Calendar, Heart, Shield, Sparkles } from 'lucide-react';
+import { BookOpen, Camera } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function DailyJournalSection() {

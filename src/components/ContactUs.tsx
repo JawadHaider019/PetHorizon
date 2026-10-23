@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Send, CheckCircle2, MessageSquare, Sparkles } from 'lucide-react';
+import { Mail, Send, CheckCircle2, MessageSquare } from 'lucide-react';
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({

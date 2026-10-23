@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
+  Home,
   Calendar, 
   Users, 
   UserCheck, 
@@ -8,8 +9,8 @@ import {
   BookOpen, 
   Smartphone, 
   ArrowRight,
-  Sparkles,
-  Check
+  Check,
+  Wallet
 } from 'lucide-react';
 
 interface ScreenTab {
@@ -25,8 +26,23 @@ interface ScreenTab {
 
 const SCREENS: ScreenTab[] = [
   {
+    id: 'home',
+    name: 'Home Dashboard',
+    icon: Home,
+    title: 'Daily Command Center & Quick Actions',
+    badge: 'Daily Overview',
+    description: 'A morning-to-evening dashboard greeting you with today’s active pet status, 1-tap quick action shortcuts, scheduled feedings with Skip/Done controls, and real-time activity timelines.',
+    screenshot: '/screenshots/home-screen.png',
+    highlights: [
+      'Personalized greeting and current pet status badge (Zozo Bulldog, 15 KG)',
+      '1-tap quick action shortcuts: Food, Walk, Meds, and Grooming',
+      'Today’s Schedule with instant "Done" and "Skip" action buttons',
+      'Live activity feed showing walk duration and completion timestamp'
+    ]
+  },
+  {
     id: 'schedule',
-    name: 'Schedule Tab',
+    name: 'Care Schedules',
     icon: Calendar,
     title: 'Daily Care & Medical Routine',
     badge: 'Core Routine Engine',
@@ -70,6 +86,21 @@ const SCREENS: ScreenTab[] = [
     ]
   },
   {
+    id: 'expenses',
+    name: 'Expense Tracker',
+    icon: Wallet,
+    title: 'Monthly Budgeting & Care Spending',
+    badge: 'Budget Management',
+    description: 'Keep pet care costs transparent and organized. Set monthly spending limits, categorize expenses by Food, Vet, Grooming, and Medicine, and track remaining balance in real time.',
+    screenshot: '/screenshots/expenses-screen.png',
+    highlights: [
+      'Visual balance card showing remaining available budget & % spent',
+      'Instant category filtering for Food, Vet, Grooming, and Medicine',
+      'Detailed transaction history with dates, amounts, and tags',
+      'Quick-add floating action button to log expenses on the go'
+    ]
+  },
+  {
     id: 'pet-profile',
     name: 'Pet Profiles',
     icon: PawPrint,
@@ -102,7 +133,7 @@ const SCREENS: ScreenTab[] = [
 ];
 
 export default function InteractiveTour() {
-  const [selectedScreen, setSelectedScreen] = useState<string>('schedule');
+  const [selectedScreen, setSelectedScreen] = useState<string>('home');
   const current = SCREENS.find(s => s.id === selectedScreen) || SCREENS[0];
 
   return (
