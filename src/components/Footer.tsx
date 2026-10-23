@@ -88,6 +88,22 @@ export default function Footer({ onNavigateLegal }: FooterProps) {
                   Pricing Plans
                 </a>
               </li>
+              <li>
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.history.pushState({}, '', '/blog');
+                    window.dispatchEvent(new PopStateEvent('popstate'));
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className="text-slate-600 hover:text-emerald-700 transition-colors font-medium text-left cursor-pointer flex items-center gap-1.5"
+                >
+                  <span>Pet Care Blog</span>
+                  <span className="text-[10px] font-extrabold bg-emerald-100 text-emerald-800 px-1.5 py-0.2 rounded">
+                    New
+                  </span>
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -163,6 +179,17 @@ export default function Footer({ onNavigateLegal }: FooterProps) {
             Pet Horizon &copy; {new Date().getFullYear()} &bull; Developer: Pet Horizon Development Team &bull; All Rights Reserved.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 font-medium">
+            <button
+              onClick={() => {
+                window.history.pushState({}, '', '/blog');
+                window.dispatchEvent(new PopStateEvent('popstate'));
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="hover:text-emerald-700 transition-colors cursor-pointer"
+            >
+              Blog &amp; Guides
+            </button>
+            <span>&bull;</span>
             <button
               onClick={(e) => handleLegalClick(e, 'privacy')}
               className="hover:text-emerald-700 transition-colors cursor-pointer"

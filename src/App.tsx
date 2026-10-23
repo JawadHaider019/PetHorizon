@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import BackgroundCanvas from './components/BackgroundCanvas';
-import Navbar from './components/Navbar';
+import Navbar, { NavView } from './components/Navbar';
 import Hero from './components/Hero';
 import AppFeatures from './components/AppFeatures';
 import FamilyHubSection from './components/FamilyHubSection';
@@ -12,13 +12,15 @@ import ContactUs from './components/ContactUs';
 import DownloadCTA from './components/DownloadCTA';
 import Footer from './components/Footer';
 import LegalPortal from './components/LegalPortal';
+import BlogHub from './components/BlogHub';
 
-type AppView = 'home' | 'privacy' | 'terms' | 'deletion';
+type AppView = NavView;
 
 const getDocFromLocation = (): AppView => {
   const path = window.location.pathname.toLowerCase();
   const hash = window.location.hash.toLowerCase();
 
+  if (path.includes('blog') || hash.includes('blog')) return 'blog';
   if (path.includes('privacy') || hash.includes('privacy')) return 'privacy';
   if (path.includes('terms') || hash.includes('terms')) return 'terms';
   if (
@@ -47,27 +49,40 @@ export default function App() {
     };
   }, []);
 
-  // Update Page Title and Meta description
+  // Update Page Title
   useEffect(() => {
-    if (currentView === 'privacy') {
+    if (currentView === 'blog') {
+      document.title = 'Pet Care Blog & Family Pet Guides | Pet Horizon';
+    } else if (currentView === 'privacy') {
       document.title = 'Official Privacy Policy | Pet Horizon';
     } else if (currentView === 'terms') {
       document.title = 'Terms of Service & User Agreement | Pet Horizon';
     } else if (currentView === 'deletion') {
       document.title = 'Data & Account Deletion Instructions | Pet Horizon';
     } else {
-      document.title = 'Pet Horizon - Complete Pet Care & Family Companion';
+      document.title = 'Pet Horizon – Smart Pet Care, Family Hub & Daily Routine Tracker';
     }
   }, [currentView]);
 
-  const navigateTo = (to: AppView) => {
+  const navigateTo = (to: AppView, hash?: string) => {
     if (to === 'home') {
-      window.history.pushState({}, '', '/');
+      window.history.pushState({}, '', hash ? `/${hash}` : '/');
       setCurrentView('home');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (hash) {
+        setTimeout(() => {
+          const el = document.querySelector(hash);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 120);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     } else {
       const slug =
-        to === 'privacy'
+        to === 'blog'
+          ? 'blog'
+          : to === 'privacy'
           ? 'privacy-policy'
           : to === 'terms'
           ? 'terms-of-service'
@@ -78,56 +93,72 @@ export default function App() {
     }
   };
 
-  // If in Legal Portal View
-  if (currentView !== 'home') {
-    return (
-      <LegalPortal
-        initialDoc={currentView}
-        onNavigateHome={() => navigateTo('home')}
-        onSelectDoc={(doc) => navigateTo(doc)}
-      />
-    );
-  }
-
-  // Standard Landing Page View
   return (
     <div className="min-h-screen bg-white text-slate-800 antialiased font-sans select-none selection:bg-emerald-500/20 selection:text-emerald-700 relative overflow-hidden">
       
       {/* Particle Network Backdrop */}
       <BackgroundCanvas />
 
-      {/* Sticky Navigation Bar */}
-      <Navbar />
+      {/* Persistent Unified Navigation Bar Across All Pages */}
+      <Navbar
+        currentView={currentView}
+        onNavigate={(view, hash) => navigateTo(view, hash)}
+      />
 
-      {/* Hero Section with Play Store Device Showcase & 3D Pets Mascot */}
-      <Hero />
+      {/* 1. Blog Hub Page View */}
+      {currentView === 'blog' && (
+        <>
+          <BlogHub
+            onNavigateHome={() => navigateTo('home')}
+            onNavigateLegal={(doc) => navigateTo(doc)}
+          />
+          <Footer onNavigateLegal={(doc) => navigateTo(doc)} />
+        </>
+      )}
 
-      {/* 4 Core Pillars: Schedules, Family Hub, Daily Journal, Pet Profile */}
-      <AppFeatures />
+      {/* 2. Legal Portal Page View (Privacy, Terms, Deletion) */}
+      {['privacy', 'terms', 'deletion'].includes(currentView) && (
+        <LegalPortal
+          initialDoc={currentView as 'privacy' | 'terms' | 'deletion'}
+          onNavigateHome={() => navigateTo('home')}
+          onSelectDoc={(doc) => navigateTo(doc)}
+        />
+      )}
 
-      {/* Deep Dive: Family Hub & Caretaker Collaboration */}
-      <FamilyHubSection />
+      {/* 3. Main Landing Page View */}
+      {currentView === 'home' && (
+        <>
+          {/* Hero Section with Play Store Device Showcase & Mascot */}
+          <Hero />
 
-      {/* Deep Dive: Daily Journal & Activity Timeline */}
-      <DailyJournalSection />
+          {/* 4 Core Pillars: Schedules, Family Hub, Daily Journal, Pet Profile */}
+          <AppFeatures />
 
-      {/* Interactive App Screen Tour (5 Real Mobile Tabs) */}
-      <InteractiveTour />
+          {/* Deep Dive: Family Hub & Caretaker Collaboration */}
+          <FamilyHubSection />
 
-      {/* Transparent Free vs Premium Pricing Matrix */}
-      <PricingSection />
+          {/* Deep Dive: Daily Journal & Activity Timeline */}
+          <DailyJournalSection />
 
-      {/* Frequently Asked Questions */}
-      <FAQSection />
+          {/* Interactive App Screen Tour (5 Real Mobile Tabs) */}
+          <InteractiveTour />
 
-      {/* Contact & Support Form */}
-      <ContactUs />
+          {/* Transparent Free vs Premium Pricing Matrix */}
+          <PricingSection />
 
-      {/* High-Impact Download Banner */}
-      <DownloadCTA />
+          {/* Frequently Asked Questions */}
+          <FAQSection />
 
-      {/* Modern Footer with Legal Routing */}
-      <Footer onNavigateLegal={(doc) => navigateTo(doc)} />
+          {/* Contact & Support Form */}
+          <ContactUs />
+
+          {/* High-Impact Download Banner */}
+          <DownloadCTA />
+
+          {/* Modern Footer with Legal Routing */}
+          <Footer onNavigateLegal={(doc) => navigateTo(doc)} />
+        </>
+      )}
       
     </div>
   );
