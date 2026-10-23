@@ -11,6 +11,7 @@ import {
   Printer,
   ExternalLink,
   ChevronRight,
+  ChevronDown,
   Lock,
   Smartphone,
   Calendar,
@@ -120,8 +121,26 @@ export default function LegalPortal({
     }
   }, [activeSectionId]);
 
+  const [sectionDropdownOpen, setSectionDropdownOpen] = useState(false);
+  const sectionDropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close section dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        sectionDropdownRef.current &&
+        !sectionDropdownRef.current.contains(e.target as Node)
+      ) {
+        setSectionDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   const handleDocChange = (docId: 'privacy' | 'terms' | 'deletion') => {
     setActiveDocId(docId);
+    setSectionDropdownOpen(false);
     if (onSelectDoc) {
       onSelectDoc(docId);
     }
@@ -134,9 +153,10 @@ export default function LegalPortal({
   };
 
   const scrollToSection = (id: string) => {
+    setSectionDropdownOpen(false);
     const el = document.getElementById(id);
     if (el) {
-      const yOffset = -130;
+      const yOffset = -120;
       const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
       setActiveSectionId(id);
@@ -147,183 +167,177 @@ export default function LegalPortal({
   const activeSection = currentDoc.sections[activeSectionIndex >= 0 ? activeSectionIndex : 0];
 
   return (
-    <div className="min-h-screen bg-[#FDFDFC] text-slate-800 antialiased pt-[66px] sm:pt-[72px] selection:bg-emerald-500/20 selection:text-emerald-800 relative">
+    <div className="min-h-screen bg-[#FDFDFC] text-slate-800 antialiased pt-[64px] sm:pt-[70px] selection:bg-emerald-500/20 selection:text-emerald-800 relative">
       
-      {/* 1. Global Reading Progress Line (Fixed Top) */}
-      <motion.div
-        style={{ scaleX }}
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 origin-left z-50 shadow-sm"
-      />
-
-      {/* 2. Secondary Legal Sub-Bar with Document Tabs & Quick Actions */}
-      <header className="sticky top-[60px] sm:top-[68px] z-30 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-4">
+      {/* Consolidated Single-Row Sleek Sub-Bar (Height ~52px) */}
+      <header className="sticky top-[60px] sm:top-[68px] z-30 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-2xs">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 h-13 flex items-center justify-between gap-3">
           
-          {/* Breadcrumb & Dynamic Section Pill */}
-          <div className="flex items-center gap-3">
+          {/* Left: Back to Home & Breadcrumb */}
+          <div className="flex items-center gap-2.5 shrink-0">
             <button
               onClick={onNavigateHome}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-600 hover:text-emerald-700 hover:bg-emerald-50/80 border border-slate-200/80 hover:border-emerald-200 transition-all cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold text-slate-600 hover:text-emerald-700 hover:bg-emerald-50 border border-slate-200/80 transition-all cursor-pointer"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
-              <span>Back to Home</span>
+              <span className="hidden sm:inline">Home</span>
             </button>
 
-            <div className="hidden sm:block h-4 w-px bg-slate-200" />
+            <span className="text-slate-300 hidden sm:inline">&bull;</span>
 
-            {/* Dynamic Reading Pill */}
-            <div className="hidden md:flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50/80 border border-emerald-200/70 text-[11px] font-semibold text-emerald-950">
-              <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse shrink-0" />
-              <span className="font-bold text-emerald-800">{readPercent}% read</span>
-              <span className="text-slate-300">&bull;</span>
-              <span className="truncate max-w-[200px] text-slate-700">
-                Sec {(activeSectionIndex >= 0 ? activeSectionIndex : 0) + 1}/{currentDoc.sections.length}: {activeSection?.title.replace(/^\d+\.\s*/, '')}
-              </span>
-            </div>
+            <span className="text-xs font-bold text-slate-800 hidden md:inline truncate max-w-[160px]">
+              {currentDoc.id === 'privacy'
+                ? 'Privacy Policy'
+                : currentDoc.id === 'terms'
+                ? 'Terms of Service'
+                : 'Account Deletion'}
+            </span>
           </div>
 
-          {/* Document Switcher Tabs (Desktop) */}
-          <div className="hidden md:flex items-center gap-1.5 bg-slate-100/80 p-1 rounded-2xl border border-slate-200/80">
+          {/* Center: Document Switcher Segmented Control */}
+          <div className="flex items-center bg-slate-100/90 p-1 rounded-xl border border-slate-200/80 text-xs">
             <button
               onClick={() => handleDocChange('privacy')}
-              className={`flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3 py-1 rounded-lg font-bold transition-all cursor-pointer ${
                 activeDocId === 'privacy'
-                  ? 'bg-white text-emerald-700 shadow-xs border border-slate-200/60 font-bold'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
+                  ? 'bg-white text-emerald-800 shadow-2xs'
+                  : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-              Privacy Policy
+              <span>Privacy</span>
             </button>
 
             <button
               onClick={() => handleDocChange('terms')}
-              className={`flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3 py-1 rounded-lg font-bold transition-all cursor-pointer ${
                 activeDocId === 'terms'
-                  ? 'bg-white text-emerald-700 shadow-xs border border-slate-200/60 font-bold'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
+                  ? 'bg-white text-blue-800 shadow-2xs'
+                  : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               <FileText className="w-3.5 h-3.5 text-blue-600" />
-              Terms of Service
+              <span>Terms</span>
             </button>
 
             <button
               onClick={() => handleDocChange('deletion')}
-              className={`flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3 py-1 rounded-lg font-bold transition-all cursor-pointer ${
                 activeDocId === 'deletion'
-                  ? 'bg-white text-rose-700 shadow-xs border border-slate-200/60 font-bold'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
+                  ? 'bg-white text-rose-800 shadow-2xs'
+                  : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               <Trash2 className="w-3.5 h-3.5 text-rose-600" />
-              Data Deletion
+              <span>Deletion</span>
             </button>
           </div>
 
-          {/* Quick Actions */}
+          {/* Right: Compact "Jump to Section" Dropdown & Actions */}
           <div className="flex items-center gap-2">
+            
+            {/* Section Jump Dropdown */}
+            <div className="relative" ref={sectionDropdownRef}>
+              <button
+                onClick={() => setSectionDropdownOpen(!sectionDropdownOpen)}
+                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold bg-emerald-50/80 hover:bg-emerald-100/80 border border-emerald-200 text-emerald-900 transition-colors cursor-pointer"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse shrink-0" />
+                <span className="hidden lg:inline truncate max-w-[170px] font-bold">
+                  Sec {(activeSectionIndex >= 0 ? activeSectionIndex : 0) + 1}: {activeSection?.title.replace(/^\d+\.\s*/, '')}
+                </span>
+                <span className="lg:hidden font-bold">
+                  {(activeSectionIndex >= 0 ? activeSectionIndex : 0) + 1}/{currentDoc.sections.length}
+                </span>
+                <ChevronDown
+                  className={`w-3.5 h-3.5 text-emerald-700 transition-transform ${
+                    sectionDropdownOpen ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
+
+              {/* Floating Section Dropdown Card */}
+              <AnimatePresence>
+                {sectionDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 8, scale: 0.96 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute right-0 top-full mt-2 w-72 sm:w-80 bg-white rounded-2xl shadow-xl border border-slate-200/90 p-2 z-50 max-h-[70vh] overflow-y-auto"
+                  >
+                    <div className="px-2.5 py-1.5 border-b border-slate-100 flex items-center justify-between text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                      <span>Jump to Section</span>
+                      <span className="text-emerald-700 font-extrabold">{readPercent}% Read</span>
+                    </div>
+                    <div className="mt-1 space-y-0.5">
+                      {currentDoc.sections.map((sec, idx) => {
+                        const isCurrent = activeSectionId === sec.id;
+                        return (
+                          <button
+                            key={sec.id}
+                            onClick={() => scrollToSection(sec.id)}
+                            className={`w-full text-left px-2.5 py-2 rounded-xl text-xs flex items-center justify-between transition-colors cursor-pointer ${
+                              isCurrent
+                                ? 'bg-emerald-50 text-emerald-800 font-bold'
+                                : 'text-slate-700 hover:bg-slate-50'
+                            }`}
+                          >
+                            <div className="flex items-center gap-2 truncate">
+                              <span
+                                className={`w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 ${
+                                  isCurrent
+                                    ? 'bg-emerald-600 text-white'
+                                    : 'bg-slate-100 text-slate-500'
+                                }`}
+                              >
+                                {idx + 1}
+                              </span>
+                              <span className="truncate">{sec.title.replace(/^\d+\.\s*/, '')}</span>
+                            </div>
+                            {isCurrent && (
+                              <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                            )}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Copy Link Button */}
             <button
               onClick={handleCopyLink}
               title="Copy Page Link"
-              className="p-2 rounded-xl text-slate-500 hover:text-emerald-700 hover:bg-emerald-50 border border-slate-200/80 transition-all cursor-pointer relative"
+              className="p-1.5 rounded-xl text-slate-500 hover:text-emerald-700 hover:bg-emerald-50 border border-slate-200/80 transition-all cursor-pointer relative"
             >
               {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
               {copied && (
                 <span className="absolute -bottom-8 right-0 bg-emerald-700 text-white text-[10px] px-2 py-0.5 rounded shadow whitespace-nowrap animate-in fade-in">
-                  Link copied!
+                  Copied!
                 </span>
               )}
             </button>
 
-            <button
-              onClick={() => window.print()}
-              title="Print Policy"
-              className="hidden sm:flex p-2 rounded-xl text-slate-500 hover:text-slate-800 hover:bg-slate-100 border border-slate-200/80 transition-all cursor-pointer"
-            >
-              <Printer className="w-4 h-4" />
-            </button>
-
+            {/* Contact Helpdesk */}
             <a
               href="mailto:pethorizon2026@gmail.com"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-emerald-600 text-white hover:bg-emerald-700 shadow-xs shadow-emerald-700/20 transition-all"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-emerald-600 text-white hover:bg-emerald-700 shadow-xs shadow-emerald-700/20 transition-all shrink-0"
             >
               <Mail className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Contact</span>
+              <span>Contact</span>
             </a>
           </div>
 
         </div>
 
-        {/* Mobile Tab Switcher */}
-        <div className="md:hidden flex items-center justify-between border-t border-slate-200/70 px-4 py-2 bg-slate-50/70 overflow-x-auto gap-2">
-          <button
-            onClick={() => handleDocChange('privacy')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap cursor-pointer ${
-              activeDocId === 'privacy'
-                ? 'bg-emerald-600 text-white shadow-xs'
-                : 'text-slate-600 bg-white border border-slate-200'
-            }`}
-          >
-            Privacy Policy
-          </button>
-          <button
-            onClick={() => handleDocChange('terms')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap cursor-pointer ${
-              activeDocId === 'terms'
-                ? 'bg-blue-600 text-white shadow-xs'
-                : 'text-slate-600 bg-white border border-slate-200'
-            }`}
-          >
-            Terms of Service
-          </button>
-          <button
-            onClick={() => handleDocChange('deletion')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap cursor-pointer ${
-              activeDocId === 'deletion'
-                ? 'bg-rose-600 text-white shadow-xs'
-                : 'text-slate-600 bg-white border border-slate-200'
-            }`}
-          >
-            Data Deletion
-          </button>
-        </div>
-
-        {/* 3. Sticky Horizontal Section Pill Bar (Centered, No Empty Space) */}
-        <div className="border-t border-slate-200/70 bg-[#FAFAFA]/95 px-4 sm:px-6 py-2 shadow-2xs">
-          <div
-            ref={horizontalNavRef}
-            className="max-w-5xl mx-auto flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth py-0.5"
-          >
-            <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 shrink-0 mr-1 hidden sm:inline">
-              Sections:
-            </span>
-            {currentDoc.sections.map((sec, idx) => {
-              const isActive = activeSectionId === sec.id;
-              return (
-                <button
-                  key={sec.id}
-                  data-section={sec.id}
-                  onClick={() => scrollToSection(sec.id)}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer shrink-0 flex items-center gap-1.5 ${
-                    isActive
-                      ? 'bg-emerald-600 text-white shadow-xs scale-102'
-                      : 'bg-white text-slate-600 hover:text-emerald-700 hover:bg-emerald-50/70 border border-slate-200/80'
-                  }`}
-                >
-                  <span
-                    className={`w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-black ${
-                      isActive ? 'bg-white/25 text-white' : 'bg-slate-100 text-slate-500'
-                    }`}
-                  >
-                    {idx + 1}
-                  </span>
-                  <span>{sec.title.replace(/^\d+\.\s*/, '')}</span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
+        {/* Ultra-Thin 2px Seamless Reading Progress Line (Pinned flush to sub-bar bottom) */}
+        <motion.div
+          style={{ scaleX }}
+          className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-emerald-500 origin-left"
+        />
       </header>
 
       {/* Hero Document Header (Symmetrical, Centered) */}
