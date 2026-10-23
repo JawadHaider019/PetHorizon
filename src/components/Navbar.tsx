@@ -30,52 +30,70 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/80 backdrop-blur-xl border-b border-slate-200/80 shadow-[0_1px_3px_0_rgba(0,0,0,0.03)] py-2.5'
-            : 'bg-white/40 backdrop-blur-md border-b border-slate-200/40 py-3.5'
+            ? 'bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs py-3 sm:py-3.5'
+            : 'bg-white/85 backdrop-blur-sm border-b border-slate-200/50 py-4 sm:py-5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
           <div className="flex items-center justify-between">
-            {/* Brand Logo */}
+            {/* Brand Logo & Name */}
             <a
               href="#home"
-              className="flex items-center gap-2.5 group select-none"
+              className="flex items-center gap-3 group select-none"
             >
-              <div className="w-8 h-8 rounded-xl overflow-hidden ring-1 ring-slate-900/10 shadow-xs flex items-center justify-center bg-white group-hover:scale-105 transition-transform duration-200">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-br from-emerald-600 to-emerald-800 p-1 shadow-md shadow-emerald-700/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-200 shrink-0">
                 <img
                   src="/app-icon.png"
                   alt="Pet Horizon"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover rounded-xl"
                   onError={(e) => {
                     (e.currentTarget as HTMLImageElement).src = '/applogo.png';
                   }}
                 />
               </div>
-              <span className="text-[17px] font-bold tracking-tight text-slate-900 leading-none">
-                Pet<span className="text-emerald-600 font-bold">Horizon</span>
-              </span>
+              <div className="flex flex-col text-left">
+                <span className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 leading-none">
+                  Pet<span className="text-emerald-600 font-extrabold ml-0.5">Horizon</span>
+                </span>
+                <span className="text-[10px] font-bold tracking-wider text-emerald-700/90 uppercase mt-1">
+                  Smart Pet Care
+                </span>
+              </div>
             </a>
 
-            {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-1">
+            {/* Desktop Navigation Tabs */}
+            <nav className="hidden lg:flex items-center gap-1.5">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-[13px] font-medium text-slate-600 hover:text-slate-950 px-3.5 py-1.5 rounded-lg hover:bg-slate-100/70 transition-colors duration-150 tracking-normal"
+                  className="text-[14px] font-semibold text-slate-700 hover:text-emerald-700 px-3.5 py-2 rounded-xl hover:bg-emerald-50/70 transition-all duration-150 tracking-tight"
                 >
                   {link.name}
                 </a>
               ))}
             </nav>
 
+            {/* Right Action: Download App */}
+            <div className="hidden sm:flex items-center">
+              <a
+                href={playStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-[13.5px] font-bold px-4.5 py-2.5 rounded-xl shadow-md shadow-emerald-600/20 hover:shadow-lg hover:shadow-emerald-600/30 transition-all duration-150 active:scale-95 group"
+              >
+                <span>Download App</span>
+                <ArrowUpRight className="w-4 h-4 text-emerald-100 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </a>
+            </div>
+
             {/* Mobile Menu Button */}
             <div className="lg:hidden flex items-center">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="p-1.5 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100/80 transition-colors focus:outline-none"
+                className="p-2 rounded-xl bg-slate-100 text-slate-700 hover:text-emerald-700 hover:bg-emerald-50 transition-colors focus:outline-none"
                 aria-label="Toggle menu"
               >
                 {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -89,19 +107,19 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -8 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.18, ease: 'easeOut' }}
-            className="fixed inset-x-0 top-[53px] z-40 bg-white/95 backdrop-blur-2xl border-b border-slate-200 shadow-xl px-5 py-4 lg:hidden"
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
+            className="fixed inset-x-0 top-[65px] sm:top-[75px] z-40 bg-white/95 backdrop-blur-2xl border-b border-slate-200 shadow-xl px-6 py-5 lg:hidden"
           >
-            <div className="flex flex-col space-y-1">
+            <div className="flex flex-col space-y-1.5">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="font-medium text-slate-700 hover:text-slate-950 px-3 py-2 rounded-lg hover:bg-slate-100/70 text-sm transition-colors"
+                  className="font-semibold text-slate-800 hover:text-emerald-700 px-3.5 py-2.5 rounded-xl hover:bg-emerald-50/70 text-base transition-colors"
                 >
                   {link.name}
                 </a>
@@ -112,11 +130,10 @@ export default function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsOpen(false)}
-                  className="w-full text-center bg-slate-900 hover:bg-slate-800 text-white py-2 rounded-lg font-medium text-sm flex items-center justify-center gap-2 border border-slate-800 shadow-xs"
+                  className="w-full text-center bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-md shadow-emerald-600/20"
                 >
-                  <img src={googlePlayImg} alt="Google Play" className="w-3.5 h-3.5 object-contain" />
-                  <span>Get on Google Play</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-slate-400" />
+                  <span>Download on Google Play</span>
+                  <ArrowUpRight className="w-4 h-4" />
                 </a>
               </div>
             </div>
