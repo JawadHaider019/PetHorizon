@@ -1,18 +1,18 @@
 import { GooglePlayBadge, AppStoreBadge } from './AppBadges';
 
 interface FooterProps {
-  onNavigateLegal?: (doc: 'privacy' | 'terms' | 'deletion') => void;
+  onNavigateLegal?: (doc: 'privacy' | 'deletion') => void;
 }
 
 export default function Footer({ onNavigateLegal }: FooterProps) {
   const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon';
 
-  const handleLegalClick = (e: React.MouseEvent, doc: 'privacy' | 'terms' | 'deletion') => {
+  const handleLegalClick = (e: React.MouseEvent, doc: 'privacy' | 'deletion') => {
     e.preventDefault();
     if (onNavigateLegal) {
       onNavigateLegal(doc);
     } else {
-      window.location.href = `/${doc === 'privacy' ? 'privacy-policy' : doc === 'terms' ? 'terms-of-service' : 'data-deletion'}`;
+      window.location.href = `/${doc === 'privacy' ? 'privacy-policy' : 'data-deletion'}`;
     }
   };
 

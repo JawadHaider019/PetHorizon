@@ -45,7 +45,7 @@ const getViewStateFromLocation = (): ViewState => {
     return { view: 'privacy', articleSlug: null };
   }
   if (lowerPath.includes('terms') || hash.includes('terms')) {
-    return { view: 'terms', articleSlug: null };
+    return { view: 'privacy', articleSlug: null };
   }
   if (
     lowerPath.includes('deletion') ||
@@ -113,13 +113,11 @@ export default function App() {
       const slug =
         to === 'blog'
           ? 'blog'
-          : to === 'privacy'
+          : to === 'privacy' || (to as string) === 'terms'
           ? 'privacy-policy'
-          : to === 'terms'
-          ? 'terms-of-service'
           : 'data-deletion';
       window.history.pushState({}, '', `/${slug}`);
-      setViewState({ view: to, articleSlug: null });
+      setViewState({ view: to === 'terms' ? 'privacy' : to, articleSlug: null });
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
@@ -171,10 +169,10 @@ export default function App() {
         </>
       )}
 
-      {/* 3. Legal Portal Page View (Privacy, Terms, Deletion) */}
-      {['privacy', 'terms', 'deletion'].includes(viewState.view) && (
+      {/* 3. Legal Portal Page View (Privacy, Deletion) */}
+      {['privacy', 'deletion'].includes(viewState.view) && (
         <LegalPortal
-          initialDoc={viewState.view as 'privacy' | 'terms' | 'deletion'}
+          initialDoc={viewState.view as 'privacy' | 'deletion'}
           onNavigateHome={() => navigateTo('home')}
           onSelectDoc={(doc) => navigateTo(doc)}
         />

@@ -22,7 +22,7 @@ interface BlogArticleDetailProps {
   article: BlogPost;
   onNavigateBack: () => void;
   onSelectArticle: (slug: string) => void;
-  onNavigateLegal?: (doc: 'privacy' | 'terms' | 'deletion') => void;
+  onNavigateLegal?: (doc: 'privacy' | 'deletion') => void;
 }
 
 export default function BlogArticleDetail({
@@ -421,10 +421,10 @@ export default function BlogArticleDetail({
               </div>
               {onNavigateLegal && (
                 <button
-                  onClick={() => onNavigateLegal('terms')}
+                  onClick={() => onNavigateLegal('privacy')}
                   className="shrink-0 text-emerald-700 font-bold hover:underline cursor-pointer"
                 >
-                  View Terms of Service &rarr;
+                  View Privacy Policy &rarr;
                 </button>
               )}
             </div>

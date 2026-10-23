@@ -16,7 +16,7 @@ import { BLOG_POSTS, BLOG_CATEGORIES, BlogPost } from '../data/blogData';
 
 interface BlogHubProps {
   onNavigateHome: () => void;
-  onNavigateLegal?: (doc: 'privacy' | 'terms' | 'deletion') => void;
+  onNavigateLegal?: (doc: 'privacy' | 'deletion') => void;
   onSelectArticle?: (slug: string) => void;
 }
 
