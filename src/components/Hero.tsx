@@ -40,9 +40,9 @@ export default function Hero() {
           
           {/* LEFT COLUMN: Authentic Value Proposition */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 text-left flex flex-col gap-6"
           >
             {/* Live Play Store Badge */}
@@ -141,9 +141,9 @@ export default function Hero() {
 
           {/* RIGHT COLUMN: Realistic App Device Frame & 3D Pet Showcase */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.2 }}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 relative flex items-center justify-center pt-8 pb-10 lg:py-0"
           >
             <div className="relative">

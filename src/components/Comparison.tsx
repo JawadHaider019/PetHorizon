@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Check, X, Zap } from 'lucide-react';
 
 interface Row {
@@ -59,7 +60,13 @@ export default function Comparison() {
       <div className="max-w-5xl mx-auto px-6 sm:px-8 relative z-10">
 
         {/* Header Title */}
-        <div className="text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-16"
+        >
           <span className="text-emerald-700 font-extrabold tracking-wider text-xs uppercase bg-emerald-50 px-4 py-2 rounded-full border border-emerald-100 shadow-sm inline-block">
             Feature Matrix
           </span>
@@ -69,10 +76,16 @@ export default function Comparison() {
           <p className="text-slate-500 text-lg font-medium">
             A comprehensive look at our features compared to traditional care and free options.
           </p>
-        </div>
+        </motion.div>
 
         {/* Clean Dynamic Table Canvas */}
-        <div className="rounded-3xl border border-slate-200 bg-white shadow-sm overflow-hidden relative">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="rounded-3xl border border-slate-200 bg-white shadow-sm hover:shadow-lg transition-shadow overflow-hidden relative"
+        >
           <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-500/20 to-transparent" />
 
           {/* Table Container */}
@@ -159,7 +172,7 @@ export default function Comparison() {
             </table>
           </div>
 
-        </div>
+        </motion.div>
 
       </div>
     </section>

@@ -40,8 +40,14 @@ export default function FamilyHubSection() {
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Left Column: Device Screenshot */}
-          <div className="lg:col-span-5 flex justify-center order-2 lg:order-1 relative">
+          {/* Left Column: Device Screenshot (comes in from left) */}
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 flex justify-center order-2 lg:order-1 relative"
+          >
             <div className="relative">
               <PhoneFrame
                 src="/screenshots/family-screen.png"
@@ -64,10 +70,16 @@ export default function FamilyHubSection() {
                 </div>
               </motion.div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right Column: Explanatory Copy & 4 Steps */}
-          <div className="lg:col-span-7 text-left flex flex-col gap-6 order-1 lg:order-2">
+          {/* Right Column: Explanatory Copy & 4 Steps (comes in from right) */}
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 text-left flex flex-col gap-6 order-1 lg:order-2"
+          >
             
             <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200/80 text-emerald-800 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full w-fit">
               <Users className="w-3.5 h-3.5 text-emerald-600" />
@@ -82,14 +94,19 @@ export default function FamilyHubSection() {
               No more texting <span className="italic font-medium text-slate-800">"Did you feed the dog?"</span> or wondering if evening medications were administered. Pet Horizon keeps everyone on the exact same page in real-time.
             </p>
 
-            {/* 4 Step Timeline */}
+            {/* 4 Step Timeline with Responsive Cards & Scroll Entrances */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
               {steps.map((st, idx) => {
                 const Icon = st.icon;
                 return (
-                  <div
+                  <motion.div
                     key={idx}
-                    className="bg-[#F5F6F8] border border-slate-200/80 rounded-2xl p-4.5 flex flex-col gap-2 hover:bg-emerald-50/50 hover:border-emerald-300 transition-all shadow-xs"
+                    initial={{ opacity: 0, y: 30, x: idx % 2 === 0 ? -25 : 25 }}
+                    whileInView={{ opacity: 1, y: 0, x: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    whileHover={{ y: -4, boxShadow: '0 14px 28px -6px rgba(46, 125, 50, 0.12)' }}
+                    transition={{ duration: 0.5, delay: idx * 0.1, ease: 'easeOut' }}
+                    className="bg-[#F5F6F8] border border-slate-200/80 rounded-2xl p-4.5 flex flex-col gap-2 hover:bg-emerald-50/50 hover:border-emerald-300 transition-colors shadow-xs cursor-default"
                   >
                     <div className="flex items-center justify-between">
                       <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs">
@@ -103,7 +120,7 @@ export default function FamilyHubSection() {
                     <p className="text-xs text-slate-600 leading-relaxed font-normal">
                       {st.desc}
                     </p>
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>
@@ -123,7 +140,7 @@ export default function FamilyHubSection() {
               </span>
             </div>
 
-          </div>
+          </motion.div>
 
         </div>
 

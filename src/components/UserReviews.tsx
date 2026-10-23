@@ -303,12 +303,13 @@ export default function UserReviews() {
 
         </div>
 
-        {/* Core Layout Canvas (Desktop Dynamic Grid Layout) */}
+        {/* Core Layout Canvas (Desktop Dynamic Grid Layout - Cards Slide In on Scroll) */}
         <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-8">
           <AnimatePresence mode="popLayout">
-            {displayedReviews.map((review) => (
+            {displayedReviews.map((review, idx) => (
               <ReviewCard
                 key={review.id}
+                index={idx}
                 review={review}
                 isHelpfulClicked={clickedHelpful[review.id]}
                 onHelpfulClick={handleHelpfulClick}
@@ -320,9 +321,10 @@ export default function UserReviews() {
         {/* Alternative Layout Canvas (Mobile Touch Swiper Interface) */}
         <div className="block md:hidden">
           <Swiper spaceBetween={16} slidesPerView={1.1} className="py-4">
-            {sortedReviews.map((review) => (
+            {sortedReviews.map((review, idx) => (
               <SwiperSlide key={review.id}>
                 <ReviewCard
+                  index={idx}
                   review={review}
                   isHelpfulClicked={clickedHelpful[review.id]}
                   onHelpfulClick={handleHelpfulClick}
@@ -505,22 +507,27 @@ export default function UserReviews() {
 
 function ReviewCard({
   review,
+  index = 0,
   isHelpfulClicked,
   onHelpfulClick,
 }: {
   review: Review;
+  index?: number;
   isHelpfulClicked: boolean;
   onHelpfulClick: (id: number) => void;
 }) {
+  const xOffset = index % 3 === 0 ? -60 : index % 3 === 2 ? 60 : 0;
+  const yOffset = index % 3 === 1 ? 50 : 0;
+
   return (
     <motion.div
       layout
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.95 }}
-      whileHover={{ y: -8, scale: 1.02 }}
-      transition={{ duration: 0.3 }}
-      className="bg-white border border-slate-100 rounded-3xl p-6 sm:p-7 flex flex-col gap-5 shadow-sm shadow-slate-100/50 hover:shadow-[0_12px_30px_rgba(15,23,42,0.06)] hover:border-emerald-500/20 transition-all duration-300 relative overflow-hidden text-left"
+      initial={{ opacity: 0, x: xOffset, y: yOffset }}
+      whileInView={{ opacity: 1, x: 0, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      whileHover={{ y: -8, scale: 1.01 }}
+      transition={{ duration: 0.6, delay: (index % 3) * 0.1, ease: [0.16, 1, 0.3, 1] }}
+      className="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-7 flex flex-col gap-5 shadow-sm hover:shadow-xl hover:border-emerald-300 transition-all duration-300 relative overflow-hidden text-left"
     >
       <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-500/20 to-transparent" />
 

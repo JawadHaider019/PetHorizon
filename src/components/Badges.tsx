@@ -44,6 +44,22 @@ const BADGES_DATA: Badge[] = [
     percent: 80,
     rarity: 'Epic',
   },
+  {
+    id: 5,
+    title: 'Mealtime Champion',
+    desc: 'Logged 100 consecutive daily feeding routines on time.',
+    status: 'Unlocked',
+    percent: 100,
+    rarity: 'Epic',
+  },
+  {
+    id: 6,
+    title: 'Budget Guardian',
+    desc: 'Maintained monthly pet care expenses under target limit for 6 months.',
+    status: 'Unlocked',
+    percent: 100,
+    rarity: 'Rare',
+  },
 ];
 
 export default function Badges() {
@@ -100,19 +116,22 @@ export default function Badges() {
           </motion.p>
         </div>
 
-        {/* 6-Card Badge Matrix */}
+        {/* 6-Card Badge Matrix (Animated Left / Right on Scroll) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {badges.map((badge) => {
+          {badges.map((badge, idx) => {
             const isUnlocked = badge.status === 'Unlocked';
             return (
               <motion.div
                 key={badge.id}
-                whileHover={{ y: -8, scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-                className={`relative rounded-3xl border p-6 flex flex-col justify-between text-left transition-all duration-300 h-[220px] ${
+                initial={{ opacity: 0, x: idx % 2 === 0 ? -60 : 60 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.6, delay: (idx % 3) * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ y: -8, scale: 1.01 }}
+                className={`relative rounded-3xl border p-6 sm:p-7 flex flex-col justify-between text-left transition-all duration-300 min-h-[220px] ${
                   isUnlocked
-                    ? 'bg-white border-emerald-200 shadow-md shadow-emerald-500/5'
-                    : 'bg-slate-200/50 border-slate-300/60 opacity-40 select-none'
+                    ? 'bg-white border-emerald-200/90 shadow-sm hover:shadow-xl hover:border-emerald-400'
+                    : 'bg-slate-200/40 border-slate-300/60 opacity-50 select-none'
                 }`}
               >
                 {/* Top line */}
@@ -139,7 +158,7 @@ export default function Badges() {
                 </div>
 
                 {/* Mid content */}
-                <div className="flex items-center gap-4 my-2">
+                <div className="flex items-center gap-4 my-3">
                   <div className={`w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 ${
                     isUnlocked
                       ? 'bg-emerald-50 border border-emerald-200 text-emerald-600'
@@ -154,7 +173,7 @@ export default function Badges() {
                 </div>
 
                 {/* Foot progress */}
-                <div className="flex flex-col gap-1.5">
+                <div className="flex flex-col gap-1.5 pt-2">
                   <div className="flex items-center justify-between text-[10px] text-slate-400 uppercase font-black tracking-widest">
                     <span>Completion Track</span>
                     <span>{badge.percent}%</span>
@@ -171,7 +190,7 @@ export default function Badges() {
                 {isUnlocked && (
                   <button
                     onClick={(e) => handleShareBadge(badge.title, e)}
-                    className="absolute bottom-5 right-5 w-8 h-8 rounded-lg bg-slate-50 hover:bg-emerald-500 hover:text-white border border-slate-200 text-slate-550 flex items-center justify-center transition cursor-pointer"
+                    className="absolute bottom-5 right-5 w-8 h-8 rounded-lg bg-slate-50 hover:bg-emerald-600 hover:text-white border border-slate-200 text-slate-500 flex items-center justify-center transition cursor-pointer"
                     title="Share Badge"
                   >
                     <Share2 className="w-3.5 h-3.5" />

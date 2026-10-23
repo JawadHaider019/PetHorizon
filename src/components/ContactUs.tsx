@@ -25,7 +25,13 @@ export default function ContactUs() {
       <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center max-w-3xl mx-auto mb-14"
+        >
           <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-3">
             <Mail className="w-3.5 h-3.5 text-emerald-600" />
             <span>We Are Here to Help</span>
@@ -36,14 +42,20 @@ export default function ContactUs() {
           <p className="text-slate-600 text-base sm:text-lg mt-3 font-normal">
             Have questions about Pet Horizon features, need help setting up Family Sharing, or want to suggest an improvement? We would love to hear from you.
           </p>
-        </div>
+        </motion.div>
 
         {/* Split Contact Container */}
         <div className="max-w-5xl mx-auto rounded-3xl sm:rounded-[2.5rem] border border-slate-200 bg-slate-50 overflow-hidden shadow-xs">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-0 items-stretch">
             
-            {/* Left Info Panel (5 Cols) */}
-            <div className="md:col-span-5 bg-gradient-to-br from-[#2E7D32] to-[#1B5E20] text-white p-8 sm:p-10 flex flex-col justify-between text-left relative overflow-hidden">
+            {/* Left Info Panel (5 Cols - Slides in from Left) */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+              className="md:col-span-5 bg-gradient-to-br from-[#2E7D32] to-[#1B5E20] text-white p-8 sm:p-10 flex flex-col justify-between text-left relative overflow-hidden"
+            >
               <div className="flex flex-col gap-6 relative z-10">
                 <span className="text-[10px] text-white font-extrabold uppercase tracking-widest px-3 py-1 rounded-full border border-white/30 bg-white/15 w-fit">
                   Direct Support
@@ -83,10 +95,16 @@ export default function ContactUs() {
               <div className="pt-8 text-xs text-emerald-300/80 font-medium relative z-10">
                 <span>Typically responds within 24 hours</span>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Right Interactive Form (7 Cols) */}
-            <div className="md:col-span-7 p-8 sm:p-10 flex flex-col justify-center text-left bg-white">
+            {/* Right Interactive Form (7 Cols - Slides in from Right) */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+              className="md:col-span-7 p-8 sm:p-10 flex flex-col justify-center text-left bg-white"
+            >
               <AnimatePresence mode="wait">
                 {!isSuccess ? (
                   <form onSubmit={handleSubmit} className="space-y-5">
@@ -189,7 +207,7 @@ export default function ContactUs() {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </div>
+            </motion.div>
 
           </div>
         </div>

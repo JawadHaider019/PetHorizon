@@ -41,8 +41,14 @@ export default function DailyJournalSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-          {/* Left Column: Explanatory Copy & Activity Highlights */}
-          <div className="lg:col-span-7 text-left flex flex-col gap-6">
+          {/* Left Column: Explanatory Copy & Activity Highlights (comes in from left) */}
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 text-left flex flex-col gap-6"
+          >
 
             <div className="inline-flex items-center gap-2 bg-emerald-100/70 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full w-fit">
               <BookOpen className="w-3.5 h-3.5 text-emerald-600" />
@@ -57,12 +63,17 @@ export default function DailyJournalSection() {
               Pet Horizon automatically arranges completed feedings, medical administrations, and outdoor walks into a clear daily timeline. Attach daily photos so you can look back on moments and celebrate every healthy milestone.
             </p>
 
-            {/* Simulated Activity Timeline Cards */}
+            {/* Simulated Activity Timeline Cards (Responsive, Left/Right alternating stagger) */}
             <div className="flex flex-col gap-3 pt-2">
               {activities.map((act, index) => (
-                <div
+                <motion.div
                   key={index}
-                  className="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-xs flex items-center justify-between gap-4"
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  whileHover={{ y: -3, boxShadow: '0 10px 20px -4px rgba(46, 125, 50, 0.1)' }}
+                  transition={{ duration: 0.45, delay: index * 0.1, ease: 'easeOut' }}
+                  className="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-xs flex items-center justify-between gap-4 cursor-default transition-colors hover:border-emerald-300"
                 >
                   <div className="flex items-center gap-3.5">
                     <div className="text-xs font-black text-slate-400 font-mono w-16">
@@ -79,24 +90,36 @@ export default function DailyJournalSection() {
                   <span className="text-[10px] font-black uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-200/80 px-2.5 py-1 rounded-full">
                     {act.status}
                   </span>
-                </div>
+                </motion.div>
               ))}
             </div>
 
             {/* Photo memories callout */}
-            <div className="bg-emerald-50/70 border border-emerald-200/70 rounded-2xl p-4 flex items-center gap-3.5">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="bg-emerald-50/70 border border-emerald-200/70 rounded-2xl p-4 flex items-center gap-3.5"
+            >
               <div className="w-10 h-10 rounded-xl bg-white border border-emerald-200 text-emerald-700 flex items-center justify-center shrink-0">
                 <Camera className="w-5 h-5" />
               </div>
               <p className="text-xs sm:text-sm text-slate-700 font-semibold leading-relaxed">
                 <span className="font-bold text-emerald-900">Daily Photo Album:</span> Capture your companion’s cuteness every day. Free users enjoy 1 daily photo; Premium members can upload up to 5 daily memories!
               </p>
-            </div>
+            </motion.div>
 
-          </div>
+          </motion.div>
 
-          {/* Right Column: Screenshot Phone Frame */}
-          <div className="lg:col-span-5 flex justify-center relative">
+          {/* Right Column: Screenshot Phone Frame (comes in from right) */}
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 flex justify-center relative"
+          >
             <div className="relative">
               <PhoneFrame
                 src="/screenshots/journal-screen.png"
@@ -119,7 +142,7 @@ export default function DailyJournalSection() {
                 </div>
               </motion.div>
             </div>
-          </div>
+          </motion.div>
 
         </div>
 

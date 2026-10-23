@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Check, Zap } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function PricingSection() {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('yearly');
@@ -14,7 +15,13 @@ export default function PricingSection() {
       <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center max-w-3xl mx-auto mb-14"
+        >
           <div className="inline-flex items-center gap-2 bg-emerald-100/70 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-3">
             <Zap className="w-3.5 h-3.5 text-emerald-600" />
             <span>Honest &amp; Transparent Tiers</span>
@@ -51,13 +58,20 @@ export default function PricingSection() {
               </span>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* 3 Pricing Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
           
-          {/* Card 1: Free Plan */}
-          <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200 shadow-xs flex flex-col justify-between text-left hover:border-slate-300 transition-colors">
+          {/* Card 1: Free Plan (Slides in from Left) */}
+          <motion.div
+            initial={{ opacity: 0, x: -70 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+            whileHover={{ y: -8 }}
+            className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between text-left"
+          >
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="text-xs font-black uppercase tracking-wider text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
@@ -105,11 +119,17 @@ export default function PricingSection() {
                 Download Free App
               </a>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Card 2: Monthly / Featured Plan */}
-          <div className="bg-gradient-to-b from-white to-emerald-50/50 rounded-3xl p-7 sm:p-8 border-2 border-emerald-500 shadow-xl shadow-emerald-500/10 flex flex-col justify-between text-left relative transform md:-translate-y-2">
-            
+          {/* Card 2: Monthly / Featured Plan (Slides in from Bottom / Center) */}
+          <motion.div
+            initial={{ opacity: 0, y: 70 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.65, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            whileHover={{ y: -12 }}
+            className="bg-gradient-to-b from-white to-emerald-50/50 rounded-3xl p-7 sm:p-8 border-2 border-emerald-500 shadow-xl shadow-emerald-500/15 flex flex-col justify-between text-left relative transition-all duration-300"
+          >
             {/* Featured Badge */}
             <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-emerald-600 text-white text-[10px] font-black uppercase tracking-wider px-3.5 py-1 rounded-full shadow-sm">
               Most Popular
@@ -162,10 +182,17 @@ export default function PricingSection() {
                 Get Premium on Google Play
               </a>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Card 3: Yearly Plan */}
-          <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200 shadow-xs flex flex-col justify-between text-left hover:border-slate-300 transition-colors">
+          {/* Card 3: Yearly Plan (Slides in from Right) */}
+          <motion.div
+            initial={{ opacity: 0, x: 70 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.65, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            whileHover={{ y: -8 }}
+            className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between text-left"
+          >
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="text-xs font-black uppercase tracking-wider text-amber-800 bg-amber-100 px-3 py-1 rounded-full">
@@ -213,7 +240,7 @@ export default function PricingSection() {
                 Subscribe Annually
               </a>
             </div>
-          </div>
+          </motion.div>
 
         </div>
 

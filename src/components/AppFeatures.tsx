@@ -171,8 +171,14 @@ export default function AppFeatures() {
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
 
-              {/* Feature Copy & Points (7 Cols) */}
-              <div className="lg:col-span-7 text-left flex flex-col gap-5">
+              {/* Feature Copy & Points (7 Cols - Slides in from Left) */}
+              <motion.div
+                initial={{ opacity: 0, x: -60 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+                className="lg:col-span-7 text-left flex flex-col gap-5"
+              >
                 <div className="inline-flex items-center gap-2 text-emerald-800 font-extrabold text-xs uppercase tracking-wider bg-emerald-100/70 px-3 py-1 rounded-full w-fit">
                   <span>{activeFeature.badge}</span>
                 </div>
@@ -185,12 +191,17 @@ export default function AppFeatures() {
                   {activeFeature.description}
                 </p>
 
-                {/* 2x2 Feature Details Grid */}
+                {/* 2x2 Feature Details Grid with Staggered Left/Right Slide and Hover Elevation */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-3">
                   {activeFeature.points.map((pt, i) => (
-                    <div
+                    <motion.div
                       key={i}
-                      className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col gap-1.5 hover:border-emerald-300 transition-colors"
+                      initial={{ opacity: 0, x: i % 2 === 0 ? -25 : 25 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, amount: 0.2 }}
+                      transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                      whileHover={{ y: -4 }}
+                      className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col gap-1.5 hover:border-emerald-400 hover:shadow-md transition-all"
                     >
                       <div className="flex items-center gap-2">
                         <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
@@ -199,7 +210,7 @@ export default function AppFeatures() {
                       <p className="text-xs text-slate-500 leading-relaxed font-normal pl-6">
                         {pt.desc}
                       </p>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
 
@@ -215,10 +226,16 @@ export default function AppFeatures() {
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </a>
                 </div>
-              </div>
+              </motion.div>
 
-              {/* Feature Phone Device Frame (5 Cols) */}
-              <div className="lg:col-span-5 flex justify-center items-center relative">
+              {/* Feature Phone Device Frame (5 Cols - Slides in from Right) */}
+              <motion.div
+                initial={{ opacity: 0, x: 60 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+                className="lg:col-span-5 flex justify-center items-center relative"
+              >
                 <div className="relative">
                   <PhoneFrame
                     src={activeFeature.screenshot}
@@ -231,7 +248,7 @@ export default function AppFeatures() {
                     ✨ Real App Interface
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
             </div>
           </motion.div>
