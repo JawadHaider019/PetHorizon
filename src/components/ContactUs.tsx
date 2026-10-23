@@ -195,15 +195,27 @@ export default function ContactUs() {
                     <p className="text-sm text-slate-600 max-w-md">
                       Your message has been received. Our support team will get back to you at <span className="font-bold text-slate-800">{formData.email}</span> shortly.
                     </p>
-                    <button
-                      onClick={() => {
-                        setIsSuccess(false);
-                        setFormData({ name: '', email: '', topic: 'Support', message: '' });
-                      }}
-                      className="mt-2 text-xs font-bold text-emerald-700 hover:underline"
-                    >
-                      Send another message
-                    </button>
+                    <div className="flex flex-col sm:flex-row items-center gap-3 mt-3">
+                      <a
+                        href={`mailto:support@pethorizon.app?subject=[${encodeURIComponent(
+                          formData.topic
+                        )}] From ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(
+                          formData.message
+                        )}`}
+                        className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all shadow-xs"
+                      >
+                        Open in Mail App (support@pethorizon.app)
+                      </a>
+                      <button
+                        onClick={() => {
+                          setIsSuccess(false);
+                          setFormData({ name: '', email: '', topic: 'Support', message: '' });
+                        }}
+                        className="px-4 py-2 rounded-xl border border-slate-200 text-xs font-bold text-slate-600 hover:bg-slate-50 transition-colors cursor-pointer"
+                      >
+                        Send another message
+                      </button>
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
