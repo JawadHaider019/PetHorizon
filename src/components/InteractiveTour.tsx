@@ -164,14 +164,21 @@ export default function InteractiveTour() {
               <button
                 key={sc.id}
                 onClick={() => setSelectedScreen(sc.id)}
-                className={`flex items-center gap-2 px-4.5 py-2.5 rounded-2xl font-bold text-xs sm:text-sm transition-all duration-200 cursor-pointer ${
+                className={`relative flex items-center gap-2 px-4.5 py-2.5 rounded-2xl font-bold text-xs sm:text-sm transition-all duration-300 cursor-pointer ${
                   isSelected
-                    ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/25 scale-105'
+                    ? 'bg-emerald-700 text-white shadow-lg shadow-emerald-700/25 scale-105'
                     : 'bg-[#F5F6F8] text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 border border-slate-200/80'
                 }`}
               >
                 <Icon className={`w-4 h-4 ${isSelected ? 'text-white' : 'text-slate-500'}`} />
                 <span>{sc.name}</span>
+                {isSelected && (
+                  <motion.div
+                    layoutId="activeTabGlow"
+                    className="absolute inset-0 rounded-2xl bg-emerald-600 -z-10"
+                    transition={{ type: 'spring', stiffness: 350, damping: 30 }}
+                  />
+                )}
               </button>
             );
           })}
@@ -185,15 +192,25 @@ export default function InteractiveTour() {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative z-10">
             
-            {/* Phone Display (5 Cols) */}
-            <div className="lg:col-span-5 flex justify-center order-2 lg:order-1">
+            {/* Phone Display (5 Cols) with Floating Pulse Marker */}
+            <div className="lg:col-span-5 flex justify-center order-2 lg:order-1 relative">
+              
+              {/* Floating Pulse Marker Tag */}
+              <div className="absolute -top-3 -left-2 sm:-left-4 z-20 bg-white/95 backdrop-blur-md border border-emerald-200/90 px-3 py-1.5 rounded-2xl shadow-md flex items-center gap-2 text-[11px] font-extrabold text-slate-800">
+                <span className="flex h-2.5 w-2.5 relative">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600"></span>
+                </span>
+                <span>Active Screen Preview</span>
+              </div>
+
               <AnimatePresence mode="wait">
                 <motion.div
                   key={current.id}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.3 }}
+                  initial={{ opacity: 0, scale: 0.94, y: 10 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.94, y: -10 }}
+                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                 >
                   <PhoneFrame
                     src={current.screenshot}
