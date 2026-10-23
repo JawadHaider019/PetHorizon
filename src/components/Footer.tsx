@@ -146,7 +146,7 @@ export default function Footer({ onNavigateLegal }: FooterProps) {
                   href="mailto:pethorizon2026@gmail.com"
                   className="text-emerald-700 hover:text-emerald-800 transition-colors font-semibold text-xs block truncate"
                 >
-                  support@pethorizon.com
+                  pethorizon2026@gmail.com
                 </a>
               </li>
             </ul>
