@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Calendar, 
-  Users, 
-  BookOpen, 
-  PawPrint, 
-  QrCode, 
-  Bell, 
-  Camera, 
-  Clock, 
-  ShieldCheck, 
-  CheckCircle2, 
+import {
+  Calendar,
+  Users,
+  BookOpen,
+  PawPrint,
+  QrCode,
+  Bell,
+  Camera,
+  Clock,
+  ShieldCheck,
+  CheckCircle2,
   ArrowRight,
   Heart
 } from 'lucide-react';
@@ -110,7 +110,7 @@ export default function AppFeatures() {
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-teal-500/5 rounded-full blur-[130px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
           <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200/80 text-emerald-800 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-4">
@@ -134,11 +134,10 @@ export default function AppFeatures() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2.5 px-5 py-3 rounded-2xl font-bold text-sm transition-all duration-200 cursor-pointer ${
-                  isSelected
+                className={`flex items-center gap-2.5 px-5 py-3 rounded-2xl font-bold text-sm transition-all duration-200 cursor-pointer ${isSelected
                     ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/25 scale-[1.02]'
                     : 'bg-slate-100/80 text-slate-700 hover:bg-slate-200/80 hover:text-slate-900'
-                }`}
+                  }`}
               >
                 <Icon className={`w-4 h-4 ${isSelected ? 'text-white' : 'text-emerald-600'}`} />
                 <span>{tab.tag}</span>
@@ -158,7 +157,7 @@ export default function AppFeatures() {
             className="bg-gradient-to-br from-slate-50 via-white to-emerald-50/30 rounded-3xl sm:rounded-[2.5rem] border border-slate-200/90 p-6 sm:p-10 lg:p-12 shadow-sm"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-              
+
               {/* Feature Copy & Points (7 Cols) */}
               <div className="lg:col-span-7 text-left flex flex-col gap-5">
                 <div className="inline-flex items-center gap-2 text-emerald-800 font-extrabold text-xs uppercase tracking-wider bg-emerald-100/70 px-3 py-1 rounded-full w-fit">

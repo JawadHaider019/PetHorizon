@@ -1,6 +1,4 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Check, Sparkles, Shield, Heart, Zap, ArrowRight, HelpCircle } from 'lucide-react';
+import { Check, Zap } from 'lucide-react';
 
 export default function PricingSection() {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('yearly');
