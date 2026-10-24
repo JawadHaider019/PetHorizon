@@ -55,6 +55,21 @@ export default function FamilyHubSection() {
                 frameClassName="w-[270px] sm:w-[300px]"
               />
 
+              {/* Floating Companion Avatar Pill */}
+              <motion.div
+                animate={{ y: [0, 6, 0] }}
+                transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+                className="hidden sm:flex absolute -top-5 -left-6 sm:-left-12 bg-white text-slate-900 rounded-2xl p-2.5 shadow-xl border border-emerald-200/90 items-center gap-2.5 z-30 text-left"
+              >
+                <div className="w-10 h-10 rounded-xl overflow-hidden border border-emerald-100 shadow-2xs shrink-0">
+                  <img src="/cute-3d-pets.jpg" alt="Pet Companions" className="w-full h-full object-cover" />
+                </div>
+                <div className="pr-1.5">
+                  <p className="text-[9px] font-black uppercase tracking-wider text-emerald-800">Shared Pet Profile</p>
+                  <p className="text-xs font-bold text-slate-900 leading-tight">Luna &amp; Milo Synced</p>
+                </div>
+              </motion.div>
+
               {/* Floating QR Code Badge */}
               <motion.div
                 animate={{ y: [0, -6, 0] }}

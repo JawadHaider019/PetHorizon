@@ -523,7 +523,7 @@ export default function BentoFeatures() {
             {/* Block 2: Memory Photo Entry (Fills previous empty gap) */}
             <div className="mt-3 bg-white p-3 rounded-2xl border border-slate-200/80 flex items-center gap-3 shadow-2xs">
               <div className="w-14 h-14 rounded-xl overflow-hidden shrink-0 border border-emerald-200 shadow-xs">
-                <img src="/3d-pets-species.jpg" alt="Walk memory" className="w-full h-full object-cover" />
+                <img src="/cute-3d-pets.jpg" alt="Walk memory with cute 3D puppy and kitten" className="w-full h-full object-cover" />
               </div>
               <div className="text-left flex-1 min-w-0">
                 <div className="flex items-center justify-between">

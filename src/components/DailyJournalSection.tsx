@@ -133,7 +133,7 @@ export default function DailyJournalSection() {
                 className="absolute -bottom-5 -left-4 sm:-left-8 bg-white rounded-2xl p-3 shadow-xl border border-slate-200 flex items-center gap-2.5 z-30 max-w-[200px] text-left"
               >
                 <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs shrink-0">
-                  📸
+                  <Camera className="w-4 h-4 text-emerald-700" />
                 </div>
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-wider text-slate-400">Journal Memories</p>
