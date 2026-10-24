@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { motion, MotionValue } from 'framer-motion';
 import {
   ShieldCheck,
   Trash2,
@@ -13,7 +12,6 @@ interface LegalNavbarProps {
   activeDocId: 'privacy' | 'deletion';
   onDocChange: (doc: 'privacy' | 'deletion') => void;
   onNavigateHome: () => void;
-  scaleX?: MotionValue<number>;
   readPercent?: number;
 }
 
@@ -21,7 +19,6 @@ export default function LegalNavbar({
   activeDocId,
   onDocChange,
   onNavigateHome,
-  scaleX,
   readPercent = 0
 }: LegalNavbarProps) {
   const [copied, setCopied] = useState(false);
@@ -34,16 +31,16 @@ export default function LegalNavbar({
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-2xs">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <div className="max-w-6xl mx-auto px-3 sm:px-6 h-16 flex items-center justify-between gap-2 sm:gap-4">
         
         {/* Left: Brand & Return Home Action */}
-        <div className="flex items-center gap-3 shrink-0">
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           <button
             onClick={onNavigateHome}
             className="flex items-center gap-2.5 group cursor-pointer select-none focus:outline-none"
             aria-label="Return to Pet Horizon Home"
           >
-            <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-100/90 flex items-center justify-center p-1.5 shadow-xs group-hover:scale-105 group-hover:bg-emerald-100/60 transition-all duration-200">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-emerald-50 border border-emerald-100/90 flex items-center justify-center p-1.5 shadow-xs group-hover:scale-105 group-hover:bg-emerald-100/60 transition-all duration-200">
               <img
                 src="/ph-logo-mark.png"
                 alt="Pet Horizon Logo"
@@ -67,37 +64,39 @@ export default function LegalNavbar({
 
           <button
             onClick={onNavigateHome}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-600 hover:text-emerald-700 hover:bg-emerald-50 border border-slate-200/80 transition-all cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-600 hover:text-emerald-700 hover:bg-emerald-50 border border-slate-200/80 transition-all cursor-pointer whitespace-nowrap"
           >
-            <ArrowLeft className="w-3.5 h-3.5 text-emerald-600" />
+            <ArrowLeft className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
             <span>Home</span>
           </button>
         </div>
 
         {/* Center: Clean Segmented Document Switcher */}
-        <div className="flex items-center p-1 rounded-xl bg-slate-100/90 border border-slate-200/60 text-xs">
+        <div className="flex items-center p-0.5 sm:p-1 rounded-xl bg-slate-100/90 border border-slate-200/60 text-xs shrink-0">
           <button
             onClick={() => onDocChange('privacy')}
-            className={`flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
+            className={`flex items-center gap-1 sm:gap-1.5 px-2 sm:px-4 py-1.5 rounded-lg font-bold transition-all cursor-pointer whitespace-nowrap ${
               activeDocId === 'privacy'
                 ? 'bg-white text-emerald-800 shadow-2xs'
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-            <span>Privacy Policy</span>
+            <span className="hidden sm:inline">Privacy Policy</span>
+            <span className="sm:hidden">Privacy</span>
           </button>
 
           <button
             onClick={() => onDocChange('deletion')}
-            className={`flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
+            className={`flex items-center gap-1 sm:gap-1.5 px-2 sm:px-4 py-1.5 rounded-lg font-bold transition-all cursor-pointer whitespace-nowrap ${
               activeDocId === 'deletion'
                 ? 'bg-white text-rose-800 shadow-2xs'
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             <Trash2 className="w-3.5 h-3.5 text-rose-600 shrink-0" />
-            <span>Data Deletion</span>
+            <span className="hidden sm:inline">Data Deletion</span>
+            <span className="sm:hidden">Deletion</span>
           </button>
         </div>
 

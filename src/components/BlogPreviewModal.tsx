@@ -20,18 +20,18 @@ export default function BlogPreviewModal({ post, onClose }: BlogPreviewModalProp
           className="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 sm:p-8 relative text-left"
         >
           {/* Header Bar */}
-          <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-5">
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-bold text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100">
+          <div className="flex items-center justify-between gap-3 pb-4 border-b border-slate-100 mb-5">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-xs font-bold text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100 whitespace-nowrap shrink-0">
                 {post.category}
               </span>
-              <span className="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full">
+              <span className="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full whitespace-nowrap shrink-0">
                 Source: {post.sourceName}
               </span>
             </div>
             <button
               onClick={onClose}
-              className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center font-bold text-sm cursor-pointer transition-colors"
+              className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center font-bold text-sm cursor-pointer transition-colors shrink-0"
             >
               ✕
             </button>

@@ -43,23 +43,23 @@ export default function BlogHub({ onNavigateHome, onNavigateLegal, onSelectArtic
     <div className="min-h-screen bg-[#FDFDFC] text-slate-800 antialiased pt-24 pb-16 selection:bg-emerald-500/20 selection:text-emerald-800">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* Navigation Breadcrumb */}
-        <div className="flex items-center justify-between pb-6 border-b border-slate-100 mb-8">
-          <div className="flex items-center gap-2 text-xs font-semibold text-slate-500">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 sm:pb-6 border-b border-slate-100 mb-8">
+          <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 flex-wrap">
             <button
               onClick={onNavigateHome}
-              className="hover:text-emerald-700 flex items-center gap-1 cursor-pointer transition-colors"
+              className="hover:text-emerald-700 flex items-center gap-1 cursor-pointer transition-colors whitespace-nowrap"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               Home
             </button>
-            <span>/</span>
-            <span className="text-emerald-800 font-bold bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-100">
+            <span className="text-slate-300">/</span>
+            <span className="text-emerald-800 font-bold bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100 whitespace-nowrap">
               Pet Care &amp; Health Hub
             </span>
           </div>
 
-          <span className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-800 bg-emerald-100/80 px-3 py-1 rounded-full border border-emerald-200 shadow-2xs">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+          <span className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-800 bg-emerald-100/80 px-3 py-1 rounded-full border border-emerald-200 shadow-2xs w-fit whitespace-nowrap shrink-0">
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
             Curated Veterinary Care Guides
           </span>
         </div>

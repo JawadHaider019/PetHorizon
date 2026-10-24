@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useScroll, useSpring } from 'framer-motion';
+import { useScroll } from 'framer-motion';
 import { Mail, ChevronRight } from 'lucide-react';
 import { PRIVACY_POLICY, DATA_DELETION_GUIDE, LegalDocument } from '../data/legalData';
 import LegalNavbar from './LegalNavbar';
@@ -22,7 +22,6 @@ export default function LegalPortal({
   const [readPercent, setReadPercent] = useState(0);
 
   const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 30, restDelta: 0.001 });
 
   useEffect(() => {
     setActiveDocId(initialDoc);
@@ -64,7 +63,6 @@ export default function LegalPortal({
         activeDocId={activeDocId}
         onDocChange={handleDocChange}
         onNavigateHome={onNavigateHome}
-        scaleX={scaleX}
         readPercent={readPercent}
       />
 
@@ -72,28 +70,28 @@ export default function LegalPortal({
       <section className="bg-gradient-to-b from-emerald-50/60 via-slate-50/30 to-transparent border-b border-slate-200/80 pt-10 pb-12 sm:pb-16 print:hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           {/* Breadcrumb Navigation */}
-          <nav className="flex items-center gap-2 text-xs font-semibold text-slate-500 mb-4" aria-label="Breadcrumb">
+          <nav className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs font-semibold text-slate-500 mb-4" aria-label="Breadcrumb">
             <button
               onClick={onNavigateHome}
-              className="hover:text-emerald-700 transition-colors cursor-pointer"
+              className="hover:text-emerald-700 transition-colors cursor-pointer whitespace-nowrap"
             >
               Home
             </button>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-slate-600">Legal &amp; Trust Center</span>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-emerald-800 font-bold">
+            <ChevronRight className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+            <span className="text-slate-600 whitespace-nowrap">Legal &amp; Trust Center</span>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+            <span className="text-emerald-800 font-bold whitespace-nowrap">
               {activeDocId === 'privacy' ? 'Privacy Policy' : 'Data & Account Deletion'}
             </span>
           </nav>
 
           {/* Document Header Badge */}
           <div className="flex flex-wrap items-center gap-2.5 mb-3">
-            <span className="text-[11px] font-black uppercase tracking-wider text-emerald-800 bg-emerald-100/80 border border-emerald-200 px-3 py-1 rounded-full flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
+            <span className="text-[11px] font-black uppercase tracking-wider text-emerald-800 bg-emerald-100/80 border border-emerald-200 px-3 py-1 rounded-full flex items-center gap-1.5 whitespace-nowrap shrink-0">
+              <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse shrink-0" />
               <span>Official Public Record</span>
             </span>
-            <span className="text-xs text-slate-500 font-mono font-medium">
+            <span className="text-xs text-slate-500 font-mono font-medium whitespace-nowrap">
               Effective: {currentDoc.effectiveDate} &bull; Last Reviewed: {currentDoc.lastUpdated}
             </span>
           </div>

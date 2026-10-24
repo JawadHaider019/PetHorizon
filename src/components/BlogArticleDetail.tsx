@@ -48,34 +48,35 @@ export default function BlogArticleDetail({
 
       <div className="max-w-4xl mx-auto px-5 sm:px-8">
         {/* Top Navigation */}
-        <div className="flex items-center justify-between pb-6 border-b border-slate-100 mb-8">
+        <div className="flex items-center justify-between gap-2 pb-4 sm:pb-6 border-b border-slate-100 mb-8">
           <button
             onClick={onNavigateBack}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-600 hover:text-emerald-800 hover:bg-emerald-50 border border-slate-200/80 transition-all cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-600 hover:text-emerald-800 hover:bg-emerald-50 border border-slate-200/80 transition-all cursor-pointer whitespace-nowrap shrink-0"
           >
-            <ArrowLeft className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Back to Pet Care Hub</span>
+            <ArrowLeft className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+            <span className="hidden sm:inline">Back to Pet Care Hub</span>
+            <span className="sm:hidden">Pet Care Hub</span>
           </button>
 
           <button
             onClick={handleCopy}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-50 border border-slate-200/80 cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-50 border border-slate-200/80 cursor-pointer whitespace-nowrap shrink-0"
           >
-            {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Share2 className="w-3.5 h-3.5" />}
+            {copied ? <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" /> : <Share2 className="w-3.5 h-3.5 shrink-0" />}
             <span>{copied ? 'Copied' : 'Share Guide'}</span>
           </button>
         </div>
 
         {/* High-Intent SEO Badges */}
         <div className="flex flex-wrap items-center gap-2 mb-3">
-          <span className="inline-flex items-center gap-1.5 bg-amber-500/10 text-amber-900 text-[11px] font-black px-3 py-1 rounded-full border border-amber-300/80">
-            <Flame className="w-3.5 h-3.5 text-amber-600" />
+          <span className="inline-flex items-center gap-1.5 bg-amber-500/10 text-amber-900 text-[11px] font-black px-3 py-1 rounded-full border border-amber-300/80 whitespace-nowrap shrink-0">
+            <Flame className="w-3.5 h-3.5 text-amber-600 shrink-0" />
             {article.searchRankBadge} ({article.searchVolume} searches)
           </span>
-          <span className="text-xs text-emerald-800 font-bold bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100">
+          <span className="text-xs text-emerald-800 font-bold bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100 whitespace-nowrap shrink-0">
             {article.category}
           </span>
-          <span className="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full">
+          <span className="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full whitespace-nowrap shrink-0">
             Curated from: {article.sourceName}
           </span>
         </div>

@@ -64,7 +64,7 @@ export default function HomeBlogSection({
                 More High-Intent Search Topics
               </h4>
             </div>
-            <span className="text-xs font-semibold text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100">
+            <span className="text-xs font-semibold text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100 whitespace-nowrap shrink-0 w-fit">
               Reviewed by Veterinary Advisory Board
             </span>
           </div>

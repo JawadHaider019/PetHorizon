@@ -21,7 +21,6 @@ interface LegalHeaderProps {
   onDocChange: (id: 'privacy' | 'deletion') => void;
   onNavigateHome: () => void;
   readPercent: number;
-  scaleX: MotionValue<number>;
   activeSectionId: string;
   onScrollToSection: (id: string) => void;
 }
@@ -32,7 +31,6 @@ export default function LegalHeader({
   onDocChange,
   onNavigateHome,
   readPercent,
-  scaleX,
   activeSectionId,
   onScrollToSection
 }: LegalHeaderProps) {
@@ -61,24 +59,26 @@ export default function LegalHeader({
             </button>
           </div>
 
-          <div className="flex items-center p-1 rounded-xl bg-slate-100/90 border border-slate-200/60 text-xs">
+          <div className="flex items-center p-0.5 sm:p-1 rounded-xl bg-slate-100/90 border border-slate-200/60 text-xs shrink-0">
             <button
               onClick={() => onDocChange('privacy')}
-              className={`flex items-center gap-1.5 px-3 py-1 rounded-lg font-bold transition-all cursor-pointer ${
+              className={`flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 rounded-lg font-bold transition-all cursor-pointer whitespace-nowrap ${
                 activeDocId === 'privacy' ? 'bg-white text-emerald-800 shadow-2xs' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-              <span>Privacy Policy</span>
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+              <span className="hidden sm:inline">Privacy Policy</span>
+              <span className="sm:hidden">Privacy</span>
             </button>
             <button
               onClick={() => onDocChange('deletion')}
-              className={`flex items-center gap-1.5 px-3 py-1 rounded-lg font-bold transition-all cursor-pointer ${
+              className={`flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 rounded-lg font-bold transition-all cursor-pointer whitespace-nowrap ${
                 activeDocId === 'deletion' ? 'bg-white text-rose-800 shadow-2xs' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              <Trash2 className="w-3.5 h-3.5 text-rose-600" />
-              <span>Account Deletion</span>
+              <Trash2 className="w-3.5 h-3.5 text-rose-600 shrink-0" />
+              <span className="hidden sm:inline">Account Deletion</span>
+              <span className="sm:hidden">Deletion</span>
             </button>
           </div>
 
