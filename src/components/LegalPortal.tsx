@@ -59,7 +59,7 @@ export default function LegalPortal({
   };
 
   return (
-    <div className="min-h-screen bg-[#FDFDFC] text-slate-800 antialiased">
+    <div className="min-h-screen bg-[#FAFAF9] text-slate-800 antialiased print:bg-white print:text-black">
       <LegalNavbar
         activeDocId={activeDocId}
         onDocChange={handleDocChange}
@@ -68,7 +68,82 @@ export default function LegalPortal({
         readPercent={readPercent}
       />
 
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+      {/* Executive Hero Banner */}
+      <section className="bg-gradient-to-b from-emerald-50/60 via-slate-50/30 to-transparent border-b border-slate-200/80 pt-10 pb-12 sm:pb-16 print:hidden">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          {/* Breadcrumb Navigation */}
+          <nav className="flex items-center gap-2 text-xs font-semibold text-slate-500 mb-4" aria-label="Breadcrumb">
+            <button
+              onClick={onNavigateHome}
+              className="hover:text-emerald-700 transition-colors cursor-pointer"
+            >
+              Home
+            </button>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+            <span className="text-slate-600">Legal &amp; Trust Center</span>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+            <span className="text-emerald-800 font-bold">
+              {activeDocId === 'privacy' ? 'Privacy Policy' : 'Data & Account Deletion'}
+            </span>
+          </nav>
+
+          {/* Document Header Badge */}
+          <div className="flex flex-wrap items-center gap-2.5 mb-3">
+            <span className="text-[11px] font-black uppercase tracking-wider text-emerald-800 bg-emerald-100/80 border border-emerald-200 px-3 py-1 rounded-full flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
+              <span>Official Public Record</span>
+            </span>
+            <span className="text-xs text-slate-500 font-mono font-medium">
+              Effective: {currentDoc.effectiveDate} &bull; Last Reviewed: {currentDoc.lastUpdated}
+            </span>
+          </div>
+
+          {/* Document Title & Subtitle */}
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+            {activeDocId === 'privacy' 
+              ? 'Pet Horizon Privacy Policy' 
+              : 'User Data & Account Deletion Protocol'}
+          </h1>
+          <p className="text-slate-600 text-sm sm:text-base mt-3 max-w-3xl leading-relaxed font-normal">
+            {currentDoc.subtitle}
+          </p>
+
+          {/* Key Executive Guarantees Pill Grid (Plain-English Summary) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 mt-8 pt-6 border-t border-slate-200/70">
+            <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+              <div className="flex items-center gap-2 text-xs font-bold text-slate-900 mb-1">
+                <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                <span>Zero Data Monetization</span>
+              </div>
+              <p className="text-[11px] text-slate-500 leading-normal">
+                We never sell, rent, or trade your pet health or personal care data to any advertisers or third-party brokers.
+              </p>
+            </div>
+
+            <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+              <div className="flex items-center gap-2 text-xs font-bold text-slate-900 mb-1">
+                <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                <span>Encrypted Health Records</span>
+              </div>
+              <p className="text-[11px] text-slate-500 leading-normal">
+                All records, medical dosages, and walk timelines are encrypted in transit via TLS 1.3 and securely isolated.
+              </p>
+            </div>
+
+            <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+              <div className="flex items-center gap-2 text-xs font-bold text-slate-900 mb-1">
+                <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                <span>Unconditional Deletion</span>
+              </div>
+              <p className="text-[11px] text-slate-500 leading-normal">
+                Delete your account in-app or via email at any time with total irreversible database purging.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           <LegalSidebar
             currentDoc={currentDoc}
@@ -77,14 +152,14 @@ export default function LegalPortal({
             readPercent={readPercent}
           />
 
-          <div className="lg:col-span-8 space-y-10">
+          <div className="lg:col-span-8 space-y-8">
             <LegalSectionsList
               currentDoc={currentDoc}
               activeSectionId={activeSectionId}
             />
 
             {/* Bottom Document Switcher */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-200">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-200 print:hidden">
               <button
                 onClick={() => handleDocChange(activeDocId === 'privacy' ? 'deletion' : 'privacy')}
                 className="p-5 rounded-2xl bg-white border border-slate-200 hover:border-emerald-300 transition-all text-left group cursor-pointer shadow-xs"
@@ -105,7 +180,7 @@ export default function LegalPortal({
                 </div>
                 <a
                   href="mailto:pethorizon2026@gmail.com"
-                  className="px-3.5 py-1.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs transition-colors inline-flex items-center gap-1.5"
+                  className="px-3.5 py-1.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs transition-colors inline-flex items-center gap-1.5 shadow-xs"
                 >
                   <Mail className="w-3.5 h-3.5" />
                   <span>Email</span>
