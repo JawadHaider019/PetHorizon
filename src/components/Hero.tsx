@@ -1,12 +1,13 @@
-import { useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Calendar, 
   Users, 
   Camera, 
   CheckCircle2, 
-  ShieldCheck,
-  Pill
+  ShieldCheck, 
+  Pill,
+  Clock
 } from 'lucide-react';
 import { GooglePlayBadge, AppStoreBadge, QrScanButton } from './AppBadges';
 import PhoneFrame from './PhoneFrame';
@@ -18,6 +19,41 @@ interface HeroProps {
 
 export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
   const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon';
+  const [activeNotifIndex, setActiveNotifIndex] = useState(0);
+
+  const LIVE_NOTIFICATIONS = [
+    {
+      title: 'Family Care Sync • Just now',
+      message: 'Michael logged Breakfast (2 cups)',
+      tag: 'Morning Routine',
+      icon: Clock,
+      color: 'text-amber-700',
+      bg: 'bg-amber-100'
+    },
+    {
+      title: 'Clinical Dosage • 08:00 AM',
+      message: 'Heartgard Plus administered to Luna',
+      tag: 'Verified',
+      icon: Pill,
+      color: 'text-emerald-700',
+      bg: 'bg-emerald-100'
+    },
+    {
+      title: 'Household Pass • 07:50 AM',
+      message: 'Maya R. (Pet Sitter) scanned QR code',
+      tag: 'Connected',
+      icon: Users,
+      color: 'text-emerald-700',
+      bg: 'bg-emerald-100'
+    }
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveNotifIndex((prev) => (prev + 1) % LIVE_NOTIFICATIONS.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, [LIVE_NOTIFICATIONS.length]);
 
   useEffect(() => {
     document.title = 'Pet Horizon – Smart Pet Care, Family Hub & Daily Routine Tracker';
@@ -123,13 +159,53 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
             className="lg:col-span-5 relative flex items-center justify-center pt-8 pb-10 lg:py-0"
           >
             <div className="relative">
-              {/* Central Phone Mockup with direct screenshot fitting (Eager loaded for LCP) */}
-              <PhoneFrame
-                src="/screenshots/home-screen.png"
-                alt="Pet Horizon Home Dashboard Screen"
-                frameClassName="w-[280px] sm:w-[310px]"
-                priority={true}
-              />
+              {/* Floating Phone Container */}
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+                className="relative"
+              >
+                {/* Central Phone Mockup with direct screenshot fitting (Eager loaded for LCP) */}
+                <PhoneFrame
+                  src="/screenshots/home-screen.png"
+                  alt="Pet Horizon Home Dashboard Screen"
+                  frameClassName="w-[280px] sm:w-[310px]"
+                  priority={true}
+                />
+
+                {/* Simulated Live Notification Toast: Cycles through real care actions */}
+                <div className="absolute top-8 left-1/2 -translate-x-1/2 w-[86%] sm:w-[88%] z-40 pointer-events-none">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={activeNotifIndex}
+                      initial={{ opacity: 0, y: -14, scale: 0.94 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -10, scale: 0.94 }}
+                      transition={{ duration: 0.35, ease: 'easeOut' }}
+                      className="bg-white/95 backdrop-blur-md rounded-2xl p-2.5 shadow-xl border border-slate-200/90 flex items-center gap-2.5 text-left"
+                    >
+                      {(() => {
+                        const item = LIVE_NOTIFICATIONS[activeNotifIndex];
+                        const IconComponent = item.icon;
+                        return (
+                          <>
+                            <div className={`w-7 h-7 rounded-lg ${item.bg} ${item.color} flex items-center justify-center shrink-0`}>
+                              <IconComponent className="w-3.5 h-3.5" />
+                            </div>
+                            <div className="min-w-0 flex-1">
+                              <div className="flex items-center justify-between gap-1">
+                                <p className="text-[9px] font-bold text-slate-400 uppercase tracking-wider truncate">{item.title}</p>
+                                <span className="text-[9px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200/80 px-1.5 py-0.5 rounded shrink-0">{item.tag}</span>
+                              </div>
+                              <p className="text-[11px] font-bold text-slate-900 truncate leading-snug">{item.message}</p>
+                            </div>
+                          </>
+                        );
+                      })()}
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
+              </motion.div>
 
               {/* 3D Pet Companions (Clean Transparent Cutout on the bottom side) */}
               <motion.div
@@ -150,8 +226,8 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
                 className="absolute -bottom-6 left-1/2 -translate-x-1/2 sm:left-auto sm:translate-x-0 sm:right-[88%] lg:right-[92%] sm:bottom-12 bg-white/95 backdrop-blur-md rounded-2xl p-3 sm:p-3.5 shadow-xl border border-emerald-100 flex items-center gap-3 w-[220px] sm:w-[240px] text-left z-30"
               >
-                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold shrink-0">
-                  🥣
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold shrink-0">
+                  <Clock className="w-4 h-4 text-amber-700" />
                 </div>
                 <div>
                   <p className="text-[9px] sm:text-[10px] font-black uppercase tracking-wider text-slate-400">Daily Routine</p>
@@ -166,13 +242,13 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
                 transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
                 className="hidden md:flex absolute -top-4 -left-12 lg:-left-16 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 shadow-xl border border-emerald-100 items-center gap-2.5 w-[190px] text-left z-30"
               >
-                <div className="w-8 h-8 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center font-bold shrink-0">
+                <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold shrink-0">
                   <Pill className="w-4 h-4" />
                 </div>
                 <div>
-                  <p className="text-[9px] font-black uppercase tracking-wider text-purple-700">Medication Taken</p>
+                  <p className="text-[9px] font-black uppercase tracking-wider text-emerald-800">Medication Taken</p>
                   <p className="text-[11px] font-bold text-slate-900 leading-tight">Luna • Heartgard ✓</p>
-                  <p className="text-[9px] text-slate-400">Next due in 30 days</p>
+                  <p className="text-[9px] text-slate-500 font-medium">Next due in 30 days</p>
                 </div>
               </motion.div>
 
