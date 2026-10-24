@@ -1,4 +1,4 @@
-import { Clock, Flame, ShieldCheck, ChevronRight, ExternalLink } from 'lucide-react';
+import { Clock, Flame, ShieldCheck, ChevronRight } from 'lucide-react';
 import { BlogPost } from '../data/blogData';
 
 interface BlogCardProps {

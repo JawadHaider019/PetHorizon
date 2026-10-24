@@ -2,14 +2,12 @@ import { useState, useEffect } from 'react';
 import {
   ArrowLeft,
   Clock,
-  Calendar,
   Share2,
   Check,
   ShieldCheck,
   Sparkles,
   ExternalLink,
   Flame,
-  Search,
   ChevronRight
 } from 'lucide-react';
 import { BlogPost, BLOG_POSTS } from '../data/blogData';
@@ -174,6 +172,23 @@ export default function BlogArticleDetail({
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Medical & Legal Disclaimer */}
+        <div className="mt-12 text-center text-xs text-slate-500">
+          Curated for educational purposes. Always consult an accredited veterinarian in emergencies.
+          {onNavigateLegal && (
+            <span className="block mt-1">
+              Read our{' '}
+              <button
+                onClick={() => onNavigateLegal('privacy')}
+                className="text-emerald-700 underline font-semibold cursor-pointer"
+              >
+                Privacy Policy
+              </button>
+              .
+            </span>
+          )}
         </div>
       </div>
     </div>
