@@ -12,10 +12,9 @@ import {
   Check,
   ShieldCheck,
   Footprints,
-  Receipt,
-  HeartPulse,
   Copy,
-  ArrowRight
+  ArrowRight,
+  Sparkles
 } from 'lucide-react';
 
 export default function BentoFeatures() {
@@ -34,77 +33,53 @@ export default function BentoFeatures() {
       name: 'Golden Retriever', 
       classification: 'Canine Companion', 
       weight: '28.4 kg', 
-      weightStatus: 'Optimal • ±0.2%',
+      weightStatus: 'Optimal Baseline',
       nutritionTarget: '1,120 kcal / day',
       feedingSchedule: '2x Daily Portions',
-      hydrationTarget: '1,400 ml / day',
-      lifeStage: 'Adult (4 Years Old)',
-      protocol: 'Canine Preventive Routine',
-      checks: [
-        'Morning balanced meal logged',
-        'Heartworm preventative verified',
-        '2x Outdoor exercise sessions'
-      ]
+      protocol: 'Canine Preventive Care',
+      focus: 'Joint health & balanced cardio exercise'
     },
     feline: { 
       name: 'British Shorthair', 
       classification: 'Feline Companion', 
       weight: '4.8 kg', 
-      weightStatus: 'Stable • Normal Range',
+      weightStatus: 'Stable Weight',
       nutritionTarget: '240 kcal / day',
       feedingSchedule: '3x Micro Portions',
-      hydrationTarget: '250 ml / day',
-      lifeStage: 'Senior (8 Years Old)',
       protocol: 'Feline Metabolic Care',
-      checks: [
-        'Renal moisture diet administered',
-        'Glucose & insulin check logged',
-        'Fresh water fountain refilled'
-      ]
+      focus: 'Moisture-rich hydration & renal wellness'
     },
     small: { 
       name: 'Holland Lop Rabbit', 
       classification: 'Small Herbivore', 
       weight: '1,650 g', 
-      weightStatus: 'Healthy Adult Baseline',
-      nutritionTarget: 'Ad-Libitum Timothy Hay',
+      weightStatus: 'Healthy Baseline',
+      nutritionTarget: 'Unlimited Timothy Hay',
       feedingSchedule: 'Continuous Grazing',
-      hydrationTarget: '160 ml / day',
-      lifeStage: 'Young Adult (2 Years Old)',
-      protocol: 'Herbivore Digestive Protocol',
-      checks: [
-        'Unlimited fresh hay replenished',
-        'Daily leafy green salad portion',
-        'Digestive motility monitoring'
-      ]
+      protocol: 'Herbivore Motility Protocol',
+      focus: 'High-fiber roughage & digestive motility'
     },
     avian: { 
       name: 'Cockatiel', 
       classification: 'Avian Companion', 
       weight: '92 g', 
       weightStatus: 'Target Baseline',
-      nutritionTarget: '15 g Seed & Pellet Ratio',
+      nutritionTarget: '15 g Seed & Chop',
       feedingSchedule: 'Morning & Midday Chop',
-      hydrationTarget: '15 ml / day',
-      lifeStage: 'Adult (3 Years Old)',
       protocol: 'Avian Wellness Protocol',
-      checks: [
-        'Formulated pellet mix refreshed',
-        'Fresh vegetable chop served',
-        'Enclosure misting & preening check'
-      ]
+      focus: 'Foraging enrichment & feather health'
     }
   };
 
   return (
     <section id="features-bento" className="py-20 sm:py-28 bg-[#FAFAF9] relative overflow-hidden border-t border-slate-200/80">
-      {/* Brand ambient glows: Strict Forest Emerald and Navy palette */}
+      {/* Brand ambient glows */}
       <div className="absolute top-12 right-1/4 w-[520px] h-[520px] bg-emerald-600/5 rounded-full blur-[140px] pointer-events-none -z-10" />
       <div className="absolute bottom-10 left-10 w-[450px] h-[450px] bg-[#1A2B4E]/5 rounded-full blur-[140px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
         
-        {/* Section Header: Mature & Architectural */}
+        {/* Section Header: Balanced, Warm & Architectural */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -112,21 +87,22 @@ export default function BentoFeatures() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <p className="text-[11px] font-black uppercase tracking-[0.2em] text-emerald-800 mb-3">
-              Ecosystem Architecture
-            </p>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100/70 border border-emerald-200/60 mb-3.5">
+              <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+              <span>Connected Care Architecture</span>
+            </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-              Architected for Precision Care. Shared Across Your Household.
+              Architected for Precision Care. Shared Seamlessly Across Your Household.
             </h2>
 
-            <p className="text-slate-600 text-base sm:text-lg mt-4 font-normal leading-relaxed">
+            <p className="text-slate-600 text-base sm:text-lg mt-4 font-normal leading-relaxed max-w-2xl mx-auto">
               Pet Horizon replaces scattered sticky notes and missed alarms with real-time caretaker synchronization, clinical dosage tracking, and automated record-keeping.
             </p>
           </motion.div>
         </div>
 
-        {/* BENTO GRID (Horizontal Snap Carousel on mobile, 12-column grid on desktop) */}
+        {/* BENTO GRID: Streamlined, Spacious & High Impact */}
         <div className="flex overflow-x-auto snap-x snap-mandatory pb-4 gap-4 md:grid md:grid-cols-2 lg:grid-cols-12 md:gap-6 sm:gap-7 items-stretch no-scrollbar px-1">
           
           {/* CARD 1: Household QR Sync Hub (Spans 8 Columns on Desktop) */}
@@ -142,7 +118,7 @@ export default function BentoFeatures() {
 
             {/* Top Bar */}
             <div>
-              <div className="flex items-center justify-between mb-5 flex-wrap gap-2.5">
+              <div className="flex items-center justify-between mb-6 flex-wrap gap-2.5">
                 <span className="text-[11px] font-black uppercase tracking-wider text-emerald-800 bg-emerald-50 border border-emerald-200/80 px-3 py-1 rounded-full flex items-center gap-1.5 whitespace-nowrap shrink-0">
                   <Users className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
                   <span>Household Care Hub</span>
@@ -150,66 +126,49 @@ export default function BentoFeatures() {
                 
                 <span className="text-xs text-emerald-800 font-mono font-semibold flex items-center gap-2 bg-emerald-50/80 px-3 py-1 rounded-full border border-emerald-200/80 whitespace-nowrap shrink-0">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-                  3 Members Synchronized
+                  3 Members Connected
                 </span>
               </div>
 
-              {/* Main Content Split: Headline + QR Pass Preview */}
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+              {/* Main Content Split: Headline + Family Pass Card */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                 <div className="lg:col-span-7">
                   <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-snug">
                     One Dynamic QR Code Connects Every Household Caregiver
                   </h3>
-                  <p className="text-slate-600 text-sm mt-2 font-normal leading-relaxed">
-                    Connect your partner, family members, or pet sitters with instant biometric deep-linking. Morning feedings, medication doses, and outdoor walks update across all phones in real-time.
+                  <p className="text-slate-600 text-sm mt-3 font-normal leading-relaxed">
+                    Connect your partner, family members, or pet sitters with instant biometric deep-linking. Morning feedings, medication doses, and outdoor walks update across all phones in real time.
                   </p>
 
-                  <div className="mt-4 space-y-2 text-xs text-slate-700">
-                    <div className="flex items-center gap-2">
-                      <div className="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                  <div className="mt-5 space-y-2.5 text-xs text-slate-700">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
                         <Check className="w-3 h-3 text-emerald-700" />
                       </div>
-                      <span className="font-medium">Zero account registration hurdles for invited sitters</span>
+                      <span className="font-medium text-slate-700">Zero account registration hurdles for invited sitters</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
                         <Check className="w-3 h-3 text-emerald-700" />
                       </div>
-                      <span className="font-medium">Push alert dispatched when any care event is confirmed</span>
+                      <span className="font-medium text-slate-700">Instant push notifications when any care event is logged</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
-                        <Check className="w-3 h-3 text-emerald-700" />
-                      </div>
-                      <span className="font-medium">Granular permissions: Primary Owner, Family Member, Caregiver</span>
-                    </div>
-                  </div>
-
-                  {/* Mobile Compact Pass Code Strip */}
-                  <div className="sm:hidden mt-3.5 pt-3 border-t border-slate-100 flex items-center justify-between">
-                    <span className="text-xs text-slate-500 font-medium">Household Pass: <strong className="text-slate-800 font-mono">PH-8492</strong></span>
-                    <button
-                      type="button"
-                      onClick={handleCopyCode}
-                      className="py-1 px-3 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs flex items-center gap-1.5 cursor-pointer shadow-xs"
-                    >
-                      <Copy className="w-3 h-3" />
-                      <span>{copiedCode ? 'Copied' : 'Share Pass'}</span>
-                    </button>
                   </div>
                 </div>
 
-                {/* Right Mini Widget: Dynamic Household Pass (Hidden on mobile phones, shown on tablet/desktop) */}
-                <div className="hidden sm:flex lg:col-span-5 bg-[#F8FAF9] border border-slate-200/90 rounded-2xl p-4 flex-col justify-between shadow-2xs">
+                {/* Right Hero Pass Card */}
+                <div className="lg:col-span-5 bg-[#F8FAF9] border border-slate-200/90 rounded-2xl p-5 flex flex-col justify-between shadow-2xs">
                   <div className="flex items-center justify-between text-xs pb-3 border-b border-slate-200/80">
                     <span className="font-bold text-slate-900 flex items-center gap-1.5">
                       <QrCode className="w-4 h-4 text-emerald-700" /> Family Pass
                     </span>
-                    <span className="text-[10px] text-emerald-800 font-mono font-bold bg-emerald-100/70 px-2 py-0.5 rounded">Pass Code: PH-8492</span>
+                    <span className="text-[11px] text-emerald-800 font-mono font-bold bg-emerald-100/70 px-2 py-0.5 rounded">
+                      PH-8492
+                    </span>
                   </div>
 
-                  <div className="py-3 flex items-center gap-3">
-                    <div className="w-16 h-16 bg-white p-1.5 rounded-xl flex items-center justify-center shrink-0 border border-slate-200 shadow-xs">
+                  <div className="py-4 flex items-center gap-4">
+                    <div className="w-20 h-20 bg-white p-1.5 rounded-xl flex items-center justify-center shrink-0 border border-slate-200 shadow-xs">
                       <img 
                         src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&margin=2&data=https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon"
                         alt="Dynamic QR Code"
@@ -217,71 +176,52 @@ export default function BentoFeatures() {
                       />
                     </div>
                     <div className="text-left text-xs">
-                      <p className="font-bold text-slate-900">Scan with Camera</p>
-                      <p className="text-[11px] text-slate-500 mt-0.5 leading-snug">Instant access to Luna's feeding and medical schedule</p>
+                      <p className="font-bold text-slate-900 text-sm">Scan to Join</p>
+                      <p className="text-slate-500 mt-1 text-[11px] leading-snug">Instant sync for feeding, medication &amp; walk updates</p>
                     </div>
                   </div>
 
                   <button
                     type="button"
                     onClick={handleCopyCode}
-                    className="w-full py-2 px-3 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer shadow-xs active:scale-[0.98]"
+                    className="w-full py-2.5 px-3 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors cursor-pointer shadow-xs active:scale-[0.98]"
                   >
                     <Copy className="w-3.5 h-3.5" />
-                    <span>{copiedCode ? 'Code Copied!' : 'Copy Invitation Code'}</span>
+                    <span>{copiedCode ? 'Invitation Code Copied!' : 'Copy Invitation Code'}</span>
                   </button>
                 </div>
               </div>
             </div>
 
-            {/* Bottom Section: Live Care Log Feed (Completely fills the lower card) */}
-            <div className="mt-6 pt-5 border-t border-slate-100">
-              <div className="flex items-center justify-between mb-3 text-xs text-slate-500 font-semibold">
-                <span className="text-[11px] uppercase tracking-wider font-bold text-slate-400">Live Care Log Feed</span>
-                <span className="text-[11px] text-emerald-700 font-mono font-bold">Sync Latency: &lt; 180ms</span>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {/* Member 1: Sarah */}
-                <div className="bg-[#F8FAF9] border border-slate-200/80 rounded-2xl p-3.5 flex flex-col justify-between transition-all hover:bg-emerald-50/30 hover:border-emerald-300/60">
-                  <div className="flex items-center justify-between gap-2 mb-1.5">
-                    <span className="text-xs font-bold text-slate-900">Sarah M.</span>
-                    <span className="text-[10px] font-semibold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded whitespace-nowrap shrink-0">Owner</span>
-                  </div>
-                  <p className="text-[11px] text-slate-700 font-medium">35-Min Trail Walk Completed</p>
-                  <p className="text-[10px] text-slate-500 font-mono mt-1.5 flex items-center gap-1">
-                    <Clock className="w-3 h-3 text-emerald-600" /> 07:45 AM &bull; 2.4 km logged
-                  </p>
+            {/* Bottom Streamlined Caregiver Avatars Presence Bar */}
+            <div className="mt-6 pt-5 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <span className="text-[11px] uppercase tracking-wider font-bold text-slate-400">
+                Active Household Circle
+              </span>
+              <div className="flex items-center gap-2 flex-wrap">
+                <div className="inline-flex items-center gap-2 bg-[#F8FAF9] border border-slate-200/80 px-3 py-1.5 rounded-xl text-xs font-medium text-slate-700">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                  <strong className="text-slate-900">Sarah</strong>
+                  <span className="text-slate-400">&bull;</span>
+                  <span className="text-slate-500">Walk logged (07:45 AM)</span>
                 </div>
-
-                {/* Member 2: Michael */}
-                <div className="bg-[#F8FAF9] border border-slate-200/80 rounded-2xl p-3.5 flex flex-col justify-between transition-all hover:bg-emerald-50/30 hover:border-emerald-300/60">
-                  <div className="flex items-center justify-between gap-2 mb-1.5">
-                    <span className="text-xs font-bold text-slate-900">Michael D.</span>
-                    <span className="text-[10px] font-semibold text-slate-700 bg-slate-200 px-2 py-0.5 rounded whitespace-nowrap shrink-0">Family</span>
-                  </div>
-                  <p className="text-[11px] text-slate-700 font-medium">Morning Meal Confirmed (2 Cups)</p>
-                  <p className="text-[10px] text-slate-500 font-mono mt-1.5 flex items-center gap-1">
-                    <Clock className="w-3 h-3 text-emerald-600" /> 08:15 AM &bull; Kibble + Broth
-                  </p>
+                <div className="inline-flex items-center gap-2 bg-[#F8FAF9] border border-slate-200/80 px-3 py-1.5 rounded-xl text-xs font-medium text-slate-700">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                  <strong className="text-slate-900">Michael</strong>
+                  <span className="text-slate-400">&bull;</span>
+                  <span className="text-slate-500">Breakfast confirmed</span>
                 </div>
-
-                {/* Member 3: Maya */}
-                <div className="hidden sm:flex bg-[#F8FAF9] border border-slate-200/80 rounded-2xl p-3.5 flex-col justify-between transition-all hover:bg-emerald-50/30 hover:border-emerald-300/60">
-                  <div className="flex items-center justify-between gap-2 mb-1.5">
-                    <span className="text-xs font-bold text-slate-900">Maya R.</span>
-                    <span className="text-[10px] font-semibold text-[#E67E22] bg-amber-100 px-2 py-0.5 rounded whitespace-nowrap shrink-0">Pet Sitter</span>
-                  </div>
-                  <p className="text-[11px] text-slate-700 font-medium">Connected via QR Invite</p>
-                  <p className="text-[10px] text-emerald-700 font-mono mt-1.5 flex items-center gap-1">
-                    <QrCode className="w-3 h-3 text-emerald-600" /> Active Session &bull; Verified
-                  </p>
+                <div className="inline-flex items-center gap-2 bg-[#F8FAF9] border border-slate-200/80 px-3 py-1.5 rounded-xl text-xs font-medium text-slate-700">
+                  <span className="w-2 h-2 rounded-full bg-amber-500" />
+                  <strong className="text-slate-900">Maya</strong>
+                  <span className="text-slate-400">&bull;</span>
+                  <span className="text-amber-700">Pet Sitter</span>
                 </div>
               </div>
             </div>
           </motion.div>
 
-          {/* CARD 2: Clinical Dosage & Vaccine Alarms (Spans 4 Columns) */}
+          {/* CARD 2: Clinical Dosage Alarms (Spans 4 Columns) */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -304,61 +244,53 @@ export default function BentoFeatures() {
                 Clinical Dosage Alarms
               </h3>
               <p className="text-slate-600 text-xs sm:text-sm mt-1.5 leading-relaxed">
-                Automated reminders for heartworm preventatives, insulin administration, and DHPP vaccination intervals.
+                Automated medication alarms with verified tap-to-complete logs for preventatives and treatments.
               </p>
             </div>
 
-            {/* Block 1: Active Interactive Dose Widget */}
-            <div className="my-4 bg-[#F5F6F8] p-4 rounded-2xl border border-slate-200/80">
-              <div className="flex items-center justify-between text-xs mb-1">
-                <span className="font-bold text-slate-900">Heartgard Plus (Monthly)</span>
-                <span className="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded whitespace-nowrap shrink-0">
+            {/* Interactive Hero Dose Card */}
+            <div className="my-5 bg-[#F5F6F8] p-4 rounded-2xl border border-slate-200/80 space-y-3">
+              <div className="flex items-center justify-between text-xs">
+                <div>
+                  <span className="font-bold text-slate-900 block text-sm">Heartgard Plus</span>
+                  <span className="text-[11px] text-slate-500">68 mcg Chewable &bull; Luna</span>
+                </div>
+                <span className="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-100 px-2.5 py-1 rounded-full">
                   8:00 AM Today
                 </span>
               </div>
-              <p className="text-[11px] text-slate-500 mb-2.5">Dose: 68 mcg Chewable &bull; Luna</p>
 
               <button
                 type="button"
                 onClick={() => setMedTaken(!medTaken)}
-                className={`w-full py-2.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer ${
+                className={`w-full py-3 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer ${
                   medTaken
                     ? 'bg-emerald-700 hover:bg-emerald-800 text-white shadow-xs'
                     : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
                 }`}
               >
                 <CheckCircle2 className={`w-4 h-4 ${medTaken ? 'text-white' : 'text-slate-400'}`} />
-                <span>{medTaken ? 'Dose Administered & Verified' : 'Mark Dose Administered'}</span>
+                <span>{medTaken ? 'Dose Administered & Verified' : 'Tap to Confirm Dose'}</span>
               </button>
 
-              <div className="mt-2.5 pt-2 border-t border-slate-200/70 flex items-center justify-between text-[10px] text-slate-500 font-medium">
-                <span>Inventory: 5 Doses Remaining</span>
-                <span className="text-emerald-700 font-semibold">Refill: In 5 Months</span>
+              <div className="flex items-center justify-between text-[11px] text-slate-500 pt-1">
+                <span>Inventory: 5 doses left</span>
+                <span className="text-emerald-700 font-semibold font-mono">Refill in 5 mos</span>
               </div>
             </div>
 
-            {/* Block 2: Upcoming Booster Countdown (Clean Light Card) */}
-            <div className="bg-[#F8FAF9] text-slate-800 p-3.5 rounded-2xl border border-slate-200/80">
-              <div className="flex items-center justify-between text-xs mb-1">
-                <span className="font-bold text-slate-900 flex items-center gap-1.5">
-                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-700 shrink-0" /> DHPP Booster Vaccine
-                </span>
-                <span className="text-[10px] font-mono font-bold text-[#E67E22] bg-amber-100 px-2 py-0.5 rounded whitespace-nowrap shrink-0">
-                  Due in 14 Days
-                </span>
+            {/* Upcoming Vaccine Booster Pill */}
+            <div className="bg-[#F8FAF9] p-3 rounded-2xl border border-slate-200/80 flex items-center justify-between text-xs">
+              <div className="flex items-center gap-2.5">
+                <ShieldCheck className="w-4 h-4 text-emerald-700 shrink-0" />
+                <div>
+                  <span className="font-bold text-slate-900 block text-xs">DHPP Vaccine Booster</span>
+                  <span className="text-[11px] text-slate-500">Dr. Henderson Hospital</span>
+                </div>
               </div>
-              <p className="text-[11px] text-slate-500">Dr. Henderson Veterinary Hospital &bull; Clinic ID: #4829</p>
-              
-              <div className="mt-2.5 w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
-                <motion.div 
-                  initial={{ width: 0 }}
-                  whileInView={{ width: '85%' }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-                  className="bg-emerald-700 h-full rounded-full" 
-                />
-              </div>
-              <p className="text-[10px] text-slate-500 mt-1.5 text-right font-mono font-medium">Immunization coverage: 85% valid</p>
+              <span className="text-[10px] font-mono font-bold text-[#E67E22] bg-amber-100 px-2 py-0.5 rounded">
+                Due in 14d
+              </span>
             </div>
           </motion.div>
 
@@ -385,10 +317,10 @@ export default function BentoFeatures() {
                 Multi-Species Calibrations
               </h3>
               <p className="text-slate-600 text-xs sm:text-sm mt-1.5 leading-relaxed">
-                Dedicated biometric units and nutrition formulas tailored specifically for canines, felines, small mammals, and avians.
+                Biometric thresholds and nutrition formulas tailored for canines, felines, small mammals, and avians.
               </p>
 
-              {/* Minimalist Segmented Selector with Framer Motion Sliding Pill */}
+              {/* Segmented Selector */}
               <div className="grid grid-cols-4 gap-1 mt-4 bg-slate-100 p-1 rounded-xl relative">
                 {(['canine', 'feline', 'small', 'avian'] as const).map((key) => {
                   const labels = {
@@ -423,7 +355,7 @@ export default function BentoFeatures() {
               </div>
             </div>
 
-            {/* Active Species Spec Sheet (Rich, Dense, No Empty Void) */}
+            {/* Active Species Spec Sheet (Streamlined & Clean) */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeSpecies}
@@ -433,7 +365,6 @@ export default function BentoFeatures() {
                 transition={{ duration: 0.2 }}
                 className="mt-4 bg-[#F5F6F8] p-4 rounded-2xl border border-slate-200/80 space-y-3"
               >
-                {/* Header row with Weight and Status */}
                 <div className="flex items-center justify-between text-xs pb-2 border-b border-slate-200/70">
                   <div>
                     <span className="font-bold text-slate-900 block">{speciesData[activeSpecies].name}</span>
@@ -445,37 +376,20 @@ export default function BentoFeatures() {
                   </div>
                 </div>
 
-                {/* 2x2 Metric Grid */}
                 <div className="grid grid-cols-2 gap-2 text-[11px]">
-                  <div className="bg-white p-2 rounded-xl border border-slate-200/70">
+                  <div className="bg-white p-2.5 rounded-xl border border-slate-200/70">
                     <span className="text-slate-400 block text-[10px]">Daily Caloric Target</span>
                     <span className="font-bold text-slate-800">{speciesData[activeSpecies].nutritionTarget}</span>
                   </div>
-                  <div className="bg-white p-2 rounded-xl border border-slate-200/70">
+                  <div className="bg-white p-2.5 rounded-xl border border-slate-200/70">
                     <span className="text-slate-400 block text-[10px]">Feeding Schedule</span>
                     <span className="font-bold text-slate-800">{speciesData[activeSpecies].feedingSchedule}</span>
                   </div>
-                  <div className="bg-white p-2 rounded-xl border border-slate-200/70">
-                    <span className="text-slate-400 block text-[10px]">Hydration Goal</span>
-                    <span className="font-bold text-slate-800">{speciesData[activeSpecies].hydrationTarget}</span>
-                  </div>
-                  <div className="bg-white p-2 rounded-xl border border-slate-200/70">
-                    <span className="text-slate-400 block text-[10px]">Life Stage</span>
-                    <span className="font-bold text-slate-800">{speciesData[activeSpecies].lifeStage}</span>
-                  </div>
                 </div>
 
-                {/* Protocol Checklist items */}
-                <div className="pt-2 border-t border-slate-200/70 space-y-1">
-                  <span className="text-[10px] font-black uppercase tracking-wider text-slate-500 block">
-                    {speciesData[activeSpecies].protocol}
-                  </span>
-                  {speciesData[activeSpecies].checks.map((chk, i) => (
-                    <div key={i} className="flex items-center gap-1.5 text-[11px] text-slate-700 font-medium">
-                      <Check className="w-3 h-3 text-emerald-600 shrink-0" />
-                      <span className="truncate">{chk}</span>
-                    </div>
-                  ))}
+                <div className="pt-2 border-t border-slate-200/70 flex items-center gap-1.5 text-[11px] text-slate-700 font-medium">
+                  <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span className="truncate">{speciesData[activeSpecies].focus}</span>
                 </div>
               </motion.div>
             </AnimatePresence>
@@ -504,57 +418,49 @@ export default function BentoFeatures() {
                 Daily Milestone Journal
               </h3>
               <p className="text-slate-600 text-xs sm:text-sm mt-1.5 leading-relaxed">
-                Chronicle outdoor walks, route milestones, and attach high-resolution memory logs to an unalterable activity timeline.
+                Log outdoor walks, route milestones, and attach verified photos to an unalterable activity timeline.
               </p>
             </div>
 
-            {/* Block 1: Exercise Route Metrics Card */}
-            <div className="mt-4 bg-[#F5F6F8] p-3.5 rounded-2xl border border-slate-200/80">
-              <div className="flex items-center justify-between text-xs mb-2">
-                <span className="font-bold text-slate-900 flex items-center gap-1.5">
-                  <Footprints className="w-3.5 h-3.5 text-emerald-700" /> Morning Trail Route
-                </span>
-                <span className="text-[10px] text-slate-500 font-mono">07:45 AM &bull; Bella</span>
+            {/* Hero Visual Card: Photo + Walk Stats */}
+            <div className="my-4 bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-2xs">
+              <div className="relative h-28 w-full bg-slate-100">
+                <img 
+                  src="/cute-3d-pets.jpg" 
+                  alt="Walk memory entry" 
+                  className="w-full h-full object-cover" 
+                />
+                <div className="absolute top-2.5 left-2.5 bg-slate-900/80 backdrop-blur-xs text-white text-[10px] font-bold px-2 py-0.5 rounded-md flex items-center gap-1">
+                  <Footprints className="w-3 h-3 text-emerald-400" /> Morning Trail Walk
+                </div>
+                <div className="absolute bottom-2.5 right-2.5 bg-white/90 backdrop-blur-xs text-slate-800 text-[10px] font-mono font-bold px-2 py-0.5 rounded-md">
+                  07:45 AM
+                </div>
               </div>
 
-              {/* 3 Metrics Strip */}
-              <div className="grid grid-cols-3 gap-2 text-center">
-                <div className="bg-white p-2 rounded-xl border border-slate-200/70">
+              <div className="p-3 bg-[#F8FAF9] flex items-center justify-between text-center">
+                <div>
                   <span className="text-[10px] text-slate-400 block font-medium">Distance</span>
                   <span className="text-xs font-black text-emerald-800">2.4 km</span>
                 </div>
-                <div className="bg-white p-2 rounded-xl border border-slate-200/70">
+                <div className="w-px h-6 bg-slate-200" />
+                <div>
                   <span className="text-[10px] text-slate-400 block font-medium">Duration</span>
                   <span className="text-xs font-black text-slate-800">35 min</span>
                 </div>
-                <div className="bg-white p-2 rounded-xl border border-slate-200/70">
-                  <span className="text-[10px] text-slate-400 block font-medium">Step Count</span>
+                <div className="w-px h-6 bg-slate-200" />
+                <div>
+                  <span className="text-[10px] text-slate-400 block font-medium">Steps</span>
                   <span className="text-xs font-black text-slate-800">4,820</span>
                 </div>
               </div>
             </div>
 
-            {/* Block 2: Memory Photo Entry (Fills previous empty gap) */}
-            <div className="mt-3 bg-white p-3 rounded-2xl border border-slate-200/80 flex items-center gap-3 shadow-2xs">
-              <div className="w-14 h-14 rounded-xl overflow-hidden shrink-0 border border-emerald-200 shadow-xs">
-                <img src="/cute-3d-pets.jpg" alt="Walk memory with cute 3D puppy and kitten" className="w-full h-full object-cover" />
-              </div>
-              <div className="text-left flex-1 min-w-0">
-                <div className="flex items-center justify-between">
-                  <p className="text-xs font-bold text-slate-900 truncate">Pine Trail Photo Entry</p>
-                  <span className="text-[10px] font-mono text-emerald-700 font-bold bg-emerald-50 px-1.5 py-0.5 rounded whitespace-nowrap shrink-0">2 Photos</span>
-                </div>
-                <p className="text-[11px] text-slate-500 mt-0.5">Hydration: 750ml &bull; Regular Bowel</p>
-                <p className="text-[10px] text-slate-400 mt-0.5 font-mono">Logged by Sarah &bull; Verified</p>
-              </div>
-            </div>
-
-            {/* Block 3: Timeline Check-in Status */}
-            <div className="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-600 font-medium">
+            <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-600 font-medium">
               <span className="flex items-center gap-1.5">
-                <HeartPulse className="w-3.5 h-3.5 text-emerald-600" /> Vital Signs &amp; Mood: High Energy
+                <Clock className="w-3.5 h-3.5 text-emerald-600" /> Logged by Sarah
               </span>
-              <span className="text-emerald-700 font-bold text-[10px]">100% Complete</span>
+              <span className="text-emerald-700 font-bold text-[10px]">Verified Milestone</span>
             </div>
           </motion.div>
 
@@ -585,10 +491,10 @@ export default function BentoFeatures() {
               </p>
             </div>
 
-            {/* Block 1: Monthly Budget Overview */}
-            <div className="mt-4 bg-[#F5F6F8] p-3.5 rounded-2xl border border-slate-200/80">
-              <div className="flex items-center justify-between text-xs mb-1.5">
-                <span className="font-bold text-slate-700">Monthly Budget Cap: $250.00</span>
+            {/* Clean Monthly Budget Overview */}
+            <div className="my-4 bg-[#F5F6F8] p-4 rounded-2xl border border-slate-200/80 space-y-3">
+              <div className="flex items-center justify-between text-xs">
+                <span className="text-slate-500 font-medium">Monthly Cap: $250.00</span>
                 <span className="font-black text-slate-900 text-sm">$184.50 Used</span>
               </div>
               
@@ -619,51 +525,26 @@ export default function BentoFeatures() {
                 />
               </div>
 
-              <div className="grid grid-cols-3 gap-1 text-[10px] text-slate-600 mt-2.5 font-bold text-center">
-                <div className="bg-white py-1 rounded-md border border-slate-200/80">
-                  <span className="text-emerald-700 block font-black">$92.25 (50%)</span>
+              <div className="grid grid-cols-3 gap-1.5 text-[10px] font-bold text-center">
+                <div className="bg-white py-1.5 rounded-lg border border-slate-200/70">
+                  <span className="text-emerald-700 block font-black">$92.25</span>
                   <span className="text-slate-500 font-medium">Dietary</span>
                 </div>
-                <div className="bg-white py-1 rounded-md border border-slate-200/80">
-                  <span className="text-[#1A2B4E] block font-black">$55.35 (30%)</span>
-                  <span className="text-slate-500 font-medium">Vet Clinical</span>
+                <div className="bg-white py-1.5 rounded-lg border border-slate-200/70">
+                  <span className="text-[#1A2B4E] block font-black">$55.35</span>
+                  <span className="text-slate-500 font-medium">Clinical</span>
                 </div>
-                <div className="bg-white py-1 rounded-md border border-slate-200/80">
-                  <span className="text-[#E67E22] block font-black">$36.90 (20%)</span>
+                <div className="bg-white py-1.5 rounded-lg border border-slate-200/70">
+                  <span className="text-[#E67E22] block font-black">$36.90</span>
                   <span className="text-slate-500 font-medium">Care/Gear</span>
                 </div>
               </div>
             </div>
 
-            {/* Block 2: Recent Ledger Audit Items (Compact on mobile) */}
-            <div className="mt-3 bg-white p-3 rounded-2xl border border-slate-200/80 space-y-2">
-              <div className="flex items-center justify-between text-[11px] pb-1.5 border-b border-slate-100">
-                <div className="flex items-center gap-1.5 truncate">
-                  <Receipt className="w-3 h-3 text-slate-400 shrink-0" />
-                  <span className="font-medium text-slate-800 truncate">Purina Pro Sensitive 15kg</span>
-                </div>
-                <span className="font-bold text-slate-900 ml-2">$64.99</span>
-              </div>
-              <div className="hidden sm:flex items-center justify-between text-[11px] pb-1.5 border-b border-slate-100">
-                <div className="flex items-center gap-1.5 truncate">
-                  <Receipt className="w-3 h-3 text-slate-400 shrink-0" />
-                  <span className="font-medium text-slate-800 truncate">Annual Heartworm Test</span>
-                </div>
-                <span className="font-bold text-slate-900 ml-2">$85.00</span>
-              </div>
-              <div className="hidden sm:flex items-center justify-between text-[11px]">
-                <div className="flex items-center gap-1.5 truncate">
-                  <Receipt className="w-3 h-3 text-slate-400 shrink-0" />
-                  <span className="font-medium text-slate-800 truncate">Dental Chews &amp; Harness</span>
-                </div>
-                <span className="font-bold text-slate-900 ml-2">$34.51</span>
-              </div>
-            </div>
-
-            {/* Remaining Balance status */}
-            <div className="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] font-medium text-slate-600">
-              <span>Remaining this cycle:</span>
-              <span className="text-emerald-700 font-bold">$65.50 (26% buffer)</span>
+            {/* Single verified recent item banner */}
+            <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] font-medium text-slate-600">
+              <span className="truncate">Remaining buffer: <strong className="text-emerald-700 font-bold">$65.50 (26%)</strong></span>
+              <span className="text-slate-400 font-mono text-[10px] shrink-0">Cycle resets in 8d</span>
             </div>
           </motion.div>
 
