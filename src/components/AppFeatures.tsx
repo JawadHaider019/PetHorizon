@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { PawPrint, CheckCircle2, ArrowRight } from 'lucide-react';
+import { PawPrint, CheckCircle2, ArrowRight, Smartphone } from 'lucide-react';
 import PhoneFrame from './PhoneFrame';
 import { FEATURES_DATA } from '../data/appFeaturesData';
 
@@ -9,28 +9,28 @@ export default function AppFeatures() {
   const activeFeature = FEATURES_DATA.find(f => f.id === activeTab) || FEATURES_DATA[0];
 
   return (
-    <section id="features" className="py-20 sm:py-28 bg-white relative overflow-hidden">
+    <section id="features" className="py-12 sm:py-24 bg-white relative overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute top-1/3 left-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-emerald-600/5 rounded-full blur-[130px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
 
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
-          <p className="text-xs font-black uppercase tracking-widest text-emerald-700 mb-3">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-14">
+          <p className="text-xs font-black uppercase tracking-widest text-emerald-700 mb-2.5">
             Core App Modules
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
             Designed to Make Daily Pet Care Feel Effortless
           </h2>
-          <p className="text-slate-600 text-base sm:text-lg mt-4 font-normal">
+          <p className="text-slate-600 text-xs sm:text-base lg:text-lg mt-2.5 sm:mt-4 font-normal">
             Every feature on this website is genuinely inside the Pet Horizon mobile app. Discover how our modules keep your pets healthy and your household aligned.
           </p>
         </div>
 
-        {/* Feature Navigation Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12 sm:mb-16">
+        {/* Feature Navigation Tabs: Swipeable on mobile, flex-wrap on desktop */}
+        <div className="flex overflow-x-auto no-scrollbar sm:flex-wrap items-center sm:justify-center gap-2 sm:gap-3 mb-8 sm:mb-14 px-1">
           {FEATURES_DATA.map((tab) => {
             const Icon = tab.icon;
             const isSelected = activeTab === tab.id;
@@ -38,12 +38,12 @@ export default function AppFeatures() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2.5 px-5 py-3 rounded-2xl font-bold text-sm transition-all duration-200 cursor-pointer ${isSelected
+                className={`flex items-center gap-2 px-3.5 sm:px-5 py-2 sm:py-3 rounded-2xl font-bold text-xs sm:text-sm transition-all duration-200 cursor-pointer shrink-0 ${isSelected
                     ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/25 scale-[1.02]'
                     : 'bg-slate-100/80 text-slate-700 hover:bg-slate-200/80 hover:text-slate-900'
                   }`}
               >
-                <Icon className={`w-4 h-4 ${isSelected ? 'text-white' : 'text-emerald-600'}`} />
+                <Icon className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${isSelected ? 'text-white' : 'text-emerald-600'}`} />
                 <span>{tab.tag}</span>
               </button>
             );
@@ -131,12 +131,13 @@ export default function AppFeatures() {
                   <PhoneFrame
                     src={activeFeature.screenshot}
                     alt={activeFeature.screenshotAlt}
-                    frameClassName="w-[260px] sm:w-[290px]"
+                    frameClassName="w-[215px] sm:w-[290px]"
                   />
 
                   {/* Ambient Decorative Badge (Positioned outside) */}
-                  <div className="hidden sm:block absolute -bottom-4 -right-6 lg:-right-10 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-emerald-100 shadow-lg text-xs font-bold text-slate-800 z-20">
-                    ✨ Real App Interface
+                  <div className="hidden sm:flex items-center gap-1.5 absolute -bottom-4 -right-6 lg:-right-10 bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-2xl border border-emerald-100 shadow-lg text-xs font-bold text-slate-800 z-20">
+                    <Smartphone className="w-3.5 h-3.5 text-emerald-700" />
+                    <span>Real App Interface</span>
                   </div>
                 </div>
               </motion.div>

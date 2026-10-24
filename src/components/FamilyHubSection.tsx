@@ -31,14 +31,14 @@ export default function FamilyHubSection() {
   ];
 
   return (
-    <section id="family-hub" className="py-20 sm:py-28 bg-white text-slate-800 relative overflow-hidden">
+    <section id="family-hub" className="py-12 sm:py-24 bg-white text-slate-800 relative overflow-hidden">
       {/* Decorative background ambient glows */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[450px] h-[450px] bg-emerald-600/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
           
           {/* Left Column: Device Screenshot (comes in from left) */}
           <motion.div
@@ -52,7 +52,7 @@ export default function FamilyHubSection() {
               <PhoneFrame
                 src="/screenshots/family-screen.png"
                 alt="Pet Horizon Family Hub Co-Parenting Screen"
-                frameClassName="w-[270px] sm:w-[300px]"
+                frameClassName="w-[220px] sm:w-[300px]"
               />
 
               {/* Floating Companion Avatar Pill */}
@@ -70,11 +70,11 @@ export default function FamilyHubSection() {
                 </div>
               </motion.div>
 
-              {/* Floating QR Code Badge */}
+              {/* Floating QR Code Badge (shown on desktop/tablet, kept clean on mobile) */}
               <motion.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute -bottom-6 -right-4 sm:-right-14 lg:-right-16 bg-white text-slate-900 rounded-2xl p-3 sm:p-3.5 shadow-xl border border-emerald-200 flex items-center gap-3 z-30 w-[190px] sm:w-[210px] text-left"
+                className="hidden sm:flex absolute -bottom-6 -right-4 sm:-right-14 lg:-right-16 bg-white text-slate-900 rounded-2xl p-3 sm:p-3.5 shadow-xl border border-emerald-200 items-center gap-3 z-30 w-[190px] sm:w-[210px] text-left"
               >
                 <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold shrink-0">
                   <QrCode className="w-5 h-5" />

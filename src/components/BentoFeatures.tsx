@@ -14,7 +14,8 @@ import {
   Footprints,
   Receipt,
   HeartPulse,
-  Copy
+  Copy,
+  ArrowRight
 } from 'lucide-react';
 
 export default function BentoFeatures() {
@@ -125,8 +126,8 @@ export default function BentoFeatures() {
           </motion.div>
         </div>
 
-        {/* BENTO GRID (12 Columns) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-7 items-stretch">
+        {/* BENTO GRID (Horizontal Snap Carousel on mobile, 12-column grid on desktop) */}
+        <div className="flex overflow-x-auto snap-x snap-mandatory pb-4 gap-4 md:grid md:grid-cols-2 lg:grid-cols-12 md:gap-6 sm:gap-7 items-stretch no-scrollbar px-1">
           
           {/* CARD 1: Household QR Sync Hub (Spans 8 Columns on Desktop) */}
           <motion.div
@@ -135,7 +136,7 @@ export default function BentoFeatures() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6 }}
             whileHover={{ y: -3 }}
-            className="lg:col-span-8 bg-white rounded-3xl p-7 sm:p-9 border border-slate-200/90 shadow-sm flex flex-col justify-between relative overflow-hidden group hover:border-emerald-600/40 hover:shadow-md transition-all text-left"
+            className="w-[88vw] sm:w-[84vw] md:w-auto shrink-0 snap-center lg:col-span-8 bg-white rounded-3xl p-6 sm:p-9 border border-slate-200/90 shadow-sm flex flex-col justify-between relative overflow-hidden group hover:border-emerald-600/40 hover:shadow-md transition-all text-left"
           >
             <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/5 rounded-full blur-[90px] pointer-events-none" />
 
@@ -183,10 +184,23 @@ export default function BentoFeatures() {
                       <span className="font-medium">Granular permissions: Primary Owner, Family Member, Caregiver</span>
                     </div>
                   </div>
+
+                  {/* Mobile Compact Pass Code Strip */}
+                  <div className="sm:hidden mt-3.5 pt-3 border-t border-slate-100 flex items-center justify-between">
+                    <span className="text-xs text-slate-500 font-medium">Household Pass: <strong className="text-slate-800 font-mono">PH-8492</strong></span>
+                    <button
+                      type="button"
+                      onClick={handleCopyCode}
+                      className="py-1 px-3 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs flex items-center gap-1.5 cursor-pointer shadow-xs"
+                    >
+                      <Copy className="w-3 h-3" />
+                      <span>{copiedCode ? 'Copied' : 'Share Pass'}</span>
+                    </button>
+                  </div>
                 </div>
 
-                {/* Right Mini Widget: Dynamic Household Pass */}
-                <div className="lg:col-span-5 bg-[#F8FAF9] border border-slate-200/90 rounded-2xl p-4 flex flex-col justify-between shadow-2xs">
+                {/* Right Mini Widget: Dynamic Household Pass (Hidden on mobile phones, shown on tablet/desktop) */}
+                <div className="hidden sm:flex lg:col-span-5 bg-[#F8FAF9] border border-slate-200/90 rounded-2xl p-4 flex-col justify-between shadow-2xs">
                   <div className="flex items-center justify-between text-xs pb-3 border-b border-slate-200/80">
                     <span className="font-bold text-slate-900 flex items-center gap-1.5">
                       <QrCode className="w-4 h-4 text-emerald-700" /> Family Pass
@@ -253,7 +267,7 @@ export default function BentoFeatures() {
                 </div>
 
                 {/* Member 3: Maya */}
-                <div className="bg-[#F8FAF9] border border-slate-200/80 rounded-2xl p-3.5 flex flex-col justify-between transition-all hover:bg-emerald-50/30 hover:border-emerald-300/60">
+                <div className="hidden sm:flex bg-[#F8FAF9] border border-slate-200/80 rounded-2xl p-3.5 flex-col justify-between transition-all hover:bg-emerald-50/30 hover:border-emerald-300/60">
                   <div className="flex items-center justify-between gap-2 mb-1.5">
                     <span className="text-xs font-bold text-slate-900">Maya R.</span>
                     <span className="text-[10px] font-semibold text-[#E67E22] bg-amber-100 px-2 py-0.5 rounded">Pet Sitter</span>
@@ -274,7 +288,7 @@ export default function BentoFeatures() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             whileHover={{ y: -3 }}
-            className="lg:col-span-4 bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between text-left transition-all hover:border-emerald-600/40 hover:shadow-md"
+            className="w-[88vw] sm:w-[84vw] md:w-auto shrink-0 snap-center lg:col-span-4 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between text-left transition-all hover:border-emerald-600/40 hover:shadow-md"
           >
             <div>
               <div className="flex items-center justify-between mb-3">
@@ -355,7 +369,7 @@ export default function BentoFeatures() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.15 }}
             whileHover={{ y: -3 }}
-            className="lg:col-span-4 bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between text-left transition-all hover:border-emerald-600/40 hover:shadow-md"
+            className="w-[88vw] sm:w-[84vw] md:w-auto shrink-0 snap-center lg:col-span-4 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between text-left transition-all hover:border-emerald-600/40 hover:shadow-md"
           >
             <div>
               <div className="flex items-center justify-between mb-3">
@@ -474,7 +488,7 @@ export default function BentoFeatures() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             whileHover={{ y: -3 }}
-            className="lg:col-span-4 bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between text-left transition-all hover:border-emerald-600/40 hover:shadow-md"
+            className="w-[88vw] sm:w-[84vw] md:w-auto shrink-0 snap-center lg:col-span-4 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between text-left transition-all hover:border-emerald-600/40 hover:shadow-md"
           >
             <div>
               <div className="flex items-center justify-between mb-3">
@@ -551,7 +565,7 @@ export default function BentoFeatures() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.25 }}
             whileHover={{ y: -3 }}
-            className="lg:col-span-4 bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between text-left transition-all hover:border-emerald-600/40 hover:shadow-md"
+            className="w-[88vw] sm:w-[84vw] md:w-auto shrink-0 snap-center lg:col-span-4 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between text-left transition-all hover:border-emerald-600/40 hover:shadow-md"
           >
             <div>
               <div className="flex items-center justify-between mb-3">
@@ -621,7 +635,7 @@ export default function BentoFeatures() {
               </div>
             </div>
 
-            {/* Block 2: Recent Ledger Audit Items (Fills previous empty gap) */}
+            {/* Block 2: Recent Ledger Audit Items (Compact on mobile) */}
             <div className="mt-3 bg-white p-3 rounded-2xl border border-slate-200/80 space-y-2">
               <div className="flex items-center justify-between text-[11px] pb-1.5 border-b border-slate-100">
                 <div className="flex items-center gap-1.5 truncate">
@@ -630,14 +644,14 @@ export default function BentoFeatures() {
                 </div>
                 <span className="font-bold text-slate-900 ml-2">$64.99</span>
               </div>
-              <div className="flex items-center justify-between text-[11px] pb-1.5 border-b border-slate-100">
+              <div className="hidden sm:flex items-center justify-between text-[11px] pb-1.5 border-b border-slate-100">
                 <div className="flex items-center gap-1.5 truncate">
                   <Receipt className="w-3 h-3 text-slate-400 shrink-0" />
                   <span className="font-medium text-slate-800 truncate">Annual Heartworm Test</span>
                 </div>
                 <span className="font-bold text-slate-900 ml-2">$85.00</span>
               </div>
-              <div className="flex items-center justify-between text-[11px]">
+              <div className="hidden sm:flex items-center justify-between text-[11px]">
                 <div className="flex items-center gap-1.5 truncate">
                   <Receipt className="w-3 h-3 text-slate-400 shrink-0" />
                   <span className="font-medium text-slate-800 truncate">Dental Chews &amp; Harness</span>
@@ -653,6 +667,15 @@ export default function BentoFeatures() {
             </div>
           </motion.div>
 
+        </div>
+
+        {/* Mobile Swipe Hint Bar */}
+        <div className="flex md:hidden items-center justify-between mt-3 px-2 text-xs text-slate-500">
+          <span className="flex items-center gap-1.5 font-bold text-emerald-800 text-[11px] uppercase tracking-wider">
+            <span>Swipe features</span>
+            <ArrowRight className="w-3.5 h-3.5 animate-pulse text-emerald-700" />
+          </span>
+          <span className="text-[11px] font-mono text-slate-400">5 Capabilities &bull; Swipe Left</span>
         </div>
 
       </div>

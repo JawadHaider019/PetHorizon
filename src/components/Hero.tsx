@@ -220,11 +220,11 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
                 />
               </motion.div>
 
-              {/* Floating Live Card: Daily Routine Task Status (Positioned completely outside on left) */}
+              {/* Floating Live Card: Daily Routine Task Status (Positioned completely outside on left, shown on tablet/desktop to keep mobile view clean) */}
               <motion.div
                 animate={{ y: [0, 6, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-                className="absolute -bottom-6 left-1/2 -translate-x-1/2 sm:left-auto sm:translate-x-0 sm:right-[88%] lg:right-[92%] sm:bottom-12 bg-white/95 backdrop-blur-md rounded-2xl p-3 sm:p-3.5 shadow-xl border border-emerald-100 flex items-center gap-3 w-[220px] sm:w-[240px] text-left z-30"
+                className="hidden sm:flex absolute right-[88%] lg:right-[92%] bottom-12 bg-white/95 backdrop-blur-md rounded-2xl p-3 sm:p-3.5 shadow-xl border border-emerald-100 items-center gap-3 w-[220px] sm:w-[240px] text-left z-30"
               >
                 <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold shrink-0">
                   <Clock className="w-4 h-4 text-amber-700" />
