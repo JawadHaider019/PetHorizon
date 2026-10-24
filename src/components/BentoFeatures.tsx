@@ -14,41 +14,45 @@ import {
 } from 'lucide-react';
 
 export default function BentoFeatures() {
-  const [activeSpecies, setActiveSpecies] = useState<'dog' | 'cat' | 'rabbit' | 'bird'>('dog');
+  const [activeSpecies, setActiveSpecies] = useState<'canine' | 'feline' | 'small' | 'avian'>('canine');
   const [medTaken, setMedTaken] = useState(true);
 
   const speciesData = {
-    dog: { 
+    canine: { 
       name: 'Golden Retriever', 
-      breed: 'Canine Companion', 
+      classification: 'Canine Companion', 
       weight: '28.4 kg', 
-      routine: '2x Walks (45 min) + 2 Cups Kibble', 
-      tag: 'Canine Protocol',
-      icon: '🐶'
+      weightStatus: 'Optimal • ±0.2%',
+      nutritionTarget: '1,120 kcal / day',
+      regimen: '2x 40-Min Walks + 2 Cups Balanced Kibble', 
+      protocol: 'Canine Preventive Care'
     },
-    cat: { 
+    feline: { 
       name: 'British Shorthair', 
-      breed: 'Feline Companion', 
+      classification: 'Feline Companion', 
       weight: '4.8 kg', 
-      routine: 'Renal Diet Portion + Insulin Check', 
-      tag: 'Feline Protocol',
-      icon: '🐱'
+      weightStatus: 'Stable • Normal Range',
+      nutritionTarget: '240 kcal / day',
+      regimen: 'Renal Moisture Formula + Insulin Monitoring', 
+      protocol: 'Feline Metabolic Care'
     },
-    rabbit: { 
-      name: 'Holland Lop', 
-      breed: 'Small Animal', 
+    small: { 
+      name: 'Holland Lop Rabbit', 
+      classification: 'Small Herbivore', 
       weight: '1,650 g', 
-      routine: 'Unlimited Timothy Hay + Fresh Greens', 
-      tag: 'Herbivore Care',
-      icon: '🐰'
+      weightStatus: 'Healthy Adult Weight',
+      nutritionTarget: 'Unlimited Fiber + Greens',
+      regimen: 'Timothy Hay Ad-Libitum + Daily Fiber Check', 
+      protocol: 'Small Animal Digestive Care'
     },
-    bird: { 
+    avian: { 
       name: 'Cockatiel', 
-      breed: 'Avian Companion', 
+      classification: 'Avian Companion', 
       weight: '92 g', 
-      routine: 'Pellet & Seed Blend + Cage Misting', 
-      tag: 'Avian Protocol',
-      icon: '🦜'
+      weightStatus: 'Target Baseline',
+      nutritionTarget: '15 g Seed & Pellet Ratio',
+      regimen: 'Pellet Nutrition + Daily Enclosure Misting', 
+      protocol: 'Avian Wellness Protocol'
     }
   };
 
@@ -60,7 +64,7 @@ export default function BentoFeatures() {
 
       <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
         
-        {/* Section Header: Mature & Typographic */}
+        {/* Section Header: Mature, Confident, Architectural */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -68,16 +72,16 @@ export default function BentoFeatures() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <p className="text-xs font-black uppercase tracking-widest text-emerald-800 mb-3">
-              Pet Horizon Core System
+            <p className="text-[11px] font-black uppercase tracking-[0.2em] text-emerald-800 mb-3">
+              Ecosystem Architecture
             </p>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-              Every Routine, Dose &amp; Caretaker in One Harmonious Hub
+              Architected for Precision Care. Shared Across Your Household.
             </h2>
 
             <p className="text-slate-600 text-base sm:text-lg mt-4 font-normal leading-relaxed">
-              No fragmented notes or missed responsibilities. Pet Horizon coordinates daily care schedules, critical medication alarms, and household sync in real time.
+              Pet Horizon replaces scattered sticky notes and missed alarms with real-time caretaker synchronization, clinical dosage tracking, and automated record-keeping.
             </p>
           </motion.div>
         </div>
@@ -85,292 +89,327 @@ export default function BentoFeatures() {
         {/* BENTO GRID (12 Columns) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-7 items-stretch">
           
-          {/* CARD 1: Family Hub & QR Caretaker Pairing (8 Cols on Desktop) */}
+          {/* CARD 1: Household QR Sync Hub (Spans 8 Columns on Desktop) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6 }}
-            whileHover={{ y: -4 }}
-            className="lg:col-span-8 bg-gradient-to-br from-[#1A2B4E] via-[#101F3B] to-[#144917] text-white rounded-3xl sm:rounded-[2.5rem] p-7 sm:p-10 border border-slate-700/80 shadow-2xl flex flex-col justify-between relative overflow-hidden group"
+            whileHover={{ y: -3 }}
+            className="lg:col-span-8 bg-gradient-to-br from-[#101C33] via-[#0D182E] to-[#144917] text-white rounded-3xl p-7 sm:p-10 border border-slate-700/80 shadow-xl flex flex-col justify-between relative overflow-hidden group"
           >
-            {/* Subtle radial sheen */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none" />
+            {/* Ambient Radial Accent */}
+            <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-[90px] pointer-events-none" />
 
             <div>
-              <div className="flex items-center justify-between mb-6 flex-wrap gap-2">
-                <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 px-3.5 py-1.5 rounded-full">
+              <div className="flex items-center justify-between mb-6 flex-wrap gap-2.5">
+                <span className="text-[11px] font-black uppercase tracking-wider text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 px-3 py-1 rounded-full flex items-center gap-1.5">
                   <Users className="w-3.5 h-3.5 text-emerald-300" />
-                  <span>Household Synchronization</span>
+                  <span>Household Care Hub</span>
                 </span>
                 
-                <span className="text-xs text-emerald-300/90 font-semibold flex items-center gap-2 bg-black/20 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+                <span className="text-xs text-emerald-300/90 font-mono font-medium flex items-center gap-2 bg-black/25 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  Live Sync Active
+                  3 Members Synchronized
                 </span>
               </div>
 
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-snug">
-                One Family QR Code Connects Every Caregiver
+                One Dynamic QR Code Connects Every Household Caretaker
               </h3>
               <p className="text-slate-300 text-sm sm:text-base mt-2.5 max-w-xl font-normal leading-relaxed">
-                Invite your partner, roommate, or trusted pet sitter in seconds. When someone feeds breakfast or checks off an evening walk, everyone's app updates in real-time.
+                Connect your partner, family members, or pet sitters with instant biometric deep-linking. When morning feedings or evening medications are logged, every connected device updates synchronously.
               </p>
             </div>
 
-            {/* Live Care Team Activity Strip (Brand Palette: Emerald, Navy, Warm Amber) */}
+            {/* Live Care Activity Feed (Clean, Clinical, Brand Palette) */}
             <div className="mt-8 pt-6 border-t border-white/10">
-              <div className="flex items-center justify-between mb-3 text-xs text-slate-300 font-semibold">
-                <span>Care Team Status</span>
-                <span className="text-[11px] text-emerald-400 font-mono">Last activity 4m ago</span>
+              <div className="flex items-center justify-between mb-3.5 text-xs text-slate-300 font-semibold">
+                <span className="text-[11px] uppercase tracking-wider font-bold text-slate-400">Live Care Log Feed</span>
+                <span className="text-[11px] text-emerald-300 font-mono">Sync Latency: &lt; 180ms</span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {/* Mom */}
-                <div className="bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-3.5 flex items-center gap-3 transition-transform hover:scale-[1.02]">
-                  <div className="w-9 h-9 rounded-xl bg-emerald-700 text-white flex items-center justify-center font-black text-xs shrink-0 shadow-xs">
-                    SM
+                {/* Member 1: Sarah */}
+                <div className="bg-white/[0.08] backdrop-blur-md border border-white/10 rounded-2xl p-3.5 flex flex-col justify-between transition-all hover:bg-white/[0.12]">
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <span className="text-xs font-bold text-white">Sarah M.</span>
+                    <span className="text-[10px] font-semibold text-emerald-300 bg-emerald-500/20 px-2 py-0.5 rounded">Owner</span>
                   </div>
-                  <div className="truncate text-left">
-                    <p className="text-xs font-bold text-white truncate">Sarah (Mom)</p>
-                    <p className="text-[11px] text-emerald-300 flex items-center gap-1">
-                      <Check className="w-3 h-3 text-emerald-400" /> Morning Walk Logged
-                    </p>
-                  </div>
+                  <p className="text-[11px] text-slate-200 font-medium">35-Min Trail Walk Completed</p>
+                  <p className="text-[10px] text-slate-400 font-mono mt-1.5 flex items-center gap-1">
+                    <Clock className="w-3 h-3 text-emerald-400" /> 07:45 AM
+                  </p>
                 </div>
 
-                {/* Dad */}
-                <div className="bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-3.5 flex items-center gap-3 transition-transform hover:scale-[1.02]">
-                  <div className="w-9 h-9 rounded-xl bg-emerald-800 text-emerald-100 flex items-center justify-center font-black text-xs shrink-0 shadow-xs">
-                    MD
+                {/* Member 2: Michael */}
+                <div className="bg-white/[0.08] backdrop-blur-md border border-white/10 rounded-2xl p-3.5 flex flex-col justify-between transition-all hover:bg-white/[0.12]">
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <span className="text-xs font-bold text-white">Michael D.</span>
+                    <span className="text-[10px] font-semibold text-slate-300 bg-white/10 px-2 py-0.5 rounded">Family</span>
                   </div>
-                  <div className="truncate text-left">
-                    <p className="text-xs font-bold text-white truncate">Michael (Dad)</p>
-                    <p className="text-[11px] text-emerald-300 flex items-center gap-1">
-                      <Check className="w-3 h-3 text-emerald-400" /> Breakfast Confirmed
-                    </p>
-                  </div>
+                  <p className="text-[11px] text-slate-200 font-medium">Morning Meal Confirmed (2 Cups)</p>
+                  <p className="text-[10px] text-slate-400 font-mono mt-1.5 flex items-center gap-1">
+                    <Clock className="w-3 h-3 text-emerald-400" /> 08:15 AM
+                  </p>
                 </div>
 
-                {/* Pet Sitter via QR */}
-                <div className="bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-3.5 flex items-center gap-3 transition-transform hover:scale-[1.02]">
-                  <div className="w-9 h-9 rounded-xl bg-[#E67E22] text-white flex items-center justify-center font-black text-xs shrink-0 shadow-xs">
-                    <QrCode className="w-4 h-4 text-white" />
+                {/* Member 3: Maya */}
+                <div className="bg-white/[0.08] backdrop-blur-md border border-white/10 rounded-2xl p-3.5 flex flex-col justify-between transition-all hover:bg-white/[0.12]">
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <span className="text-xs font-bold text-white">Maya R.</span>
+                    <span className="text-[10px] font-semibold text-amber-200 bg-[#E67E22]/30 px-2 py-0.5 rounded">Pet Sitter</span>
                   </div>
-                  <div className="truncate text-left">
-                    <p className="text-xs font-bold text-white truncate">Maya (Pet Sitter)</p>
-                    <p className="text-[11px] text-amber-200 flex items-center gap-1">
-                      <ShieldCheck className="w-3 h-3 text-amber-300" /> Joined via QR
-                    </p>
-                  </div>
+                  <p className="text-[11px] text-slate-200 font-medium">Connected via QR Invite</p>
+                  <p className="text-[10px] text-amber-300 font-mono mt-1.5 flex items-center gap-1">
+                    <QrCode className="w-3 h-3 text-amber-300" /> Active Session
+                  </p>
                 </div>
               </div>
             </div>
           </motion.div>
 
-          {/* CARD 2: Smart Medication Alarms (4 Cols on Desktop) */}
+          {/* CARD 2: Clinical Dosage & Vaccine Alarms (Spans 4 Columns) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            whileHover={{ y: -4 }}
-            className="lg:col-span-4 bg-white rounded-3xl sm:rounded-[2.5rem] p-7 sm:p-8 border border-slate-200/90 shadow-md flex flex-col justify-between text-left transition-all hover:border-emerald-500/40"
+            whileHover={{ y: -3 }}
+            className="lg:col-span-4 bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between text-left transition-all hover:border-emerald-600/40 hover:shadow-md"
           >
             <div>
-              <div className="w-11 h-11 rounded-2xl bg-emerald-50 border border-emerald-100 text-emerald-700 flex items-center justify-center mb-5 shadow-2xs">
-                <Pill className="w-5 h-5" />
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-[11px] font-black uppercase tracking-wider text-emerald-800">
+                  Prescription Management
+                </span>
+                <div className="w-8 h-8 rounded-xl bg-emerald-50 border border-emerald-100 text-emerald-700 flex items-center justify-center">
+                  <Pill className="w-4 h-4" />
+                </div>
               </div>
 
-              <p className="text-[11px] font-black uppercase tracking-wider text-emerald-800 mb-1.5">
-                Prescriptions &amp; Vaccines
-              </p>
-
               <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug">
-                Smart Medical Alarms
+                Clinical Dosage Alarms
               </h3>
               <p className="text-slate-600 text-xs sm:text-sm mt-2 leading-relaxed">
-                Critical dose schedules, inventory depletion alerts, and vaccination booster countdowns in one view.
+                Automated reminders for heartworm preventatives, insulin administration, and DHPP vaccination intervals.
               </p>
             </div>
 
-            {/* Interactive Dose Toggle with Animated Confirmation */}
+            {/* Interactive Clinical Pill Card */}
             <div className="mt-6 bg-[#F5F6F8] p-4 rounded-2xl border border-slate-200/80">
-              <div className="flex items-center justify-between text-xs mb-2">
-                <span className="font-bold text-slate-800">Heartgard Plus (Monthly)</span>
-                <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full">
-                  8:00 AM Daily
+              <div className="flex items-center justify-between text-xs mb-1.5">
+                <span className="font-bold text-slate-900">Heartgard Plus (Monthly)</span>
+                <span className="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded">
+                  8:00 AM
                 </span>
               </div>
+              <p className="text-[11px] text-slate-500 mb-3">Dose: 68 mcg Chewable &bull; Luna</p>
 
               <button
                 type="button"
                 onClick={() => setMedTaken(!medTaken)}
                 className={`w-full py-2.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer ${
                   medTaken
-                    ? 'bg-emerald-700 hover:bg-emerald-800 text-white shadow-sm'
+                    ? 'bg-emerald-700 hover:bg-emerald-800 text-white shadow-xs'
                     : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
                 }`}
               >
                 <CheckCircle2 className={`w-4 h-4 ${medTaken ? 'text-white' : 'text-slate-400'}`} />
-                <span>{medTaken ? 'Dose Logged & Synced ✓' : 'Tap to Mark Dose Taken'}</span>
+                <span>{medTaken ? 'Dose Administered & Verified' : 'Mark Dose Administered'}</span>
               </button>
+
+              <div className="mt-3 pt-2.5 border-t border-slate-200/70 flex items-center justify-between text-[10px] text-slate-500 font-medium">
+                <span>Inventory: 5 Doses Remaining</span>
+                <span className="text-emerald-700 font-semibold">Refill: In 5 Months</span>
+              </div>
             </div>
           </motion.div>
 
-          {/* CARD 3: Universal Species Support (4 Cols) */}
+          {/* CARD 3: Species-Specific Metric Engines (Spans 4 Columns) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            whileHover={{ y: -4 }}
-            className="lg:col-span-4 bg-white rounded-3xl sm:rounded-[2.5rem] p-7 sm:p-8 border border-slate-200/90 shadow-md flex flex-col justify-between text-left transition-all hover:border-emerald-500/40"
+            whileHover={{ y: -3 }}
+            className="lg:col-span-4 bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between text-left transition-all hover:border-emerald-600/40 hover:shadow-md"
           >
             <div>
-              <p className="text-[11px] font-black uppercase tracking-wider text-emerald-800 mb-1.5">
-                Multi-Species Engine
-              </p>
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-[11px] font-black uppercase tracking-wider text-emerald-800">
+                  Biometric Engine
+                </span>
+                <div className="w-8 h-8 rounded-xl bg-emerald-50 border border-emerald-100 text-emerald-700 flex items-center justify-center">
+                  <Activity className="w-4 h-4" />
+                </div>
+              </div>
 
               <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug">
-                Dogs, Cats &amp; Companions
+                Multi-Species Calibrations
               </h3>
               <p className="text-slate-600 text-xs sm:text-sm mt-2 leading-relaxed">
-                Dedicated metric units for canines, felines, small mammals, and avians with tailored routine calculations.
+                Dedicated biometric units and nutrition formulas tailored specifically for canines, felines, small mammals, and avians.
               </p>
 
-              {/* Species switcher tabs */}
-              <div className="flex items-center gap-1.5 mt-5 bg-slate-100 p-1 rounded-xl">
-                {(['dog', 'cat', 'rabbit', 'bird'] as const).map((sp) => (
-                  <button
-                    key={sp}
-                    type="button"
-                    onClick={() => setActiveSpecies(sp)}
-                    className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition-all cursor-pointer ${
-                      activeSpecies === sp 
-                        ? 'bg-white text-slate-900 shadow-xs' 
-                        : 'text-slate-500 hover:text-slate-800'
-                    }`}
-                  >
-                    <span className="mr-1">{speciesData[sp].icon}</span>
-                    <span className="capitalize hidden sm:inline">{sp}</span>
-                  </button>
-                ))}
+              {/* Minimalist Segmented Selector (No emojis) */}
+              <div className="grid grid-cols-4 gap-1 mt-5 bg-slate-100 p-1 rounded-xl">
+                {(['canine', 'feline', 'small', 'avian'] as const).map((key) => {
+                  const labels = {
+                    canine: 'Canine',
+                    feline: 'Feline',
+                    small: 'Small',
+                    avian: 'Avian'
+                  };
+                  const isSelected = activeSpecies === key;
+                  return (
+                    <button
+                      key={key}
+                      type="button"
+                      onClick={() => setActiveSpecies(key)}
+                      className={`py-1.5 text-[11px] font-bold rounded-lg transition-all cursor-pointer ${
+                        isSelected 
+                          ? 'bg-white text-slate-900 shadow-xs' 
+                          : 'text-slate-500 hover:text-slate-800'
+                      }`}
+                    >
+                      {labels[key]}
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
-            {/* Active Species Profile Card with Animated Transition */}
+            {/* Active Species Spec Sheet with Animated Transition */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeSpecies}
-                initial={{ opacity: 0, y: 8 }}
+                initial={{ opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
+                exit={{ opacity: 0, y: -6 }}
                 transition={{ duration: 0.2 }}
                 className="mt-6 bg-[#F5F6F8] p-4 rounded-2xl border border-slate-200/80"
               >
-                <div className="flex items-center justify-between text-xs">
+                <div className="flex items-center justify-between text-xs mb-1">
                   <div>
                     <span className="font-bold text-slate-900 block">{speciesData[activeSpecies].name}</span>
-                    <span className="text-[10px] text-slate-500 font-medium">{speciesData[activeSpecies].breed}</span>
+                    <span className="text-[10px] text-slate-500">{speciesData[activeSpecies].classification}</span>
                   </div>
-                  <span className="font-black text-emerald-800 text-sm">{speciesData[activeSpecies].weight}</span>
+                  <div className="text-right">
+                    <span className="font-black text-emerald-800 text-sm block">{speciesData[activeSpecies].weight}</span>
+                    <span className="text-[10px] text-emerald-700 font-semibold">{speciesData[activeSpecies].weightStatus}</span>
+                  </div>
                 </div>
-                <div className="mt-2.5 pt-2 border-t border-slate-200/70 text-[11px] text-slate-600 font-medium flex items-center gap-1.5">
-                  <Activity className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                  <span className="truncate">{speciesData[activeSpecies].routine}</span>
+
+                <div className="mt-3 pt-2.5 border-t border-slate-200/70 text-[11px] text-slate-600 space-y-1">
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-500">Target Intake:</span>
+                    <span className="font-bold text-slate-800">{speciesData[activeSpecies].nutritionTarget}</span>
+                  </div>
+                  <p className="text-[10px] text-slate-500 pt-0.5 truncate">
+                    Protocol: {speciesData[activeSpecies].protocol}
+                  </p>
                 </div>
               </motion.div>
             </AnimatePresence>
           </motion.div>
 
-          {/* CARD 4: Daily Photo Journal & Fitness (4 Cols) */}
+          {/* CARD 4: Activity & Health Timeline (Spans 4 Columns) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            whileHover={{ y: -4 }}
-            className="lg:col-span-4 bg-white rounded-3xl sm:rounded-[2.5rem] p-7 sm:p-8 border border-slate-200/90 shadow-md flex flex-col justify-between text-left transition-all hover:border-emerald-500/40"
+            whileHover={{ y: -3 }}
+            className="lg:col-span-4 bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between text-left transition-all hover:border-emerald-600/40 hover:shadow-md"
           >
             <div>
-              <div className="w-11 h-11 rounded-2xl bg-emerald-50 border border-emerald-100 text-emerald-700 flex items-center justify-center mb-5 shadow-2xs">
-                <Camera className="w-5 h-5" />
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-[11px] font-black uppercase tracking-wider text-emerald-800">
+                  Timeline &amp; Activity
+                </span>
+                <div className="w-8 h-8 rounded-xl bg-emerald-50 border border-emerald-100 text-emerald-700 flex items-center justify-center">
+                  <Camera className="w-4 h-4" />
+                </div>
               </div>
 
-              <p className="text-[11px] font-black uppercase tracking-wider text-emerald-800 mb-1.5">
-                Memories &amp; Fitness
-              </p>
-
               <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug">
-                Daily Photo Journal
+                Daily Milestone Journal
               </h3>
               <p className="text-slate-600 text-xs sm:text-sm mt-2 leading-relaxed">
-                Log outdoor walks, distance milestones, and attach daily high-res companion memories to a private timeline.
+                Chronicle outdoor walks, route milestones, and attach high-resolution memory logs to an unalterable activity timeline.
               </p>
             </div>
 
-            <div className="mt-6 bg-[#F5F6F8] p-3.5 rounded-2xl border border-slate-200/80 flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl overflow-hidden shrink-0 border border-emerald-200/80 shadow-2xs">
+            <div className="mt-6 bg-[#F5F6F8] p-3.5 rounded-2xl border border-slate-200/80 flex items-center gap-3.5">
+              <div className="w-13 h-13 rounded-xl overflow-hidden shrink-0 border border-emerald-200/80 shadow-2xs">
                 <img src="/3d-pets-species.jpg" alt="Walk memory" className="w-full h-full object-cover" />
               </div>
               <div className="text-left flex-1 min-w-0">
                 <p className="text-xs font-bold text-slate-900 truncate">Morning Trail Walk</p>
-                <p className="text-[11px] text-slate-500 flex items-center gap-1.5 mt-0.5">
-                  <Clock className="w-3 h-3 text-emerald-700" />
-                  <span>35 mins &bull; 2.4 km &bull; Bella</span>
-                </p>
+                <div className="flex items-center gap-2 text-[11px] text-slate-600 mt-1 font-medium">
+                  <span className="font-semibold text-emerald-800">2.4 km</span>
+                  <span className="text-slate-300">&bull;</span>
+                  <span>35 mins</span>
+                  <span className="text-slate-300">&bull;</span>
+                  <span>Bella</span>
+                </div>
+                <p className="text-[10px] text-slate-400 mt-0.5">Recorded Oct 24, 2026</p>
               </div>
             </div>
           </motion.div>
 
-          {/* CARD 5: Expense Budget Tracking (4 Cols) */}
+          {/* CARD 5: Expense Budget Tracking (Spans 4 Columns) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            whileHover={{ y: -4 }}
-            className="lg:col-span-4 bg-white rounded-3xl sm:rounded-[2.5rem] p-7 sm:p-8 border border-slate-200/90 shadow-md flex flex-col justify-between text-left transition-all hover:border-emerald-500/40"
+            whileHover={{ y: -3 }}
+            className="lg:col-span-4 bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between text-left transition-all hover:border-emerald-600/40 hover:shadow-md"
           >
             <div>
-              <div className="w-11 h-11 rounded-2xl bg-emerald-50 border border-emerald-100 text-emerald-700 flex items-center justify-center mb-5 shadow-2xs">
-                <DollarSign className="w-5 h-5" />
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-[11px] font-black uppercase tracking-wider text-emerald-800">
+                  Financial Auditing
+                </span>
+                <div className="w-8 h-8 rounded-xl bg-emerald-50 border border-emerald-100 text-emerald-700 flex items-center justify-center">
+                  <DollarSign className="w-4 h-4" />
+                </div>
               </div>
 
-              <p className="text-[11px] font-black uppercase tracking-wider text-emerald-800 mb-1.5">
-                Financial Tracking
-              </p>
-
               <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug">
-                Pet Budget &amp; Expenses
+                Pet Care Expenditure
               </h3>
               <p className="text-slate-600 text-xs sm:text-sm mt-2 leading-relaxed">
-                Categorize veterinary clinic receipts, premium food orders, and supplies with monthly totals.
+                Categorize veterinary clinic receipts, dietary formulas, and medication expenses with automated monthly budgeting.
               </p>
             </div>
 
-            {/* Spending Distribution Bar (Using Brand Green, Navy & Amber) */}
-            <div className="mt-6 bg-[#F5F6F8] p-3.5 rounded-2xl border border-slate-200/80">
+            {/* Spending Distribution Bar (Strictly: Forest Green, Navy & Warm Amber) */}
+            <div className="mt-6 bg-[#F5F6F8] p-4 rounded-2xl border border-slate-200/80">
               <div className="flex items-center justify-between text-xs mb-2">
-                <span className="font-bold text-slate-700">Monthly Expenses</span>
+                <span className="font-bold text-slate-700">Monthly Allocation</span>
                 <span className="font-black text-slate-900 text-sm">$184.50</span>
               </div>
-              <div className="h-2.5 w-full bg-slate-200 rounded-full overflow-hidden flex">
-                <div className="h-full bg-emerald-700 w-[50%]" title="Food (50%)" />
-                <div className="h-full bg-[#1A2B4E] w-[30%]" title="Veterinary (30%)" />
-                <div className="h-full bg-[#E67E22] w-[20%]" title="Supplies (20%)" />
+              <div className="h-2.5 w-full bg-slate-200 rounded-full overflow-hidden flex shadow-inner">
+                <div className="h-full bg-emerald-700 w-[50%]" title="Dietary & Food (50%)" />
+                <div className="h-full bg-[#1A2B4E] w-[30%]" title="Veterinary Clinical (30%)" />
+                <div className="h-full bg-[#E67E22] w-[20%]" title="Care & Supplies (20%)" />
               </div>
-              <div className="flex justify-between text-[10px] text-slate-500 mt-2 font-bold">
-                <span className="flex items-center gap-1">
-                  <span className="w-2 h-2 rounded-full bg-emerald-700" /> Food 50%
-                </span>
-                <span className="flex items-center gap-1">
-                  <span className="w-2 h-2 rounded-full bg-[#1A2B4E]" /> Vet 30%
-                </span>
-                <span className="flex items-center gap-1">
-                  <span className="w-2 h-2 rounded-full bg-[#E67E22]" /> Care 20%
-                </span>
+              <div className="grid grid-cols-3 gap-1 text-[10px] text-slate-600 mt-3 font-bold text-center">
+                <div className="bg-white py-1 rounded-md border border-slate-200/80">
+                  <span className="text-emerald-700 block font-black">50%</span>
+                  <span className="text-slate-500 font-medium">Dietary</span>
+                </div>
+                <div className="bg-white py-1 rounded-md border border-slate-200/80">
+                  <span className="text-[#1A2B4E] block font-black">30%</span>
+                  <span className="text-slate-500 font-medium">Vet Clinical</span>
+                </div>
+                <div className="bg-white py-1 rounded-md border border-slate-200/80">
+                  <span className="text-[#E67E22] block font-black">20%</span>
+                  <span className="text-slate-500 font-medium">Care/Supplies</span>
+                </div>
               </div>
             </div>
           </motion.div>
