@@ -9,7 +9,6 @@ import FamilyHubSection from './components/FamilyHubSection';
 import DailyJournalSection from './components/DailyJournalSection';
 import InteractiveTour from './components/InteractiveTour';
 import TestimonialsSection from './components/TestimonialsSection';
-import Comparison from './components/Comparison';
 import PricingSection from './components/PricingSection';
 import FAQSection from './components/FAQSection';
 import HomeBlogSection from './components/HomeBlogSection';
@@ -229,7 +228,6 @@ export default function App() {
           <DailyJournalSection />
           <InteractiveTour />
           <TestimonialsSection />
-          <Comparison />
           <PricingSection />
           <FAQSection />
           <HomeBlogSection
