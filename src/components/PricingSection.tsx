@@ -30,12 +30,12 @@ export default function PricingSection() {
           </p>
 
           {/* Interactive Billing Cycle Toggle */}
-          <div className="flex items-center justify-center gap-3.5 mt-8">
+          <div className="flex items-center justify-center gap-1.5 sm:gap-3.5 mt-8 max-w-full px-2">
             <button
               type="button"
               onClick={() => setBillingCycle('monthly')}
-              className={`text-sm font-bold cursor-pointer transition-colors ${
-                billingCycle === 'monthly' ? 'text-slate-900' : 'text-slate-500 hover:text-slate-700'
+              className={`text-xs sm:text-sm font-bold px-2 sm:px-3 py-1 rounded-xl cursor-pointer transition-colors whitespace-nowrap shrink-0 ${
+                billingCycle === 'monthly' ? 'text-slate-900 bg-white shadow-2xs' : 'text-slate-500 hover:text-slate-700'
               }`}
             >
               Monthly Billing
@@ -43,26 +43,28 @@ export default function PricingSection() {
             <button
               type="button"
               onClick={() => setBillingCycle(billingCycle === 'monthly' ? 'yearly' : 'monthly')}
-              className="w-14 h-8 rounded-full bg-slate-200 p-1 flex items-center transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
+              className="w-11 sm:w-14 h-6 sm:h-8 rounded-full bg-slate-200 p-0.5 sm:p-1 flex items-center transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-500/40 shrink-0"
               aria-label="Toggle billing frequency"
             >
               <div
-                className={`w-6 h-6 rounded-full bg-emerald-600 shadow-md transform transition-transform duration-200 ${
-                  billingCycle === 'yearly' ? 'translate-x-6' : 'translate-x-0'
+                className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-emerald-600 shadow-md transform transition-transform duration-200 ${
+                  billingCycle === 'yearly' ? 'translate-x-5 sm:translate-x-6' : 'translate-x-0'
                 }`}
               />
             </button>
             <button
               type="button"
               onClick={() => setBillingCycle('yearly')}
-              className="flex items-center gap-1.5 cursor-pointer text-left focus:outline-none"
+              className={`flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 rounded-xl cursor-pointer text-left focus:outline-none whitespace-nowrap shrink-0 ${
+                billingCycle === 'yearly' ? 'bg-white shadow-2xs' : ''
+              }`}
             >
-              <span className={`text-sm font-bold transition-colors ${
+              <span className={`text-xs sm:text-sm font-bold transition-colors whitespace-nowrap ${
                 billingCycle === 'yearly' ? 'text-slate-900' : 'text-slate-500 hover:text-slate-700'
               }`}>
                 Annual Billing
               </span>
-              <span className="text-[10px] font-black uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300 px-2 py-0.5 rounded-full">
+              <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300 px-1.5 sm:px-2 py-0.5 rounded-full whitespace-nowrap shrink-0">
                 Save 17%
               </span>
             </button>
@@ -97,14 +99,14 @@ export default function PricingSection() {
                 }`}
               >
                 {isFeatured && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-emerald-600 text-white text-[10px] font-black uppercase tracking-wider px-3.5 py-1 rounded-full shadow-sm">
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-emerald-600 text-white text-[10px] font-black uppercase tracking-wider px-3.5 py-1 rounded-full shadow-sm whitespace-nowrap shrink-0">
                     {billingCycle === 'yearly' && plan.id === 'yearly' ? 'Best Value' : 'Recommended'}
                   </div>
                 )}
 
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className={`text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full transition-all ${currentBadgeStyle}`}>
+                    <span className={`text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full transition-all whitespace-nowrap shrink-0 ${currentBadgeStyle}`}>
                       {currentBadge}
                     </span>
                   </div>

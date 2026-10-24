@@ -35,7 +35,7 @@ export default function LegalSidebar({
           <span className="text-[11px] font-black uppercase tracking-wider text-slate-400">
             Contents Navigation
           </span>
-          <span className="text-[11px] font-mono font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">
+          <span className="text-[11px] font-mono font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100 whitespace-nowrap shrink-0">
             {readPercent}% Read
           </span>
         </div>

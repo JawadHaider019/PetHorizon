@@ -124,7 +124,7 @@ export default function IosWaitlistModal({ isOpen, onClose }: IosWaitlistModalPr
                     <Apple className="w-5 h-5" />
                   </div>
                   <div className="text-left">
-                    <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
+                    <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200 whitespace-nowrap shrink-0">
                       Apple TestFlight Beta
                     </span>
                     <h3 className="text-base font-black text-slate-900 leading-tight mt-0.5">

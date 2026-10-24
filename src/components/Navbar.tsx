@@ -123,7 +123,7 @@ export default function Navbar({ currentView = 'home', onNavigate, onOpenQrModal
                 }`}
               >
                 <span>Blog &amp; Guides</span>
-                <span className="text-[10px] font-extrabold uppercase tracking-wider bg-emerald-600 text-white px-2 py-0.5 rounded-full shadow-2xs">
+                <span className="text-[10px] font-extrabold uppercase tracking-wider bg-emerald-600 text-white px-2 py-0.5 rounded-full shadow-2xs whitespace-nowrap shrink-0">
                   New
                 </span>
               </a>

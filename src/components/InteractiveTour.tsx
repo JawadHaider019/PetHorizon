@@ -101,10 +101,10 @@ export default function InteractiveTour() {
             </button>
 
             <div className="flex items-center gap-2">
-              <span className="text-xs font-black text-slate-900">
+              <span className="text-xs font-black text-slate-900 whitespace-nowrap">
                 {current.name}
               </span>
-              <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100 border border-emerald-200 px-2 py-0.5 rounded-full">
+              <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100 border border-emerald-200 px-2 py-0.5 rounded-full whitespace-nowrap shrink-0">
                 {currentIndex + 1}/7
               </span>
             </div>
@@ -225,7 +225,7 @@ export default function InteractiveTour() {
                   {/* Unified Content Card Directly Below Phone */}
                   <div className="w-full max-w-[340px] bg-white border border-slate-200/90 rounded-2xl p-4.5 shadow-xs mt-3 text-left flex flex-col gap-2.5">
                     <div className="flex items-center justify-between gap-2">
-                      <span className="text-[9px] font-black uppercase tracking-wider text-emerald-800 bg-emerald-100/90 border border-emerald-200 px-2.5 py-0.5 rounded-full w-fit">
+                      <span className="text-[9px] font-black uppercase tracking-wider text-emerald-800 bg-emerald-100/90 border border-emerald-200 px-2.5 py-0.5 rounded-full w-fit whitespace-nowrap shrink-0">
                         {sc.badge}
                       </span>
                       <span className="text-[10px] font-bold text-slate-400">
@@ -337,7 +337,7 @@ export default function InteractiveTour() {
             {/* Phone Display (5 Cols) */}
             <div className="col-span-5 flex justify-center relative">
               {/* Floating Pulse Marker Tag */}
-              <div className="absolute -top-3 left-4 z-20 bg-white/95 backdrop-blur-md border border-emerald-200/90 px-3 py-1 rounded-full shadow-md flex items-center gap-2 text-[11px] font-extrabold text-slate-800">
+              <div className="absolute -top-3 left-4 z-20 bg-white/95 backdrop-blur-md border border-emerald-200/90 px-3 py-1 rounded-full shadow-md flex items-center gap-2 text-[11px] font-extrabold text-slate-800 whitespace-nowrap shrink-0">
                 <span className="flex h-2 w-2 relative">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
@@ -373,7 +373,7 @@ export default function InteractiveTour() {
                   transition={{ duration: 0.3 }}
                   className="flex flex-col gap-4"
                 >
-                  <span className="text-[11px] font-black uppercase tracking-wider text-emerald-800 bg-emerald-100/90 border border-emerald-200 px-3 py-0.5 rounded-full w-fit">
+                  <span className="text-[11px] font-black uppercase tracking-wider text-emerald-800 bg-emerald-100/90 border border-emerald-200 px-3 py-0.5 rounded-full w-fit whitespace-nowrap shrink-0">
                     {current.badge}
                   </span>
 

@@ -143,13 +143,13 @@ export default function BentoFeatures() {
             {/* Top Bar */}
             <div>
               <div className="flex items-center justify-between mb-5 flex-wrap gap-2.5">
-                <span className="text-[11px] font-black uppercase tracking-wider text-emerald-800 bg-emerald-50 border border-emerald-200/80 px-3 py-1 rounded-full flex items-center gap-1.5">
-                  <Users className="w-3.5 h-3.5 text-emerald-700" />
+                <span className="text-[11px] font-black uppercase tracking-wider text-emerald-800 bg-emerald-50 border border-emerald-200/80 px-3 py-1 rounded-full flex items-center gap-1.5 whitespace-nowrap shrink-0">
+                  <Users className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
                   <span>Household Care Hub</span>
                 </span>
                 
-                <span className="text-xs text-emerald-800 font-mono font-semibold flex items-center gap-2 bg-emerald-50/80 px-3 py-1 rounded-full border border-emerald-200/80">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="text-xs text-emerald-800 font-mono font-semibold flex items-center gap-2 bg-emerald-50/80 px-3 py-1 rounded-full border border-emerald-200/80 whitespace-nowrap shrink-0">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
                   3 Members Synchronized
                 </span>
               </div>
@@ -246,7 +246,7 @@ export default function BentoFeatures() {
                 <div className="bg-[#F8FAF9] border border-slate-200/80 rounded-2xl p-3.5 flex flex-col justify-between transition-all hover:bg-emerald-50/30 hover:border-emerald-300/60">
                   <div className="flex items-center justify-between gap-2 mb-1.5">
                     <span className="text-xs font-bold text-slate-900">Sarah M.</span>
-                    <span className="text-[10px] font-semibold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded">Owner</span>
+                    <span className="text-[10px] font-semibold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded whitespace-nowrap shrink-0">Owner</span>
                   </div>
                   <p className="text-[11px] text-slate-700 font-medium">35-Min Trail Walk Completed</p>
                   <p className="text-[10px] text-slate-500 font-mono mt-1.5 flex items-center gap-1">
@@ -258,7 +258,7 @@ export default function BentoFeatures() {
                 <div className="bg-[#F8FAF9] border border-slate-200/80 rounded-2xl p-3.5 flex flex-col justify-between transition-all hover:bg-emerald-50/30 hover:border-emerald-300/60">
                   <div className="flex items-center justify-between gap-2 mb-1.5">
                     <span className="text-xs font-bold text-slate-900">Michael D.</span>
-                    <span className="text-[10px] font-semibold text-slate-700 bg-slate-200 px-2 py-0.5 rounded">Family</span>
+                    <span className="text-[10px] font-semibold text-slate-700 bg-slate-200 px-2 py-0.5 rounded whitespace-nowrap shrink-0">Family</span>
                   </div>
                   <p className="text-[11px] text-slate-700 font-medium">Morning Meal Confirmed (2 Cups)</p>
                   <p className="text-[10px] text-slate-500 font-mono mt-1.5 flex items-center gap-1">
@@ -270,7 +270,7 @@ export default function BentoFeatures() {
                 <div className="hidden sm:flex bg-[#F8FAF9] border border-slate-200/80 rounded-2xl p-3.5 flex-col justify-between transition-all hover:bg-emerald-50/30 hover:border-emerald-300/60">
                   <div className="flex items-center justify-between gap-2 mb-1.5">
                     <span className="text-xs font-bold text-slate-900">Maya R.</span>
-                    <span className="text-[10px] font-semibold text-[#E67E22] bg-amber-100 px-2 py-0.5 rounded">Pet Sitter</span>
+                    <span className="text-[10px] font-semibold text-[#E67E22] bg-amber-100 px-2 py-0.5 rounded whitespace-nowrap shrink-0">Pet Sitter</span>
                   </div>
                   <p className="text-[11px] text-slate-700 font-medium">Connected via QR Invite</p>
                   <p className="text-[10px] text-emerald-700 font-mono mt-1.5 flex items-center gap-1">
@@ -312,7 +312,7 @@ export default function BentoFeatures() {
             <div className="my-4 bg-[#F5F6F8] p-4 rounded-2xl border border-slate-200/80">
               <div className="flex items-center justify-between text-xs mb-1">
                 <span className="font-bold text-slate-900">Heartgard Plus (Monthly)</span>
-                <span className="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded">
+                <span className="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded whitespace-nowrap shrink-0">
                   8:00 AM Today
                 </span>
               </div>
@@ -341,9 +341,9 @@ export default function BentoFeatures() {
             <div className="bg-[#F8FAF9] text-slate-800 p-3.5 rounded-2xl border border-slate-200/80">
               <div className="flex items-center justify-between text-xs mb-1">
                 <span className="font-bold text-slate-900 flex items-center gap-1.5">
-                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-700" /> DHPP Booster Vaccine
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-700 shrink-0" /> DHPP Booster Vaccine
                 </span>
-                <span className="text-[10px] font-mono font-bold text-[#E67E22] bg-amber-100 px-2 py-0.5 rounded">
+                <span className="text-[10px] font-mono font-bold text-[#E67E22] bg-amber-100 px-2 py-0.5 rounded whitespace-nowrap shrink-0">
                   Due in 14 Days
                 </span>
               </div>
@@ -542,7 +542,7 @@ export default function BentoFeatures() {
               <div className="text-left flex-1 min-w-0">
                 <div className="flex items-center justify-between">
                   <p className="text-xs font-bold text-slate-900 truncate">Pine Trail Photo Entry</p>
-                  <span className="text-[10px] font-mono text-emerald-700 font-bold bg-emerald-50 px-1.5 py-0.5 rounded">2 Photos</span>
+                  <span className="text-[10px] font-mono text-emerald-700 font-bold bg-emerald-50 px-1.5 py-0.5 rounded whitespace-nowrap shrink-0">2 Photos</span>
                 </div>
                 <p className="text-[11px] text-slate-500 mt-0.5">Hydration: 750ml &bull; Regular Bowel</p>
                 <p className="text-[10px] text-slate-400 mt-0.5 font-mono">Logged by Sarah &bull; Verified</p>

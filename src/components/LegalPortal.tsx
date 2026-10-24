@@ -72,7 +72,7 @@ export default function LegalPortal({
             <span className="text-slate-300">/</span>
             <span className="text-slate-500 whitespace-nowrap">Legal &amp; Trust Center</span>
             <span className="text-slate-300">/</span>
-            <span className="text-emerald-800 font-bold bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100 whitespace-nowrap">
+            <span className="text-emerald-800 font-bold bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100 whitespace-nowrap shrink-0">
               {activeDocId === 'privacy' ? 'Privacy Policy' : 'Data & Account Deletion'}
             </span>
           </div>
@@ -82,7 +82,7 @@ export default function LegalPortal({
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
               Official Public Record
             </span>
-            <span className="text-xs text-slate-500 font-mono font-medium whitespace-nowrap bg-slate-100 px-2.5 py-1 rounded-full">
+            <span className="text-xs text-slate-500 font-mono font-medium whitespace-nowrap shrink-0 bg-slate-100 px-2.5 py-1 rounded-full">
               Effective: {currentDoc.effectiveDate}
             </span>
           </div>

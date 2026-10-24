@@ -53,7 +53,7 @@ export default function BlogHub({ onNavigateHome, onNavigateLegal, onSelectArtic
               Home
             </button>
             <span className="text-slate-300">/</span>
-            <span className="text-emerald-800 font-bold bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100 whitespace-nowrap">
+            <span className="text-emerald-800 font-bold bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100 whitespace-nowrap shrink-0">
               Pet Care &amp; Health Hub
             </span>
           </div>

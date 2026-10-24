@@ -24,9 +24,9 @@ export default function ContactTicketSuccess({ ticket, onReset }: ContactTicketS
   return (
     <div className="flex flex-col h-full justify-between py-2">
       <div>
-        <div className="flex items-center justify-between gap-3 mb-5">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold border border-emerald-200">
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3 mb-5">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold border border-emerald-200 w-fit whitespace-nowrap shrink-0">
+            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
             <span>Delivered to {DISPLAY_SUPPORT_EMAIL}</span>
           </div>
           <span className="text-[11px] text-slate-400 font-mono">

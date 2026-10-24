@@ -72,7 +72,7 @@ export default function NavbarMobileMenu({
                 <BookOpen className="w-4 h-4 text-emerald-600" />
                 <span>Blog &amp; Pet Guides</span>
               </div>
-              <span className="text-[10px] font-black uppercase bg-emerald-600 text-white px-2 py-0.5 rounded-md">
+              <span className="text-[10px] font-black uppercase bg-emerald-600 text-white px-2 py-0.5 rounded-md whitespace-nowrap shrink-0">
                 Verified
               </span>
             </a>

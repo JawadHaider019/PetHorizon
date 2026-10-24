@@ -51,12 +51,12 @@ export default function BlogCard({ post, onClick, compact = false }: BlogCardPro
           alt={post.title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-400"
         />
-        <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-xl text-[11px] font-bold text-emerald-800 border border-slate-200/60 shadow-2xs">
+        <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-xl text-[11px] font-bold text-emerald-800 border border-slate-200/60 shadow-2xs whitespace-nowrap shrink-0">
           {post.category}
         </div>
-        <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-xl text-[10px] font-bold text-slate-700 border border-slate-200/60 shadow-2xs flex items-center gap-1">
-          <Clock className="w-3 h-3 text-emerald-600" />
-          {post.readTime}
+        <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-xl text-[10px] font-bold text-slate-700 border border-slate-200/60 shadow-2xs flex items-center gap-1 whitespace-nowrap shrink-0">
+          <Clock className="w-3 h-3 text-emerald-600 shrink-0" />
+          <span>{post.readTime}</span>
         </div>
       </div>
 
@@ -65,11 +65,11 @@ export default function BlogCard({ post, onClick, compact = false }: BlogCardPro
         <div>
           {/* SEO Search Ranking Badges & Source */}
           <div className="flex flex-wrap items-center gap-2 mb-2.5">
-            <span className="inline-flex items-center gap-1 bg-amber-500/10 text-amber-900 text-[10px] font-black px-2.5 py-0.5 rounded-full border border-amber-300/70">
-              <Flame className="w-3 h-3 text-amber-600" />
-              {post.searchVolume}
+            <span className="inline-flex items-center gap-1 bg-amber-500/10 text-amber-900 text-[10px] font-black px-2.5 py-0.5 rounded-full border border-amber-300/70 whitespace-nowrap shrink-0">
+              <Flame className="w-3 h-3 text-amber-600 shrink-0" />
+              <span>{post.searchVolume}</span>
             </span>
-            <span className="text-[10px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md truncate max-w-[170px]">
+            <span className="text-[10px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md truncate max-w-[170px] whitespace-nowrap shrink-0">
               {post.sourceName}
             </span>
           </div>

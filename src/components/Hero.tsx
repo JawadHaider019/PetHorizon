@@ -87,12 +87,12 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
           >
             {/* Top Badges Row: Live Google Play */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
-              <div className="inline-flex items-center space-x-2.5 bg-emerald-100/70 border border-emerald-200/80 text-emerald-900 px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full w-fit shadow-2xs">
-                <span className="flex h-2 w-2 relative">
+              <div className="inline-flex items-center space-x-2.5 bg-emerald-100/70 border border-emerald-200/80 text-emerald-900 px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full w-fit shadow-2xs whitespace-nowrap shrink-0">
+                <span className="flex h-2 w-2 relative shrink-0">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
                 </span>
-                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider">
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider whitespace-nowrap">
                   Live on Google Play Store
                 </span>
               </div>
@@ -181,12 +181,12 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
                 />
 
                 {/* Floating Live Sync Pill */}
-                <div className="inline-flex items-center gap-2 bg-white/95 backdrop-blur-md px-4 py-1.5 rounded-full border border-emerald-200/90 shadow-md text-xs font-bold text-slate-800 -mt-3 relative z-10">
-                  <span className="flex h-2 w-2 relative">
+                <div className="inline-flex items-center gap-2 bg-white/95 backdrop-blur-md px-3.5 sm:px-4 py-1.5 rounded-full border border-emerald-200/90 shadow-md text-xs font-bold text-slate-800 -mt-3 relative z-10 whitespace-nowrap shrink-0">
+                  <span className="flex h-2 w-2 relative shrink-0">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
                   </span>
-                  <span>Luna &amp; Milo • Synced Family Care</span>
+                  <span className="whitespace-nowrap">Luna &amp; Milo • Synced Family Care</span>
                 </div>
               </motion.div>
             </div>
