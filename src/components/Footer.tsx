@@ -106,6 +106,11 @@ export default function Footer({ onNavigate, onNavigateLegal }: FooterProps) {
             {openAccordion === 'product' && (
               <ul className="pb-4 space-y-2.5 text-xs text-slate-600 pl-1 animate-in fade-in slide-in-from-top-1">
                 <li>
+                  <a href="#how-it-works" className="hover:text-emerald-700 transition-colors font-medium block">
+                    How Pet Horizon Works
+                  </a>
+                </li>
+                <li>
                   <a href="#features" className="hover:text-emerald-700 transition-colors font-medium block">
                     Care Schedules &amp; Reminders
                   </a>
@@ -239,6 +244,11 @@ export default function Footer({ onNavigate, onNavigateLegal }: FooterProps) {
               Product Features
             </h4>
             <ul className="space-y-2.5 text-sm">
+              <li>
+                <a href="#how-it-works" className="text-slate-600 hover:text-emerald-700 transition-colors font-medium block">
+                  How It Works
+                </a>
+              </li>
               <li>
                 <a href="#features" className="text-slate-600 hover:text-emerald-700 transition-colors font-medium block">
                   Care Schedules

@@ -1,5 +1,5 @@
 import {
-  Calendar,
+  Sparkles,
   Users,
   Camera,
   Smartphone,
@@ -27,6 +27,13 @@ export interface LegalLink {
 }
 
 export const PRODUCT_LINKS: ProductLink[] = [
+  {
+    title: 'How It Works',
+    desc: '4 real app modules: routines, family sync, meds & budget',
+    icon: Sparkles,
+    hash: '#how-it-works',
+    color: 'text-emerald-700 bg-emerald-100/80'
+  },
   {
     title: 'Interactive App Tour',
     desc: 'Explore all 7 native mobile screens, routines & tools',
