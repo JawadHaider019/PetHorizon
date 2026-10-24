@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { Flame, ExternalLink, ShieldCheck, Check, Sparkles, BookOpen } from 'lucide-react';
+import { Flame, ExternalLink, ShieldCheck, Check, Sparkles } from 'lucide-react';
 import { BlogPost } from '../data/blogData';
 
 interface BlogPreviewModalProps {
