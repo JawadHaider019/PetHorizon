@@ -101,9 +101,10 @@ export default function LegalSidebar({
         <div className="flex items-center justify-between gap-2 pt-1">
           <a
             href="mailto:pethorizon2026@gmail.com"
-            className="text-xs font-mono font-bold text-slate-800 hover:text-emerald-700 truncate"
+            className="text-xs font-mono font-bold text-slate-800 hover:text-emerald-700 truncate flex items-center gap-1.5"
           >
-            pethorizon2026@gmail.com
+            <Mail className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
+            <span className="truncate">pethorizon2026@gmail.com</span>
           </a>
           <button
             type="button"
