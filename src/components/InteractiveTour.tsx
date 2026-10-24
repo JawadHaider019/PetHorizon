@@ -28,7 +28,7 @@ export default function InteractiveTour() {
 
         {/* Tab Navigation Buttons */}
         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12">
-          {SCREENS.map((sc) => {
+          {TOUR_SCREENS.map((sc) => {
             const Icon = sc.icon;
             const isSelected = selectedScreen === sc.id;
             return (
