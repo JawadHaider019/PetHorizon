@@ -135,20 +135,20 @@ export default function BentoFeatures() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6 }}
             whileHover={{ y: -3 }}
-            className="lg:col-span-8 bg-gradient-to-br from-[#101C33] via-[#0D182E] to-[#144917] text-white rounded-3xl p-7 sm:p-9 border border-slate-700/80 shadow-xl flex flex-col justify-between relative overflow-hidden group"
+            className="lg:col-span-8 bg-white rounded-3xl p-7 sm:p-9 border border-slate-200/90 shadow-sm flex flex-col justify-between relative overflow-hidden group hover:border-emerald-600/40 hover:shadow-md transition-all text-left"
           >
-            <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-[90px] pointer-events-none" />
+            <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/5 rounded-full blur-[90px] pointer-events-none" />
 
             {/* Top Bar */}
             <div>
               <div className="flex items-center justify-between mb-5 flex-wrap gap-2.5">
-                <span className="text-[11px] font-black uppercase tracking-wider text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 px-3 py-1 rounded-full flex items-center gap-1.5">
-                  <Users className="w-3.5 h-3.5 text-emerald-300" />
+                <span className="text-[11px] font-black uppercase tracking-wider text-emerald-800 bg-emerald-50 border border-emerald-200/80 px-3 py-1 rounded-full flex items-center gap-1.5">
+                  <Users className="w-3.5 h-3.5 text-emerald-700" />
                   <span>Household Care Hub</span>
                 </span>
                 
-                <span className="text-xs text-emerald-300/90 font-mono font-medium flex items-center gap-2 bg-black/25 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-xs text-emerald-800 font-mono font-semibold flex items-center gap-2 bg-emerald-50/80 px-3 py-1 rounded-full border border-emerald-200/80">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                   3 Members Synchronized
                 </span>
               </div>
@@ -156,46 +156,46 @@ export default function BentoFeatures() {
               {/* Main Content Split: Headline + QR Pass Preview */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
                 <div className="lg:col-span-7">
-                  <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-snug">
+                  <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-snug">
                     One Dynamic QR Code Connects Every Household Caregiver
                   </h3>
-                  <p className="text-slate-300 text-sm mt-2 font-normal leading-relaxed">
+                  <p className="text-slate-600 text-sm mt-2 font-normal leading-relaxed">
                     Connect your partner, family members, or pet sitters with instant biometric deep-linking. Morning feedings, medication doses, and outdoor walks update across all phones in real-time.
                   </p>
 
-                  <div className="mt-4 space-y-2 text-xs text-slate-200">
+                  <div className="mt-4 space-y-2 text-xs text-slate-700">
                     <div className="flex items-center gap-2">
-                      <div className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center">
-                        <Check className="w-3 h-3 text-emerald-400" />
+                      <div className="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                        <Check className="w-3 h-3 text-emerald-700" />
                       </div>
-                      <span>Zero account registration hurdles for invited sitters</span>
+                      <span className="font-medium">Zero account registration hurdles for invited sitters</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <div className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center">
-                        <Check className="w-3 h-3 text-emerald-400" />
+                      <div className="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                        <Check className="w-3 h-3 text-emerald-700" />
                       </div>
-                      <span>Push alert dispatched when any care event is confirmed</span>
+                      <span className="font-medium">Push alert dispatched when any care event is confirmed</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <div className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center">
-                        <Check className="w-3 h-3 text-emerald-400" />
+                      <div className="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                        <Check className="w-3 h-3 text-emerald-700" />
                       </div>
-                      <span>Granular permissions: Primary Owner, Family Member, Caregiver</span>
+                      <span className="font-medium">Granular permissions: Primary Owner, Family Member, Caregiver</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Right Mini Widget: Dynamic Household Pass */}
-                <div className="lg:col-span-5 bg-white/[0.08] backdrop-blur-md border border-white/15 rounded-2xl p-4 flex flex-col justify-between">
-                  <div className="flex items-center justify-between text-xs pb-3 border-b border-white/10">
-                    <span className="font-bold text-white flex items-center gap-1.5">
-                      <QrCode className="w-4 h-4 text-emerald-400" /> Family Pass
+                <div className="lg:col-span-5 bg-[#F8FAF9] border border-slate-200/90 rounded-2xl p-4 flex flex-col justify-between shadow-2xs">
+                  <div className="flex items-center justify-between text-xs pb-3 border-b border-slate-200/80">
+                    <span className="font-bold text-slate-900 flex items-center gap-1.5">
+                      <QrCode className="w-4 h-4 text-emerald-700" /> Family Pass
                     </span>
-                    <span className="text-[10px] text-emerald-300 font-mono">Pass Code: PH-8492</span>
+                    <span className="text-[10px] text-emerald-800 font-mono font-bold bg-emerald-100/70 px-2 py-0.5 rounded">Pass Code: PH-8492</span>
                   </div>
 
                   <div className="py-3 flex items-center gap-3">
-                    <div className="w-16 h-16 bg-white p-1 rounded-xl flex items-center justify-center shrink-0 shadow-md">
+                    <div className="w-16 h-16 bg-white p-1.5 rounded-xl flex items-center justify-center shrink-0 border border-slate-200 shadow-xs">
                       <img 
                         src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&margin=2&data=https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon"
                         alt="Dynamic QR Code"
@@ -203,17 +203,17 @@ export default function BentoFeatures() {
                       />
                     </div>
                     <div className="text-left text-xs">
-                      <p className="font-bold text-white">Scan with Camera</p>
-                      <p className="text-[11px] text-slate-300 mt-0.5 leading-snug">Instant access to Luna's feeding and medical schedule</p>
+                      <p className="font-bold text-slate-900">Scan with Camera</p>
+                      <p className="text-[11px] text-slate-500 mt-0.5 leading-snug">Instant access to Luna's feeding and medical schedule</p>
                     </div>
                   </div>
 
                   <button
                     type="button"
                     onClick={handleCopyCode}
-                    className="w-full py-2 px-3 rounded-xl bg-emerald-700/80 hover:bg-emerald-600 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+                    className="w-full py-2 px-3 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer shadow-xs active:scale-[0.98]"
                   >
-                    <Copy className="w-3 h-3" />
+                    <Copy className="w-3.5 h-3.5" />
                     <span>{copiedCode ? 'Code Copied!' : 'Copy Invitation Code'}</span>
                   </button>
                 </div>
@@ -221,46 +221,46 @@ export default function BentoFeatures() {
             </div>
 
             {/* Bottom Section: Live Care Log Feed (Completely fills the lower card) */}
-            <div className="mt-6 pt-5 border-t border-white/10">
-              <div className="flex items-center justify-between mb-3 text-xs text-slate-300 font-semibold">
+            <div className="mt-6 pt-5 border-t border-slate-100">
+              <div className="flex items-center justify-between mb-3 text-xs text-slate-500 font-semibold">
                 <span className="text-[11px] uppercase tracking-wider font-bold text-slate-400">Live Care Log Feed</span>
-                <span className="text-[11px] text-emerald-300 font-mono">Sync Latency: &lt; 180ms</span>
+                <span className="text-[11px] text-emerald-700 font-mono font-bold">Sync Latency: &lt; 180ms</span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {/* Member 1: Sarah */}
-                <div className="bg-white/[0.08] backdrop-blur-md border border-white/10 rounded-2xl p-3.5 flex flex-col justify-between transition-all hover:bg-white/[0.12]">
+                <div className="bg-[#F8FAF9] border border-slate-200/80 rounded-2xl p-3.5 flex flex-col justify-between transition-all hover:bg-emerald-50/30 hover:border-emerald-300/60">
                   <div className="flex items-center justify-between gap-2 mb-1.5">
-                    <span className="text-xs font-bold text-white">Sarah M.</span>
-                    <span className="text-[10px] font-semibold text-emerald-300 bg-emerald-500/20 px-2 py-0.5 rounded">Owner</span>
+                    <span className="text-xs font-bold text-slate-900">Sarah M.</span>
+                    <span className="text-[10px] font-semibold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded">Owner</span>
                   </div>
-                  <p className="text-[11px] text-slate-200 font-medium">35-Min Trail Walk Completed</p>
-                  <p className="text-[10px] text-slate-400 font-mono mt-1.5 flex items-center gap-1">
-                    <Clock className="w-3 h-3 text-emerald-400" /> 07:45 AM &bull; 2.4 km logged
+                  <p className="text-[11px] text-slate-700 font-medium">35-Min Trail Walk Completed</p>
+                  <p className="text-[10px] text-slate-500 font-mono mt-1.5 flex items-center gap-1">
+                    <Clock className="w-3 h-3 text-emerald-600" /> 07:45 AM &bull; 2.4 km logged
                   </p>
                 </div>
 
                 {/* Member 2: Michael */}
-                <div className="bg-white/[0.08] backdrop-blur-md border border-white/10 rounded-2xl p-3.5 flex flex-col justify-between transition-all hover:bg-white/[0.12]">
+                <div className="bg-[#F8FAF9] border border-slate-200/80 rounded-2xl p-3.5 flex flex-col justify-between transition-all hover:bg-emerald-50/30 hover:border-emerald-300/60">
                   <div className="flex items-center justify-between gap-2 mb-1.5">
-                    <span className="text-xs font-bold text-white">Michael D.</span>
-                    <span className="text-[10px] font-semibold text-slate-300 bg-white/10 px-2 py-0.5 rounded">Family</span>
+                    <span className="text-xs font-bold text-slate-900">Michael D.</span>
+                    <span className="text-[10px] font-semibold text-slate-700 bg-slate-200 px-2 py-0.5 rounded">Family</span>
                   </div>
-                  <p className="text-[11px] text-slate-200 font-medium">Morning Meal Confirmed (2 Cups)</p>
-                  <p className="text-[10px] text-slate-400 font-mono mt-1.5 flex items-center gap-1">
-                    <Clock className="w-3 h-3 text-emerald-400" /> 08:15 AM &bull; Kibble + Broth
+                  <p className="text-[11px] text-slate-700 font-medium">Morning Meal Confirmed (2 Cups)</p>
+                  <p className="text-[10px] text-slate-500 font-mono mt-1.5 flex items-center gap-1">
+                    <Clock className="w-3 h-3 text-emerald-600" /> 08:15 AM &bull; Kibble + Broth
                   </p>
                 </div>
 
                 {/* Member 3: Maya */}
-                <div className="bg-white/[0.08] backdrop-blur-md border border-white/10 rounded-2xl p-3.5 flex flex-col justify-between transition-all hover:bg-white/[0.12]">
+                <div className="bg-[#F8FAF9] border border-slate-200/80 rounded-2xl p-3.5 flex flex-col justify-between transition-all hover:bg-emerald-50/30 hover:border-emerald-300/60">
                   <div className="flex items-center justify-between gap-2 mb-1.5">
-                    <span className="text-xs font-bold text-white">Maya R.</span>
-                    <span className="text-[10px] font-semibold text-amber-200 bg-[#E67E22]/30 px-2 py-0.5 rounded">Pet Sitter</span>
+                    <span className="text-xs font-bold text-slate-900">Maya R.</span>
+                    <span className="text-[10px] font-semibold text-[#E67E22] bg-amber-100 px-2 py-0.5 rounded">Pet Sitter</span>
                   </div>
-                  <p className="text-[11px] text-slate-200 font-medium">Connected via QR Invite</p>
-                  <p className="text-[10px] text-amber-300 font-mono mt-1.5 flex items-center gap-1">
-                    <QrCode className="w-3 h-3 text-amber-300" /> Active Session &bull; Verified
+                  <p className="text-[11px] text-slate-700 font-medium">Connected via QR Invite</p>
+                  <p className="text-[10px] text-emerald-700 font-mono mt-1.5 flex items-center gap-1">
+                    <QrCode className="w-3 h-3 text-emerald-600" /> Active Session &bull; Verified
                   </p>
                 </div>
               </div>
@@ -323,22 +323,28 @@ export default function BentoFeatures() {
               </div>
             </div>
 
-            {/* Block 2: Upcoming Booster Countdown (Fills previous empty gap) */}
-            <div className="bg-[#101C33] text-white p-3.5 rounded-2xl border border-slate-800">
+            {/* Block 2: Upcoming Booster Countdown (Clean Light Card) */}
+            <div className="bg-[#F8FAF9] text-slate-800 p-3.5 rounded-2xl border border-slate-200/80">
               <div className="flex items-center justify-between text-xs mb-1">
-                <span className="font-bold text-white flex items-center gap-1.5">
-                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> DHPP Booster Vaccine
+                <span className="font-bold text-slate-900 flex items-center gap-1.5">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-700" /> DHPP Booster Vaccine
                 </span>
-                <span className="text-[10px] font-mono font-bold text-amber-300 bg-amber-400/20 px-2 py-0.5 rounded">
+                <span className="text-[10px] font-mono font-bold text-[#E67E22] bg-amber-100 px-2 py-0.5 rounded">
                   Due in 14 Days
                 </span>
               </div>
-              <p className="text-[11px] text-slate-300">Dr. Henderson Veterinary Hospital &bull; Clinic ID: #4829</p>
+              <p className="text-[11px] text-slate-500">Dr. Henderson Veterinary Hospital &bull; Clinic ID: #4829</p>
               
-              <div className="mt-2 w-full bg-slate-700 h-1.5 rounded-full overflow-hidden">
-                <div className="bg-emerald-500 h-full w-[85%]" />
+              <div className="mt-2.5 w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
+                <motion.div 
+                  initial={{ width: 0 }}
+                  whileInView={{ width: '85%' }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+                  className="bg-emerald-700 h-full rounded-full" 
+                />
               </div>
-              <p className="text-[10px] text-slate-400 mt-1.5 text-right font-mono">Immunization coverage: 85% valid</p>
+              <p className="text-[10px] text-slate-500 mt-1.5 text-right font-mono font-medium">Immunization coverage: 85% valid</p>
             </div>
           </motion.div>
 
@@ -368,8 +374,8 @@ export default function BentoFeatures() {
                 Dedicated biometric units and nutrition formulas tailored specifically for canines, felines, small mammals, and avians.
               </p>
 
-              {/* Minimalist Segmented Selector */}
-              <div className="grid grid-cols-4 gap-1 mt-4 bg-slate-100 p-1 rounded-xl">
+              {/* Minimalist Segmented Selector with Framer Motion Sliding Pill */}
+              <div className="grid grid-cols-4 gap-1 mt-4 bg-slate-100 p-1 rounded-xl relative">
                 {(['canine', 'feline', 'small', 'avian'] as const).map((key) => {
                   const labels = {
                     canine: 'Canine',
@@ -383,12 +389,19 @@ export default function BentoFeatures() {
                       key={key}
                       type="button"
                       onClick={() => setActiveSpecies(key)}
-                      className={`py-1.5 text-[11px] font-bold rounded-lg transition-all cursor-pointer ${
+                      className={`relative py-1.5 text-[11px] font-bold rounded-lg transition-colors cursor-pointer z-10 ${
                         isSelected 
-                          ? 'bg-white text-slate-900 shadow-xs' 
+                          ? 'text-slate-900' 
                           : 'text-slate-500 hover:text-slate-800'
                       }`}
                     >
+                      {isSelected && (
+                        <motion.div
+                          layoutId="activeSpeciesTab"
+                          className="absolute inset-0 bg-white rounded-lg shadow-xs -z-10"
+                          transition={{ type: "spring", stiffness: 450, damping: 32 }}
+                        />
+                      )}
                       {labels[key]}
                     </button>
                   );
@@ -566,9 +579,30 @@ export default function BentoFeatures() {
               </div>
               
               <div className="h-2.5 w-full bg-slate-200 rounded-full overflow-hidden flex shadow-inner">
-                <div className="h-full bg-emerald-700 w-[50%]" title="Dietary & Food (50%)" />
-                <div className="h-full bg-[#1A2B4E] w-[30%]" title="Veterinary Clinical (30%)" />
-                <div className="h-full bg-[#E67E22] w-[20%]" title="Care & Supplies (20%)" />
+                <motion.div 
+                  initial={{ width: 0 }}
+                  whileInView={{ width: '50%' }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                  className="h-full bg-emerald-700" 
+                  title="Dietary & Food (50%)" 
+                />
+                <motion.div 
+                  initial={{ width: 0 }}
+                  whileInView={{ width: '30%' }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+                  className="h-full bg-[#1A2B4E]" 
+                  title="Veterinary Clinical (30%)" 
+                />
+                <motion.div 
+                  initial={{ width: 0 }}
+                  whileInView={{ width: '20%' }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                  className="h-full bg-[#E67E22]" 
+                  title="Care & Supplies (20%)" 
+                />
               </div>
 
               <div className="grid grid-cols-3 gap-1 text-[10px] text-slate-600 mt-2.5 font-bold text-center">
