@@ -62,14 +62,14 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
                 </span>
               </div>
 
-              {/* 4.9 Star Rating Pill */}
+              {/* 5.0 Star Rating Pill */}
               <div className="inline-flex items-center gap-2 bg-white border border-slate-200/80 px-3.5 py-1.5 rounded-full shadow-2xs text-xs font-bold text-slate-800">
                 <div className="flex items-center text-amber-400">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-3.5 h-3.5 fill-amber-400" />
                   ))}
                 </div>
-                <span>4.9 / 5</span>
+                <span>5.0 / 5.0</span>
                 <span className="text-slate-400 font-normal">• 10,000+ Pets Cared For</span>
               </div>
             </div>

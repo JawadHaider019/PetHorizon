@@ -90,7 +90,7 @@ export default function DownloadCTA({ onOpenQrModal, onOpenIosModal }: DownloadC
                   <img src="/app-icon.png" alt="Pet Horizon Logo" className="w-10 h-10 rounded-xl object-contain" />
                   <div className="text-left pr-2">
                     <p className="text-[10px] font-black uppercase text-emerald-700">Pet Horizon</p>
-                    <p className="text-xs font-bold text-slate-900">Rated 4.8+ Stars</p>
+                    <p className="text-xs font-bold text-slate-900">Rated 5.0 Stars on Play Store</p>
                   </div>
                 </motion.div>
               </div>
