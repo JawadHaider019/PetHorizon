@@ -1,8 +1,13 @@
 import { motion } from 'framer-motion';
 import { Smartphone, CheckCircle2 } from 'lucide-react';
-import { GooglePlayBadge, AppStoreBadge } from './AppBadges';
+import { GooglePlayBadge, AppStoreBadge, QrScanButton } from './AppBadges';
 
-export default function DownloadCTA() {
+interface DownloadCTAProps {
+  onOpenQrModal?: () => void;
+  onOpenIosModal?: () => void;
+}
+
+export default function DownloadCTA({ onOpenQrModal, onOpenIosModal }: DownloadCTAProps) {
   const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon';
 
   return (
@@ -34,9 +39,12 @@ export default function DownloadCTA() {
               </p>
 
               {/* Download Buttons */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              <div className="flex flex-wrap items-center gap-3.5 pt-2">
                 <GooglePlayBadge href={playStoreUrl} className="px-5 py-3 rounded-2xl shadow-xl" />
-                <AppStoreBadge className="px-5 py-3 rounded-2xl shadow-xl" />
+                <AppStoreBadge onClick={onOpenIosModal} className="px-5 py-3 rounded-2xl shadow-xl" />
+                {onOpenQrModal && (
+                  <QrScanButton onClick={onOpenQrModal} className="px-4 py-3 rounded-2xl shadow-md bg-white text-slate-900 hover:bg-emerald-50 hover:text-emerald-800" />
+                )}
               </div>
 
               {/* Reassurances */}

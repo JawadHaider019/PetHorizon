@@ -2,10 +2,14 @@ import { useState, useEffect } from 'react';
 import BackgroundCanvas from './components/BackgroundCanvas';
 import Navbar, { NavView } from './components/Navbar';
 import Hero from './components/Hero';
+import Partners from './components/Partners';
+import BentoFeatures from './components/BentoFeatures';
 import AppFeatures from './components/AppFeatures';
 import FamilyHubSection from './components/FamilyHubSection';
 import DailyJournalSection from './components/DailyJournalSection';
 import InteractiveTour from './components/InteractiveTour';
+import TestimonialsSection from './components/TestimonialsSection';
+import Comparison from './components/Comparison';
 import PricingSection from './components/PricingSection';
 import FAQSection from './components/FAQSection';
 import HomeBlogSection from './components/HomeBlogSection';
@@ -15,6 +19,8 @@ import Footer from './components/Footer';
 import LegalPortal from './components/LegalPortal';
 import BlogHub from './components/BlogHub';
 import BlogArticleDetail from './components/BlogArticleDetail';
+import QrDownloadModal from './components/modals/QrDownloadModal';
+import IosWaitlistModal from './components/modals/IosWaitlistModal';
 import { BLOG_POSTS } from './data/blogData';
 
 export type ExtendedAppView = NavView | 'blog-article';
@@ -61,6 +67,8 @@ const getViewStateFromLocation = (): ViewState => {
 
 export default function App() {
   const [viewState, setViewState] = useState<ViewState>(getViewStateFromLocation());
+  const [isQrModalOpen, setIsQrModalOpen] = useState(false);
+  const [isIosModalOpen, setIsIosModalOpen] = useState(false);
 
   useEffect(() => {
     const handlePopState = () => {
@@ -169,6 +177,7 @@ export default function App() {
         <Navbar
           currentView={navbarActiveView}
           onNavigate={(view, hash) => navigateTo(view, hash)}
+          onOpenQrModal={() => setIsQrModalOpen(true)}
         />
       )}
 
@@ -209,11 +218,18 @@ export default function App() {
       {/* 4. Main Landing Page View */}
       {viewState.view === 'home' && (
         <>
-          <Hero />
+          <Hero 
+            onOpenQrModal={() => setIsQrModalOpen(true)}
+            onOpenIosModal={() => setIsIosModalOpen(true)}
+          />
+          <Partners />
+          <BentoFeatures />
           <AppFeatures />
           <FamilyHubSection />
           <DailyJournalSection />
           <InteractiveTour />
+          <TestimonialsSection />
+          <Comparison />
           <PricingSection />
           <FAQSection />
           <HomeBlogSection
@@ -221,10 +237,23 @@ export default function App() {
             onSelectArticle={(slug) => navigateToArticle(slug)}
           />
           <ContactUs />
-          <DownloadCTA />
+          <DownloadCTA 
+            onOpenQrModal={() => setIsQrModalOpen(true)}
+            onOpenIosModal={() => setIsIosModalOpen(true)}
+          />
           <Footer onNavigateLegal={(doc) => navigateTo(doc)} />
         </>
       )}
+
+      {/* Modals for Desktop-to-Mobile & iOS Waitlist */}
+      <QrDownloadModal 
+        isOpen={isQrModalOpen}
+        onClose={() => setIsQrModalOpen(false)}
+      />
+      <IosWaitlistModal
+        isOpen={isIosModalOpen}
+        onClose={() => setIsIosModalOpen(false)}
+      />
     </div>
   );
 }

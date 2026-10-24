@@ -172,6 +172,22 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
                 </div>
               </motion.div>
 
+              {/* Floating Live Card: Luna Medication Reminder (Top Left) */}
+              <motion.div
+                animate={{ y: [0, -5, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
+                className="hidden md:flex absolute -top-4 -left-12 lg:-left-16 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 shadow-xl border border-emerald-100 items-center gap-2.5 w-[190px] text-left z-30"
+              >
+                <div className="w-8 h-8 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center font-bold shrink-0">
+                  <Pill className="w-4 h-4" />
+                </div>
+                <div>
+                  <p className="text-[9px] font-black uppercase tracking-wider text-purple-700">Medication Taken</p>
+                  <p className="text-[11px] font-bold text-slate-900 leading-tight">Luna • Heartgard ✓</p>
+                  <p className="text-[9px] text-slate-400">Next due in 30 days</p>
+                </div>
+              </motion.div>
+
               {/* Floating Live Card: Family Hub Connection (Positioned completely outside on upper right) */}
               <motion.div
                 animate={{ y: [0, -6, 0] }}
