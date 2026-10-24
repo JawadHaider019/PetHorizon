@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { Mail, CheckCircle2 } from 'lucide-react';
+// @ts-expect-error canvas-confetti has no types
+import confetti from 'canvas-confetti';
+import { FORMSPREE_ENDPOINT } from './contact/contactData';
 
 interface BlogNewsletterProps {
   onNavigateLegal?: (doc: 'privacy' | 'deletion') => void;
@@ -7,13 +10,47 @@ interface BlogNewsletterProps {
 
 export default function BlogNewsletter({ onNavigateLegal }: BlogNewsletterProps) {
   const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [subscribed, setSubscribed] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email.trim() && email.includes('@')) {
-      setSubscribed(true);
-      setTimeout(() => setEmail(''), 3000);
+    if (!email.trim() || !email.includes('@') || !email.includes('.')) return;
+
+    setIsSubmitting(true);
+
+    // 1. Dispatch subscriber email to Formspree
+    try {
+      await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          inquiryType: 'VIP Pet Parent Weekly Digest Subscriber',
+          email: email.trim(),
+          submittedAt: new Date().toISOString(),
+          source: 'Pet Horizon Web - Blog Newsletter'
+        })
+      });
+    } catch (err) {
+      console.warn('Newsletter Formspree dispatch error:', err);
+    }
+
+    // 2. Backup to browser local storage
+    try {
+      const subscribers = JSON.parse(localStorage.getItem('pethorizon_newsletter_subscribers') || '[]');
+      subscribers.push({ email: email.trim(), date: new Date().toISOString() });
+      localStorage.setItem('pethorizon_newsletter_subscribers', JSON.stringify(subscribers));
+    } catch {
+      // safe fallback
+    }
+
+    setIsSubmitting(false);
+    setSubscribed(true);
+
+    try {
+      confetti({ particleCount: 40, spread: 60, origin: { y: 0.7 } });
+    } catch {
+      // safe fallback
     }
   };
 
@@ -50,9 +87,10 @@ export default function BlogNewsletter({ onNavigateLegal }: BlogNewsletterProps)
             />
             <button
               type="submit"
-              className="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm transition-colors shadow-sm shadow-emerald-700/20 cursor-pointer whitespace-nowrap"
+              disabled={isSubmitting}
+              className="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 disabled:opacity-60 text-white font-bold text-xs sm:text-sm transition-colors shadow-sm shadow-emerald-700/20 cursor-pointer whitespace-nowrap"
             >
-              Subscribe Free
+              {isSubmitting ? 'Subscribing...' : 'Subscribe Free'}
             </button>
           </form>
         )}
