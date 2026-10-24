@@ -75,9 +75,12 @@ export default function Navbar({ currentView = 'home', onNavigate }: NavbarProps
             >
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-500 p-0.5 shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform duration-200">
                 <img
-                  src="/icons/app-icon.png"
+                  src="/app-icon.png"
                   alt="Pet Horizon Logo"
                   className="w-full h-full object-cover rounded-[14px]"
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).src = '/applogo.png';
+                  }}
                 />
               </div>
               <div className="flex flex-col">
