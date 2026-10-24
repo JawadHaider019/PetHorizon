@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Apple, Mail, CheckCircle2, ArrowRight, Bell } from 'lucide-react';
+import { X, Apple, Mail, CheckCircle2, ArrowRight, Sparkles, Shield, Clock } from 'lucide-react';
 // @ts-expect-error canvas-confetti has no types
 import confetti from 'canvas-confetti';
 
@@ -32,13 +32,13 @@ export default function IosWaitlistModal({ isOpen, onClose }: IosWaitlistModalPr
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.trim() || !email.includes('@') || !email.includes('.')) {
-      setError('Please provide a valid email address.');
+      setError('Please enter a valid email address.');
       return;
     }
     setError('');
     setIsSubmitting(true);
 
-    // Save to local storage for persistence
+    // Save to local storage for persistence & backup
     try {
       const waitlist = JSON.parse(localStorage.getItem('pethorizon_ios_waitlist') || '[]');
       waitlist.push({ email: email.trim(), date: new Date().toISOString() });
@@ -51,11 +51,11 @@ export default function IosWaitlistModal({ isOpen, onClose }: IosWaitlistModalPr
       setIsSubmitting(false);
       setIsSubmitted(true);
       try {
-        confetti({ particleCount: 60, spread: 70, origin: { y: 0.6 } });
+        confetti({ particleCount: 50, spread: 60, origin: { y: 0.6 } });
       } catch {
         // safe fallback
       }
-    }, 600);
+    }, 500);
   };
 
   const handleReset = () => {
@@ -75,21 +75,21 @@ export default function IosWaitlistModal({ isOpen, onClose }: IosWaitlistModalPr
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-slate-950/70 backdrop-blur-sm transition-opacity"
+            className="fixed inset-0 bg-slate-950/75 backdrop-blur-md transition-opacity"
           />
 
-          {/* Modal Card */}
+          {/* Modal Container */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            initial={{ opacity: 0, scale: 0.94, y: 16 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-md bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-100 z-10 text-center overflow-hidden"
+            exit={{ opacity: 0, scale: 0.94, y: 16 }}
+            transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+            className="relative w-full max-w-[440px] bg-white rounded-3xl p-6 sm:p-7 shadow-2xl border border-slate-100 z-10 text-center overflow-hidden"
           >
-            {/* Top decorative gradient bar */}
-            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-slate-900 via-neutral-800 to-emerald-600" />
+            {/* Top Apple Dark Slate Accent Bar */}
+            <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-slate-900 via-emerald-600 to-slate-900" />
 
-            {/* Close button */}
+            {/* Close Button */}
             <button
               onClick={onClose}
               className="absolute top-4 right-4 p-2 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
@@ -100,29 +100,44 @@ export default function IosWaitlistModal({ isOpen, onClose }: IosWaitlistModalPr
 
             {!isSubmitted ? (
               <>
-                {/* Apple Badge Icon */}
-                <div className="w-14 h-14 rounded-2xl bg-slate-900 text-white mx-auto flex items-center justify-center shadow-md mb-4 mt-1">
-                  <Apple className="w-7 h-7" />
+                {/* Apple & TestFlight Badge */}
+                <div className="flex items-center justify-center gap-2 mb-3 pt-1">
+                  <div className="w-10 h-10 rounded-2xl bg-slate-900 text-white flex items-center justify-center shadow-xs">
+                    <Apple className="w-5 h-5" />
+                  </div>
+                  <div className="text-left">
+                    <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
+                      Apple TestFlight Beta
+                    </span>
+                    <h3 className="text-base font-black text-slate-900 leading-tight mt-0.5">
+                      iOS Early Access
+                    </h3>
+                  </div>
                 </div>
 
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold mb-2">
-                  <Bell className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>Apple App Store • TestFlight Beta</span>
-                </div>
-
-                <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
-                  Get Notified for iOS Launch
-                </h3>
-                <p className="text-slate-500 text-xs sm:text-sm mt-2 mb-6 max-w-xs mx-auto leading-relaxed">
-                  We are finalizing Pet Horizon for iPhone &amp; Apple Watch. Enter your email to receive priority invitation to our private beta and public App Store release.
+                <p className="text-slate-600 text-xs sm:text-sm mb-4 leading-relaxed max-w-sm mx-auto">
+                  Pet Horizon for iPhone &amp; Apple Watch is currently in private beta testing. Join the list to get an invitation code as soon as slots open.
                 </p>
+
+                {/* Benefits List */}
+                <div className="bg-slate-50 rounded-2xl p-3 sm:p-3.5 border border-slate-200/80 mb-5 text-left space-y-2">
+                  <div className="flex items-center gap-2 text-xs text-slate-700 font-medium">
+                    <Sparkles className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                    <span>Priority TestFlight build download link</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-xs text-slate-700 font-medium">
+                    <Clock className="w-3.5 h-3.5 text-teal-600 shrink-0" />
+                    <span>Estimated TestFlight rollout: Next Beta Sprint</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-xs text-slate-700 font-medium">
+                    <Shield className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                    <span>Free complimentary Premium trial for beta testers</span>
+                  </div>
+                </div>
 
                 {/* Form */}
                 <form onSubmit={handleSubmit} className="flex flex-col gap-3 text-left">
                   <div>
-                    <label htmlFor="ios-waitlist-email" className="block text-xs font-bold text-slate-700 mb-1.5">
-                      Your Email Address
-                    </label>
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                         <Mail className="w-4 h-4" />
@@ -135,8 +150,8 @@ export default function IosWaitlistModal({ isOpen, onClose }: IosWaitlistModalPr
                           setEmail(e.target.value);
                           if (error) setError('');
                         }}
-                        placeholder="e.g. sarah@gmail.com"
-                        className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-900 placeholder:text-slate-400 focus:outline-hidden focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 transition-all"
+                        placeholder="Enter your email for TestFlight invite"
+                        className="w-full pl-10 pr-4 py-3 bg-white border border-slate-300 rounded-xl text-xs sm:text-sm font-medium text-slate-900 placeholder:text-slate-400 focus:outline-hidden focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 shadow-2xs transition-all"
                       />
                     </div>
                     {error && <p className="text-xs text-rose-600 font-semibold mt-1.5">{error}</p>}
@@ -145,38 +160,34 @@ export default function IosWaitlistModal({ isOpen, onClose }: IosWaitlistModalPr
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-sm shadow-md hover:shadow-lg transition-all cursor-pointer disabled:opacity-50 mt-1"
+                    className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all cursor-pointer disabled:opacity-50"
                   >
-                    <span>{isSubmitting ? 'Reserving Spot...' : 'Join iOS Early Access List'}</span>
-                    <ArrowRight className="w-4 h-4 text-emerald-400" />
+                    <span>{isSubmitting ? 'Reserving...' : 'Join iOS TestFlight Waitlist'}</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-emerald-400" />
                   </button>
 
-                  <p className="text-[11px] text-slate-400 text-center mt-2">
-                    🔒 Zero spam. We only email you when the iOS version is ready to test.
+                  <p className="text-[10px] text-slate-400 text-center">
+                    🔒 No spam. You will only be notified when the iOS version is ready.
                   </p>
                 </form>
               </>
             ) : (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="py-4"
-              >
-                <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center mb-4">
-                  <CheckCircle2 className="w-9 h-9" />
+              <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="py-2">
+                <div className="w-14 h-14 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200 mx-auto flex items-center justify-center mb-3">
+                  <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <h3 className="text-2xl font-black text-slate-900 tracking-tight">
-                  You're on the Priority List! 🎉
+                <h3 className="text-xl font-black text-slate-900 tracking-tight">
+                  You're on the Waitlist!
                 </h3>
-                <p className="text-slate-600 text-sm mt-2 mb-6 max-w-xs mx-auto leading-relaxed">
-                  Thank you! We've saved <span className="font-bold text-slate-900">{email}</span>. You will be among the first pet parents invited to download Pet Horizon on iOS.
+                <p className="text-slate-600 text-xs sm:text-sm mt-1.5 mb-5 max-w-xs mx-auto leading-relaxed">
+                  We've reserved a priority spot for <span className="font-bold text-slate-900">{email}</span>. You'll receive the TestFlight beta link directly.
                 </p>
                 <button
                   type="button"
                   onClick={handleReset}
-                  className="px-6 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs transition-colors cursor-pointer"
+                  className="px-5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs transition-colors cursor-pointer"
                 >
-                  Close Window
+                  Done
                 </button>
               </motion.div>
             )}
