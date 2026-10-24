@@ -1,5 +1,5 @@
 import { GooglePlayBadge, AppStoreBadge } from './AppBadges';
-import { ArrowUp, ShieldCheck, Heart, Sparkles as SparkleIcon, Radio } from 'lucide-react';
+import { ShieldCheck } from 'lucide-react';
 
 interface FooterProps {
   onNavigate?: (view: 'home' | 'blog' | 'privacy' | 'terms' | 'deletion', hash?: string) => void;
@@ -29,10 +29,6 @@ export default function Footer({ onNavigate, onNavigateLegal }: FooterProps) {
     }
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
     <footer className="bg-[#F8F9FA] text-slate-700 pt-12 sm:pt-16 pb-8 sm:pb-12 border-t border-slate-200/90 relative overflow-hidden">
       {/* Ambient background glow */}
@@ -42,7 +38,7 @@ export default function Footer({ onNavigate, onNavigateLegal }: FooterProps) {
       <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
         
         {/* Top Brand & Mission Bar */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-10 border-b border-slate-200/80">
+        <div className="pb-8 sm:pb-10 border-b border-slate-200/80">
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 text-left">
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 rounded-2xl bg-emerald-600 flex items-center justify-center p-2 shadow-md shadow-emerald-600/20">
@@ -67,24 +63,9 @@ export default function Footer({ onNavigate, onNavigateLegal }: FooterProps) {
 
             <span className="hidden sm:block h-8 w-px bg-slate-200 mx-2" />
 
-            <p className="text-xs sm:text-sm text-slate-500 max-w-md font-normal leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-500 max-w-lg font-normal leading-relaxed">
               Synchronizing daily feedings, walk routines, medication alarms, and veterinary milestones for companion families worldwide.
             </p>
-          </div>
-
-          <div className="flex items-center gap-2.5 self-start md:self-center">
-            <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200/80 px-3 py-1.5 rounded-full shadow-2xs">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Production Release 1.0.4</span>
-            </span>
-            <button
-              onClick={scrollToTop}
-              className="inline-flex items-center gap-1 text-xs font-bold text-slate-600 hover:text-emerald-700 bg-white hover:bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-full transition-colors cursor-pointer shadow-2xs"
-              aria-label="Back to top"
-            >
-              <span>Top</span>
-              <ArrowUp className="w-3.5 h-3.5" />
-            </button>
           </div>
         </div>
 
@@ -164,7 +145,7 @@ export default function Footer({ onNavigate, onNavigateLegal }: FooterProps) {
           </div>
 
           {/* Col 3: Legal & Trust (3 Cols) */}
-          <div className="col-span-1 lg:col-span-3">
+          <div className="col-span-2 sm:col-span-1 lg:col-span-3">
             <h4 className="text-xs font-extrabold uppercase tracking-wider text-slate-900 mb-4 flex items-center gap-1.5">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
               <span>Trust &amp; Governance</span>
@@ -197,17 +178,17 @@ export default function Footer({ onNavigate, onNavigateLegal }: FooterProps) {
             </ul>
           </div>
 
-          {/* Col 4: App Download & Badges (3 Cols) */}
-          <div className="col-span-1 lg:col-span-3 flex flex-col items-start gap-3">
-            <h4 className="text-xs font-extrabold uppercase tracking-wider text-slate-900 mb-1">
+          {/* Col 4: App Download & Badges (Full width on mobile, 3 Cols on desktop) */}
+          <div className="col-span-2 lg:col-span-3 flex flex-col items-start gap-3 pt-6 lg:pt-0 border-t lg:border-t-0 border-slate-200/80">
+            <h4 className="text-xs font-extrabold uppercase tracking-wider text-slate-900 mb-0.5">
               Mobile Application
             </h4>
             <p className="text-xs text-slate-500 leading-normal mb-1">
               Download the native mobile app to track schedules and invite family caretakers.
             </p>
-            <div className="flex flex-col gap-2.5 w-full">
-              <GooglePlayBadge href={playStoreUrl} className="w-full justify-center sm:justify-start" />
-              <AppStoreBadge className="w-full justify-center sm:justify-start" />
+            <div className="flex flex-col sm:flex-row lg:flex-col gap-2.5 w-full max-w-sm">
+              <GooglePlayBadge href={playStoreUrl} className="w-full justify-start" />
+              <AppStoreBadge className="w-full justify-start" />
             </div>
           </div>
 

@@ -58,14 +58,14 @@ export function GooglePlayBadge({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center gap-3 bg-black hover:bg-neutral-900 text-white px-4 py-2.5 rounded-xl border border-neutral-700/80 shadow-md hover:shadow-lg transition-all duration-200 group shrink-0 ${className}`}
+      className={`inline-flex items-center gap-3 bg-black hover:bg-neutral-900 text-white px-4 py-2.5 rounded-2xl border border-neutral-700/80 shadow-xs hover:shadow-md transition-all duration-200 group shrink-0 ${className}`}
     >
       <GooglePlayIcon className="w-6 h-6 shrink-0 group-hover:scale-105 transition-transform" />
       <div className="flex flex-col text-left">
-        <span className="text-[9px] font-semibold tracking-wider uppercase text-neutral-300 leading-none">
+        <span className="text-[9px] font-semibold tracking-wider uppercase text-neutral-300 leading-none whitespace-nowrap">
           GET IT ON
         </span>
-        <span className="text-[15px] font-bold text-white tracking-tight leading-tight mt-0.5">
+        <span className="text-[14px] sm:text-[15px] font-bold text-white tracking-tight leading-tight mt-0.5 whitespace-nowrap">
           Google Play
         </span>
       </div>
@@ -87,19 +87,19 @@ export function AppStoreBadge({
     <button
       type="button"
       onClick={onClick}
-      className={`inline-flex items-center gap-3 bg-black hover:bg-neutral-900 text-white px-4 py-2.5 rounded-xl border border-neutral-700/80 shadow-md select-none shrink-0 transition-all duration-200 cursor-pointer ${className}`}
+      className={`inline-flex items-center gap-3 bg-black hover:bg-neutral-900 text-white px-4 py-2.5 rounded-2xl border border-neutral-700/80 shadow-xs select-none shrink-0 transition-all duration-200 cursor-pointer ${className}`}
       title={onClick ? "Click to join the iOS Beta Waitlist" : "Coming Soon to the Apple App Store"}
     >
       <AppleIcon className="w-6 h-6 text-white shrink-0" />
       <div className="flex flex-col text-left">
-        <span className="text-[9px] font-semibold tracking-tight text-neutral-300 leading-none">
+        <span className="text-[9px] font-semibold tracking-tight text-neutral-300 leading-none whitespace-nowrap">
           Download on the
         </span>
-        <span className="text-[15px] font-bold text-white tracking-tight leading-tight mt-0.5">
+        <span className="text-[14px] sm:text-[15px] font-bold text-white tracking-tight leading-tight mt-0.5 whitespace-nowrap">
           App Store
         </span>
       </div>
-      <span className="text-[9px] font-bold uppercase tracking-wider bg-white/15 text-neutral-200 border border-white/20 px-2 py-0.5 rounded-md ml-1.5 hover:bg-emerald-500/30 transition-colors">
+      <span className="text-[9px] font-bold uppercase tracking-wider bg-white/15 text-neutral-200 border border-white/20 px-2 py-0.5 rounded-md ml-auto hover:bg-emerald-500/30 transition-colors whitespace-nowrap">
         Soon
       </span>
     </button>
