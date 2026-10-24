@@ -29,13 +29,13 @@ export default function Footer({ onNavigateLegal }: FooterProps) {
           {/* Brand Info (5 Cols) */}
           <div className="md:col-span-4 text-left flex flex-col gap-4">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-2xl bg-emerald-600 flex items-center justify-center p-1 shadow-md shadow-emerald-600/20">
+              <div className="w-10 h-10 rounded-2xl bg-emerald-600 flex items-center justify-center p-2 shadow-md shadow-emerald-600/20">
                 <img
-                  src="/app-icon.png"
+                  src="/ph-logo-white.png"
                   alt="Pet Horizon"
-                  className="w-full h-full object-cover rounded-xl"
+                  className="w-full h-full object-contain"
                   onError={(e) => {
-                    (e.currentTarget as HTMLImageElement).src = '/applogo.png';
+                    (e.currentTarget as HTMLImageElement).src = '/ph-logo-mark.png';
                   }}
                 />
               </div>

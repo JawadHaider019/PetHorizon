@@ -207,44 +207,22 @@ export default function App() {
       {/* 4. Main Landing Page View */}
       {viewState.view === 'home' && (
         <>
-          {/* Hero Section with Play Store Device Showcase & Mascot */}
           <Hero />
-
-          {/* 4 Core Pillars: Schedules, Family Hub, Daily Journal, Pet Profile */}
           <AppFeatures />
-
-          {/* Deep Dive: Family Hub & Caretaker Collaboration */}
           <FamilyHubSection />
-
-          {/* Deep Dive: Daily Journal & Activity Timeline */}
           <DailyJournalSection />
-
-          {/* Interactive App Screen Tour (5 Real Mobile Tabs) */}
           <InteractiveTour />
-
-          {/* Transparent Free vs Premium Pricing Matrix */}
           <PricingSection />
-
-          {/* Frequently Asked Questions */}
           <FAQSection />
-
-          {/* Trending Pet Care & SEO Guides Section */}
           <HomeBlogSection
             onNavigateBlog={() => navigateTo('blog')}
             onSelectArticle={(slug) => navigateToArticle(slug)}
           />
-
-          {/* Contact & Support Form */}
           <ContactUs />
-
-          {/* High-Impact Download Banner */}
           <DownloadCTA />
-
-          {/* Modern Footer with Legal Routing */}
           <Footer onNavigateLegal={(doc) => navigateTo(doc)} />
         </>
       )}
-      
     </div>
   );
 }

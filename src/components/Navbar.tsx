@@ -73,21 +73,21 @@ export default function Navbar({ currentView = 'home', onNavigate }: NavbarProps
               onClick={(e) => handleLinkClick(e, 'home')}
               className="flex items-center gap-2.5 group cursor-pointer select-none"
             >
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-500 p-0.5 shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform duration-200">
+              <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-100/90 flex items-center justify-center p-1.5 shadow-xs group-hover:scale-105 group-hover:bg-emerald-100/60 transition-all duration-200">
                 <img
-                  src="/app-icon.png"
+                  src="/ph-logo-mark.png"
                   alt="Pet Horizon Logo"
-                  className="w-full h-full object-cover rounded-[14px]"
+                  className="w-full h-full object-contain"
                   onError={(e) => {
-                    (e.currentTarget as HTMLImageElement).src = '/applogo.png';
+                    (e.currentTarget as HTMLImageElement).src = '/app-icon.png';
                   }}
                 />
               </div>
               <div className="flex flex-col">
-                <span className="text-lg sm:text-xl font-extrabold tracking-tight text-slate-900 group-hover:text-emerald-700 transition-colors">
-                  Pet Horizon
+                <span className="text-lg sm:text-xl font-black tracking-tight text-slate-900 group-hover:text-emerald-700 transition-colors leading-none">
+                  Pet<span className="text-emerald-600 font-extrabold ml-0.5">Horizon</span>
                 </span>
-                <span className="text-[10px] text-emerald-800 font-bold uppercase tracking-widest -mt-1">
+                <span className="text-[10px] text-emerald-800 font-bold uppercase tracking-widest mt-0.5">
                   Family Pet Care
                 </span>
               </div>
