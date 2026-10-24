@@ -6,7 +6,6 @@ import {
   Pill, 
   Wallet,
   CheckCircle2, 
-  Sparkles, 
   Copy, 
   Clock, 
   ArrowRight, 
@@ -86,10 +85,9 @@ export default function BentoFeatures() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            {/* Shimmering Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-800 bg-white/90 border border-emerald-200/80 mb-3 shadow-2xs backdrop-blur-xs relative overflow-hidden group">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-              <Sparkles className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+            {/* Pill Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-800 bg-white border border-emerald-200/80 mb-3 shadow-2xs">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
               <span>How Pet Horizon Works</span>
             </div>
 

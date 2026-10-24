@@ -1,5 +1,5 @@
 import {
-  Sparkles,
+  Layers,
   Users,
   Camera,
   Smartphone,
@@ -30,7 +30,7 @@ export const PRODUCT_LINKS: ProductLink[] = [
   {
     title: 'How It Works',
     desc: '4 real app modules: routines, family sync, meds & budget',
-    icon: Sparkles,
+    icon: Layers,
     hash: '#how-it-works',
     color: 'text-emerald-700 bg-emerald-100/80'
   },
