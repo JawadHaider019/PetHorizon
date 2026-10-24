@@ -28,10 +28,10 @@ export interface LegalLink {
 
 export const PRODUCT_LINKS: ProductLink[] = [
   {
-    title: 'Care Schedules',
-    desc: 'Smart feeding routines, medicine alarms & vaccine alerts',
-    icon: Calendar,
-    hash: '#features',
+    title: 'Interactive App Tour',
+    desc: 'Explore all 7 native mobile screens, routines & tools',
+    icon: Smartphone,
+    hash: '#tour',
     color: 'text-emerald-600 bg-emerald-50'
   },
   {
@@ -47,13 +47,6 @@ export const PRODUCT_LINKS: ProductLink[] = [
     icon: Camera,
     hash: '#daily-journal',
     color: 'text-emerald-600 bg-emerald-50'
-  },
-  {
-    title: 'Interactive App Tour',
-    desc: 'Explore the 5 native mobile screens & design',
-    icon: Smartphone,
-    hash: '#tour',
-    color: 'text-teal-600 bg-teal-50'
   },
   {
     title: 'Pricing & Plans',

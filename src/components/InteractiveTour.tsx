@@ -65,7 +65,9 @@ export default function InteractiveTour() {
   }, [selectedScreen]);
 
   return (
-    <section id="tour" className="py-14 sm:py-24 bg-white relative overflow-hidden">
+    <section id="tour" className="py-14 sm:py-24 bg-white relative overflow-hidden scroll-mt-20">
+      {/* Anchor for nav links to #features */}
+      <div id="features" className="absolute -top-20 pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
         
         {/* Section Heading */}

@@ -4,7 +4,6 @@ import Navbar, { NavView } from './components/Navbar';
 import Hero from './components/Hero';
 import Partners from './components/Partners';
 import BentoFeatures from './components/BentoFeatures';
-import AppFeatures from './components/AppFeatures';
 import FamilyHubSection from './components/FamilyHubSection';
 import DailyJournalSection from './components/DailyJournalSection';
 import InteractiveTour from './components/InteractiveTour';
@@ -229,7 +228,6 @@ export default function App() {
           />
           <Partners />
           <BentoFeatures />
-          <AppFeatures />
           <FamilyHubSection />
           <DailyJournalSection />
           <InteractiveTour />
