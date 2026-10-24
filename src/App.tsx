@@ -189,7 +189,10 @@ export default function App() {
             onSelectArticle={(slug) => navigateToArticle(slug)}
             onNavigateLegal={(doc) => navigateTo(doc)}
           />
-          <Footer onNavigateLegal={(doc) => navigateTo(doc)} />
+          <Footer 
+            onNavigate={(to, hash) => navigateTo(to, hash)}
+            onNavigateLegal={(doc) => navigateTo(doc)} 
+          />
         </>
       )}
 
@@ -201,7 +204,10 @@ export default function App() {
             onNavigateLegal={(doc) => navigateTo(doc)}
             onSelectArticle={(slug) => navigateToArticle(slug)}
           />
-          <Footer onNavigateLegal={(doc) => navigateTo(doc)} />
+          <Footer 
+            onNavigate={(to, hash) => navigateTo(to, hash)}
+            onNavigateLegal={(doc) => navigateTo(doc)} 
+          />
         </>
       )}
 
@@ -239,7 +245,10 @@ export default function App() {
             onOpenQrModal={() => setIsQrModalOpen(true)}
             onOpenIosModal={() => setIsIosModalOpen(true)}
           />
-          <Footer onNavigateLegal={(doc) => navigateTo(doc)} />
+          <Footer 
+            onNavigate={(to, hash) => navigateTo(to, hash)}
+            onNavigateLegal={(doc) => navigateTo(doc)} 
+          />
         </>
       )}
 

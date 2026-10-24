@@ -187,11 +187,7 @@ export default function Footer({ onNavigate, onNavigateLegal }: FooterProps) {
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 font-medium">
             <button
-              onClick={() => {
-                window.history.pushState({}, '', '/blog');
-                window.dispatchEvent(new PopStateEvent('popstate'));
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
+              onClick={handleBlogClick}
               className="hover:text-emerald-700 transition-colors cursor-pointer"
             >
               Blog &amp; Guides
