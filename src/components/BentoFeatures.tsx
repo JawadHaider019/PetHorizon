@@ -3,14 +3,11 @@ import { motion } from 'framer-motion';
 import { 
   Users, 
   QrCode, 
-  Bell, 
   Pill, 
   Camera, 
   DollarSign, 
   CheckCircle2, 
-  Sparkles,
-  ShieldAlert,
-  ArrowRight
+  Sparkles
 } from 'lucide-react';
 
 export default function BentoFeatures() {

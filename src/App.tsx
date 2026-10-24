@@ -107,10 +107,10 @@ export default function App() {
 
     if (viewState.view === 'blog-article' && currentArticle) {
       document.title = `${currentArticle.title} | Pet Horizon Vet Guides`;
-      updateMetaTag('meta[name="description"]', 'content', currentArticle.seoMetaDescription);
+      updateMetaTag('meta[name="description"]', 'content', currentArticle.excerpt);
       updateMetaTag('meta[name="keywords"]', 'content', `${currentArticle.tags.join(', ')}, ${currentArticle.seoKeyword}`);
       updateMetaTag('meta[property="og:title"]', 'content', currentArticle.title);
-      updateMetaTag('meta[property="og:description"]', 'content', currentArticle.seoMetaDescription);
+      updateMetaTag('meta[property="og:description"]', 'content', currentArticle.excerpt);
       updateMetaTag('meta[property="og:image"]', 'content', currentArticle.coverImage);
       updateMetaTag('meta[property="og:type"]', 'content', 'article');
     } else if (viewState.view === 'blog') {

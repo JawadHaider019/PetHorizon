@@ -5,7 +5,6 @@ import {
   Users, 
   Camera, 
   CheckCircle2, 
-  ArrowRight,
   ShieldCheck,
   Star,
   Pill
