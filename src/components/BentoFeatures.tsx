@@ -129,104 +129,84 @@ export default function BentoFeatures() {
   };
 
   return (
-    <section id="why-pet-horizon" className="py-20 sm:py-28 bg-[#FAFAF9] relative overflow-hidden border-t border-slate-200/80">
+    <section id="why-pet-horizon" className="py-12 sm:py-20 bg-[#FAFAF9] relative overflow-hidden border-t border-slate-200/80">
       {/* Anchor for backwards compatibility with any existing #features-bento links */}
-      <div id="features-bento" className="absolute -top-24 pointer-events-none" />
+      <div id="features-bento" className="absolute -top-20 pointer-events-none" />
 
-      {/* Floating Animated Ambient Glows */}
-      <motion.div 
-        animate={{ 
-          scale: [1, 1.15, 1],
-          opacity: [0.08, 0.14, 0.08],
-          x: [0, 25, 0],
-          y: [0, -20, 0]
-        }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-10 right-1/4 w-[540px] h-[540px] bg-emerald-500 rounded-full blur-[140px] pointer-events-none -z-10" 
-      />
-      <motion.div 
-        animate={{ 
-          scale: [1, 1.2, 1],
-          opacity: [0.06, 0.12, 0.06],
-          x: [0, -20, 0],
-          y: [0, 25, 0]
-        }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        className="absolute bottom-10 left-10 w-[480px] h-[480px] bg-[#1A2B4E] rounded-full blur-[140px] pointer-events-none -z-10" 
-      />
+      {/* Subtle Static Background Ambience */}
+      <div className="absolute top-10 right-1/4 w-[450px] h-[450px] bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none -z-10" />
+      <div className="absolute bottom-10 left-10 w-[400px] h-[400px] bg-slate-400/5 rounded-full blur-[120px] pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
         
         {/* Section Header with shimmering badge */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
             {/* Shimmering Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-800 bg-white/90 border border-emerald-200/80 mb-4 shadow-sm backdrop-blur-xs relative overflow-hidden group">
-              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-emerald-200/40 to-transparent pointer-events-none" />
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <Sparkles className="w-3.5 h-3.5 text-emerald-600 animate-spin-slow" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-800 bg-white/90 border border-emerald-200/80 mb-3 shadow-2xs backdrop-blur-xs relative overflow-hidden group">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+              <Sparkles className="w-3.5 h-3.5 text-emerald-600 animate-spin-slow shrink-0" />
               <span>Why Pet Horizon</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
               Built for How Modern Families Actually Care for Pets
             </h2>
 
-            <p className="text-slate-600 text-base sm:text-lg mt-4 font-normal leading-relaxed max-w-2xl mx-auto">
+            <p className="text-slate-600 text-sm sm:text-base mt-2.5 font-normal leading-relaxed max-w-2xl mx-auto">
               From multi-caregiver households to clinical medication routines, see why thousands of pet parents choose Pet Horizon over scattered notes and chat threads.
             </p>
           </motion.div>
         </div>
 
         {/* 4-COLUMN HORIZONTAL DECK */}
-        <div className="flex overflow-x-auto snap-x snap-mandatory pb-6 gap-5 md:grid md:grid-cols-2 lg:grid-cols-4 lg:gap-6 items-stretch no-scrollbar px-1">
+        <div className="flex overflow-x-auto snap-x snap-mandatory pb-4 gap-4 sm:gap-5 md:grid md:grid-cols-2 lg:grid-cols-4 lg:gap-5 items-stretch no-scrollbar px-1">
           
           {/* ========================================================
               PILLAR 1: Zero-Friction Co-Parenting (Household Sync)
              ======================================================== */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5 }}
-            whileHover={{ y: -8, scale: 1.015 }}
-            className="w-[82vw] sm:w-[320px] md:w-auto shrink-0 snap-center bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-sm hover:shadow-[0_20px_45px_-12px_rgba(16,185,129,0.22)] hover:border-emerald-500/50 flex flex-col justify-between relative overflow-hidden group transition-all duration-300 text-left cursor-default"
+            transition={{ duration: 0.4 }}
+            className="w-[82vw] max-w-[320px] sm:w-[320px] md:w-auto shrink-0 snap-center bg-white rounded-3xl p-5 sm:p-6 border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-emerald-300 flex flex-col justify-between relative overflow-hidden group transition-all duration-200 text-left cursor-default"
           >
-            {/* Shimmer sweep on hover */}
-            <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/50 to-transparent pointer-events-none -z-0" />
-            
-            {/* Subtle top ambient glow */}
-            <div className="absolute -top-12 -right-12 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl group-hover:bg-emerald-500/20 transition-colors pointer-events-none" />
-
             <div className="relative z-10">
-              {/* Pillar Number & Icon with interactive hover rotate */}
-              <div className="flex items-center justify-between mb-5 gap-2">
-                <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50/90 px-3 py-1 rounded-full border border-emerald-200/80 flex items-center gap-1.5 whitespace-nowrap shrink-0">
+              {/* Pillar Number & Icon */}
+              <div className="flex items-center justify-between mb-3.5 gap-2">
+                <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 sm:px-3 py-1 rounded-full border border-emerald-200/80 flex items-center gap-1.5 whitespace-nowrap shrink-0">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
                   01 &bull; Co-Parenting
                 </span>
                 
-                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-emerald-50 border border-emerald-100/90 text-emerald-700 flex items-center justify-center shadow-2xs group-hover:bg-emerald-600 group-hover:text-white group-hover:scale-105 group-hover:rotate-6 transition-all duration-300 shrink-0">
-                  <Users className="w-5 h-5 transition-transform duration-300" />
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-emerald-50 border border-emerald-100 text-emerald-700 flex items-center justify-center shadow-2xs group-hover:bg-emerald-100/80 transition-colors duration-200 shrink-0">
+                  <Users className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
                 </div>
               </div>
 
-              <h3 className="text-xl font-black text-slate-900 tracking-tight leading-snug group-hover:text-emerald-900 transition-colors">
+              <h3 className="text-lg sm:text-xl font-black text-slate-900 tracking-tight leading-snug group-hover:text-emerald-900 transition-colors">
                 One QR Code Connects Everyone
               </h3>
-              <p className="text-slate-600 text-xs sm:text-sm mt-2 leading-relaxed font-normal">
+              <p className="text-slate-600 text-xs sm:text-sm mt-1.5 leading-relaxed font-normal">
                 Invite partners, roommates, or sitters in 1 tap. Every meal, medication, and outdoor walk updates instantly across all devices.
               </p>
+
+              {/* Feature Highlights: Eliminates empty space */}
+              <div className="grid grid-cols-2 gap-1.5 mt-3 pt-2.5 border-t border-slate-100/90 text-[11px] text-slate-600 font-medium">
+                <span className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" /> Instant QR link</span>
+                <span className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" /> Live circle sync</span>
+              </div>
             </div>
 
             {/* Dynamic Micro-Widget: Live Family Radar & Pass */}
-            <div className="mt-6 pt-5 border-t border-slate-100/90 flex flex-col justify-end space-y-3 relative z-10">
-              <div className="bg-[#F8FAF9] p-3.5 rounded-2xl border border-slate-200/80 space-y-2.5 group-hover:bg-emerald-50/30 group-hover:border-emerald-200/80 transition-all duration-200">
+            <div className="mt-4 pt-3.5 border-t border-slate-100/90 flex flex-col justify-end space-y-2.5 relative z-10">
+              <div className="bg-[#F8FAF9] p-3 rounded-2xl border border-slate-200/80 space-y-2 group-hover:bg-emerald-50/20 group-hover:border-emerald-200/60 transition-colors duration-200">
                 <div className="flex items-center justify-between text-[11px]">
                   <span className="font-bold text-slate-800 flex items-center gap-1.5">
                     <span className="relative flex h-2 w-2">
@@ -240,7 +220,7 @@ export default function BentoFeatures() {
                   </span>
                 </div>
 
-                <div className="space-y-1.5 pt-0.5 text-[11px]">
+                <div className="space-y-1 pt-0.5 text-[11px]">
                   <div className="flex items-center justify-between bg-white px-2.5 py-1.5 rounded-xl border border-slate-200/70 hover:border-emerald-300 transition-colors shadow-2xs">
                     <div className="flex items-center gap-2 truncate">
                       <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[10px] flex items-center justify-center shrink-0">
@@ -281,43 +261,42 @@ export default function BentoFeatures() {
               PILLAR 2: Clinical Dose Precision
              ======================================================== */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            whileHover={{ y: -8, scale: 1.015 }}
-            className="w-[82vw] sm:w-[320px] md:w-auto shrink-0 snap-center bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-sm hover:shadow-[0_20px_45px_-12px_rgba(139,92,246,0.22)] hover:border-purple-400/50 flex flex-col justify-between relative overflow-hidden group transition-all duration-300 text-left cursor-default"
+            transition={{ duration: 0.4, delay: 0.08 }}
+            className="w-[82vw] max-w-[320px] sm:w-[320px] md:w-auto shrink-0 snap-center bg-white rounded-3xl p-5 sm:p-6 border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-purple-300 flex flex-col justify-between relative overflow-hidden group transition-all duration-200 text-left cursor-default"
           >
-            {/* Shimmer sweep on hover */}
-            <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/50 to-transparent pointer-events-none -z-0" />
-            
-            {/* Subtle top ambient glow */}
-            <div className="absolute -top-12 -right-12 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl group-hover:bg-purple-500/20 transition-colors pointer-events-none" />
-
             <div className="relative z-10">
-              {/* Pillar Number & Icon with interactive hover rotate */}
-              <div className="flex items-center justify-between mb-5 gap-2">
-                <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-purple-800 bg-purple-50/90 px-3 py-1 rounded-full border border-purple-200/80 flex items-center gap-1.5 whitespace-nowrap shrink-0">
+              {/* Pillar Number & Icon */}
+              <div className="flex items-center justify-between mb-3.5 gap-2">
+                <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-purple-800 bg-purple-50 px-2.5 sm:px-3 py-1 rounded-full border border-purple-200/80 flex items-center gap-1.5 whitespace-nowrap shrink-0">
                   <span className="w-1.5 h-1.5 rounded-full bg-purple-500 shrink-0" />
                   02 &bull; Clinical Care
                 </span>
                 
-                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-purple-50 border border-purple-100/90 text-purple-700 flex items-center justify-center shadow-2xs group-hover:bg-purple-600 group-hover:text-white group-hover:scale-105 group-hover:rotate-6 transition-all duration-300 shrink-0">
-                  <Pill className="w-5 h-5 transition-transform duration-300" />
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-purple-50 border border-purple-100 text-purple-700 flex items-center justify-center shadow-2xs group-hover:bg-purple-100/80 transition-colors duration-200 shrink-0">
+                  <Pill className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
                 </div>
               </div>
 
-              <h3 className="text-xl font-black text-slate-900 tracking-tight leading-snug group-hover:text-purple-900 transition-colors">
+              <h3 className="text-lg sm:text-xl font-black text-slate-900 tracking-tight leading-snug group-hover:text-purple-900 transition-colors">
                 Never Double-Dose or Miss a Med
               </h3>
-              <p className="text-slate-600 text-xs sm:text-sm mt-2 leading-relaxed font-normal">
+              <p className="text-slate-600 text-xs sm:text-sm mt-1.5 leading-relaxed font-normal">
                 Smart prescription schedules, tap-to-verify confirmations, and automated refill tracking so nobody ever guesses.
               </p>
+
+              {/* Feature Highlights: Eliminates empty space */}
+              <div className="grid grid-cols-2 gap-1.5 mt-3 pt-2.5 border-t border-slate-100/90 text-[11px] text-slate-600 font-medium">
+                <span className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-purple-600 shrink-0" /> Custom dosages</span>
+                <span className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-purple-600 shrink-0" /> Refill tracking</span>
+              </div>
             </div>
 
             {/* Micro-Preview: Interactive Dose Button with Confetti & Toggle */}
-            <div className="mt-6 pt-5 border-t border-slate-100/90 flex flex-col justify-end space-y-3 relative z-10">
-              <div className="bg-[#F8FAF9] p-3.5 rounded-2xl border border-slate-200/80 space-y-2.5 group-hover:bg-purple-50/30 group-hover:border-purple-200/80 transition-all duration-200">
+            <div className="mt-4 pt-3.5 border-t border-slate-100/90 flex flex-col justify-end space-y-2.5 relative z-10">
+              <div className="bg-[#F8FAF9] p-3 rounded-2xl border border-slate-200/80 space-y-2 group-hover:bg-purple-50/20 group-hover:border-purple-200/60 transition-colors duration-200">
                 <div className="flex items-center justify-between text-xs">
                   <div className="truncate pr-1">
                     <span className="font-bold text-slate-900 block text-xs truncate">Heartgard Plus (Monthly)</span>
@@ -357,42 +336,41 @@ export default function BentoFeatures() {
               PILLAR 3: Multi-Species Intelligence
              ======================================================== */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            whileHover={{ y: -8, scale: 1.015 }}
-            className="w-[82vw] sm:w-[320px] md:w-auto shrink-0 snap-center bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-sm hover:shadow-[0_20px_45px_-12px_rgba(245,158,11,0.22)] hover:border-amber-400/50 flex flex-col justify-between relative overflow-hidden group transition-all duration-300 text-left cursor-default"
+            transition={{ duration: 0.4, delay: 0.12 }}
+            className="w-[82vw] max-w-[320px] sm:w-[320px] md:w-auto shrink-0 snap-center bg-white rounded-3xl p-5 sm:p-6 border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-amber-300 flex flex-col justify-between relative overflow-hidden group transition-all duration-200 text-left cursor-default"
           >
-            {/* Shimmer sweep on hover */}
-            <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/50 to-transparent pointer-events-none -z-0" />
-            
-            {/* Subtle top ambient glow */}
-            <div className="absolute -top-12 -right-12 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl group-hover:bg-amber-500/20 transition-colors pointer-events-none" />
-
             <div className="relative z-10">
-              {/* Pillar Number & Icon with interactive hover rotate */}
-              <div className="flex items-center justify-between mb-5 gap-2">
-                <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-amber-800 bg-amber-50/90 px-3 py-1 rounded-full border border-amber-200/80 flex items-center gap-1.5 whitespace-nowrap shrink-0">
+              {/* Pillar Number & Icon */}
+              <div className="flex items-center justify-between mb-3.5 gap-2">
+                <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-2.5 sm:px-3 py-1 rounded-full border border-amber-200/80 flex items-center gap-1.5 whitespace-nowrap shrink-0">
                   <span className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0" />
                   03 &bull; Multi-Species
                 </span>
                 
-                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-amber-50 border border-amber-100/90 text-amber-700 flex items-center justify-center shadow-2xs group-hover:bg-amber-600 group-hover:text-white group-hover:scale-105 group-hover:rotate-6 transition-all duration-300 shrink-0">
-                  <Activity className="w-5 h-5 transition-transform duration-300" />
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-amber-50 border border-amber-100 text-amber-700 flex items-center justify-center shadow-2xs group-hover:bg-amber-100/80 transition-colors duration-200 shrink-0">
+                  <Activity className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
                 </div>
               </div>
 
-              <h3 className="text-xl font-black text-slate-900 tracking-tight leading-snug group-hover:text-amber-900 transition-colors">
+              <h3 className="text-lg sm:text-xl font-black text-slate-900 tracking-tight leading-snug group-hover:text-amber-900 transition-colors">
                 Tailored for Every Companion
               </h3>
-              <p className="text-slate-600 text-xs sm:text-sm mt-2 leading-relaxed font-normal">
+              <p className="text-slate-600 text-xs sm:text-sm mt-1.5 leading-relaxed font-normal">
                 Dogs, cats, rabbits, or birds—each profile adapts nutritional guidelines, weight baselines, and care protocols.
               </p>
+
+              {/* Feature Highlights: Eliminates empty space */}
+              <div className="grid grid-cols-2 gap-1.5 mt-3 pt-2.5 border-t border-slate-100/90 text-[11px] text-slate-600 font-medium">
+                <span className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-amber-600 shrink-0" /> Multi-pet profiles</span>
+                <span className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-amber-600 shrink-0" /> Caloric baselines</span>
+              </div>
             </div>
 
             {/* Micro-Preview: Interactive Species Switcher Tabs */}
-            <div className="mt-6 pt-5 border-t border-slate-100/90 flex flex-col justify-end space-y-3 relative z-10">
+            <div className="mt-4 pt-3.5 border-t border-slate-100/90 flex flex-col justify-end space-y-2.5 relative z-10">
               {/* 4 Interactive Species Tabs */}
               <div className="grid grid-cols-4 gap-1 bg-slate-100 p-1 rounded-xl relative">
                 {(['canine', 'feline', 'small', 'avian'] as const).map((key) => {
@@ -428,7 +406,7 @@ export default function BentoFeatures() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -6, scale: 0.98 }}
                   transition={{ duration: 0.2 }}
-                  className="bg-[#F8FAF9] p-3 rounded-2xl border border-slate-200/80 text-xs space-y-2 group-hover:bg-amber-50/30 group-hover:border-amber-200/80 transition-all duration-200"
+                  className="bg-[#F8FAF9] p-3 rounded-2xl border border-slate-200/80 text-xs space-y-2 group-hover:bg-amber-50/20 group-hover:border-amber-200/60 transition-colors duration-200"
                 >
                   <div className="flex items-center justify-between pb-1.5 border-b border-slate-200/70">
                     <div className="truncate pr-1">
@@ -457,7 +435,7 @@ export default function BentoFeatures() {
                   </div>
 
                   <div className="flex items-center gap-1.5 text-[10px] text-slate-600 font-medium pt-0.5">
-                    <Check className="w-3 h-3 text-emerald-600 shrink-0" />
+                    <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                     <span className="truncate">{speciesData[activeSpecies].focus}</span>
                   </div>
                 </motion.div>
@@ -469,50 +447,42 @@ export default function BentoFeatures() {
               PILLAR 4: Vet-Ready Medical Records (Clinical Export)
              ======================================================== */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            whileHover={{ y: -8, scale: 1.015 }}
-            className="w-[82vw] sm:w-[320px] md:w-auto shrink-0 snap-center bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-sm hover:shadow-[0_20px_45px_-12px_rgba(2,132,199,0.22)] hover:border-sky-400/50 flex flex-col justify-between relative overflow-hidden group transition-all duration-300 text-left cursor-default"
+            transition={{ duration: 0.4, delay: 0.16 }}
+            className="w-[82vw] max-w-[320px] sm:w-[320px] md:w-auto shrink-0 snap-center bg-white rounded-3xl p-5 sm:p-6 border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-sky-300 flex flex-col justify-between relative overflow-hidden group transition-all duration-200 text-left cursor-default"
           >
-            {/* Shimmer sweep on hover */}
-            <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/50 to-transparent pointer-events-none -z-0" />
-            
-            {/* Subtle top ambient glow */}
-            <div className="absolute -top-12 -right-12 w-32 h-32 bg-sky-500/10 rounded-full blur-2xl group-hover:bg-sky-500/20 transition-colors pointer-events-none" />
-
             <div className="relative z-10">
-              {/* Pillar Number & Icon with interactive hover rotate */}
-              <div className="flex items-center justify-between mb-5 gap-2">
-                <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-sky-800 bg-sky-50/90 px-3 py-1 rounded-full border border-sky-200/80 flex items-center gap-1.5 whitespace-nowrap shrink-0">
+              {/* Pillar Number & Icon */}
+              <div className="flex items-center justify-between mb-3.5 gap-2">
+                <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-sky-800 bg-sky-50 px-2.5 sm:px-3 py-1 rounded-full border border-sky-200/80 flex items-center gap-1.5 whitespace-nowrap shrink-0">
                   <span className="w-1.5 h-1.5 rounded-full bg-sky-500 shrink-0" />
                   04 &bull; Vet-Ready
                 </span>
                 
-                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-sky-50 border border-sky-100/90 text-sky-700 flex items-center justify-center shadow-2xs group-hover:bg-sky-600 group-hover:text-white group-hover:scale-105 group-hover:rotate-6 transition-all duration-300 shrink-0">
-                  <ShieldCheck className="w-5 h-5 transition-transform duration-300" />
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-sky-50 border border-sky-100 text-sky-700 flex items-center justify-center shadow-2xs group-hover:bg-sky-100/80 transition-colors duration-200 shrink-0">
+                  <ShieldCheck className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
                 </div>
               </div>
 
-              <h3 className="text-xl font-black text-slate-900 tracking-tight leading-snug group-hover:text-sky-900 transition-colors">
+              <h3 className="text-lg sm:text-xl font-black text-slate-900 tracking-tight leading-snug group-hover:text-sky-900 transition-colors">
                 1-Tap Vet Reports &amp; Records
               </h3>
-              <p className="text-slate-600 text-xs sm:text-sm mt-2 leading-relaxed font-normal">
+              <p className="text-slate-600 text-xs sm:text-sm mt-1.5 leading-relaxed font-normal">
                 Vaccine certificates, weight records, and allergy alerts formatted and exportable for any clinic or emergency ER.
               </p>
+
+              {/* Feature Highlights: Eliminates empty space */}
+              <div className="grid grid-cols-2 gap-1.5 mt-3 pt-2.5 border-t border-slate-100/90 text-[11px] text-slate-600 font-medium">
+                <span className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-sky-600 shrink-0" /> 1-tap PDF pass</span>
+                <span className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-sky-600 shrink-0" /> Emergency ER ready</span>
+              </div>
             </div>
 
             {/* Micro-Preview: Verified Digital Clinic Pass */}
-            <div className="mt-6 pt-5 border-t border-slate-100/90 flex flex-col justify-end space-y-3 relative z-10">
-              <div className="bg-[#F8FAF9] p-3.5 rounded-2xl border border-slate-200/80 space-y-2 group-hover:bg-sky-50/30 group-hover:border-sky-200/80 transition-all duration-200 relative overflow-hidden">
-                {/* Laser scan line effect */}
-                <motion.div 
-                  animate={{ y: [0, 52, 0] }}
-                  transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
-                  className="absolute left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-sky-400 to-transparent pointer-events-none opacity-60 shadow-[0_0_8px_#38BDF8]"
-                />
-
+            <div className="mt-4 pt-3.5 border-t border-slate-100/90 flex flex-col justify-end space-y-2.5 relative z-10">
+              <div className="bg-[#F8FAF9] p-3 rounded-2xl border border-slate-200/80 space-y-2 group-hover:bg-sky-50/20 group-hover:border-sky-200/60 transition-colors duration-200 relative overflow-hidden">
                 <div className="flex items-center justify-between text-xs">
                   <div className="flex items-center gap-1.5 font-bold text-slate-900 truncate">
                     <FileText className="w-3.5 h-3.5 text-sky-700 shrink-0" />
