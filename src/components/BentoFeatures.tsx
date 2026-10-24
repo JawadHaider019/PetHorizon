@@ -12,9 +12,6 @@ import {
   Share2,
   Clock,
   ArrowRight,
-  Heart,
-  QrCode,
-  Zap,
   Check
 } from 'lucide-react';
 // @ts-expect-error canvas-confetti has no types
