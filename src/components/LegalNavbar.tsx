@@ -40,20 +40,25 @@ export default function LegalNavbar({
         <div className="flex items-center gap-3 shrink-0">
           <button
             onClick={onNavigateHome}
-            className="flex items-center gap-2 group cursor-pointer focus:outline-none"
+            className="flex items-center gap-2.5 group cursor-pointer select-none focus:outline-none"
             aria-label="Return to Pet Horizon Home"
           >
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white shadow-xs group-hover:scale-105 transition-transform">
-              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-              </svg>
+            <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-100/90 flex items-center justify-center p-1.5 shadow-xs group-hover:scale-105 group-hover:bg-emerald-100/60 transition-all duration-200">
+              <img
+                src="/ph-logo-mark.png"
+                alt="Pet Horizon Logo"
+                className="w-full h-full object-contain"
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src = '/app-icon.png';
+                }}
+              />
             </div>
-            <div className="text-left hidden sm:block">
-              <span className="font-extrabold text-base text-slate-900 tracking-tight block leading-tight">
-                Pet Horizon
+            <div className="flex flex-col text-left hidden sm:flex">
+              <span className="text-lg sm:text-xl font-black tracking-tight text-slate-900 group-hover:text-emerald-700 transition-colors leading-none">
+                Pet<span className="text-emerald-600 font-extrabold ml-0.5">Horizon</span>
               </span>
-              <span className="text-[10px] font-bold text-slate-400 tracking-wider uppercase">
-                Legal &amp; Trust Center
+              <span className="text-[10px] text-emerald-800 font-bold uppercase tracking-widest mt-0.5">
+                Privacy &amp; Trust Center
               </span>
             </div>
           </button>
