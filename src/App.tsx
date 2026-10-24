@@ -8,6 +8,7 @@ import DailyJournalSection from './components/DailyJournalSection';
 import InteractiveTour from './components/InteractiveTour';
 import PricingSection from './components/PricingSection';
 import FAQSection from './components/FAQSection';
+import HomeBlogSection from './components/HomeBlogSection';
 import ContactUs from './components/ContactUs';
 import DownloadCTA from './components/DownloadCTA';
 import Footer from './components/Footer';
@@ -78,12 +79,36 @@ export default function App() {
       ? BLOG_POSTS.find((p) => p.slug === viewState.articleSlug) || null
       : null;
 
-  // Update Page Title dynamically
+  // Update Page Title and SEO Meta Tags dynamically
   useEffect(() => {
+    const updateMetaTag = (selector: string, attr: string, value: string) => {
+      let el = document.querySelector(selector);
+      if (!el) {
+        el = document.createElement('meta');
+        if (selector.includes('property=')) {
+          const propName = selector.match(/property="([^"]+)"/)?.[1];
+          if (propName) el.setAttribute('property', propName);
+        } else if (selector.includes('name=')) {
+          const nameValue = selector.match(/name="([^"]+)"/)?.[1];
+          if (nameValue) el.setAttribute('name', nameValue);
+        }
+        document.head.appendChild(el);
+      }
+      el.setAttribute(attr, value);
+    };
+
     if (viewState.view === 'blog-article' && currentArticle) {
-      document.title = `${currentArticle.title} | Pet Horizon Guides`;
+      document.title = `${currentArticle.title} | Pet Horizon Vet Guides`;
+      updateMetaTag('meta[name="description"]', 'content', currentArticle.seoMetaDescription);
+      updateMetaTag('meta[name="keywords"]', 'content', `${currentArticle.tags.join(', ')}, ${currentArticle.seoKeyword}`);
+      updateMetaTag('meta[property="og:title"]', 'content', currentArticle.title);
+      updateMetaTag('meta[property="og:description"]', 'content', currentArticle.seoMetaDescription);
+      updateMetaTag('meta[property="og:image"]', 'content', currentArticle.coverImage);
+      updateMetaTag('meta[property="og:type"]', 'content', 'article');
     } else if (viewState.view === 'blog') {
-      document.title = 'Pet Care Blog & Family Pet Guides | Pet Horizon';
+      document.title = 'Top-Ranked Pet Care & Vet Guides | Pet Horizon Knowledge Hub';
+      updateMetaTag('meta[name="description"]', 'content', 'Evidence-based veterinary guides, poison checklists, puppy potty training schedules, and pet nutrition formulas.');
+      updateMetaTag('meta[property="og:title"]', 'content', 'Top-Ranked Pet Care & Vet Guides | Pet Horizon');
     } else if (viewState.view === 'privacy') {
       document.title = 'Official Privacy Policy | Pet Horizon';
     } else if (viewState.view === 'terms') {
@@ -92,6 +117,7 @@ export default function App() {
       document.title = 'Data & Account Deletion Instructions | Pet Horizon';
     } else {
       document.title = 'Pet Horizon – Smart Pet Care, Family Hub & Daily Routine Tracker';
+      updateMetaTag('meta[name="description"]', 'content', 'Pet Horizon is the all-in-one family pet care app. Synchronize feeding, track vet appointments, set medication reminders, and log daily milestones.');
     }
   }, [viewState, currentArticle]);
 
@@ -201,6 +227,12 @@ export default function App() {
 
           {/* Frequently Asked Questions */}
           <FAQSection />
+
+          {/* Trending Pet Care & SEO Guides Section */}
+          <HomeBlogSection
+            onNavigateBlog={() => navigateTo('blog')}
+            onSelectArticle={(slug) => navigateToArticle(slug)}
+          />
 
           {/* Contact & Support Form */}
           <ContactUs />

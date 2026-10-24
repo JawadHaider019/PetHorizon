@@ -10,7 +10,10 @@ import {
   CheckCircle2,
   Calendar,
   ChevronRight,
-  ArrowLeft
+  ArrowLeft,
+  Flame,
+  ShieldCheck,
+  Stethoscope
 } from 'lucide-react';
 import { BLOG_POSTS, BLOG_CATEGORIES, BlogPost } from '../data/blogData';
 
@@ -34,6 +37,7 @@ export default function BlogHub({ onNavigateHome, onNavigateLegal, onSelectArtic
     const matchesSearch =
       post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.seoKeyword.toLowerCase().includes(searchQuery.toLowerCase()) ||
       post.tags.some((t) => t.toLowerCase().includes(searchQuery.toLowerCase()));
     return matchesCategory && matchesSearch;
   });
@@ -49,6 +53,15 @@ export default function BlogHub({ onNavigateHome, onNavigateLegal, onSelectArtic
       }, 3000);
     }
   };
+
+  const trendingKeywords = [
+    { label: 'Toxic Foods', query: 'toxic' },
+    { label: 'Puppy 3-3-3 Rule', query: '3-3-3' },
+    { label: 'Cat Dehydration', query: 'dehydration' },
+    { label: 'Emergency Vet', query: 'emergency' },
+    { label: 'Flea & Heartworm', query: 'heartworm' },
+    { label: 'Calorie Calculator', query: 'calorie' }
+  ];
 
   return (
     <div className="min-h-screen bg-[#FDFDFC] text-slate-800 antialiased pt-24 pb-16 selection:bg-emerald-500/20 selection:text-emerald-800">
@@ -71,18 +84,18 @@ export default function BlogHub({ onNavigateHome, onNavigateLegal, onSelectArtic
             </button>
             <span>/</span>
             <span className="text-emerald-800 font-bold bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-100">
-              Pet Horizon Blog &amp; Guides
+              Pet Horizon SEO Knowledge Hub
             </span>
           </div>
 
           <span className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-800 bg-emerald-100/80 px-3 py-1 rounded-full border border-emerald-200 shadow-2xs">
             <Sparkles className="w-3.5 h-3.5 text-emerald-600 animate-pulse" />
-            New Pet Care Articles Added Weekly
+            Top-Ranked Vet-Reviewed Pet Guides
           </span>
         </div>
 
         {/* Hero Banner */}
-        <div className="text-center max-w-3xl mx-auto pt-4 pb-12">
+        <div className="text-center max-w-3xl mx-auto pt-4 pb-10">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
@@ -90,15 +103,15 @@ export default function BlogHub({ onNavigateHome, onNavigateLegal, onSelectArtic
           >
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-800 font-bold text-xs uppercase tracking-wider mb-4 border border-emerald-200/80">
               <BookOpen className="w-3.5 h-3.5" />
-              Pet Horizon Knowledge Hub
+              Evidence-Based Veterinary Care &amp; Routines
             </div>
 
             <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-              Veterinary Advice, Routines &amp; Pet Parent Guides
+              Real Pet Care Guides &amp; High-Rank Search Answers
             </h1>
 
             <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-              Actionable guides by veterinary advisors and pet behavior specialists to help you build bulletproof feeding schedules, manage medications, and care for happy pets.
+              Written by veterinary advisors and certified behavior specialists. Direct answers to high-volume questions on pet poisons, puppy schedules, kidney hydration, and feeding formulas.
             </p>
           </motion.div>
 
@@ -110,7 +123,7 @@ export default function BlogHub({ onNavigateHome, onNavigateLegal, onSelectArtic
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search articles by keyword (e.g. vaccines, feeding, anxiety)..."
+                placeholder="Search queries: toxic foods, 3-3-3 rule, bloat, flea schedule, calories..."
                 className="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-white border border-slate-200/90 shadow-sm text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-500 transition-all"
               />
               {searchQuery && (
@@ -122,6 +135,23 @@ export default function BlogHub({ onNavigateHome, onNavigateLegal, onSelectArtic
                 </button>
               )}
             </div>
+          </div>
+
+          {/* Quick Trending Keyword Pills */}
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-2 text-xs">
+            <span className="text-slate-400 font-semibold flex items-center gap-1">
+              <Flame className="w-3.5 h-3.5 text-amber-500" />
+              Trending Queries:
+            </span>
+            {trendingKeywords.map((item) => (
+              <button
+                key={item.label}
+                onClick={() => setSearchQuery(item.query)}
+                className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 text-slate-600 font-medium text-[11px] border border-slate-200/60 transition-colors cursor-pointer"
+              >
+                {item.label}
+              </button>
+            ))}
           </div>
 
           {/* Category Filter Pills */}
@@ -145,7 +175,7 @@ export default function BlogHub({ onNavigateHome, onNavigateLegal, onSelectArtic
           </div>
         </div>
 
-        {/* Featured Article Banner (Clean Light Theme) */}
+        {/* Featured Article Banner */}
         {selectedCategory === 'All Articles' && !searchQuery && featuredPost && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -154,12 +184,16 @@ export default function BlogHub({ onNavigateHome, onNavigateLegal, onSelectArtic
           >
             <div className="lg:col-span-7 p-7 sm:p-10 flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="bg-emerald-600 text-white text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full shadow-2xs">
-                    Featured Guide
+                <div className="flex flex-wrap items-center gap-2 mb-3">
+                  <span className="inline-flex items-center gap-1 bg-amber-500/15 text-amber-950 text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full border border-amber-300">
+                    <Flame className="w-3 h-3 text-amber-600" />
+                    {featuredPost.searchRankBadge}
                   </span>
                   <span className="text-xs text-emerald-800 font-semibold bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-100">
                     {featuredPost.category}
+                  </span>
+                  <span className="text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full">
+                    {featuredPost.searchVolume}
                   </span>
                 </div>
 
@@ -180,7 +214,10 @@ export default function BlogHub({ onNavigateHome, onNavigateLegal, onSelectArtic
                     className="w-10 h-10 rounded-full object-cover border-2 border-emerald-500"
                   />
                   <div>
-                    <h4 className="font-bold text-xs text-slate-900">{featuredPost.author.name}</h4>
+                    <div className="flex items-center gap-1">
+                      <h4 className="font-bold text-xs text-slate-900">{featuredPost.author.name}</h4>
+                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                    </div>
                     <p className="text-[11px] text-slate-500">{featuredPost.author.role}</p>
                   </div>
                 </div>
@@ -193,7 +230,7 @@ export default function BlogHub({ onNavigateHome, onNavigateLegal, onSelectArtic
                   }
                   className="inline-flex items-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white px-5 py-2.5 rounded-xl font-bold text-xs shadow-md shadow-emerald-700/20 transition-colors cursor-pointer"
                 >
-                  <span>Read Full Article</span>
+                  <span>Read Verified Guide</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
@@ -219,9 +256,9 @@ export default function BlogHub({ onNavigateHome, onNavigateLegal, onSelectArtic
         {/* Articles Grid */}
         <div className="mb-16">
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-xl font-extrabold text-slate-900 tracking-tight">
-              {selectedCategory === 'All Articles' ? 'Latest Guides & Articles' : selectedCategory}
-              <span className="ml-2 text-xs font-semibold text-slate-400">
+            <h3 className="text-xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
+              <span>{selectedCategory === 'All Articles' ? 'All High-Ranking Guides' : selectedCategory}</span>
+              <span className="text-xs font-semibold text-slate-400">
                 ({filteredPosts.length})
               </span>
             </h3>
@@ -230,7 +267,7 @@ export default function BlogHub({ onNavigateHome, onNavigateLegal, onSelectArtic
           {filteredPosts.length === 0 ? (
             <div className="text-center py-16 bg-white rounded-3xl border border-slate-200 p-8">
               <BookOpen className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-              <h4 className="text-base font-bold text-slate-800">No articles found</h4>
+              <h4 className="text-base font-bold text-slate-800">No matching articles found</h4>
               <p className="text-xs text-slate-500 max-w-sm mx-auto mt-1">
                 Try searching for another keyword or reset the category filter.
               </p>
@@ -273,12 +310,19 @@ export default function BlogHub({ onNavigateHome, onNavigateLegal, onSelectArtic
                   {/* Body Content */}
                   <div className="p-6 flex-1 flex flex-col justify-between">
                     <div>
-                      <div className="flex items-center gap-2 text-[11px] text-slate-500 mb-2">
-                        <Calendar className="w-3 h-3 text-slate-400" />
-                        <span>{post.publishDate}</span>
+                      {/* SEO Search Ranking Badges */}
+                      <div className="flex items-center gap-1.5 text-[10px] font-black text-amber-800 mb-2.5">
+                        <Flame className="w-3 h-3 text-amber-600" />
+                        <span className="bg-amber-50 px-2 py-0.5 rounded border border-amber-200/70">
+                          {post.searchVolume}
+                        </span>
+                        <span className="text-slate-400">&bull;</span>
+                        <span className="text-slate-500 font-medium truncate max-w-[170px]">
+                          "{post.seoKeyword}"
+                        </span>
                       </div>
 
-                      <h4 className="text-lg font-bold text-slate-900 group-hover:text-emerald-700 transition-colors leading-snug tracking-tight">
+                      <h4 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-emerald-700 transition-colors leading-snug tracking-tight">
                         {post.title}
                       </h4>
 
@@ -289,13 +333,13 @@ export default function BlogHub({ onNavigateHome, onNavigateLegal, onSelectArtic
 
                     {/* Author & Footer */}
                     <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
-                      <div className="flex items-center gap-2.5">
+                      <div className="flex items-center gap-2">
                         <img
                           src={post.author.avatar}
                           alt={post.author.name}
-                          className="w-7 h-7 rounded-full object-cover"
+                          className="w-7 h-7 rounded-full object-cover border border-emerald-200"
                         />
-                        <span className="text-xs font-semibold text-slate-700 truncate max-w-[130px]">
+                        <span className="text-xs font-semibold text-slate-700 truncate max-w-[125px]">
                           {post.author.name}
                         </span>
                       </div>
@@ -311,7 +355,7 @@ export default function BlogHub({ onNavigateHome, onNavigateLegal, onSelectArtic
           )}
         </div>
 
-        {/* Newsletter Subscription Card (Clean Light Theme) */}
+        {/* Newsletter Subscription Card */}
         <div className="bg-white border-2 border-emerald-100/90 rounded-3xl p-8 sm:p-12 text-slate-800 shadow-sm relative overflow-hidden text-center max-w-4xl mx-auto my-12">
           <div className="relative z-10 max-w-xl mx-auto">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold mb-4 border border-emerald-200/80">
@@ -377,86 +421,54 @@ export default function BlogHub({ onNavigateHome, onNavigateLegal, onSelectArtic
               exit={{ opacity: 0, scale: 0.95, y: 15 }}
               className="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 sm:p-8 relative text-left"
             >
-              {/* Close Button */}
-              <button
-                onClick={() => setActiveModalPost(null)}
-                className="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 transition-colors cursor-pointer text-sm font-bold"
-              >
-                &times;
-              </button>
-
-              <div className="flex items-center gap-2 mb-3">
-                <span className="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-0.5 rounded-full">
+              <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-6">
+                <span className="text-xs font-bold text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100">
                   {activeModalPost.category}
                 </span>
-                <span className="text-xs text-slate-400">&bull;</span>
-                <span className="text-xs text-slate-500 font-medium">
-                  {activeModalPost.readTime}
-                </span>
-              </div>
-
-              <h3 className="text-2xl font-black text-slate-900 tracking-tight leading-tight mb-4">
-                {activeModalPost.title}
-              </h3>
-
-              <div className="flex items-center gap-3 pb-5 mb-5 border-b border-slate-100">
-                <img
-                  src={activeModalPost.author.avatar}
-                  alt={activeModalPost.author.name}
-                  className="w-10 h-10 rounded-full object-cover border border-slate-200"
-                />
-                <div>
-                  <h5 className="font-bold text-xs text-slate-900">{activeModalPost.author.name}</h5>
-                  <p className="text-[11px] text-slate-500">{activeModalPost.author.role}</p>
-                </div>
-              </div>
-
-              <div className="rounded-2xl overflow-hidden mb-5 max-h-64">
-                <img
-                  src={activeModalPost.coverImage}
-                  alt={activeModalPost.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <div className="space-y-4 text-sm text-slate-700 leading-relaxed">
-                <p className="font-medium text-slate-900 text-base">
-                  {activeModalPost.excerpt}
-                </p>
-                <p>
-                  At Pet Horizon, we believe that understanding your pet's routine, medical history, and emotional cues is the foundation of preventive wellness. By structuring regular intervals for meals, grooming, and scheduled veterinary checkups, you eliminate common household friction while significantly enhancing your pet's vitality.
-                </p>
-                <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200/80 text-xs text-emerald-950 my-4 space-y-2">
-                  <strong className="block font-bold text-emerald-900 text-sm">
-                    Key Takeaways for Pet Parents:
-                  </strong>
-                  <ul className="list-disc pl-5 space-y-1">
-                    <li>Maintain a consistent schedule within a 30-minute window each day.</li>
-                    <li>Always cross-check family caretaker logs to prevent double administration.</li>
-                    <li>Keep photo logs of any sudden changes to show your vet during regular visits.</li>
-                  </ul>
-                </div>
-                <p>
-                  Full extended editions with downloadable feeding charts and interactive schedule templates are synced directly with the Pet Horizon mobile companion app on Google Play.
-                </p>
-              </div>
-
-              {/* Modal Footer CTA */}
-              <div className="mt-8 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <button
                   onClick={() => setActiveModalPost(null)}
-                  className="w-full sm:w-auto px-5 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-600 hover:bg-slate-50 transition-colors cursor-pointer text-center"
+                  className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center font-bold text-sm cursor-pointer transition-colors"
                 >
-                  Close Article
+                  ✕
                 </button>
-                <a
-                  href="https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-md shadow-emerald-700/20 transition-all text-center"
+              </div>
+
+              <div className="flex items-center gap-1.5 text-xs font-bold text-amber-800 mb-2">
+                <Flame className="w-3.5 h-3.5 text-amber-600" />
+                <span>{activeModalPost.searchRankBadge} ({activeModalPost.searchVolume})</span>
+              </div>
+
+              <h2 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug">
+                {activeModalPost.title}
+              </h2>
+
+              <p className="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                {activeModalPost.excerpt}
+              </p>
+
+              <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <img
+                    src={activeModalPost.author.avatar}
+                    alt={activeModalPost.author.name}
+                    className="w-9 h-9 rounded-full object-cover border border-emerald-200"
+                  />
+                  <div>
+                    <h4 className="font-bold text-xs text-slate-900">{activeModalPost.author.name}</h4>
+                    <p className="text-[11px] text-slate-500">{activeModalPost.author.role}</p>
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => {
+                    const slug = activeModalPost.slug;
+                    setActiveModalPost(null);
+                    if (onSelectArticle) onSelectArticle(slug);
+                  }}
+                  className="px-5 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs shadow-md shadow-emerald-800/20 transition-all cursor-pointer"
                 >
-                  Track on Pet Horizon App
-                </a>
+                  Open Full Guide &rarr;
+                </button>
               </div>
             </motion.div>
           </div>
