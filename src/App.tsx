@@ -170,14 +170,12 @@ export default function App() {
       {/* Particle Network Backdrop */}
       <BackgroundCanvas />
 
-      {/* Navigation Bar (Shows standard Navbar on main site & blog; Legal views use dedicated single LegalNavbar) */}
-      {!['privacy', 'deletion'].includes(viewState.view) && (
-        <Navbar
-          currentView={navbarActiveView}
-          onNavigate={(view, hash) => navigateTo(view, hash)}
-          onOpenQrModal={() => setIsQrModalOpen(true)}
-        />
-      )}
+      {/* Navigation Bar (Unified across all views including Blog and Legal) */}
+      <Navbar
+        currentView={navbarActiveView}
+        onNavigate={(view, hash) => navigateTo(view, hash)}
+        onOpenQrModal={() => setIsQrModalOpen(true)}
+      />
 
       {/* 1. Dedicated Blog Article Detail View */}
       {viewState.view === 'blog-article' && currentArticle && (
@@ -212,11 +210,17 @@ export default function App() {
 
       {/* 3. Legal Portal Page View (Privacy, Deletion) */}
       {['privacy', 'deletion'].includes(viewState.view) && (
-        <LegalPortal
-          initialDoc={viewState.view as 'privacy' | 'deletion'}
-          onNavigateHome={() => navigateTo('home')}
-          onSelectDoc={(doc) => navigateTo(doc)}
-        />
+        <>
+          <LegalPortal
+            initialDoc={viewState.view as 'privacy' | 'deletion'}
+            onNavigateHome={() => navigateTo('home')}
+            onSelectDoc={(doc) => navigateTo(doc)}
+          />
+          <Footer 
+            onNavigate={(to, hash) => navigateTo(to, hash)}
+            onNavigateLegal={(doc) => navigateTo(doc)} 
+          />
+        </>
       )}
 
       {/* 4. Main Landing Page View */}
