@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Apple, Mail, CheckCircle2, ArrowRight, Sparkles, Shield, Clock } from 'lucide-react';
 // @ts-expect-error canvas-confetti has no types
 import confetti from 'canvas-confetti';
+import { FORMSPREE_ENDPOINT } from '../contact/contactData';
 
 interface IosWaitlistModalProps {
   isOpen: boolean;
@@ -29,7 +30,7 @@ export default function IosWaitlistModal({ isOpen, onClose }: IosWaitlistModalPr
     };
   }, [isOpen, onClose]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.trim() || !email.includes('@') || !email.includes('.')) {
       setError('Please enter a valid email address.');
@@ -38,7 +39,23 @@ export default function IosWaitlistModal({ isOpen, onClose }: IosWaitlistModalPr
     setError('');
     setIsSubmitting(true);
 
-    // Save to local storage for persistence & backup
+    // 1. Dispatch directly to Formspree endpoint (sends email notification)
+    try {
+      await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          inquiryType: 'iOS Waitlist & TestFlight Beta',
+          email: email.trim(),
+          submittedAt: new Date().toISOString(),
+          notes: 'User requested TestFlight beta invite on Pet Horizon website'
+        })
+      });
+    } catch (err) {
+      console.warn('Formspree dispatch error:', err);
+    }
+
+    // 2. Backup to browser local storage
     try {
       const waitlist = JSON.parse(localStorage.getItem('pethorizon_ios_waitlist') || '[]');
       waitlist.push({ email: email.trim(), date: new Date().toISOString() });
@@ -47,15 +64,13 @@ export default function IosWaitlistModal({ isOpen, onClose }: IosWaitlistModalPr
       // safe fallback
     }
 
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      try {
-        confetti({ particleCount: 50, spread: 60, origin: { y: 0.6 } });
-      } catch {
-        // safe fallback
-      }
-    }, 500);
+    setIsSubmitting(false);
+    setIsSubmitted(true);
+    try {
+      confetti({ particleCount: 50, spread: 60, origin: { y: 0.6 } });
+    } catch {
+      // safe fallback
+    }
   };
 
   const handleReset = () => {
