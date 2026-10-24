@@ -137,13 +137,6 @@ export default function LegalNavbar({
         </div>
       </div>
 
-      {/* Reading Progress Indicator */}
-      {scaleX && (
-        <motion.div
-          style={{ scaleX }}
-          className="h-[2.5px] bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 origin-left"
-        />
-      )}
     </header>
   );
 }

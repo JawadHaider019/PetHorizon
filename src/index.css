@@ -63,19 +63,16 @@ body {
   overflow-x: hidden;
 }
 
-/* Custom scrollbar — brand green theme */
+/* Hide scrollbars everywhere while keeping smooth scrollable functionality */
 ::-webkit-scrollbar {
-  width: 8px;
+  display: none;
+  width: 0px;
+  height: 0px;
 }
-::-webkit-scrollbar-track {
-  background: #F5F6F8;
-}
-::-webkit-scrollbar-thumb {
-  background: #2E7D32;
-  border-radius: 5px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #1B5E20;
+
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
 }
 
 /* 3D Orb CSS Animations */

@@ -36,36 +36,40 @@ const FAQS: FAQ[] = [
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [showAllMobile, setShowAllMobile] = useState<boolean>(false);
 
   const toggle = (idx: number) => {
     setOpenIndex(openIndex === idx ? null : idx);
   };
 
   return (
-    <section id="faq" className="py-20 sm:py-28 bg-white relative overflow-hidden">
-      <div className="max-w-4xl mx-auto px-5 sm:px-8 relative z-10">
+    <section id="faq" className="py-12 sm:py-24 bg-white relative overflow-hidden">
+      <div className="max-w-4xl mx-auto px-4 sm:px-8 relative z-10">
         
         {/* Header */}
-        <div className="text-center mb-14">
-          <p className="text-xs font-black uppercase tracking-widest text-emerald-700 mb-3">
+        <div className="text-center mb-8 sm:mb-14">
+          <p className="text-xs font-black uppercase tracking-widest text-emerald-700 mb-2.5">
             Frequently Asked Questions
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
             Common Questions About Pet Horizon
           </h2>
-          <p className="text-slate-600 text-base sm:text-lg mt-3 font-normal">
+          <p className="text-slate-600 text-xs sm:text-base lg:text-lg mt-2 sm:mt-3 font-normal max-w-xl mx-auto">
             Everything you need to know about the product, platform compatibility, and features.
           </p>
         </div>
 
         {/* FAQ Accordion List */}
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           {FAQS.map((faq, idx) => {
             const isOpen = openIndex === idx;
+            // On mobile, hide items beyond index 2 unless user tapped expand
+            const isHiddenOnMobile = !showAllMobile && idx > 2;
+
             return (
               <div
                 key={idx}
-                className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
+                className={`${isHiddenOnMobile ? 'hidden sm:block' : 'block'} rounded-2xl border transition-all duration-200 overflow-hidden ${
                   isOpen
                     ? 'border-emerald-300 bg-emerald-50/30 shadow-xs'
                     : 'border-slate-200 bg-white hover:border-slate-300'
@@ -73,14 +77,14 @@ export default function FAQSection() {
               >
                 <button
                   onClick={() => toggle(idx)}
-                  className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
+                  className="w-full text-left p-4 sm:p-6 flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-bold text-slate-900 text-base sm:text-lg">
+                  <span className="font-bold text-slate-900 text-sm sm:text-lg">
                     {faq.q}
                   </span>
                   <div
-                    className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-200 ${
+                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-200 ${
                       isOpen
                         ? 'bg-emerald-600 text-white rotate-180'
                         : 'bg-slate-100 text-slate-500'
@@ -98,7 +102,7 @@ export default function FAQSection() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.25 }}
                     >
-                      <div className="px-5 sm:px-6 pb-6 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-emerald-100/60 pt-4">
+                      <div className="px-4 sm:px-6 pb-5 text-slate-600 text-xs sm:text-base leading-relaxed border-t border-emerald-100/60 pt-3 sm:pt-4">
                         {faq.a}
                       </div>
                     </motion.div>
@@ -107,6 +111,16 @@ export default function FAQSection() {
               </div>
             );
           })}
+        </div>
+
+        {/* Mobile View More Toggle */}
+        <div className="sm:hidden text-center pt-3">
+          <button
+            onClick={() => setShowAllMobile(!showAllMobile)}
+            className="text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-4 py-2 rounded-xl transition-all cursor-pointer"
+          >
+            {showAllMobile ? 'Show Fewer Questions ↑' : 'View 3 More Questions ↓'}
+          </button>
         </div>
 
         {/* Still have questions banner */}

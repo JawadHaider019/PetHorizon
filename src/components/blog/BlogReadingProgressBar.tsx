@@ -8,10 +8,5 @@ export default function BlogReadingProgressBar() {
     restDelta: 0.001
   });
 
-  return (
-    <motion.div
-      style={{ scaleX }}
-      className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 origin-left z-50 pointer-events-none"
-    />
-  );
+  return null;
 }

@@ -234,10 +234,13 @@ export default function App() {
           <TestimonialsSection />
           <PricingSection />
           <FAQSection />
-          <HomeBlogSection
-            onNavigateBlog={() => navigateTo('blog')}
-            onSelectArticle={(slug) => navigateToArticle(slug)}
-          />
+          {/* Home Blog: Hidden on mobile devices to keep mobile landing page concise and to-the-point */}
+          <div className="hidden md:block">
+            <HomeBlogSection
+              onNavigateBlog={() => navigateTo('blog')}
+              onSelectArticle={(slug) => navigateToArticle(slug)}
+            />
+          </div>
           <ContactUs />
           <DownloadCTA 
             onOpenQrModal={() => setIsQrModalOpen(true)}

@@ -83,10 +83,76 @@ export default function InteractiveTour() {
           </p>
         </div>
 
-        {/* Tab Navigation Buttons: Horizontal scrollable strip on mobile, centered on desktop */}
+        {/* Mobile View Screen Switcher Bar (<sm) */}
+        <div className="sm:hidden mb-4">
+          {/* Top Quick-Stepper Header */}
+          <div className="flex items-center justify-between bg-[#F5F6F8] border border-slate-200/90 rounded-2xl p-2 mb-2 shadow-2xs">
+            <button
+              onClick={() => scrollToIndex(currentIndex - 1)}
+              disabled={currentIndex === 0}
+              className={`p-1.5 rounded-xl border flex items-center justify-center transition-all ${
+                currentIndex === 0
+                  ? 'border-transparent text-slate-300'
+                  : 'border-slate-200 bg-white text-slate-700 shadow-2xs active:scale-95'
+              }`}
+              aria-label="Previous screen"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-black text-slate-900">
+                {current.name}
+              </span>
+              <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100 border border-emerald-200 px-2 py-0.5 rounded-full">
+                {currentIndex + 1}/7
+              </span>
+            </div>
+
+            <button
+              onClick={() => scrollToIndex(currentIndex + 1)}
+              disabled={currentIndex === TOUR_SCREENS.length - 1}
+              className={`p-1.5 rounded-xl border flex items-center justify-center transition-all ${
+                currentIndex === TOUR_SCREENS.length - 1
+                  ? 'border-transparent text-slate-300'
+                  : 'border-slate-200 bg-white text-slate-700 shadow-2xs active:scale-95'
+              }`}
+              aria-label="Next screen"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+
+          {/* Segmented Short-Name Icon Strip */}
+          <div 
+            ref={tabsRef}
+            className="flex overflow-x-auto no-scrollbar gap-1.5 pb-1 px-0.5"
+          >
+            {TOUR_SCREENS.map((sc, idx) => {
+              const Icon = sc.icon;
+              const isSelected = selectedScreen === sc.id;
+              return (
+                <button
+                  key={sc.id}
+                  data-tab-id={sc.id}
+                  onClick={() => scrollToIndex(idx)}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-bold text-[11px] transition-all duration-200 shrink-0 cursor-pointer ${
+                    isSelected
+                      ? 'bg-emerald-700 text-white shadow-sm shadow-emerald-700/20'
+                      : 'bg-white text-slate-600 border border-slate-200/80 hover:bg-emerald-50'
+                  }`}
+                >
+                  <Icon className={`w-3 h-3 ${isSelected ? 'text-white' : 'text-slate-500'}`} />
+                  <span>{sc.shortName}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Desktop / Tablet Tab Navigation Buttons (>=sm) */}
         <div 
-          ref={tabsRef}
-          className="flex overflow-x-auto no-scrollbar sm:flex-wrap items-center sm:justify-center gap-2 sm:gap-3 pb-2 sm:pb-0 mb-6 sm:mb-12 px-1"
+          className="hidden sm:flex flex-wrap items-center justify-center gap-2 sm:gap-3 pb-2 sm:pb-0 mb-6 sm:mb-12 px-1"
         >
           {TOUR_SCREENS.map((sc, idx) => {
             const Icon = sc.icon;
@@ -94,7 +160,6 @@ export default function InteractiveTour() {
             return (
               <button
                 key={sc.id}
-                data-tab-id={sc.id}
                 onClick={() => scrollToIndex(idx)}
                 className={`relative flex items-center gap-2 px-3.5 sm:px-4.5 py-2 sm:py-2.5 rounded-2xl font-bold text-xs sm:text-sm transition-all duration-300 cursor-pointer shrink-0 ${
                   isSelected

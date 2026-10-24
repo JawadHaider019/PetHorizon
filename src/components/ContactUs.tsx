@@ -124,7 +124,7 @@ export default function ContactUs() {
   )}`;
 
   return (
-    <section id="contact" className="py-20 sm:py-28 bg-[#FAFAF9] relative overflow-hidden">
+    <section id="contact" className="py-12 sm:py-24 bg-[#FAFAF9] relative overflow-hidden">
       {/* Toast Notification */}
       <AnimatePresence>
         {toast && (
@@ -155,8 +155,8 @@ export default function ContactUs() {
       </AnimatePresence>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <p className="text-xs font-black uppercase tracking-widest text-emerald-700 mb-3">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-16">
+          <p className="text-xs font-black uppercase tracking-widest text-emerald-700 mb-2.5">
             Helpdesk &amp; Support
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">

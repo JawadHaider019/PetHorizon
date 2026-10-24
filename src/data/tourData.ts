@@ -11,6 +11,7 @@ import {
 export interface ScreenTab {
   id: string;
   name: string;
+  shortName: string;
   icon: any;
   title: string;
   badge: string;
@@ -23,6 +24,7 @@ export const TOUR_SCREENS: ScreenTab[] = [
   {
     id: 'home',
     name: 'Home Dashboard',
+    shortName: 'Home',
     icon: Home,
     title: 'Daily Command Center & Quick Actions',
     badge: 'Daily Overview',
@@ -38,6 +40,7 @@ export const TOUR_SCREENS: ScreenTab[] = [
   {
     id: 'schedule',
     name: 'Care Schedules',
+    shortName: 'Schedule',
     icon: Calendar,
     title: 'Daily Care & Medical Routine',
     badge: 'Core Routine Engine',
@@ -53,6 +56,7 @@ export const TOUR_SCREENS: ScreenTab[] = [
   {
     id: 'family',
     name: 'Family Hub',
+    shortName: 'Family',
     icon: Users,
     title: 'Shared Caretaking & QR Codes',
     badge: 'Co-Parenting System',
@@ -68,6 +72,7 @@ export const TOUR_SCREENS: ScreenTab[] = [
   {
     id: 'journal',
     name: 'Daily Journal',
+    shortName: 'Journal',
     icon: BookOpen,
     title: 'Activity Log & Memory Timeline',
     badge: 'Life History',
@@ -83,6 +88,7 @@ export const TOUR_SCREENS: ScreenTab[] = [
   {
     id: 'expenses',
     name: 'Expense Tracker',
+    shortName: 'Budget',
     icon: Wallet,
     title: 'Monthly Budgeting & Care Spending',
     badge: 'Budget Management',
@@ -98,6 +104,7 @@ export const TOUR_SCREENS: ScreenTab[] = [
   {
     id: 'pet-profile',
     name: 'Pet Profiles',
+    shortName: 'Profiles',
     icon: PawPrint,
     title: 'Species, Breed & Growth Records',
     badge: 'Pet Identity',
@@ -113,6 +120,7 @@ export const TOUR_SCREENS: ScreenTab[] = [
   {
     id: 'profile',
     name: 'User & Premium',
+    shortName: 'Settings',
     icon: UserCheck,
     title: 'Account Settings & Premium Subscriptions',
     badge: 'Customization & Plans',

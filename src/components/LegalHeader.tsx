@@ -98,7 +98,6 @@ export default function LegalHeader({
             </a>
           </div>
         </div>
-        <motion.div style={{ scaleX }} className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-emerald-500 origin-left" />
       </header>
 
       {/* Hero Header */}

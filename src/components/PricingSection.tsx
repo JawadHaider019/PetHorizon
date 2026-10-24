@@ -8,24 +8,24 @@ export default function PricingSection() {
   const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon';
 
   return (
-    <section id="pricing" className="py-20 sm:py-28 bg-[#F5F6F8] relative overflow-hidden">
+    <section id="pricing" className="py-12 sm:py-24 bg-[#F5F6F8] relative overflow-hidden">
       <div className="absolute top-1/4 right-1/4 w-[450px] h-[450px] bg-emerald-500/5 rounded-full blur-[130px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center max-w-3xl mx-auto mb-14"
+          className="text-center max-w-3xl mx-auto mb-8 sm:mb-14"
         >
-          <p className="text-xs font-black uppercase tracking-widest text-emerald-700 mb-3">
+          <p className="text-xs font-black uppercase tracking-widest text-emerald-700 mb-2 sm:mb-3">
             Pricing &amp; Plans
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
             Free to Start, Premium When You Need It
           </h2>
-          <p className="text-slate-600 text-base sm:text-lg mt-3 font-normal">
+          <p className="text-slate-600 text-xs sm:text-base lg:text-lg mt-2 sm:mt-3 font-normal max-w-2xl mx-auto">
             Every core feature is available completely free for your companion. Upgrade anytime in the app to support unlimited pets and household sharing.
           </p>
 
