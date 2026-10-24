@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Star, ShieldCheck, CheckCircle2, ExternalLink, MessageSquareHeart } from 'lucide-react';
+import { Star, ShieldCheck, CheckCircle2, ExternalLink } from 'lucide-react';
 import { PLAY_STORE_REVIEWS } from '../data/playStoreReviews';
 
 export default function TestimonialsSection() {

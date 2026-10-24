@@ -1,4 +1,4 @@
-import { BookOpen, ArrowRight, Stethoscope, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Stethoscope, ShieldCheck } from 'lucide-react';
 import { BLOG_POSTS, BlogPost } from '../data/blogData';
 import BlogCard from './BlogCard';
 

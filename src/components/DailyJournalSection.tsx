@@ -1,4 +1,4 @@
-import { BookOpen, Camera } from 'lucide-react';
+import { Camera } from 'lucide-react';
 import { motion } from 'framer-motion';
 import PhoneFrame from './PhoneFrame';
 

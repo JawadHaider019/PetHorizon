@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Smartphone, CheckCircle2 } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 import { GooglePlayBadge, AppStoreBadge, QrScanButton } from './AppBadges';
 
 interface DownloadCTAProps {

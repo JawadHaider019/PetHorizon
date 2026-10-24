@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Check, Zap } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PRICING_PLANS } from '../data/pricingData';
 
