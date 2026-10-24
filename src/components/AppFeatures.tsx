@@ -18,10 +18,9 @@ export default function AppFeatures() {
 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
-          <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200/80 text-emerald-800 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-4">
-            <PawPrint className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Built From The Ground Up For Real Pet Parents</span>
-          </div>
+          <p className="text-xs font-black uppercase tracking-widest text-emerald-700 mb-3">
+            Core App Modules
+          </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
             Designed to Make Daily Pet Care Feel Effortless
           </h2>

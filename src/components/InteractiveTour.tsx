@@ -14,10 +14,9 @@ export default function InteractiveTour() {
         
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200/80 text-emerald-800 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-3">
-            <Smartphone className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Interactive App Explorer</span>
-          </div>
+          <p className="text-xs font-black uppercase tracking-widest text-emerald-700 mb-3">
+            Interactive App Explorer
+          </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
             Take a Tour of the Pet Horizon Experience
           </h2>

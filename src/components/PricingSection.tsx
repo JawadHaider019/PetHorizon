@@ -19,10 +19,9 @@ export default function PricingSection() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-center max-w-3xl mx-auto mb-14"
         >
-          <div className="inline-flex items-center gap-2 bg-emerald-100/70 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-3">
-            <Zap className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Honest &amp; Transparent Tiers</span>
-          </div>
+          <p className="text-xs font-black uppercase tracking-widest text-emerald-700 mb-3">
+            Pricing &amp; Plans
+          </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
             Free to Start, Premium When You Need It
           </h2>

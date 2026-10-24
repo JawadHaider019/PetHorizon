@@ -81,10 +81,9 @@ export default function FamilyHubSection() {
             className="lg:col-span-7 text-left flex flex-col gap-6 order-1 lg:order-2"
           >
             
-            <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200/80 text-emerald-800 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full w-fit">
-              <Users className="w-3.5 h-3.5 text-emerald-600" />
-              <span>Caretaker Collaboration</span>
-            </div>
+            <p className="text-xs font-black uppercase tracking-widest text-emerald-700">
+              Caretaker Collaboration
+            </p>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
               Pet Care is a Team Effort. Manage It Together.

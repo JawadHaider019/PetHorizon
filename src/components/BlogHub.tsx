@@ -67,10 +67,9 @@ export default function BlogHub({ onNavigateHome, onNavigateLegal, onSelectArtic
         {/* Hero Banner */}
         <div className="text-center max-w-3xl mx-auto pt-4 pb-10">
           <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }}>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-800 font-bold text-xs uppercase tracking-wider mb-4 border border-emerald-200/80">
-              <BookOpen className="w-3.5 h-3.5" />
-              Evidence-Based Veterinary Care &amp; Routines
-            </div>
+            <p className="text-xs font-black uppercase tracking-widest text-emerald-700 mb-3">
+              Evidence-Based Veterinary Care
+            </p>
 
             <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
               Real Pet Care Guides &amp; High-Rank Search Answers

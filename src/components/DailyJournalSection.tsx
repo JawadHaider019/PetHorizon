@@ -50,10 +50,9 @@ export default function DailyJournalSection() {
             className="lg:col-span-7 text-left flex flex-col gap-6"
           >
 
-            <div className="inline-flex items-center gap-2 bg-emerald-100/70 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full w-fit">
-              <BookOpen className="w-3.5 h-3.5 text-emerald-600" />
-              <span>Pet Journal &amp; Memories</span>
-            </div>
+            <p className="text-xs font-black uppercase tracking-widest text-emerald-700">
+              Pet Journal &amp; Memories
+            </p>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
               A Living Memory &amp; Health Timeline for Every Day

@@ -156,10 +156,9 @@ export default function ContactUs() {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-3.5">
-            <Mail className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Helpdesk &amp; Priority Support</span>
-          </div>
+          <p className="text-xs font-black uppercase tracking-widest text-emerald-700 mb-3">
+            Helpdesk &amp; Support
+          </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
             We’re Here to Help You and Your Pet
           </h2>

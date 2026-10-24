@@ -20,10 +20,9 @@ export default function HomeBlogSection({
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-800 font-bold text-xs uppercase tracking-wider mb-4 border border-emerald-200/80 shadow-2xs">
-              <BookOpen className="w-3.5 h-3.5" />
-              Evidence-Based Veterinary Care &amp; Routines
-            </div>
+            <p className="text-xs font-black uppercase tracking-widest text-emerald-700 mb-3">
+              Veterinary Guides &amp; Routines
+            </p>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
               Trending Pet Care Guides &amp; <span className="text-emerald-700">Vet-Reviewed</span> Answers

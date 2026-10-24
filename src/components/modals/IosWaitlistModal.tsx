@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, Apple, Mail, CheckCircle2, ArrowRight, Sparkles, Shield, Clock } from 'lucide-react';
+import { X, Apple, Mail, CheckCircle2, ArrowRight, Shield, Clock } from 'lucide-react';
 // @ts-expect-error canvas-confetti has no types
 import confetti from 'canvas-confetti';
 import { FORMSPREE_ENDPOINT } from '../contact/contactData';
@@ -140,7 +139,7 @@ export default function IosWaitlistModal({ isOpen, onClose }: IosWaitlistModalPr
                 {/* Benefits List */}
                 <div className="bg-slate-50 rounded-2xl p-3 sm:p-3.5 border border-slate-200/80 mb-5 text-left space-y-2">
                   <div className="flex items-center gap-2 text-xs text-slate-700 font-medium">
-                    <Sparkles className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                     <span>Priority TestFlight build download link</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs text-slate-700 font-medium">

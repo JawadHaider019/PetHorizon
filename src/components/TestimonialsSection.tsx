@@ -18,10 +18,9 @@ export default function TestimonialsSection() {
       <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200/80 text-emerald-800 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-3.5 shadow-2xs">
-            <MessageSquareHeart className="w-3.5 h-3.5 text-emerald-600 fill-emerald-600/20" />
-            <span>Google Play Verified Reviews</span>
-          </div>
+          <p className="text-xs font-black uppercase tracking-widest text-emerald-700 mb-3">
+            Google Play Reviews
+          </p>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
             Real Reviews from Pet Parents

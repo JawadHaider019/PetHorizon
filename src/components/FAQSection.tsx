@@ -47,10 +47,9 @@ export default function FAQSection() {
         
         {/* Header */}
         <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-3">
-            <HelpCircle className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Frequently Asked Questions</span>
-          </div>
+          <p className="text-xs font-black uppercase tracking-widest text-emerald-700 mb-3">
+            Frequently Asked Questions
+          </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
             Common Questions About Pet Horizon
           </h2>

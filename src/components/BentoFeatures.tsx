@@ -6,8 +6,7 @@ import {
   Pill, 
   Camera, 
   DollarSign, 
-  CheckCircle2, 
-  Sparkles
+  CheckCircle2 
 } from 'lucide-react';
 
 export default function BentoFeatures() {
@@ -31,13 +30,12 @@ export default function BentoFeatures() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
-          <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200/80 text-emerald-800 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Modern All-In-One Architecture</span>
-          </div>
+          <p className="text-xs font-black uppercase tracking-widest text-emerald-700 mb-3">
+            All-In-One Pet Companion
+          </p>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-            Engineered for Every Dimension of Pet Care
+            Every Routine, Dose &amp; Milestone in One Place
           </h2>
 
           <p className="text-slate-600 text-base sm:text-lg mt-4 font-normal">

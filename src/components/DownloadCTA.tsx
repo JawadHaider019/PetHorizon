@@ -25,10 +25,9 @@ export default function DownloadCTA({ onOpenQrModal, onOpenIosModal }: DownloadC
             {/* Copy & CTAs (7 Cols) */}
             <div className="lg:col-span-7 text-left flex flex-col gap-5">
               
-              <div className="inline-flex items-center gap-2 bg-white/20 border border-white/30 text-white text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full w-fit">
-                <Smartphone className="w-3.5 h-3.5 text-emerald-200" />
-                <span>Start Today For Free</span>
-              </div>
+              <p className="text-xs font-black uppercase tracking-widest text-emerald-200">
+                Start Today For Free
+              </p>
 
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
                 Give Your Companion the Organized Care They Deserve
