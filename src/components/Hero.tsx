@@ -109,7 +109,7 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
 
             {/* Subheadline: 1 concise line on mobile, full detail on desktop */}
             <p className="sm:hidden text-sm text-slate-600 leading-relaxed font-normal max-w-md mx-auto">
-              Smart care routines, family caretaker sharing, and daily health tracking — all in one native app.
+              Effortlessly manage daily routines, medication reminders, and shared family pet care in one simple app.
             </p>
             <p className="hidden sm:block text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl font-normal">
               Organize daily routines, medication alarms, and vet vaccinations. Invite family members and caretakers with QR codes to share care duties, log photo memories on your activity timeline, and keep pet expenses in check.
