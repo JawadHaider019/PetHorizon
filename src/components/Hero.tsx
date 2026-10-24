@@ -6,7 +6,6 @@ import {
   Camera, 
   CheckCircle2, 
   ShieldCheck,
-  Star,
   Pill
 } from 'lucide-react';
 import { GooglePlayBadge, AppStoreBadge, QrScanButton } from './AppBadges';
@@ -50,7 +49,7 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 text-left flex flex-col gap-6"
           >
-            {/* Top Badges Row: Live Google Play + Star Rating */}
+            {/* Top Badges Row: Live Google Play */}
             <div className="flex flex-wrap items-center gap-3">
               <div className="inline-flex items-center space-x-2.5 bg-emerald-100/70 border border-emerald-200/80 text-emerald-900 px-4 py-1.5 rounded-full w-fit shadow-2xs">
                 <span className="flex h-2 w-2 relative">
@@ -60,17 +59,6 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
                 <span className="text-xs font-bold uppercase tracking-wider">
                   Live on Google Play Store
                 </span>
-              </div>
-
-              {/* 5.0 Star Rating Pill */}
-              <div className="inline-flex items-center gap-2 bg-white border border-slate-200/80 px-3.5 py-1.5 rounded-full shadow-2xs text-xs font-bold text-slate-800">
-                <div className="flex items-center text-amber-400">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-amber-400" />
-                  ))}
-                </div>
-                <span>5.0 / 5.0</span>
-                <span className="text-slate-400 font-normal">• 10,000+ Pets Cared For</span>
               </div>
             </div>
 
