@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useScroll, useSpring } from 'framer-motion';
-import { Mail, ChevronRight, ExternalLink } from 'lucide-react';
+import { Mail, ChevronRight } from 'lucide-react';
 import { PRIVACY_POLICY, DATA_DELETION_GUIDE, LegalDocument } from '../data/legalData';
 import LegalNavbar from './LegalNavbar';
 import LegalSidebar from './LegalSidebar';

@@ -1,11 +1,9 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import {
   CheckCircle2,
   Eye,
   Camera,
   HardDrive,
-  Trash2,
   Mail,
   AlertTriangle,
   Copy,
@@ -58,7 +56,11 @@ Thank you.`;
         >
           {/* Section Header */}
           <div className="flex items-center gap-3.5 mb-5">
-            <span className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-800 font-mono font-bold text-xs flex items-center justify-center border border-emerald-200/80 shrink-0">
+            <span className={`w-8 h-8 rounded-xl font-mono font-bold text-xs flex items-center justify-center border shrink-0 transition-colors ${
+              activeSectionId === section.id 
+                ? 'bg-emerald-700 text-white border-emerald-700 shadow-xs' 
+                : 'bg-emerald-50 text-emerald-800 border-emerald-200/80'
+            }`}>
               {idx + 1}
             </span>
             <h2 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug">

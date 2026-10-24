@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronRight, ShieldCheck, Mail, Lock, Printer, Check, Copy } from 'lucide-react';
+import { ChevronRight, ShieldCheck, Mail, Printer, Check, Copy } from 'lucide-react';
 import { LegalDocument } from '../data/legalData';
 
 interface LegalSidebarProps {
