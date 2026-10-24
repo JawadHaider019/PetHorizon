@@ -60,12 +60,12 @@ export default function Partners() {
             return (
               <div
                 key={idx}
-                className="flex items-center gap-2.5 mx-6 text-slate-600 hover:text-emerald-700 font-bold uppercase tracking-wider text-xs transition-colors duration-200 cursor-default"
+                className="flex items-center gap-2.5 mx-6 text-slate-600 hover:text-emerald-700 font-bold uppercase tracking-wider text-xs transition-colors duration-200 cursor-default whitespace-nowrap shrink-0"
               >
-                <div className="w-6 h-6 rounded-lg bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-700">
+                <div className="w-6 h-6 rounded-lg bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-700 shrink-0">
                   <Icon className="w-3.5 h-3.5 shrink-0" />
                 </div>
-                <span>{p.name}</span>
+                <span className="whitespace-nowrap">{p.name}</span>
               </div>
             );
           })}
