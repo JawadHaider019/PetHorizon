@@ -74,16 +74,21 @@ export function GooglePlayBadge({
 }
 
 /**
- * Official Apple App Store Badge (with Coming Soon state)
+ * Official Apple App Store Badge (with Coming Soon state & optional waitlist trigger)
  */
 export function AppStoreBadge({
   className = "",
+  onClick,
 }: {
   className?: string;
+  onClick?: () => void;
 }) {
   return (
-    <div
-      className={`inline-flex items-center gap-3 bg-black text-white px-4 py-2.5 rounded-xl border border-neutral-700/80 shadow-md select-none shrink-0 ${className}`}
+    <button
+      type="button"
+      onClick={onClick}
+      className={`inline-flex items-center gap-3 bg-black hover:bg-neutral-900 text-white px-4 py-2.5 rounded-xl border border-neutral-700/80 shadow-md select-none shrink-0 transition-all duration-200 cursor-pointer ${className}`}
+      title={onClick ? "Click to join the iOS Beta Waitlist" : "Coming Soon to the Apple App Store"}
     >
       <AppleIcon className="w-6 h-6 text-white shrink-0" />
       <div className="flex flex-col text-left">
@@ -94,9 +99,46 @@ export function AppStoreBadge({
           App Store
         </span>
       </div>
-      <span className="text-[9px] font-bold uppercase tracking-wider bg-white/15 text-neutral-200 border border-white/20 px-2 py-0.5 rounded-md ml-1.5">
+      <span className="text-[9px] font-bold uppercase tracking-wider bg-white/15 text-neutral-200 border border-white/20 px-2 py-0.5 rounded-md ml-1.5 hover:bg-emerald-500/30 transition-colors">
         Soon
       </span>
-    </div>
+    </button>
+  );
+}
+
+/**
+ * Scan QR Code to Download Badge (Desktop bridge)
+ */
+export function QrScanButton({
+  onClick,
+  className = "",
+}: {
+  onClick: () => void;
+  className?: string;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`inline-flex items-center gap-2.5 bg-white hover:bg-emerald-50 text-slate-800 hover:text-emerald-800 border border-slate-200 hover:border-emerald-300 px-4 py-2.5 rounded-xl shadow-xs hover:shadow-md transition-all duration-200 font-bold text-xs cursor-pointer ${className}`}
+    >
+      <div className="w-5 h-5 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <rect width="5" height="5" x="3" y="3" rx="1" />
+          <rect width="5" height="5" x="16" y="3" rx="1" />
+          <rect width="5" height="5" x="3" y="16" rx="1" />
+          <path d="M21 16h-3a2 2 0 0 0-2 2v3" />
+          <path d="M21 21v.01" />
+          <path d="M12 7v3a2 2 0 0 1-2 2H7" />
+          <path d="M3 12h.01" />
+          <path d="M12 3h.01" />
+          <path d="M12 16v.01" />
+          <path d="M16 12h1" />
+          <path d="M21 12v.01" />
+          <path d="M12 21v-1" />
+        </svg>
+      </div>
+      <span>Scan QR with Phone</span>
+    </button>
   );
 }

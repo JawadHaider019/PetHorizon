@@ -6,12 +6,19 @@ import {
   Camera, 
   CheckCircle2, 
   ArrowRight,
-  ShieldCheck
+  ShieldCheck,
+  Star,
+  Pill
 } from 'lucide-react';
-import { GooglePlayBadge, AppStoreBadge } from './AppBadges';
+import { GooglePlayBadge, AppStoreBadge, QrScanButton } from './AppBadges';
 import PhoneFrame from './PhoneFrame';
 
-export default function Hero() {
+interface HeroProps {
+  onOpenQrModal?: () => void;
+  onOpenIosModal?: () => void;
+}
+
+export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
   const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon';
 
   useEffect(() => {
@@ -44,15 +51,28 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 text-left flex flex-col gap-6"
           >
-            {/* Live Play Store Badge */}
-            <div className="inline-flex items-center space-x-2.5 bg-emerald-100/70 border border-emerald-200/80 text-emerald-900 px-4 py-1.5 rounded-full w-fit shadow-xs">
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
-              </span>
-              <span className="text-xs font-bold uppercase tracking-wider">
-                Now Live on Google Play Store
-              </span>
+            {/* Top Badges Row: Live Google Play + Star Rating */}
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="inline-flex items-center space-x-2.5 bg-emerald-100/70 border border-emerald-200/80 text-emerald-900 px-4 py-1.5 rounded-full w-fit shadow-2xs">
+                <span className="flex h-2 w-2 relative">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
+                </span>
+                <span className="text-xs font-bold uppercase tracking-wider">
+                  Live on Google Play Store
+                </span>
+              </div>
+
+              {/* 4.9 Star Rating Pill */}
+              <div className="inline-flex items-center gap-2 bg-white border border-slate-200/80 px-3.5 py-1.5 rounded-full shadow-2xs text-xs font-bold text-slate-800">
+                <div className="flex items-center text-amber-400">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-3.5 h-3.5 fill-amber-400" />
+                  ))}
+                </div>
+                <span>4.9 / 5</span>
+                <span className="text-slate-400 font-normal">• 10,000+ Pets Cared For</span>
+              </div>
             </div>
 
             {/* Main Headline */}
@@ -86,18 +106,13 @@ export default function Hero() {
               ))}
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-3">
+            {/* CTA Buttons with Desktop QR and iOS modal trigger */}
+            <div className="flex flex-wrap items-center gap-3.5 pt-3">
               <GooglePlayBadge href={playStoreUrl} className="px-5 py-3 rounded-2xl shadow-lg" />
-              <AppStoreBadge className="px-5 py-3 rounded-2xl shadow-lg" />
-
-              <a
-                href="#features"
-                className="inline-flex items-center gap-1.5 text-sm font-bold text-emerald-700 hover:text-emerald-800 px-4 py-3 rounded-xl hover:bg-emerald-50 transition-colors"
-              >
-                <span>Explore App Features</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
+              <AppStoreBadge onClick={onOpenIosModal} className="px-5 py-3 rounded-2xl shadow-lg" />
+              {onOpenQrModal && (
+                <QrScanButton onClick={onOpenQrModal} className="px-4 py-3 rounded-2xl shadow-sm" />
+              )}
             </div>
 
             {/* Free Tier Callout */}
@@ -108,7 +123,7 @@ export default function Hero() {
               <span>•</span>
               <span>No credit card required</span>
               <span>•</span>
-              <span>Sync across your devices</span>
+              <span>Sync across your household</span>
             </div>
 
           </motion.div>
