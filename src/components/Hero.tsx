@@ -236,11 +236,11 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
                 </div>
               </motion.div>
 
-              {/* Floating Live Card: Luna Medication Reminder (Top Left) */}
+              {/* Floating Live Card: Luna Medication Reminder (Positioned safely to the left of the phone, clear of Navbar and screen toast) */}
               <motion.div
                 animate={{ y: [0, -5, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
-                className="hidden md:flex absolute -top-4 -left-12 lg:-left-16 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 shadow-xl border border-emerald-100 items-center gap-2.5 w-[190px] text-left z-30"
+                className="hidden md:flex absolute top-12 sm:top-14 sm:right-[86%] lg:right-[90%] bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 shadow-xl border border-emerald-100 items-center gap-2.5 w-[195px] text-left z-30"
               >
                 <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold shrink-0">
                   <Pill className="w-4 h-4" />
