@@ -69,25 +69,25 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
   return (
     <section
       id="home"
-      className="relative min-h-[92vh] flex items-center justify-center overflow-hidden pt-24 pb-12 sm:pt-40 sm:pb-24 bg-gradient-to-b from-emerald-50/50 via-white to-slate-50/40"
+      className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden pt-20 pb-6 sm:pt-24 sm:pb-8 lg:pt-20 lg:pb-6 bg-gradient-to-b from-emerald-50/50 via-white to-slate-50/40"
     >
       {/* Background ambient light blobs */}
-      <div className="absolute top-12 left-1/4 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[130px] pointer-events-none -z-10" />
-      <div className="absolute bottom-10 right-1/4 w-[450px] h-[450px] bg-emerald-600/10 rounded-full blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute top-10 left-1/4 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[130px] pointer-events-none -z-10" />
+      <div className="absolute bottom-8 right-1/4 w-[450px] h-[450px] bg-emerald-600/10 rounded-full blur-[140px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 xl:gap-12 items-center">
           
           {/* LEFT COLUMN: Authentic Value Proposition */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start gap-4 sm:gap-6"
+            className="lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start gap-3.5 sm:gap-4.5"
           >
             {/* Top Badges Row: Live Google Play */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
-              <div className="inline-flex items-center space-x-2.5 bg-emerald-100/70 border border-emerald-200/80 text-emerald-900 px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full w-fit shadow-2xs whitespace-nowrap shrink-0">
+              <div className="inline-flex items-center space-x-2.5 bg-emerald-100/70 border border-emerald-200/80 text-emerald-900 px-3.5 py-1 sm:px-4 sm:py-1 rounded-full w-fit shadow-2xs whitespace-nowrap shrink-0">
                 <span className="flex h-2 w-2 relative shrink-0">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
@@ -99,7 +99,7 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-2xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.15]">
+            <h1 className="text-2xl sm:text-4xl lg:text-[46px] xl:text-[54px] font-black text-slate-900 tracking-tight leading-[1.12]">
               The Complete Daily Care &amp;{' '}
               <span className="bg-gradient-to-r from-emerald-700 via-emerald-600 to-emerald-500 bg-clip-text text-transparent">
                 Family Hub
@@ -111,19 +111,19 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
             <p className="sm:hidden text-sm text-slate-600 leading-relaxed font-normal max-w-md mx-auto">
               Track daily feedings, walk times, and medication alarms with real time alerts. Invite family members and pet sitters to coordinate care, log photo memories, and keep your companion healthy.
             </p>
-            <p className="hidden sm:block text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl font-normal">
+            <p className="hidden sm:block text-sm sm:text-base lg:text-[15px] xl:text-base text-slate-600 leading-relaxed max-w-2xl font-normal">
               Organize daily routines, medication alarms, and vet vaccinations. Invite family members and caretakers with QR codes to share care duties, log photo memories on your activity timeline, and keep pet expenses in check.
             </p>
 
             {/* Core Pillars Bullet Points: Shown on desktop/tablet to eliminate mobile clutter */}
-            <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-0.5">
               {[
                 { icon: Calendar, text: 'Routine & medicine reminders' },
                 { icon: Users, text: 'Family Hub & QR caretaker invites' },
                 { icon: Camera, text: 'Daily photo journal & walk tracking' },
                 { icon: ShieldCheck, text: 'Dogs, Cats, Birds, Rabbits & more' },
               ].map((item, idx) => (
-                <div key={idx} className="flex items-center gap-2.5 text-slate-700 font-semibold text-sm">
+                <div key={idx} className="flex items-center gap-2.5 text-slate-700 font-semibold text-xs sm:text-sm">
                   <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
                     <CheckCircle2 className="w-3.5 h-3.5" />
                   </div>
@@ -133,18 +133,18 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
             </div>
 
             {/* CTA Buttons: Compact side-by-side on mobile, centered */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-1 sm:pt-3">
-              <GooglePlayBadge href={playStoreUrl} className="px-4 py-2.5 sm:px-5 sm:py-3 rounded-2xl shadow-lg" />
-              <AppStoreBadge onClick={onOpenIosModal} className="px-4 py-2.5 sm:px-5 sm:py-3 rounded-2xl shadow-lg" />
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 pt-1 sm:pt-2">
+              <GooglePlayBadge href={playStoreUrl} className="px-4 py-2 sm:px-5 sm:py-2.5 rounded-2xl shadow-lg" />
+              <AppStoreBadge onClick={onOpenIosModal} className="px-4 py-2 sm:px-5 sm:py-2.5 rounded-2xl shadow-lg" />
               {onOpenQrModal && (
                 <div className="hidden sm:block">
-                  <QrScanButton onClick={onOpenQrModal} className="px-4 py-3 rounded-2xl shadow-sm" />
+                  <QrScanButton onClick={onOpenQrModal} className="px-4 py-2.5 rounded-2xl shadow-sm" />
                 </div>
               )}
             </div>
 
             {/* Free Tier Callout: Shown on desktop/tablet */}
-            <div className="hidden sm:flex items-center gap-3 pt-2 text-xs text-slate-500 font-medium">
+            <div className="hidden sm:flex items-center gap-2.5 pt-1 text-xs text-slate-500 font-medium">
               <span className="inline-flex items-center gap-1 text-emerald-700 font-bold">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Free to Start
               </span>
@@ -161,7 +161,7 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 relative flex items-center justify-center pt-1 pb-4 lg:py-0"
+            className="lg:col-span-5 relative flex items-center justify-center pt-1 pb-2 lg:py-0"
           >
             {/* MOBILE ONLY ORGANIC 3D PET SHOWCASE (<lg): Seamless borderless cutout with radial glow */}
             <div className="lg:hidden w-full flex flex-col items-center justify-center relative">
@@ -195,7 +195,7 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
             <div className="hidden lg:block relative">
               {/* Floating Phone Container */}
               <motion.div
-                animate={{ y: [0, -8, 0] }}
+                animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
                 className="relative"
               >
@@ -203,7 +203,7 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
                 <PhoneFrame
                   src="/screenshots/home-screen.png"
                   alt="Pet Horizon Home Dashboard Screen"
-                  frameClassName="w-[310px]"
+                  frameClassName="w-[280px] lg:w-[295px] xl:w-[310px]"
                   priority={true}
                 />
 
@@ -241,11 +241,11 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
                 </div>
               </motion.div>
 
-              {/* 3D Pet Companions (Clean Transparent Cutout on the bottom side) */}
+              {/* 3D Pet Companions (Clean Transparent Cutout on the bottom right side) */}
               <motion.div
-                animate={{ y: [0, -6, 0] }}
+                animate={{ y: [0, -5, 0] }}
                 transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute -bottom-8 left-[84%] w-48 lg:w-52 pointer-events-none z-20 select-none drop-shadow-md"
+                className="absolute -bottom-6 xl:-bottom-8 left-[82%] xl:left-[84%] w-44 lg:w-48 xl:w-52 pointer-events-none z-20 select-none drop-shadow-md"
               >
                 <img
                   src="/3d-pets-transparent.png"
@@ -254,13 +254,13 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
                 />
               </motion.div>
 
-              {/* Floating Live Card: Daily Routine Task Status (Shown on xl screens to protect laptop viewports) */}
+              {/* Floating Live Card: Daily Routine Task Status */}
               <motion.div
-                animate={{ y: [0, 6, 0] }}
+                animate={{ y: [0, 5, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-                className="hidden xl:flex absolute right-[84%] bottom-12 bg-white/95 backdrop-blur-md rounded-2xl p-3 shadow-xl border border-emerald-100 items-center gap-2.5 w-[225px] text-left z-30"
+                className="absolute right-[90%] xl:right-[92%] bottom-10 xl:bottom-12 bg-white/95 backdrop-blur-md rounded-2xl p-3 sm:p-3.5 shadow-xl border border-emerald-100 flex items-center gap-2.5 sm:gap-3 w-[220px] sm:w-[235px] xl:w-[240px] text-left z-30"
               >
-                <div className="w-8 h-8 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold shrink-0">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold shrink-0">
                   <Clock className="w-4 h-4 text-amber-700" />
                 </div>
                 <div className="truncate">
@@ -274,7 +274,7 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
               <motion.div
                 animate={{ y: [0, -5, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
-                className="hidden xl:flex absolute top-14 right-[82%] bg-white/95 backdrop-blur-md rounded-2xl p-2.5 shadow-xl border border-emerald-100 items-center gap-2 w-[190px] text-left z-30"
+                className="absolute top-12 xl:top-14 right-[88%] xl:right-[90%] bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 shadow-xl border border-emerald-100 flex items-center gap-2 sm:gap-2.5 w-[185px] xl:w-[195px] text-left z-30"
               >
                 <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold shrink-0">
                   <Pill className="w-4 h-4" />
@@ -288,9 +288,9 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
 
               {/* Floating Live Card: Family Hub Connection */}
               <motion.div
-                animate={{ y: [0, -6, 0] }}
+                animate={{ y: [0, -5, 0] }}
                 transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-                className="hidden xl:flex absolute top-1/4 -translate-y-1/2 left-[82%] bg-white/95 backdrop-blur-md rounded-2xl p-2.5 shadow-xl border border-emerald-100 items-center gap-2.5 w-[195px] text-left z-30"
+                className="absolute top-1/4 -translate-y-1/2 left-[88%] xl:left-[90%] bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 shadow-xl border border-emerald-100 flex items-center gap-2 sm:gap-2.5 w-[195px] xl:w-[210px] text-left z-30"
               >
                 <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold shrink-0">
                   <Users className="w-4 h-4" />
