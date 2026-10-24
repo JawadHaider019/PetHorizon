@@ -135,11 +135,12 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
             className="lg:col-span-5 relative flex items-center justify-center pt-8 pb-10 lg:py-0"
           >
             <div className="relative">
-              {/* Central Phone Mockup with direct screenshot fitting (No Status Bar, No Notch) */}
+              {/* Central Phone Mockup with direct screenshot fitting (Eager loaded for LCP) */}
               <PhoneFrame
                 src="/screenshots/home-screen.png"
                 alt="Pet Horizon Home Dashboard Screen"
                 frameClassName="w-[280px] sm:w-[310px]"
+                priority={true}
               />
 
               {/* 3D Pet Companions (Clean Transparent Cutout on the bottom side) */}

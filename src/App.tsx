@@ -166,7 +166,7 @@ export default function App() {
     viewState.view === 'blog-article' ? 'blog' : (viewState.view as NavView);
 
   return (
-    <div className="min-h-screen bg-white text-slate-800 antialiased font-sans select-none selection:bg-emerald-500/20 selection:text-emerald-700 relative overflow-hidden">
+    <div className="min-h-screen bg-white text-slate-800 antialiased font-sans selection:bg-emerald-500/20 selection:text-emerald-700 relative overflow-hidden">
       
       {/* Particle Network Backdrop */}
       <BackgroundCanvas />

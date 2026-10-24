@@ -3,13 +3,15 @@ interface PhoneFrameProps {
   alt: string;
   className?: string;
   frameClassName?: string;
+  priority?: boolean;
 }
 
 export default function PhoneFrame({
   src,
   alt,
   className = '',
-  frameClassName = 'w-[275px] sm:w-[310px]'
+  frameClassName = 'w-[275px] sm:w-[310px]',
+  priority = false
 }: PhoneFrameProps) {
   return (
     <div
@@ -21,7 +23,8 @@ export default function PhoneFrame({
           src={src}
           alt={alt}
           className="w-full h-full object-cover object-top block"
-          loading="lazy"
+          loading={priority ? 'eager' : 'lazy'}
+          {...(priority ? { fetchPriority: 'high' } : {})}
         />
       </div>
     </div>
