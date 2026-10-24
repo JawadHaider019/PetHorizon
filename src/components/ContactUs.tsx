@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 // @ts-expect-error canvas-confetti does not ship internal types
 import confetti from 'canvas-confetti';
-import { Mail, CheckCircle2, X } from 'lucide-react';
+import { Mail, CheckCircle2, AlertCircle, X, ExternalLink } from 'lucide-react';
 import {
   SUPPORT_TOPICS,
   TicketData,
   ToastNotification,
-  FORMSPREE_ENDPOINT
+  FORMSPREE_ENDPOINT,
+  DISPLAY_SUPPORT_EMAIL
 } from './contact/contactData';
 import ContactForm from './contact/ContactForm';
 import ContactTicketSuccess from './contact/ContactTicketSuccess';
@@ -23,10 +24,12 @@ export default function ContactUs() {
   const [formErrors, setFormErrors] = useState<Record<string, string | undefined>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittedTicket, setSubmittedTicket] = useState<TicketData | null>(null);
+  const [dispatchError, setDispatchError] = useState<string | null>(null);
   const [toast, setToast] = useState<ToastNotification | null>(null);
 
   const clearError = (field: string) => {
     if (formErrors[field]) setFormErrors((prev) => ({ ...prev, [field]: undefined }));
+    if (dispatchError) setDispatchError(null);
   };
 
   const validate = () => {
@@ -42,12 +45,13 @@ export default function ContactUs() {
     e.preventDefault();
     if (!validate()) return;
     setIsSubmitting(true);
+    setDispatchError(null);
 
     const ticketId = `PH-${Date.now().toString().slice(-6)}`;
     const activeTopic = SUPPORT_TOPICS.find((t) => t.id === selectedTopicId) || SUPPORT_TOPICS[0];
 
     try {
-      await fetch(FORMSPREE_ENDPOINT, {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
@@ -59,14 +63,17 @@ export default function ContactUs() {
           message: message.trim()
         })
       });
+
+      if (!response.ok) {
+        throw new Error(`Server returned status ${response.status}`);
+      }
+
       try {
         confetti({ particleCount: 50, spread: 60, origin: { y: 0.65 } });
       } catch {
         // safe fallback
       }
-    } catch (err) {
-      console.warn('Formspree dispatch error:', err);
-    } finally {
+
       const ticket: TicketData = {
         ticketId,
         name: name.trim(),
@@ -77,18 +84,30 @@ export default function ContactUs() {
         submittedAt: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
       setSubmittedTicket(ticket);
-      setIsSubmitting(false);
       setToast({
         type: 'success',
         title: 'Support Ticket Dispatched! 🎉',
         message: `Ticket ${ticketId} has been logged. We will follow up shortly.`,
         ticketId
       });
+    } catch (err) {
+      console.warn('Formspree dispatch error:', err);
+      setDispatchError(
+        'Automated dispatch was blocked or offline. You can send this request directly to our email with 1-click below.'
+      );
+      setToast({
+        type: 'error',
+        title: 'Network Dispatch Blocked',
+        message: 'Please send your inquiry directly via your email client.'
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   const handleReset = () => {
     setSubmittedTicket(null);
+    setDispatchError(null);
     setName('');
     setEmail('');
     setMessage('');
@@ -96,6 +115,13 @@ export default function ContactUs() {
     setSelectedTopicId('general');
     setFormErrors({});
   };
+
+  const activeTopic = SUPPORT_TOPICS.find((t) => t.id === selectedTopicId) || SUPPORT_TOPICS[0];
+  const mailtoUrl = `mailto:${DISPLAY_SUPPORT_EMAIL}?subject=${encodeURIComponent(
+    `[${activeTopic.label}] Support Request from ${name || 'Pet Parent'}`
+  )}&body=${encodeURIComponent(
+    `Name: ${name}\nEmail: ${email}\nPriority: ${priority}\nTopic: ${activeTopic.label}\n\nMessage:\n${message}`
+  )}`;
 
   return (
     <section id="contact" className="py-20 sm:py-28 bg-[#FAFAF9] relative overflow-hidden">
@@ -106,14 +132,22 @@ export default function ContactUs() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed top-6 right-4 sm:right-8 z-50 max-w-sm bg-slate-900 text-white rounded-2xl p-4 shadow-2xl border border-emerald-500/30 flex items-start gap-3"
+            className={`fixed top-6 right-4 sm:right-8 z-50 max-w-sm text-white rounded-2xl p-4 shadow-2xl border flex items-start gap-3 ${
+              toast.type === 'error'
+                ? 'bg-rose-950 border-rose-500/40 text-rose-50'
+                : 'bg-slate-900 border-emerald-500/30'
+            }`}
           >
-            <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+            {toast.type === 'error' ? (
+              <AlertCircle className="w-5 h-5 text-rose-400 shrink-0 mt-0.5" />
+            ) : (
+              <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+            )}
             <div className="flex-1">
               <p className="text-xs font-bold">{toast.title}</p>
               <p className="text-[11px] text-slate-300 mt-0.5">{toast.message}</p>
             </div>
-            <button onClick={() => setToast(null)} className="text-slate-400 hover:text-white">
+            <button onClick={() => setToast(null)} className="text-slate-400 hover:text-white cursor-pointer">
               <X className="w-4 h-4" />
             </button>
           </motion.div>
@@ -136,6 +170,31 @@ export default function ContactUs() {
 
         <div className="bg-white/95 backdrop-blur-xl rounded-3xl border border-slate-200/80 shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12">
           <div className="lg:col-span-7 p-6 sm:p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-slate-200/80">
+            {/* Inline Fallback Banner on Dispatch Failure */}
+            {dispatchError && (
+              <div className="mb-6 p-4 rounded-2xl bg-amber-50 border border-amber-200 text-left">
+                <div className="flex items-start gap-2.5">
+                  <AlertCircle className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
+                  <div className="flex-1">
+                    <p className="text-xs font-bold text-amber-900">Online Dispatch Unavailable</p>
+                    <p className="text-xs text-amber-800 mt-0.5 leading-relaxed">
+                      {dispatchError}
+                    </p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      <a
+                        href={mailtoUrl}
+                        className="inline-flex items-center gap-1.5 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs px-3.5 py-2 rounded-xl shadow-xs transition-colors"
+                      >
+                        <Mail className="w-3.5 h-3.5" />
+                        <span>Send via Email Directly</span>
+                        <ExternalLink className="w-3 h-3 ml-0.5" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {submittedTicket ? (
               <ContactTicketSuccess ticket={submittedTicket} onReset={handleReset} />
             ) : (

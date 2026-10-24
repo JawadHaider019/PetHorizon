@@ -1,18 +1,30 @@
 import { GooglePlayBadge, AppStoreBadge } from './AppBadges';
 
 interface FooterProps {
+  onNavigate?: (view: 'home' | 'blog' | 'privacy' | 'terms' | 'deletion', hash?: string) => void;
   onNavigateLegal?: (doc: 'privacy' | 'deletion') => void;
 }
 
-export default function Footer({ onNavigateLegal }: FooterProps) {
+export default function Footer({ onNavigate, onNavigateLegal }: FooterProps) {
   const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon';
 
   const handleLegalClick = (e: React.MouseEvent, doc: 'privacy' | 'deletion') => {
     e.preventDefault();
-    if (onNavigateLegal) {
+    if (onNavigate) {
+      onNavigate(doc);
+    } else if (onNavigateLegal) {
       onNavigateLegal(doc);
     } else {
       window.location.href = `/${doc === 'privacy' ? 'privacy-policy' : 'data-deletion'}`;
+    }
+  };
+
+  const handleBlogClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (onNavigate) {
+      onNavigate('blog');
+    } else {
+      window.location.href = '/blog';
     }
   };
 
@@ -90,12 +102,7 @@ export default function Footer({ onNavigateLegal }: FooterProps) {
               </li>
               <li>
                 <button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    window.history.pushState({}, '', '/blog');
-                    window.dispatchEvent(new PopStateEvent('popstate'));
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
+                  onClick={handleBlogClick}
                   className="text-slate-600 hover:text-emerald-700 transition-colors font-medium text-left cursor-pointer flex items-center gap-1.5"
                 >
                   <span>Pet Care Blog</span>

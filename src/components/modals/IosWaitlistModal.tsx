@@ -41,7 +41,7 @@ export default function IosWaitlistModal({ isOpen, onClose }: IosWaitlistModalPr
 
     // 1. Dispatch directly to Formspree endpoint (sends email notification)
     try {
-      await fetch(FORMSPREE_ENDPOINT, {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
@@ -51,11 +51,14 @@ export default function IosWaitlistModal({ isOpen, onClose }: IosWaitlistModalPr
           notes: 'User requested TestFlight beta invite on Pet Horizon website'
         })
       });
+      if (!res.ok) {
+        console.warn('Waitlist remote endpoint returned status:', res.status);
+      }
     } catch (err) {
       console.warn('Formspree dispatch error:', err);
     }
 
-    // 2. Backup to browser local storage
+    // 2. Backup to browser local storage so user registration is never lost
     try {
       const waitlist = JSON.parse(localStorage.getItem('pethorizon_ios_waitlist') || '[]');
       waitlist.push({ email: email.trim(), date: new Date().toISOString() });

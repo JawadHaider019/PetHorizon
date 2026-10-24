@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Check, Zap } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { PRICING_PLANS } from '../data/pricingData';
 
 export default function PricingSection() {
@@ -30,13 +30,21 @@ export default function PricingSection() {
             Every core feature is available completely free for your companion. Upgrade anytime in the app to support unlimited pets and household sharing.
           </p>
 
-          <div className="flex items-center justify-center gap-3 mt-8">
-            <span className={`text-sm font-bold ${billingCycle === 'monthly' ? 'text-slate-900' : 'text-slate-500'}`}>
-              Monthly
-            </span>
+          {/* Interactive Billing Cycle Toggle */}
+          <div className="flex items-center justify-center gap-3.5 mt-8">
             <button
+              type="button"
+              onClick={() => setBillingCycle('monthly')}
+              className={`text-sm font-bold cursor-pointer transition-colors ${
+                billingCycle === 'monthly' ? 'text-slate-900' : 'text-slate-500 hover:text-slate-700'
+              }`}
+            >
+              Monthly Billing
+            </button>
+            <button
+              type="button"
               onClick={() => setBillingCycle(billingCycle === 'monthly' ? 'yearly' : 'monthly')}
-              className="w-14 h-8 rounded-full bg-slate-200 p-1 flex items-center transition-colors duration-200 cursor-pointer"
+              className="w-14 h-8 rounded-full bg-slate-200 p-1 flex items-center transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
               aria-label="Toggle billing frequency"
             >
               <div
@@ -45,23 +53,35 @@ export default function PricingSection() {
                 }`}
               />
             </button>
-            <div className="flex items-center gap-1.5">
-              <span className={`text-sm font-bold ${billingCycle === 'yearly' ? 'text-slate-900' : 'text-slate-500'}`}>
-                Yearly
+            <button
+              type="button"
+              onClick={() => setBillingCycle('yearly')}
+              className="flex items-center gap-1.5 cursor-pointer text-left focus:outline-none"
+            >
+              <span className={`text-sm font-bold transition-colors ${
+                billingCycle === 'yearly' ? 'text-slate-900' : 'text-slate-500 hover:text-slate-700'
+              }`}>
+                Annual Billing
               </span>
               <span className="text-[10px] font-black uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300 px-2 py-0.5 rounded-full">
                 Save 17%
               </span>
-            </div>
+            </button>
           </div>
         </motion.div>
 
         {/* 3 Pricing Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
           {PRICING_PLANS.map((plan, idx) => {
-            const isFeatured = plan.featured;
+            const isFeatured = plan.featuredIn === billingCycle;
             const xOffset = idx === 0 ? -60 : idx === 2 ? 60 : 0;
             const yOffset = idx === 1 ? 60 : 0;
+
+            const currentPrice = plan.price[billingCycle];
+            const currentPeriod = plan.period[billingCycle];
+            const currentBadge = plan.badge[billingCycle];
+            const currentBadgeStyle = plan.badgeStyle[billingCycle];
+            const currentSubnote = plan.subnote?.[billingCycle];
 
             return (
               <motion.div
@@ -79,22 +99,40 @@ export default function PricingSection() {
               >
                 {isFeatured && (
                   <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-emerald-600 text-white text-[10px] font-black uppercase tracking-wider px-3.5 py-1 rounded-full shadow-sm">
-                    Most Popular
+                    {billingCycle === 'yearly' && plan.id === 'yearly' ? 'Best Value' : 'Recommended'}
                   </div>
                 )}
 
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className={`text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full ${plan.badgeStyle}`}>
-                      {plan.badge}
+                    <span className={`text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full transition-all ${currentBadgeStyle}`}>
+                      {currentBadge}
                     </span>
                   </div>
                   <h3 className="text-2xl font-black text-slate-900">{plan.name}</h3>
-                  <p className="text-xs text-slate-500 mt-1 mb-6">{plan.description}</p>
+                  <p className="text-xs text-slate-500 mt-1 mb-5">{plan.description}</p>
 
-                  <div className="flex items-baseline gap-1 mb-6">
-                    <span className="text-4xl sm:text-5xl font-black text-slate-900">{plan.price}</span>
-                    <span className="text-slate-500 text-sm font-semibold">{plan.period}</span>
+                  <div className="mb-6">
+                    <div className="flex items-baseline gap-1.5">
+                      <AnimatePresence mode="wait">
+                        <motion.span
+                          key={currentPrice}
+                          initial={{ opacity: 0, y: -8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 8 }}
+                          transition={{ duration: 0.2 }}
+                          className="text-4xl sm:text-5xl font-black text-slate-900"
+                        >
+                          {currentPrice}
+                        </motion.span>
+                      </AnimatePresence>
+                      <span className="text-slate-500 text-xs sm:text-sm font-semibold">{currentPeriod}</span>
+                    </div>
+                    {currentSubnote && (
+                      <p className="text-[11px] text-emerald-700 font-semibold mt-1">
+                        {currentSubnote}
+                      </p>
+                    )}
                   </div>
 
                   <div className={`space-y-3.5 border-t pt-6 ${isFeatured ? 'border-emerald-100' : 'border-slate-100'}`}>
