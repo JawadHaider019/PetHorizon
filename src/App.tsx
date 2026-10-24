@@ -164,11 +164,13 @@ export default function App() {
       {/* Particle Network Backdrop */}
       <BackgroundCanvas />
 
-      {/* Persistent Unified Navigation Bar Across All Pages */}
-      <Navbar
-        currentView={navbarActiveView}
-        onNavigate={(view, hash) => navigateTo(view, hash)}
-      />
+      {/* Navigation Bar (Shows standard Navbar on main site & blog; Legal views use dedicated single LegalNavbar) */}
+      {!['privacy', 'deletion'].includes(viewState.view) && (
+        <Navbar
+          currentView={navbarActiveView}
+          onNavigate={(view, hash) => navigateTo(view, hash)}
+        />
+      )}
 
       {/* 1. Dedicated Blog Article Detail View */}
       {viewState.view === 'blog-article' && currentArticle && (

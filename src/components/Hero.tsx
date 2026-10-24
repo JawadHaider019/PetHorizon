@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { 
   Calendar, 
   Users, 
-  Sparkles, 
+  Camera, 
   CheckCircle2, 
   ArrowRight,
   ShieldCheck
@@ -74,7 +74,7 @@ export default function Hero() {
               {[
                 { icon: Calendar, text: 'Routine & medicine reminders' },
                 { icon: Users, text: 'Family Hub & QR caretaker invites' },
-                { icon: Sparkles, text: 'Daily photo journal & walk tracking' },
+                { icon: Camera, text: 'Daily photo journal & walk tracking' },
                 { icon: ShieldCheck, text: 'Dogs, Cats, Birds, Rabbits & more' },
               ].map((item, idx) => (
                 <div key={idx} className="flex items-center gap-2.5 text-slate-700 font-semibold text-sm">

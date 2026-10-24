@@ -1,4 +1,4 @@
-import { BookOpen, ArrowRight, Stethoscope, Sparkles } from 'lucide-react';
+import { BookOpen, ArrowRight, Stethoscope, ShieldCheck } from 'lucide-react';
 import { BLOG_POSTS, BlogPost } from '../data/blogData';
 import BlogCard from './BlogCard';
 
@@ -84,8 +84,8 @@ export default function HomeBlogSection({
 
         {/* Bottom Banner Bar */}
         <div className="mt-8 text-center flex flex-col sm:flex-row items-center justify-center gap-3 text-xs text-slate-500">
-          <span className="inline-flex items-center gap-1 text-slate-700 font-bold">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+          <span className="inline-flex items-center gap-1.5 text-slate-700 font-bold">
+            <ShieldCheck className="w-4 h-4 text-emerald-600" />
             All guides curated from accredited veterinary institutions
           </span>
           <span className="hidden sm:inline text-slate-300">&bull;</span>

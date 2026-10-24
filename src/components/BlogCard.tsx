@@ -32,7 +32,7 @@ export default function BlogCard({ post, onClick, compact = false }: BlogCardPro
             {post.title}
           </h5>
           <span className="text-[11px] font-semibold text-emerald-700 mt-1 inline-flex items-center gap-0.5">
-            View Takeaways &rarr;
+            Read Guide &rarr;
           </span>
         </div>
       </div>
@@ -102,7 +102,7 @@ export default function BlogCard({ post, onClick, compact = false }: BlogCardPro
           </div>
 
           <span className="text-xs font-bold text-emerald-600 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
-            Quick Guide <ChevronRight className="w-3.5 h-3.5" />
+            Read Guide <ChevronRight className="w-3.5 h-3.5" />
           </span>
         </div>
       </div>

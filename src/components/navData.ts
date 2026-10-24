@@ -3,7 +3,7 @@ import {
   Users,
   Camera,
   Smartphone,
-  Sparkles,
+  CreditCard,
   HelpCircle,
   ShieldCheck,
   Trash2
@@ -58,7 +58,7 @@ export const PRODUCT_LINKS: ProductLink[] = [
   {
     title: 'Pricing & Plans',
     desc: 'Transparent Free vs Premium feature comparison',
-    icon: Sparkles,
+    icon: CreditCard,
     hash: '#pricing',
     color: 'text-emerald-600 bg-emerald-50'
   },

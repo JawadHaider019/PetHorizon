@@ -1,6 +1,6 @@
 import {
   HelpCircle,
-  Sparkles,
+  Bell,
   Layers,
   Bug,
   Crown,
@@ -20,7 +20,7 @@ export interface TopicOption {
 
 export const SUPPORT_TOPICS: TopicOption[] = [
   { id: 'general', label: 'General Inquiry', icon: HelpCircle, subjectTag: 'General Support' },
-  { id: 'routine', label: 'Routines & Alerts', icon: Sparkles, subjectTag: 'Routine Setup' },
+  { id: 'routine', label: 'Routines & Alerts', icon: Bell, subjectTag: 'Routine Setup' },
   { id: 'family', label: 'Family Hub Sync', icon: Layers, subjectTag: 'Family Hub' },
   { id: 'bug', label: 'Bug Report', icon: Bug, subjectTag: 'Bug Report' },
   { id: 'billing', label: 'Premium & Billing', icon: Crown, subjectTag: 'Billing' },

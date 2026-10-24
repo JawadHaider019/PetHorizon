@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { Flame, ExternalLink, ShieldCheck, Check, Sparkles } from 'lucide-react';
+import { Flame, ExternalLink, ShieldCheck, Check, HeartPulse } from 'lucide-react';
 import { BlogPost } from '../data/blogData';
 
 interface BlogPreviewModalProps {
@@ -54,7 +54,7 @@ export default function BlogPreviewModal({ post, onClose }: BlogPreviewModalProp
           {/* Key Vet Takeaways Callout Box */}
           <div className="my-6 p-5 rounded-2xl bg-emerald-50/70 border border-emerald-200/80">
             <div className="flex items-center gap-2 mb-3">
-              <Sparkles className="w-4 h-4 text-emerald-600" />
+              <HeartPulse className="w-4 h-4 text-emerald-600" />
               <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-950">
                 Key Veterinary Takeaways
               </h4>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Sparkles, ArrowUpRight } from 'lucide-react';
+import { ChevronDown, BookOpen, ArrowUpRight } from 'lucide-react';
 import { NavView } from './Navbar';
 import { PRODUCT_LINKS, LEGAL_LINKS } from './navData';
 
@@ -69,7 +69,7 @@ export default function NavbarMobileMenu({
               className="flex items-center justify-between font-bold text-slate-900 bg-emerald-50/70 text-emerald-800 px-3.5 py-2.5 rounded-xl text-sm border border-emerald-100"
             >
               <div className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-emerald-600" />
+                <BookOpen className="w-4 h-4 text-emerald-600" />
                 <span>Blog &amp; Pet Guides</span>
               </div>
               <span className="text-[10px] font-black uppercase bg-emerald-600 text-white px-2 py-0.5 rounded-md">

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useScroll, useSpring } from 'framer-motion';
 import { Mail, ChevronRight, ExternalLink } from 'lucide-react';
 import { PRIVACY_POLICY, DATA_DELETION_GUIDE, LegalDocument } from '../data/legalData';
-import LegalHeader from './LegalHeader';
+import LegalNavbar from './LegalNavbar';
 import LegalSidebar from './LegalSidebar';
 import LegalSectionsList from './LegalSectionsList';
 
@@ -59,16 +59,13 @@ export default function LegalPortal({
   };
 
   return (
-    <div className="min-h-screen bg-[#FDFDFC] text-slate-800 antialiased pt-[64px] sm:pt-[70px]">
-      <LegalHeader
-        currentDoc={currentDoc}
+    <div className="min-h-screen bg-[#FDFDFC] text-slate-800 antialiased">
+      <LegalNavbar
         activeDocId={activeDocId}
         onDocChange={handleDocChange}
         onNavigateHome={onNavigateHome}
-        readPercent={readPercent}
         scaleX={scaleX}
-        activeSectionId={activeSectionId}
-        onScrollToSection={scrollToSection}
+        readPercent={readPercent}
       />
 
       <main className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-16">

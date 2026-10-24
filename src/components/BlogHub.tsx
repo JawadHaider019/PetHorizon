@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, Sparkles, ArrowLeft } from 'lucide-react';
+import { BookOpen, ShieldCheck, ArrowLeft } from 'lucide-react';
 import { BLOG_POSTS, BlogPost } from '../data/blogData';
 import BlogCard from './BlogCard';
 import BlogFilterBar from './BlogFilterBar';
@@ -54,13 +54,13 @@ export default function BlogHub({ onNavigateHome, onNavigateLegal, onSelectArtic
             </button>
             <span>/</span>
             <span className="text-emerald-800 font-bold bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-100">
-              Pet Horizon SEO Knowledge Hub
+              Pet Care &amp; Health Hub
             </span>
           </div>
 
           <span className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-800 bg-emerald-100/80 px-3 py-1 rounded-full border border-emerald-200 shadow-2xs">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-600 animate-pulse" />
-            Curated Authoritative Pet Care Guides
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+            Curated Veterinary Care Guides
           </span>
         </div>
 
