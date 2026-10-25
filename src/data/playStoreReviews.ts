@@ -24,6 +24,18 @@ export const PLAY_STORE_REVIEWS: PlayStoreReview[] = [
     avatarText: 'LB'
   },
   {
+    id: 'tmb-jan',
+    name: 'Jan',
+    date: 'Oct 2026',
+    rating: 5,
+    petContext: 'TestMyBuild Tester',
+    tag: 'Intuitive UI & Onboarding',
+    review:
+      'Really clean, intuitive UI and a well-designed onboarding experience. Adding a pet and setting up its profile is quick and straightforward, and the family-sharing features make pet care truly organized.',
+    avatarBg: 'bg-orange-100 text-orange-800 border-orange-200',
+    avatarText: 'JN'
+  },
+  {
     id: '2',
     name: 'Shaik',
     date: 'Oct 2026',
@@ -58,6 +70,18 @@ export const PLAY_STORE_REVIEWS: PlayStoreReview[] = [
       'Pet Horizon is a wonderful and user-friendly app for every pet lover ❤️ I truly appreciate the amazing experience, thoughtful features, and dedication to making pet care simpler and stress-free.',
     avatarBg: 'bg-indigo-100 text-indigo-800 border-indigo-200',
     avatarText: 'AR'
+  },
+  {
+    id: 'tmb-eithan',
+    name: 'Eithan',
+    date: 'Oct 2026',
+    rating: 5,
+    petContext: 'TestMyBuild Tester',
+    tag: 'Professional Presentation',
+    review:
+      'Pet Horizon stands out with its professional presentation, clear onboarding, and thoughtful pet management. Adding pets works really well, with strong potential to manage daily pet care effectively.',
+    avatarBg: 'bg-violet-100 text-violet-800 border-violet-200',
+    avatarText: 'ET'
   },
   {
     id: '5',
