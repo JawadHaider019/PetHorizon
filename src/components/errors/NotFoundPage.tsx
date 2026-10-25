@@ -15,7 +15,7 @@ export default function NotFoundPage({ onNavigateHome, onNavigateBlog }: NotFoun
         </div>
 
         {/* Status Tag */}
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-50 text-rose-700 text-xs font-black uppercase tracking-wider mb-4 border border-rose-200">
+        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-black uppercase tracking-wider mb-4 border border-emerald-200">
           404 Error &bull; Missing Trail
         </span>
 
