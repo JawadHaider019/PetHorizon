@@ -87,31 +87,31 @@ export default function NotFoundPage({ onNavigateHome, onNavigateBlog }: NotFoun
       {/* ── Main content ── */}
       <div className="relative z-10 max-w-xl w-full text-center">
 
-        {/* ─── Mascot with emerald blob background so mix-blend-mode:multiply removes white ─── */}
+        {/* ─── Detective mascot — circular crop hides the white JPG corners cleanly ─── */}
         <motion.div
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="relative inline-flex items-center justify-center mb-4"
+          className="relative inline-flex flex-col items-center mb-4"
         >
-          {/* Emerald blob — provides the colored surface for multiply to work against */}
-          <div className="absolute w-52 h-52 sm:w-60 sm:h-60 rounded-full bg-gradient-to-br from-emerald-100 via-green-50 to-emerald-200/80 blur-sm" />
-
-          {/* Floating mascot */}
-          <motion.img
-            src="/mascots/404-detective.jpg"
-            alt="Pet Horizon Detective Puppy"
+          {/* Floating circular mascot */}
+          <motion.div
             animate={{ y: [0, -12, 0] }}
             transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
-            className="relative w-44 h-44 sm:w-52 sm:h-52 object-contain"
-            style={{ mixBlendMode: 'multiply' }}
-          />
+            className="w-44 h-44 sm:w-52 sm:h-52 rounded-full overflow-hidden border-4 border-emerald-100 shadow-2xl shadow-emerald-900/10 bg-emerald-50"
+          >
+            <img
+              src="/mascots/404-detective.jpg"
+              alt="Pet Horizon Detective Puppy"
+              className="w-full h-full object-cover object-top scale-110"
+            />
+          </motion.div>
 
           {/* Breathing ground shadow */}
           <motion.div
             animate={{ scaleX: [1, 0.82, 1], opacity: [0.18, 0.07, 0.18] }}
             transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
-            className="absolute bottom-0 w-32 sm:w-36 h-3 bg-emerald-800/25 rounded-full blur-lg translate-y-1"
+            className="w-32 sm:w-36 h-3 bg-emerald-800/20 rounded-full blur-lg mt-2"
           />
         </motion.div>
 
