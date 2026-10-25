@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import BackgroundCanvas from './components/BackgroundCanvas';
+import AnnouncementBar from './components/global/AnnouncementBar';
+import CookieBanner from './components/global/CookieBanner';
 import Navbar, { NavView } from './components/Navbar';
 import Hero from './components/Hero';
 import Partners from './components/Partners';
@@ -8,6 +10,9 @@ import FamilyHubSection from './components/FamilyHubSection';
 import DailyJournalSection from './components/DailyJournalSection';
 import InteractiveTour from './components/InteractiveTour';
 import TestimonialsSection from './components/TestimonialsSection';
+import CaretakerStories from './components/home/CaretakerStories';
+import SpeciesGrid from './components/home/SpeciesGrid';
+import DayTimeline from './components/home/DayTimeline';
 import PricingSection from './components/PricingSection';
 import FAQSection from './components/FAQSection';
 import HomeBlogSection from './components/HomeBlogSection';
@@ -17,6 +22,8 @@ import Footer from './components/Footer';
 import LegalPortal from './components/LegalPortal';
 import BlogHub from './components/BlogHub';
 import BlogArticleDetail from './components/BlogArticleDetail';
+import ChangelogPage from './components/changelog/ChangelogPage';
+import NotFoundPage from './components/errors/NotFoundPage';
 import QrDownloadModal from './components/modals/QrDownloadModal';
 import IosWaitlistModal from './components/modals/IosWaitlistModal';
 import { BLOG_POSTS } from './data/blogData';
@@ -38,11 +45,18 @@ export default function App() {
   usePageSeo(viewState, currentArticle);
 
   const navbarActiveView: NavView =
-    viewState.view === 'blog-article' ? 'blog' : (viewState.view as NavView);
+    viewState.view === 'blog-article'
+      ? 'blog'
+      : ['home', 'privacy', 'terms', 'deletion', 'blog'].includes(viewState.view)
+      ? (viewState.view as NavView)
+      : 'home';
 
   return (
     <div className="min-h-screen bg-white text-slate-800 antialiased font-sans selection:bg-emerald-500/20 selection:text-emerald-700 relative overflow-hidden">
       <BackgroundCanvas />
+
+      {/* Global Announcement Banner */}
+      <AnnouncementBar onNavigateChangelog={() => navigateTo('changelog')} />
 
       <Navbar
         currentView={navbarActiveView}
@@ -50,6 +64,7 @@ export default function App() {
         onOpenQrModal={() => setIsQrModalOpen(true)}
       />
 
+      {/* Blog Article View */}
       {viewState.view === 'blog-article' && currentArticle && (
         <>
           <BlogArticleDetail
@@ -58,10 +73,14 @@ export default function App() {
             onSelectArticle={(slug) => navigateToArticle(slug)}
             onNavigateLegal={(doc) => navigateTo(doc)}
           />
-          <Footer onNavigate={(to, hash) => navigateTo(to, hash)} onNavigateLegal={(doc) => navigateTo(doc)} />
+          <Footer
+            onNavigate={(to, hash) => navigateTo(to as ExtendedAppView, hash)}
+            onNavigateLegal={(doc) => navigateTo(doc)}
+          />
         </>
       )}
 
+      {/* Blog Hub View */}
       {viewState.view === 'blog' && (
         <>
           <BlogHub
@@ -69,10 +88,14 @@ export default function App() {
             onNavigateLegal={(doc) => navigateTo(doc)}
             onSelectArticle={(slug) => navigateToArticle(slug)}
           />
-          <Footer onNavigate={(to, hash) => navigateTo(to, hash)} onNavigateLegal={(doc) => navigateTo(doc)} />
+          <Footer
+            onNavigate={(to, hash) => navigateTo(to as ExtendedAppView, hash)}
+            onNavigateLegal={(doc) => navigateTo(doc)}
+          />
         </>
       )}
 
+      {/* Legal Portals (Privacy & Deletion) */}
       {['privacy', 'deletion'].includes(viewState.view) && (
         <>
           <LegalPortal
@@ -80,10 +103,39 @@ export default function App() {
             onNavigateHome={() => navigateTo('home')}
             onSelectDoc={(doc) => navigateTo(doc)}
           />
-          <Footer onNavigate={(to, hash) => navigateTo(to, hash)} onNavigateLegal={(doc) => navigateTo(doc)} />
+          <Footer
+            onNavigate={(to, hash) => navigateTo(to as ExtendedAppView, hash)}
+            onNavigateLegal={(doc) => navigateTo(doc)}
+          />
         </>
       )}
 
+      {/* Changelog View */}
+      {viewState.view === 'changelog' && (
+        <>
+          <ChangelogPage onNavigateHome={() => navigateTo('home')} />
+          <Footer
+            onNavigate={(to, hash) => navigateTo(to as ExtendedAppView, hash)}
+            onNavigateLegal={(doc) => navigateTo(doc)}
+          />
+        </>
+      )}
+
+      {/* 404 Not Found View */}
+      {viewState.view === '404' && (
+        <>
+          <NotFoundPage
+            onNavigateHome={() => navigateTo('home')}
+            onNavigateBlog={() => navigateTo('blog')}
+          />
+          <Footer
+            onNavigate={(to, hash) => navigateTo(to as ExtendedAppView, hash)}
+            onNavigateLegal={(doc) => navigateTo(doc)}
+          />
+        </>
+      )}
+
+      {/* Home View */}
       {viewState.view === 'home' && (
         <>
           <Hero
@@ -96,6 +148,9 @@ export default function App() {
           <DailyJournalSection />
           <InteractiveTour />
           <TestimonialsSection />
+          <CaretakerStories />
+          <SpeciesGrid />
+          <DayTimeline />
           <PricingSection />
           <FAQSection />
           <div className="hidden md:block">
@@ -109,10 +164,15 @@ export default function App() {
             onOpenQrModal={() => setIsQrModalOpen(true)}
             onOpenIosModal={() => setIsIosModalOpen(true)}
           />
-          <Footer onNavigate={(to, hash) => navigateTo(to, hash)} onNavigateLegal={(doc) => navigateTo(doc)} />
+          <Footer
+            onNavigate={(to, hash) => navigateTo(to as ExtendedAppView, hash)}
+            onNavigateLegal={(doc) => navigateTo(doc)}
+          />
         </>
       )}
 
+      {/* Global Modals & Overlays */}
+      <CookieBanner onNavigateLegal={(doc) => navigateTo(doc)} />
       <QrDownloadModal isOpen={isQrModalOpen} onClose={() => setIsQrModalOpen(false)} />
       <IosWaitlistModal isOpen={isIosModalOpen} onClose={() => setIsIosModalOpen(false)} />
     </div>

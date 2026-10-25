@@ -45,6 +45,11 @@ export function usePageSeo(viewState: ViewState, currentArticle: BlogPost | null
       updateMetaTag('meta[name="description"]', 'content', 'Evidence-based veterinary guides, poison checklists, puppy potty training schedules, and pet nutrition formulas.');
       updateMetaTag('meta[property="og:title"]', 'content', 'Top-Ranked Pet Care & Vet Guides | Pet Horizon');
       updateCanonical('/blog');
+    } else if (viewState.view === 'changelog') {
+      document.title = 'Changelog & Version Release Notes | Pet Horizon';
+      updateMetaTag('meta[name="description"]', 'content', 'Discover the latest releases, features, expense tracking, and improvements across every Pet Horizon app build.');
+      updateMetaTag('meta[property="og:title"]', 'content', 'Changelog & Version Release Notes | Pet Horizon');
+      updateCanonical('/changelog');
     } else if (viewState.view === 'privacy') {
       document.title = 'Official Privacy Policy | Pet Horizon';
       updateMetaTag('meta[name="description"]', 'content', 'Read the official Pet Horizon privacy policy regarding zero data monetization and encrypted pet records.');
@@ -53,6 +58,10 @@ export function usePageSeo(viewState: ViewState, currentArticle: BlogPost | null
       document.title = 'Data & Account Deletion Instructions | Pet Horizon';
       updateMetaTag('meta[name="description"]', 'content', 'How to request complete data and account deletion in Pet Horizon.');
       updateCanonical('/data-deletion');
+    } else if (viewState.view === '404') {
+      document.title = '404 Page Not Found | Pet Horizon';
+      updateMetaTag('meta[name="description"]', 'content', 'The page you were looking for could not be found.');
+      updateCanonical('/404');
     } else {
       document.title = `${SITE_CONFIG.name} – ${SITE_CONFIG.tagline}`;
       updateMetaTag('meta[name="description"]', 'content', SITE_CONFIG.description);

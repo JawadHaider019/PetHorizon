@@ -1,12 +1,17 @@
-import { ShieldCheck } from 'lucide-react';
+import { ShieldCheck, Sparkles } from 'lucide-react';
 import { SUPPORT_EMAIL } from '../../config/siteConfig';
 
 interface FooterDesktopColumnsProps {
   onLegalClick: (e: React.MouseEvent, doc: 'privacy' | 'deletion') => void;
   onBlogClick: (e: React.MouseEvent) => void;
+  onChangelogClick?: (e: React.MouseEvent) => void;
 }
 
-export default function FooterDesktopColumns({ onLegalClick, onBlogClick }: FooterDesktopColumnsProps) {
+export default function FooterDesktopColumns({
+  onLegalClick,
+  onBlogClick,
+  onChangelogClick
+}: FooterDesktopColumnsProps) {
   return (
     <div className="hidden md:grid grid-cols-3 gap-8 py-10 sm:py-12 border-b border-slate-200/80 text-left">
       {/* Col 1: Product Features */}
@@ -62,6 +67,18 @@ export default function FooterDesktopColumns({ onLegalClick, onBlogClick }: Foot
               <span>Veterinary Care Guides</span>
               <span className="text-[9px] font-bold uppercase tracking-wider bg-emerald-600 text-white px-1.5 py-0.2 rounded-full whitespace-nowrap">
                 New
+              </span>
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={onChangelogClick}
+              className="text-slate-600 hover:text-emerald-700 transition-colors font-medium text-left cursor-pointer flex items-center gap-1.5"
+            >
+              <span>App Changelog &amp; Notes</span>
+              <span className="text-[9px] font-bold uppercase tracking-wider bg-teal-100 text-teal-800 border border-teal-300 px-1.5 py-0.2 rounded-full whitespace-nowrap flex items-center gap-0.5">
+                <Sparkles className="w-2.5 h-2.5 text-teal-600" />
+                v1.0.10
               </span>
             </button>
           </li>

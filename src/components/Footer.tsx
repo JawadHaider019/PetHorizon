@@ -4,7 +4,7 @@ import FooterMobileAccordion from './footer/FooterMobileAccordion';
 import FooterBottomBar from './footer/FooterBottomBar';
 
 interface FooterProps {
-  onNavigate?: (view: 'home' | 'blog' | 'privacy' | 'terms' | 'deletion', hash?: string) => void;
+  onNavigate?: (view: 'home' | 'blog' | 'privacy' | 'terms' | 'deletion' | 'changelog', hash?: string) => void;
   onNavigateLegal?: (doc: 'privacy' | 'deletion') => void;
 }
 
@@ -29,6 +29,15 @@ export default function Footer({ onNavigate, onNavigateLegal }: FooterProps) {
     }
   };
 
+  const handleChangelogClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (onNavigate) {
+      onNavigate('changelog');
+    } else {
+      window.location.href = '/changelog';
+    }
+  };
+
   return (
     <footer className="bg-[#F8F9FA] text-slate-700 pt-10 sm:pt-14 pb-8 sm:pb-12 border-t border-slate-200/90 relative overflow-hidden">
       {/* Ambient background glow */}
@@ -37,9 +46,21 @@ export default function Footer({ onNavigate, onNavigateLegal }: FooterProps) {
 
       <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
         <FooterBrandHeader />
-        <FooterMobileAccordion onLegalClick={handleLegalClick} onBlogClick={handleBlogClick} />
-        <FooterDesktopColumns onLegalClick={handleLegalClick} onBlogClick={handleBlogClick} />
-        <FooterBottomBar onLegalClick={handleLegalClick} onBlogClick={handleBlogClick} />
+        <FooterMobileAccordion
+          onLegalClick={handleLegalClick}
+          onBlogClick={handleBlogClick}
+          onChangelogClick={handleChangelogClick}
+        />
+        <FooterDesktopColumns
+          onLegalClick={handleLegalClick}
+          onBlogClick={handleBlogClick}
+          onChangelogClick={handleChangelogClick}
+        />
+        <FooterBottomBar
+          onLegalClick={handleLegalClick}
+          onBlogClick={handleBlogClick}
+          onChangelogClick={handleChangelogClick}
+        />
       </div>
     </footer>
   );

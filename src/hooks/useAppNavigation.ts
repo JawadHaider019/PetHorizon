@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { NavView } from '../components/Navbar';
 import { BLOG_POSTS } from '../data/blogData';
 
-export type ExtendedAppView = NavView | 'blog-article';
+export type ExtendedAppView = NavView | 'blog-article' | 'changelog' | '404';
 
 export interface ViewState {
   view: ExtendedAppView;
@@ -23,6 +23,9 @@ export const getViewStateFromLocation = (): ViewState => {
     }
   }
 
+  if (lowerPath === '/changelog' || lowerPath === '/changelog/' || hash.includes('changelog')) {
+    return { view: 'changelog', articleSlug: null };
+  }
   if (lowerPath === '/blog' || lowerPath === '/blog/' || hash.includes('blog')) {
     return { view: 'blog', articleSlug: null };
   }
@@ -40,7 +43,14 @@ export const getViewStateFromLocation = (): ViewState => {
   ) {
     return { view: 'deletion', articleSlug: null };
   }
-  return { view: 'home', articleSlug: null };
+
+  // If path is root or empty, or known hash
+  if (lowerPath === '/' || lowerPath === '') {
+    return { view: 'home', articleSlug: null };
+  }
+
+  // Unknown route
+  return { view: '404', articleSlug: null };
 };
 
 export function useAppNavigation() {
@@ -58,7 +68,7 @@ export function useAppNavigation() {
     };
   }, []);
 
-  const navigateTo = useCallback((to: NavView, hash?: string) => {
+  const navigateTo = useCallback((to: ExtendedAppView | 'terms', hash?: string) => {
     if (to === 'home') {
       window.history.pushState({}, '', hash ? `/${hash}` : '/');
       setViewState({ view: 'home', articleSlug: null });
@@ -70,6 +80,14 @@ export function useAppNavigation() {
       } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
+    } else if (to === 'changelog') {
+      window.history.pushState({}, '', '/changelog');
+      setViewState({ view: 'changelog', articleSlug: null });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (to === '404') {
+      window.history.pushState({}, '', '/404');
+      setViewState({ view: '404', articleSlug: null });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       const slug =
         to === 'blog'
@@ -78,7 +96,7 @@ export function useAppNavigation() {
           ? 'privacy-policy'
           : 'data-deletion';
       window.history.pushState({}, '', `/${slug}`);
-      setViewState({ view: to === 'terms' ? 'privacy' : to, articleSlug: null });
+      setViewState({ view: to === 'terms' ? 'privacy' : (to as ExtendedAppView), articleSlug: null });
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }, []);
