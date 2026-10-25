@@ -2,13 +2,9 @@ import { useState, useEffect } from 'react';
 import { ArrowUpRight, X } from 'lucide-react';
 import { PLAY_STORE_URL } from '../../config/siteConfig';
 
-interface AnnouncementBarProps {
-  onNavigateChangelog?: () => void;
-}
-
 const STORAGE_KEY = 'ph_announce_dismissed_v1010';
 
-export default function AnnouncementBar({ onNavigateChangelog }: AnnouncementBarProps) {
+export default function AnnouncementBar() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {

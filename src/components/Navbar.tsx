@@ -12,14 +12,12 @@ interface NavbarProps {
   currentView?: NavView;
   onNavigate?: (view: NavView, hash?: string) => void;
   onOpenQrModal?: () => void;
-  onNavigateChangelog?: () => void;
 }
 
 export default function Navbar({
   currentView = 'home',
   onNavigate,
-  onOpenQrModal,
-  onNavigateChangelog
+  onOpenQrModal
 }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -68,9 +66,7 @@ export default function Navbar({
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50">
-      {onNavigateChangelog && (
-        <AnnouncementBar onNavigateChangelog={onNavigateChangelog} />
-      )}
+      <AnnouncementBar />
       <header
         className={`transition-all duration-300 ${
           isScrolled
