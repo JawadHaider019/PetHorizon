@@ -3,6 +3,8 @@ import { Menu, X, ArrowUpRight } from 'lucide-react';
 import NavbarDesktopDropdown from './NavbarDesktopDropdown';
 import NavbarMobileMenu from './NavbarMobileMenu';
 
+import { PLAY_STORE_URL } from '../config/siteConfig';
+
 export type NavView = 'home' | 'privacy' | 'terms' | 'deletion' | 'blog';
 
 interface NavbarProps {
@@ -26,7 +28,7 @@ export default function Navbar({ currentView = 'home', onNavigate, onOpenQrModal
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon';
+  const playStoreUrl = PLAY_STORE_URL;
 
   const handleDropdownEnter = (menu: 'product' | 'legal') => {
     if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);

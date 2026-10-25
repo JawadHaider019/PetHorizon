@@ -1,0 +1,83 @@
+import { Calendar, Users, Camera, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { GooglePlayBadge, AppStoreBadge, QrScanButton } from '../AppBadges';
+import { PLAY_STORE_URL } from '../../config/siteConfig';
+
+interface HeroContentProps {
+  onOpenQrModal?: () => void;
+  onOpenIosModal?: () => void;
+}
+
+export default function HeroContent({ onOpenQrModal, onOpenIosModal }: HeroContentProps) {
+  return (
+    <div className="text-center lg:text-left flex flex-col items-center lg:items-start gap-3.5 sm:gap-4.5">
+      {/* Top Badges Row: Live Google Play */}
+      <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
+        <div className="inline-flex items-center space-x-2.5 bg-emerald-100/70 border border-emerald-200/80 text-emerald-900 px-3.5 py-1 sm:px-4 sm:py-1 rounded-full w-fit shadow-2xs whitespace-nowrap shrink-0">
+          <span className="flex h-2 w-2 relative shrink-0">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
+          </span>
+          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider whitespace-nowrap">
+            Live on Google Play Store
+          </span>
+        </div>
+      </div>
+
+      {/* Main Headline */}
+      <h1 className="text-2xl sm:text-4xl lg:text-[46px] xl:text-[54px] font-black text-slate-900 tracking-tight leading-[1.12]">
+        The Complete Daily Care &amp;{' '}
+        <span className="bg-gradient-to-r from-emerald-700 via-emerald-600 to-emerald-500 bg-clip-text text-transparent">
+          Family Hub
+        </span>{' '}
+        For Your Pets
+      </h1>
+
+      {/* Subheadline */}
+      <p className="sm:hidden text-sm text-slate-600 leading-relaxed font-normal max-w-md mx-auto">
+        Track daily feedings, walk times, and medication alarms with real time alerts. Invite family members and pet sitters to coordinate care, log photo memories, and keep your companion healthy.
+      </p>
+      <p className="hidden sm:block text-sm sm:text-base lg:text-[15px] xl:text-base text-slate-600 leading-relaxed max-w-2xl font-normal">
+        Organize daily routines, medication alarms, and vet vaccinations. Invite family members and caretakers with QR codes to share care duties, log photo memories on your activity timeline, and keep pet expenses in check.
+      </p>
+
+      {/* Core Pillars Bullet Points */}
+      <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-0.5">
+        {[
+          { icon: Calendar, text: 'Routine & medicine reminders' },
+          { icon: Users, text: 'Family Hub & QR caretaker invites' },
+          { icon: Camera, text: 'Daily photo journal & walk tracking' },
+          { icon: ShieldCheck, text: 'Dogs, Cats, Birds, Rabbits & more' },
+        ].map((item, idx) => (
+          <div key={idx} className="flex items-center gap-2.5 text-slate-700 font-semibold text-xs sm:text-sm">
+            <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+              <CheckCircle2 className="w-3.5 h-3.5" />
+            </div>
+            <span>{item.text}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* CTA Buttons */}
+      <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 pt-1 sm:pt-2">
+        <GooglePlayBadge href={PLAY_STORE_URL} className="px-4 py-2 sm:px-5 sm:py-2.5 rounded-2xl shadow-lg" />
+        <AppStoreBadge onClick={onOpenIosModal} className="px-4 py-2 sm:px-5 sm:py-2.5 rounded-2xl shadow-lg" />
+        {onOpenQrModal && (
+          <div className="hidden sm:block">
+            <QrScanButton onClick={onOpenQrModal} className="px-4 py-2.5 rounded-2xl shadow-sm" />
+          </div>
+        )}
+      </div>
+
+      {/* Free Tier Callout */}
+      <div className="hidden sm:flex items-center gap-2.5 pt-1 text-xs text-slate-500 font-medium">
+        <span className="inline-flex items-center gap-1 text-emerald-700 font-bold">
+          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Free to Start
+        </span>
+        <span>•</span>
+        <span>No credit card required</span>
+        <span>•</span>
+        <span>Sync across your household</span>
+      </div>
+    </div>
+  );
+}
