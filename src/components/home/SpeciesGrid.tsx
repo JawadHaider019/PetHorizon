@@ -31,9 +31,9 @@ export default function SpeciesGrid() {
               className="bg-white/95 rounded-3xl p-5 sm:p-6 border border-slate-200/80 hover:border-emerald-400 hover:shadow-xl hover:shadow-emerald-950/5 transition-all flex flex-col justify-between group"
             >
               <div>
-                {/* Top 3D Mascot & Badge */}
-                <div className="flex items-center justify-between gap-2 mb-4">
-                  <div className="w-14 h-14 rounded-2xl overflow-hidden border-2 border-emerald-100/80 shadow-xs group-hover:scale-105 transition-transform bg-white shrink-0">
+                {/* 3D Mascot Avatar */}
+                <div className="mb-4">
+                  <div className="w-16 h-16 rounded-2xl overflow-hidden border border-emerald-100 shadow-xs group-hover:scale-105 transition-transform bg-white">
                     <img
                       src={spec.mascotImage}
                       alt={`${spec.name} 3D Mascot`}
@@ -41,20 +41,17 @@ export default function SpeciesGrid() {
                       loading="lazy"
                     />
                   </div>
-                  <span className={`text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full ${spec.badgeBg} ${spec.badgeText}`}>
-                    {spec.statBadge}
-                  </span>
                 </div>
 
                 {/* Title */}
-                <h3 className="font-extrabold text-slate-900 text-base mb-1 group-hover:text-emerald-700 transition-colors">
+                <h3 className="font-extrabold text-slate-900 text-base mb-1.5 group-hover:text-emerald-700 transition-colors">
                   {spec.name}
                 </h3>
-                <p className="text-xs text-slate-500 mb-4 leading-snug font-normal">
+                <p className="text-xs text-slate-500 mb-4 leading-relaxed font-normal">
                   {spec.subtitle}
                 </p>
 
-                {/* Capabilities pills */}
+                {/* Capabilities checklist */}
                 <div className="space-y-2 mb-5">
                   {spec.capabilities.map((cap, i) => (
                     <div
