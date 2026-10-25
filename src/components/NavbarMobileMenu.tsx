@@ -26,7 +26,7 @@ export default function NavbarMobileMenu({
           animate={{ opacity: 1, height: 'auto', y: 0 }}
           exit={{ opacity: 0, height: 0, y: -10 }}
           transition={{ duration: 0.22, ease: 'easeOut' }}
-          className="fixed inset-x-0 top-[64px] sm:top-[72px] z-40 bg-white/98 backdrop-blur-2xl border-b border-slate-200 shadow-2xl px-5 py-5 lg:hidden overflow-y-auto max-h-[calc(100vh-80px)]"
+          className="w-full bg-white/98 backdrop-blur-2xl border-b border-slate-200 shadow-2xl px-5 py-5 lg:hidden overflow-y-auto max-h-[calc(100vh-100px)]"
         >
           <div className="flex flex-col space-y-2">
             {/* Product Features Accordion */}

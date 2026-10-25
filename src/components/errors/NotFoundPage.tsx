@@ -7,7 +7,7 @@ interface NotFoundPageProps {
 
 export default function NotFoundPage({ onNavigateHome, onNavigateBlog }: NotFoundPageProps) {
   return (
-    <div className="min-h-screen bg-[#FDFDFC] text-slate-800 antialiased flex items-center justify-center pt-24 pb-16 px-4">
+    <div className="min-h-screen bg-[#FDFDFC] text-slate-800 antialiased flex items-center justify-center pt-28 sm:pt-36 pb-16 px-4">
       <div className="max-w-md w-full text-center">
         {/* 3D Detective Puppy Mascot */}
         <div className="w-32 h-32 mx-auto mb-6 rounded-3xl overflow-hidden border-2 border-emerald-500/20 shadow-xl shadow-emerald-950/10 bg-white p-1">

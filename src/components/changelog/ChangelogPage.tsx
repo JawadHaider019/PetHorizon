@@ -7,7 +7,7 @@ interface ChangelogPageProps {
 
 export default function ChangelogPage({ onNavigateHome }: ChangelogPageProps) {
   return (
-    <div className="min-h-screen bg-[#FDFDFC] text-slate-800 antialiased pt-24 pb-20 selection:bg-emerald-500/20 selection:text-emerald-800">
+    <div className="min-h-screen bg-[#FDFDFC] text-slate-800 antialiased pt-28 sm:pt-36 pb-20 selection:bg-emerald-500/20 selection:text-emerald-800">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Navigation & Header */}
         <div className="mb-8 sm:mb-12">

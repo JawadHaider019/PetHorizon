@@ -34,22 +34,22 @@ export default function AnnouncementBar({ onNavigateChangelog }: AnnouncementBar
   if (!isVisible) return null;
 
   return (
-    <div className="relative z-50 bg-gradient-to-r from-emerald-700 via-emerald-600 to-teal-700 text-white text-xs py-2 px-3 sm:px-4 shadow-sm border-b border-emerald-500/30">
+    <div className="w-full bg-gradient-to-r from-emerald-800 via-emerald-600 to-teal-700 text-white text-xs py-2 px-3 sm:px-4 shadow-xs border-b border-emerald-500/30 select-none">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
         <div
           onClick={onNavigateChangelog}
-          className="flex-1 flex items-center justify-center gap-2 cursor-pointer group flex-wrap sm:flex-nowrap text-center sm:text-left min-w-0"
+          className="flex-1 flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2.5 cursor-pointer group min-w-0"
         >
           <span className="inline-flex items-center gap-1 bg-white/20 hover:bg-white/30 backdrop-blur-xs px-2 py-0.5 rounded-full text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-emerald-50 shrink-0">
             <Sparkles className="w-3 h-3 text-emerald-200" />
             v1.0.10 Live
           </span>
 
-          <span className="font-medium text-emerald-50 text-[11px] sm:text-xs truncate max-w-[280px] sm:max-w-none">
-            Expense Tracking &amp; Receipt Vault now available in Pet Horizon
+          <span className="font-medium text-emerald-50 text-[11px] sm:text-xs truncate">
+            Expense Tracking &amp; Receipt Vault now live in Pet Horizon
           </span>
 
-          <span className="inline-flex items-center gap-0.5 font-bold text-white text-[11px] sm:text-xs underline group-hover:text-emerald-200 transition-colors whitespace-nowrap shrink-0">
+          <span className="hidden sm:inline-flex items-center gap-0.5 font-bold text-white text-[11px] sm:text-xs underline group-hover:text-emerald-200 transition-colors whitespace-nowrap shrink-0">
             See Changelog
             <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
           </span>

@@ -57,7 +57,7 @@ export default function LegalPortal({
   };
 
   return (
-    <div className="min-h-screen bg-[#FDFDFC] text-slate-800 antialiased pt-24 pb-16 selection:bg-emerald-500/20 selection:text-emerald-800">
+    <div className="min-h-screen bg-[#FDFDFC] text-slate-800 antialiased pt-28 sm:pt-36 pb-16 selection:bg-emerald-500/20 selection:text-emerald-800">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Navigation Breadcrumb (Identical styling to BlogHub) */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 sm:pb-6 border-b border-slate-100 mb-8">

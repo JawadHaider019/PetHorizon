@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import BackgroundCanvas from './components/BackgroundCanvas';
-import AnnouncementBar from './components/global/AnnouncementBar';
 import CookieBanner from './components/global/CookieBanner';
 import Navbar, { NavView } from './components/Navbar';
 import Hero from './components/Hero';
@@ -53,13 +52,12 @@ export default function App() {
     <div className="min-h-screen bg-white text-slate-800 antialiased font-sans selection:bg-emerald-500/20 selection:text-emerald-700 relative overflow-hidden">
       <BackgroundCanvas />
 
-      {/* Global Announcement Banner */}
-      <AnnouncementBar onNavigateChangelog={() => navigateTo('changelog')} />
-
+      {/* Navigation Bar with Integrated Announcement Banner */}
       <Navbar
         currentView={navbarActiveView}
         onNavigate={(view, hash) => navigateTo(view, hash)}
         onOpenQrModal={() => setIsQrModalOpen(true)}
+        onNavigateChangelog={() => navigateTo('changelog')}
       />
 
       {/* Blog Article View */}

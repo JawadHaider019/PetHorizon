@@ -43,7 +43,7 @@ export default function BlogArticleDetail({
   const related = BLOG_POSTS.filter((p) => p.slug !== article.slug).slice(0, 3);
 
   return (
-    <article className="min-h-screen bg-[#FDFDFC] text-slate-800 antialiased pt-24 pb-16 selection:bg-emerald-500/20 selection:text-emerald-800">
+    <article className="min-h-screen bg-[#FDFDFC] text-slate-800 antialiased pt-28 sm:pt-36 pb-16 selection:bg-emerald-500/20 selection:text-emerald-800">
       <BlogReadingProgressBar />
 
       <div className="max-w-4xl mx-auto px-5 sm:px-8">

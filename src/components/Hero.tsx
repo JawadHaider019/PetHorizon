@@ -12,7 +12,7 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
   return (
     <section
       id="home"
-      className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden pt-20 pb-6 sm:pt-24 sm:pb-8 lg:pt-20 lg:pb-6 bg-gradient-to-b from-emerald-50/50 via-white to-slate-50/40"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-8 sm:pt-36 sm:pb-12 lg:pt-32 lg:pb-10 bg-gradient-to-b from-emerald-50/50 via-white to-slate-50/40"
     >
       {/* Background ambient light blobs */}
       <div className="absolute top-10 left-1/4 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[130px] pointer-events-none -z-10" />
