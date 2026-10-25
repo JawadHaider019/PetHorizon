@@ -32,15 +32,14 @@ export default function SpeciesGrid() {
             >
               <div>
                 {/* 3D Mascot Avatar */}
-                <div className="mb-4">
-                  <div className="w-16 h-16 rounded-full overflow-hidden bg-emerald-50 border border-emerald-100 shadow-xs group-hover:scale-105 transition-transform">
-                    <img
-                      src={spec.mascotImage}
-                      alt={`${spec.name} 3D Mascot`}
-                      className="w-full h-full object-cover object-top"
-                      loading="lazy"
-                    />
-                  </div>
+                <div className="mb-4 group-hover:scale-105 transition-transform origin-left">
+                  <img
+                    src={spec.mascotImage}
+                    alt={`${spec.name} 3D Mascot`}
+                    className="w-16 h-16 object-contain"
+                    style={{ filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.10))' }}
+                    loading="lazy"
+                  />
                 </div>
 
                 {/* Title */}

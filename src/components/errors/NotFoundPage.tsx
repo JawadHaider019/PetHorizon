@@ -87,31 +87,26 @@ export default function NotFoundPage({ onNavigateHome, onNavigateBlog }: NotFoun
       {/* ── Main content ── */}
       <div className="relative z-10 max-w-xl w-full text-center">
 
-        {/* ─── Detective mascot — circular crop hides the white JPG corners cleanly ─── */}
+        {/* ─── Detective mascot — no container, white JPG bg blends into white page ─── */}
         <motion.div
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="relative inline-flex flex-col items-center mb-4"
+          className="inline-flex flex-col items-center mb-4"
         >
-          {/* Floating circular mascot */}
-          <motion.div
-            animate={{ y: [0, -12, 0] }}
-            transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
-            className="w-44 h-44 sm:w-52 sm:h-52 rounded-full overflow-hidden border-4 border-emerald-100 shadow-2xl shadow-emerald-900/10 bg-emerald-50"
-          >
-            <img
-              src="/mascots/404-detective.jpg"
-              alt="Pet Horizon Detective Puppy"
-              className="w-full h-full object-cover object-top scale-110"
-            />
-          </motion.div>
-
+          <motion.img
+            src="/mascots/404-detective.jpg"
+            alt="Pet Horizon Detective Puppy"
+            animate={{ y: [0, -14, 0] }}
+            transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
+            className="w-48 h-48 sm:w-56 sm:h-56 object-contain"
+            style={{ filter: 'drop-shadow(0 24px 48px rgba(0,0,0,0.13)) drop-shadow(0 8px 16px rgba(46,125,50,0.10))' }}
+          />
           {/* Breathing ground shadow */}
           <motion.div
-            animate={{ scaleX: [1, 0.82, 1], opacity: [0.18, 0.07, 0.18] }}
-            transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
-            className="w-32 sm:w-36 h-3 bg-emerald-800/20 rounded-full blur-lg mt-2"
+            animate={{ scaleX: [1, 0.78, 1], opacity: [0.15, 0.05, 0.15] }}
+            transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
+            className="w-28 sm:w-36 h-3 bg-slate-400/30 rounded-full blur-xl -mt-4"
           />
         </motion.div>
 
