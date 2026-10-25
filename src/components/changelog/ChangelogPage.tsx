@@ -174,73 +174,87 @@ export default function ChangelogPage({ onNavigateHome }: ChangelogPageProps) {
           </div>
         )}
 
-        {/* Connected Timeline Rail */}
-        <div className="relative">
-          {/* Vertical Timeline Spine Line (Desktop) */}
-          <div className="hidden lg:block absolute left-[210px] top-6 bottom-6 w-0.5 bg-gradient-to-b from-emerald-500/40 via-slate-200 to-slate-200 pointer-events-none" />
+        {/* Connected Timeline Rail (Dedicated Columns to Guarantee Zero Overlap) */}
+        <div className="space-y-6 sm:space-y-8">
+          {filteredReleases.map((rel: ChangelogRelease, index: number) => {
+            const isLatest = rel.tag === 'Latest' || index === 0;
 
-          <div className="space-y-8 sm:space-y-12">
-            {filteredReleases.map((rel: ChangelogRelease, index: number) => {
-              const isLatest = rel.tag === 'Latest' || index === 0;
+            return (
+              <div
+                key={rel.version}
+                className="flex flex-col lg:flex-row items-stretch gap-0 lg:gap-6 group"
+              >
+                {/* 1. Date & Build Column (Desktop Only: sits comfortably to the left of the spine) */}
+                <div className="hidden lg:flex w-40 shrink-0 flex-col items-end pt-5 text-right pr-2">
+                  <span className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
+                    <Calendar className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                    <span>{rel.releaseDate}</span>
+                  </span>
+                  <span className="text-[11px] font-semibold text-slate-400 mt-1">
+                    Build {rel.buildNumber}
+                  </span>
+                </div>
 
-              return (
-                <div
-                  key={rel.version}
-                  className="relative flex flex-col lg:flex-row items-start gap-4 lg:gap-8 group"
-                >
-                  {/* LEFT COLUMN: Version & Date Spine Indicator (Desktop) / Header (Mobile) */}
-                  <div className="lg:w-[210px] shrink-0 relative lg:text-right flex flex-row lg:flex-col items-center lg:items-end justify-between lg:justify-start gap-2 sm:gap-2.5 w-full lg:pt-1">
-                    {/* Timeline Node Marker on the vertical rail (Desktop) */}
-                    <div
-                      className={`hidden lg:flex absolute -right-[17px] top-2 w-8 h-8 rounded-full items-center justify-center transition-transform group-hover:scale-110 shadow-xs z-10 ${
-                        isLatest
-                          ? 'bg-emerald-600 text-white ring-4 ring-emerald-100'
-                          : 'bg-white text-slate-600 border-2 border-slate-300 ring-4 ring-[#FDFDFC]'
-                      }`}
-                    >
-                      <GitCommit className="w-4 h-4" />
-                    </div>
-
-                    {/* Version & Badge */}
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <span className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
-                        {rel.version}
-                      </span>
-                      <span
-                        className={`text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full ${
-                          rel.tag === 'Latest'
-                            ? 'bg-emerald-600 text-white shadow-2xs'
-                            : rel.tag === 'Major Release'
-                            ? 'bg-emerald-100 text-emerald-800 border border-emerald-300/80'
-                            : rel.tag === 'Feature Update'
-                            ? 'bg-teal-100 text-teal-800 border border-teal-300/80'
-                            : 'bg-slate-100 text-slate-700 border border-slate-200'
-                        }`}
-                      >
-                        {rel.tag}
-                      </span>
-                    </div>
-
-                    {/* Date & Build Info */}
-                    <div className="flex items-center lg:flex-col lg:items-end gap-2 lg:gap-0.5 text-xs text-slate-500 font-medium">
-                      <span className="flex items-center gap-1">
-                        <Calendar className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                        <span>{rel.releaseDate}</span>
-                      </span>
-                      <span className="text-[11px] text-slate-400">
-                        Build {rel.buildNumber}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* RIGHT COLUMN: The Release Entry Card */}
+                {/* 2. Timeline Spine & Node Column (Desktop Only: dedicated column, never overlaps content) */}
+                <div className="hidden lg:flex flex-col items-center shrink-0 w-8">
+                  {/* Node */}
                   <div
-                    className={`flex-1 w-full bg-white rounded-3xl p-5 sm:p-7 border transition-all ${
+                    className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 shadow-xs z-10 transition-transform group-hover:scale-110 mt-4.5 ${
+                      isLatest
+                        ? 'bg-emerald-600 text-white ring-4 ring-emerald-100 shadow-emerald-600/20'
+                        : 'bg-white text-slate-600 border-2 border-slate-300 ring-4 ring-[#FDFDFC]'
+                    }`}
+                  >
+                    <GitCommit className="w-4 h-4" />
+                  </div>
+                  {/* Vertical connecting line */}
+                  {index !== filteredReleases.length - 1 && (
+                    <div className="w-0.5 flex-1 bg-slate-200 mt-2" />
+                  )}
+                </div>
+
+                {/* 3. Release Card Column (Takes full width on mobile, remaining width on desktop) */}
+                <div className="flex-1 min-w-0">
+                  <div
+                    className={`bg-white rounded-3xl p-5 sm:p-7 border transition-all ${
                       isLatest
                         ? 'border-emerald-300/90 shadow-md ring-1 ring-emerald-500/20'
                         : 'border-slate-200/80 shadow-xs hover:border-slate-300 hover:shadow-sm'
                     }`}
                   >
+                    {/* Header Row: Version, Tag, and (Mobile & Tablet) Date & Build */}
+                    <div className="flex flex-wrap items-center justify-between gap-3 mb-4 pb-4 border-b border-slate-100">
+                      <div className="flex items-center gap-2.5 flex-wrap">
+                        <span className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+                          {rel.version}
+                        </span>
+                        <span
+                          className={`text-[10px] sm:text-[11px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full ${
+                            rel.tag === 'Latest'
+                              ? 'bg-emerald-600 text-white shadow-2xs'
+                              : rel.tag === 'Major Release'
+                              ? 'bg-emerald-100 text-emerald-800 border border-emerald-300/80'
+                              : rel.tag === 'Feature Update'
+                              ? 'bg-teal-100 text-teal-800 border border-teal-300/80'
+                              : 'bg-slate-100 text-slate-700 border border-slate-200'
+                          }`}
+                        >
+                          {rel.tag}
+                        </span>
+                      </div>
+
+                      {/* Date & Build Info in Card Header */}
+                      <div className="flex items-center gap-2.5 text-xs text-slate-500 font-medium">
+                        <span className="flex items-center gap-1">
+                          <Calendar className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                          <span>{rel.releaseDate}</span>
+                        </span>
+                        <span className="text-[11px] text-slate-400 bg-slate-100 px-2 py-0.5 rounded-md font-semibold">
+                          Build {rel.buildNumber}
+                        </span>
+                      </div>
+                    </div>
+
                     {/* Headline */}
                     <h2 className="text-lg sm:text-xl font-black text-slate-900 mb-2 leading-snug tracking-tight">
                       {rel.headline}
@@ -304,9 +318,9 @@ export default function ChangelogPage({ onNavigateHome }: ChangelogPageProps) {
                     )}
                   </div>
                 </div>
-              );
-            })}
-          </div>
+              </div>
+            );
+          })}
         </div>
 
         {/* Engineering Support Box */}
