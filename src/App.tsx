@@ -10,12 +10,10 @@ import FamilyHubSection from './components/FamilyHubSection';
 import DailyJournalSection from './components/DailyJournalSection';
 import InteractiveTour from './components/InteractiveTour';
 import TestimonialsSection from './components/TestimonialsSection';
-import CaretakerStories from './components/home/CaretakerStories';
 import SpeciesGrid from './components/home/SpeciesGrid';
 import DayTimeline from './components/home/DayTimeline';
 import PricingSection from './components/PricingSection';
 import FAQSection from './components/FAQSection';
-import HomeBlogSection from './components/HomeBlogSection';
 import ContactUs from './components/ContactUs';
 import DownloadCTA from './components/DownloadCTA';
 import Footer from './components/Footer';
@@ -148,17 +146,10 @@ export default function App() {
           <DailyJournalSection />
           <InteractiveTour />
           <TestimonialsSection />
-          <CaretakerStories />
           <SpeciesGrid />
           <DayTimeline />
           <PricingSection />
           <FAQSection />
-          <div className="hidden md:block">
-            <HomeBlogSection
-              onNavigateBlog={() => navigateTo('blog')}
-              onSelectArticle={(slug) => navigateToArticle(slug)}
-            />
-          </div>
           <ContactUs />
           <DownloadCTA
             onOpenQrModal={() => setIsQrModalOpen(true)}
