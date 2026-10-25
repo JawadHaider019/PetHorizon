@@ -381,6 +381,24 @@ export default function ChangelogPage({ onNavigateHome }: ChangelogPageProps) {
                 </motion.div>
               );
             })}
+
+            {/* Clean Timeline Terminus / Milestone Endpoint */}
+            {selectedTag === 'All' && !searchQuery && filteredReleases.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+                className="flex items-center gap-3 pt-2 select-none lg:pl-[184px]"
+              >
+                <div className="w-8 flex items-center justify-center shrink-0">
+                  <div className="w-2.5 h-2.5 rounded-full bg-slate-300 ring-4 ring-slate-100" />
+                </div>
+                <span className="text-[11px] sm:text-xs font-semibold text-slate-400 tracking-wide">
+                  August 12, 2026 · Pet Horizon Founded (Inaugural Release)
+                </span>
+              </motion.div>
+            )}
           </div>
         </div>
 
