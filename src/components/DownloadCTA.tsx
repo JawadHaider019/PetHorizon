@@ -77,6 +77,7 @@ export default function DownloadCTA({ onOpenQrModal, onOpenIosModal }: DownloadC
                     src="/cute-3d-pets.jpg"
                     alt="Pet Horizon 3D Mascot Companions - Golden Retriever Puppy and Fluffy Kitten"
                     className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                    style={{ mixBlendMode: 'multiply' }}
                   />
                   <div className="p-3.5 bg-gradient-to-r from-emerald-950 via-[#144917] to-emerald-900 text-white text-center">
                     <p className="text-xs font-bold text-emerald-200">

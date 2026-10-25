@@ -33,11 +33,12 @@ export default function SpeciesGrid() {
               <div>
                 {/* 3D Mascot Avatar */}
                 <div className="mb-4">
-                  <div className="w-16 h-16 rounded-2xl overflow-hidden border border-emerald-100 shadow-xs group-hover:scale-105 transition-transform bg-white">
+                  <div className="w-16 h-16 rounded-2xl overflow-hidden group-hover:scale-105 transition-transform">
                     <img
                       src={spec.mascotImage}
                       alt={`${spec.name} 3D Mascot`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
+                      style={{ mixBlendMode: 'multiply' }}
                       loading="lazy"
                     />
                   </div>
