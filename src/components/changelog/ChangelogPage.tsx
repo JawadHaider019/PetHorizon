@@ -198,17 +198,12 @@ export default function ChangelogPage({ onNavigateHome }: ChangelogPageProps) {
           )}
         </AnimatePresence>
 
-        {/* Connected Timeline Rail Container (Unbroken, Continuous Spine) */}
+        {/* Connected Timeline Rail Container (Terminates Cleanly at Final Release) */}
         <div className="relative">
-          {/* Continuous Desktop Spine Rail: runs seamlessly from the first node to the last node with ZERO breaks or gaps */}
-          <div className="hidden lg:block absolute left-[200px] -translate-x-1/2 top-7 bottom-10 w-0.5 bg-slate-200 pointer-events-none" />
-
-          {/* Continuous Mobile Spine Rail: runs down the left edge behind mobile node markers */}
-          <div className="lg:hidden absolute left-[15px] top-6 bottom-10 w-0.5 bg-slate-200 pointer-events-none" />
-
           <div className="space-y-6 sm:space-y-8 relative z-10">
             {filteredReleases.map((rel: ChangelogRelease, index: number) => {
               const isLatest = rel.tag === 'Latest' || index === 0;
+              const isLast = index === filteredReleases.length - 1;
 
               return (
                 <motion.div
@@ -233,10 +228,15 @@ export default function ChangelogPage({ onNavigateHome }: ChangelogPageProps) {
                     </span>
                   </div>
 
-                  {/* 2. Desktop Timeline Node Marker (Centered over continuous spine line) */}
-                  <div className="hidden lg:flex flex-col items-center shrink-0 w-8 select-none">
+                  {/* 2. Desktop Timeline Node Marker (Line connects to next node only, cleanly stopping at last item) */}
+                  <div className="hidden lg:flex flex-col items-center shrink-0 w-8 select-none pt-4.5 relative">
+                    {/* Connecting line to next release node (never renders on last item) */}
+                    {!isLast && (
+                      <div className="w-0.5 absolute top-8 -bottom-[64px] bg-slate-200 pointer-events-none z-0" />
+                    )}
+
                     <div
-                      className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 shadow-xs z-10 transition-transform duration-200 group-hover:scale-110 mt-4.5 ${
+                      className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 shadow-xs z-10 transition-transform duration-200 group-hover:scale-110 ${
                         isLatest
                           ? 'bg-emerald-600 text-white ring-4 ring-emerald-100 shadow-emerald-600/20'
                           : 'bg-white text-slate-600 border-2 border-slate-300 ring-4 ring-[#FDFDFC]'
@@ -248,8 +248,12 @@ export default function ChangelogPage({ onNavigateHome }: ChangelogPageProps) {
 
                   {/* 3. Mobile Wrapper + Release Card Column */}
                   <div className="flex-1 min-w-0 flex items-start gap-3 sm:gap-4 lg:gap-0">
-                    {/* Mobile Timeline Node (Centered over mobile continuous spine line) */}
-                    <div className="lg:hidden flex flex-col items-center shrink-0 w-8 select-none pt-4">
+                    {/* Mobile Timeline Node (Line connects to next node only, cleanly stopping at last item) */}
+                    <div className="lg:hidden flex flex-col items-center shrink-0 w-8 select-none pt-4 relative">
+                      {!isLast && (
+                        <div className="w-0.5 absolute top-7 -bottom-[56px] bg-slate-200 pointer-events-none z-0" />
+                      )}
+
                       <div
                         className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 shadow-xs z-10 ${
                           isLatest
