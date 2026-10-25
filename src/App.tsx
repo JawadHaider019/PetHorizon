@@ -57,7 +57,6 @@ export default function App() {
         currentView={navbarActiveView}
         onNavigate={(view, hash) => navigateTo(view, hash)}
         onOpenQrModal={() => setIsQrModalOpen(true)}
-        onNavigateChangelog={() => navigateTo('changelog')}
       />
 
       {/* Blog Article View */}
