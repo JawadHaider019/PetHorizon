@@ -1,4 +1,4 @@
-import { ShieldCheck, Sparkles } from 'lucide-react';
+import { ShieldCheck } from 'lucide-react';
 import { SUPPORT_EMAIL } from '../../config/siteConfig';
 
 interface FooterDesktopColumnsProps {
@@ -76,8 +76,7 @@ export default function FooterDesktopColumns({
               className="text-slate-600 hover:text-emerald-700 transition-colors font-medium text-left cursor-pointer flex items-center gap-1.5"
             >
               <span>App Changelog &amp; Notes</span>
-              <span className="text-[9px] font-bold uppercase tracking-wider bg-teal-100 text-teal-800 border border-teal-300 px-1.5 py-0.2 rounded-full whitespace-nowrap flex items-center gap-0.5">
-                <Sparkles className="w-2.5 h-2.5 text-teal-600" />
+              <span className="text-[9px] font-bold uppercase tracking-wider bg-teal-100 text-teal-800 border border-teal-300 px-1.5 py-0.5 rounded-full whitespace-nowrap">
                 v1.0.10
               </span>
             </button>
