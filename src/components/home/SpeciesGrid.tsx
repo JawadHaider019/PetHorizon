@@ -33,14 +33,11 @@ export default function SpeciesGrid() {
               <div>
                 {/* 3D Mascot Avatar */}
                 <div className="mb-4">
-                  <div className="relative w-16 h-16 flex items-center justify-center">
-                    {/* Emerald blob — gives mix-blend-mode: multiply a surface to work against */}
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-emerald-100 to-green-200/70" />
+                  <div className="w-16 h-16 rounded-full overflow-hidden bg-emerald-50 border border-emerald-100 shadow-xs group-hover:scale-105 transition-transform">
                     <img
                       src={spec.mascotImage}
                       alt={`${spec.name} 3D Mascot`}
-                      className="relative w-full h-full object-contain group-hover:scale-105 transition-transform"
-                      style={{ mixBlendMode: 'multiply' }}
+                      className="w-full h-full object-cover object-top"
                       loading="lazy"
                     />
                   </div>
