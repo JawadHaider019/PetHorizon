@@ -71,9 +71,11 @@ export default function TestimonialsSection() {
                     ))}
                   </div>
 
-                  <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-800 text-[10px] font-bold whitespace-nowrap shrink-0">
-                    <CheckCircle2 className="w-2.5 h-2.5 text-emerald-600 shrink-0" />
-                    <span>Verified</span>
+                  <div className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold whitespace-nowrap shrink-0 border ${
+                    item.badgeStyle || 'bg-emerald-50 border-emerald-100 text-emerald-800'
+                  }`}>
+                    <CheckCircle2 className={`w-2.5 h-2.5 shrink-0 ${item.badgeIconColor || 'text-emerald-600'}`} />
+                    <span>{item.badgeText || 'Verified'}</span>
                   </div>
                 </div>
 
@@ -142,9 +144,11 @@ export default function TestimonialsSection() {
                     ))}
                   </div>
 
-                  <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-800 text-[10px] font-bold whitespace-nowrap shrink-0">
-                    <CheckCircle2 className="w-2.5 h-2.5 text-emerald-600 shrink-0" />
-                    <span>Verified</span>
+                  <div className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold whitespace-nowrap shrink-0 border ${
+                    item.badgeStyle || 'bg-emerald-50 border-emerald-100 text-emerald-800'
+                  }`}>
+                    <CheckCircle2 className={`w-2.5 h-2.5 shrink-0 ${item.badgeIconColor || 'text-emerald-600'}`} />
+                    <span>{item.badgeText || 'Verified'}</span>
                   </div>
                 </div>
 

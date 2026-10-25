@@ -8,6 +8,9 @@ export interface PlayStoreReview {
   review: string;
   avatarBg: string;
   avatarText: string;
+  badgeText?: string;
+  badgeStyle?: string;
+  badgeIconColor?: string;
 }
 
 export const PLAY_STORE_REVIEWS: PlayStoreReview[] = [
@@ -22,6 +25,21 @@ export const PLAY_STORE_REVIEWS: PlayStoreReview[] = [
       'Really useful and user-friendly app for pet lovers. The interface is clean, easy to navigate, and makes managing pet schedules simple. Everything is smooth and organized. Highly recommended! 🐾❤️',
     avatarBg: 'bg-emerald-100 text-emerald-800 border-emerald-200',
     avatarText: 'LB'
+  },
+  {
+    id: 'tmb-1',
+    name: 'Jan',
+    date: 'Oct 2026',
+    rating: 5,
+    petContext: 'TestMyBuild Reviewer',
+    tag: 'UI & Onboarding',
+    review:
+      'Pet Horizon has a really clean, intuitive UI and a well-designed onboarding experience that clearly explains the app’s core features. Adding a pet and setting up its profile is quick and straightforward, and the overall experience feels polished and easy to navigate. The app has a strong concept, and its family-sharing features offer real potential for making pet care more organized.',
+    avatarBg: 'bg-violet-100 text-violet-800 border-violet-200',
+    avatarText: 'JN',
+    badgeText: 'TestMyBuild',
+    badgeStyle: 'bg-indigo-50 border-indigo-100 text-indigo-700',
+    badgeIconColor: 'text-indigo-600'
   },
   {
     id: '2',
@@ -46,6 +64,21 @@ export const PLAY_STORE_REVIEWS: PlayStoreReview[] = [
       'Nice app, very useful for my snow cat. I like the routine tracking a lot. Upgrading to the premium version so I can add and manage all my pets in one unified place.',
     avatarBg: 'bg-sky-100 text-sky-800 border-sky-200',
     avatarText: 'AB'
+  },
+  {
+    id: 'tmb-2',
+    name: 'Eithan',
+    date: 'Oct 2026',
+    rating: 5,
+    petContext: 'TestMyBuild Reviewer',
+    tag: 'Pet Management',
+    review:
+      'Pet Horizon stands out with its professional presentation, clear onboarding, and thoughtful pet management experience. The app looks great on the Play Store, and adding pets or updating their details works really well. I think the idea behind the app is genuinely good, with strong potential to help pet owners stay organized and manage their pets’ daily care more effectively.',
+    avatarBg: 'bg-fuchsia-100 text-fuchsia-800 border-fuchsia-200',
+    avatarText: 'ET',
+    badgeText: 'TestMyBuild',
+    badgeStyle: 'bg-indigo-50 border-indigo-100 text-indigo-700',
+    badgeIconColor: 'text-indigo-600'
   },
   {
     id: '4',
