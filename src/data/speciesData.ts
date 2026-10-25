@@ -1,7 +1,7 @@
 export interface SpeciesDetail {
   id: string;
   name: string;
-  emoji: string;
+  mascotImage: string;
   subtitle: string;
   badgeBg: string;
   badgeText: string;
@@ -14,7 +14,7 @@ export const SPECIES_LIST: SpeciesDetail[] = [
   {
     id: 'dogs',
     name: 'Dogs & Puppies',
-    emoji: '🐕',
+    mascotImage: '/mascots/dog.jpg',
     subtitle: 'From puppy potty training to senior joint therapy',
     badgeBg: 'bg-emerald-50 border border-emerald-200/80',
     badgeText: 'text-emerald-800',
@@ -25,7 +25,7 @@ export const SPECIES_LIST: SpeciesDetail[] = [
   {
     id: 'cats',
     name: 'Cats & Kittens',
-    emoji: '🐈',
+    mascotImage: '/mascots/cat.jpg',
     subtitle: 'Litter box habits, hydration, and silent stress indicators',
     badgeBg: 'bg-emerald-100/80 border border-emerald-300/70',
     badgeText: 'text-emerald-900',
@@ -36,7 +36,7 @@ export const SPECIES_LIST: SpeciesDetail[] = [
   {
     id: 'rabbits',
     name: 'Rabbits & Small Pets',
-    emoji: '🐇',
+    mascotImage: '/mascots/rabbit.jpg',
     subtitle: 'GI stasis risk alerts, hay intake, and gentle grooming logs',
     badgeBg: 'bg-teal-50 border border-teal-200/80',
     badgeText: 'text-teal-800',
@@ -47,7 +47,7 @@ export const SPECIES_LIST: SpeciesDetail[] = [
   {
     id: 'birds',
     name: 'Birds & Parrots',
-    emoji: '🦜',
+    mascotImage: '/mascots/bird.jpg',
     subtitle: 'UV exposure hours, molt cycles, and specialized avian diets',
     badgeBg: 'bg-emerald-50 border border-emerald-200/80',
     badgeText: 'text-emerald-800',
@@ -58,7 +58,7 @@ export const SPECIES_LIST: SpeciesDetail[] = [
   {
     id: 'aquatics',
     name: 'Aquatics & Amphibians',
-    emoji: '🐠',
+    mascotImage: '/mascots/fish.jpg',
     subtitle: 'Water parameter tracking, filter changes, and feeding schedules',
     badgeBg: 'bg-teal-50 border border-teal-200/80',
     badgeText: 'text-teal-800',

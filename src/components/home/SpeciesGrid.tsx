@@ -31,10 +31,15 @@ export default function SpeciesGrid() {
               className="bg-white/95 rounded-3xl p-5 sm:p-6 border border-slate-200/80 hover:border-emerald-400 hover:shadow-xl hover:shadow-emerald-950/5 transition-all flex flex-col justify-between group"
             >
               <div>
-                {/* Top Emoji & Badge */}
+                {/* Top 3D Mascot & Badge */}
                 <div className="flex items-center justify-between gap-2 mb-4">
-                  <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-2xl shadow-xs group-hover:scale-110 transition-transform select-none">
-                    {spec.emoji}
+                  <div className="w-14 h-14 rounded-2xl overflow-hidden border-2 border-emerald-100/80 shadow-xs group-hover:scale-105 transition-transform bg-white shrink-0">
+                    <img
+                      src={spec.mascotImage}
+                      alt={`${spec.name} 3D Mascot`}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
                   </div>
                   <span className={`text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full ${spec.badgeBg} ${spec.badgeText}`}>
                     {spec.statBadge}
