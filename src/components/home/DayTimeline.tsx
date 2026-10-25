@@ -1,5 +1,31 @@
-import { Clock, CheckCircle2, ShieldCheck } from 'lucide-react';
-import { DAY_TIMELINE_EVENTS } from '../../data/timelineData';
+import {
+  Clock,
+  CheckCircle2,
+  ShieldCheck,
+  UtensilsCrossed,
+  Pill,
+  Footprints,
+  Users,
+  Camera
+} from 'lucide-react';
+import { DAY_TIMELINE_EVENTS, DayTimelineEvent } from '../../data/timelineData';
+
+const renderEventIcon = (type: DayTimelineEvent['iconType'], className = 'w-4 h-4') => {
+  switch (type) {
+    case 'nutrition':
+      return <UtensilsCrossed className={className} />;
+    case 'medication':
+      return <Pill className={className} />;
+    case 'exercise':
+      return <Footprints className={className} />;
+    case 'family':
+      return <Users className={className} />;
+    case 'journal':
+      return <Camera className={className} />;
+    default:
+      return <CheckCircle2 className={className} />;
+  }
+};
 
 export default function DayTimeline() {
   return (
@@ -7,7 +33,7 @@ export default function DayTimeline() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
             <Clock className="w-3.5 h-3.5 text-emerald-600" />
             <span>A Day in Pet Horizon</span>
           </div>
@@ -24,14 +50,14 @@ export default function DayTimeline() {
           {DAY_TIMELINE_EVENTS.map((event) => (
             <div key={event.id} className="relative group">
               {/* Timeline Node Icon on the vertical border */}
-              <div className="absolute -left-[35px] top-0 w-8 h-8 rounded-full bg-white border-2 border-emerald-500 flex items-center justify-center text-sm shadow-xs select-none">
-                {event.avatarIcon}
+              <div className="absolute -left-[35px] top-0 w-8 h-8 rounded-full bg-emerald-50 border-2 border-emerald-500 flex items-center justify-center text-emerald-700 shadow-xs">
+                {renderEventIcon(event.iconType, 'w-3.5 h-3.5 text-emerald-600')}
               </div>
 
               {/* Event Card */}
               <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-xs">
                 <div className="flex items-center justify-between gap-2 mb-2 flex-wrap">
-                  <span className="text-xs font-black text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full">
+                  <span className="text-xs font-black text-emerald-800 bg-emerald-50 border border-emerald-200/80 px-2.5 py-0.5 rounded-full">
                     {event.time} &bull; {event.period}
                   </span>
                   <span className="text-[10px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full flex items-center gap-1">
@@ -70,8 +96,8 @@ export default function DayTimeline() {
                 <div>
                   {/* Step Icon with sequence badge */}
                   <div className="flex items-center justify-between gap-2 mb-4">
-                    <div className="w-11 h-11 rounded-2xl bg-emerald-50 border border-emerald-200/80 flex items-center justify-center text-xl shadow-xs group-hover:scale-105 transition-transform select-none">
-                      {event.avatarIcon}
+                    <div className="w-11 h-11 rounded-2xl bg-emerald-50 border border-emerald-200/80 flex items-center justify-center text-emerald-700 shadow-xs group-hover:scale-105 transition-transform">
+                      {renderEventIcon(event.iconType, 'w-5 h-5 text-emerald-600')}
                     </div>
                     <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full">
                       Step {index + 1}

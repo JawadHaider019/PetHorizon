@@ -4,7 +4,7 @@ export interface DayTimelineEvent {
   period: 'Morning' | 'Noon' | 'Evening' | 'Night';
   title: string;
   description: string;
-  avatarIcon: string;
+  iconType: 'nutrition' | 'medication' | 'exercise' | 'family' | 'journal';
   category: 'Nutrition' | 'Medication' | 'Exercise' | 'Family' | 'Journal';
   status: 'Completed' | 'Logged' | 'Synced';
   metaNote: string;
@@ -17,7 +17,7 @@ export const DAY_TIMELINE_EVENTS: DayTimelineEvent[] = [
     period: 'Morning',
     title: 'Breakfast & Fresh Water Sync',
     description: 'Mom checks off the morning kibble with bone broth topping. All 3 family devices instantly mark breakfast as done.',
-    avatarIcon: '🥣',
+    iconType: 'nutrition',
     category: 'Nutrition',
     status: 'Completed',
     metaNote: 'Zero accidental double-feeding'
@@ -28,7 +28,7 @@ export const DAY_TIMELINE_EVENTS: DayTimelineEvent[] = [
     period: 'Morning',
     title: 'Thyroid Medication Logged',
     description: 'Smart high-priority notification chimes on dad’s phone. Dose confirmed with 1 tap.',
-    avatarIcon: '💊',
+    iconType: 'medication',
     category: 'Medication',
     status: 'Completed',
     metaNote: 'Logged with photo verification'
@@ -39,7 +39,7 @@ export const DAY_TIMELINE_EVENTS: DayTimelineEvent[] = [
     period: 'Noon',
     title: 'Mid-Day Trail Walk & Potty Check',
     description: 'Son takes Luna for a 25-minute brisk walk. GPS distance and bathroom stop recorded to the shared pet card.',
-    avatarIcon: '🐕‍🦺',
+    iconType: 'exercise',
     category: 'Exercise',
     status: 'Logged',
     metaNote: '1.4 miles logged · Hydration verified'
@@ -50,7 +50,7 @@ export const DAY_TIMELINE_EVENTS: DayTimelineEvent[] = [
     period: 'Evening',
     title: 'Dinner & Joint Supplement',
     description: 'Glucosamine chew given with evening dinner. Shared family feed syncs live to avoid confusion.',
-    avatarIcon: '🥗',
+    iconType: 'family',
     category: 'Family',
     status: 'Synced',
     metaNote: '4 family members in sync'
@@ -61,7 +61,7 @@ export const DAY_TIMELINE_EVENTS: DayTimelineEvent[] = [
     period: 'Night',
     title: 'Photo Memory & Health Notes',
     description: 'Snap a bedtime cuddle photo with weight note into the encrypted lifetime health journal.',
-    avatarIcon: '📸',
+    iconType: 'journal',
     category: 'Journal',
     status: 'Completed',
     metaNote: 'Backed up to private cloud'

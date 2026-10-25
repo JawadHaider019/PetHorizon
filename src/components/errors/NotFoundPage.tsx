@@ -1,4 +1,4 @@
-import { Home, Compass, PawPrint, ArrowLeft } from 'lucide-react';
+import { Home, Compass, ArrowLeft } from 'lucide-react';
 
 interface NotFoundPageProps {
   onNavigateHome: () => void;
@@ -9,9 +9,13 @@ export default function NotFoundPage({ onNavigateHome, onNavigateBlog }: NotFoun
   return (
     <div className="min-h-screen bg-[#FDFDFC] text-slate-800 antialiased flex items-center justify-center pt-24 pb-16 px-4">
       <div className="max-w-md w-full text-center">
-        {/* Animated Paw Icon */}
-        <div className="w-20 h-20 mx-auto mb-6 rounded-3xl bg-emerald-100/80 text-emerald-600 flex items-center justify-center border border-emerald-200/60 shadow-xs">
-          <PawPrint className="w-10 h-10 animate-bounce" />
+        {/* 3D Detective Puppy Mascot */}
+        <div className="w-32 h-32 mx-auto mb-6 rounded-3xl overflow-hidden border-2 border-emerald-500/20 shadow-xl shadow-emerald-950/10 bg-white p-1">
+          <img
+            src="/mascots/404-detective.jpg"
+            alt="Pet Horizon Detective Mascot"
+            className="w-full h-full object-cover rounded-2xl"
+          />
         </div>
 
         {/* Status Tag */}
@@ -25,9 +29,9 @@ export default function NotFoundPage({ onNavigateHome, onNavigateBlog }: NotFoun
         </h1>
 
         {/* Description */}
-        <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-8">
+        <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-8 font-normal">
           We couldn&apos;t find the page you were looking for. It might have been moved, renamed,
-          or Luna might have chased it into the backyard.
+          or our puppy detective is still tracking down the link.
         </p>
 
         {/* Action Buttons */}
