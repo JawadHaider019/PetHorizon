@@ -99,7 +99,7 @@ export default function NotFoundPage({ onNavigateHome, onNavigateBlog }: NotFoun
             alt="Pet Horizon Detective Puppy"
             animate={{ y: [0, -14, 0] }}
             transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
-            className="w-48 h-48 sm:w-56 sm:h-56 object-contain"
+            className="w-64 h-64 sm:w-72 sm:h-72 object-contain"
             style={{ filter: 'drop-shadow(0 24px 48px rgba(0,0,0,0.13)) drop-shadow(0 8px 16px rgba(46,125,50,0.10))' }}
           />
           {/* Breathing ground shadow */}
