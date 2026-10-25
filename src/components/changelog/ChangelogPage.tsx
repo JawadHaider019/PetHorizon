@@ -133,7 +133,7 @@ export default function ChangelogPage({ onNavigateHome }: ChangelogPageProps) {
                 >
                   <span>{tag === 'All' ? 'All Releases' : tag}</span>
                   <span
-                    className={`text-[10px] px-1.5 py-0.2 rounded-full font-black ${
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-black ${
                       isSelected ? 'bg-emerald-700/80 text-white' : 'bg-slate-200 text-slate-500'
                     }`}
                   >
@@ -154,7 +154,7 @@ export default function ChangelogPage({ onNavigateHome }: ChangelogPageProps) {
               placeholder="Search release notes..."
               className="w-full pl-9 pr-8 py-2 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 text-slate-800 placeholder-slate-400 transition-all"
             />
-            {searchQuery && (
+            {searchQuery ? (
               <button
                 onClick={() => setSearchQuery('')}
                 className="absolute right-2.5 top-1/2 -translate-y-1/2 p-1 rounded-md text-slate-400 hover:text-slate-600 cursor-pointer"
@@ -162,13 +162,13 @@ export default function ChangelogPage({ onNavigateHome }: ChangelogPageProps) {
               >
                 <X className="w-3.5 h-3.5" />
               </button>
-            )}
+            ) : null}
           </div>
         </motion.div>
 
         {/* Empty State when filters yield no results */}
         <AnimatePresence>
-          {filteredReleases.length === 0 && (
+          {filteredReleases.length === 0 ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -195,7 +195,7 @@ export default function ChangelogPage({ onNavigateHome }: ChangelogPageProps) {
                 Reset Filters
               </button>
             </motion.div>
-          )}
+          ) : null}
         </AnimatePresence>
 
         {/* Connected Timeline Rail Container (Terminates Cleanly at Final Release) */}
@@ -231,15 +231,15 @@ export default function ChangelogPage({ onNavigateHome }: ChangelogPageProps) {
                   {/* 2. Desktop Timeline Node Marker (Line connects to next node only, cleanly stopping at last item) */}
                   <div className="hidden lg:flex flex-col items-center shrink-0 w-8 select-none pt-4.5 relative">
                     {/* Connecting line to next release node (never renders on last item) */}
-                    {!isLast && (
-                      <div className="w-0.5 absolute top-8 -bottom-[64px] bg-slate-200 pointer-events-none z-0" />
-                    )}
+                    {!isLast ? (
+                      <div className="w-0.5 absolute top-8 -bottom-[64px] bg-slate-200 pointer-events-none z-0"></div>
+                    ) : null}
 
                     <div
                       className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 shadow-xs z-10 transition-transform duration-200 group-hover:scale-110 ${
                         isLatest
                           ? 'bg-emerald-600 text-white ring-4 ring-emerald-100 shadow-emerald-600/20'
-                          : 'bg-white text-slate-600 border-2 border-slate-300 ring-4 ring-[#FDFDFC]'
+                          : 'bg-white text-slate-600 border-2 border-slate-300 ring-4 ring-slate-50'
                       }`}
                     >
                       <GitCommit className="w-4 h-4" />
@@ -250,15 +250,15 @@ export default function ChangelogPage({ onNavigateHome }: ChangelogPageProps) {
                   <div className="flex-1 min-w-0 flex items-start gap-3 sm:gap-4 lg:gap-0">
                     {/* Mobile Timeline Node (Line connects to next node only, cleanly stopping at last item) */}
                     <div className="lg:hidden flex flex-col items-center shrink-0 w-8 select-none pt-4 relative">
-                      {!isLast && (
-                        <div className="w-0.5 absolute top-7 -bottom-[56px] bg-slate-200 pointer-events-none z-0" />
-                      )}
+                      {!isLast ? (
+                        <div className="w-0.5 absolute top-7 -bottom-[56px] bg-slate-200 pointer-events-none z-0"></div>
+                      ) : null}
 
                       <div
                         className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 shadow-xs z-10 ${
                           isLatest
                             ? 'bg-emerald-600 text-white ring-4 ring-emerald-100 shadow-emerald-600/20'
-                            : 'bg-white text-slate-600 border-2 border-slate-300 ring-4 ring-[#FDFDFC]'
+                            : 'bg-white text-slate-600 border-2 border-slate-300 ring-4 ring-slate-50'
                         }`}
                       >
                         <GitCommit className="w-3.5 h-3.5" />
@@ -277,12 +277,12 @@ export default function ChangelogPage({ onNavigateHome }: ChangelogPageProps) {
                       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 mb-4 pb-4 border-b border-slate-100">
                         <div className="flex items-center gap-2.5 flex-wrap">
                           {/* Live pulse dot indicator on latest release */}
-                          {isLatest && (
+                          {isLatest ? (
                             <span className="flex h-2 w-2 relative shrink-0">
                               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
                             </span>
-                          )}
+                          ) : null}
 
                           <span className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
                             {rel.version}
@@ -351,7 +351,7 @@ export default function ChangelogPage({ onNavigateHome }: ChangelogPageProps) {
                       </div>
 
                       {/* Semantic Category Block 2: Fixes & Stability (if present) */}
-                      {rel.bugFixes && rel.bugFixes.length > 0 && (
+                      {rel.bugFixes && rel.bugFixes.length > 0 ? (
                         <div className="bg-amber-50/40 rounded-2xl p-3.5 sm:p-5 border border-amber-200/50">
                           <div className="flex items-center gap-2 mb-2.5 sm:mb-3">
                             <span className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-amber-100 text-amber-900 border border-amber-200/90">
@@ -369,13 +369,13 @@ export default function ChangelogPage({ onNavigateHome }: ChangelogPageProps) {
                                 key={fIdx}
                                 className="text-xs sm:text-sm text-slate-600 flex items-start gap-2 sm:gap-2.5 leading-relaxed"
                               >
-                                <span className="w-1.5 h-1.5 rounded-full bg-amber-600 shrink-0 mt-2" />
+                                <span className="w-1.5 h-1.5 rounded-full bg-amber-600 shrink-0 mt-2"></span>
                                 <span>{fix}</span>
                               </li>
                             ))}
                           </ul>
                         </div>
-                      )}
+                      ) : null}
                     </div>
                   </div>
                 </motion.div>
@@ -383,7 +383,7 @@ export default function ChangelogPage({ onNavigateHome }: ChangelogPageProps) {
             })}
 
             {/* Clean Timeline Terminus / Milestone Endpoint */}
-            {selectedTag === 'All' && !searchQuery && filteredReleases.length > 0 && (
+            {selectedTag === 'All' && !searchQuery && filteredReleases.length > 0 ? (
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -392,13 +392,13 @@ export default function ChangelogPage({ onNavigateHome }: ChangelogPageProps) {
                 className="flex items-center gap-3 pt-2 select-none lg:pl-[184px]"
               >
                 <div className="w-8 flex items-center justify-center shrink-0">
-                  <div className="w-2.5 h-2.5 rounded-full bg-slate-300 ring-4 ring-slate-100" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-slate-300 ring-4 ring-slate-100"></div>
                 </div>
                 <span className="text-[11px] sm:text-xs font-semibold text-slate-400 tracking-wide">
                   August 12, 2026 · Pet Horizon Founded (Inaugural Release)
                 </span>
               </motion.div>
-            )}
+            ) : null}
           </div>
         </div>
 
