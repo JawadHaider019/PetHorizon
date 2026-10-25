@@ -7,9 +7,10 @@ import {
   ShieldCheck
 } from 'lucide-react';
 
-export const DISPLAY_SUPPORT_EMAIL = 'pethorizon2026@gmail.com';
-export const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon';
-export const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mnppnazk';
+import { SUPPORT_EMAIL, PLAY_STORE_URL, FORMSPREE_ENDPOINT } from '../../config/siteConfig';
+
+export const DISPLAY_SUPPORT_EMAIL = SUPPORT_EMAIL;
+export { PLAY_STORE_URL, FORMSPREE_ENDPOINT };
 
 export interface TopicOption {
   id: string;

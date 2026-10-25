@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
 import { GooglePlayBadge, AppStoreBadge, QrScanButton } from './AppBadges';
+import { PLAY_STORE_URL } from '../config/siteConfig';
 
 interface DownloadCTAProps {
   onOpenQrModal?: () => void;
@@ -8,7 +9,7 @@ interface DownloadCTAProps {
 }
 
 export default function DownloadCTA({ onOpenQrModal, onOpenIosModal }: DownloadCTAProps) {
-  const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon';
+  const playStoreUrl = PLAY_STORE_URL;
 
   return (
     <section className="py-16 sm:py-24 bg-gradient-to-b from-white to-emerald-50/60 relative overflow-hidden">

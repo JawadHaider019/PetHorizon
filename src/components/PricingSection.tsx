@@ -2,10 +2,11 @@ import { useState } from 'react';
 import { Check } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PRICING_PLANS } from '../data/pricingData';
+import { PLAY_STORE_URL } from '../config/siteConfig';
 
 export default function PricingSection() {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('yearly');
-  const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon';
+  const playStoreUrl = PLAY_STORE_URL;
 
   return (
     <section id="pricing" className="py-12 sm:py-24 bg-[#F5F6F8] relative overflow-hidden">
