@@ -16,10 +16,27 @@ export default function BlogHub({ onSelectArticle }: BlogHubProps) {
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredPosts = BLOG_POSTS.filter((post) => {
+    const postTags = post.tags.map((t) => t.toLowerCase());
     const matchesCategory =
       selectedCategory === 'All Stories' ||
       selectedCategory === 'All Articles' ||
-      post.category === selectedCategory;
+      post.category === selectedCategory ||
+      (selectedCategory === 'Puppies & Kittens' &&
+        postTags.some((t) => t.includes('puppy') || t.includes('kitten'))) ||
+      (selectedCategory === 'Safety & Emergencies' &&
+        postTags.some((t) =>
+          ['emergency', 'poison', 'toxic', 'first aid', 'safety', 'hypothermia', 'heatstroke', 'bloat'].some((k) =>
+            t.includes(k)
+          )
+        )) ||
+      (selectedCategory === 'Training & Behavior' &&
+        postTags.some((t) =>
+          ['training', 'behavior', 'anxiety', 'potty', 'crate', 'litter box'].some((k) => t.includes(k))
+        )) ||
+      (selectedCategory === 'Pet Tech & Apps' &&
+        postTags.some((t) =>
+          ['app', 'tech', 'tracker', 'gps', 'wearable'].some((k) => t.includes(k))
+        ));
 
     const q = searchQuery.toLowerCase().trim();
     if (!q) return matchesCategory;

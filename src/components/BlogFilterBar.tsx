@@ -11,9 +11,13 @@ export const BLOG_CATEGORIES = [
   'All Stories',
   'Dog Care',
   'Cat Care',
+  'Puppies & Kittens',
   'Feeding & Nutrition',
   'Health & Vaccines',
-  'Family & Routine'
+  'Safety & Emergencies',
+  'Training & Behavior',
+  'Family & Routine',
+  'Pet Tech & Apps'
 ];
 
 export default function BlogFilterBar({
