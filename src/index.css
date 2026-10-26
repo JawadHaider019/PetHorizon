@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #2E7D32;
+  --color-primary-dark: #1B5E20;
+  --color-primary-light: #E8F5E9;
+  --color-navy: #1A2B4E;
+  --color-amber: #E67E22;
+
+  /* Pet Horizon Exact App Brand Colors (from PetHorizon_App theme) */
+  --color-emerald-50: #E8F5E9;
+  --color-emerald-100: #C8E6C9;
+  --color-emerald-200: #A5D6A7;
+  --color-emerald-300: #81C784;
+  --color-emerald-400: #4CAF50;
+  --color-emerald-500: #388E3C;
+  --color-emerald-600: #2E7D32;
+  --color-emerald-700: #1B5E20;
+  --color-emerald-800: #144917;
+  --color-emerald-900: #0D300F;
+  --color-emerald-950: #071C09;
+
+  /* Map teal to harmonious app greens so no off-brand cyan/teal hues appear */
+  --color-teal-50: #E8F5E9;
+  --color-teal-100: #C8E6C9;
+  --color-teal-200: #A5D6A7;
+  --color-teal-300: #81C784;
+  --color-teal-400: #4CAF50;
+  --color-teal-500: #2E7D32;
+  --color-teal-600: #2E7D32;
+  --color-teal-700: #1B5E20;
+  --color-teal-800: #1B5E20;
+  --color-teal-900: #0D300F;
+}
+
+:root {
+  --color-primary: #2E7D32;
+  --color-darkgreen: #1B5E20;
+  --color-lightgreen: #E8F5E9;
+  --color-navy: #1A2B4E;
+  --color-amber: #E67E22;
+  --color-success: #2E7D32;
+  /* Design tokens aligned to Pet Horizon App */
+  --primary-gradient: linear-gradient(135deg, #1B5E20, #2E7D32);
+  --secondary-accent: #E67E22;
+  --card-bg: rgba(255,255,255,0.04);
+  --card-radius: 16px;
+  --card-shadow: 0 10px 15px rgba(0,0,0,0.2);
+  --section-bg-light: #F5F6F8;
+  --section-bg-gradient: #FFFFFF;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+  color: #212121;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Hide scrollbars everywhere while keeping smooth scrollable functionality */
+::-webkit-scrollbar {
+  display: none;
+  width: 0px;
+  height: 0px;
+}
+
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+/* 3D Orb CSS Animations */
+@keyframes orbPulse {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+@keyframes orbRing1 {
+  0% { transform: rotateX(70deg) rotateZ(0deg); }
+  100% { transform: rotateX(70deg) rotateZ(360deg); }
+}
+
+@keyframes orbRing2 {
+  0% { transform: rotateX(35deg) rotateY(0deg); }
+  100% { transform: rotateX(35deg) rotateY(-360deg); }
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes crystalSpin {
+  0% { transform: rotateY(0deg) rotateX(15deg); }
+  100% { transform: rotateY(360deg) rotateX(15deg); }
+}
+
+/* Dark theme section backgrounds */
+.bg-section-light { background: var(--section-bg-light); }
+.bg-section-gradient { background: var(--section-bg-gradient); }
+
+@keyframes cubeFloat {
+  0% { transform: rotateX(25deg) rotateY(0deg); }
+  100% { transform: rotateX(25deg) rotateY(360deg); }
+}
+
+@keyframes dotOrbit {
+  0% { transform: rotate(0deg) translateX(38px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(38px) rotate(-360deg); }
+}
