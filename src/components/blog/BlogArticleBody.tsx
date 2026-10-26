@@ -60,7 +60,7 @@ export default function BlogArticleBody({
           )}
 
           {fullContent.sections.map((section) => (
-            <section key={section.id} id={section.id} className="space-y-4 pt-2 scroll-mt-28">
+            <section key={section.id} id={section.id} className="space-y-4 pt-2 scroll-mt-32">
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug">
                 {section.heading}
               </h2>

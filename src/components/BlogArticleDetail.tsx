@@ -26,6 +26,7 @@ export default function BlogArticleDetail({
   onOpenQrModal
 }: BlogArticleDetailProps) {
   const [copied, setCopied] = useState(false);
+  const [activeSectionId, setActiveSectionId] = useState<string>('');
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
@@ -36,6 +37,39 @@ export default function BlogArticleDetail({
 
   const encodedUrl = encodeURIComponent(window.location.href);
   const encodedTitle = encodeURIComponent(article.title);
+
+  // Active heading spy as user scrolls
+  useEffect(() => {
+    if (!fullContent || !fullContent.sections || fullContent.sections.length === 0) return;
+
+    setActiveSectionId(fullContent.sections[0].id);
+
+    const handleScroll = () => {
+      const scrollPos = window.scrollY + 160;
+      let current = fullContent.sections[0].id;
+      for (const section of fullContent.sections) {
+        const el = document.getElementById(section.id);
+        if (el && el.offsetTop <= scrollPos) {
+          current = section.id;
+        }
+      }
+      setActiveSectionId(current);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [fullContent]);
+
+  // Smooth scroll offset to never hide behind navbar
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      const yOffset = -120; // 120px clearance below navbar
+      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
 
   const handleCopy = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -134,11 +168,58 @@ export default function BlogArticleDetail({
       {/* 3. 2-Column Content Layout (Matching Everystore) */}
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 mt-10">
         <div className="lg:grid lg:grid-cols-12 lg:gap-10 items-start">
-          {/* Left Sticky Sidebar on Desktop */}
-          <aside className="hidden lg:block lg:col-span-4 space-y-6 sticky top-24">
-            <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-xs">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-gray-900 mb-3">
-                Share Article
+          {/* Left Sticky Sidebar on Desktop - styled exactly like Everystore screenshot */}
+          <aside className="hidden lg:block lg:col-span-4 space-y-6 sticky top-[116px]">
+            {/* Card 1: TABLE OF CONTENTS */}
+            {fullContent && fullContent.sections && fullContent.sections.length > 0 && (
+              <div className="rounded-3xl border border-gray-100 bg-white p-6 shadow-xs">
+                <div className="flex items-center gap-2 mb-5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#0d8258] shrink-0" />
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-gray-900">
+                    TABLE OF CONTENTS
+                  </h3>
+                </div>
+
+                <nav aria-label="Table of contents">
+                  <ul className="space-y-4">
+                    {fullContent.sections.map((sec) => {
+                      const isActive = activeSectionId === sec.id;
+                      return (
+                        <li key={sec.id} className="space-y-2.5">
+                          <button
+                            type="button"
+                            onClick={() => scrollToSection(sec.id)}
+                            className={`w-full text-left text-[13px] leading-relaxed transition-colors cursor-pointer block ${
+                              isActive
+                                ? 'text-gray-950 font-bold'
+                                : 'text-gray-500 hover:text-gray-900 font-normal'
+                            }`}
+                          >
+                            {sec.heading}
+                          </button>
+
+                          {/* Sub-item (Featured Product/Module Showcase) matching Everystore */}
+                          {sec.productShowcase && (
+                            <button
+                              type="button"
+                              onClick={() => scrollToSection(sec.id)}
+                              className="pl-4 text-left text-[13px] leading-relaxed text-gray-400 hover:text-gray-800 transition-colors cursor-pointer block"
+                            >
+                              {sec.productShowcase.title}
+                            </button>
+                          )}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </nav>
+              </div>
+            )}
+
+            {/* Card 2: SHARE ARTICLE (Exact Match) */}
+            <div className="rounded-3xl border border-gray-100 bg-white p-6 shadow-xs">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-gray-900 mb-4">
+                SHARE ARTICLE
               </h3>
               <div className="flex items-center gap-2">
                 {/* WhatsApp */}
@@ -146,7 +227,7 @@ export default function BlogArticleDetail({
                   href={`https://api.whatsapp.com/send?text=${encodedTitle}%20${encodedUrl}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#25D366]/10 text-[#25D366] hover:bg-[#25D366] hover:text-white transition-colors"
+                  className="w-10 h-10 rounded-full bg-[#e7f9ef] text-[#25D366] flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors shrink-0"
                   title="Share on WhatsApp"
                 >
                   <Share2 className="h-4 w-4 fill-current" />
@@ -157,7 +238,7 @@ export default function BlogArticleDetail({
                   href={`https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-xl bg-gray-100 text-gray-700 hover:bg-black hover:text-white transition-colors"
+                  className="w-10 h-10 rounded-full bg-gray-100 text-gray-800 flex items-center justify-center hover:bg-black hover:text-white transition-colors shrink-0"
                   title="Share on X"
                 >
                   <span className="text-xs font-bold">𝕏</span>
@@ -168,7 +249,7 @@ export default function BlogArticleDetail({
                   href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#1877F2]/10 text-[#1877F2] hover:bg-[#1877F2] hover:text-white transition-colors"
+                  className="w-10 h-10 rounded-full bg-[#e8f2fe] text-[#1877F2] flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors shrink-0"
                   title="Share on Facebook"
                 >
                   <span className="text-xs font-bold">f</span>
@@ -178,7 +259,7 @@ export default function BlogArticleDetail({
                 <button
                   type="button"
                   onClick={handleCopy}
-                  className="flex h-9 flex-1 items-center justify-center gap-1.5 rounded-xl border text-xs font-semibold transition-colors border-gray-200 text-gray-700 hover:bg-gray-50 cursor-pointer"
+                  className="h-10 px-4 flex-1 rounded-full border border-gray-200 text-xs font-medium text-gray-700 flex items-center justify-center gap-1.5 hover:bg-gray-50 transition-colors cursor-pointer"
                   title="Copy Link"
                 >
                   {copied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Link2 className="h-3.5 w-3.5" />}
@@ -207,7 +288,7 @@ export default function BlogArticleDetail({
                     href={`https://api.whatsapp.com/send?text=${encodedTitle}%20${encodedUrl}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#25D366]/10 text-[#25D366] hover:bg-[#25D366] hover:text-white transition-colors"
+                    className="w-10 h-10 rounded-full bg-[#e7f9ef] text-[#25D366] flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors"
                     title="Share on WhatsApp"
                   >
                     <Share2 className="h-4 w-4 fill-current" />
@@ -216,7 +297,7 @@ export default function BlogArticleDetail({
                     href={`https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-9 w-9 items-center justify-center rounded-xl bg-gray-100 text-gray-700 hover:bg-black hover:text-white transition-colors"
+                    className="w-10 h-10 rounded-full bg-gray-100 text-gray-800 flex items-center justify-center hover:bg-black hover:text-white transition-colors"
                     title="Share on X"
                   >
                     <span className="text-xs font-bold">𝕏</span>
@@ -225,7 +306,7 @@ export default function BlogArticleDetail({
                     href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#1877F2]/10 text-[#1877F2] hover:bg-[#1877F2] hover:text-white transition-colors"
+                    className="w-10 h-10 rounded-full bg-[#e8f2fe] text-[#1877F2] flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors"
                     title="Share on Facebook"
                   >
                     <span className="text-xs font-bold">f</span>
@@ -233,7 +314,7 @@ export default function BlogArticleDetail({
                   <button
                     type="button"
                     onClick={handleCopy}
-                    className="flex h-9 flex-1 items-center justify-center gap-1.5 rounded-xl border text-xs font-semibold transition-colors border-gray-200 text-gray-700 hover:bg-gray-50 cursor-pointer"
+                    className="h-10 px-4 flex-1 rounded-full border border-gray-200 text-xs font-medium text-gray-700 flex items-center justify-center gap-1.5 hover:bg-gray-50 transition-colors cursor-pointer"
                   >
                     {copied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Link2 className="h-3.5 w-3.5" />}
                     <span>{copied ? 'Copied' : 'Copy Link'}</span>
