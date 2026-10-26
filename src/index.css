@@ -55,13 +55,13 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 7rem;
   font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
 }
 
 body {
   background-color: #ffffff;
   color: #212121;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 
 /* Hide scrollbars specifically on touch-swipe horizontal carousels */
