@@ -13,7 +13,7 @@ export default function HeroDesktopDevice() {
         className="relative"
       >
         <PhoneFrame
-          src="/screenshots/home-screen.png"
+          src="/screenshots/home-screen.webp"
           alt="Pet Horizon Home Dashboard Screen"
           frameClassName="w-[280px] lg:w-[295px] xl:w-[310px]"
           priority={true}
@@ -28,8 +28,14 @@ export default function HeroDesktopDevice() {
         className="absolute -bottom-6 xl:-bottom-8 left-[82%] xl:left-[84%] w-44 lg:w-48 xl:w-52 pointer-events-none z-20 select-none drop-shadow-md"
       >
         <img
-          src="/3d-pets-transparent.png"
+          src="/3d-pets-transparent.webp"
           alt="Pet Horizon Puppy and Kitten Companions"
+          width={1024}
+          height={1024}
+          loading="eager"
+          decoding="async"
+          // @ts-ignore
+          fetchPriority="high"
           className="w-full h-auto object-contain"
         />
       </motion.div>

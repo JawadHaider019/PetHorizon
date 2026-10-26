@@ -27,6 +27,7 @@ export default function TourPhonePreview({ current }: TourPhonePreviewProps) {
                 src={current.screenshot}
                 alt={`Pet Horizon ${current.name} Screen`}
                 frameClassName="w-[240px] sm:w-[280px]"
+                priority={true}
               />
             </motion.div>
           </AnimatePresence>

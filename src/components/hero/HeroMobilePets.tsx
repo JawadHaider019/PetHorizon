@@ -11,8 +11,14 @@ export default function HeroMobilePets() {
         className="relative flex flex-col items-center"
       >
         <img
-          src="/3d-pets-transparent.png"
+          src="/3d-pets-transparent.webp"
           alt="Pet Horizon 3D Companions"
+          width={1024}
+          height={1024}
+          loading="eager"
+          decoding="async"
+          // @ts-ignore
+          fetchPriority="high"
           className="w-64 sm:w-72 h-auto object-contain drop-shadow-2xl select-none pointer-events-none"
         />
 

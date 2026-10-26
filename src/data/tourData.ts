@@ -29,7 +29,7 @@ export const TOUR_SCREENS: ScreenTab[] = [
     title: 'Daily Command Center & Quick Actions',
     badge: 'Daily Overview',
     description: 'A morning-to-evening dashboard greeting you with today’s active pet status, 1-tap quick action shortcuts, scheduled feedings with Skip/Done controls, and real-time activity timelines.',
-    screenshot: '/screenshots/home-screen.png',
+    screenshot: '/screenshots/home-screen.webp',
     highlights: [
       'Personalized greeting and current pet status badge (Zozo Bulldog, 15 KG)',
       '1-tap quick action shortcuts: Food, Walk, Meds, and Grooming',
@@ -45,7 +45,7 @@ export const TOUR_SCREENS: ScreenTab[] = [
     title: 'Daily Care & Medical Routine',
     badge: 'Core Routine Engine',
     description: 'Keep your pet on a reliable routine with precise morning, afternoon, and evening tasks. Includes notifications that remind you before every scheduled event.',
-    screenshot: '/screenshots/schedule-screen.png',
+    screenshot: '/screenshots/schedule-screen.webp',
     highlights: [
       'Multi-category task views (Food, Walks, Medicine, Grooming, Vaccines)',
       '1-day-before vaccination alerts for DHPP and rabies shots',
@@ -61,7 +61,7 @@ export const TOUR_SCREENS: ScreenTab[] = [
     title: 'Shared Caretaking & QR Codes',
     badge: 'Co-Parenting System',
     description: 'Connect family members, spouses, roommates, or pet sitters into a unified care team. Everyone receives shared alerts and updates in real-time.',
-    screenshot: '/screenshots/family-screen.png',
+    screenshot: '/screenshots/family-screen.webp',
     highlights: [
       'Generate sharable 6-digit invitation codes instantly',
       'Scan QR codes to co-manage pets in seconds without manual entry',
@@ -77,7 +77,7 @@ export const TOUR_SCREENS: ScreenTab[] = [
     title: 'Activity Log & Memory Timeline',
     badge: 'Life History',
     description: 'A comprehensive history of every action taken for your pet. Browse through past calendar dates to verify care, review walk durations, and view attached daily photos.',
-    screenshot: '/screenshots/journal-screen.png',
+    screenshot: '/screenshots/journal-screen.webp',
     highlights: [
       'Interactive date carousel with active daily indicators',
       'Walk tracking summaries with exact minutes and completion status',
@@ -93,7 +93,7 @@ export const TOUR_SCREENS: ScreenTab[] = [
     title: 'Monthly Budgeting & Care Spending',
     badge: 'Budget Management',
     description: 'Keep pet care costs transparent and organized. Set monthly spending limits, categorize expenses by Food, Vet, Grooming, and Medicine, and track remaining balance in real time.',
-    screenshot: '/screenshots/expenses-screen.png',
+    screenshot: '/screenshots/expenses-screen.webp',
     highlights: [
       'Visual balance card showing remaining available budget & % spent',
       'Instant category filtering for Food, Vet, Grooming, and Medicine',
@@ -109,7 +109,7 @@ export const TOUR_SCREENS: ScreenTab[] = [
     title: 'Species, Breed & Growth Records',
     badge: 'Pet Identity',
     description: 'Customize profiles for Dogs, Cats, Birds, Rabbits, Hamsters, and other animal companions. Record weight history in KG or LBS and calculate exact pet age.',
-    screenshot: '/screenshots/pet-profile-screen.png',
+    screenshot: '/screenshots/pet-profile-screen.webp',
     highlights: [
       'Native species selector (Dog, Cat, Bird, Rabbit, Hamster)',
       'Comprehensive breed selector and profile picture uploading',
@@ -125,7 +125,7 @@ export const TOUR_SCREENS: ScreenTab[] = [
     title: 'Account Settings & Premium Subscriptions',
     badge: 'Customization & Plans',
     description: 'Manage your owner profile, localization units, security preferences, and subscription status. Upgrade to unlock unlimited pets and priority support.',
-    screenshot: '/screenshots/profile-screen.png',
+    screenshot: '/screenshots/profile-screen.webp',
     highlights: [
       'Pet Parent profile customization with avatar upload',
       'Upgrade banner to unlock Unlimited Pets and Family Sharing',

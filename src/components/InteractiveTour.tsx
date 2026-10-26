@@ -16,6 +16,22 @@ export default function InteractiveTour() {
     setSelectedScreen(TOUR_SCREENS[index].id);
   };
 
+  // Preload all tour screenshots into browser cache on mount/idle so tab switches are instantaneous
+  useEffect(() => {
+    const preloadScreenshots = () => {
+      TOUR_SCREENS.forEach((screen) => {
+        const img = new Image();
+        img.src = screen.screenshot;
+      });
+    };
+
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      (window as any).requestIdleCallback(preloadScreenshots, { timeout: 1500 });
+    } else {
+      setTimeout(preloadScreenshots, 200);
+    }
+  }, []);
+
   useEffect(() => {
     if (tabsRef.current) {
       const activeBtn = tabsRef.current.querySelector<HTMLButtonElement>(
