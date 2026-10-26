@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /api/
 
-Sitemap: https://pethorizon.app/sitemap.xml
+Sitemap: https://pethorizon.jawumitech.com/sitemap.xml

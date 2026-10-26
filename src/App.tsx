@@ -36,7 +36,17 @@ export default function App() {
 
   const currentArticle =
     viewState.view === 'blog-article' && viewState.articleSlug
-      ? BLOG_POSTS.find((p) => p.slug === viewState.articleSlug) || null
+      ? BLOG_POSTS.find((p) => p.slug === viewState.articleSlug) ||
+        // Fallback for localized pSEO variations
+        (viewState.articleSlug.includes('vaccination')
+          ? { ...BLOG_POSTS[0], slug: viewState.articleSlug }
+          : viewState.articleSlug.includes('coparent') || viewState.articleSlug.includes('feeding')
+          ? { ...BLOG_POSTS[1], slug: viewState.articleSlug }
+          : viewState.articleSlug.includes('tracker')
+          ? { ...BLOG_POSTS[2], slug: viewState.articleSlug }
+          : viewState.articleSlug.includes('cost') || viewState.articleSlug.includes('budget')
+          ? { ...BLOG_POSTS[3], slug: viewState.articleSlug }
+          : null)
       : null;
 
   usePageSeo(viewState, currentArticle);
@@ -66,7 +76,7 @@ export default function App() {
             article={currentArticle}
             onNavigateBack={() => navigateTo('blog')}
             onSelectArticle={(slug) => navigateToArticle(slug)}
-            onNavigateLegal={(doc) => navigateTo(doc)}
+            onOpenQrModal={() => setIsQrModalOpen(true)}
           />
           <Footer
             onNavigate={(to, hash) => navigateTo(to as ExtendedAppView, hash)}

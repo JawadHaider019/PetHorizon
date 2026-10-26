@@ -56,9 +56,8 @@ export default function Navbar({
     } else {
       if (view === 'home') {
         window.location.href = hash ? `/${hash}` : '/';
-      } else {
         const slug =
-          view === 'blog' ? 'blog' : view === 'privacy' ? 'privacy-policy' : 'data-deletion';
+          view === 'blog' ? 'blogs' : view === 'privacy' ? 'privacy-policy' : 'data-deletion';
         window.location.href = `/${slug}`;
       }
     }
