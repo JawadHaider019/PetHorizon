@@ -48,6 +48,9 @@ export function usePageSeo(viewState: ViewState, currentArticle: BlogPost | null
       const pageTitle = currentArticle.metaTitle || `${currentArticle.title} | PetHorizon Guides`;
       const pageDesc = currentArticle.metaDescription || currentArticle.excerpt;
       const articleUrl = `${baseUrl}/blogs/${currentArticle.slug}`;
+      const absoluteCoverImage = currentArticle.coverImage.startsWith('http')
+        ? currentArticle.coverImage
+        : `${baseUrl}${currentArticle.coverImage}`;
 
       document.title = pageTitle;
       updateMetaTag('meta[name="description"]', 'content', pageDesc);
@@ -56,16 +59,16 @@ export function usePageSeo(viewState: ViewState, currentArticle: BlogPost | null
       // OpenGraph
       updateMetaTag('meta[property="og:title"]', 'content', pageTitle);
       updateMetaTag('meta[property="og:description"]', 'content', pageDesc);
-      updateMetaTag('meta[property="og:image"]', 'content', currentArticle.coverImage);
+      updateMetaTag('meta[property="og:image"]', 'content', absoluteCoverImage);
       updateMetaTag('meta[property="og:type"]', 'content', 'article');
       updateMetaTag('meta[property="og:url"]', 'content', articleUrl);
-      updateMetaTag('meta[property="og:site_name"]', 'content', 'PetHorizon');
+      updateMetaTag('meta[property="og:site_name"]', 'content', 'Pet Horizon');
 
       // Twitter Cards
       updateMetaTag('meta[name="twitter:card"]', 'content', 'summary_large_image');
       updateMetaTag('meta[name="twitter:title"]', 'content', pageTitle);
       updateMetaTag('meta[name="twitter:description"]', 'content', pageDesc);
-      updateMetaTag('meta[name="twitter:image"]', 'content', currentArticle.coverImage);
+      updateMetaTag('meta[name="twitter:image"]', 'content', absoluteCoverImage);
 
       updateCanonical(`/blogs/${currentArticle.slug}`);
 

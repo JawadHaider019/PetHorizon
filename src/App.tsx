@@ -37,24 +37,27 @@ export default function App() {
   const currentArticle =
     viewState.view === 'blog-article' && viewState.articleSlug
       ? BLOG_POSTS.find((p) => p.slug === viewState.articleSlug) ||
+        BLOG_POSTS.find((p) => viewState.articleSlug && p.slug.includes(viewState.articleSlug)) ||
         // Dynamic fallback for localized or partial slug variations
-        BLOG_POSTS.find((p) =>
-          viewState.articleSlug?.includes('feeding')
-            ? p.slug.includes('feeding')
-            : viewState.articleSlug?.includes('vaccin')
-            ? p.slug.includes('vaccin')
-            : viewState.articleSlug?.includes('medication') || viewState.articleSlug?.includes('record')
-            ? p.slug.includes('record')
-            : viewState.articleSlug?.includes('coparent')
-            ? p.slug.includes('coparent')
-            : viewState.articleSlug?.includes('checklist')
-            ? p.slug.includes('checklist')
-            : viewState.articleSlug?.includes('tracker')
-            ? p.slug.includes('tracker')
-            : viewState.articleSlug?.includes('cost') || viewState.articleSlug?.includes('budget')
-            ? p.slug.includes('budget')
-            : false
-        ) || null
+        BLOG_POSTS.find((p) => {
+          const s = viewState.articleSlug || '';
+          if (s.includes('cat-feeding')) return p.slug.includes('cat-feeding');
+          if (s.includes('feeding')) return p.slug.includes('feeding');
+          if (s.includes('kidney') || s.includes('hydration')) return p.slug.includes('kidney');
+          if (s.includes('emergency') || s.includes('red-flag')) return p.slug.includes('emergency');
+          if (s.includes('toxic') || s.includes('poison')) return p.slug.includes('toxic');
+          if (s.includes('potty')) return p.slug.includes('potty');
+          if (s.includes('heartworm') || s.includes('flea')) return p.slug.includes('heartworm');
+          if (s.includes('calorie') || s.includes('rer')) return p.slug.includes('calorie');
+          if (s.includes('vaccin')) return p.slug.includes('vaccin');
+          if (s.includes('pet-apps') || s.includes('care-apps')) return p.slug.includes('best-pet-care-apps');
+          if (s.includes('medication') || s.includes('record')) return p.slug.includes('record');
+          if (s.includes('coparent')) return p.slug.includes('coparent');
+          if (s.includes('checklist')) return p.slug.includes('checklist');
+          if (s.includes('tracker')) return p.slug.includes('tracker');
+          if (s.includes('cost') || s.includes('budget')) return p.slug.includes('budget');
+          return false;
+        }) || null
       : null;
 
   usePageSeo(viewState, currentArticle);
