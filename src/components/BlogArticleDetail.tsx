@@ -390,7 +390,7 @@ export default function BlogArticleDetail({
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             <a
-              href="https://play.google.com/store/apps/details?id=com.enscyd.pethorizon"
+              href="https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-xl bg-white px-5 py-2.5 text-xs font-bold text-[#0c1b1a] hover:bg-gray-100 transition shadow-sm"

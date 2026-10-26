@@ -54,7 +54,7 @@ export const petTrackersReviewArticle: FullBlogArticle = {
         price: 'Free Lifetime Access',
         image: 'https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?w=400&auto=format&fit=crop&q=80',
         actionText: 'Track Daily Pet Activity',
-        actionUrl: 'https://play.google.com/store/apps/details?id=com.enscyd.pethorizon',
+        actionUrl: 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon',
         actionType: 'playStore'
       }
     },

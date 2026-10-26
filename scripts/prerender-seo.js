@@ -16,7 +16,7 @@ const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 const publicDir = path.join(rootDir, 'public');
 
-const BASE_URL = 'https://pethorizon.jawumitech.com';
+const BASE_URL = 'https://pethorizon.app';
 
 // 1. Import BLOG_POSTS from compiled/raw data
 async function loadBlogData() {

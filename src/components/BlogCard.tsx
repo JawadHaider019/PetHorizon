@@ -18,16 +18,18 @@ export default function BlogCard({ post, onClick, compact = false }: BlogCardPro
 
   const getCategoryStyles = (category: string) => {
     switch (category) {
-      case 'Customer Guide':
-        return 'bg-blue-50 text-blue-700 border-blue-100';
-      case 'Product Reviews':
-        return 'bg-emerald-50 text-emerald-800 border-emerald-100';
-      case 'Shopping Tips':
-        return 'bg-amber-50 text-amber-800 border-amber-100';
-      case 'Local Vet & Supplies':
-        return 'bg-purple-50 text-purple-800 border-purple-100';
+      case 'Feeding & Nutrition':
+        return 'bg-amber-50 text-amber-800 border-amber-200';
+      case 'Health & Vaccines':
+        return 'bg-emerald-50 text-emerald-800 border-emerald-200';
+      case 'Family & Routine':
+        return 'bg-indigo-50 text-indigo-800 border-indigo-200';
+      case 'Dog Care':
+        return 'bg-blue-50 text-blue-800 border-blue-200';
+      case 'Cat Care':
+        return 'bg-purple-50 text-purple-800 border-purple-200';
       default:
-        return 'bg-slate-50 text-slate-700 border-slate-100';
+        return 'bg-slate-50 text-slate-700 border-slate-200';
     }
   };
 

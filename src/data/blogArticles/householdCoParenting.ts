@@ -52,7 +52,7 @@ export const householdCoParentingArticle: FullBlogArticle = {
         price: 'Free Lifetime Access',
         image: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400&auto=format&fit=crop&q=80',
         actionText: 'Sync Your Family on PetHorizon',
-        actionUrl: 'https://play.google.com/store/apps/details?id=com.enscyd.pethorizon',
+        actionUrl: 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon',
         actionType: 'playStore'
       }
     },

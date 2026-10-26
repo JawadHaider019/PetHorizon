@@ -37,16 +37,24 @@ export default function App() {
   const currentArticle =
     viewState.view === 'blog-article' && viewState.articleSlug
       ? BLOG_POSTS.find((p) => p.slug === viewState.articleSlug) ||
-        // Fallback for localized pSEO variations
-        (viewState.articleSlug.includes('vaccination')
-          ? { ...BLOG_POSTS[0], slug: viewState.articleSlug }
-          : viewState.articleSlug.includes('coparent') || viewState.articleSlug.includes('feeding')
-          ? { ...BLOG_POSTS[1], slug: viewState.articleSlug }
-          : viewState.articleSlug.includes('tracker')
-          ? { ...BLOG_POSTS[2], slug: viewState.articleSlug }
-          : viewState.articleSlug.includes('cost') || viewState.articleSlug.includes('budget')
-          ? { ...BLOG_POSTS[3], slug: viewState.articleSlug }
-          : null)
+        // Dynamic fallback for localized or partial slug variations
+        BLOG_POSTS.find((p) =>
+          viewState.articleSlug?.includes('feeding')
+            ? p.slug.includes('feeding')
+            : viewState.articleSlug?.includes('vaccin')
+            ? p.slug.includes('vaccin')
+            : viewState.articleSlug?.includes('medication') || viewState.articleSlug?.includes('record')
+            ? p.slug.includes('record')
+            : viewState.articleSlug?.includes('coparent')
+            ? p.slug.includes('coparent')
+            : viewState.articleSlug?.includes('checklist')
+            ? p.slug.includes('checklist')
+            : viewState.articleSlug?.includes('tracker')
+            ? p.slug.includes('tracker')
+            : viewState.articleSlug?.includes('cost') || viewState.articleSlug?.includes('budget')
+            ? p.slug.includes('budget')
+            : false
+        ) || null
       : null;
 
   usePageSeo(viewState, currentArticle);

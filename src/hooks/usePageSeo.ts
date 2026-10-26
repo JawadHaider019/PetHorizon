@@ -80,19 +80,21 @@ export function usePageSeo(viewState: ViewState, currentArticle: BlogPost | null
           datePublished: currentArticle.publishedAt,
           dateModified: currentArticle.publishedAt,
           author: {
-            '@type': 'Person',
+            '@type': currentArticle.author.name.includes('Team') ? 'Organization' : 'Person',
             name: currentArticle.author.name,
             jobTitle: currentArticle.author.role,
-            image: currentArticle.author.avatar,
+            image: currentArticle.author.avatar.startsWith('/')
+              ? `${baseUrl}${currentArticle.author.avatar}`
+              : currentArticle.author.avatar,
             description: currentArticle.author.bio
           },
           publisher: {
             '@type': 'Organization',
-            name: 'PetHorizon',
+            name: 'Pet Horizon',
             url: baseUrl,
             logo: {
               '@type': 'ImageObject',
-              url: `${baseUrl}/favicon.ico`
+              url: `${baseUrl}/app-icon.png`
             }
           },
           mainEntityOfPage: {

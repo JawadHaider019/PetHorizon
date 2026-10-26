@@ -9,10 +9,11 @@ interface BlogFilterBarProps {
 
 export const BLOG_CATEGORIES = [
   'All Stories',
-  'Customer Guide',
-  'Product Reviews',
-  'Shopping Tips',
-  'Local Vet & Supplies'
+  'Dog Care',
+  'Cat Care',
+  'Feeding & Nutrition',
+  'Health & Vaccines',
+  'Family & Routine'
 ];
 
 export default function BlogFilterBar({

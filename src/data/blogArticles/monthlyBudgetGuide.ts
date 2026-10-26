@@ -54,7 +54,7 @@ export const monthlyBudgetGuideArticle: FullBlogArticle = {
         price: 'Free Lifetime Access',
         image: 'https://images.unsplash.com/photo-1509299349698-dd22323b5963?w=400&auto=format&fit=crop&q=80',
         actionText: 'Track Pet Expenses in PetHorizon',
-        actionUrl: 'https://play.google.com/store/apps/details?id=com.enscyd.pethorizon',
+        actionUrl: 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon',
         actionType: 'playStore'
       }
     },
