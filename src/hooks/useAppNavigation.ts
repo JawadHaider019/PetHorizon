@@ -14,11 +14,12 @@ export const getViewStateFromLocation = (): ViewState => {
   const lowerPath = path.toLowerCase();
   const hash = window.location.hash.toLowerCase();
 
-  const slugMatch = path.match(/^\/blog\/([a-zA-Z0-9-]+)/);
+  // Match /blogs/:slug or /blog/:slug
+  const slugMatch = path.match(/^\/blogs?\/([a-zA-Z0-9-]+)/i);
   if (slugMatch) {
-    const slug = slugMatch[1];
+    const slug = slugMatch[1].toLowerCase();
     const exists = BLOG_POSTS.some((p) => p.slug === slug);
-    if (exists) {
+    if (exists || slug.length > 3) {
       return { view: 'blog-article', articleSlug: slug };
     }
   }
@@ -26,7 +27,14 @@ export const getViewStateFromLocation = (): ViewState => {
   if (lowerPath === '/changelog' || lowerPath === '/changelog/' || hash.includes('changelog')) {
     return { view: 'changelog', articleSlug: null };
   }
-  if (lowerPath === '/blog' || lowerPath === '/blog/' || hash.includes('blog')) {
+  if (
+    lowerPath === '/blogs' ||
+    lowerPath === '/blogs/' ||
+    lowerPath === '/blog' ||
+    lowerPath === '/blog/' ||
+    hash.includes('blogs') ||
+    hash.includes('blog')
+  ) {
     return { view: 'blog', articleSlug: null };
   }
   if (lowerPath.includes('privacy') || hash.includes('privacy')) {
@@ -44,7 +52,7 @@ export const getViewStateFromLocation = (): ViewState => {
     return { view: 'deletion', articleSlug: null };
   }
 
-  // If path is root or empty, or known hash
+  // Root or home
   if (lowerPath === '/' || lowerPath === '') {
     return { view: 'home', articleSlug: null };
   }
@@ -91,7 +99,7 @@ export function useAppNavigation() {
     } else {
       const slug =
         to === 'blog'
-          ? 'blog'
+          ? 'blogs'
           : to === 'privacy' || (to as string) === 'terms'
           ? 'privacy-policy'
           : 'data-deletion';
@@ -102,7 +110,7 @@ export function useAppNavigation() {
   }, []);
 
   const navigateToArticle = useCallback((slug: string) => {
-    window.history.pushState({}, '', `/blog/${slug}`);
+    window.history.pushState({}, '', `/blogs/${slug}`);
     setViewState({ view: 'blog-article', articleSlug: slug });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);

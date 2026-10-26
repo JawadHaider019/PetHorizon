@@ -1,37 +1,54 @@
-import { HeartPulse, AlertCircle, Calendar, CheckCircle2 } from 'lucide-react';
+import { HeartPulse, AlertCircle, Calendar, CheckCircle2, Smartphone, Download, ArrowRight, ShieldCheck, Users, TrendingUp, DollarSign } from 'lucide-react';
 import { BlogPost } from '../../data/blogData';
 import { FullBlogArticle } from '../../data/blogArticles';
 
 interface BlogArticleBodyProps {
   article: BlogPost;
   fullContent: FullBlogArticle | null;
+  onOpenQrModal?: () => void;
 }
 
-export default function BlogArticleBody({ article, fullContent }: BlogArticleBodyProps) {
+export default function BlogArticleBody({ article, fullContent, onOpenQrModal }: BlogArticleBodyProps) {
+  const getModuleIcon = (mod?: string) => {
+    switch (mod) {
+      case 'clinical':
+        return <ShieldCheck className="w-5 h-5 text-emerald-600" />;
+      case 'family':
+        return <Users className="w-5 h-5 text-emerald-600" />;
+      case 'budget':
+        return <DollarSign className="w-5 h-5 text-emerald-600" />;
+      case 'routine':
+      default:
+        return <TrendingUp className="w-5 h-5 text-emerald-600" />;
+    }
+  };
+
   return (
     <div className="space-y-10 my-8">
       {/* 1. Essential Clinical Takeaways Card */}
-      <div className="p-6 sm:p-8 rounded-3xl bg-emerald-50/70 border border-emerald-200/90 space-y-4">
-        <div className="flex items-center gap-2">
-          <HeartPulse className="w-5 h-5 text-emerald-600" />
-          <h3 className="text-sm font-extrabold uppercase tracking-wider text-emerald-950">
-            Essential Pet Care Takeaways
-          </h3>
+      {article.keyTakeaways && article.keyTakeaways.length > 0 && (
+        <div className="p-6 sm:p-8 rounded-3xl bg-emerald-50/70 border border-emerald-200/90 space-y-4">
+          <div className="flex items-center gap-2">
+            <HeartPulse className="w-5 h-5 text-emerald-600" />
+            <h3 className="text-sm font-extrabold uppercase tracking-wider text-emerald-950">
+              Essential Pet Care Takeaways
+            </h3>
+          </div>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            {article.keyTakeaways.map((takeaway, idx) => (
+              <li
+                key={idx}
+                className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-800 font-medium leading-relaxed bg-white/70 p-3.5 rounded-xl border border-emerald-100/80 shadow-2xs"
+              >
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                <span>{takeaway}</span>
+              </li>
+            ))}
+          </ul>
         </div>
-        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-          {article.keyTakeaways.map((takeaway, idx) => (
-            <li
-              key={idx}
-              className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-800 font-medium leading-relaxed bg-white/70 p-3 rounded-xl border border-emerald-100/80"
-            >
-              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-              <span>{takeaway}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      )}
 
-      {/* 2. Detailed On-Page Content Sections (50%-70% Comprehensive Guide) */}
+      {/* 2. Detailed On-Page Content Sections */}
       {fullContent && (
         <div className="space-y-10">
           {/* Overview Summary */}
@@ -51,6 +68,17 @@ export default function BlogArticleBody({ article, fullContent }: BlogArticleBod
                 <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                   {section.intro}
                 </p>
+              )}
+
+              {/* Multi-Paragraphs */}
+              {section.paragraphs && section.paragraphs.length > 0 && (
+                <div className="space-y-3 pt-1">
+                  {section.paragraphs.map((para, pIdx) => (
+                    <p key={pIdx} className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
+                      {para}
+                    </p>
+                  ))}
+                </div>
               )}
 
               {/* Bullet Points */}
@@ -121,7 +149,49 @@ export default function BlogArticleBody({ article, fullContent }: BlogArticleBod
                 </div>
               )}
 
-              {/* Pet Horizon App Routine Tip Box */}
+              {/* In-Content Contextual PetHorizon Feature Card */}
+              {section.featureCta && (
+                <div className="my-8 rounded-3xl bg-gradient-to-br from-emerald-900 to-teal-950 p-6 sm:p-8 text-white shadow-lg relative overflow-hidden border border-emerald-800/40">
+                  <div className="absolute top-0 right-0 -mr-16 -mt-16 w-48 h-48 rounded-full bg-emerald-500/10 blur-2xl pointer-events-none" />
+                  <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+                    <div className="space-y-2 max-w-lg">
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-emerald-800/60 text-emerald-300 border border-emerald-700/50">
+                        {getModuleIcon(section.featureCta.module)}
+                        <span>{section.featureCta.badge}</span>
+                      </div>
+                      <h3 className="text-lg sm:text-xl font-bold tracking-tight text-white">
+                        {section.featureCta.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed">
+                        {section.featureCta.description}
+                      </p>
+                    </div>
+
+                    <div className="shrink-0 flex flex-col sm:flex-row gap-2.5">
+                      <a
+                        href="https://play.google.com/store/apps/details?id=com.enscyd.pethorizon"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white text-emerald-950 hover:bg-emerald-50 font-bold text-xs sm:text-sm shadow-md transition-transform hover:scale-102 cursor-pointer whitespace-nowrap"
+                      >
+                        <Smartphone className="w-4 h-4 text-emerald-700" />
+                        <span>{section.featureCta.buttonText}</span>
+                      </a>
+                      {onOpenQrModal && (
+                        <button
+                          type="button"
+                          onClick={onOpenQrModal}
+                          className="inline-flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl bg-emerald-800/50 hover:bg-emerald-800 text-emerald-200 border border-emerald-700/60 font-semibold text-xs transition-colors cursor-pointer whitespace-nowrap"
+                        >
+                          <span>Scan QR Code</span>
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Routine Tip Box */}
               {section.routineTip && (
                 <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-emerald-50 via-teal-50 to-white border border-emerald-200/90 shadow-2xs space-y-2 my-4">
                   <div className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-emerald-800">

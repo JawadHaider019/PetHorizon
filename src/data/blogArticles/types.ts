@@ -17,6 +17,14 @@ export interface BlogContentSection {
     text: string;
     actionLabel: string;
   };
+  featureCta?: {
+    module: 'clinical' | 'family' | 'budget' | 'routine';
+    badge: string;
+    title: string;
+    description: string;
+    buttonText: string;
+    actionType?: 'qrModal' | 'playStore';
+  };
 }
 
 export interface FullBlogArticle {
