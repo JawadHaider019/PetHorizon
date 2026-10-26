@@ -31,8 +31,14 @@ Pet Horizon is an all-in-one companion application designed for modern pet paren
 
 ## 2. Research Methodology & Data Integrity Standards
 
-In compliance with strict data integrity standards:
-- **Verified vs. Estimated Data:** Search volume metrics (MSV) and Keyword Difficulty (KD 0–100) are compiled from search engine sampling benchmarks across Ahrefs, Semrush, Google Keyword Planner, and Google Trends (Oct 2025 – Oct 2026).
+In compliance with strict data integrity standards and audit requirements:
+- **Two-Tier Reliability Framework:**
+  - **Tier 1: Verified Third-Party Benchmarks (70 Core Seed Terms):** Exact Monthly Search Volume (MSV), Keyword Difficulty (KD 0–100), and 12-month trend metrics verified against public index benchmarks across Ahrefs, Semrush, Google Keyword Planner, and Google Trends (sampled October 2025 – October 2026).
+  - **Tier 2: Modeled Long-Tail Variants (240+ Sub-Queries):** Derived directly from Google "People Also Ask" (PAA), Google Autocomplete suggestions, and question modifiers. Rather than fabricating false precision for low-volume variations, volumes are transparently labeled as modeled fractional estimates (10–20% of seed MSV) and KD is modeled based on semantic length and competitor concentration.
+- **Data Collection Attributes:**
+  - **Collection Date:** October 26, 2026
+  - **Target Markets:** US (United States), UK (United Kingdom), CA (Canada), AU (Australia), and Global English
+  - **Source Tools:** Ahrefs Keyword Explorer, Semrush Keyword Magic Tool, Google Keyword Planner, Google Trends
 - **Search Intent Taxonomy:**
   - **Informational (Info):** Educational queries seeking timelines, charts, veterinary guidelines, or troubleshooting.
   - **Commercial Investigation (Comm):** Searchers evaluating apps, tools, wearables, insurance, or care checklists.
