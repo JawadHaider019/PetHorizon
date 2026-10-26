@@ -4,7 +4,7 @@ export const vaccinationScheduleArticle: FullBlogArticle = {
   slug: 'puppy-kitten-vaccination-schedule-booster-guide-worldwide',
   readTime: '16 min read',
   overviewSummary:
-    'Navigating puppy and kitten immunizations is one of the most critical responsibilities for any pet parent. Between 6 and 16 weeks of age, maternal antibodies naturally recede, exposing young pets to life-threatening viral infections like Canine Parvovirus, Distemper, and Feline Panleukopenia. In this comprehensive veterinary guide, Dr. Sarah Jenkins, DVM, breaks down core booster timelines, lifestyle inoculations, real-world clinic scenarios, and how PetHorizon’s Clinical Health Card ensures lifelong medical compliance with zero paperwork.',
+    'Navigating puppy and kitten immunizations is one of the most critical responsibilities for any pet parent. Between 6 and 16 weeks of age, maternal antibodies naturally recede, exposing young pets to life-threatening viral infections like Canine Parvovirus, Distemper, and Feline Panleukopenia. In this comprehensive veterinary guide, the Pet Horizon Editorial Team breaks down core booster timelines, lifestyle inoculations, real-world clinic scenarios, and how PetHorizon’s Clinical Health Card ensures lifelong medical compliance with zero paperwork.',
   sections: [
     {
       id: 'overview-first-impressions',

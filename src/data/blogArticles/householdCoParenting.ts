@@ -4,7 +4,7 @@ export const householdCoParentingArticle: FullBlogArticle = {
   slug: 'household-pet-coparenting-feeding-routine-sync-worldwide',
   readTime: '16 min read',
   overviewSummary:
-    'Co-parenting a dog or cat with a spouse, partner, roommates, or busy family members is deeply rewarding, but it frequently triggers chaotic routine bottlenecks. Unintentional double-feeding leads directly to canine and feline obesity, while missed prescription medications cause dangerous therapeutic failures. In this comprehensive household guide, Alex Mercer explores modern multi-caregiver dynamics, nutritional pitfalls, and how PetHorizon’s Family Hub and Instant QR Code synchronization eliminate daily pet care chaos forever.',
+    'Co-parenting a dog or cat with a spouse, partner, roommates, or busy family members is deeply rewarding, but it frequently triggers chaotic routine bottlenecks. Unintentional double-feeding leads directly to canine and feline obesity, while missed prescription medications cause dangerous therapeutic failures. In this comprehensive household guide, the Pet Horizon Care Team explores modern multi-caregiver dynamics, nutritional pitfalls, and how PetHorizon’s Family Hub and Instant QR Code synchronization eliminate daily pet care chaos forever.',
   sections: [
     {
       id: 'the-double-feeding-trap',
