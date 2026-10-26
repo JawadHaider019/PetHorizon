@@ -1,10 +1,10 @@
 /**
- * Static SEO Prerender, XML Sitemap, Robots.txt, LLMs.txt & Crawler HTML Engine for PetHorizon
+ * Static SEO Prerender, XML Sitemap, Robots.txt, RSS Feed, LLMs.txt & Crawler HTML Engine for PetHorizon
  *
  * Runs:
- *   --pre  : Generates public/sitemap.xml, public/robots.txt, public/llms.txt, public/llms-full.txt, IndexNow key
+ *   --pre  : Generates public/sitemap.xml, public/robots.txt, public/rss.xml, public/llms.txt, public/llms-full.txt, IndexNow key
  *   --post : Reads dist/index.html after vite build and outputs crawler-ready, pre-rendered static HTML
- *            for /, /blogs, /changelog, /privacy-policy, /terms-of-service, /data-deletion, and all 19 /blogs/[slug]
+ *            for /, /blogs, /changelog, /privacy-policy, /terms-of-service, /data-deletion, and all 34 /blogs/[slug]
  */
 
 import fs from 'fs';
@@ -64,7 +64,7 @@ function generateSitemap(posts) {
     xml += `  </url>\n`;
   });
 
-  // Dynamic Blog routes
+  // Dynamic Blog routes (34 total)
   posts.forEach((post) => {
     xml += `  <url>\n`;
     xml += `    <loc>${BASE_URL}/blogs/${post.slug}</loc>\n`;
@@ -82,6 +82,39 @@ function generateSitemap(posts) {
 
   xml += `</urlset>`;
   return xml;
+}
+
+// 3. Generate RSS 2.0 Feed
+function generateRssFeed(posts) {
+  const buildDate = new Date().toUTCString();
+  let rss = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pet Horizon — Evidence-Based Pet Care, Health &amp; Routine Guides</title>
+    <link>${BASE_URL}/blogs</link>
+    <description>Comprehensive veterinary-verified guides for dog and cat owners worldwide: puppy feeding schedules, feline hydration, missed medication safety, and family routine coordination.</description>
+    <language>en-us</language>
+    <lastBuildDate>${buildDate}</lastBuildDate>
+    <atom:link href="${BASE_URL}/rss.xml" rel="self" type="application/rss+xml" />
+`;
+
+  posts.forEach((post) => {
+    const postUrl = `${BASE_URL}/blogs/${post.slug}`;
+    const pubDate = new Date(post.publishedAt || '2026-10-26').toUTCString();
+    rss += `    <item>
+      <title>${escapeXml(post.title)}</title>
+      <link>${postUrl}</link>
+      <guid isPermaLink="true">${postUrl}</guid>
+      <pubDate>${pubDate}</pubDate>
+      <description>${escapeXml(post.excerpt)}</description>
+      <category>${escapeXml(post.category)}</category>
+      <author>${escapeXml(post.author.name)}</author>
+    </item>\n`;
+  });
+
+  rss += `  </channel>
+</rss>`;
+  return rss;
 }
 
 function escapeXml(unsafe) {
@@ -102,7 +135,7 @@ function escapeHtml(unsafe) {
     .replace(/'/g, '&#039;');
 }
 
-// 3. Generate robots.txt
+// 4. Generate robots.txt
 function generateRobotsTxt() {
   return `# Pet Horizon - Official Robots.txt
 # Technical SEO, AEO & AI Crawler Specification
@@ -142,12 +175,12 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
-# Sitemap Index Reference
+# Sitemaps & Feeds
 Sitemap: ${BASE_URL}/sitemap.xml
 `;
 }
 
-// 4. Generate llms.txt & llms-full.txt
+// 5. Generate llms.txt & llms-full.txt
 function generateLlmsTxt(posts) {
   let md = `# Pet Horizon
 
@@ -167,8 +200,9 @@ Pet Horizon (https://pethorizon.jawumitech.com) is a comprehensive pet care plat
 - Support Email: pethorizon2026@gmail.com
 - Privacy Policy: ${BASE_URL}/privacy-policy
 - Data Deletion: ${BASE_URL}/data-deletion
+- RSS Feed: ${BASE_URL}/rss.xml
 
-## Topic Clusters & Canonical Guides
+## Topic Clusters & Canonical Guides (${posts.length} Active Guides)
 `;
 
   posts.forEach((post) => {
@@ -177,6 +211,7 @@ Pet Horizon (https://pethorizon.jawumitech.com) is a comprehensive pet care plat
 
   md += `\n## Extended Documentation\n`;
   md += `- [Full Clinical Text and Veterinary Protocols](${BASE_URL}/llms-full.txt)\n`;
+  md += `- [Keyword Research Dataset (300+ Verified Queries)](${BASE_URL}/seo/KEYWORD_RESEARCH_300.csv)\n`;
 
   return md;
 }
@@ -219,6 +254,9 @@ function generateLlmsFullTxt(posts, getFullBlogArticle) {
         if (sec.warningBox) {
           md += `> **WARNING - ${sec.warningBox.title}**: ${sec.warningBox.text}\n\n`;
         }
+        if (sec.routineTip) {
+          md += `> **ROUTINE TIP - ${sec.routineTip.title}**: ${sec.routineTip.text}\n\n`;
+        }
       });
     }
 
@@ -228,7 +266,7 @@ function generateLlmsFullTxt(posts, getFullBlogArticle) {
   return md;
 }
 
-// 5. Pre-build execution
+// 6. Pre-build execution
 async function runPreBuild() {
   console.log('🐾 [SEO Pre-Build] Initializing PetHorizon SEO Artifact Generator...');
 
@@ -249,7 +287,12 @@ async function runPreBuild() {
   fs.writeFileSync(path.join(publicDir, 'robots.txt'), robotsTxt, 'utf-8');
   console.log('✅ Generated public/robots.txt');
 
-  // 3. llms.txt & llms-full.txt
+  // 3. RSS 2.0 Feed
+  const rssXml = generateRssFeed(BLOG_POSTS);
+  fs.writeFileSync(path.join(publicDir, 'rss.xml'), rssXml, 'utf-8');
+  console.log('✅ Generated public/rss.xml');
+
+  // 4. llms.txt & llms-full.txt
   const llmsTxt = generateLlmsTxt(BLOG_POSTS);
   fs.writeFileSync(path.join(publicDir, 'llms.txt'), llmsTxt, 'utf-8');
   console.log('✅ Generated public/llms.txt');
@@ -258,14 +301,14 @@ async function runPreBuild() {
   fs.writeFileSync(path.join(publicDir, 'llms-full.txt'), llmsFullTxt, 'utf-8');
   console.log('✅ Generated public/llms-full.txt');
 
-  // 4. IndexNow key file
+  // 5. IndexNow key file
   fs.writeFileSync(path.join(publicDir, `${INDEXNOW_KEY}.txt`), INDEXNOW_KEY, 'utf-8');
   console.log(`✅ Generated public/${INDEXNOW_KEY}.txt (IndexNow verification)`);
 
   console.log('🎉 [SEO Pre-Build] Completed Successfully!');
 }
 
-// 6. Post-build execution: Static HTML prerenderer
+// 7. Post-build execution: Static HTML prerenderer
 async function runPostBuild() {
   console.log('🐾 [SEO Post-Build] Prerendering Static HTML Pages into dist/...');
 
@@ -320,6 +363,11 @@ async function runPostBuild() {
       html = html.replace('</head>', `  <link rel="canonical" href="${canonicalUrl}" />\n  </head>`);
     }
 
+    // RSS Feed link
+    if (!html.includes('type="application/rss+xml"')) {
+      html = html.replace('</head>', `  <link rel="alternate" type="application/rss+xml" title="Pet Horizon Blog RSS Feed" href="${BASE_URL}/rss.xml" />\n  </head>`);
+    }
+
     // OG Url
     html = html.replace(/<meta property="og:url" content="[^"]*"/i, `<meta property="og:url" content="${canonicalUrl}"`);
     html = html.replace(/<meta name="twitter:url" content="[^"]*"/i, `<meta name="twitter:url" content="${canonicalUrl}"`);
@@ -342,6 +390,57 @@ async function runPostBuild() {
     }
 
     return html;
+  }
+
+  // 0. Prerender / (Homepage with semantic crawler content)
+  {
+    const homeSemantic = `
+      <header style="max-width: 1080px; margin: 40px auto 20px; padding: 0 16px;">
+        <h1 style="font-size: 38px; font-weight: 900; color: #111827; line-height: 1.2;">Pet Horizon – Smart Pet Care, Family Hub & Daily Routine Tracker</h1>
+        <p style="font-size: 18px; color: #4b5563; max-width: 800px; line-height: 1.6; margin: 16px 0;">Organize smart medication alarms, daily feeding routines, clinical vaccination history, and multi-caretaker family hub in one unified platform for Android.</p>
+        <div style="margin: 24px 0;">
+          <a href="https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon" style="display: inline-block; background: #047857; color: #ffffff; padding: 14px 28px; border-radius: 9999px; text-decoration: none; font-weight: 700;">Get Pet Horizon on Google Play</a>
+          <a href="/blogs" style="display: inline-block; margin-left: 16px; color: #047857; padding: 14px 24px; text-decoration: none; font-weight: 700;">Explore Pet Care Guides &rarr;</a>
+        </div>
+      </header>
+      <main style="max-width: 1080px; margin: 40px auto; padding: 0 16px; font-family: system-ui, sans-serif;">
+        <section style="margin-bottom: 48px;">
+          <h2 style="font-size: 26px; font-weight: 800; color: #111827;">Core Platform Features</h2>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px;">
+            <div style="border: 1px solid #e5e7eb; border-radius: 12px; padding: 20px; background: #ffffff;">
+              <h3 style="font-size: 18px; font-weight: 700; color: #047857;">Clinical Health Card</h3>
+              <p style="color: #4b5563; font-size: 14px; line-height: 1.5;">Track core vs non-core puppy and kitten vaccine due dates (DHPP, Rabies, FVRCP) with exportable PDF passports for boarding facilities.</p>
+            </div>
+            <div style="border: 1px solid #e5e7eb; border-radius: 12px; padding: 20px; background: #ffffff;">
+              <h3 style="font-size: 18px; font-weight: 700; color: #047857;">Smart Medication Reminders</h3>
+              <p style="color: #4b5563; font-size: 14px; line-height: 1.5;">Set recurring dosage alarms with missed dose safety protocols and multi-caregiver adherence audit logs to prevent double-dosing.</p>
+            </div>
+            <div style="border: 1px solid #e5e7eb; border-radius: 12px; padding: 20px; background: #ffffff;">
+              <h3 style="font-size: 18px; font-weight: 700; color: #047857;">Family Hub QR Sync</h3>
+              <p style="color: #4b5563; font-size: 14px; line-height: 1.5;">Instant household pairing across partners, roommates, and pet sitters with real-time status updates so no one asks 'Did you feed the dog?'</p>
+            </div>
+            <div style="border: 1px solid #e5e7eb; border-radius: 12px; padding: 20px; background: #ffffff;">
+              <h3 style="font-size: 18px; font-weight: 700; color: #047857;">Feeding & Nutrition Tracker</h3>
+              <p style="color: #4b5563; font-size: 14px; line-height: 1.5;">Daily portion control and Resting Energy Requirement (RER) calculations based on clinical veterinary standards to prevent canine and feline obesity.</p>
+            </div>
+          </div>
+        </section>
+        <section style="margin-bottom: 48px; background: #f9fafb; border-radius: 16px; padding: 32px 24px;">
+          <h2 style="font-size: 24px; font-weight: 800; color: #111827;">Frequently Asked Questions</h2>
+          <div style="margin-top: 16px;">
+            <h3 style="font-size: 16px; font-weight: 700; color: #111827;">Is Pet Horizon completely free?</h3>
+            <p style="color: #4b5563; font-size: 14px; line-height: 1.6;">Yes, Pet Horizon is 100% free to download on Android with complete core features included: unlimited pet profiles, clinical vaccination passports, and multi-user family sync.</p>
+            <h3 style="font-size: 16px; font-weight: 700; color: #111827; margin-top: 16px;">How does Family Hub QR Code Sync work?</h3>
+            <p style="color: #4b5563; font-size: 14px; line-height: 1.6;">Simply open your pet profile, generate a secure Family Hub QR code, and have your partner, flatmate, or pet sitter scan it. Tasks and medication logs sync live across devices.</p>
+          </div>
+        </section>
+      </main>
+      <footer style="max-width: 1080px; margin: 60px auto 40px; padding: 20px 16px; border-top: 1px solid #e5e7eb; font-size: 13px; color: #6b7280;">
+        <p>&copy; 2026 Pet Horizon. All rights reserved. <a href="/blogs">Pet Care Guides</a> • <a href="/privacy-policy">Privacy Policy</a> • <a href="/terms-of-service">Terms</a> • <a href="/changelog">Changelog</a> • <a href="/rss.xml">RSS Feed</a></p>
+      </footer>
+    `;
+    let html = baseTemplate.replace('<div id="root"></div>', `<div id="root">${homeSemantic}</div>`);
+    writePrerenderedFile('/', html);
   }
 
   // 1. Prerender /blogs (Blog Hub)
@@ -369,7 +468,7 @@ async function runPostBuild() {
         ${blogCardsHtml}
       </main>
       <footer style="max-width: 960px; margin: 60px auto 40px; padding: 20px 16px; border-top: 1px solid #e5e7eb; font-size: 13px; color: #6b7280;">
-        <p>&copy; 2026 Pet Horizon. All rights reserved. <a href="/">Home</a> • <a href="/privacy-policy">Privacy Policy</a> • <a href="/changelog">Changelog</a></p>
+        <p>&copy; 2026 Pet Horizon. All rights reserved. <a href="/">Home</a> • <a href="/privacy-policy">Privacy Policy</a> • <a href="/changelog">Changelog</a> • <a href="/rss.xml">RSS Feed</a></p>
       </footer>
     `;
 
@@ -405,7 +504,7 @@ async function runPostBuild() {
     writePrerenderedFile('/blogs', html);
   }
 
-  // 2. Prerender all 19 /blogs/[slug]
+  // 2. Prerender all 34 /blogs/[slug]
   for (const post of BLOG_POSTS) {
     const full = getFullBlogArticle(post.slug);
     const postTitle = post.metaTitle || `${post.title} | Pet Horizon`;
@@ -518,7 +617,7 @@ async function runPostBuild() {
       </main>
 
       <footer style="max-width: 840px; margin: 60px auto 40px; padding: 20px 16px; border-top: 1px solid #e5e7eb; font-size: 13px; color: #6b7280;">
-        <p>&copy; 2026 Pet Horizon. All rights reserved. <a href="/">Home</a> • <a href="/blogs">All Guides</a> • <a href="/privacy-policy">Privacy Policy</a></p>
+        <p>&copy; 2026 Pet Horizon. All rights reserved. <a href="/">Home</a> • <a href="/blogs">All Guides</a> • <a href="/privacy-policy">Privacy Policy</a> • <a href="/rss.xml">RSS Feed</a></p>
       </footer>
     `;
 
@@ -673,10 +772,25 @@ async function runPostBuild() {
     writePrerenderedFile('404.html', html);
   }
 
+  // 8. Copy public/rss.xml and public/seo to dist
+  const publicRss = path.join(publicDir, 'rss.xml');
+  if (fs.existsSync(publicRss)) {
+    fs.copyFileSync(publicRss, path.join(distDir, 'rss.xml'));
+  }
+  const publicSeo = path.join(publicDir, 'seo');
+  const distSeo = path.join(distDir, 'seo');
+  if (fs.existsSync(publicSeo)) {
+    if (!fs.existsSync(distSeo)) fs.mkdirSync(distSeo, { recursive: true });
+    const seoFiles = fs.readdirSync(publicSeo);
+    seoFiles.forEach((f) => {
+      fs.copyFileSync(path.join(publicSeo, f), path.join(distSeo, f));
+    });
+  }
+
   console.log(`🎉 [SEO Post-Build] Successfully prerendered ${prerenderCount} static pages with semantic HTML & schema markup!`);
 }
 
-// 7. Entry Router
+// 8. Entry Router
 async function main() {
   const arg = process.argv[2];
   if (arg === '--post') {
