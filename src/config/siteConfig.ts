@@ -8,7 +8,7 @@ export const SITE_CONFIG = {
   tagline: 'Smart Pet Care, Family Hub & Daily Routine Tracker',
   description:
     'Pet Horizon is the all-in-one family pet care app. Synchronize feeding, track vet appointments, set medication reminders, and log daily milestones.',
-  url: 'https://pethorizon.app',
+  url: 'https://pethorizon.jawumitech.com',
   playStoreUrl: 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon',
   formspreeEndpoint: 'https://formspree.io/f/mnppnazk',
   supportEmail: 'pethorizon2026@gmail.com',
