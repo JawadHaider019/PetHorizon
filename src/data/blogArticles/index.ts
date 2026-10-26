@@ -12,6 +12,21 @@ import { toxicFoodsArticle } from './toxicFoods';
 import { pottyTrainingArticle } from './pottyTraining';
 import { catFeedingEnrichmentArticle } from './catFeedingEnrichment';
 import { bestPetCareAppsArticle } from './bestPetCareApps';
+import { dogSeparationAnxietyArticle } from './dogSeparationAnxiety';
+import { introducingKittenToCatArticle } from './introducingKittenToCat';
+import { dogGroomingAtHomeArticle } from './dogGroomingAtHome';
+import { dogDentalCareArticle } from './dogDentalCare';
+import { petSitterInstructionsArticle } from './petSitterInstructions';
+import { seniorDogCareArticle } from './seniorDogCare';
+import { seniorCatCareArticle } from './seniorCatCare';
+import { dogWalkingScheduleArticle } from './dogWalkingSchedule';
+import { catLitterBoxProblemsArticle } from './catLitterBoxProblems';
+import { petTravelChecklistArticle } from './petTravelChecklist';
+import { summerPetSafetyArticle } from './summerPetSafety';
+import { winterPetCareArticle } from './winterPetCare';
+import { multiplePetManagementArticle } from './multiplePetManagement';
+import { petFirstAidKitArticle } from './petFirstAidKit';
+import { petInsuranceVsSavingsArticle } from './petInsuranceVsSavings';
 
 export * from './types';
 export {
@@ -29,7 +44,22 @@ export {
   toxicFoodsArticle,
   pottyTrainingArticle,
   catFeedingEnrichmentArticle,
-  bestPetCareAppsArticle
+  bestPetCareAppsArticle,
+  dogSeparationAnxietyArticle,
+  introducingKittenToCatArticle,
+  dogGroomingAtHomeArticle,
+  dogDentalCareArticle,
+  petSitterInstructionsArticle,
+  seniorDogCareArticle,
+  seniorCatCareArticle,
+  dogWalkingScheduleArticle,
+  catLitterBoxProblemsArticle,
+  petTravelChecklistArticle,
+  summerPetSafetyArticle,
+  winterPetCareArticle,
+  multiplePetManagementArticle,
+  petFirstAidKitArticle,
+  petInsuranceVsSavingsArticle
 };
 
 const ARTICLES_MAP: Record<string, FullBlogArticle> = {
@@ -47,7 +77,22 @@ const ARTICLES_MAP: Record<string, FullBlogArticle> = {
   [toxicFoodsArticle.slug]: toxicFoodsArticle,
   [pottyTrainingArticle.slug]: pottyTrainingArticle,
   [catFeedingEnrichmentArticle.slug]: catFeedingEnrichmentArticle,
-  [bestPetCareAppsArticle.slug]: bestPetCareAppsArticle
+  [bestPetCareAppsArticle.slug]: bestPetCareAppsArticle,
+  [dogSeparationAnxietyArticle.slug]: dogSeparationAnxietyArticle,
+  [introducingKittenToCatArticle.slug]: introducingKittenToCatArticle,
+  [dogGroomingAtHomeArticle.slug]: dogGroomingAtHomeArticle,
+  [dogDentalCareArticle.slug]: dogDentalCareArticle,
+  [petSitterInstructionsArticle.slug]: petSitterInstructionsArticle,
+  [seniorDogCareArticle.slug]: seniorDogCareArticle,
+  [seniorCatCareArticle.slug]: seniorCatCareArticle,
+  [dogWalkingScheduleArticle.slug]: dogWalkingScheduleArticle,
+  [catLitterBoxProblemsArticle.slug]: catLitterBoxProblemsArticle,
+  [petTravelChecklistArticle.slug]: petTravelChecklistArticle,
+  [summerPetSafetyArticle.slug]: summerPetSafetyArticle,
+  [winterPetCareArticle.slug]: winterPetCareArticle,
+  [multiplePetManagementArticle.slug]: multiplePetManagementArticle,
+  [petFirstAidKitArticle.slug]: petFirstAidKitArticle,
+  [petInsuranceVsSavingsArticle.slug]: petInsuranceVsSavingsArticle
 };
 
 /**
@@ -103,6 +148,51 @@ export function getFullBlogArticle(slug: string): FullBlogArticle | null {
   }
   if (slug.includes('best-pet-care-apps') || slug.includes('pet-apps')) {
     return { ...bestPetCareAppsArticle, slug };
+  }
+  if (slug.includes('separation-anxiety')) {
+    return { ...dogSeparationAnxietyArticle, slug };
+  }
+  if (slug.includes('introduce-kitten')) {
+    return { ...introducingKittenToCatArticle, slug };
+  }
+  if (slug.includes('dog-grooming')) {
+    return { ...dogGroomingAtHomeArticle, slug };
+  }
+  if (slug.includes('dental-care')) {
+    return { ...dogDentalCareArticle, slug };
+  }
+  if (slug.includes('pet-sitter')) {
+    return { ...petSitterInstructionsArticle, slug };
+  }
+  if (slug.includes('senior-dog')) {
+    return { ...seniorDogCareArticle, slug };
+  }
+  if (slug.includes('senior-cat')) {
+    return { ...seniorCatCareArticle, slug };
+  }
+  if (slug.includes('walking-schedule')) {
+    return { ...dogWalkingScheduleArticle, slug };
+  }
+  if (slug.includes('litter-box')) {
+    return { ...catLitterBoxProblemsArticle, slug };
+  }
+  if (slug.includes('pet-travel')) {
+    return { ...petTravelChecklistArticle, slug };
+  }
+  if (slug.includes('summer-pet')) {
+    return { ...summerPetSafetyArticle, slug };
+  }
+  if (slug.includes('winter-pet')) {
+    return { ...winterPetCareArticle, slug };
+  }
+  if (slug.includes('multiple-pet')) {
+    return { ...multiplePetManagementArticle, slug };
+  }
+  if (slug.includes('first-aid')) {
+    return { ...petFirstAidKitArticle, slug };
+  }
+  if (slug.includes('insurance-vs-savings')) {
+    return { ...petInsuranceVsSavingsArticle, slug };
   }
 
   return null;
