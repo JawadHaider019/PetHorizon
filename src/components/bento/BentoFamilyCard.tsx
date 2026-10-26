@@ -49,36 +49,36 @@ export default function BentoFamilyCard() {
         </p>
 
         <div className="grid grid-cols-2 gap-1.5 mt-3 pt-2.5 border-t border-slate-100/90 text-[11px] text-slate-600 font-medium">
-          <span className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-teal-600 shrink-0" /> 6-digit code or QR</span>
-          <span className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-teal-600 shrink-0" /> Admin &amp; Member roles</span>
+          <span className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-teal-600 shrink-0" /> Chore delegation &amp; swap</span>
+          <span className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-teal-600 shrink-0" /> Anti-collision lock</span>
         </div>
       </div>
 
       <div className="mt-4 pt-3.5 border-t border-slate-100/90 flex flex-col justify-end space-y-2.5 relative z-10">
-        <div className="bg-[#F8FAF9] p-3 rounded-2xl border border-slate-200/80 h-[116px] flex flex-col justify-between group-hover:bg-teal-50/20 group-hover:border-teal-200/60 transition-colors duration-200">
+        <div className="bg-[#F8FAF9] p-3 rounded-2xl border border-slate-200/80 min-h-[124px] flex flex-col justify-between group-hover:bg-teal-50/20 group-hover:border-teal-200/60 transition-colors duration-200">
           <div className="flex items-center justify-between text-[11px]">
             <span className="font-bold text-slate-800 flex items-center gap-1.5">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500" />
               </span>
-              Live Care Circle
+              Delegation &amp; Lock
             </span>
-            <span className="text-teal-700 font-mono font-semibold text-[10px] bg-white px-2 py-0.5 rounded-full border border-teal-200/60 shadow-2xs whitespace-nowrap">
-              Instant sync
+            <span className="text-amber-800 font-mono font-semibold text-[10px] bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200/60 shadow-2xs whitespace-nowrap">
+              In-Progress Lock
             </span>
           </div>
 
-          <div className="space-y-1 text-[11px]">
-            <div className="flex items-center justify-between bg-white px-2 py-1 rounded-xl border border-slate-200/70 shadow-2xs">
+          <div className="space-y-1.5 text-[11px] mt-1.5">
+            <div className="flex items-center justify-between bg-white px-2 py-1 rounded-xl border border-amber-200/70 shadow-2xs">
               <div className="flex items-center gap-1.5 truncate">
-                <div className="w-4.5 h-4.5 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[9px] flex items-center justify-center shrink-0">
+                <div className="w-4.5 h-4.5 rounded-full bg-amber-100 text-amber-800 font-bold text-[9px] flex items-center justify-center shrink-0">
                   S
                 </div>
                 <span className="font-bold text-slate-900 text-xs">Sarah</span>
-                <span className="text-[9px] text-emerald-800 bg-emerald-50 px-1 py-0.2 rounded font-medium">Admin</span>
+                <span className="text-[9px] text-amber-800 bg-amber-50 px-1 py-0.2 rounded font-medium">Feeding Now</span>
               </div>
-              <span className="text-[10px] text-emerald-700 font-medium whitespace-nowrap">Walk (35m) logged</span>
+              <span className="text-[10px] text-amber-700 font-semibold whitespace-nowrap">Locked (2m ago)</span>
             </div>
 
             <div className="flex items-center justify-between bg-white px-2 py-1 rounded-xl border border-slate-200/70 shadow-2xs">
@@ -87,9 +87,9 @@ export default function BentoFamilyCard() {
                   M
                 </div>
                 <span className="font-bold text-slate-900 text-xs">Michael</span>
-                <span className="text-[9px] text-slate-600 bg-slate-100 px-1 py-0.2 rounded font-medium">Member</span>
+                <span className="text-[9px] text-blue-800 bg-blue-50 px-1 py-0.2 rounded font-medium">Lunch Walk</span>
               </div>
-              <span className="text-[10px] text-slate-500 font-medium whitespace-nowrap">Breakfast fed</span>
+              <span className="text-[10px] text-teal-700 font-medium whitespace-nowrap">11:30 – 2:00 PM</span>
             </div>
           </div>
         </div>

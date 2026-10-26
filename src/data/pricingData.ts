@@ -85,10 +85,12 @@ export const PRICING_PLANS: PricingPlan[] = [
     },
     features: [
       'Unlimited pet profile registrations',
+      'Smart Family Delegation & Task Swapping (Up to 5 Caretakers)',
+      'Flexible Time Windows (e.g. Around Lunchtime)',
+      'Household Walking Goals & Team Activity Stats',
+      'Anti-Collision Lock to prevent double-care or repeat meds',
       'Multi-caretaker family hub with QR code sync',
-      'Admin & Member access control permissions',
       'Up to 5 daily photo uploads in journal',
-      'Smart custom push notifications & reminders',
       'Unlimited schedule alarms & vaccination tracking'
     ],
     buttonText: 'Get Pro on Google Play',
@@ -120,6 +122,8 @@ export const PRICING_PLANS: PricingPlan[] = [
     },
     features: [
       'All Monthly Pro benefits included',
+      'Smart Family Delegation & Task Swapping included',
+      'Household Walking Goals & Leaderboard Badges',
       'Equivalent of 2 months free (Save 17%)',
       'Unlimited pets & shared family hubs',
       'Up to 5 daily photo uploads in journal',
