@@ -41,6 +41,8 @@ Why Kitchen Scales Beat Measuring Cups: A standard volumetric cup can pack anywh
 
 > **WARNING - Veterinary Golden Rule: The 10% Treat Boundary**: Treats, training rewards, and table scraps must never exceed 10% of your dog’s total daily caloric allowance. Exceeding this boundary dilutes essential amino acids, calcium, and vitamins formulated in the primary diet and is the number one cause of stubborn weight gain.
 
+> **ROUTINE TIP - PetHorizon In-App Portion & Calorie Logger**: Record your dog’s exact daily gram target in PetHorizon. Caregivers can log morning and evening meals with one tap so no one accidentally serves a second breakfast.
+
 ### Safe 7-Day Food Transition Protocol & Bloat (GDV) Safety
 Switching diets too quickly overwhelms the canine gut microbiome, triggering acute osmotic diarrhea, vomiting, and inappetence.
 
@@ -179,6 +181,8 @@ What to Do If You Miss a Dose: Never double up on a medication to compensate for
 
 > **WARNING - Critical Safety Warning: Never Give Human NSAIDs or Painkillers**: Common human over-the-counter painkillers (such as Tylenol/Acetaminophen, Advil/Ibuprofen, and Aleve/Naproxen) are acutely toxic to dogs and cats. Acetaminophen causes fatal methemoglobinemia and liver failure in cats, while ibuprofen causes severe gastric perforation and acute kidney necrosis in dogs.
 
+> **ROUTINE TIP - PetHorizon Recurring Medication Reminders**: Set up customized dosage schedules with built-in push alarms in PetHorizon. Caregivers can confirm administration with a single checkmark, keeping everyone informed in real time.
+
 ### Emergency Readiness: Why Paper Records Fail and Digital Sync Wins
 When medical emergencies happen at 2:00 AM on a Sunday, the family pet binder is often sitting on a shelf miles away. Having an instant, exportable digital health passport on your smartphone bridges critical communication gaps.
 
@@ -313,6 +317,8 @@ The Kitchen & Pantry: Never leave human food within reach on countertops or low 
 The Bathroom & Laundry Room: Keep toilet lids closed at all times to prevent accidental drowning or ingestion of chemical cleaning blocks. Ensure all human prescription medications, vitamins, ibuprofen, and dental floss are locked away inside high cabinets.
 
 > **WARNING - Emergency Toxic Ingestion Alert: Xylitol & Human NSAIDs**: Even minuscule amounts of Xylitol (found in sugar-free gum, peanut butter, and baked goods) trigger massive insulin surges in dogs within 30 minutes, leading to acute hypoglycemia, seizures, and liver necrosis. If accidental ingestion occurs, contact ASPCA Animal Poison Control or your emergency vet immediately.
+
+> **ROUTINE TIP - PetHorizon Expense & Budget Tracker**: First-year puppy costs add up quickly. Use PetHorizon’s Budget Manager to track veterinary visits, food, toys, and supplies so your household budget stays balanced.
 
 ### The Transparent First-Year Financial Ledger: What a Puppy Actually Costs
 Pet adoption organizations frequently cite modest maintenance estimates that ignore the front-loaded costs of initial immunizations, spay/neuter surgery, gear, and preventative health supplies.
@@ -770,6 +776,8 @@ Cats possess a low intrinsic thirst drive evolved from desert ancestors. They re
 ### Tracking Senior Cat Hydration With Pet Horizon
 Continuous monitoring allows you to spot gradual trends in water intake and appetite before they evolve into medical crises.
 
+> **ROUTINE TIP - Daily Water & Meal Logs**: Use Pet Horizon to log morning water refills, wet food feeding adherence, and weekly weigh-ins. Share these visual timelines directly with your veterinarian during biannual senior blood chemistry checkups.
+
 ---
 
 ## Emergency Vet Red Flags: When to Go to the Animal ER Immediately
@@ -839,6 +847,8 @@ Recognizing toxicity symptoms early dramatically increases treatment success rat
 ### Preventing Ingestion with Pet Horizon Daily Tracking
 Prevention and fast access to health records are your pet’s strongest shield against accidental poisoning.
 
+> **ROUTINE TIP - Emergency Preparedness Checklist**: Store your primary vet and local 24/7 emergency clinic numbers in Pet Horizon’s Quick Contacts. Use the Daily Activity Journal to log any dietary changes, treat brands, or suspicious gastrointestinal events.
+
 ---
 
 ## Puppy Potty Training Schedule: Hour-by-Hour Routine to Stop Accidents
@@ -878,6 +888,8 @@ A crate leverages a dog’s natural den instinct to avoid soiling their sleeping
 
 ### Building Consistent Potty Habits With Pet Horizon
 Sharing care responsibilities across multiple household members prevents missed potty breaks and eliminates miscommunication.
+
+> **ROUTINE TIP - Sync Reminders Across Family Members**: Set recurring 2-hour potty reminder alerts in Pet Horizon. When one family member takes the puppy out, they log it with one tap so no one duplicates or forgets an outing.
 
 ---
 
@@ -968,6 +980,8 @@ Transitioning at least 50% to 100% of a cat’s daily calories to canned wet foo
 
 > **WARNING - Emergency Red Flag: Male Cat Straining in Litter Box**: If a male cat strains, cries, or repeatedly visits the litter box without producing urine, seek emergency veterinary care immediately. Urethral blockage is 100% fatal within 24 to 48 hours without catheter relief.
 
+> **ROUTINE TIP - Log Feline Water & Wet Meals in PetHorizon**: Use PetHorizon to set morning and evening wet food meal reminders and log daily litter box activity. Multi-caregiver households can sync reminders to ensure your cat never misses a scheduled meal or gets double-fed.
+
 ### Indoor Feline Enrichment: Recreating the Hunt at Home
 Indoor cats are safe from predators, traffic, and parasites, but sensory deprivation and sedentary boredom can lead to behavioral problems like over-grooming, destructive scratching, and nighttime vocalization.
 
@@ -1022,6 +1036,8 @@ PetHorizon is 100% free to download on Android with complete core functionality 
 
 The interface is built with responsive, offline-ready technology that ensures your medication reminders and vaccination records are accessible even when cell reception drops at a rural dog park or vet clinic waiting room.
 
+> **ROUTINE TIP - Download Pet Horizon for Android**: Join thousands of pet parents who have streamlined feeding routines, medication adherence, and veterinary health records with PetHorizon.
+
 ---
 
 ## Dog Separation Anxiety: Proven Calming Routines, Desensitization Schedule & Training Guide
@@ -1063,6 +1079,8 @@ Phase 3 breaks through the critical 15-minute barrier. Once a dog can comfortabl
 Phase 4 reaches full independence (2 to 4 hours). Practice random variable schedules—never make every consecutive absence longer than the previous one to avoid fatigue.
 
 > **WARNING - Do Not Use Aversive Bark Collars or Punishment**: Punishing an anxious dog for barking or chewing suppresses outward signs while massively magnifying underlying terror. Shock, citronella, or choke collars increase chronic cortisol levels and often trigger fear-based aggression.
+
+> **ROUTINE TIP - Track Alone-Time Milestones in PetHorizon**: Log every absence duration and dog calm score in the PetHorizon Activity Timeline. Sharing updates across household members prevents anyone from pushing duration too fast.
 
 ### Environmental Setup, Calming Tools & Veterinary Medication
 While behavioral conditioning rewires neural pathways, environmental management and veterinary pharmaceuticals can accelerate progress and prevent regression.
@@ -1119,6 +1137,8 @@ In Phase 4, allow short supervised interactions. Always engage both cats in acti
 | Phase 3: Visual Contact with Barrier | Days 9 – 14 | Eat meals on opposite sides of baby gate, screen door, or cracked door | Relaxed grooming and eating within 3 feet of each other through the barrier |
 | Phase 4: Supervised Free Contact | Days 15 – 21+ | Interactive wand play, shared treat time, short 10-minute sessions | Mutual nose-touches, cooperative play, or peaceful co-resting |
 
+> **ROUTINE TIP - Coordinate Multi-Cat Feeding in PetHorizon**: Use PetHorizon to set simultaneous morning and evening wet food schedules for both cats. Multi-profile tracking ensures neither cat steals the other’s prescribed diet or life-stage nutrition.
+
 ### The "N + 1" Rule: Preventing Territorial Resource Guarding
 Feline territorial stress occurs when key survival resources are clustered or limited. In multi-cat homes, resource distribution is everything.
 
@@ -1172,6 +1192,8 @@ Never brush a completely dry, dirty coat—friction damages the hair cuticle and
 
 For curly or non-shedding breeds (Poodles, Doodles, Bichons), follow your slicker brush with a metal greyhound comb. If the metal comb catches or resists anywhere near the skin, there is a hidden knot that requires gentle manual finger-separation.
 
+> **ROUTINE TIP - Set Grooming Schedules in PetHorizon**: Log bath dates, nail trims, and flea inspections in PetHorizon. Receive recurring reminders every 2 to 3 weeks to keep your dog’s paws and coat in competition-ready health.
+
 ### Ear Cleaning & Dental Hygiene: Preventing Chronic Infections
 Floppy-eared breeds (Cavaliers, Spaniels, Labradors) have dark, moist L-shaped ear canals that trap moisture, yeast, and bacteria.
 
@@ -1224,6 +1246,8 @@ Do not plunge a hard-bristled brush into an unfamiliar dog’s mouth on day one.
 Focus on the outer surfaces of the upper teeth where the salivary parotid ducts deposit minerals. Dogs rarely accumulate heavy tartar on the inner tongue side because their rough tongue provides natural mechanical friction.
 
 Keep sessions short—30 to 60 seconds total—and always end with an enthusiastic verbal reward and a walk or favorite toy play.
+
+> **ROUTINE TIP - Track Dental Care Milestones in PetHorizon**: Log brushing sessions and annual veterinary dental cleanings in PetHorizon. Receive weekly reminders to maintain oral hygiene and upload veterinary dental x-ray reports to your health vault.
 
 ### Dental Chews, Water Additives & Anesthesia-Free Cleaning Truths
 With hundreds of dental treats on the market, pet parents must know which products have clinical evidence and which are marketing hype.
@@ -1281,6 +1305,8 @@ Print or digitally share this legal proxy template with your pet sitter and emai
 - **Medical History**: Known drug allergies, pre-existing conditions (e.g., epilepsy, diabetes, heart murmur), current medications.
 - **Financial Cap**: Maximum pre-authorized emergency medical expenditure (e.g., up to $2,000 without prior phone consultation).
 
+> **ROUTINE TIP - Share Instant Sitter Access with PetHorizon Family Hub**: Instead of handwriting pages of notes, generate a temporary Caregiver QR code in PetHorizon. Your sitter gets real-time access to feeding schedules, medical records, and one-tap emergency vet contacts directly on their smartphone.
+
 ### The 48-Hour Pre-Departure Orientation Walkthrough
 Never hand over keys on the morning of your flight. Schedule a 30-minute in-person trial run 24 to 48 hours beforehand.
 
@@ -1326,6 +1352,8 @@ Pharmaceutical interventions include modern non-steroidal anti-inflammatory drug
 Nutritional joint support should prioritize high concentrations of EPA and DHA omega-3 fatty acids, glucosamine hydrochloride, chondroitin sulfate, and green-lipped mussel extract to slow down cartilage degradation.
 
 > **WARNING - Never Give Human Aspirin or Ibuprofen**: Human pain relievers cause acute gastric ulceration, intestinal perforation, and acute renal failure in dogs. Always use veterinary-prescribed canine NSAIDs with regular bloodwork monitoring.
+
+> **ROUTINE TIP - Track Senior Vitals & Medications in PetHorizon**: Log daily mobility scores, joint supplement schedules, and prescription pain relief in PetHorizon. Monitor monthly weight changes on interactive charts to spot subtle muscle wasting early.
 
 ### Canine Cognitive Dysfunction Syndrome (Dog Dementia): DISHA Symptoms
 Cognitive decline in aging dogs is physiologically similar to Alzheimer’s disease in humans, characterized by beta-amyloid protein plaque accumulation in the cerebral cortex.
@@ -1374,6 +1402,8 @@ Unless a cat has advanced kidney failure requiring strict protein and phosphorus
 Hydration remains the critical cornerstone of senior feline care. Provide multiple shallow ceramic water fountains and mix warm bone broth or warm water into all wet food meals to preserve kidney nephrons and prevent hard, painful fecal constipation.
 
 > **WARNING - Weigh Your Senior Cat Monthly**: A weight drop of just 8 ounces (225 grams) in a 10-pound cat represents 5% of their total body mass—equivalent to a 150-pound human losing 7.5 pounds unexpectedly. Unintentional weight loss is the earliest clinical indicator of feline metabolic disease.
+
+> **ROUTINE TIP - Track Senior Cat Weight & Vitals in PetHorizon**: Record monthly weight checks in PetHorizon to visualize trends on interactive weight curves. Receive reminders for semi-annual senior vet exams and bloodwork appointments.
 
 ### Home Comfort Adaptations for Senior Cats
 Small modifications to your living space make a dramatic difference in a senior cat’s daily independence and comfort.
@@ -1424,6 +1454,8 @@ A 30-minute stroll may satisfy an English Bulldog while merely serving as a brie
 
 > **WARNING - The 7-Second Asphalt Heat Rule**: Before walking on sunny summer days, place the back of your bare hand firmly against the pavement for 7 continuous seconds. If it is too hot for your hand, it will cause second-degree thermal burns to your dog’s paw pads within minutes.
 
+> **ROUTINE TIP - Track Walk Duration & Routes in PetHorizon**: Log walk start times, durations, and bathroom milestones in PetHorizon. Multi-caregiver households can see when the dog was last walked to avoid duplicate outings or skipped evening exercise.
+
 ### The "Sniffari": Why Scent Walks Burn More Energy Than Running
 A dog possesses up to 300 million olfactory receptors compared to a human’s 6 million, and devotes 40 times more brain volume to analyzing smells.
 
@@ -1469,6 +1501,8 @@ If medical causes are ruled out by urinalysis, 95% of litter box rejections stem
 - **3. Substrate: Unscented Fine Clumping Clay**: Cats have soft, sensitive paw pads and an olfactory sense 14 times stronger than humans. Scented perfumes (lavender, pine, citrus) and sharp wood pellets cause severe paw aversion. Fine, unscented clumping clay is preferred by 90% of cats.
 - **4. Quantity: The N + 1 Rule**: Provide one litter box per cat plus one extra (2 cats = 3 boxes) placed in distinct locations—never lined up in a single row.
 - **5. Daily Scooping & Monthly Washes**: Scoop every box at least once daily (ideally twice). Completely dump litter and wash the plastic pan monthly using mild unscented soap; avoid harsh bleach or ammonia cleansers that mimic feline urine marking.
+
+> **ROUTINE TIP - Track Litter Box Logs & Vet Tests in PetHorizon**: Record daily litter box cleaning and flag abnormal clumps or straining in PetHorizon. Share updates across family members so everyone knows the box was scooped and vet records are organized.
 
 ### Remediating Accidents: Why Only Enzymatic Cleaners Work
 Cats possess an extraordinarily sensitive olfactory map. If a spot smells faintly of previous urine, they will return to mark it repeatedly.
@@ -1518,6 +1552,8 @@ Look for harnesses and crates certified by the Center for Pet Safety (CPS)—an 
 
 Plan road stops every 2 to 3 hours for bathroom breaks, water hydration, and short leash walks. Never leave pets inside a parked vehicle, even with windows cracked: cabin temperatures climb from 70°F to 100°F within 20 minutes.
 
+> **ROUTINE TIP - Store Digital Travel Passports in PetHorizon**: Save vaccination certificates, rabies tag IDs, microchip registration numbers, and vet contacts directly in PetHorizon. Access full clinical records offline even at 35,000 feet or international border checkpoints.
+
 ### The Ultimate Pet Travel Packing Essentials
 Pack a dedicated carry-on pet bag containing essential supplies for the unexpected.
 
@@ -1558,6 +1594,8 @@ High-Risk Demographics: Brachycephalic breeds (Bulldogs, Pugs, Boxers) are 2 to 
 
 ### Emergency Cooling Protocol: What to Do While En Route to the ER
 If your dog displays signs of heatstroke, immediate first-aid intervention before and during transport can mean the difference between survival and fatal brain damage.
+
+> **ROUTINE TIP - Check Summer Walk Temperature Advisories in PetHorizon**: Plan summer walks before 8:00 AM or after 8:00 PM. Log daily hydration and receive notifications when local temperatures and UV indexes exceed safe canine walking thresholds.
 
 ### Pavement Burns & The Hidden Danger of Water Intoxication (Hyponatremia)
 Summer walks and lake fetch games conceal two hazards frequently missed by well-intentioned pet owners.
@@ -1605,6 +1643,8 @@ Protective paw balms (natural beeswax, shea butter, and vitamin E waxes like Mus
 
 For dogs walking urban city sidewalks with heavy salt coverage, waterproof rubber booties provide 100% barrier protection against cuts from hidden jagged ice and chemical de-icers.
 
+> **ROUTINE TIP - Log Winter Walk Durations in PetHorizon**: Keep track of winter walk times in PetHorizon to ensure older dogs with arthritis do not stay outdoors long enough for joints to seize up. Set reminders for post-walk paw wiping and daily joint supplements.
+
 ### Indoor Winter Adjustments: Caloric Burn & Humidity Control
 Winter changes indoor home environments in subtle ways that affect pet comfort and respiratory health.
 
@@ -1650,6 +1690,8 @@ Create a dedicated digital medication log where each pet has an individual profi
 Separate treats and pill pockets: when rewarding one pet for taking a medication, always have non-medicated treats ready for bystander pets so jealousy does not cause them to snap at the medicated treat.
 
 > **WARNING - Permethrin Toxicity: Dog Flea Meds Kill Cats**: Topical flea medications formulated for dogs often contain permethrin or pyrethroids. While safe for canines, permethrins cause violent seizures, tremors, and fatal neurological collapse in cats. Never apply dog flea products to cats, and keep treated dogs separated from cats until the topical oil dries completely.
+
+> **ROUTINE TIP - Switch Multi-Pet Profiles Instantly in PetHorizon**: PetHorizon allows you to create individual profiles for every pet in your home. Toggle between dogs and cats with 1 tap, track independent vaccination dates, log customized diets, and share live chore statuses across your entire household.
 
 ### The Power of One-on-One Bonding: Preventing Sibling Dependency
 Pets raised together in multi-animal households can develop unhealthy hyper-attachment (littermate syndrome) or chronic anxiety if never separated.
@@ -1700,6 +1742,8 @@ Rescue Breathing: Close the pet’s jaws tightly, extend the neck, and seal your
 
 The 72-Hour Emergency Evacuation Bag: In natural disasters (hurricanes, earthquakes, wildfires), keep a packed pet "go-bag" containing 7 days of canned and dry food, 3 gallons of potable water, portable bowls, extra leashes, copies of vaccination certificates, and a 14-day supply of all prescription medications.
 
+> **ROUTINE TIP - Save Emergency ER Speed-Dials in PetHorizon**: Store the telephone numbers, street addresses, and turn-by-turn directions to your nearest 24/7 veterinary emergency hospital and ASPCA Animal Poison Control in PetHorizon for instant 1-tap dialing.
+
 ---
 
 ## Pet Insurance vs. Emergency Savings Fund: Transparent Veterinary Cost Guide
@@ -1737,6 +1781,8 @@ Bilateral Condition Exclusions: If your dog tore their right cranial cruciate li
 The Golden Rule of Pet Insurance: Enroll when your puppy or kitten is 8 to 12 weeks old before their medical history record contains a single notation of diarrhea, limping, or ear scratching.
 
 > **WARNING - Do Not Switch Insurers When Your Pet Ages**: Switching pet insurance companies when your pet is 6 or 8 years old wipes away all previous coverage continuity. Any condition diagnosed under your old policy is now treated as a pre-existing condition by the new insurer and will be rejected!
+
+> **ROUTINE TIP - Track All Pet Expenses & Vet Invoices in PetHorizon**: Photograph veterinary invoices and track cumulative medical spending inside PetHorizon’s Expense & Budget Manager. Categorize routine preventive costs versus emergencies to know exactly what your pet costs each month.
 
 ### The Financial Breakdown: 3 Real-World Emergency Scenarios
 Let’s compare out-of-pocket costs across common veterinary emergency scenarios.

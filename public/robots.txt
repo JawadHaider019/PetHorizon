@@ -36,5 +36,5 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
-# Sitemap Index Reference
+# Sitemaps & Feeds
 Sitemap: https://pethorizon.jawumitech.com/sitemap.xml

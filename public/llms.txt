@@ -16,8 +16,9 @@ Pet Horizon (https://pethorizon.jawumitech.com) is a comprehensive pet care plat
 - Support Email: pethorizon2026@gmail.com
 - Privacy Policy: https://pethorizon.jawumitech.com/privacy-policy
 - Data Deletion: https://pethorizon.jawumitech.com/data-deletion
+- RSS Feed: https://pethorizon.jawumitech.com/rss.xml
 
-## Topic Clusters & Canonical Guides
+## Topic Clusters & Canonical Guides (34 Active Guides)
 - [Dog Feeding Schedule by Age: Complete Puppy to Adult Portion & Routine Guide](https://pethorizon.jawumitech.com/blogs/dog-feeding-schedule-by-age-puppy-to-adult): How often should you feed your dog? Discover veterinary-backed daily feeding schedules, Resting Energy Requirement (RER) calculations, bloat prevention tips, and in-app routine tracking.
 - [Puppy & Kitten Vaccination Schedule: Core Booster Timetable & In-App Milestones](https://pethorizon.jawumitech.com/blogs/puppy-kitten-vaccination-schedule-booster-guide-worldwide): Complete veterinary-verified vaccination guide for puppies and kittens. Learn exact timing for DHPP, Rabies, Leptospirosis, and how to digitize your pet’s health passport with PetHorizon.
 - [Pet Health Records: What Every Pet Owner Should Track & How to Manage Medication Schedules](https://pethorizon.jawumitech.com/blogs/pet-health-records-medication-schedule-tracker): Never scramble for vet papers again. Learn the 5 vital health records every pet parent must maintain, missed medication protocols, and how to store complete medical histories in PetHorizon.
@@ -55,3 +56,4 @@ Pet Horizon (https://pethorizon.jawumitech.com) is a comprehensive pet care plat
 
 ## Extended Documentation
 - [Full Clinical Text and Veterinary Protocols](https://pethorizon.jawumitech.com/llms-full.txt)
+- [Keyword Research Dataset (300+ Verified Queries)](https://pethorizon.jawumitech.com/seo/KEYWORD_RESEARCH_300.csv)
