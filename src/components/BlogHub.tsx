@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { BookOpen } from 'lucide-react';
 import { BLOG_POSTS, BlogPost } from '../data/blogData';
 import BlogCard from './BlogCard';
 import BlogFilterBar from './BlogFilterBar';
 import BlogNewsletter from './BlogNewsletter';
+import BlogPagination from './blog/BlogPagination';
 
 interface BlogHubProps {
   onNavigateHome: () => void;
@@ -11,9 +12,23 @@ interface BlogHubProps {
   onSelectArticle?: (slug: string) => void;
 }
 
+const POSTS_PER_PAGE = 9;
+
 export default function BlogHub({ onSelectArticle }: BlogHubProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>('All Stories');
   const [searchQuery, setSearchQuery] = useState('');
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const gridTopRef = useRef<HTMLDivElement>(null);
+
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category);
+    setCurrentPage(1);
+  };
+
+  const handleSearchChange = (query: string) => {
+    setSearchQuery(query);
+    setCurrentPage(1);
+  };
 
   const filteredPosts = BLOG_POSTS.filter((post) => {
     const postTags = post.tags.map((t) => t.toLowerCase());
@@ -51,6 +66,20 @@ export default function BlogHub({ onSelectArticle }: BlogHubProps) {
     return matchesCategory && matchesSearch;
   });
 
+  const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE) || 1;
+  const paginatedPosts = filteredPosts.slice(
+    (currentPage - 1) * POSTS_PER_PAGE,
+    currentPage * POSTS_PER_PAGE
+  );
+
+  const handlePageChange = (page: number) => {
+    if (page < 1 || page > totalPages) return;
+    setCurrentPage(page);
+    if (gridTopRef.current) {
+      gridTopRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   const handleCardClick = (post: BlogPost) => {
     if (onSelectArticle) {
       onSelectArticle(post.slug);
@@ -73,12 +102,15 @@ export default function BlogHub({ onSelectArticle }: BlogHubProps) {
         {/* Filter and Search Bar */}
         <BlogFilterBar
           searchQuery={searchQuery}
-          onSearchChange={setSearchQuery}
+          onSearchChange={handleSearchChange}
           selectedCategory={selectedCategory}
-          onCategoryChange={setSelectedCategory}
+          onCategoryChange={handleCategoryChange}
         />
 
-        {/* Articles Grid */}
+        {/* Scroll Anchor for Pagination */}
+        <div ref={gridTopRef} className="scroll-mt-32" />
+
+        {/* Articles Grid & Pagination */}
         <div className="mt-8 mb-16">
           {filteredPosts.length === 0 ? (
             <div className="text-center py-16 bg-white rounded-3xl border border-slate-200/80 p-8 shadow-xs">
@@ -90,8 +122,8 @@ export default function BlogHub({ onSelectArticle }: BlogHubProps) {
               <button
                 type="button"
                 onClick={() => {
-                  setSelectedCategory('All Stories');
-                  setSearchQuery('');
+                  handleCategoryChange('All Stories');
+                  handleSearchChange('');
                 }}
                 className="mt-4 px-4 py-2 rounded-xl text-xs font-bold bg-emerald-50 text-emerald-800 hover:bg-emerald-100 transition-colors cursor-pointer"
               >
@@ -99,15 +131,26 @@ export default function BlogHub({ onSelectArticle }: BlogHubProps) {
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredPosts.map((post) => (
-                <BlogCard
-                  key={post.id}
-                  post={post}
-                  onClick={() => handleCardClick(post)}
-                />
-              ))}
-            </div>
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {paginatedPosts.map((post) => (
+                  <BlogCard
+                    key={post.id}
+                    post={post}
+                    onClick={() => handleCardClick(post)}
+                  />
+                ))}
+              </div>
+
+              {/* Numbered Pagination Controls */}
+              <BlogPagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                totalItems={filteredPosts.length}
+                pageSize={POSTS_PER_PAGE}
+                onPageChange={handlePageChange}
+              />
+            </>
           )}
         </div>
 
