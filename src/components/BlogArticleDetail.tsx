@@ -81,7 +81,7 @@ export default function BlogArticleDetail({
     <main className="flex-1 pb-16 bg-[#f7f9f8] text-gray-800 antialiased selection:bg-[#126c55]/20 selection:text-[#126c55]">
       {/* 1. Header (Matching Everystore) */}
       <header className="bg-white border-b border-gray-100 py-10 md:py-14">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb Navigation */}
           <nav className="flex flex-wrap items-center gap-2 text-xs text-gray-500 mb-6">
             <button
@@ -112,12 +112,12 @@ export default function BlogArticleDetail({
           </div>
 
           {/* Title */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight max-w-5xl">
             {article.title}
           </h1>
 
           {/* Excerpt */}
-          <p className="mt-4 text-base sm:text-lg text-gray-600 leading-relaxed max-w-3xl">
+          <p className="mt-4 text-base sm:text-lg text-gray-600 leading-relaxed max-w-4xl">
             {article.excerpt}
           </p>
 
@@ -155,7 +155,7 @@ export default function BlogArticleDetail({
       </header>
 
       {/* 2. 21:9 Hero Image (Matching Everystore) */}
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 -mt-2 pt-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 -mt-2 pt-8">
         <div className="relative aspect-[21/9] w-full overflow-hidden rounded-3xl border border-gray-100 shadow-md bg-gray-100">
           <img
             src={article.coverImage}
@@ -166,10 +166,10 @@ export default function BlogArticleDetail({
       </div>
 
       {/* 3. 2-Column Content Layout (Matching Everystore) */}
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 mt-10">
-        <div className="lg:grid lg:grid-cols-12 lg:gap-10 items-start">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-10">
+        <div className="lg:grid lg:grid-cols-12 lg:gap-8 xl:gap-10 items-start">
           {/* Left Sticky Sidebar on Desktop - styled exactly like Everystore screenshot */}
-          <aside className="hidden lg:block lg:col-span-4 space-y-6 sticky top-[116px]">
+          <aside className="hidden lg:block lg:col-span-4 xl:col-span-3 space-y-6 sticky top-[116px]">
             {/* Card 1: TABLE OF CONTENTS */}
             {fullContent && fullContent.sections && fullContent.sections.length > 0 && (
               <div className="rounded-3xl border border-gray-100 bg-white p-6 shadow-xs">
@@ -269,8 +269,8 @@ export default function BlogArticleDetail({
             </div>
           </aside>
 
-          {/* Right Column: Main Article Content Container */}
-          <article className="lg:col-span-8 bg-white rounded-3xl border border-gray-100 p-6 sm:p-10 shadow-xs">
+          {/* Right Column: Main Article Content Container (Expanded width) */}
+          <article className="lg:col-span-8 xl:col-span-9 bg-white rounded-3xl border border-gray-100 p-6 sm:p-10 lg:p-12 shadow-xs">
             <BlogArticleBody
               article={article}
               fullContent={fullContent}
@@ -349,7 +349,7 @@ export default function BlogArticleDetail({
       </div>
 
       {/* 4. Related Stories (Matching Everystore) */}
-      <section className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 mt-16 pt-12 border-t border-gray-200/80">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-16 pt-12 border-t border-gray-200/80">
         <div className="flex items-center justify-between mb-8">
           <div>
             <h3 className="text-2xl font-bold text-gray-900 tracking-tight">
@@ -380,7 +380,7 @@ export default function BlogArticleDetail({
       </section>
 
       {/* 5. Bottom Conversion Banner (Matching Everystore) */}
-      <section className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 mt-16">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-16">
         <div className="rounded-3xl bg-gradient-to-br from-[#0c1b1a] to-[#123630] p-8 md:p-12 text-center text-white shadow-xl">
           <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight">
             Ready to Keep Your Pet Healthy &amp; Organized?
