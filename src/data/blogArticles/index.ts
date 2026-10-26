@@ -6,6 +6,12 @@ import { householdCoParentingArticle } from './householdCoParenting';
 import { newPuppyChecklistArticle } from './newPuppyChecklist';
 import { petTrackersReviewArticle } from './petTrackersReview';
 import { monthlyBudgetGuideArticle } from './monthlyBudgetGuide';
+import { catKidneyArticle } from './catKidney';
+import { emergencyVetArticle, heartwormArticle, petCaloriesArticle } from './remainingArticles';
+import { toxicFoodsArticle } from './toxicFoods';
+import { pottyTrainingArticle } from './pottyTraining';
+import { catFeedingEnrichmentArticle } from './catFeedingEnrichment';
+import { bestPetCareAppsArticle } from './bestPetCareApps';
 
 export * from './types';
 export {
@@ -15,7 +21,15 @@ export {
   householdCoParentingArticle,
   newPuppyChecklistArticle,
   petTrackersReviewArticle,
-  monthlyBudgetGuideArticle
+  monthlyBudgetGuideArticle,
+  catKidneyArticle,
+  emergencyVetArticle,
+  heartwormArticle,
+  petCaloriesArticle,
+  toxicFoodsArticle,
+  pottyTrainingArticle,
+  catFeedingEnrichmentArticle,
+  bestPetCareAppsArticle
 };
 
 const ARTICLES_MAP: Record<string, FullBlogArticle> = {
@@ -25,7 +39,15 @@ const ARTICLES_MAP: Record<string, FullBlogArticle> = {
   [householdCoParentingArticle.slug]: householdCoParentingArticle,
   [newPuppyChecklistArticle.slug]: newPuppyChecklistArticle,
   [petTrackersReviewArticle.slug]: petTrackersReviewArticle,
-  [monthlyBudgetGuideArticle.slug]: monthlyBudgetGuideArticle
+  [monthlyBudgetGuideArticle.slug]: monthlyBudgetGuideArticle,
+  [catKidneyArticle.slug]: catKidneyArticle,
+  [emergencyVetArticle.slug]: emergencyVetArticle,
+  [heartwormArticle.slug]: heartwormArticle,
+  [petCaloriesArticle.slug]: petCaloriesArticle,
+  [toxicFoodsArticle.slug]: toxicFoodsArticle,
+  [pottyTrainingArticle.slug]: pottyTrainingArticle,
+  [catFeedingEnrichmentArticle.slug]: catFeedingEnrichmentArticle,
+  [bestPetCareAppsArticle.slug]: bestPetCareAppsArticle
 };
 
 /**
@@ -57,6 +79,30 @@ export function getFullBlogArticle(slug: string): FullBlogArticle | null {
   }
   if (slug.includes('cost') || slug.includes('budget') || slug.includes('expense')) {
     return { ...monthlyBudgetGuideArticle, slug };
+  }
+  if (slug.includes('cat-kidney') || slug.includes('feline-kidney') || slug.includes('dehydration')) {
+    return { ...catKidneyArticle, slug };
+  }
+  if (slug.includes('emergency') || slug.includes('red-flags')) {
+    return { ...emergencyVetArticle, slug };
+  }
+  if (slug.includes('heartworm') || slug.includes('flea-tick')) {
+    return { ...heartwormArticle, slug };
+  }
+  if (slug.includes('calorie') || slug.includes('rer')) {
+    return { ...petCaloriesArticle, slug };
+  }
+  if (slug.includes('toxic') || slug.includes('poison')) {
+    return { ...toxicFoodsArticle, slug };
+  }
+  if (slug.includes('potty') || slug.includes('house-training')) {
+    return { ...pottyTrainingArticle, slug };
+  }
+  if (slug.includes('cat-feeding') || slug.includes('enrichment')) {
+    return { ...catFeedingEnrichmentArticle, slug };
+  }
+  if (slug.includes('best-pet-care-apps') || slug.includes('pet-apps')) {
+    return { ...bestPetCareAppsArticle, slug };
   }
 
   return null;
