@@ -123,7 +123,7 @@ export default function DailyJournalSection() {
           >
             <div className="relative">
               <PhoneFrame
-                src="/screenshots/journal-screen.png"
+                src="/screenshots/journal-screen.webp"
                 alt="Pet Horizon Pet Daily Journal Timeline Screen"
                 frameClassName="w-[220px] sm:w-[300px]"
               />
