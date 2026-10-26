@@ -30,7 +30,7 @@ export const newPuppyChecklistArticle: FullBlogArticle = {
         ]
       },
       figure: {
-        imageUrl: 'https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=1000&auto=format&fit=crop&q=80',
+        imageUrl: 'https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?w=1000&auto=format&fit=crop&q=80',
         caption: 'First-week preparation: Having a structured crate den and feeding station ready reduces puppy stress and accelerates house-training.',
         altText: 'Happy golden retriever puppy sitting comfortably beside crate and clean toys'
       }
@@ -96,7 +96,7 @@ export const newPuppyChecklistArticle: FullBlogArticle = {
         title: 'PetHorizon Pet Expense & Budget Manager',
         provider: 'Included Free in PetHorizon (Android & iOS)',
         price: 'Free Lifetime Access',
-        image: 'https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?w=400&auto=format&fit=crop&q=80',
+        image: 'https://images.unsplash.com/photo-1548681528-6a5c45b66b42?w=400&auto=format&fit=crop&q=80',
         actionText: 'Track Pet Budget in PetHorizon',
         actionUrl: 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon',
         actionType: 'playStore'

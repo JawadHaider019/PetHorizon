@@ -27,7 +27,7 @@ export const dogFeedingScheduleArticle: FullBlogArticle = {
         ]
       },
       figure: {
-        imageUrl: 'https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=1000&auto=format&fit=crop&q=80',
+        imageUrl: 'https://images.unsplash.com/photo-1563460716037-460b3dd14abb?w=1000&auto=format&fit=crop&q=80',
         caption: 'Portion precision: Weighing daily meals using a kitchen gram scale prevents inadvertent overfeeding and canine obesity.',
         altText: 'Dog food bowl with balanced nutritious kibble and fresh ingredients'
       }
@@ -93,7 +93,7 @@ export const dogFeedingScheduleArticle: FullBlogArticle = {
         title: 'PetHorizon Feeding Routine Tracker & Family Sync',
         provider: 'Included Free in PetHorizon (iOS & Android)',
         price: 'Free Lifetime Access',
-        image: 'https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=400&auto=format&fit=crop&q=80',
+        image: 'https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?w=400&auto=format&fit=crop&q=80',
         actionText: 'Track Feeding Times on PetHorizon',
         actionUrl: 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon',
         actionType: 'playStore'

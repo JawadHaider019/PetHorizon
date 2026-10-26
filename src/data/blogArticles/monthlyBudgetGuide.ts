@@ -18,7 +18,7 @@ export const monthlyBudgetGuideArticle: FullBlogArticle = {
         'By understanding realistic monthly expense allocations and tracking receipts through PetHorizon’s Budget Manager, pet owners transform unpredictable veterinary anxiety into a predictable, stress-free household budgeting routine.'
       ],
       figure: {
-        imageUrl: 'https://images.unsplash.com/photo-1576201836106-db1758fd1c97?w=1000&auto=format&fit=crop&q=80',
+        imageUrl: 'https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?w=1000&auto=format&fit=crop&q=80',
         caption: 'Financial transparency in veterinary care: Routine preventive checkups prevent costly emergency room interventions.',
         altText: 'Veterinarian discussing pet care records with an owner in a clinic'
       }
@@ -52,7 +52,7 @@ export const monthlyBudgetGuideArticle: FullBlogArticle = {
         title: 'PetHorizon Budget & Expense Manager',
         provider: 'Available on Google Play (Included Free in PetHorizon)',
         price: 'Free Lifetime Access',
-        image: 'https://images.unsplash.com/photo-1509299349698-dd22323b5963?w=400&auto=format&fit=crop&q=80',
+        image: 'https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=400&auto=format&fit=crop&q=80',
         actionText: 'Track Pet Expenses in PetHorizon',
         actionUrl: 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon',
         actionType: 'playStore'
@@ -78,7 +78,7 @@ export const monthlyBudgetGuideArticle: FullBlogArticle = {
         }
       ],
       figure: {
-        imageUrl: 'https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?w=1000&auto=format&fit=crop&q=80',
+        imageUrl: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1000&auto=format&fit=crop&q=80',
         caption: 'PetHorizon expense analytics: Visualizing monthly pet spending by category gives households complete financial control.',
         altText: 'Pet owner reviewing monthly pet care receipts on a smartphone app'
       }

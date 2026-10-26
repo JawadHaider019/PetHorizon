@@ -27,7 +27,7 @@ export const dogSeparationAnxietyArticle: FullBlogArticle = {
         ]
       },
       figure: {
-        imageUrl: 'https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=1000&auto=format&fit=crop&q=80',
+        imageUrl: 'https://images.unsplash.com/photo-1587402092301-725e37c70fd8?w=1000&auto=format&fit=crop&q=80',
         caption: 'Video monitoring reveals whether destructive chewing stems from acute panic at departure barriers or simple midday boredom.',
         altText: 'Anxious dog looking out living room window waiting for owner'
       }

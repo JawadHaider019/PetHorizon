@@ -18,7 +18,7 @@ export const householdCoParentingArticle: FullBlogArticle = {
         'The consequences are far from cosmetic: canine and feline obesity triggers early-onset osteoarthritis, intervertebral disc disease (IVDD), hepatic lipidosis in felines, chronic pancreatitis, and a documented two-year reduction in overall life expectancy.'
       ],
       figure: {
-        imageUrl: 'https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=1000&auto=format&fit=crop&q=80',
+        imageUrl: 'https://images.unsplash.com/photo-1558788353-f76d92427f16?w=1000&auto=format&fit=crop&q=80',
         caption: 'The double-feeding trap: Opportunistic pets exploit miscommunication between busy household members without hesitation.',
         altText: 'A dog looking hopeful next to an empty food bowl in a kitchen'
       }
@@ -50,7 +50,7 @@ export const householdCoParentingArticle: FullBlogArticle = {
         title: 'PetHorizon Family Hub & Live Routine Sync',
         provider: 'Available on Google Play (Included Free in PetHorizon)',
         price: 'Free Lifetime Access',
-        image: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400&auto=format&fit=crop&q=80',
+        image: 'https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?w=400&auto=format&fit=crop&q=80',
         actionText: 'Sync Your Family on PetHorizon',
         actionUrl: 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon',
         actionType: 'playStore'
@@ -67,7 +67,7 @@ export const householdCoParentingArticle: FullBlogArticle = {
         'Furthermore, informal systems leave zero historical audit trail. If your dog begins vomiting at 2:00 AM, the emergency veterinarian will inevitably ask: "What did your dog eat today, how much, and at what exact time?" Without a digital log, household members are left guessing.'
       ],
       figure: {
-        imageUrl: 'https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=1000&auto=format&fit=crop&q=80',
+        imageUrl: 'https://images.unsplash.com/photo-1560807707-8cc77767d783?w=1000&auto=format&fit=crop&q=80',
         caption: 'PetHorizon Family Hub in action: Instant task check-offs turn status chips green across all connected phones in real time.',
         altText: 'Two people smiling while looking at a shared pet app on a smartphone'
       }

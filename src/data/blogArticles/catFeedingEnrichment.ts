@@ -27,7 +27,7 @@ export const catFeedingEnrichmentArticle: FullBlogArticle = {
         ]
       },
       figure: {
-        imageUrl: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=1000&auto=format&fit=crop&q=80',
+        imageUrl: 'https://images.unsplash.com/photo-1545249390-6bdfa286032f?w=1000&auto=format&fit=crop&q=80',
         caption: 'Portion-controlled wet food meals provide natural dietary moisture essential for preventing feline kidney and bladder crystals.',
         altText: 'Cute domestic cat eating from a clean ceramic bowl'
       }
