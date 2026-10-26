@@ -8,6 +8,17 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  optimizeDeps: {
+    include: [
+      'react',
+      'react/jsx-runtime',
+      'react-dom',
+      'react-dom/client',
+      'framer-motion',
+      'lucide-react',
+      'canvas-confetti'
+    ]
+  },
   build: {
     rollupOptions: {
       output: {
