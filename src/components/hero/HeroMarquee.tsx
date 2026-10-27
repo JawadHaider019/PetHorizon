@@ -7,13 +7,17 @@ import {
   Camera, 
   MapPin, 
   Sparkles,
-  HeartHandshake
+  HeartHandshake,
+  Syringe,
+  DollarSign
 } from 'lucide-react';
 
 const MARQUEE_ITEMS = [
   { text: 'Sync Across Household', icon: Users },
   { text: 'Smart Medicine Alarms', icon: Pill },
   { text: 'Daily Feeding Logs', icon: Calendar },
+  { text: 'Vaccination Schedules', icon: Syringe },
+  { text: 'Expense & Feed Audits', icon: DollarSign },
   { text: '100% Private & Ad-Free', icon: ShieldCheck },
   { text: 'Shared Photo Memories', icon: Camera },
   { text: 'Walk GPS Tracker', icon: MapPin },
