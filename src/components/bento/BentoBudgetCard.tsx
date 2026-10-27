@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Wallet, Check, Plus, Receipt, Sparkles } from 'lucide-react';
+import { Wallet, Check, Plus, CheckCircle2 } from 'lucide-react';
 // @ts-expect-error canvas-confetti has no types
 import confetti from 'canvas-confetti';
 
@@ -62,7 +62,7 @@ export default function BentoBudgetCard() {
           <div>
             <div className="flex items-center justify-between text-xs mb-1.5">
               <span className="font-bold text-slate-900 flex items-center gap-1.5">
-                <Receipt className="w-3.5 h-3.5 text-slate-500" />
+                <Wallet className="w-3.5 h-3.5 text-slate-500" />
                 Monthly Spending Limit
               </span>
               <span className="font-mono text-slate-900 font-bold text-xs">
@@ -105,7 +105,7 @@ export default function BentoBudgetCard() {
               >
                 <div className="min-w-0 flex-1">
                   <span className="font-bold text-emerald-950 block truncate text-xs flex items-center gap-1">
-                    <Sparkles className="w-3 h-3 text-[#166534]" />
+                    <CheckCircle2 className="w-3 h-3 text-[#166534]" />
                     Spa Grooming &amp; Deshedding
                   </span>
                   <span className="text-[10px] text-emerald-800 block truncate">Grooming &bull; Just Logged</span>

@@ -6,11 +6,7 @@ import {
   Pill,
   Footprints,
   Users,
-  Camera,
-  Sun,
-  Sunrise,
-  Sunset,
-  Moon
+  Camera
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { DAY_TIMELINE_EVENTS, DayTimelineEvent } from '../../data/timelineData';
@@ -19,7 +15,7 @@ import { fadeInUp, staggerCard } from '../../config/animationVariants';
 const STEP_THEMES = [
   {
     periodLabel: 'Dawn Awakening',
-    periodIcon: Sunrise,
+    periodIcon: UtensilsCrossed,
     bgGradient: 'from-amber-500/[0.08] via-amber-500/[0.02] to-white',
     border: 'border-amber-200/80 hover:border-amber-400/90',
     nodeColor: 'bg-amber-500 ring-amber-200',
@@ -29,7 +25,7 @@ const STEP_THEMES = [
   },
   {
     periodLabel: 'Morning Care',
-    periodIcon: Sun,
+    periodIcon: Pill,
     bgGradient: 'from-emerald-600/[0.08] via-emerald-600/[0.02] to-white',
     border: 'border-emerald-200/80 hover:border-emerald-500/90',
     nodeColor: 'bg-[#166534] ring-emerald-200',
@@ -39,7 +35,7 @@ const STEP_THEMES = [
   },
   {
     periodLabel: 'High Noon Trail',
-    periodIcon: Sun,
+    periodIcon: Footprints,
     bgGradient: 'from-sky-500/[0.08] via-sky-500/[0.02] to-white',
     border: 'border-sky-200/80 hover:border-sky-400/90',
     nodeColor: 'bg-sky-600 ring-sky-200',
@@ -49,7 +45,7 @@ const STEP_THEMES = [
   },
   {
     periodLabel: 'Evening Twilight',
-    periodIcon: Sunset,
+    periodIcon: Users,
     bgGradient: 'from-orange-500/[0.08] via-orange-500/[0.02] to-white',
     border: 'border-orange-200/80 hover:border-orange-400/90',
     nodeColor: 'bg-orange-500 ring-orange-200',
@@ -59,7 +55,7 @@ const STEP_THEMES = [
   },
   {
     periodLabel: 'Bedtime Journal',
-    periodIcon: Moon,
+    periodIcon: Camera,
     bgGradient: 'from-indigo-500/[0.08] via-indigo-500/[0.02] to-white',
     border: 'border-indigo-200/80 hover:border-indigo-400/90',
     nodeColor: 'bg-indigo-600 ring-indigo-200',
