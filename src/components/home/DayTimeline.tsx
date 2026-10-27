@@ -108,9 +108,6 @@ export default function DayTimeline() {
 
         {/* Chronological Journey Ribbon */}
         <div className="relative">
-          {/* Connected timeline rail line for large viewports */}
-          <div className="hidden xl:block absolute top-7 left-12 right-12 h-1 bg-gradient-to-r from-amber-300 via-emerald-300 via-sky-300 to-indigo-300 rounded-full z-0 pointer-events-none opacity-80" />
-
           {/* Cards container: Responsive Grid with generous card width */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-5 relative z-10">
             {DAY_TIMELINE_EVENTS.map((event, index) => {
@@ -126,15 +123,12 @@ export default function DayTimeline() {
                   className={`rounded-[2rem] p-5 sm:p-6 bg-gradient-to-b ${theme.bgGradient} border ${theme.border} shadow-sm transition-all duration-300 flex flex-col justify-between relative group text-left`}
                 >
                   <div>
-                    {/* Header: Node Indicator & Time Stamp */}
+                    {/* Header: Clean Time Badge & Step Indicator */}
                     <div className="flex items-center justify-between gap-2 mb-4">
-                      <div className="flex items-center gap-2">
-                        <span className={`w-3 h-3 rounded-full ring-4 ${theme.nodeColor} shrink-0`} />
-                        <span className="text-xs font-mono font-bold text-slate-900 bg-white/95 px-2.5 py-0.5 rounded-full border border-black/[0.06] shadow-2xs">
-                          {event.time}
-                        </span>
-                      </div>
-                      <span className="text-[10px] font-mono font-bold text-slate-400 bg-white/80 px-2 py-0.5 rounded-full border border-black/[0.05]">
+                      <span className="text-xs font-mono font-bold text-slate-900 bg-white px-3 py-1 rounded-full border border-black/[0.06] shadow-2xs">
+                        {event.time}
+                      </span>
+                      <span className="text-[10px] font-mono font-bold text-slate-400 bg-white/90 px-2.5 py-0.5 rounded-full border border-black/[0.05]">
                         0{index + 1}
                       </span>
                     </div>
