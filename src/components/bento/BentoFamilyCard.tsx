@@ -54,7 +54,7 @@ export default function BentoFamilyCard() {
       </div>
 
       <div className="mt-4 pt-3.5 border-t border-black/[0.05] flex flex-col justify-end space-y-2.5 relative z-10">
-        <div className="bg-[#FAF8F5] p-3 rounded-2xl border border-black/[0.05] min-h-[124px] flex flex-col justify-between group-hover:bg-[#F5F2EB]/60 transition-colors duration-200">
+        <div className="bg-[#FAF8F5] p-3 rounded-2xl border border-black/[0.05] flex flex-col justify-between gap-2.5 group-hover:bg-[#F5F2EB]/60 transition-colors duration-200">
           <div className="flex items-center justify-between text-[11px]">
             <span className="font-bold text-slate-800 flex items-center gap-1.5">
               <span className="relative flex h-2 w-2">
@@ -68,27 +68,27 @@ export default function BentoFamilyCard() {
             </span>
           </div>
 
-          <div className="space-y-1.5 text-[11px] mt-1.5">
-            <div className="flex items-center justify-between bg-white px-2 py-1 rounded-xl border border-black/[0.06] shadow-2xs">
-              <div className="flex items-center gap-1.5 truncate">
-                <div className="w-4.5 h-4.5 rounded-full bg-amber-100 text-amber-800 font-bold text-[9px] flex items-center justify-center shrink-0">
+          <div className="space-y-1.5 text-[11px]">
+            <div className="flex items-center justify-between gap-2 bg-white px-2.5 py-1.5 rounded-xl border border-black/[0.06] shadow-2xs">
+              <div className="flex items-center gap-1.5 min-w-0">
+                <div className="w-4.5 h-4.5 rounded-full bg-amber-100 text-amber-900 font-bold text-[9px] flex items-center justify-center shrink-0">
                   S
                 </div>
                 <span className="font-bold text-slate-900 text-xs">Sarah</span>
-                <span className="text-[9px] text-amber-900 bg-amber-50 px-1 py-0.2 rounded font-medium">Feeding Now</span>
+                <span className="text-[9px] text-amber-900 bg-amber-500/10 px-1.5 py-0.5 rounded-md font-medium">Feeding</span>
               </div>
-              <span className="text-[10px] text-amber-800 font-semibold whitespace-nowrap">Locked (2m ago)</span>
+              <span className="text-[10px] text-amber-800 font-mono font-semibold whitespace-nowrap shrink-0">Locked 2m ago</span>
             </div>
 
-            <div className="flex items-center justify-between bg-white px-2 py-1 rounded-xl border border-black/[0.06] shadow-2xs">
-              <div className="flex items-center gap-1.5 truncate">
+            <div className="flex items-center justify-between gap-2 bg-white px-2.5 py-1.5 rounded-xl border border-black/[0.06] shadow-2xs">
+              <div className="flex items-center gap-1.5 min-w-0">
                 <div className="w-4.5 h-4.5 rounded-full bg-slate-200 text-slate-800 font-bold text-[9px] flex items-center justify-center shrink-0">
                   M
                 </div>
                 <span className="font-bold text-slate-900 text-xs">Michael</span>
-                <span className="text-[9px] text-slate-800 bg-slate-100 px-1 py-0.2 rounded font-medium">Lunch Walk</span>
+                <span className="text-[9px] text-slate-700 bg-slate-100 px-1.5 py-0.5 rounded-md font-medium">Walk</span>
               </div>
-              <span className="text-[10px] text-emerald-800 font-medium whitespace-nowrap">11:30 – 2:00 PM</span>
+              <span className="text-[10px] text-emerald-800 font-mono font-semibold whitespace-nowrap shrink-0">11:30 AM</span>
             </div>
           </div>
         </div>

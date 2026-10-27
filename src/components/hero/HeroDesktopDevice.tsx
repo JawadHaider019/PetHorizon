@@ -15,7 +15,7 @@ export default function HeroDesktopDevice() {
         <PhoneFrame
           src="/screenshots/home-screen.webp"
           alt="Pet Horizon Home Dashboard Screen"
-          frameClassName="w-[240px] lg:w-[250px] xl:w-[270px]"
+          frameClassName="w-[245px] lg:w-[255px] xl:w-[275px]"
           priority={true}
         />
         <HeroLiveNotifications />
@@ -23,7 +23,7 @@ export default function HeroDesktopDevice() {
 
       {/* 3D Pet Companions Cutout */}
       <motion.div
-        animate={{ y: [0, -5, 0] }}
+        animate={{ y: [0, -4, 0] }}
         transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
         className="absolute -bottom-2 lg:-bottom-3 left-[78%] xl:left-[80%] w-36 lg:w-40 xl:w-44 pointer-events-none z-20 select-none drop-shadow-md"
       >
@@ -38,55 +38,6 @@ export default function HeroDesktopDevice() {
           fetchPriority="high"
           className="w-full h-auto object-contain"
         />
-      </motion.div>
-
-      {/* Floating Live Card: Daily Routine Task Status */}
-      <motion.div
-        animate={{ y: [0, 5, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-        className="absolute right-[84%] xl:right-[86%] bottom-4 lg:bottom-6 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-black/[0.06] flex items-center gap-2.5 sm:gap-3 w-[205px] sm:w-[220px] text-left z-30"
-      >
-        <div className="w-8 h-8 rounded-xl bg-amber-500/10 text-amber-800 flex items-center justify-center font-bold shrink-0">
-          <Clock className="w-4 h-4 text-amber-700" />
-        </div>
-        <div className="truncate">
-          <p className="text-[10px] font-black uppercase tracking-wider text-slate-400">Daily Routine</p>
-          <p className="text-xs font-bold text-slate-900 truncate">Breakfast (2 cups) • Done</p>
-          <p className="text-[10px] text-emerald-700 font-semibold mt-0.5 whitespace-nowrap">Logged at 11:20 AM</p>
-        </div>
-      </motion.div>
-
-      {/* Floating Live Card: Luna Medication Reminder */}
-      <motion.div
-        animate={{ y: [0, -5, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
-        className="absolute top-8 lg:top-10 right-[84%] xl:right-[86%] bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-black/[0.06] flex items-center gap-2 sm:gap-2.5 w-[175px] xl:w-[185px] text-left z-30"
-      >
-        <div className="w-8 h-8 rounded-xl bg-emerald-950/[0.05] text-emerald-800 flex items-center justify-center font-bold shrink-0">
-          <Pill className="w-4 h-4" />
-        </div>
-        <div className="truncate">
-          <p className="text-[9px] font-black uppercase tracking-wider text-emerald-800 whitespace-nowrap">Medication Taken</p>
-          <p className="text-[11px] font-bold text-slate-900 leading-tight truncate">Luna • Heartgard ✓</p>
-          <p className="text-[9px] text-slate-500 font-medium whitespace-nowrap">Next due in 30 days</p>
-        </div>
-      </motion.div>
-
-      {/* Floating Live Card: Family Hub Connection */}
-      <motion.div
-        animate={{ y: [0, -5, 0] }}
-        transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-        className="absolute top-1/3 -translate-y-1/2 left-[84%] xl:left-[86%] bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-black/[0.06] flex items-center gap-2 sm:gap-2.5 w-[185px] xl:w-[195px] text-left z-30"
-      >
-        <div className="w-8 h-8 rounded-xl bg-emerald-950/[0.05] text-emerald-800 flex items-center justify-center font-bold shrink-0">
-          <Users className="w-4 h-4" />
-        </div>
-        <div className="truncate">
-          <p className="text-[10px] font-black uppercase tracking-wider text-slate-400">Family Hub</p>
-          <p className="text-xs font-bold text-slate-900 truncate">Care Team Synced</p>
-          <p className="text-[10px] text-slate-500 whitespace-nowrap">QR Code Joined</p>
-        </div>
-      </motion.div>
     </div>
   );
 }

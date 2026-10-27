@@ -56,13 +56,13 @@ export default function BentoClinicalCard() {
       </div>
 
       <div className="mt-4 pt-3.5 border-t border-black/[0.05] flex flex-col justify-end space-y-2.5 relative z-10">
-        <div className="bg-[#FAF8F5] p-3 rounded-2xl border border-black/[0.05] h-[116px] flex flex-col justify-between group-hover:bg-[#F5F2EB]/60 transition-colors duration-200">
-          <div className="flex items-center justify-between text-xs">
-            <div className="truncate pr-1">
-              <span className="font-bold text-slate-900 block text-xs truncate">Heartgard Plus (Monthly)</span>
-              <span className="text-[10px] text-slate-500 truncate block">1 Chewable &bull; Luna &bull; With meal</span>
+        <div className="bg-[#FAF8F5] p-3 rounded-2xl border border-black/[0.05] flex flex-col justify-between gap-2.5 group-hover:bg-[#F5F2EB]/60 transition-colors duration-200">
+          <div className="flex items-center justify-between gap-2">
+            <div className="min-w-0 flex-1">
+              <span className="font-bold text-slate-900 block text-xs">Heartgard Plus</span>
+              <span className="text-[10px] text-slate-500 block">Monthly Chewable &bull; Luna</span>
             </div>
-            <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full border whitespace-nowrap shrink-0 transition-colors ${
+            <span className={`text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full border whitespace-nowrap shrink-0 transition-colors ${
               medTaken
                 ? 'text-emerald-950 bg-emerald-950/10 border-emerald-900/20'
                 : 'text-amber-900 bg-amber-500/10 border-amber-500/20'
@@ -71,9 +71,10 @@ export default function BentoClinicalCard() {
             </span>
           </div>
 
-          <div className="bg-white p-2 rounded-xl border border-black/[0.06] flex items-center justify-between text-[11px] text-slate-600 shadow-2xs">
-            <span className="flex items-center gap-1.5 font-medium whitespace-nowrap truncate">
-              <Clock className="w-3.5 h-3.5 text-emerald-700 shrink-0" /> Stock: 5 doses left
+          <div className="bg-white px-2.5 py-2 rounded-xl border border-black/[0.06] flex items-center justify-between gap-2 text-[11px] text-slate-600 shadow-2xs">
+            <span className="flex items-center gap-1.5 font-medium min-w-0">
+              <Clock className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
+              <span className="truncate">Stock: 5 doses</span>
             </span>
             <span className="text-emerald-800 font-bold font-mono text-[10px] whitespace-nowrap shrink-0">Due in 5 mos</span>
           </div>

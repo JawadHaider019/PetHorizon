@@ -55,7 +55,7 @@ export default function BentoBudgetCard() {
       </div>
 
       <div className="mt-4 pt-3.5 border-t border-black/[0.05] flex flex-col justify-end space-y-2.5 relative z-10">
-        <div className="bg-[#FAF8F5] p-3 rounded-2xl border border-black/[0.05] h-[116px] flex flex-col justify-between group-hover:bg-[#F5F2EB]/60 transition-colors duration-200">
+        <div className="bg-[#FAF8F5] p-3 rounded-2xl border border-black/[0.05] flex flex-col justify-between gap-2.5 group-hover:bg-[#F5F2EB]/60 transition-colors duration-200">
           <div>
             <div className="flex items-center justify-between text-xs mb-1.5">
               <span className="font-bold text-slate-800">Monthly Budget</span>
@@ -80,10 +80,10 @@ export default function BentoBudgetCard() {
             </div>
           </div>
 
-          <div className="flex items-center justify-between bg-white px-2 py-1 rounded-xl border border-black/[0.06] text-[11px] shadow-2xs">
-            <div className="truncate pr-1">
+          <div className="flex items-center justify-between gap-2 bg-white px-2.5 py-1.5 rounded-xl border border-black/[0.06] text-[11px] shadow-2xs">
+            <div className="min-w-0 flex-1">
               <span className="font-bold text-slate-900 block truncate text-xs">Annual Vet Checkup</span>
-              <span className="text-[9px] text-slate-400">Vaccines &amp; wellness</span>
+              <span className="text-[9px] text-slate-400 block truncate">Vaccines &amp; wellness</span>
             </div>
             <span className="font-mono font-bold text-slate-800 text-xs shrink-0">$110.00</span>
           </div>

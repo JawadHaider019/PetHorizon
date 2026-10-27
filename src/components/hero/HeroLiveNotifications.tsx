@@ -43,25 +43,25 @@ export default function HeroLiveNotifications() {
   const IconComponent = item.icon;
 
   return (
-    <div className="absolute top-8 left-1/2 -translate-x-1/2 w-[88%] z-40 pointer-events-none">
+    <div className="absolute top-6 left-1/2 -translate-x-1/2 w-[90%] z-40 pointer-events-none">
       <AnimatePresence mode="wait">
         <motion.div
           key={activeNotifIndex}
-          initial={{ opacity: 0, y: -14, scale: 0.94 }}
+          initial={{ opacity: 0, y: -10, scale: 0.96 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: -10, scale: 0.94 }}
+          exit={{ opacity: 0, y: -8, scale: 0.96 }}
           transition={{ duration: 0.35, ease: 'easeOut' }}
-          className="bg-white/95 backdrop-blur-md rounded-2xl p-2.5 shadow-xl border border-slate-200/90 flex items-center gap-2.5 text-left"
+          className="bg-white/95 backdrop-blur-xl rounded-2xl p-2.5 shadow-[0_12px_30px_-5px_rgba(0,0,0,0.15)] border border-black/[0.08] flex items-center gap-2.5 text-left"
         >
-          <div className={`w-7 h-7 rounded-lg ${item.bg} ${item.color} flex items-center justify-center shrink-0`}>
+          <div className={`w-7 h-7 rounded-xl ${item.bg} ${item.color} flex items-center justify-center shrink-0 shadow-2xs`}>
             <IconComponent className="w-3.5 h-3.5" />
           </div>
           <div className="min-w-0 flex-1">
             <div className="flex items-center justify-between gap-1">
               <p className="text-[9px] font-bold text-slate-400 uppercase tracking-wider truncate">{item.title}</p>
-              <span className="text-[9px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200/80 px-1.5 py-0.5 rounded shrink-0">{item.tag}</span>
+              <span className="text-[9px] font-bold text-emerald-950 bg-emerald-950/5 border border-emerald-900/10 px-1.5 py-0.5 rounded-full shrink-0">{item.tag}</span>
             </div>
-            <p className="text-[11px] font-bold text-slate-900 truncate leading-snug">{item.message}</p>
+            <p className="text-[11px] font-bold text-[#17191C] truncate leading-snug">{item.message}</p>
           </div>
         </motion.div>
       </AnimatePresence>
