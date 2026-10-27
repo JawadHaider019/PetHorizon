@@ -9,28 +9,44 @@ interface FAQ {
 
 const FAQS: FAQ[] = [
   {
-    q: 'Which companion species does Pet Horizon support?',
-    a: 'Pet Horizon has dedicated support for Dogs, Cats, Birds, Rabbits, Hamsters, and other household companions. You can record species-specific breeds, birthdates for age calculation, and toggle weight measurements between KG and LBS.'
+    q: 'What is the Digital Pet Health Card and Emergency Vet Mode?',
+    a: 'Pet Horizon’s Digital Health Card brings together your pet’s verified vaccination history (DHPP, Rabies, Bordetella), microchip ID, sterilization status, vitals, allergies, and veterinary clinic records into a single digital passport. Tapping "Show to Vet" launches a high-contrast emergency clinical sheet with immediate contacts and treatment notes that vets or boarding facilities can inspect or export to PDF.'
   },
   {
-    q: 'How does Family Sharing work with QR codes?',
-    a: 'From the Family Hub tab, you can generate an instant 6-digit invitation code or present a QR code. Your partner, family member, or pet sitter opens their Pet Horizon app, taps "Join Another Family", and scans your QR code to instantly co-manage your pet without manual setup.'
+    q: 'How does the Anti-Collision Care Lock prevent double-feeding or double-dosing?',
+    a: 'When any household member opens a task (such as pouring breakfast kibble or administering heartworm medication), Pet Horizon instantly displays an active "In-Progress Care Lock" across all connected family devices. When marked "Done", it updates with a live timestamp, eliminating conflicting chore attempts or dangerous accidental double-dosing.'
   },
   {
-    q: 'Can I use Pet Horizon for free?',
-    a: 'Yes! The Standard Plan is completely free forever. It includes 1 pet profile with complete access to daily feeding schedules, medication reminders, vaccination alerts, walk tracking, expense budgeting, and 1 daily journal photo upload.'
+    q: 'How does Family Sharing work with household QR codes?',
+    a: 'From the Family Hub, you can generate an instant 6-character household code or show a scannable QR pass. Your partner, roommates, or pet sitters simply tap "Join Family", scan the code, and gain instant, synchronized co-parenting access without cumbersome account setup or password sharing.'
   },
   {
-    q: 'What extra benefits does Premium unlock?',
-    a: 'Premium is designed for multi-pet households and families. It unlocks unlimited pet profiles, collaborative Family Hub with Admin and Member permissions, up to 5 daily photo uploads in the journal, and priority support agent access.'
+    q: 'Can I track pet expenses and set monthly spending limits?',
+    a: 'Yes! The built-in Wallet and Expense Tracker allows you to define custom monthly budgets and itemize costs across Food, Veterinary Care, Grooming, Medications, and Accessories. You can log expenses with merchant tags, keep a digital receipt vault, and track real-time visual progress of your monthly spending allowance.'
   },
   {
-    q: 'Is Pet Horizon available on iPhone (iOS)?',
-    a: 'Pet Horizon is currently live and available worldwide on Android via the Google Play Store. Our iOS version is actively in development and will be launching on the Apple App Store soon.'
+    q: 'Which companion species and measurement units does Pet Horizon support?',
+    a: 'Pet Horizon provides dedicated, species-tailored profiles for Dogs, Cats, Birds, Rabbits, Hamsters, and other exotic companions. You can record species-specific breeds, track life-stage age calculators, and seamlessly toggle weight metrics between Kilograms (KG) and Pounds (LBS).'
   },
   {
-    q: 'Will I receive reminders if the app is closed?',
-    a: 'Yes. Pet Horizon schedules native device push notifications for scheduled meals, medication intervals, and veterinary vaccinations (like DHPP) so you and your care team never miss an important pet care event.'
+    q: 'Does Pet Horizon work offline during walks or remote trail trips?',
+    a: 'Yes. All walk routes, potty breaks, water logs, and chore completions logged while outside cellular reception are safely timestamped and stored in an offline queue. As soon as your device reconnects to Wi-Fi or cellular data, all changes automatically sync to your household in the background.'
+  },
+  {
+    q: 'Will I receive native notifications and routine chimes if the app is closed?',
+    a: 'Yes. Pet Horizon schedules native device push notifications and distinctive routine audio chimes for scheduled meal hours, time-sensitive medications, and upcoming veterinary booster shots so your pet’s daily rhythm is always protected.'
+  },
+  {
+    q: 'What is the difference between the Free Standard plan and Premium?',
+    a: 'The Free Standard Plan is free forever and includes 1 pet profile, complete daily feeding routines, medication reminders, expense logging, and 1 daily health photo upload. The Premium Plan unlocks unlimited pet profiles, full Family Hub co-parenting with Admin/Member permissions, up to 5 daily journal photos, advanced exportable Health Passports, and priority support.'
+  },
+  {
+    q: 'Is Pet Horizon available on Android and iOS?',
+    a: 'Pet Horizon is currently live on Android via the Google Play Store with full feature parity. The iOS version is currently in active development for the Apple App Store, with cross-platform household synchronization built right in.'
+  },
+  {
+    q: 'How is our pet’s veterinary and personal data protected?',
+    a: 'All veterinary medical documents, medication schedules, and family co-parenting logs are encrypted in transit via TLS 1.3 and stored in secure cloud infrastructure. We never sell your personal contact information or pet health telemetry to advertisers or third parties.'
   }
 ];
 
@@ -129,7 +145,7 @@ export default function FAQSection() {
             onClick={() => setShowAllMobile(!showAllMobile)}
             className="text-xs font-bold text-slate-800 bg-white hover:bg-slate-50 border border-black/[0.08] px-4 py-2 rounded-full transition-all cursor-pointer shadow-2xs"
           >
-            {showAllMobile ? 'Show Fewer Questions ↑' : 'View 3 More Questions ↓'}
+            {showAllMobile ? 'Show Fewer Questions ↑' : `View ${FAQS.length - 3} More Questions ↓`}
           </button>
         </div>
 
