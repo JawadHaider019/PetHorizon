@@ -38,25 +38,25 @@ function extractUrlsFromSitemap() {
   return urls;
 }
 
-async function submitToIndexNow(urls) {
-  console.log(`📡 Preparing IndexNow submission for ${urls.length} URLs on ${HOST}...`);
+async function submitToIndexNow(urls, endpoint = 'www.bing.com') {
+  console.log(`📡 Submitting ${urls.length} URLs to IndexNow (${endpoint}) for ${HOST}...`);
 
   const payload = JSON.stringify({
     host: HOST,
     key: INDEXNOW_KEY,
-    keyLocation: KEY_LOCATION,
     urlList: urls
   });
 
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     const options = {
-      hostname: 'api.indexnow.org',
+      hostname: endpoint,
       port: 443,
       path: '/indexnow',
       method: 'POST',
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
-        'Content-Length': Buffer.byteLength(payload)
+        'Content-Length': Buffer.byteLength(payload),
+        'User-Agent': 'PetHorizon-SeoEngine/1.0'
       }
     };
 
@@ -92,7 +92,11 @@ async function submitToIndexNow(urls) {
 async function main() {
   try {
     const urls = extractUrlsFromSitemap();
-    await submitToIndexNow(urls);
+    const res = await submitToIndexNow(urls, 'www.bing.com');
+    if (res.status !== 200 && res.status !== 202) {
+      console.log('🔄 Retrying via api.indexnow.org endpoint...');
+      await submitToIndexNow(urls, 'api.indexnow.org');
+    }
   } catch (err) {
     console.error('❌ IndexNow script error:', err.message);
   }
