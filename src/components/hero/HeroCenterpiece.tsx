@@ -148,11 +148,11 @@ export default function HeroCenterpiece() {
           </div>
         </div>
 
-        {/* 3D Pet Companions (Puppy and Kitten playfully peeking from bottom-right) */}
+        {/* 3D Pet Companions (Puppy and Kitten sitting beside the phone, clear of the screen UI) */}
         <motion.div
-          animate={{ y: [0, -5, 0] }}
+          animate={{ y: [0, -4, 0] }}
           transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute -bottom-2 -right-8 sm:-right-12 lg:-right-14 xl:-right-16 w-26 sm:w-30 lg:w-36 xl:w-40 pointer-events-none z-30 select-none drop-shadow-xl"
+          className="absolute -bottom-1 sm:-bottom-2 left-[80%] sm:left-[84%] lg:left-[86%] w-24 sm:w-28 lg:w-34 xl:w-38 pointer-events-none z-20 select-none drop-shadow-xl"
         >
           <img
             src="/3d-pets-transparent.webp"

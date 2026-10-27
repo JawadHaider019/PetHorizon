@@ -15,7 +15,7 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
   return (
     <section
       id="home"
-      className="relative min-h-[100dvh] lg:h-[100dvh] flex flex-col justify-between overflow-hidden pt-[92px] sm:pt-[98px] lg:pt-[104px] pb-0 bg-gradient-to-b from-[#FAF8F5] via-[#FAF8F5] to-[#F5F2EB]"
+      className="relative min-h-[100dvh] lg:h-[100dvh] flex flex-col justify-between overflow-hidden pt-[96px] sm:pt-[100px] lg:pt-[104px] pb-0 bg-gradient-to-b from-[#FAF8F5] via-[#FAF8F5] to-[#F5F2EB]"
     >
       {/* Subtle Luxury Dot Grid Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(#17191C_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.03] pointer-events-none -z-10" />
