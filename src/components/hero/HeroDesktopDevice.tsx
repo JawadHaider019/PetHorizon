@@ -15,7 +15,7 @@ export default function HeroDesktopDevice() {
         <PhoneFrame
           src="/screenshots/home-screen.webp"
           alt="Pet Horizon Home Dashboard Screen"
-          frameClassName="w-[280px] lg:w-[295px] xl:w-[310px]"
+          frameClassName="w-[240px] lg:w-[250px] xl:w-[270px]"
           priority={true}
         />
         <HeroLiveNotifications />
@@ -25,7 +25,7 @@ export default function HeroDesktopDevice() {
       <motion.div
         animate={{ y: [0, -5, 0] }}
         transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -bottom-6 xl:-bottom-8 left-[82%] xl:left-[84%] w-44 lg:w-48 xl:w-52 pointer-events-none z-20 select-none drop-shadow-md"
+        className="absolute -bottom-2 lg:-bottom-3 left-[78%] xl:left-[80%] w-36 lg:w-40 xl:w-44 pointer-events-none z-20 select-none drop-shadow-md"
       >
         <img
           src="/3d-pets-transparent.webp"
@@ -44,9 +44,9 @@ export default function HeroDesktopDevice() {
       <motion.div
         animate={{ y: [0, 5, 0] }}
         transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-        className="absolute right-[90%] xl:right-[92%] bottom-10 xl:bottom-12 bg-white/95 backdrop-blur-md rounded-2xl p-3 sm:p-3.5 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-black/[0.06] flex items-center gap-2.5 sm:gap-3 w-[220px] sm:w-[235px] xl:w-[240px] text-left z-30"
+        className="absolute right-[84%] xl:right-[86%] bottom-4 lg:bottom-6 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-black/[0.06] flex items-center gap-2.5 sm:gap-3 w-[205px] sm:w-[220px] text-left z-30"
       >
-        <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-amber-500/10 text-amber-800 flex items-center justify-center font-bold shrink-0">
+        <div className="w-8 h-8 rounded-xl bg-amber-500/10 text-amber-800 flex items-center justify-center font-bold shrink-0">
           <Clock className="w-4 h-4 text-amber-700" />
         </div>
         <div className="truncate">
@@ -60,7 +60,7 @@ export default function HeroDesktopDevice() {
       <motion.div
         animate={{ y: [0, -5, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
-        className="absolute top-12 xl:top-14 right-[88%] xl:right-[90%] bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-black/[0.06] flex items-center gap-2 sm:gap-2.5 w-[185px] xl:w-[195px] text-left z-30"
+        className="absolute top-8 lg:top-10 right-[84%] xl:right-[86%] bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-black/[0.06] flex items-center gap-2 sm:gap-2.5 w-[175px] xl:w-[185px] text-left z-30"
       >
         <div className="w-8 h-8 rounded-xl bg-emerald-950/[0.05] text-emerald-800 flex items-center justify-center font-bold shrink-0">
           <Pill className="w-4 h-4" />
@@ -76,7 +76,7 @@ export default function HeroDesktopDevice() {
       <motion.div
         animate={{ y: [0, -5, 0] }}
         transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-        className="absolute top-1/4 -translate-y-1/2 left-[88%] xl:left-[90%] bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-black/[0.06] flex items-center gap-2 sm:gap-2.5 w-[195px] xl:w-[210px] text-left z-30"
+        className="absolute top-1/3 -translate-y-1/2 left-[84%] xl:left-[86%] bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-black/[0.06] flex items-center gap-2 sm:gap-2.5 w-[185px] xl:w-[195px] text-left z-30"
       >
         <div className="w-8 h-8 rounded-xl bg-emerald-950/[0.05] text-emerald-800 flex items-center justify-center font-bold shrink-0">
           <Users className="w-4 h-4" />

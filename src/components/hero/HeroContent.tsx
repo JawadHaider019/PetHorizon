@@ -24,7 +24,7 @@ export default function HeroContent({ onOpenQrModal, onOpenIosModal }: HeroConte
       </div>
 
       {/* Main Headline */}
-      <h1 className="text-2xl sm:text-4xl lg:text-[46px] xl:text-[54px] font-black text-[#17191C] tracking-tight leading-[1.12]">
+      <h1 className="text-2xl sm:text-4xl lg:text-[40px] xl:text-[48px] font-black text-[#17191C] tracking-tight leading-[1.12]">
         The Complete Daily Care &amp;{' '}
         <span className="bg-gradient-to-r from-emerald-800 via-emerald-700 to-emerald-600 bg-clip-text text-transparent">
           Family Hub

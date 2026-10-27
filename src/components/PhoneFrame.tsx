@@ -38,7 +38,7 @@ export default function PhoneFrame({
       )}
 
       {/* Screen Container: Edge-to-edge Content */}
-      <div className="relative rounded-[2.2rem] sm:rounded-[2.5rem] overflow-hidden aspect-[9/19.5] shadow-inner bg-[#F5F6F8]">
+      <div className="relative rounded-[2.2rem] sm:rounded-[2.5rem] overflow-hidden aspect-[499/1024] shadow-inner bg-[#0F1115]">
         {/* Content / Screenshot */}
         {src ? (
           <img
