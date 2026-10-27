@@ -53,8 +53,8 @@ export default function DailyJournalSection() {
             className="lg:col-span-7 text-left flex flex-col gap-5 sm:gap-6"
           >
 
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-950 bg-emerald-950/[0.04] border border-emerald-900/10 w-fit">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-[#166534] bg-emerald-900/[0.05] border border-emerald-800/15 w-fit">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#166534] shrink-0" />
               Pet Journal &amp; Memories
             </div>
 

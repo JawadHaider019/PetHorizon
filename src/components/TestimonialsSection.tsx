@@ -19,8 +19,8 @@ export default function TestimonialsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
         {/* Section Header */}
         <motion.div {...fadeInUp} className="text-center max-w-2xl mx-auto mb-6 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-950 bg-emerald-950/[0.04] border border-emerald-900/10 mb-2 sm:mb-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-[#166534] bg-emerald-900/[0.05] border border-emerald-800/15 mb-2 sm:mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#166534] shrink-0" />
             Google Play &amp; Verified Tester Reviews
           </div>
 
