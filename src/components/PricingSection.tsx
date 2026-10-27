@@ -4,6 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { PRICING_PLANS } from '../data/pricingData';
 import { PLAY_STORE_URL } from '../config/siteConfig';
 
+import { defaultViewport, scrollTransition } from '../config/animationVariants';
+
 export default function PricingSection() {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('yearly');
   const playStoreUrl = PLAY_STORE_URL;
@@ -14,10 +16,10 @@ export default function PricingSection() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          viewport={defaultViewport}
+          transition={scrollTransition}
           className="text-center max-w-3xl mx-auto mb-8 sm:mb-14"
         >
           <p className="text-xs font-black uppercase tracking-widest text-emerald-700 mb-2 sm:mb-3">
@@ -90,8 +92,8 @@ export default function PricingSection() {
                 key={plan.id}
                 initial={{ opacity: 0, x: xOffset, y: yOffset }}
                 whileInView={{ opacity: 1, x: 0, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.65, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                viewport={defaultViewport}
+                transition={{ ...scrollTransition, delay: idx * 0.08 }}
                 whileHover={{ y: isFeatured ? -12 : -8 }}
                 className={`rounded-3xl p-7 sm:p-8 flex flex-col justify-between text-left relative transition-all duration-300 ${
                   isFeatured

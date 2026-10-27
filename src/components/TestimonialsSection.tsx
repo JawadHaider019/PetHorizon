@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Star, ShieldCheck, CheckCircle2, ExternalLink } from 'lucide-react';
 import { PLAY_STORE_REVIEWS } from '../data/playStoreReviews';
+import { fadeInUp } from '../config/animationVariants';
 
 export default function TestimonialsSection() {
   const [isPaused, setIsPaused] = useState(false);
@@ -17,7 +18,7 @@ export default function TestimonialsSection() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-12">
+        <motion.div {...fadeInUp} className="text-center max-w-2xl mx-auto mb-6 sm:mb-12">
           <p className="text-xs font-black uppercase tracking-widest text-emerald-700 mb-2 sm:mb-3">
             Google Play & Verified Tester Reviews
           </p>
@@ -52,7 +53,7 @@ export default function TestimonialsSection() {
               <ExternalLink className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </a>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* MOBILE VIEW: Clean Touch-Snap Horizontal Carousel (<sm) */}

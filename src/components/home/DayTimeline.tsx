@@ -8,7 +8,9 @@ import {
   Users,
   Camera
 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { DAY_TIMELINE_EVENTS, DayTimelineEvent } from '../../data/timelineData';
+import { fadeInUp, staggerCard } from '../../config/animationVariants';
 
 const renderEventIcon = (type: DayTimelineEvent['iconType'], className = 'w-4 h-4') => {
   switch (type) {
@@ -32,7 +34,7 @@ export default function DayTimeline() {
     <section className="hidden md:block py-16 sm:py-24 bg-gradient-to-b from-white via-slate-50/60 to-white relative overflow-hidden border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
             <Clock className="w-3.5 h-3.5 text-emerald-600" />
             <span>A Day in Pet Horizon</span>
@@ -43,7 +45,7 @@ export default function DayTimeline() {
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
             Follow a typical day in a multi-caregiver household powered by Pet Horizon&apos;s synchronized care schedules.
           </p>
-        </div>
+        </motion.div>
 
         {/* Horizontal Sequenced Grid (Tablet & Desktop) */}
         <div className="relative">
@@ -51,11 +53,14 @@ export default function DayTimeline() {
           <div className="absolute top-10 left-12 right-12 h-0.5 bg-gradient-to-r from-emerald-500/20 via-emerald-500/40 to-emerald-500/20 z-0 pointer-events-none" />
 
           <div className="grid grid-cols-5 gap-4 relative z-10">
-            {DAY_TIMELINE_EVENTS.map((event, index) => (
-              <div
-                key={event.id}
-                className="bg-white rounded-2xl p-4 lg:p-5 border border-slate-200/80 hover:border-emerald-300 hover:shadow-md transition-all flex flex-col justify-between group"
-              >
+            {DAY_TIMELINE_EVENTS.map((event, index) => {
+              const dir = index < 2 ? 'left' : index > 2 ? 'right' : 'up';
+              return (
+                <motion.div
+                  key={event.id}
+                  {...staggerCard(index, dir)}
+                  className="bg-white rounded-2xl p-4 lg:p-5 border border-slate-200/80 hover:border-emerald-300 hover:shadow-md transition-all flex flex-col justify-between group"
+                >
                 <div>
                   {/* Step Icon with sequence badge */}
                   <div className="flex items-center justify-between gap-2 mb-4">
@@ -93,8 +98,9 @@ export default function DayTimeline() {
                     {event.category}
                   </span>
                 </div>
-              </div>
-            ))}
+              </motion.div>
+            );
+          })}
           </div>
         </div>
 

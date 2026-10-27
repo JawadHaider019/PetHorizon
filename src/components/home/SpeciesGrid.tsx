@@ -1,5 +1,7 @@
 import { Layers, Check } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { SPECIES_LIST } from '../../data/speciesData';
+import { fadeInUp, staggerCard } from '../../config/animationVariants';
 
 export default function SpeciesGrid() {
   return (
@@ -9,7 +11,7 @@ export default function SpeciesGrid() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
             <Layers className="w-3.5 h-3.5 text-emerald-600" />
             <span>Multi-Species Platform</span>
@@ -21,15 +23,18 @@ export default function SpeciesGrid() {
             Not all pets are the same. Pet Horizon configures species-specific tracking benchmarks,
             preventative schedules, and nutrition fields.
           </p>
-        </div>
+        </motion.div>
 
         {/* Species Grid: 1-col mobile, 2-col tablet, 5-col desktop */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5">
-          {SPECIES_LIST.map((spec) => (
-            <div
-              key={spec.id}
-              className="bg-white/95 rounded-3xl p-5 sm:p-6 border border-slate-200/80 hover:border-emerald-400 hover:shadow-xl hover:shadow-emerald-950/5 transition-all flex flex-col justify-between group"
-            >
+          {SPECIES_LIST.map((spec, idx) => {
+            const dir = idx < 2 ? 'left' : idx > 2 ? 'right' : 'up';
+            return (
+              <motion.div
+                key={spec.id}
+                {...staggerCard(idx, dir)}
+                className="bg-white/95 rounded-3xl p-5 sm:p-6 border border-slate-200/80 hover:border-emerald-400 hover:shadow-xl hover:shadow-emerald-950/5 transition-all flex flex-col justify-between group"
+              >
               <div>
                 {/* 3D Mascot Avatar */}
                 <div className="mb-4 group-hover:scale-105 transition-transform origin-left">
@@ -71,7 +76,7 @@ export default function SpeciesGrid() {
                   {spec.popularBreeds}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

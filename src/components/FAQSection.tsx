@@ -34,6 +34,8 @@ const FAQS: FAQ[] = [
   }
 ];
 
+import { fadeInUp, staggerCard } from '../config/animationVariants';
+
 export default function FAQSection() {
   const [openIndices, setOpenIndices] = useState<Set<number>>(new Set([0]));
   const [showAllMobile, setShowAllMobile] = useState<boolean>(false);
@@ -54,7 +56,7 @@ export default function FAQSection() {
     <section id="faq" className="py-12 sm:py-24 bg-white relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 sm:px-8 relative z-10">
         {/* Header */}
-        <div className="text-center mb-8 sm:mb-14">
+        <motion.div {...fadeInUp} className="text-center mb-8 sm:mb-14">
           <p className="text-xs font-black uppercase tracking-widest text-emerald-700 mb-2.5">
             Frequently Asked Questions
           </p>
@@ -64,7 +66,7 @@ export default function FAQSection() {
           <p className="text-slate-600 text-xs sm:text-base lg:text-lg mt-2 sm:mt-3 font-normal max-w-xl mx-auto">
             Everything you need to know about the product, platform compatibility, and features.
           </p>
-        </div>
+        </motion.div>
 
         {/* FAQ Accordion List (Multi-open enabled) */}
         <div className="space-y-3 sm:space-y-4">
@@ -73,8 +75,9 @@ export default function FAQSection() {
             const isHiddenOnMobile = !showAllMobile && idx > 2;
 
             return (
-              <div
+              <motion.div
                 key={idx}
+                {...staggerCard(idx, idx % 2 === 0 ? 'left' : 'right', 0.05)}
                 className={`${isHiddenOnMobile ? 'hidden sm:block' : 'block'} rounded-2xl border transition-all duration-200 overflow-hidden ${
                   isOpen
                     ? 'border-emerald-300 bg-emerald-50/30 shadow-xs'
@@ -114,7 +117,7 @@ export default function FAQSection() {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              </motion.div>
             );
           })}
         </div>

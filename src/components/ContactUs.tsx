@@ -14,6 +14,8 @@ import ContactForm from './contact/ContactForm';
 import ContactTicketSuccess from './contact/ContactTicketSuccess';
 import ContactSidebar from './contact/ContactSidebar';
 
+import { fadeInUp } from '../config/animationVariants';
+
 export default function ContactUs() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -155,7 +157,7 @@ export default function ContactUs() {
       </AnimatePresence>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-16">
+        <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-8 sm:mb-16">
           <p className="text-xs font-black uppercase tracking-widest text-emerald-700 mb-2.5">
             Helpdesk &amp; Support
           </p>
@@ -165,9 +167,9 @@ export default function ContactUs() {
           <p className="text-slate-600 text-sm sm:text-base mt-3 max-w-2xl mx-auto leading-relaxed">
             Have questions about feeding sync, vaccination schedules, or app setup? Fill out a ticket or contact us directly.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="bg-white/95 backdrop-blur-xl rounded-3xl border border-slate-200/80 shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+        <motion.div {...fadeInUp} className="bg-white/95 backdrop-blur-xl rounded-3xl border border-slate-200/80 shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12">
           <div className="lg:col-span-7 p-6 sm:p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-slate-200/80">
             {/* Inline Fallback Banner on Dispatch Failure */}
             {dispatchError && (
@@ -217,7 +219,7 @@ export default function ContactUs() {
           </div>
 
           <ContactSidebar />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

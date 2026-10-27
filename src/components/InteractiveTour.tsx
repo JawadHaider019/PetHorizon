@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import { TOUR_SCREENS } from '../data/tourData';
 import TourPhonePreview from './tour/TourPhonePreview';
 
+import { motion } from 'framer-motion';
+import { fadeInUp } from '../config/animationVariants';
+
 export default function InteractiveTour() {
   const [selectedScreen, setSelectedScreen] = useState<string>('home');
   const current = TOUR_SCREENS.find((s) => s.id === selectedScreen) || TOUR_SCREENS[0];
@@ -34,7 +37,7 @@ export default function InteractiveTour() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+        <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
           <p className="text-xs font-black uppercase tracking-widest text-emerald-700 mb-2.5">
             Interactive App Explorer
           </p>
@@ -44,7 +47,7 @@ export default function InteractiveTour() {
           <p className="text-slate-600 text-xs sm:text-base lg:text-lg mt-2 sm:mt-3 font-normal max-w-2xl mx-auto">
             Swipe or use the controls below to preview the mobile app experience in real-time.
           </p>
-        </div>
+        </motion.div>
 
         {/* Active Tour Screen 3D Fanned Phone Mockup & Highlights */}
         <TourPhonePreview
