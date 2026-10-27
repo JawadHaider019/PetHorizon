@@ -25,14 +25,14 @@ export default function NavbarDesktopDropdown({
   return (
     <div className="relative" onMouseEnter={onEnter} onMouseLeave={onLeave}>
       <button
-        className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold transition-colors cursor-pointer ${
-          isOpen || isActiveView ? 'text-emerald-700 bg-emerald-50/80 font-bold' : 'text-slate-700 hover:text-emerald-700 hover:bg-slate-50'
+        className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold transition-colors cursor-pointer select-none ${
+          isOpen || isActiveView ? 'text-[#125B46] bg-white font-bold shadow-2xs border border-[#125B46]/20' : 'text-slate-700 hover:text-[#125B46] hover:bg-white'
         }`}
       >
         <span>{label}</span>
         <ChevronDown
           className={`w-3.5 h-3.5 transition-transform duration-200 ${
-            isOpen ? 'rotate-180 text-emerald-600' : 'text-slate-400'
+            isOpen ? 'rotate-180 text-[#125B46]' : 'text-slate-400'
           }`}
         />
       </button>

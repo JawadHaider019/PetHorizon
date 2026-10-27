@@ -1,66 +1,127 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..900;1,9..40,300..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #2E7D32;
-  --color-primary-dark: #1B5E20;
-  --color-primary-light: #E8F5E9;
+  --color-primary: #125B46;
+  --color-primary-dark: #0E4837;
+  --color-primary-light: #EAF5EE;
+  --color-brand-emerald: #125B46;
+  --color-brand-amber: #F59E0B;
+  --color-brand-cream: #FBF9F5;
   --color-navy: #1A2B4E;
   --color-amber: #E67E22;
 
   /* Pet Horizon Exact App Brand Colors */
-  --color-emerald-50: #E8F5E9;
-  --color-emerald-100: #C8E6C9;
+  --color-emerald-50: #EAF5EE;
+  --color-emerald-100: #D2ECDE;
   --color-emerald-200: #A5D6A7;
   --color-emerald-300: #81C784;
   --color-emerald-400: #4CAF50;
-  --color-emerald-500: #388E3C;
-  --color-emerald-600: #2E7D32;
-  --color-emerald-700: #1B5E20;
-  --color-emerald-800: #144917;
-  --color-emerald-900: #0D300F;
-  --color-emerald-950: #071C09;
-
-  /* Harmonious app brand colors */
-  --color-teal-50: #E8F5E9;
-  --color-teal-100: #C8E6C9;
-  --color-teal-200: #A5D6A7;
-  --color-teal-300: #81C784;
-  --color-teal-400: #4CAF50;
-  --color-teal-500: #2E7D32;
-  --color-teal-600: #2E7D32;
-  --color-teal-700: #1B5E20;
-  --color-teal-800: #1B5E20;
-  --color-teal-900: #0D300F;
+  --color-emerald-500: #125B46;
+  --color-emerald-600: #125B46;
+  --color-emerald-700: #0E4837;
+  --color-emerald-800: #0B382B;
+  --color-emerald-900: #08281F;
+  --color-emerald-950: #041712;
 }
 
 :root {
-  --color-primary: #2E7D32;
-  --color-darkgreen: #1B5E20;
-  --color-lightgreen: #E8F5E9;
-  --color-navy: #1A2B4E;
-  --color-amber: #E67E22;
-  --color-success: #2E7D32;
-  --primary-gradient: linear-gradient(135deg, #1B5E20, #2E7D32);
-  --secondary-accent: #E67E22;
-  --card-bg: rgba(255,255,255,0.04);
-  --card-radius: 16px;
-  --card-shadow: 0 10px 15px rgba(0,0,0,0.2);
-  --section-bg-light: #FAF8F5;
-  --section-bg-gradient: #FAF8F5;
+  --color-primary: #125B46;
+  --color-darkgreen: #0E4837;
+  --color-lightgreen: #EAF5EE;
+  --color-amber-gold: #F8C152;
+  --color-amber-deep: #D97706;
+  --primary-gradient: linear-gradient(135deg, #0E4837, #125B46);
+  --section-bg-light: #FBF9F5;
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 7rem;
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
   overflow-x: hidden;
 }
 
 body {
-  background-color: #FAF8F5;
-  color: #17191C;
+  background-color: #FBF9F5;
+  color: #111827;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.025em;
+}
+
+.font-body {
+  font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* EveryStore & Dana Style Hero Animations */
+@keyframes heroAmbientBreathe {
+  0%, 100% {
+    transform: scale(0.96);
+    opacity: 0.65;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.95;
+  }
+}
+
+@keyframes heroRadiusPulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.45;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+@keyframes heroCardFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes marqueeInfinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-hero-ambient-breathe {
+  animation: heroAmbientBreathe 5.5s ease-in-out infinite;
+}
+
+.animate-hero-radius-pulse {
+  animation: heroRadiusPulse 4.5s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+.animate-hero-card-float {
+  animation: heroCardFloat 4.8s ease-in-out infinite;
+}
+
+.animate-marquee-infinite {
+  display: flex;
+  width: max-content;
+  animation: marqueeInfinite 28s linear infinite;
+}
+
+.animate-marquee-infinite:hover {
+  animation-play-state: paused;
 }
 
 /* Hide scrollbars specifically on touch-swipe horizontal carousels */
