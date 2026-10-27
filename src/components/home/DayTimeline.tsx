@@ -59,25 +59,25 @@ export default function DayTimeline() {
                 <motion.div
                   key={event.id}
                   {...staggerCard(index, dir)}
-                  className="bg-white rounded-2xl p-4 lg:p-5 border border-slate-200/80 hover:border-emerald-300 hover:shadow-md transition-all flex flex-col justify-between group"
+                  className="bg-white rounded-2xl p-4 lg:p-5 border border-black/[0.06] shadow-sm hover:border-black/[0.12] hover:shadow-md transition-all flex flex-col justify-between group"
                 >
                 <div>
                   {/* Step Icon with sequence badge */}
                   <div className="flex items-center justify-between gap-2 mb-4">
-                    <div className="w-11 h-11 rounded-2xl bg-emerald-50 border border-emerald-200/80 flex items-center justify-center text-emerald-700 shadow-xs group-hover:scale-105 transition-transform">
-                      {renderEventIcon(event.iconType, 'w-5 h-5 text-emerald-600')}
+                    <div className="w-11 h-11 rounded-2xl bg-emerald-950/[0.04] border border-emerald-900/10 flex items-center justify-center text-emerald-800 shadow-xs group-hover:scale-105 transition-transform">
+                      {renderEventIcon(event.iconType, 'w-5 h-5 text-emerald-700')}
                     </div>
-                    <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">
                       Step {index + 1}
                     </span>
                   </div>
 
                   {/* Time & Title */}
                   <div className="mb-2">
-                    <span className="text-xs font-black text-emerald-700 block mb-1">
+                    <span className="text-xs font-bold text-emerald-800 block mb-1">
                       {event.time}
                     </span>
-                    <h3 className="font-bold text-slate-900 text-sm leading-snug group-hover:text-emerald-700 transition-colors">
+                    <h3 className="font-bold text-slate-900 text-sm leading-snug group-hover:text-emerald-950 transition-colors">
                       {event.title}
                     </h3>
                   </div>
@@ -89,9 +89,9 @@ export default function DayTimeline() {
                 </div>
 
                 {/* Bottom Card Footer */}
-                <div className="pt-3 border-t border-slate-100">
-                  <div className="flex items-center gap-1 text-[11px] font-semibold text-emerald-700 mb-1">
-                    <CheckCircle2 className="w-3 h-3 text-emerald-600 shrink-0" />
+                <div className="pt-3 border-t border-black/[0.05]">
+                  <div className="flex items-center gap-1 text-[11px] font-semibold text-emerald-800 mb-1">
+                    <CheckCircle2 className="w-3 h-3 text-emerald-700 shrink-0" />
                     <span className="truncate">{event.metaNote}</span>
                   </div>
                   <span className="text-[10px] text-slate-400 font-medium uppercase tracking-wider block">
@@ -106,8 +106,8 @@ export default function DayTimeline() {
 
         {/* Bottom trust assurance */}
         <div className="mt-12 text-center">
-          <div className="inline-flex items-center gap-2 text-xs text-slate-500 font-medium bg-slate-100/80 px-4 py-2 rounded-full border border-slate-200/60">
-            <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+          <div className="inline-flex items-center gap-2 text-xs text-slate-600 font-medium bg-white px-4 py-2 rounded-full border border-black/[0.06] shadow-2xs">
+            <ShieldCheck className="w-4 h-4 text-emerald-700 shrink-0" />
             <span>All actions timestamped with offline queueing support for walks without cell reception.</span>
           </div>
         </div>
