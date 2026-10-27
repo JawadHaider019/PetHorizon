@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Smartphone, Check, Copy, ExternalLink, Star, ShieldCheck, QrCode } from 'lucide-react';
+import { X, Smartphone, Check, Copy, ExternalLink, Star, ShieldCheck } from 'lucide-react';
+import QrCodeSvg from '../common/QrCodeSvg';
+import { PLAY_STORE_URL } from '../../config/siteConfig';
 
 interface QrDownloadModalProps {
   isOpen: boolean;
@@ -9,7 +11,6 @@ interface QrDownloadModalProps {
 
 export default function QrDownloadModal({ isOpen, onClose }: QrDownloadModalProps) {
   const [copied, setCopied] = useState(false);
-  const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon';
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -26,12 +27,10 @@ export default function QrDownloadModal({ isOpen, onClose }: QrDownloadModalProp
   }, [isOpen, onClose]);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(playStoreUrl);
+    navigator.clipboard.writeText(PLAY_STORE_URL);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
-
-  const qrImageSrc = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=8&data=${encodeURIComponent(playStoreUrl)}`;
 
   return (
     <AnimatePresence>
@@ -89,7 +88,7 @@ export default function QrDownloadModal({ isOpen, onClose }: QrDownloadModalProp
               </div>
             </div>
 
-            {/* QR Scanner Target Box */}
+            {/* QR Scanner Target Box with Pure Offline SVG */}
             <div className="relative bg-slate-50/80 rounded-2xl p-4 border border-slate-200/80 mb-5 text-center">
               <div className="relative mx-auto w-48 h-48 sm:w-52 sm:h-52 bg-white rounded-xl p-2.5 shadow-xs border border-slate-200/90 flex items-center justify-center">
                 {/* Visual Corner Target Accents */}
@@ -98,14 +97,7 @@ export default function QrDownloadModal({ isOpen, onClose }: QrDownloadModalProp
                 <span className="absolute bottom-1.5 left-1.5 w-3 h-3 border-b-2 border-l-2 border-emerald-500 rounded-bl-sm pointer-events-none" />
                 <span className="absolute bottom-1.5 right-1.5 w-3 h-3 border-b-2 border-r-2 border-emerald-500 rounded-br-sm pointer-events-none" />
 
-                <img
-                  src={qrImageSrc}
-                  alt="Pet Horizon Google Play QR Code"
-                  className="w-full h-full object-contain"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = '/ph-logo-mark.png';
-                  }}
-                />
+                <QrCodeSvg className="w-full h-full object-contain" />
               </div>
 
               <div className="flex items-center justify-center gap-2 mt-3 text-slate-600 text-xs font-semibold">
@@ -118,7 +110,7 @@ export default function QrDownloadModal({ isOpen, onClose }: QrDownloadModalProp
             <div className="flex flex-col gap-2.5">
               <div className="flex items-center gap-2 bg-slate-100/70 border border-slate-200 rounded-xl p-1.5 text-left">
                 <span className="text-[11px] text-slate-500 truncate flex-1 font-mono pl-2">
-                  play.google.com/store/apps/details?id=com.anonymous.PetHorizon
+                  {PLAY_STORE_URL.replace('https://', '')}
                 </span>
                 <button
                   onClick={handleCopy}
@@ -139,7 +131,7 @@ export default function QrDownloadModal({ isOpen, onClose }: QrDownloadModalProp
               </div>
 
               <a
-                href={playStoreUrl}
+                href={PLAY_STORE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all cursor-pointer"

@@ -22,6 +22,9 @@ export default function PhoneFrame({
         <img
           src={src}
           alt={alt}
+          width={499}
+          height={1024}
+          decoding="async"
           className="w-full h-full object-cover object-top block"
           loading={priority ? 'eager' : 'lazy'}
           {...(priority ? { fetchPriority: 'high' } : {})}

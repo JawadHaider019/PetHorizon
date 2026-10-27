@@ -1,0 +1,40 @@
+# Pet Horizon - Official Robots.txt
+# Technical SEO, AEO & AI Crawler Specification
+
+# 1. Search Discovery Engines
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /scratch_preview.html
+
+# 2. Dedicated Search & AI Discovery Crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# 3. Model Training Bots (Documented Access)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Sitemaps & Feeds
+Sitemap: https://pethorizon.jawumitech.com/sitemap.xml

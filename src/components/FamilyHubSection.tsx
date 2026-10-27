@@ -50,7 +50,7 @@ export default function FamilyHubSection() {
           >
             <div className="relative">
               <PhoneFrame
-                src="/screenshots/family-screen.png"
+                src="/screenshots/family-screen.webp"
                 alt="Pet Horizon Family Hub Co-Parenting Screen"
                 frameClassName="w-[220px] sm:w-[300px]"
               />
@@ -62,7 +62,7 @@ export default function FamilyHubSection() {
                 className="hidden sm:flex absolute -top-5 -left-6 sm:-left-12 bg-white text-slate-900 rounded-2xl p-2.5 shadow-xl border border-emerald-200/90 items-center gap-2.5 z-30 text-left"
               >
                 <div className="w-10 h-10 rounded-xl overflow-hidden border border-emerald-100 shadow-2xs shrink-0">
-                  <img src="/cute-3d-pets.jpg" alt="Pet Companions" className="w-full h-full object-cover" />
+                  <img src="/cute-3d-pets.webp" alt="Pet Companions" className="w-full h-full object-cover" style={{ mixBlendMode: 'multiply' }} />
                 </div>
                 <div className="pr-1.5">
                   <p className="text-[9px] font-black uppercase tracking-wider text-emerald-800">Shared Pet Profile</p>

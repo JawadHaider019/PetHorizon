@@ -35,17 +35,24 @@ const FAQS: FAQ[] = [
 ];
 
 export default function FAQSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndices, setOpenIndices] = useState<Set<number>>(new Set([0]));
   const [showAllMobile, setShowAllMobile] = useState<boolean>(false);
 
   const toggle = (idx: number) => {
-    setOpenIndex(openIndex === idx ? null : idx);
+    setOpenIndices((prev) => {
+      const next = new Set(prev);
+      if (next.has(idx)) {
+        next.delete(idx);
+      } else {
+        next.add(idx);
+      }
+      return next;
+    });
   };
 
   return (
     <section id="faq" className="py-12 sm:py-24 bg-white relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 sm:px-8 relative z-10">
-        
         {/* Header */}
         <div className="text-center mb-8 sm:mb-14">
           <p className="text-xs font-black uppercase tracking-widest text-emerald-700 mb-2.5">
@@ -59,11 +66,10 @@ export default function FAQSection() {
           </p>
         </div>
 
-        {/* FAQ Accordion List */}
+        {/* FAQ Accordion List (Multi-open enabled) */}
         <div className="space-y-3 sm:space-y-4">
           {FAQS.map((faq, idx) => {
-            const isOpen = openIndex === idx;
-            // On mobile, hide items beyond index 2 unless user tapped expand
+            const isOpen = openIndices.has(idx);
             const isHiddenOnMobile = !showAllMobile && idx > 2;
 
             return (
@@ -136,7 +142,6 @@ export default function FAQSection() {
             Contact Support
           </a>
         </div>
-
       </div>
     </section>
   );

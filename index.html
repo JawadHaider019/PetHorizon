@@ -10,48 +10,96 @@
     <meta name="title" content="Pet Horizon – Smart Pet Care, Family Hub & Daily Routine Tracker" />
     <meta name="description" content="Pet Horizon is the ultimate pet care companion app for Android. Organize smart medication alarms, daily feeding routines, vaccination history, and multi-caretaker family hub in one unified platform." />
     <meta name="keywords" content="Pet Horizon, pet routine tracker, pet care app, dog schedule tracker, cat medication alarm, pet vaccination reminder, family pet hub, Android pet app" />
-    <meta name="author" content="Aqib Mansoor" />
-    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Pet Horizon" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="theme-color" content="#047857" />
+    <!-- Google Search Console Verification Placeholder (Replace with token provided in Search Console) -->
+    <meta name="google-site-verification" content="GOOGLE_SEARCH_CONSOLE_VERIFICATION_TOKEN" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://pethorizon.jawumitech.com/" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://pethorizon.app/" />
+    <meta property="og:url" content="https://pethorizon.jawumitech.com/" />
+    <meta property="og:site_name" content="Pet Horizon" />
     <meta property="og:title" content="Pet Horizon – Smart Pet Care, Family Hub & Daily Routine Tracker" />
     <meta property="og:description" content="Streamline your pet's life with smart care schedules, medication alarms, vaccination logs, and family sync." />
-    <meta property="og:image" content="/applogo.png" />
+    <meta property="og:image" content="https://pethorizon.jawumitech.com/applogo.png" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:image:alt" content="Pet Horizon - Smart Pet Care & Routine Tracker" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://pethorizon.app/" />
+    <meta name="twitter:url" content="https://pethorizon.jawumitech.com/" />
     <meta name="twitter:title" content="Pet Horizon – Smart Pet Care, Family Hub & Daily Routine Tracker" />
     <meta name="twitter:description" content="Streamline your pet's life with smart care schedules, medication alarms, vaccination logs, and family sync." />
-    <meta name="twitter:image" content="/applogo.png" />
+    <meta name="twitter:image" content="https://pethorizon.jawumitech.com/applogo.png" />
+    <meta name="twitter:image:alt" content="Pet Horizon App Icon" />
 
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Schema.org SoftwareApplication JSON-LD -->
+    <!-- Preload Critical Above-The-Fold Assets -->
+    <link rel="preload" href="/screenshots/home-screen.webp" as="image" type="image/webp" media="(min-width: 1024px)" fetchpriority="high" />
+    <link rel="preload" href="/3d-pets-transparent.webp" as="image" type="image/webp" fetchpriority="high" />
+
+    <!-- Schema.org Graph: Organization, WebSite & SoftwareApplication -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Pet Horizon",
-      "operatingSystem": "Android",
-      "applicationCategory": "LifestyleApplication",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Aqib Mansoor",
-        "url": "https://aqibfolio.vercel.app/"
-      },
-      "description": "Smart pet care companion app featuring medication schedule alerts, daily feeding routines, vaccination history, and family hub collaboration."
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://pethorizon.jawumitech.com/#organization",
+          "name": "Pet Horizon",
+          "url": "https://pethorizon.jawumitech.com",
+          "logo": {
+            "@type": "ImageObject",
+            "@id": "https://pethorizon.jawumitech.com/#logo",
+            "url": "https://pethorizon.jawumitech.com/applogo.png",
+            "caption": "Pet Horizon Logo"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": "pethorizon2026@gmail.com"
+          },
+          "sameAs": [
+            "https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://pethorizon.jawumitech.com/#website",
+          "url": "https://pethorizon.jawumitech.com",
+          "name": "Pet Horizon",
+          "description": "Smart Pet Care, Family Hub & Daily Routine Tracker for Dogs and Cats",
+          "publisher": {
+            "@id": "https://pethorizon.jawumitech.com/#organization"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://pethorizon.jawumitech.com/#app",
+          "name": "Pet Horizon",
+          "operatingSystem": "Android",
+          "applicationCategory": "LifestyleApplication",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "publisher": {
+            "@id": "https://pethorizon.jawumitech.com/#organization"
+          },
+          "downloadUrl": "https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon",
+          "description": "Smart pet care companion app featuring medication schedule alerts, daily feeding routines, vaccination history, and family hub collaboration."
+        }
+      ]
     }
     </script>
   </head>

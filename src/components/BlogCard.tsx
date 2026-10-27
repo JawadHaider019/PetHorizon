@@ -1,4 +1,5 @@
-import { Clock, Flame, ShieldCheck, ChevronRight } from 'lucide-react';
+import { useState } from 'react';
+import { Clock, MapPin, Bookmark, Check } from 'lucide-react';
 import { BlogPost } from '../data/blogData';
 
 interface BlogCardProps {
@@ -8,32 +9,53 @@ interface BlogCardProps {
 }
 
 export default function BlogCard({ post, onClick, compact = false }: BlogCardProps) {
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
+  const handleBookmark = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsBookmarked(!isBookmarked);
+  };
+
+  const getCategoryStyles = (category: string) => {
+    switch (category) {
+      case 'Feeding & Nutrition':
+        return 'bg-amber-50 text-amber-800 border-amber-200';
+      case 'Health & Vaccines':
+        return 'bg-emerald-50 text-emerald-800 border-emerald-200';
+      case 'Family & Routine':
+        return 'bg-indigo-50 text-indigo-800 border-indigo-200';
+      case 'Dog Care':
+        return 'bg-blue-50 text-blue-800 border-blue-200';
+      case 'Cat Care':
+        return 'bg-purple-50 text-purple-800 border-purple-200';
+      default:
+        return 'bg-slate-50 text-slate-700 border-slate-200';
+    }
+  };
+
   if (compact) {
     return (
       <div
         onClick={onClick}
-        className="p-4 rounded-2xl bg-slate-50 hover:bg-emerald-50/50 border border-slate-200/70 hover:border-emerald-300 transition-all cursor-pointer flex items-start gap-3.5 group"
+        className="p-3.5 rounded-2xl bg-white hover:bg-emerald-50/40 border border-slate-100 hover:border-emerald-200 transition-all cursor-pointer flex items-start gap-3.5 group shadow-2xs"
       >
-        <div className="w-16 h-16 rounded-xl overflow-hidden shrink-0 bg-slate-200">
+        <div className="w-20 h-14 rounded-xl overflow-hidden shrink-0 bg-slate-100 relative">
           <img
             src={post.coverImage}
             alt={post.title}
-            className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-300"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            loading="lazy"
           />
         </div>
         <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-1.5 text-[10px] text-amber-800 font-bold mb-1">
-            <Flame className="w-3 h-3 text-amber-600" />
-            <span>{post.searchVolume}</span>
-            <span className="text-slate-300">&bull;</span>
-            <span className="text-slate-500 truncate">{post.sourceName}</span>
+          <div className="flex items-center gap-1.5 text-[10px] font-semibold text-slate-500 mb-1">
+            <span className="text-emerald-700 font-bold">{post.category}</span>
+            <span>&bull;</span>
+            <span>{post.readTime}</span>
           </div>
-          <h5 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-emerald-800 transition-colors line-clamp-2 leading-snug">
+          <h5 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-2 leading-snug">
             {post.title}
           </h5>
-          <span className="text-[11px] font-semibold text-emerald-700 mt-1 inline-flex items-center gap-0.5">
-            Read Guide &rarr;
-          </span>
         </div>
       </div>
     );
@@ -42,68 +64,97 @@ export default function BlogCard({ post, onClick, compact = false }: BlogCardPro
   return (
     <article
       onClick={onClick}
-      className="bg-white rounded-3xl border border-slate-200/80 overflow-hidden shadow-xs hover:shadow-xl hover:border-emerald-300 transition-all duration-300 flex flex-col group cursor-pointer"
+      className="group flex flex-col rounded-2xl bg-white border border-slate-100 p-3.5 shadow-2xs hover:shadow-md hover:border-slate-200 transition-all duration-200 cursor-pointer"
     >
-      {/* Cover Image Container */}
-      <div className="relative h-52 overflow-hidden bg-slate-100">
+      {/* 16:10 Aspect Ratio Image Container */}
+      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-slate-100 block">
         <img
           src={post.coverImage}
           alt={post.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-400"
+          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+          loading="lazy"
         />
-        <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-xl text-[11px] font-bold text-emerald-800 border border-slate-200/60 shadow-2xs whitespace-nowrap shrink-0">
-          {post.category}
-        </div>
-        <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-xl text-[10px] font-bold text-slate-700 border border-slate-200/60 shadow-2xs flex items-center gap-1 whitespace-nowrap shrink-0">
-          <Clock className="w-3 h-3 text-emerald-600 shrink-0" />
-          <span>{post.readTime}</span>
-        </div>
+        {post.featured && (
+          <span className="absolute top-2.5 right-2.5 bg-emerald-600 text-white text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-md shadow-xs">
+            Featured
+          </span>
+        )}
       </div>
 
-      {/* Body Content */}
-      <div className="p-6 flex-1 flex flex-col justify-between">
-        <div>
-          {/* SEO Search Ranking Badges & Source */}
-          <div className="flex flex-wrap items-center gap-2 mb-2.5">
-            <span className="inline-flex items-center gap-1 bg-amber-500/10 text-amber-900 text-[10px] font-black px-2.5 py-0.5 rounded-full border border-amber-300/70 whitespace-nowrap shrink-0">
-              <Flame className="w-3 h-3 text-amber-600 shrink-0" />
-              <span>{post.searchVolume}</span>
-            </span>
-            <span className="text-[10px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md truncate max-w-[170px] whitespace-nowrap shrink-0">
-              {post.sourceName}
-            </span>
-          </div>
+      {/* Content Area */}
+      <div className="flex flex-1 flex-col pt-3.5 pb-1">
+        {/* Category & Location Badges */}
+        <div className="flex flex-wrap items-center gap-2 mb-2">
+          <span
+            className={`inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-xs font-semibold border ${getCategoryStyles(
+              post.category
+            )}`}
+          >
+            <span className="text-[10px] font-bold">●</span>
+            {post.category}
+          </span>
 
-          <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-emerald-700 transition-colors leading-snug tracking-tight">
-            {post.title}
-          </h3>
+          {post.targetLocation && (
+            <span className="inline-flex items-center gap-1 text-[11px] font-medium text-slate-500 bg-slate-50 px-2 py-0.5 rounded-md border border-slate-100">
+              <MapPin className="w-3 h-3 text-slate-400 shrink-0" />
+              <span>{post.targetLocation}</span>
+            </span>
+          )}
 
-          <p className="mt-2 text-xs sm:text-sm text-slate-600 line-clamp-3 leading-relaxed font-normal">
-            {post.excerpt}
-          </p>
+          <span className="ml-auto inline-flex items-center gap-1 text-[11px] font-medium text-slate-400">
+            <Clock className="w-3 h-3 text-slate-400" />
+            <span>{post.readTime}</span>
+          </span>
         </div>
 
-        {/* Author & Read Action */}
-        <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <img
-              src={post.author.avatar}
-              alt={post.author.name}
-              className="w-7 h-7 rounded-full object-cover border border-emerald-200"
-            />
-            <div className="truncate max-w-[130px]">
-              <div className="flex items-center gap-1">
-                <span className="text-xs font-bold text-slate-800 truncate">
-                  {post.author.name}
-                </span>
-                <ShieldCheck className="w-3 h-3 text-emerald-600 shrink-0" />
-              </div>
+        {/* Title */}
+        <h2 className="text-base font-bold text-slate-900 group-hover:text-emerald-700 transition-colors leading-snug line-clamp-2">
+          {post.title}
+        </h2>
+
+        {/* Excerpt */}
+        <p className="mt-2 text-xs text-slate-500 leading-relaxed line-clamp-2">
+          {post.excerpt}
+        </p>
+
+        {/* Bottom Bar: Author Avatar, Name, Date, Bookmark */}
+        <div className="mt-auto pt-4 flex items-center justify-between border-t border-slate-50">
+          <div className="flex items-center gap-2.5">
+            <div className="relative h-8 w-8 overflow-hidden rounded-full border border-slate-200 shrink-0">
+              <img
+                src={post.author.avatar}
+                alt={post.author.name}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <p className="text-xs font-bold text-slate-900 leading-none">
+                {post.author.name}
+              </p>
+              <p className="text-[11px] text-slate-400 mt-1">
+                {post.publishedAt}
+              </p>
             </div>
           </div>
 
-          <span className="text-xs font-bold text-emerald-600 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
-            Read Guide <ChevronRight className="w-3.5 h-3.5" />
-          </span>
+          <button
+            type="button"
+            onClick={handleBookmark}
+            className={`rounded-lg p-1.5 transition-colors cursor-pointer ${
+              isBookmarked
+                ? 'text-emerald-600 bg-emerald-50'
+                : 'text-slate-400 hover:text-slate-700 hover:bg-slate-50'
+            }`}
+            title={isBookmarked ? 'Saved to bookmarks' : 'Save article'}
+            aria-label="Save article"
+          >
+            {isBookmarked ? (
+              <Check className="h-4 w-4" />
+            ) : (
+              <Bookmark className="h-4 w-4" />
+            )}
+          </button>
         </div>
       </div>
     </article>

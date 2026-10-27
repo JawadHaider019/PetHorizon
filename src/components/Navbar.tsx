@@ -2,6 +2,9 @@ import { useState, useEffect, useRef } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import NavbarDesktopDropdown from './NavbarDesktopDropdown';
 import NavbarMobileMenu from './NavbarMobileMenu';
+import AnnouncementBar from './global/AnnouncementBar';
+
+import { PLAY_STORE_URL } from '../config/siteConfig';
 
 export type NavView = 'home' | 'privacy' | 'terms' | 'deletion' | 'blog';
 
@@ -11,7 +14,11 @@ interface NavbarProps {
   onOpenQrModal?: () => void;
 }
 
-export default function Navbar({ currentView = 'home', onNavigate, onOpenQrModal }: NavbarProps) {
+export default function Navbar({
+  currentView = 'home',
+  onNavigate,
+  onOpenQrModal
+}: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<'product' | 'legal' | null>(null);
@@ -26,7 +33,7 @@ export default function Navbar({ currentView = 'home', onNavigate, onOpenQrModal
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon';
+  const playStoreUrl = PLAY_STORE_URL;
 
   const handleDropdownEnter = (menu: 'product' | 'legal') => {
     if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
@@ -49,21 +56,21 @@ export default function Navbar({ currentView = 'home', onNavigate, onOpenQrModal
     } else {
       if (view === 'home') {
         window.location.href = hash ? `/${hash}` : '/';
-      } else {
         const slug =
-          view === 'blog' ? 'blog' : view === 'privacy' ? 'privacy-policy' : 'data-deletion';
+          view === 'blog' ? 'blogs' : view === 'privacy' ? 'privacy-policy' : 'data-deletion';
         window.location.href = `/${slug}`;
       }
     }
   };
 
   return (
-    <>
+    <div className="fixed top-0 left-0 right-0 z-50">
+      <AnnouncementBar />
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`transition-all duration-300 ${
           isScrolled
             ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100 py-2.5'
-            : 'bg-white/70 backdrop-blur-xs py-4 border-b border-slate-200/40'
+            : 'bg-white/70 backdrop-blur-xs py-3.5 sm:py-4 border-b border-slate-200/40'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -202,6 +209,6 @@ export default function Navbar({ currentView = 'home', onNavigate, onOpenQrModal
         onLinkClick={handleLinkClick}
         playStoreUrl={playStoreUrl}
       />
-    </>
+    </div>
   );
 }

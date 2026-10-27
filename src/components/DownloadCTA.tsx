@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
 import { GooglePlayBadge, AppStoreBadge, QrScanButton } from './AppBadges';
+import { PLAY_STORE_URL } from '../config/siteConfig';
 
 interface DownloadCTAProps {
   onOpenQrModal?: () => void;
@@ -8,7 +9,7 @@ interface DownloadCTAProps {
 }
 
 export default function DownloadCTA({ onOpenQrModal, onOpenIosModal }: DownloadCTAProps) {
-  const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon';
+  const playStoreUrl = PLAY_STORE_URL;
 
   return (
     <section className="py-16 sm:py-24 bg-gradient-to-b from-white to-emerald-50/60 relative overflow-hidden">
@@ -73,9 +74,14 @@ export default function DownloadCTA({ onOpenQrModal, onOpenIosModal }: DownloadC
                   className="w-64 sm:w-72 rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white/40 bg-white relative group"
                 >
                   <img
-                    src="/cute-3d-pets.jpg"
+                    src="/cute-3d-pets.webp"
                     alt="Pet Horizon 3D Mascot Companions - Golden Retriever Puppy and Fluffy Kitten"
+                    width={1024}
+                    height={1024}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                    style={{ mixBlendMode: 'multiply' }}
                   />
                   <div className="p-3.5 bg-gradient-to-r from-emerald-950 via-[#144917] to-emerald-900 text-white text-center">
                     <p className="text-xs font-bold text-emerald-200">

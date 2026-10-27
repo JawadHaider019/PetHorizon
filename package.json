@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build:seo": "node scripts/prerender-seo.js --pre",
+    "build": "node scripts/prerender-seo.js --pre && vite build && node scripts/prerender-seo.js --post",
+    "submit:indexnow": "node scripts/submit-indexnow.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },

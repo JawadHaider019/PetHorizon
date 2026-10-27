@@ -31,14 +31,14 @@ export const PRICING_PLANS: PricingPlan[] = [
   {
     id: 'free',
     name: 'Standard Plan',
-    description: 'Everything you need to give one beloved companion full care.',
+    description: 'Essential daily tracking for one beloved companion.',
     badge: {
       monthly: 'Free Forever',
       yearly: 'Free Forever'
     },
     badgeStyle: {
-      monthly: 'text-slate-500 bg-slate-100',
-      yearly: 'text-slate-500 bg-slate-100'
+      monthly: 'text-slate-600 bg-slate-100',
+      yearly: 'text-slate-600 bg-slate-100'
     },
     price: {
       monthly: '$0',
@@ -48,13 +48,17 @@ export const PRICING_PLANS: PricingPlan[] = [
       monthly: '/ forever',
       yearly: '/ forever'
     },
+    subnote: {
+      monthly: 'No credit card or setup fee',
+      yearly: 'No credit card or setup fee'
+    },
     features: [
-      'Single pet profile support (1 pet)',
-      'Complete daily care & feeding schedule',
-      'Medication alerts & vaccination tracking',
-      '1 daily photo upload in activity journal',
-      'Basic family caretaker connection',
-      'Expense logging and cost tracking'
+      'Single pet profile (1 companion)',
+      'Daily feeding & care schedule',
+      'Medication & vaccine reminders',
+      '1 photo upload daily in journal',
+      'Expense logging & cost tracker',
+      'Basic family caretaker sync'
     ],
     buttonText: 'Download Free App',
     featuredIn: 'both'
@@ -62,13 +66,13 @@ export const PRICING_PLANS: PricingPlan[] = [
   {
     id: 'monthly',
     name: 'Pet Horizon Pro',
-    description: 'Ideal for multi-pet families and collaborative households.',
+    description: 'Perfect for active multi-pet homes and busy families.',
     badge: {
       monthly: 'Most Popular',
       yearly: 'Flexible Monthly'
     },
     badgeStyle: {
-      monthly: 'text-emerald-800 bg-emerald-100',
+      monthly: 'text-emerald-800 bg-emerald-100 border border-emerald-200',
       yearly: 'text-slate-600 bg-slate-100'
     },
     price: {
@@ -81,50 +85,51 @@ export const PRICING_PLANS: PricingPlan[] = [
     },
     subnote: {
       monthly: 'Billed monthly, cancel anytime',
-      yearly: 'Pay month-to-month'
+      yearly: 'Month-to-month flexibility'
     },
     features: [
-      'Unlimited pet profile registrations',
-      'Multi-caretaker family hub with QR code sync',
-      'Admin & Member access control permissions',
-      'Up to 5 daily photo uploads in journal',
-      'Smart custom push notifications & reminders',
-      'Unlimited schedule alarms & vaccination tracking'
+      'Unlimited pet profiles',
+      'Smart family task delegation',
+      'Anti-collision medication locks',
+      'Flexible time-window reminders',
+      'QR code multi-caretaker sync',
+      'Up to 5 photo uploads daily',
+      'Household walking & activity goals'
     ],
-    buttonText: 'Get Pro on Google Play',
+    buttonText: 'Get Pro Monthly',
     featuredIn: 'monthly'
   },
   {
     id: 'yearly',
     name: 'Annual Care Pass',
-    description: 'Best overall value for complete uninterrupted peace of mind.',
+    description: 'Maximum savings with complete uninterrupted peace of mind.',
     badge: {
       monthly: 'Save 17%',
       yearly: 'Best Value • Save 17%'
     },
     badgeStyle: {
-      monthly: 'text-amber-800 bg-amber-100',
-      yearly: 'text-amber-800 bg-amber-100'
+      monthly: 'text-emerald-800 bg-emerald-100 border border-emerald-200',
+      yearly: 'text-emerald-800 bg-emerald-100 border border-emerald-200'
     },
     price: {
       monthly: '$4.16',
       yearly: '$4.16'
     },
     period: {
-      monthly: '/ month ($49.99/yr)',
-      yearly: '/ month ($49.99/yr)'
+      monthly: '/ mo (billed $49.99/yr)',
+      yearly: '/ mo (billed $49.99/yr)'
     },
     subnote: {
-      monthly: '$49.99 billed annually (2 months free)',
-      yearly: '$49.99 billed annually (2 months free)'
+      monthly: 'Includes 2 months free',
+      yearly: 'Includes 2 months free'
     },
     features: [
-      'All Monthly Pro benefits included',
-      'Equivalent of 2 months free (Save 17%)',
-      'Unlimited pets & shared family hubs',
-      'Up to 5 daily photo uploads in journal',
-      'Dedicated Priority Customer Support agent',
-      'Restore anytime on new devices'
+      'Everything in Pro included',
+      'Save 17% (equivalent to 2 months free)',
+      'Priority VIP customer support',
+      'Cloud backup & instant device restore',
+      'Exportable health & expense records',
+      'Early access to new feature releases'
     ],
     buttonText: 'Subscribe Annually',
     featuredIn: 'yearly'

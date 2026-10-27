@@ -2,10 +2,11 @@ import { useState } from 'react';
 import { Check } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PRICING_PLANS } from '../data/pricingData';
+import { PLAY_STORE_URL } from '../config/siteConfig';
 
 export default function PricingSection() {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('yearly');
-  const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon';
+  const playStoreUrl = PLAY_STORE_URL;
 
   return (
     <section id="pricing" className="py-12 sm:py-24 bg-[#F5F6F8] relative overflow-hidden">
@@ -94,8 +95,8 @@ export default function PricingSection() {
                 whileHover={{ y: isFeatured ? -12 : -8 }}
                 className={`rounded-3xl p-7 sm:p-8 flex flex-col justify-between text-left relative transition-all duration-300 ${
                   isFeatured
-                    ? 'bg-gradient-to-b from-white to-emerald-50/50 border-2 border-emerald-500 shadow-xl shadow-emerald-500/15'
-                    : 'bg-white border border-slate-200/90 shadow-sm hover:shadow-xl'
+                    ? 'bg-gradient-to-b from-white to-emerald-50/60 border-2 border-emerald-500 shadow-xl shadow-emerald-500/15'
+                    : 'bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-slate-300'
                 }`}
               >
                 {isFeatured && (
@@ -111,9 +112,9 @@ export default function PricingSection() {
                     </span>
                   </div>
                   <h3 className="text-2xl font-black text-slate-900">{plan.name}</h3>
-                  <p className="text-xs text-slate-500 mt-1 mb-5">{plan.description}</p>
+                  <p className="text-xs text-slate-500 mt-1 mb-5 min-h-[32px] flex items-center">{plan.description}</p>
 
-                  <div className="mb-6">
+                  <div className="mb-6 min-h-[76px] flex flex-col justify-center">
                     <div className="flex items-baseline gap-1.5">
                       <AnimatePresence mode="wait">
                         <motion.span
@@ -122,7 +123,7 @@ export default function PricingSection() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 8 }}
                           transition={{ duration: 0.2 }}
-                          className="text-4xl sm:text-5xl font-black text-slate-900"
+                          className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight"
                         >
                           {currentPrice}
                         </motion.span>
@@ -137,38 +138,47 @@ export default function PricingSection() {
                   </div>
 
                   <div className={`space-y-3.5 border-t pt-6 ${isFeatured ? 'border-emerald-100' : 'border-slate-100'}`}>
-                    {plan.features.map((feat, i) => (
-                      <div key={i} className="flex items-start gap-2.5">
-                        <div
-                          className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
-                            isFeatured
-                              ? 'bg-emerald-600 text-white'
-                              : idx === 2
-                              ? 'bg-amber-100 text-amber-700'
-                              : 'bg-emerald-100 text-emerald-700'
-                          }`}
-                        >
-                          <Check className="w-3 h-3" />
+                    {plan.features.map((feat, i) => {
+                      const isHeaderHighlight = feat.toLowerCase().startsWith('everything in pro');
+                      return (
+                        <div key={i} className="flex items-start gap-2.5">
+                          <div
+                            className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
+                              isFeatured
+                                ? 'bg-emerald-600 text-white'
+                                : 'bg-emerald-100 text-emerald-700'
+                            }`}
+                          >
+                            <Check className="w-3.5 h-3.5 stroke-[2.5]" />
+                          </div>
+                          <span
+                            className={`text-xs sm:text-sm leading-snug transition-colors ${
+                              isHeaderHighlight
+                                ? 'text-emerald-950 font-bold'
+                                : isFeatured
+                                ? 'text-slate-900 font-semibold'
+                                : 'text-slate-700 font-medium'
+                            }`}
+                          >
+                            {feat}
+                          </span>
                         </div>
-                        <span className={`text-xs sm:text-sm leading-tight ${isFeatured ? 'text-slate-800 font-bold' : 'text-slate-700 font-medium'}`}>
-                          {feat}
-                        </span>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
 
-                <div className="pt-8">
+                <div className="pt-8 mt-auto">
                   <a
                     href={playStoreUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-full text-center block py-3.5 rounded-2xl font-bold text-sm transition-all ${
+                    className={`w-full text-center block py-3.5 rounded-2xl font-bold text-sm transition-all duration-200 ${
                       isFeatured
                         ? 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-md shadow-emerald-600/30 hover:scale-[1.02]'
                         : idx === 0
                         ? 'bg-slate-100 hover:bg-slate-200 text-slate-800'
-                        : 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-md shadow-emerald-600/20 hover:scale-[1.01]'
+                        : 'bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200/90 hover:scale-[1.01]'
                     }`}
                   >
                     {plan.buttonText}
