@@ -392,56 +392,9 @@ async function runPostBuild() {
     return html;
   }
 
-  // 0. Prerender / (Homepage with semantic crawler content)
-  {
-    const homeSemantic = `
-      <header style="max-width: 1080px; margin: 40px auto 20px; padding: 0 16px;">
-        <h1 style="font-size: 38px; font-weight: 900; color: #111827; line-height: 1.2;">Pet Horizon – Smart Pet Care, Family Hub & Daily Routine Tracker</h1>
-        <p style="font-size: 18px; color: #4b5563; max-width: 800px; line-height: 1.6; margin: 16px 0;">Organize smart medication alarms, daily feeding routines, clinical vaccination history, and multi-caretaker family hub in one unified platform for Android.</p>
-        <div style="margin: 24px 0;">
-          <a href="https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon" style="display: inline-block; background: #047857; color: #ffffff; padding: 14px 28px; border-radius: 9999px; text-decoration: none; font-weight: 700;">Get Pet Horizon on Google Play</a>
-          <a href="/blogs" style="display: inline-block; margin-left: 16px; color: #047857; padding: 14px 24px; text-decoration: none; font-weight: 700;">Explore Pet Care Guides &rarr;</a>
-        </div>
-      </header>
-      <main style="max-width: 1080px; margin: 40px auto; padding: 0 16px; font-family: system-ui, sans-serif;">
-        <section style="margin-bottom: 48px;">
-          <h2 style="font-size: 26px; font-weight: 800; color: #111827;">Core Platform Features</h2>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px;">
-            <div style="border: 1px solid #e5e7eb; border-radius: 12px; padding: 20px; background: #ffffff;">
-              <h3 style="font-size: 18px; font-weight: 700; color: #047857;">Clinical Health Card</h3>
-              <p style="color: #4b5563; font-size: 14px; line-height: 1.5;">Track core vs non-core puppy and kitten vaccine due dates (DHPP, Rabies, FVRCP) with exportable PDF passports for boarding facilities.</p>
-            </div>
-            <div style="border: 1px solid #e5e7eb; border-radius: 12px; padding: 20px; background: #ffffff;">
-              <h3 style="font-size: 18px; font-weight: 700; color: #047857;">Smart Medication Reminders</h3>
-              <p style="color: #4b5563; font-size: 14px; line-height: 1.5;">Set recurring dosage alarms with missed dose safety protocols and multi-caregiver adherence audit logs to prevent double-dosing.</p>
-            </div>
-            <div style="border: 1px solid #e5e7eb; border-radius: 12px; padding: 20px; background: #ffffff;">
-              <h3 style="font-size: 18px; font-weight: 700; color: #047857;">Family Hub QR Sync</h3>
-              <p style="color: #4b5563; font-size: 14px; line-height: 1.5;">Instant household pairing across partners, roommates, and pet sitters with real-time status updates so no one asks 'Did you feed the dog?'</p>
-            </div>
-            <div style="border: 1px solid #e5e7eb; border-radius: 12px; padding: 20px; background: #ffffff;">
-              <h3 style="font-size: 18px; font-weight: 700; color: #047857;">Feeding & Nutrition Tracker</h3>
-              <p style="color: #4b5563; font-size: 14px; line-height: 1.5;">Daily portion control and Resting Energy Requirement (RER) calculations based on clinical veterinary standards to prevent canine and feline obesity.</p>
-            </div>
-          </div>
-        </section>
-        <section style="margin-bottom: 48px; background: #f9fafb; border-radius: 16px; padding: 32px 24px;">
-          <h2 style="font-size: 24px; font-weight: 800; color: #111827;">Frequently Asked Questions</h2>
-          <div style="margin-top: 16px;">
-            <h3 style="font-size: 16px; font-weight: 700; color: #111827;">Is Pet Horizon completely free?</h3>
-            <p style="color: #4b5563; font-size: 14px; line-height: 1.6;">Yes, Pet Horizon is 100% free to download on Android with complete core features included: unlimited pet profiles, clinical vaccination passports, and multi-user family sync.</p>
-            <h3 style="font-size: 16px; font-weight: 700; color: #111827; margin-top: 16px;">How does Family Hub QR Code Sync work?</h3>
-            <p style="color: #4b5563; font-size: 14px; line-height: 1.6;">Simply open your pet profile, generate a secure Family Hub QR code, and have your partner, flatmate, or pet sitter scan it. Tasks and medication logs sync live across devices.</p>
-          </div>
-        </section>
-      </main>
-      <footer style="max-width: 1080px; margin: 60px auto 40px; padding: 20px 16px; border-top: 1px solid #e5e7eb; font-size: 13px; color: #6b7280;">
-        <p>&copy; 2026 Pet Horizon. All rights reserved. <a href="/blogs">Pet Care Guides</a> • <a href="/privacy-policy">Privacy Policy</a> • <a href="/terms-of-service">Terms</a> • <a href="/changelog">Changelog</a> • <a href="/rss.xml">RSS Feed</a></p>
-      </footer>
-    `;
-    let html = baseTemplate.replace('<div id="root"></div>', `<div id="root">${homeSemantic}</div>`);
-    writePrerenderedFile('/', html);
-  }
+  // 0. Homepage: dist/index.html is already built cleanly by Vite with full meta tags and empty #root.
+  // We do NOT inject unstyled semantic HTML into #root to prevent raw text flashing on refresh.
+
 
   // 1. Prerender /blogs (Blog Hub)
   {
