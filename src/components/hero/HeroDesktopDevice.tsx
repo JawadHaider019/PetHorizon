@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Clock, Pill, Users } from 'lucide-react';
 import PhoneFrame from '../PhoneFrame';
 import HeroLiveNotifications from './HeroLiveNotifications';
 
@@ -38,6 +37,7 @@ export default function HeroDesktopDevice() {
           fetchPriority="high"
           className="w-full h-auto object-contain"
         />
+      </motion.div>
     </div>
   );
 }
