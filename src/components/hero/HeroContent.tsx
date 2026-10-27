@@ -54,18 +54,21 @@ export default function HeroContent({ onOpenQrModal, onOpenIosModal }: HeroConte
       </p>
 
       {/* Core Pillars Bullet Points */}
-      <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-0.5">
+      <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-2 pt-0.5 w-full max-w-xl">
         {[
           { icon: Calendar, text: 'Routine & medicine reminders' },
           { icon: Users, text: 'Family Hub & QR caretaker invites' },
           { icon: Camera, text: 'Daily photo journal & walk tracking' },
           { icon: ShieldCheck, text: 'Dogs, Cats, Birds, Rabbits & more' },
         ].map((item, idx) => (
-          <div key={idx} className="flex items-center gap-2.5 text-slate-700 font-semibold text-xs sm:text-sm">
-            <div className="w-5 h-5 rounded-full bg-emerald-950/[0.05] border border-emerald-900/10 text-emerald-800 flex items-center justify-center shrink-0">
-              <CheckCircle2 className="w-3.5 h-3.5" />
+          <div
+            key={idx}
+            className="flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-emerald-950/[0.06] rounded-xl px-3 py-1.5 shadow-2xs text-slate-700 font-semibold text-xs sm:text-[13px] hover:border-emerald-700/20 transition-colors"
+          >
+            <div className="w-4.5 h-4.5 rounded-full bg-emerald-600/10 text-emerald-700 flex items-center justify-center shrink-0">
+              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700" />
             </div>
-            <span>{item.text}</span>
+            <span className="truncate">{item.text}</span>
           </div>
         ))}
       </div>

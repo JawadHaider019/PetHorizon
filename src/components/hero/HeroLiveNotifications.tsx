@@ -43,18 +43,18 @@ export default function HeroLiveNotifications() {
   const IconComponent = item.icon;
 
   return (
-    <div className="absolute top-6 left-1/2 -translate-x-1/2 w-[90%] z-40 pointer-events-none">
+    <div className="absolute top-16 -left-16 xl:-left-20 w-64 z-30 pointer-events-none">
       <AnimatePresence mode="wait">
         <motion.div
           key={activeNotifIndex}
-          initial={{ opacity: 0, y: -10, scale: 0.96 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: -8, scale: 0.96 }}
+          initial={{ opacity: 0, x: -12, scale: 0.95 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          exit={{ opacity: 0, x: 10, scale: 0.95 }}
           transition={{ duration: 0.35, ease: 'easeOut' }}
-          className="bg-white/95 backdrop-blur-xl rounded-2xl p-2.5 shadow-[0_12px_30px_-5px_rgba(0,0,0,0.15)] border border-black/[0.08] flex items-center gap-2.5 text-left"
+          className="bg-white/95 backdrop-blur-xl rounded-2xl p-2.5 shadow-[0_16px_32px_-6px_rgba(0,0,0,0.14)] border border-black/[0.08] flex items-center gap-2.5 text-left"
         >
-          <div className={`w-7 h-7 rounded-xl ${item.bg} ${item.color} flex items-center justify-center shrink-0 shadow-2xs`}>
-            <IconComponent className="w-3.5 h-3.5" />
+          <div className={`w-8 h-8 rounded-xl ${item.bg} ${item.color} flex items-center justify-center shrink-0 shadow-2xs`}>
+            <IconComponent className="w-4 h-4" />
           </div>
           <div className="min-w-0 flex-1">
             <div className="flex items-center justify-between gap-1">
