@@ -72,7 +72,7 @@ export default function DownloadCTA({ onOpenQrModal, onOpenIosModal }: DownloadC
                 <motion.div
                   animate={{ y: [0, -8, 0] }}
                   transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
-                  className="w-64 sm:w-72 rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white/40 bg-white relative group"
+                  className="w-64 sm:w-72 rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white/20 bg-white relative group"
                 >
                   <img
                     src="/cute-3d-pets.webp"
@@ -84,26 +84,14 @@ export default function DownloadCTA({ onOpenQrModal, onOpenIosModal }: DownloadC
                     className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
                     style={{ mixBlendMode: 'multiply' }}
                   />
-                  <div className="p-3.5 bg-gradient-to-r from-emerald-950 via-[#144917] to-emerald-900 text-white text-center">
+                  <div className="p-4 bg-gradient-to-r from-emerald-950 via-[#144917] to-emerald-900 text-white text-center">
                     <p className="text-xs font-bold text-emerald-200">
                       Co-manage all your pets in harmony
                     </p>
-                    <p className="text-[10px] text-emerald-300/80 font-medium mt-0.5">
-                      Dogs &bull; Cats &bull; Birds &bull; Small Pets
-                    </p>
-                  </div>
-                </motion.div>
-
-                {/* Floating app rating pill */}
-                <motion.div
-                  animate={{ y: [0, 6, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
-                  className="absolute -bottom-4 -left-6 sm:-left-8 bg-white/95 backdrop-blur-md p-2.5 rounded-2xl shadow-xl border border-emerald-100 flex items-center gap-2.5 z-20"
-                >
-                  <img src="/app-icon.png" alt="Pet Horizon Logo" className="w-10 h-10 rounded-xl object-contain shadow-xs" />
-                  <div className="text-left pr-2">
-                    <p className="text-[10px] font-black uppercase text-emerald-700 tracking-wider">Pet Horizon</p>
-                    <p className="text-xs font-bold text-slate-900">Rated 5.0 on Google Play</p>
+                    <div className="flex items-center justify-center gap-1.5 mt-1.5 text-[11px] font-semibold text-emerald-100">
+                      <span className="text-amber-400">★★★★★</span>
+                      <span>Rated 5.0 on Google Play</span>
+                    </div>
                   </div>
                 </motion.div>
               </div>

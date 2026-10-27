@@ -128,9 +128,11 @@ export default function TestimonialsSection() {
           }}
         >
           {slidingReviews.map((item, idx) => (
-            <div
+            <motion.div
               key={`${item.id}-${idx}`}
-              className="w-[290px] sm:w-[320px] h-[260px] sm:h-[270px] bg-white rounded-2xl p-4 sm:p-5 border border-black/[0.06] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col shrink-0 select-text"
+              whileHover={{ y: -6, boxShadow: '0 20px 32px -10px rgba(0, 0, 0, 0.12)' }}
+              transition={{ duration: 0.22, ease: 'easeOut' }}
+              className="w-[290px] sm:w-[320px] h-[260px] sm:h-[270px] bg-white rounded-2xl p-4 sm:p-5 border border-black/[0.06] shadow-sm transition-colors duration-200 flex flex-col shrink-0 select-text cursor-default"
             >
               {/* Top Row: Stars + Tag */}
               <div className="flex items-center justify-between gap-2 mb-2.5">
@@ -185,7 +187,7 @@ export default function TestimonialsSection() {
                   </span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </motion.div>
       </div>

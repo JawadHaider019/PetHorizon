@@ -11,6 +11,12 @@ export default function HeroDesktopDevice() {
         transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
         className="relative"
       >
+        {/* Soft Product Stage Backlight Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[460px] bg-gradient-to-tr from-emerald-500/15 via-teal-400/10 to-amber-300/10 rounded-[60px] blur-3xl pointer-events-none -z-10" />
+        
+        {/* Ambient base shadow under device */}
+        <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-48 h-6 bg-emerald-950/10 blur-xl rounded-full pointer-events-none -z-10" />
+
         <PhoneFrame
           src="/screenshots/home-screen.webp"
           alt="Pet Horizon Home Dashboard Screen"

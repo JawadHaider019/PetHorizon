@@ -121,13 +121,13 @@ export default function ContactForm({
                   key={topic.id}
                   type="button"
                   onClick={() => setSelectedTopicId(topic.id)}
-                  className={`flex items-center gap-2 p-2.5 rounded-xl border text-xs font-bold transition-all text-left cursor-pointer ${
+                  className={`flex items-center gap-2 px-3 py-2 rounded-full border text-xs font-bold transition-all text-left cursor-pointer ${
                     isSelected
-                      ? 'bg-emerald-700 text-white border-emerald-700 shadow-sm'
-                      : 'bg-slate-50 hover:bg-slate-100 border-slate-200 text-slate-700'
+                      ? 'bg-slate-900 text-white border-slate-900 shadow-xs'
+                      : 'bg-white hover:bg-slate-50 border-black/[0.08] text-slate-700 shadow-2xs'
                   }`}
                 >
-                  <Icon className={`w-3.5 h-3.5 shrink-0 ${isSelected ? 'text-emerald-100' : 'text-slate-500'}`} />
+                  <Icon className={`w-3.5 h-3.5 shrink-0 ${isSelected ? 'text-emerald-400' : 'text-slate-500'}`} />
                   <span className="truncate">{topic.label}</span>
                 </button>
               );

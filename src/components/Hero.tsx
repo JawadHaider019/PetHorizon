@@ -16,9 +16,13 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
       id="home"
       className="relative min-h-screen lg:min-h-[calc(100vh-1rem)] flex items-center justify-center overflow-hidden pt-24 pb-6 sm:pt-28 sm:pb-8 lg:pt-26 lg:pb-6 bg-gradient-to-b from-[#FAF8F5] via-[#FAF8F5] to-[#F5F2EB]"
     >
+      {/* Subtle Luxury Dot Grid Pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(#17191C_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.03] pointer-events-none -z-10" />
+
       {/* Background ambient light blobs */}
-      <div className="absolute top-10 left-1/4 w-[500px] h-[500px] bg-emerald-700/[0.04] rounded-full blur-[140px] pointer-events-none -z-10" />
-      <div className="absolute bottom-8 right-1/4 w-[450px] h-[450px] bg-[#EADECE]/30 rounded-full blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute top-10 left-1/4 w-[520px] h-[520px] bg-emerald-700/[0.05] rounded-full blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute top-1/3 right-1/4 w-[480px] h-[480px] bg-amber-400/[0.04] rounded-full blur-[150px] pointer-events-none -z-10" />
+      <div className="absolute bottom-8 right-1/3 w-[450px] h-[450px] bg-[#EADECE]/35 rounded-full blur-[140px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 xl:gap-12 items-center">
