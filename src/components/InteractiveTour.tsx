@@ -80,11 +80,19 @@ export default function InteractiveTour() {
         {/* Desktop / Tablet Tab Navigation Buttons (>=sm) */}
         <TourTabBar
           selectedScreen={selectedScreen}
-          onSelectScreen={(id) => setSelectedScreen(id)}
+          onSelectScreen={(_id, idx) => scrollToIndex(idx)}
         />
 
-        {/* Active Tour Screen Phone Mockup & Highlights */}
-        <TourPhonePreview current={current} />
+        {/* Active Tour Screen 3D Fanned Phone Mockup & Highlights */}
+        <TourPhonePreview
+          current={current}
+          currentIndex={currentIndex}
+          onSelectIndex={scrollToIndex}
+          onNext={() => scrollToIndex((currentIndex + 1) % TOUR_SCREENS.length)}
+          onPrev={() =>
+            scrollToIndex((currentIndex - 1 + TOUR_SCREENS.length) % TOUR_SCREENS.length)
+          }
+        />
       </div>
     </section>
   );
