@@ -57,9 +57,6 @@ export default function PhoneFrame({
 
         {/* Subtle Screen Glass Sheen Overlay */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-transparent to-white/[0.08] z-20" />
-
-        {/* Home Indicator Bar */}
-        <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-24 sm:w-28 h-1 bg-black/35 rounded-full z-30 pointer-events-none" />
       </div>
     </div>
   );
