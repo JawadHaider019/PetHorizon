@@ -76,8 +76,9 @@ export default function SpeciesGrid() {
                   {spec.popularBreeds}
                 </p>
               </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

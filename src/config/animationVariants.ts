@@ -2,7 +2,7 @@
 
 export const scrollTransition = {
   duration: 0.6,
-  ease: [0.22, 1, 0.36, 1] as const
+  ease: [0.22, 1, 0.36, 1] as [number, number, number, number]
 };
 
 export const defaultViewport = {
@@ -54,7 +54,7 @@ export const staggerCard = (
     transition: {
       duration: 0.6,
       delay: Math.min(index * delayStep, 0.35),
-      ease: [0.22, 1, 0.36, 1]
+      ease: [0.22, 1, 0.36, 1] as [number, number, number, number]
     }
   };
 };
