@@ -12,36 +12,36 @@ export default function FooterBottomBar({
   onChangelogClick
 }: FooterBottomBarProps) {
   return (
-    <div className="pt-6 sm:pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-      <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-4 gap-y-2 font-medium">
+    <div className="pt-4 sm:pt-5 border-t border-emerald-950/[0.08] flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+      <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-4 gap-y-1.5 font-medium">
         <button
           onClick={onBlogClick}
           className="hover:text-[#166534] transition-colors cursor-pointer whitespace-nowrap"
         >
           Veterinary Guides
         </button>
-        <span className="text-slate-300">&bull;</span>
+        <span className="text-emerald-950/20">&bull;</span>
         <button
           onClick={onChangelogClick}
           className="hover:text-[#166534] transition-colors cursor-pointer whitespace-nowrap"
         >
           Changelog
         </button>
-        <span className="text-slate-300">&bull;</span>
+        <span className="text-emerald-950/20">&bull;</span>
         <button
           onClick={(e) => onLegalClick(e, 'privacy')}
           className="hover:text-[#166534] transition-colors cursor-pointer whitespace-nowrap"
         >
           Privacy Protocol
         </button>
-        <span className="text-slate-300">&bull;</span>
+        <span className="text-emerald-950/20">&bull;</span>
         <button
           onClick={(e) => onLegalClick(e, 'deletion')}
           className="hover:text-rose-600 transition-colors cursor-pointer whitespace-nowrap"
         >
           Data Deletion
         </button>
-        <span className="text-slate-300">&bull;</span>
+        <span className="text-emerald-950/20">&bull;</span>
         <a href="#contact" className="hover:text-[#166534] transition-colors whitespace-nowrap">
           Engineering Support
         </a>

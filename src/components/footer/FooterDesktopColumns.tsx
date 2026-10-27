@@ -13,13 +13,13 @@ export default function FooterDesktopColumns({
   onChangelogClick
 }: FooterDesktopColumnsProps) {
   return (
-    <div className="hidden md:grid grid-cols-3 gap-8 py-10 sm:py-12 border-b border-slate-200/80 text-left">
+    <div className="grid grid-cols-3 gap-6 sm:gap-8 text-left">
       {/* Col 1: Product Features */}
       <div>
-        <h4 className="text-xs font-extrabold uppercase tracking-wider text-slate-900 mb-4">
+        <h4 className="text-xs font-extrabold uppercase tracking-wider text-slate-900 mb-3">
           Product Features
         </h4>
-        <ul className="space-y-2.5 text-sm">
+        <ul className="space-y-2 text-xs sm:text-sm">
           <li>
             <a href="#how-it-works" className="text-slate-600 hover:text-[#166534] transition-colors font-medium block">
               How Pet Horizon Works
@@ -55,10 +55,10 @@ export default function FooterDesktopColumns({
 
       {/* Col 2: Knowledge & Support */}
       <div>
-        <h4 className="text-xs font-extrabold uppercase tracking-wider text-slate-900 mb-4">
+        <h4 className="text-xs font-extrabold uppercase tracking-wider text-slate-900 mb-3">
           Knowledge &amp; Support
         </h4>
-        <ul className="space-y-2.5 text-sm">
+        <ul className="space-y-2 text-xs sm:text-sm">
           <li>
             <button
               onClick={onBlogClick}
@@ -104,11 +104,11 @@ export default function FooterDesktopColumns({
 
       {/* Col 3: Legal & Trust */}
       <div>
-        <h4 className="text-xs font-extrabold uppercase tracking-wider text-slate-900 mb-4 flex items-center gap-1.5">
+        <h4 className="text-xs font-extrabold uppercase tracking-wider text-slate-900 mb-3 flex items-center gap-1.5">
           <ShieldCheck className="w-3.5 h-3.5 text-[#166534]" />
           <span>Trust &amp; Governance</span>
         </h4>
-        <ul className="space-y-2.5 text-sm">
+        <ul className="space-y-2 text-xs sm:text-sm">
           <li>
             <button
               onClick={(e) => onLegalClick(e, 'privacy')}

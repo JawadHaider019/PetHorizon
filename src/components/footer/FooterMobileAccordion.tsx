@@ -20,12 +20,12 @@ export default function FooterMobileAccordion({
   };
 
   return (
-    <div className="md:hidden divide-y divide-slate-200/80 border-b border-slate-200/80 text-left">
+    <div className="lg:hidden divide-y divide-emerald-950/[0.08] border-t border-b border-emerald-950/[0.08] text-left mt-6 mb-4">
       {/* Product Features */}
       <div>
         <button
           onClick={() => toggleAccordion('product')}
-          className="w-full py-4 flex items-center justify-between text-xs font-extrabold uppercase tracking-wider text-slate-900 cursor-pointer"
+          className="w-full py-3 flex items-center justify-between text-xs font-extrabold uppercase tracking-wider text-slate-900 cursor-pointer"
         >
           <span>Product Features</span>
           <ChevronDown
@@ -35,7 +35,7 @@ export default function FooterMobileAccordion({
           />
         </button>
         {openAccordion === 'product' && (
-          <ul className="pb-4 space-y-2.5 text-xs text-slate-600 pl-1">
+          <ul className="pb-3 space-y-2 text-xs text-slate-600 pl-1">
             <li><a href="#how-it-works" className="hover:text-[#166534] transition-colors font-medium block">How Pet Horizon Works</a></li>
             <li><a href="#features" className="hover:text-[#166534] transition-colors font-medium block">Care Schedules &amp; Reminders</a></li>
             <li><a href="#family-hub" className="hover:text-[#166534] transition-colors font-medium block">Shared Family Care Hub</a></li>
@@ -50,7 +50,7 @@ export default function FooterMobileAccordion({
       <div>
         <button
           onClick={() => toggleAccordion('knowledge')}
-          className="w-full py-4 flex items-center justify-between text-xs font-extrabold uppercase tracking-wider text-slate-900 cursor-pointer"
+          className="w-full py-3 flex items-center justify-between text-xs font-extrabold uppercase tracking-wider text-slate-900 cursor-pointer"
         >
           <span>Knowledge &amp; Support</span>
           <ChevronDown
@@ -60,7 +60,7 @@ export default function FooterMobileAccordion({
           />
         </button>
         {openAccordion === 'knowledge' && (
-          <ul className="pb-4 space-y-2.5 text-xs text-slate-600 pl-1">
+          <ul className="pb-3 space-y-2 text-xs text-slate-600 pl-1">
             <li>
               <button
                 onClick={onBlogClick}
@@ -98,7 +98,7 @@ export default function FooterMobileAccordion({
       <div>
         <button
           onClick={() => toggleAccordion('legal')}
-          className="w-full py-4 flex items-center justify-between text-xs font-extrabold uppercase tracking-wider text-slate-900 cursor-pointer"
+          className="w-full py-3 flex items-center justify-between text-xs font-extrabold uppercase tracking-wider text-slate-900 cursor-pointer"
         >
           <span>Trust &amp; Privacy Protocol</span>
           <ChevronDown
@@ -108,7 +108,7 @@ export default function FooterMobileAccordion({
           />
         </button>
         {openAccordion === 'legal' && (
-          <ul className="pb-4 space-y-2.5 text-xs text-slate-600 pl-1">
+          <ul className="pb-3 space-y-2 text-xs text-slate-600 pl-1">
             <li>
               <button
                 onClick={(e) => onLegalClick(e, 'privacy')}
