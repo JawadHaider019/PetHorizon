@@ -14,11 +14,11 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-8 sm:pt-36 sm:pb-12 lg:pt-32 lg:pb-10 bg-gradient-to-b from-emerald-50/50 via-white to-slate-50/40"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-8 sm:pt-36 sm:pb-12 lg:pt-32 lg:pb-10 bg-gradient-to-b from-[#FAF8F5] via-[#FAF8F5] to-[#F5F2EB]"
     >
       {/* Background ambient light blobs */}
-      <div className="absolute top-10 left-1/4 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[130px] pointer-events-none -z-10" />
-      <div className="absolute bottom-8 right-1/4 w-[450px] h-[450px] bg-emerald-600/10 rounded-full blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute top-10 left-1/4 w-[500px] h-[500px] bg-emerald-700/[0.04] rounded-full blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute bottom-8 right-1/4 w-[450px] h-[450px] bg-[#EADECE]/30 rounded-full blur-[140px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 xl:gap-12 items-center">
