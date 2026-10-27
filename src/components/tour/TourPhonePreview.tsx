@@ -103,7 +103,7 @@ export default function TourPhonePreview({
 
       {/* 3D Multi-Device Fan Showcase Stage */}
       <motion.div
-        className="relative h-[480px] sm:h-[560px] lg:h-[620px] flex items-center justify-center w-full overflow-hidden select-none"
+        className="relative pt-10 sm:pt-12 h-[520px] sm:h-[600px] lg:h-[660px] flex items-center justify-center w-full overflow-hidden select-none"
         onPanEnd={(_e, info: PanInfo) => {
           if (info.offset.x < -45) onNext();
           if (info.offset.x > 45) onPrev();
@@ -113,6 +113,7 @@ export default function TourPhonePreview({
           const diff = getOffset(idx);
           const isCurrent = diff === 0;
           const isOuterMobileHidden = Math.abs(diff) === 2;
+          const ScreenIcon = screen.icon;
 
           return (
             <motion.div
@@ -137,6 +138,27 @@ export default function TourPhonePreview({
               title={!isCurrent ? `Click to view ${screen.name}` : undefined}
             >
               <div className="relative group">
+                {/* Accurate Active Screen Name Badge above Center Phone only */}
+                {isCurrent && (
+                  <motion.div
+                    key={`badge-${screen.id}`}
+                    initial={{ opacity: 0, y: 8, scale: 0.92 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -8, scale: 0.92 }}
+                    transition={{ duration: 0.25 }}
+                    className="absolute -top-11 sm:-top-13 left-1/2 -translate-x-1/2 z-40 whitespace-nowrap pointer-events-none"
+                  >
+                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-md text-slate-900 text-xs sm:text-sm font-black tracking-tight">
+                      <ScreenIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-700 shrink-0" />
+                      <span>{screen.name}</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse ml-0.5" />
+                      <span className="text-[10px] sm:text-[11px] font-bold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-full border border-emerald-200">
+                        {idx + 1}/{TOUR_SCREENS.length}
+                      </span>
+                    </div>
+                  </motion.div>
+                )}
+
                 <PhoneFrame
                   src={screen.screenshot}
                   alt={`Pet Horizon ${screen.name} Screen`}
