@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, Sparkles } from 'lucide-react';
+import { ArrowLeft, BookOpen } from 'lucide-react';
 import { BLOG_POSTS, BlogPost } from '../data/blogData';
 import BlogCard from './BlogCard';
 import BlogFilterBar from './BlogFilterBar';
@@ -110,7 +110,7 @@ export default function BlogHub({ onNavigateHome, onSelectArticle }: BlogHubProp
 
           <div className="flex items-center gap-2 flex-wrap">
             <span className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-800 bg-emerald-100/80 px-3 py-1 rounded-full border border-emerald-200 shadow-2xs w-fit whitespace-nowrap shrink-0">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+              <BookOpen className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
               Expert Pet Insights
             </span>
             <span className="text-xs text-slate-500 font-mono font-medium whitespace-nowrap shrink-0 bg-slate-100 px-2.5 py-1 rounded-full">

@@ -164,7 +164,7 @@ export const BLOG_POSTS: BlogPost[] = [
     tags: ['Pet Routine', 'Family Pet Care', 'Feeding Schedule', 'Medicine Tracker', 'Pet Horizon'],
     seoKeyword: 'shared pet care checklist',
     searchVolume: '3.5K/mo',
-    searchRankBadge: '⭐ Family Routine',
+    searchRankBadge: 'Family Routine',
     keyTakeaways: [
       'Overfeeding caused by miscommunication between household members is a leading contributor to canine obesity.',
       'Delayed or missed medications can cause therapeutic failure for pets managing diabetes, thyroid disorders, or epilepsy.',

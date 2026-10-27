@@ -1,4 +1,3 @@
-import React from 'react';
 import { 
   Users, 
   Pill, 
@@ -6,7 +5,7 @@ import {
   ShieldCheck, 
   Camera, 
   MapPin, 
-  Sparkles,
+  Award,
   HeartHandshake,
   Syringe,
   DollarSign
@@ -22,7 +21,7 @@ const MARQUEE_ITEMS = [
   { text: 'Shared Photo Memories', icon: Camera },
   { text: 'Walk GPS Tracker', icon: MapPin },
   { text: 'Dogs, Cats, Birds & Rabbits', icon: HeartHandshake },
-  { text: '1,200+ Active Pet Families', icon: Sparkles },
+  { text: '1,200+ Active Pet Families', icon: Award },
 ];
 
 export default function HeroMarquee() {

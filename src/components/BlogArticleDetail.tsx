@@ -5,7 +5,9 @@ import {
   Check,
   Share2,
   ShieldCheck,
-  Link2
+  Link2,
+  ArrowLeft,
+  BookOpen
 } from 'lucide-react';
 import { BlogPost, BLOG_POSTS } from '../data/blogData';
 import { getFullBlogArticle } from '../data/blogArticles';
@@ -78,46 +80,60 @@ export default function BlogArticleDetail({
   };
 
   return (
-    <main className="flex-1 pb-16 bg-[#f7f9f8] text-gray-800 antialiased selection:bg-[#126c55]/20 selection:text-[#126c55]">
-      {/* 1. Header (Matching Everystore) */}
-      <header className="bg-white border-b border-gray-100 py-10 md:py-14">
+    <main className="flex-1 pb-16 bg-[#FDFDFC] text-slate-800 antialiased selection:bg-emerald-500/20 selection:text-emerald-800">
+      {/* 1. Header (Matching Privacy Policy & Legal Layout) */}
+      <header className="bg-white border-b border-slate-100 pt-28 sm:pt-36 pb-10 md:pb-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb Navigation */}
-          <nav className="flex flex-wrap items-center gap-2 text-xs text-gray-500 mb-6">
-            <button
-              type="button"
-              onClick={onNavigateBack}
-              className="hover:text-[#126c55] transition cursor-pointer"
-            >
-              Home
-            </button>
-            <span>/</span>
-            <button
-              type="button"
-              onClick={onNavigateBack}
-              className="hover:text-[#126c55] transition cursor-pointer"
-            >
-              Blogs
-            </button>
-            <span>/</span>
-            <span className="text-gray-700 font-medium">{article.category}</span>
-          </nav>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 sm:pb-6 border-b border-slate-100 mb-8">
+            <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 flex-wrap">
+              <button
+                type="button"
+                onClick={onNavigateBack}
+                className="hover:text-emerald-700 flex items-center gap-1 cursor-pointer transition-colors whitespace-nowrap"
+              >
+                <ArrowLeft className="w-3.5 h-3.5" />
+                Home
+              </button>
+              <span className="text-slate-300">/</span>
+              <button
+                type="button"
+                onClick={onNavigateBack}
+                className="hover:text-emerald-700 flex items-center gap-1 cursor-pointer transition-colors whitespace-nowrap"
+              >
+                Blogs
+              </button>
+              <span className="text-slate-300">/</span>
+              <span className="text-emerald-800 font-bold bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100 whitespace-nowrap shrink-0">
+                {article.category}
+              </span>
+            </div>
 
-          {/* Category Badge */}
-          <div className="flex flex-wrap items-center gap-2 mb-4">
-            <span className="inline-flex items-center gap-1 rounded-md bg-[#007aff]/10 px-2.5 py-1 text-xs font-semibold text-[#007aff]">
-              <span className="text-[10px] font-bold">●</span>
-              {article.category}
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-800 bg-emerald-100/80 px-3 py-1 rounded-full border border-emerald-200 shadow-2xs w-fit whitespace-nowrap shrink-0">
+                <BookOpen className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                Expert Verified
+              </span>
+              <span className="text-xs text-slate-500 font-mono font-medium whitespace-nowrap shrink-0 bg-slate-100 px-2.5 py-1 rounded-full">
+                {article.publishedAt}
+              </span>
+            </div>
+          </div>
+
+          {/* Eyebrow Category */}
+          <div className="mb-3">
+            <span className="text-xs font-black uppercase tracking-widest text-emerald-700">
+              {article.category} • {article.readTime}
             </span>
           </div>
 
           {/* Title */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight max-w-5xl">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight max-w-5xl">
             {article.title}
           </h1>
 
           {/* Excerpt */}
-          <p className="mt-4 text-base sm:text-lg text-gray-600 leading-relaxed max-w-4xl">
+          <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed max-w-4xl font-normal">
             {article.excerpt}
           </p>
 
