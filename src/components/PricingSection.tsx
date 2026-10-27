@@ -4,26 +4,29 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { PRICING_PLANS } from '../data/pricingData';
 import { PLAY_STORE_URL } from '../config/siteConfig';
 
+import { defaultViewport, scrollTransition } from '../config/animationVariants';
+
 export default function PricingSection() {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('yearly');
   const playStoreUrl = PLAY_STORE_URL;
 
   return (
-    <section id="pricing" className="py-12 sm:py-24 bg-[#F5F6F8] relative overflow-hidden">
-      <div className="absolute top-1/4 right-1/4 w-[450px] h-[450px] bg-emerald-500/5 rounded-full blur-[130px] pointer-events-none" />
+    <section id="pricing" className="py-12 sm:py-24 bg-[#FAF8F5] relative overflow-hidden border-t border-black/[0.05]">
+      <div className="absolute top-1/4 right-1/4 w-[450px] h-[450px] bg-emerald-700/[0.03] rounded-full blur-[130px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          viewport={defaultViewport}
+          transition={scrollTransition}
           className="text-center max-w-3xl mx-auto mb-8 sm:mb-14"
         >
-          <p className="text-xs font-black uppercase tracking-widest text-emerald-700 mb-2 sm:mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-950 bg-emerald-950/[0.04] border border-emerald-900/10 mb-2 sm:mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0" />
             Pricing &amp; Plans
-          </p>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+          </div>
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#17191C] tracking-tight leading-tight">
             Free to Start, Premium When You Need It
           </h2>
           <p className="text-slate-600 text-xs sm:text-base lg:text-lg mt-2 sm:mt-3 font-normal max-w-2xl mx-auto">
@@ -31,12 +34,12 @@ export default function PricingSection() {
           </p>
 
           {/* Interactive Billing Cycle Toggle */}
-          <div className="flex items-center justify-center gap-1.5 sm:gap-3.5 mt-8 max-w-full px-2">
+          <div className="flex items-center justify-center gap-2 sm:gap-3 mt-8 max-w-full px-2">
             <button
               type="button"
               onClick={() => setBillingCycle('monthly')}
-              className={`text-xs sm:text-sm font-bold px-2 sm:px-3 py-1 rounded-xl cursor-pointer transition-colors whitespace-nowrap shrink-0 ${
-                billingCycle === 'monthly' ? 'text-slate-900 bg-white shadow-2xs' : 'text-slate-500 hover:text-slate-700'
+              className={`text-xs sm:text-sm font-bold px-3 py-1.5 rounded-full cursor-pointer transition-colors whitespace-nowrap shrink-0 ${
+                billingCycle === 'monthly' ? 'text-slate-900 bg-white shadow-2xs border border-black/[0.06]' : 'text-slate-500 hover:text-slate-700'
               }`}
             >
               Monthly Billing
@@ -44,11 +47,11 @@ export default function PricingSection() {
             <button
               type="button"
               onClick={() => setBillingCycle(billingCycle === 'monthly' ? 'yearly' : 'monthly')}
-              className="w-11 sm:w-14 h-6 sm:h-8 rounded-full bg-slate-200 p-0.5 sm:p-1 flex items-center transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-500/40 shrink-0"
+              className="w-11 sm:w-14 h-6 sm:h-8 rounded-full bg-slate-200 p-0.5 sm:p-1 flex items-center transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-700/40 shrink-0"
               aria-label="Toggle billing frequency"
             >
               <div
-                className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-emerald-600 shadow-md transform transition-transform duration-200 ${
+                className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-slate-900 shadow-md transform transition-transform duration-200 ${
                   billingCycle === 'yearly' ? 'translate-x-5 sm:translate-x-6' : 'translate-x-0'
                 }`}
               />
@@ -56,8 +59,8 @@ export default function PricingSection() {
             <button
               type="button"
               onClick={() => setBillingCycle('yearly')}
-              className={`flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 rounded-xl cursor-pointer text-left focus:outline-none whitespace-nowrap shrink-0 ${
-                billingCycle === 'yearly' ? 'bg-white shadow-2xs' : ''
+              className={`flex items-center gap-1 sm:gap-1.5 px-3 py-1.5 rounded-full cursor-pointer text-left focus:outline-none whitespace-nowrap shrink-0 ${
+                billingCycle === 'yearly' ? 'bg-white shadow-2xs border border-black/[0.06]' : ''
               }`}
             >
               <span className={`text-xs sm:text-sm font-bold transition-colors whitespace-nowrap ${
@@ -65,7 +68,7 @@ export default function PricingSection() {
               }`}>
                 Annual Billing
               </span>
-              <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300 px-1.5 sm:px-2 py-0.5 rounded-full whitespace-nowrap shrink-0">
+              <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider bg-emerald-950/10 text-emerald-950 border border-emerald-900/20 px-2 py-0.5 rounded-full whitespace-nowrap shrink-0">
                 Save 17%
               </span>
             </button>
@@ -90,24 +93,24 @@ export default function PricingSection() {
                 key={plan.id}
                 initial={{ opacity: 0, x: xOffset, y: yOffset }}
                 whileInView={{ opacity: 1, x: 0, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.65, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                viewport={defaultViewport}
+                transition={{ ...scrollTransition, delay: idx * 0.08 }}
                 whileHover={{ y: isFeatured ? -12 : -8 }}
                 className={`rounded-3xl p-7 sm:p-8 flex flex-col justify-between text-left relative transition-all duration-300 ${
                   isFeatured
-                    ? 'bg-gradient-to-b from-white to-emerald-50/60 border-2 border-emerald-500 shadow-xl shadow-emerald-500/15'
-                    : 'bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-slate-300'
+                    ? 'bg-gradient-to-b from-white to-[#F5F2EB]/50 border-2 border-slate-900 shadow-xl'
+                    : 'bg-white border border-black/[0.06] shadow-sm hover:shadow-xl hover:border-black/[0.12]'
                 }`}
               >
                 {isFeatured && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-emerald-600 text-white text-[10px] font-black uppercase tracking-wider px-3.5 py-1 rounded-full shadow-sm whitespace-nowrap shrink-0">
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] font-black uppercase tracking-wider px-4 py-1 rounded-full shadow-sm whitespace-nowrap shrink-0">
                     {billingCycle === 'yearly' && plan.id === 'yearly' ? 'Best Value' : 'Recommended'}
                   </div>
                 )}
 
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className={`text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full transition-all whitespace-nowrap shrink-0 ${currentBadgeStyle}`}>
+                    <span className={`text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full transition-all whitespace-nowrap shrink-0 ${currentBadgeStyle}`}>
                       {currentBadge}
                     </span>
                   </div>
@@ -123,7 +126,7 @@ export default function PricingSection() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 8 }}
                           transition={{ duration: 0.2 }}
-                          className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight"
+                          className="text-4xl sm:text-5xl font-black text-[#17191C] tracking-tight"
                         >
                           {currentPrice}
                         </motion.span>
@@ -131,13 +134,13 @@ export default function PricingSection() {
                       <span className="text-slate-500 text-xs sm:text-sm font-semibold">{currentPeriod}</span>
                     </div>
                     {currentSubnote && (
-                      <p className="text-[11px] text-emerald-700 font-semibold mt-1">
+                      <p className="text-[11px] text-emerald-800 font-semibold mt-1">
                         {currentSubnote}
                       </p>
                     )}
                   </div>
 
-                  <div className={`space-y-3.5 border-t pt-6 ${isFeatured ? 'border-emerald-100' : 'border-slate-100'}`}>
+                  <div className={`space-y-3.5 border-t pt-6 ${isFeatured ? 'border-black/[0.08]' : 'border-black/[0.05]'}`}>
                     {plan.features.map((feat, i) => {
                       const isHeaderHighlight = feat.toLowerCase().startsWith('everything in pro');
                       return (
@@ -145,8 +148,8 @@ export default function PricingSection() {
                           <div
                             className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
                               isFeatured
-                                ? 'bg-emerald-600 text-white'
-                                : 'bg-emerald-100 text-emerald-700'
+                                ? 'bg-slate-900 text-white'
+                                : 'bg-emerald-950/[0.05] text-emerald-800'
                             }`}
                           >
                             <Check className="w-3.5 h-3.5 stroke-[2.5]" />
@@ -173,12 +176,12 @@ export default function PricingSection() {
                     href={playStoreUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-full text-center block py-3.5 rounded-2xl font-bold text-sm transition-all duration-200 ${
+                    className={`w-full text-center block py-3.5 rounded-full font-bold text-sm transition-all duration-200 ${
                       isFeatured
-                        ? 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-md shadow-emerald-600/30 hover:scale-[1.02]'
+                        ? 'bg-slate-900 hover:bg-black text-white shadow-md hover:scale-[1.02]'
                         : idx === 0
                         ? 'bg-slate-100 hover:bg-slate-200 text-slate-800'
-                        : 'bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200/90 hover:scale-[1.01]'
+                        : 'bg-white hover:bg-slate-50 text-slate-900 border border-black/[0.1] hover:scale-[1.01]'
                     }`}
                   >
                     {plan.buttonText}

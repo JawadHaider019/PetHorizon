@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -8,7 +8,7 @@
   --color-navy: #1A2B4E;
   --color-amber: #E67E22;
 
-  /* Pet Horizon Exact App Brand Colors (from PetHorizon_App theme) */
+  /* Pet Horizon Exact App Brand Colors */
   --color-emerald-50: #E8F5E9;
   --color-emerald-100: #C8E6C9;
   --color-emerald-200: #A5D6A7;
@@ -21,7 +21,7 @@
   --color-emerald-900: #0D300F;
   --color-emerald-950: #071C09;
 
-  /* Map teal to harmonious app greens so no off-brand cyan/teal hues appear */
+  /* Harmonious app brand colors */
   --color-teal-50: #E8F5E9;
   --color-teal-100: #C8E6C9;
   --color-teal-200: #A5D6A7;
@@ -41,26 +41,25 @@
   --color-navy: #1A2B4E;
   --color-amber: #E67E22;
   --color-success: #2E7D32;
-  /* Design tokens aligned to Pet Horizon App */
   --primary-gradient: linear-gradient(135deg, #1B5E20, #2E7D32);
   --secondary-accent: #E67E22;
   --card-bg: rgba(255,255,255,0.04);
   --card-radius: 16px;
   --card-shadow: 0 10px 15px rgba(0,0,0,0.2);
-  --section-bg-light: #F5F6F8;
-  --section-bg-gradient: #FFFFFF;
+  --section-bg-light: #FAF8F5;
+  --section-bg-gradient: #FAF8F5;
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 7rem;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
   overflow-x: hidden;
 }
 
 body {
-  background-color: #ffffff;
-  color: #212121;
+  background-color: #FAF8F5;
+  color: #17191C;
   -webkit-font-smoothing: antialiased;
 }
 

@@ -14,6 +14,8 @@ import ContactForm from './contact/ContactForm';
 import ContactTicketSuccess from './contact/ContactTicketSuccess';
 import ContactSidebar from './contact/ContactSidebar';
 
+import { fadeInUp } from '../config/animationVariants';
+
 export default function ContactUs() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -124,7 +126,7 @@ export default function ContactUs() {
   )}`;
 
   return (
-    <section id="contact" className="py-12 sm:py-24 bg-[#FAFAF9] relative overflow-hidden">
+    <section id="contact" className="py-12 sm:py-24 bg-[#FAF8F5] relative overflow-hidden border-t border-black/[0.05]">
       {/* Toast Notification */}
       <AnimatePresence>
         {toast && (
@@ -155,19 +157,20 @@ export default function ContactUs() {
       </AnimatePresence>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-16">
-          <p className="text-xs font-black uppercase tracking-widest text-emerald-700 mb-2.5">
+        <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-8 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-950 bg-emerald-950/[0.04] border border-emerald-900/10 mb-2.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0" />
             Helpdesk &amp; Support
-          </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#17191C] tracking-tight leading-tight">
             We’re Here to Help You and Your Pet
           </h2>
           <p className="text-slate-600 text-sm sm:text-base mt-3 max-w-2xl mx-auto leading-relaxed">
             Have questions about feeding sync, vaccination schedules, or app setup? Fill out a ticket or contact us directly.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="bg-white/95 backdrop-blur-xl rounded-3xl border border-slate-200/80 shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+        <motion.div {...fadeInUp} className="bg-white rounded-3xl border border-black/[0.06] shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12">
           <div className="lg:col-span-7 p-6 sm:p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-slate-200/80">
             {/* Inline Fallback Banner on Dispatch Failure */}
             {dispatchError && (
@@ -217,7 +220,7 @@ export default function ContactUs() {
           </div>
 
           <ContactSidebar />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

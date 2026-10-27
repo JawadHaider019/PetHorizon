@@ -69,8 +69,8 @@ export default function Navbar({
       <header
         className={`transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100 py-2.5'
-            : 'bg-white/70 backdrop-blur-xs py-3.5 sm:py-4 border-b border-slate-200/40'
+            ? 'bg-[#FAF8F5]/90 backdrop-blur-xl shadow-xs border-b border-black/[0.05] py-2.5'
+            : 'bg-[#FAF8F5]/70 backdrop-blur-md py-3.5 sm:py-4 border-b border-black/[0.03]'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -183,10 +183,10 @@ export default function Navbar({
                 href={playStoreUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-[13px] font-bold px-4 py-2.5 rounded-xl shadow-md shadow-emerald-700/20 hover:shadow-lg transition-all duration-150 group"
+                className="inline-flex items-center gap-2 bg-slate-900 hover:bg-black text-white text-xs sm:text-[13px] font-bold px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transition-all duration-150 group"
               >
                 <span>Download App</span>
-                <ArrowUpRight className="w-4 h-4 text-emerald-100 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
             </div>
 

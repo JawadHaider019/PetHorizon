@@ -5,31 +5,28 @@ import BentoFamilyCard from './bento/BentoFamilyCard';
 import BentoClinicalCard from './bento/BentoClinicalCard';
 import BentoBudgetCard from './bento/BentoBudgetCard';
 
+import { fadeInUp } from '../config/animationVariants';
+
 export default function BentoFeatures() {
   return (
-    <section id="how-it-works" className="py-12 sm:py-20 bg-[#FAFAF9] relative overflow-hidden border-t border-slate-200/80">
+    <section id="how-it-works" className="py-12 sm:py-20 bg-[#FAF8F5] relative overflow-hidden border-t border-black/[0.05]">
       <div id="why-pet-horizon" className="absolute -top-20 pointer-events-none" />
       <div id="features-bento" className="absolute -top-20 pointer-events-none" />
 
       {/* Subtle Static Background Ambience */}
-      <div className="absolute top-10 right-1/4 w-[450px] h-[450px] bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none -z-10" />
-      <div className="absolute bottom-10 left-10 w-[400px] h-[400px] bg-slate-400/5 rounded-full blur-[120px] pointer-events-none -z-10" />
+      <div className="absolute top-10 right-1/4 w-[450px] h-[450px] bg-emerald-700/[0.03] rounded-full blur-[130px] pointer-events-none -z-10" />
+      <div className="absolute bottom-10 left-10 w-[400px] h-[400px] bg-[#EADECE]/30 rounded-full blur-[130px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-          >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-800 bg-white border border-emerald-200/80 mb-3 shadow-2xs">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
+          <motion.div {...fadeInUp}>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-950 bg-emerald-950/[0.04] border border-emerald-900/10 mb-3 shadow-2xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0" />
               <span>How Pet Horizon Works</span>
             </div>
 
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#17191C] tracking-tight leading-tight">
               4 Native Care Modules. Zero Guesswork.
             </h2>
 

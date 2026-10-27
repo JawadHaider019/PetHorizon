@@ -34,6 +34,8 @@ const FAQS: FAQ[] = [
   }
 ];
 
+import { fadeInUp, staggerCard } from '../config/animationVariants';
+
 export default function FAQSection() {
   const [openIndices, setOpenIndices] = useState<Set<number>>(new Set([0]));
   const [showAllMobile, setShowAllMobile] = useState<boolean>(false);
@@ -51,20 +53,21 @@ export default function FAQSection() {
   };
 
   return (
-    <section id="faq" className="py-12 sm:py-24 bg-white relative overflow-hidden">
+    <section id="faq" className="py-12 sm:py-24 bg-[#FAF8F5] relative overflow-hidden border-t border-black/[0.05]">
       <div className="max-w-4xl mx-auto px-4 sm:px-8 relative z-10">
         {/* Header */}
-        <div className="text-center mb-8 sm:mb-14">
-          <p className="text-xs font-black uppercase tracking-widest text-emerald-700 mb-2.5">
+        <motion.div {...fadeInUp} className="text-center mb-8 sm:mb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-950 bg-emerald-950/[0.04] border border-emerald-900/10 mb-2.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0" />
             Frequently Asked Questions
-          </p>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+          </div>
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#17191C] tracking-tight leading-tight">
             Common Questions About Pet Horizon
           </h2>
           <p className="text-slate-600 text-xs sm:text-base lg:text-lg mt-2 sm:mt-3 font-normal max-w-xl mx-auto">
             Everything you need to know about the product, platform compatibility, and features.
           </p>
-        </div>
+        </motion.div>
 
         {/* FAQ Accordion List (Multi-open enabled) */}
         <div className="space-y-3 sm:space-y-4">
@@ -73,12 +76,13 @@ export default function FAQSection() {
             const isHiddenOnMobile = !showAllMobile && idx > 2;
 
             return (
-              <div
+              <motion.div
                 key={idx}
+                {...staggerCard(idx, idx % 2 === 0 ? 'left' : 'right', 0.05)}
                 className={`${isHiddenOnMobile ? 'hidden sm:block' : 'block'} rounded-2xl border transition-all duration-200 overflow-hidden ${
                   isOpen
-                    ? 'border-emerald-300 bg-emerald-50/30 shadow-xs'
-                    : 'border-slate-200 bg-white hover:border-slate-300'
+                    ? 'border-black/[0.12] bg-white shadow-sm'
+                    : 'border-black/[0.06] bg-white hover:border-black/[0.12]'
                 }`}
               >
                 <button
@@ -92,7 +96,7 @@ export default function FAQSection() {
                   <div
                     className={`w-7 h-7 sm:w-8 sm:h-8 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-200 ${
                       isOpen
-                        ? 'bg-emerald-600 text-white rotate-180'
+                        ? 'bg-slate-900 text-white rotate-180'
                         : 'bg-slate-100 text-slate-500'
                     }`}
                   >
@@ -108,13 +112,13 @@ export default function FAQSection() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.25 }}
                     >
-                      <div className="px-4 sm:px-6 pb-5 text-slate-600 text-xs sm:text-base leading-relaxed border-t border-emerald-100/60 pt-3 sm:pt-4">
+                      <div className="px-4 sm:px-6 pb-5 text-slate-600 text-xs sm:text-base leading-relaxed border-t border-black/[0.05] pt-3 sm:pt-4">
                         {faq.a}
                       </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              </motion.div>
             );
           })}
         </div>
@@ -123,21 +127,21 @@ export default function FAQSection() {
         <div className="sm:hidden text-center pt-3">
           <button
             onClick={() => setShowAllMobile(!showAllMobile)}
-            className="text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-4 py-2 rounded-xl transition-all cursor-pointer"
+            className="text-xs font-bold text-slate-800 bg-white hover:bg-slate-50 border border-black/[0.08] px-4 py-2 rounded-full transition-all cursor-pointer shadow-2xs"
           >
             {showAllMobile ? 'Show Fewer Questions ↑' : 'View 3 More Questions ↓'}
           </button>
         </div>
 
         {/* Still have questions banner */}
-        <div className="mt-12 text-center p-6 bg-slate-50 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 text-center p-6 bg-white rounded-2xl border border-black/[0.06] shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-left">
             <h4 className="text-sm font-bold text-slate-900">Have a question not listed here?</h4>
             <p className="text-xs text-slate-500 mt-0.5">Reach out to our support team and we will be happy to assist.</p>
           </div>
           <a
             href="#contact"
-            className="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-5 py-2.5 rounded-xl shrink-0 transition-colors"
+            className="bg-slate-900 hover:bg-black text-white text-xs font-bold px-5 py-2.5 rounded-full shrink-0 transition-colors shadow-xs"
           >
             Contact Support
           </a>

@@ -70,7 +70,7 @@ export default function App() {
       : 'home';
 
   return (
-    <div className={`min-h-screen bg-white text-slate-800 antialiased font-sans selection:bg-emerald-500/20 selection:text-emerald-700 relative ${
+    <div className={`min-h-screen bg-[#FAF8F5] text-[#17191C] antialiased font-sans selection:bg-emerald-500/20 selection:text-emerald-800 relative ${
       viewState.view === 'blog-article' || viewState.view === 'blog' ? '' : 'overflow-x-clip'
     }`}>
       <BackgroundCanvas />

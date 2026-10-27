@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
 import { GooglePlayBadge, AppStoreBadge, QrScanButton } from './AppBadges';
 import { PLAY_STORE_URL } from '../config/siteConfig';
+import { fadeInLeft, fadeInRight } from '../config/animationVariants';
 
 interface DownloadCTAProps {
   onOpenQrModal?: () => void;
@@ -12,19 +13,19 @@ export default function DownloadCTA({ onOpenQrModal, onOpenIosModal }: DownloadC
   const playStoreUrl = PLAY_STORE_URL;
 
   return (
-    <section className="py-16 sm:py-24 bg-gradient-to-b from-white to-emerald-50/60 relative overflow-hidden">
+    <section className="py-16 sm:py-24 bg-gradient-to-b from-[#FAF8F5] to-[#F5F2EB] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
         
-        <div className="bg-gradient-to-br from-[#2E7D32] to-[#1B5E20] text-white rounded-3xl sm:rounded-[3rem] p-8 sm:p-12 lg:p-16 shadow-2xl relative overflow-hidden border border-emerald-500/40">
+        <div className="bg-gradient-to-br from-[#122A17] via-[#0E2012] to-[#0A160D] text-white rounded-3xl sm:rounded-[3rem] p-8 sm:p-12 lg:p-16 shadow-2xl relative overflow-hidden border border-white/10">
           
           {/* Ambient decorative lighting */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-[120px] pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-emerald-400/10 rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
             
             {/* Copy & CTAs (7 Cols) */}
-            <div className="lg:col-span-7 text-left flex flex-col gap-5">
+            <motion.div {...fadeInLeft} className="lg:col-span-7 text-left flex flex-col gap-5">
               
               <p className="text-xs font-black uppercase tracking-widest text-emerald-200">
                 Start Today For Free
@@ -62,10 +63,10 @@ export default function DownloadCTA({ onOpenQrModal, onOpenIosModal }: DownloadC
                 </span>
               </div>
 
-            </div>
+            </motion.div>
 
             {/* Visual Mascot Showcase (5 Cols) */}
-            <div className="lg:col-span-5 flex justify-center items-center">
+            <motion.div {...fadeInRight} className="lg:col-span-5 flex justify-center items-center">
               <div className="relative">
                 {/* 3D Cute Pets Showcase Card with gentle float */}
                 <motion.div
@@ -106,7 +107,7 @@ export default function DownloadCTA({ onOpenQrModal, onOpenIosModal }: DownloadC
                   </div>
                 </motion.div>
               </div>
-            </div>
+            </motion.div>
 
           </div>
 

@@ -137,11 +137,11 @@ export default function ContactForm({
 
         {/* Priority Selector */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
-          <div className="inline-flex rounded-xl p-1 bg-slate-100 border border-slate-200">
+          <div className="inline-flex rounded-full p-1 bg-slate-100 border border-black/[0.05]">
             <button
               type="button"
               onClick={() => setPriority('normal')}
-              className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+              className={`px-3 py-1 rounded-full text-xs font-bold transition-all cursor-pointer ${
                 priority === 'normal' ? 'bg-white text-slate-800 shadow-2xs' : 'text-slate-600'
               }`}
             >
@@ -150,8 +150,8 @@ export default function ContactForm({
             <button
               type="button"
               onClick={() => setPriority('urgent')}
-              className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1 ${
-                priority === 'urgent' ? 'bg-amber-500 text-white shadow-2xs' : 'text-slate-600'
+              className={`px-3 py-1 rounded-full text-xs font-bold transition-all cursor-pointer flex items-center gap-1 ${
+                priority === 'urgent' ? 'bg-slate-900 text-white shadow-2xs' : 'text-slate-600'
               }`}
             >
               <Zap className="w-3 h-3" />
@@ -181,7 +181,7 @@ export default function ContactForm({
             }}
             placeholder="Please describe your question or issue in detail..."
             className={`w-full px-4 py-3 bg-slate-50 border rounded-xl text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white transition-all ${
-              formErrors.message ? 'border-rose-300' : 'border-slate-200 focus:border-emerald-500'
+              formErrors.message ? 'border-rose-300' : 'border-slate-200 focus:border-emerald-700'
             }`}
           />
           {formErrors.message && <p className="text-[11px] text-rose-600 mt-1 font-medium">{formErrors.message}</p>}
@@ -193,7 +193,7 @@ export default function ContactForm({
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-gradient-to-r from-emerald-700 to-teal-800 hover:from-emerald-800 hover:to-teal-900 text-white font-bold text-sm transition-all shadow-md cursor-pointer disabled:opacity-75"
+          className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-slate-900 hover:bg-black text-white font-bold text-sm transition-all shadow-md cursor-pointer disabled:opacity-75"
         >
           {isSubmitting ? (
             <>

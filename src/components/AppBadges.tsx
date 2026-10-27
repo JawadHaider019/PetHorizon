@@ -58,7 +58,7 @@ export function GooglePlayBadge({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center gap-2.5 sm:gap-3 bg-black hover:bg-neutral-900 text-white px-3 sm:px-4 py-2 sm:py-2.5 rounded-2xl border border-neutral-700/80 shadow-xs hover:shadow-md transition-all duration-200 group shrink-0 ${className}`}
+      className={`inline-flex items-center gap-2.5 sm:gap-3 bg-black hover:bg-neutral-900 text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-neutral-700/80 shadow-xs hover:shadow-md transition-all duration-200 group shrink-0 ${className}`}
     >
       <GooglePlayIcon className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 group-hover:scale-105 transition-transform" />
       <div className="flex flex-col text-left">
@@ -89,7 +89,7 @@ export function AppStoreBadge({
     <button
       type="button"
       onClick={onClick}
-      className={`inline-flex items-center gap-2.5 sm:gap-3 bg-black hover:bg-neutral-900 text-white px-3 sm:px-4 py-2 sm:py-2.5 rounded-2xl border border-neutral-700/80 shadow-xs select-none shrink-0 transition-all duration-200 cursor-pointer ${className}`}
+      className={`inline-flex items-center gap-2.5 sm:gap-3 bg-black hover:bg-neutral-900 text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-neutral-700/80 shadow-xs select-none shrink-0 transition-all duration-200 cursor-pointer ${className}`}
       title={onClick ? "Click to join the iOS Beta Waitlist" : "Download on the Apple App Store"}
     >
       <AppleIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white shrink-0" />
@@ -102,7 +102,7 @@ export function AppStoreBadge({
         </span>
       </div>
       {showSoon && (
-        <span className="text-[8px] sm:text-[9px] font-bold uppercase tracking-wider bg-white/15 text-neutral-200 border border-white/20 px-1.5 py-0.5 rounded-md ml-auto hover:bg-emerald-500/30 transition-colors whitespace-nowrap">
+        <span className="text-[8px] sm:text-[9px] font-bold uppercase tracking-wider bg-white/15 text-neutral-200 border border-white/20 px-1.5 py-0.5 rounded-full ml-auto hover:bg-emerald-500/30 transition-colors whitespace-nowrap">
           Soon
         </span>
       )}
@@ -124,7 +124,7 @@ export function QrScanButton({
     <button
       type="button"
       onClick={onClick}
-      className={`inline-flex items-center gap-2.5 bg-white hover:bg-emerald-50 text-slate-800 hover:text-emerald-800 border border-slate-200 hover:border-emerald-300 px-4 py-2.5 rounded-xl shadow-xs hover:shadow-md transition-all duration-200 font-bold text-xs cursor-pointer ${className}`}
+      className={`inline-flex items-center gap-2.5 bg-white hover:bg-emerald-50/50 text-slate-800 hover:text-emerald-900 border border-black/[0.08] hover:border-emerald-700/30 px-4 py-2.5 rounded-full shadow-xs hover:shadow-md transition-all duration-200 font-bold text-xs cursor-pointer ${className}`}
     >
       <div className="w-5 h-5 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
         <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
