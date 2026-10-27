@@ -39,10 +39,10 @@ export default function Footer({ onNavigate, onNavigateLegal }: FooterProps) {
   };
 
   return (
-    <footer className="bg-[#F8F9FA] text-slate-700 pt-10 sm:pt-14 pb-8 sm:pb-12 border-t border-slate-200/90 relative overflow-hidden">
+    <footer className="bg-[#F5F2EB] text-slate-800 pt-10 sm:pt-14 pb-8 sm:pb-12 border-t border-black/[0.06] relative overflow-hidden">
       {/* Ambient background glow */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-10 w-80 h-80 bg-teal-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-emerald-700/[0.03] rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-80 h-80 bg-[#EADECE]/40 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
         <FooterBrandHeader />

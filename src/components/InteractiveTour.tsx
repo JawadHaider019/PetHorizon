@@ -32,16 +32,17 @@ export default function InteractiveTour() {
   }, []);
 
   return (
-    <section id="tour" className="py-14 sm:py-24 bg-white relative overflow-hidden scroll-mt-20">
+    <section id="tour" className="py-14 sm:py-24 bg-[#FAF8F5] relative overflow-hidden scroll-mt-20 border-t border-black/[0.05]">
       <div id="features" className="absolute -top-20 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
         {/* Section Heading */}
         <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-          <p className="text-xs font-black uppercase tracking-widest text-emerald-700 mb-2.5">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-950 bg-emerald-950/[0.04] border border-emerald-900/10 mb-2.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0" />
             Interactive App Explorer
-          </p>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+          </div>
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#17191C] tracking-tight leading-tight">
             Take a Tour of the Pet Horizon Experience
           </h2>
           <p className="text-slate-600 text-xs sm:text-base lg:text-lg mt-2 sm:mt-3 font-normal max-w-2xl mx-auto">

@@ -31,15 +31,15 @@ const renderEventIcon = (type: DayTimelineEvent['iconType'], className = 'w-4 h-
 
 export default function DayTimeline() {
   return (
-    <section className="hidden md:block py-16 sm:py-24 bg-gradient-to-b from-white via-slate-50/60 to-white relative overflow-hidden border-t border-slate-100">
+    <section className="hidden md:block py-16 sm:py-24 bg-[#FAF8F5] relative overflow-hidden border-t border-black/[0.05]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
-            <Clock className="w-3.5 h-3.5 text-emerald-600" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/[0.04] border border-emerald-900/10 text-emerald-950 text-xs font-bold uppercase tracking-wider mb-3">
+            <Clock className="w-3.5 h-3.5 text-emerald-700" />
             <span>A Day in Pet Horizon</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl font-black text-[#17191C] tracking-tight leading-tight mb-4">
             How One Day of Friction-Free Pet Care Unfolds
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
