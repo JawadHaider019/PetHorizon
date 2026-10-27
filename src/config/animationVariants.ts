@@ -51,6 +51,7 @@ export const staggerCard = (
     initial,
     whileInView: { opacity: 1, x: 0, y: 0 },
     viewport: defaultViewport,
+    whileHover: { y: -6, transition: { duration: 0.22, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } },
     transition: {
       duration: 0.6,
       delay: Math.min(index * delayStep, 0.35),
@@ -58,3 +59,22 @@ export const staggerCard = (
     }
   };
 };
+
+// Interactive micro-interaction presets
+export const cardHoverMotion = {
+  whileHover: {
+    y: -6,
+    transition: { duration: 0.22, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }
+  }
+};
+
+export const buttonTapMotion = {
+  whileHover: {
+    scale: 1.025,
+    transition: { duration: 0.15 }
+  },
+  whileTap: {
+    scale: 0.975
+  }
+};
+
