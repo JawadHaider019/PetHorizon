@@ -47,60 +47,79 @@ export default function DayTimeline() {
           </p>
         </motion.div>
 
-        {/* Horizontal Sequenced Grid (Tablet & Desktop) */}
+        {/* Horizontal Connected Chronological Ribbon */}
         <div className="relative">
-          {/* Subtle horizontal connecting line */}
-          <div className="absolute top-10 left-12 right-12 h-0.5 bg-gradient-to-r from-emerald-500/20 via-emerald-500/40 to-emerald-500/20 z-0 pointer-events-none" />
+          {/* Connected timeline rail line */}
+          <div className="absolute top-6 left-8 right-8 h-1 bg-gradient-to-r from-amber-200 via-emerald-300 to-teal-300 rounded-full z-0 pointer-events-none" />
 
-          <div className="grid grid-cols-5 gap-4 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 relative z-10">
             {DAY_TIMELINE_EVENTS.map((event, index) => {
               const dir = index < 2 ? 'left' : index > 2 ? 'right' : 'up';
+              // Differentiated time-of-day tints
+              const tint =
+                index < 2
+                  ? 'bg-gradient-to-b from-amber-50/40 via-white to-white border-amber-900/10 hover:border-amber-500/30'
+                  : index === 2
+                  ? 'bg-gradient-to-b from-emerald-50/50 via-white to-white border-emerald-900/10 hover:border-emerald-600/30'
+                  : 'bg-gradient-to-b from-teal-50/40 via-white to-white border-teal-900/10 hover:border-teal-600/30';
+
+              const nodeColor =
+                index < 2
+                  ? 'bg-amber-500 ring-amber-200'
+                  : index === 2
+                  ? 'bg-[#166534] ring-emerald-200'
+                  : 'bg-teal-600 ring-teal-200';
+
               return (
                 <motion.div
                   key={event.id}
                   {...staggerCard(index, dir)}
-                  className="bg-white rounded-2xl p-4 lg:p-5 border border-black/[0.06] shadow-sm hover:border-black/[0.12] hover:shadow-md transition-all flex flex-col justify-between group"
+                  whileHover={{ y: -8, boxShadow: '0 20px 30px -10px rgba(0,0,0,0.08)' }}
+                  className={`rounded-3xl p-5 border shadow-sm transition-all flex flex-col justify-between relative group text-left ${tint}`}
                 >
-                <div>
-                  {/* Step Icon with sequence badge */}
-                  <div className="flex items-center justify-between gap-2 mb-4">
-                    <div className="w-11 h-11 rounded-2xl bg-emerald-950/[0.04] border border-emerald-900/10 flex items-center justify-center text-emerald-800 shadow-xs group-hover:scale-105 transition-transform">
-                      {renderEventIcon(event.iconType, 'w-5 h-5 text-emerald-700')}
+                  <div>
+                    {/* Top Node Indicator on the ribbon */}
+                    <div className="flex items-center justify-between gap-2 mb-4">
+                      <div className="flex items-center gap-2">
+                        <span className={`w-3 h-3 rounded-full ring-4 ${nodeColor} shrink-0`} />
+                        <span className="text-[11px] font-mono font-bold text-slate-800 bg-white/90 px-2 py-0.5 rounded-full border border-black/[0.06] shadow-2xs">
+                          {event.time}
+                        </span>
+                      </div>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 bg-white/80 px-2 py-0.5 rounded-full border border-black/[0.05]">
+                        0{index + 1}
+                      </span>
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">
-                      Step {index + 1}
-                    </span>
-                  </div>
 
-                  {/* Time & Title */}
-                  <div className="mb-2">
-                    <span className="text-xs font-bold text-emerald-800 block mb-1">
-                      {event.time}
-                    </span>
-                    <h3 className="font-bold text-slate-900 text-sm leading-snug group-hover:text-emerald-950 transition-colors">
+                    {/* Step Icon */}
+                    <div className="w-10 h-10 rounded-2xl bg-white border border-black/[0.06] shadow-2xs flex items-center justify-center text-[#166534] mb-3 group-hover:scale-105 transition-transform">
+                      {renderEventIcon(event.iconType, 'w-5 h-5 text-[#166534]')}
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="font-black text-slate-900 text-sm leading-snug mb-1.5 group-hover:text-[#166534] transition-colors">
                       {event.title}
                     </h3>
+
+                    {/* Description */}
+                    <p className="text-xs text-slate-600 leading-relaxed font-normal mb-4">
+                      {event.description}
+                    </p>
                   </div>
 
-                  {/* Description */}
-                  <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                    {event.description}
-                  </p>
-                </div>
-
-                {/* Bottom Card Footer */}
-                <div className="pt-3 border-t border-black/[0.05]">
-                  <div className="flex items-center gap-1 text-[11px] font-semibold text-emerald-800 mb-1">
-                    <CheckCircle2 className="w-3 h-3 text-emerald-700 shrink-0" />
-                    <span className="truncate">{event.metaNote}</span>
+                  {/* Bottom Card Footer */}
+                  <div className="pt-3 border-t border-black/[0.05] flex items-center justify-between gap-1">
+                    <div className="flex items-center gap-1 text-[11px] font-semibold text-[#166534] truncate">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#166534] shrink-0" />
+                      <span className="truncate">{event.metaNote}</span>
+                    </div>
+                    <span className="text-[9px] font-bold uppercase tracking-wider text-slate-600 bg-white px-1.5 py-0.5 rounded border border-black/[0.06] shrink-0">
+                      {event.category}
+                    </span>
                   </div>
-                  <span className="text-[10px] text-slate-400 font-medium uppercase tracking-wider block">
-                    {event.category}
-                  </span>
-                </div>
-              </motion.div>
-            );
-          })}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
 

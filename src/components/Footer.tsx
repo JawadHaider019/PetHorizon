@@ -39,10 +39,10 @@ export default function Footer({ onNavigate, onNavigateLegal }: FooterProps) {
   };
 
   return (
-    <footer className="bg-[#0A160D] text-slate-300 pt-12 sm:pt-16 pb-8 sm:pb-12 border-t border-emerald-950/80 relative overflow-hidden">
+    <footer className="bg-[#FAF8F5] text-slate-800 pt-12 sm:pt-16 pb-8 sm:pb-12 border-t border-black/[0.06] relative overflow-hidden">
       {/* Ambient background glows */}
-      <div className="absolute top-0 left-1/3 -translate-x-1/2 w-[600px] h-64 bg-emerald-500/[0.07] rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-0 right-10 w-96 h-96 bg-teal-500/[0.04] rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-emerald-700/[0.02] rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-80 h-80 bg-[#EADECE]/30 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
         <FooterBrandHeader />
@@ -63,9 +63,9 @@ export default function Footer({ onNavigate, onNavigateLegal }: FooterProps) {
         />
       </div>
 
-      {/* Luxury Editorial Watermark */}
+      {/* Editorial Watermark */}
       <div className="w-full text-center mt-8 select-none pointer-events-none overflow-hidden">
-        <span className="text-[12vw] sm:text-[10vw] font-black tracking-[0.25em] text-white/[0.03] leading-none uppercase inline-block whitespace-nowrap">
+        <span className="text-[12vw] sm:text-[10vw] font-black tracking-[0.25em] text-black/[0.025] leading-none uppercase inline-block whitespace-nowrap">
           PET HORIZON
         </span>
       </div>
