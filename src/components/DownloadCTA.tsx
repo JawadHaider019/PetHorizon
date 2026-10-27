@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
 import { GooglePlayBadge, AppStoreBadge, QrScanButton } from './AppBadges';
 import { PLAY_STORE_URL } from '../config/siteConfig';
+import { fadeInLeft, fadeInRight } from '../config/animationVariants';
 
 interface DownloadCTAProps {
   onOpenQrModal?: () => void;
@@ -24,7 +25,7 @@ export default function DownloadCTA({ onOpenQrModal, onOpenIosModal }: DownloadC
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
             
             {/* Copy & CTAs (7 Cols) */}
-            <div className="lg:col-span-7 text-left flex flex-col gap-5">
+            <motion.div {...fadeInLeft} className="lg:col-span-7 text-left flex flex-col gap-5">
               
               <p className="text-xs font-black uppercase tracking-widest text-emerald-200">
                 Start Today For Free
@@ -62,10 +63,10 @@ export default function DownloadCTA({ onOpenQrModal, onOpenIosModal }: DownloadC
                 </span>
               </div>
 
-            </div>
+            </motion.div>
 
             {/* Visual Mascot Showcase (5 Cols) */}
-            <div className="lg:col-span-5 flex justify-center items-center">
+            <motion.div {...fadeInRight} className="lg:col-span-5 flex justify-center items-center">
               <div className="relative">
                 {/* 3D Cute Pets Showcase Card with gentle float */}
                 <motion.div
@@ -106,7 +107,7 @@ export default function DownloadCTA({ onOpenQrModal, onOpenIosModal }: DownloadC
                   </div>
                 </motion.div>
               </div>
-            </div>
+            </motion.div>
 
           </div>
 

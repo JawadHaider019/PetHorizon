@@ -3,6 +3,8 @@ import HeroContent from './hero/HeroContent';
 import HeroDesktopDevice from './hero/HeroDesktopDevice';
 import HeroMobilePets from './hero/HeroMobilePets';
 
+import { defaultViewport, scrollTransition } from '../config/animationVariants';
+
 interface HeroProps {
   onOpenQrModal?: () => void;
   onOpenIosModal?: () => void;
@@ -23,8 +25,9 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
           {/* LEFT COLUMN: Authentic Value Proposition */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={defaultViewport}
+            transition={scrollTransition}
             className="lg:col-span-7"
           >
             <HeroContent onOpenQrModal={onOpenQrModal} onOpenIosModal={onOpenIosModal} />
@@ -33,8 +36,9 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
           {/* RIGHT COLUMN: Desktop Phone Device Showcase (lg:flex) & Mobile Organic 3D Pets (<lg) */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={defaultViewport}
+            transition={{ ...scrollTransition, delay: 0.1 }}
             className="lg:col-span-5 relative flex items-center justify-center pt-1 pb-2 lg:py-0"
           >
             <HeroMobilePets />
