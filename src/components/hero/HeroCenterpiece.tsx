@@ -123,27 +123,27 @@ export default function HeroCenterpiece() {
         {/* Subtle ground shadow under the phone */}
         <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-44 sm:w-56 lg:w-64 h-5 bg-emerald-950/15 blur-xl rounded-full pointer-events-none -z-10" />
 
-        {/* Prominent, readable PhoneFrame */}
+        {/* Prominent PhoneFrame (compact on mobile to clear navbar, big on desktop) */}
         <div className="transition-transform duration-300 hover:scale-[1.015]">
           <PhoneFrame
             src="/screenshots/home-screen.webp"
             alt="Pet Horizon Mobile App Interface"
-            frameClassName="w-[195px] sm:w-[220px] lg:w-[265px] xl:w-[285px]"
+            frameClassName="w-[172px] sm:w-[190px] lg:w-[230px] xl:w-[245px]"
             priority={true}
           />
         </div>
 
-        {/* Mobile-Only Micro Badges attached to phone sides */}
+        {/* Mobile-Only Micro Badges floating cleanly beside the phone frame without hiding screen UI */}
         <div className="lg:hidden pointer-events-none absolute inset-0 z-30">
-          {/* Top Left Micro Pill */}
-          <div className="absolute -left-4 sm:-left-8 top-8 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-full border border-emerald-200 shadow-md flex items-center gap-1.5 text-[10px] font-bold text-slate-800">
+          {/* Top Left Micro Pill - floats outside left bezel, clear of pet photo */}
+          <div className="absolute -left-10 sm:-left-12 top-4 bg-white/95 backdrop-blur-md px-2 py-0.5 rounded-full border border-emerald-200 shadow-md flex items-center gap-1.5 text-[9px] font-bold text-slate-800 whitespace-nowrap">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
             <span>Luna fed 🐾</span>
           </div>
 
-          {/* Bottom Left Micro Pill */}
-          <div className="absolute -left-3 sm:-left-6 bottom-12 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-full border border-amber-200 shadow-md flex items-center gap-1.5 text-[10px] font-bold text-slate-800">
-            <CheckCircle2 className="w-3 h-3 text-[#166534]" />
+          {/* Bottom Left Micro Pill - floats outside left bezel, clear of schedule items */}
+          <div className="absolute -left-8 sm:-left-10 bottom-8 bg-white/95 backdrop-blur-md px-2 py-0.5 rounded-full border border-amber-200 shadow-md flex items-center gap-1.5 text-[9px] font-bold text-slate-800 whitespace-nowrap">
+            <CheckCircle2 className="w-2.5 h-2.5 text-[#166534]" />
             <span>Meds 08:00 AM</span>
           </div>
         </div>
@@ -152,7 +152,7 @@ export default function HeroCenterpiece() {
         <motion.div
           animate={{ y: [0, -4, 0] }}
           transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute -bottom-1 sm:-bottom-2 left-[80%] sm:left-[84%] lg:left-[86%] w-24 sm:w-28 lg:w-34 xl:w-38 pointer-events-none z-20 select-none drop-shadow-xl"
+          className="absolute -bottom-1 sm:-bottom-2 left-[82%] sm:left-[85%] lg:left-[86%] w-22 sm:w-26 lg:w-30 xl:w-34 pointer-events-none z-20 select-none drop-shadow-xl"
         >
           <img
             src="/3d-pets-transparent.webp"

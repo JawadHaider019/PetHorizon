@@ -15,7 +15,7 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
   return (
     <section
       id="home"
-      className="relative min-h-[100dvh] lg:h-[100dvh] flex flex-col justify-between overflow-hidden pt-[96px] sm:pt-[100px] lg:pt-[104px] pb-0 bg-gradient-to-b from-[#FAF8F5] via-[#FAF8F5] to-[#F5F2EB]"
+      className="relative min-h-[100dvh] lg:h-[100dvh] flex flex-col justify-between overflow-hidden pt-[116px] sm:pt-[120px] lg:pt-[106px] pb-0 bg-gradient-to-b from-[#FAF8F5] via-[#FAF8F5] to-[#F5F2EB]"
     >
       {/* Subtle Luxury Dot Grid Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(#17191C_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.03] pointer-events-none -z-10" />
@@ -154,15 +154,15 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
             Feedings, medication alarms &amp; shared family routines for Luna, Milo &amp; all companions.
           </p>
 
-          {/* Compact Download Row (Directly above the big phone) */}
-          <div className="flex items-center justify-center gap-2 pt-0.5 pb-1">
+          {/* Compact Mobile Download Badges (Sleek, centered, perfectly proportioned) */}
+          <div className="flex items-center justify-center gap-2 pt-0.5 pb-0.5">
             <GooglePlayBadge
               href={PLAY_STORE_URL}
-              className="px-3 py-1.5 rounded-full shadow-xs text-[11px]"
+              className="!px-3 !py-1 !rounded-full shadow-xs !gap-1.5 !h-8 text-[10px]"
             />
             <AppStoreBadge
               onClick={onOpenIosModal}
-              className="px-3 py-1.5 rounded-full shadow-xs text-[11px]"
+              className="!px-3 !py-1 !rounded-full shadow-xs !gap-1.5 !h-8 text-[10px]"
             />
           </div>
 
