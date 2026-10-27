@@ -212,7 +212,7 @@ export default function TourPhonePreview({
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white shadow-md shadow-emerald-700/25 hover:shadow-lg hover:shadow-emerald-700/30 transition-all font-bold text-xs sm:text-sm active:scale-95 cursor-pointer"
             aria-label="Next screen"
           >
-            <span>Next Screen</span>
+            <span>Next</span>
             <ChevronRight className="w-4 h-4" />
           </button>
         </div>
