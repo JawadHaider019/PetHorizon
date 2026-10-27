@@ -34,11 +34,11 @@ export default function DailyJournalSection() {
   ];
 
   return (
-    <section id="journal" className="py-12 sm:py-24 bg-[#F5F6F8] relative overflow-hidden scroll-mt-20">
+    <section id="journal" className="py-12 sm:py-24 bg-[#FAF8F5] relative overflow-hidden scroll-mt-20 border-t border-black/[0.05]">
       {/* Anchor for #daily-journal */}
       <div id="daily-journal" className="absolute -top-20 pointer-events-none" />
       {/* Background ambient lighting */}
-      <div className="absolute top-1/2 left-1/4 w-[400px] h-[400px] bg-emerald-400/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/4 w-[400px] h-[400px] bg-emerald-700/[0.03] rounded-full blur-[130px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
 
@@ -53,11 +53,12 @@ export default function DailyJournalSection() {
             className="lg:col-span-7 text-left flex flex-col gap-5 sm:gap-6"
           >
 
-            <p className="text-xs font-black uppercase tracking-widest text-emerald-700">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-950 bg-emerald-950/[0.04] border border-emerald-900/10 w-fit">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0" />
               Pet Journal &amp; Memories
-            </p>
+            </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#17191C] tracking-tight leading-tight">
               A Living Memory &amp; Health Timeline for Every Day
             </h2>
 
@@ -73,15 +74,15 @@ export default function DailyJournalSection() {
                   initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
-                  whileHover={{ y: -3, boxShadow: '0 10px 20px -4px rgba(46, 125, 50, 0.1)' }}
+                  whileHover={{ y: -3, boxShadow: '0 10px 20px -4px rgba(0, 0, 0, 0.06)' }}
                   transition={{ duration: 0.45, delay: index * 0.1, ease: 'easeOut' }}
-                  className={`${index === 2 ? 'hidden sm:flex' : 'flex'} bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200/90 shadow-xs items-center justify-between gap-3 sm:gap-4 cursor-default transition-colors hover:border-emerald-300`}
+                  className={`${index === 2 ? 'hidden sm:flex' : 'flex'} bg-white p-3.5 sm:p-4 rounded-2xl border border-black/[0.06] shadow-sm items-center justify-between gap-3 sm:gap-4 cursor-default transition-all hover:border-black/[0.12]`}
                 >
                   <div className="flex items-center gap-3">
-                    <div className="text-xs font-black text-slate-400 font-mono w-14 sm:w-16">
+                    <div className="text-xs font-bold text-slate-400 font-mono w-14 sm:w-16">
                       {act.time}
                     </div>
-                    <div className="w-1.5 h-7 sm:h-8 rounded-full bg-emerald-500" />
+                    <div className="w-1.5 h-7 sm:h-8 rounded-full bg-emerald-600" />
                     <div>
                       <h4 className="text-xs sm:text-sm font-bold text-slate-900">{act.title}</h4>
                       {act.detail && (
@@ -89,7 +90,7 @@ export default function DailyJournalSection() {
                       )}
                     </div>
                   </div>
-                  <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-200/80 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full shrink-0">
+                  <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider bg-emerald-950/[0.04] text-emerald-950 border border-emerald-900/10 px-2.5 sm:px-3 py-1 rounded-full shrink-0">
                     {act.status}
                   </span>
                 </motion.div>
@@ -102,13 +103,13 @@ export default function DailyJournalSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="bg-emerald-50/70 border border-emerald-200/70 rounded-2xl p-3.5 sm:p-4 flex items-center gap-3 sm:gap-3.5"
+              className="bg-white/90 border border-black/[0.06] shadow-xs rounded-2xl p-3.5 sm:p-4 flex items-center gap-3 sm:gap-3.5"
             >
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-emerald-200 text-emerald-700 flex items-center justify-center shrink-0">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-950/[0.05] border border-emerald-900/10 text-emerald-800 flex items-center justify-center shrink-0">
                 <Camera className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <p className="text-xs sm:text-sm text-slate-700 font-semibold leading-relaxed">
-                <span className="font-bold text-emerald-900">Daily Photo Album:</span> Capture your companion’s cuteness every day. Free users enjoy 1 daily photo; Premium members can upload up to 5 daily memories!
+              <p className="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed">
+                <strong className="font-bold text-slate-900">Daily Photo Album:</strong> Capture your companion’s cuteness every day. Free users enjoy 1 daily photo; Premium members can upload up to 5 daily memories!
               </p>
             </motion.div>
 
@@ -133,10 +134,10 @@ export default function DailyJournalSection() {
               <motion.div
                 animate={{ y: [0, 6, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                className="hidden sm:flex absolute -bottom-5 -left-4 sm:-left-8 bg-white rounded-2xl p-3 shadow-xl border border-slate-200 items-center gap-2.5 z-30 max-w-[200px] text-left"
+                className="hidden sm:flex absolute -bottom-5 -left-4 sm:-left-8 bg-white rounded-2xl p-3 shadow-xl border border-black/[0.06] items-center gap-2.5 z-30 max-w-[200px] text-left"
               >
-                <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs shrink-0">
-                  <Camera className="w-4 h-4 text-emerald-700" />
+                <div className="w-8 h-8 rounded-xl bg-emerald-950/[0.05] text-emerald-800 flex items-center justify-center font-bold text-xs shrink-0">
+                  <Camera className="w-4 h-4 text-emerald-800" />
                 </div>
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-wider text-slate-400">Journal Memories</p>

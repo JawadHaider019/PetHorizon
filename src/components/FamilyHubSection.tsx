@@ -60,9 +60,9 @@ export default function FamilyHubSection() {
               <motion.div
                 animate={{ y: [0, 6, 0] }}
                 transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-                className="hidden sm:flex absolute -top-5 -left-6 sm:-left-12 bg-white text-slate-900 rounded-2xl p-2.5 shadow-xl border border-emerald-200/90 items-center gap-2.5 z-30 text-left"
+                className="hidden sm:flex absolute -top-5 -left-6 sm:-left-12 bg-white text-slate-900 rounded-2xl p-2.5 shadow-xl border border-black/[0.06] items-center gap-2.5 z-30 text-left"
               >
-                <div className="w-10 h-10 rounded-xl overflow-hidden border border-emerald-100 shadow-2xs shrink-0">
+                <div className="w-10 h-10 rounded-xl overflow-hidden border border-black/[0.05] shadow-2xs shrink-0">
                   <img src="/cute-3d-pets.webp" alt="Pet Companions" className="w-full h-full object-cover" style={{ mixBlendMode: 'multiply' }} />
                 </div>
                 <div className="pr-1.5">
@@ -75,13 +75,13 @@ export default function FamilyHubSection() {
               <motion.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                className="hidden sm:flex absolute -bottom-6 -right-4 sm:-right-14 lg:-right-16 bg-white text-slate-900 rounded-2xl p-3 sm:p-3.5 shadow-xl border border-emerald-200 items-center gap-3 z-30 w-[190px] sm:w-[210px] text-left"
+                className="hidden sm:flex absolute -bottom-6 -right-4 sm:-right-14 lg:-right-16 bg-white text-slate-900 rounded-2xl p-3 sm:p-3.5 shadow-xl border border-black/[0.06] items-center gap-3 z-30 w-[190px] sm:w-[210px] text-left"
               >
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold shrink-0">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-950/[0.05] text-emerald-800 flex items-center justify-center font-bold shrink-0">
                   <QrCode className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-[9px] sm:text-[10px] font-black uppercase tracking-wider text-emerald-700">QR Deep Linking</p>
+                  <p className="text-[9px] sm:text-[10px] font-black uppercase tracking-wider text-emerald-800">QR Deep Linking</p>
                   <p className="text-[11px] sm:text-xs font-bold text-slate-900 leading-tight">Instant Caretaker Sync</p>
                 </div>
               </motion.div>
@@ -97,11 +97,12 @@ export default function FamilyHubSection() {
             className="lg:col-span-7 text-left flex flex-col gap-6 order-1 lg:order-2"
           >
             
-            <p className="text-xs font-black uppercase tracking-widest text-emerald-700">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-950 bg-emerald-950/[0.04] border border-emerald-900/10 w-fit">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0" />
               Caretaker Collaboration
-            </p>
+            </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#17191C] tracking-tight leading-tight">
               Pet Care is a Team Effort. Manage It Together.
             </h2>
 
@@ -119,15 +120,15 @@ export default function FamilyHubSection() {
                     initial={{ opacity: 0, y: 25, x: idx % 2 === 0 ? -25 : 25 }}
                     whileInView={{ opacity: 1, y: 0, x: 0 }}
                     viewport={defaultViewport}
-                    whileHover={{ y: -4, boxShadow: '0 14px 28px -6px rgba(46, 125, 50, 0.12)' }}
+                    whileHover={{ y: -4, boxShadow: '0 14px 28px -6px rgba(0, 0, 0, 0.08)' }}
                     transition={{ duration: 0.5, delay: idx * 0.08, ease: 'easeOut' }}
-                    className="bg-[#F5F6F8] border border-slate-200/80 rounded-2xl p-4.5 flex flex-col gap-2 hover:bg-emerald-50/50 hover:border-emerald-300 transition-colors shadow-xs cursor-default"
+                    className="bg-[#FAF8F5] border border-black/[0.05] rounded-2xl p-4.5 flex flex-col gap-2 hover:bg-white hover:border-black/[0.1] hover:shadow-sm transition-all shadow-xs cursor-default"
                   >
                     <div className="flex items-center justify-between">
-                      <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs">
+                      <div className="w-8 h-8 rounded-xl bg-emerald-950/[0.05] text-emerald-800 flex items-center justify-center font-bold text-xs">
                         <Icon className="w-4 h-4" />
                       </div>
-                      <span className="text-xs font-black text-emerald-700 font-mono tracking-wider">
+                      <span className="text-xs font-bold text-slate-400 font-mono tracking-wider">
                         {st.num}
                       </span>
                     </div>
@@ -145,7 +146,7 @@ export default function FamilyHubSection() {
                 href="https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3.5 rounded-2xl flex items-center gap-2 shadow-lg shadow-emerald-600/25 transition-all text-sm"
+                className="bg-slate-900 hover:bg-black text-white font-bold px-6 py-3.5 rounded-full flex items-center gap-2 shadow-md transition-all text-sm"
               >
                 <span>Try Family Hub on Android</span>
                 <ArrowRight className="w-4 h-4" />
