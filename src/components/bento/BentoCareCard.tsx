@@ -4,6 +4,8 @@ import { Calendar, Check, CheckCircle2, Clock } from 'lucide-react';
 // @ts-expect-error canvas-confetti has no types
 import confetti from 'canvas-confetti';
 
+import { staggerCard } from '../../config/animationVariants';
+
 export default function BentoCareCard() {
   const [scheduleDone, setScheduleDone] = useState(false);
 
@@ -25,10 +27,7 @@ export default function BentoCareCard() {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.4 }}
+      {...staggerCard(0, 'left')}
       className="w-[82vw] max-w-[320px] sm:w-[320px] md:w-auto shrink-0 snap-center bg-white rounded-3xl p-5 sm:p-6 border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-emerald-300 flex flex-col justify-between relative overflow-hidden group transition-all duration-200 text-left cursor-default"
     >
       <div className="relative z-10 flex flex-col flex-1">

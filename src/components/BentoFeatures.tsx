@@ -5,6 +5,8 @@ import BentoFamilyCard from './bento/BentoFamilyCard';
 import BentoClinicalCard from './bento/BentoClinicalCard';
 import BentoBudgetCard from './bento/BentoBudgetCard';
 
+import { fadeInUp } from '../config/animationVariants';
+
 export default function BentoFeatures() {
   return (
     <section id="how-it-works" className="py-12 sm:py-20 bg-[#FAFAF9] relative overflow-hidden border-t border-slate-200/80">
@@ -18,12 +20,7 @@ export default function BentoFeatures() {
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-          >
+          <motion.div {...fadeInUp}>
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-800 bg-white border border-emerald-200/80 mb-3 shadow-2xs">
               <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
               <span>How Pet Horizon Works</span>

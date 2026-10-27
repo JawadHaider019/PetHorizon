@@ -4,6 +4,8 @@ import { Pill, Check, CheckCircle2, Clock } from 'lucide-react';
 // @ts-expect-error canvas-confetti has no types
 import confetti from 'canvas-confetti';
 
+import { staggerCard } from '../../config/animationVariants';
+
 export default function BentoClinicalCard() {
   const [medTaken, setMedTaken] = useState(true);
 
@@ -25,9 +27,7 @@ export default function BentoClinicalCard() {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
+      {...staggerCard(2, 'up')}
       transition={{ duration: 0.4, delay: 0.12 }}
       className="w-[82vw] max-w-[320px] sm:w-[320px] md:w-auto shrink-0 snap-center bg-white rounded-3xl p-5 sm:p-6 border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-purple-300 flex flex-col justify-between relative overflow-hidden group transition-all duration-200 text-left cursor-default"
     >

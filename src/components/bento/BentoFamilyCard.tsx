@@ -4,6 +4,8 @@ import { Users, Check, Copy } from 'lucide-react';
 // @ts-expect-error canvas-confetti has no types
 import confetti from 'canvas-confetti';
 
+import { staggerCard } from '../../config/animationVariants';
+
 export default function BentoFamilyCard() {
   const [copiedCode, setCopiedCode] = useState(false);
 
@@ -24,10 +26,7 @@ export default function BentoFamilyCard() {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.4, delay: 0.08 }}
+      {...staggerCard(1, 'up')}
       className="w-[82vw] max-w-[320px] sm:w-[320px] md:w-auto shrink-0 snap-center bg-white rounded-3xl p-5 sm:p-6 border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-teal-300 flex flex-col justify-between relative overflow-hidden group transition-all duration-200 text-left cursor-default"
     >
       <div className="relative z-10 flex flex-col flex-1">

@@ -20,6 +20,9 @@ const ECOSYSTEM_MODULES = [
   { name: 'Expense & Feed Audits', icon: DollarSign }
 ];
 
+import { motion } from 'framer-motion';
+import { fadeInUp } from '../config/animationVariants';
+
 export default function Partners() {
   // Duplicate the list to ensure seamless looping scroll coverage
   const marqueeList = [...ECOSYSTEM_MODULES, ...ECOSYSTEM_MODULES, ...ECOSYSTEM_MODULES];
@@ -47,11 +50,11 @@ export default function Partners() {
       <div className="absolute inset-y-0 left-0 w-28 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
       <div className="absolute inset-y-0 right-0 w-28 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 mb-2.5 text-center">
+      <motion.div {...fadeInUp} className="max-w-7xl mx-auto px-6 mb-2.5 text-center">
         <span className="text-[10px] text-slate-500 uppercase tracking-widest font-black inline-flex items-center gap-2">
           <span>Complete Companion Care Modules Built-In</span>
         </span>
-      </div>
+      </motion.div>
 
       <div className="relative w-full overflow-hidden mt-1">
         <div className="marquee-container">

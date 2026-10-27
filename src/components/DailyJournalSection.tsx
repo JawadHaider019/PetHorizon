@@ -1,6 +1,7 @@
 import { Camera } from 'lucide-react';
 import { motion } from 'framer-motion';
 import PhoneFrame from './PhoneFrame';
+import { defaultViewport, scrollTransition } from '../config/animationVariants';
 
 export default function DailyJournalSection() {
   const activities = [
@@ -45,10 +46,10 @@ export default function DailyJournalSection() {
 
           {/* Left Column: Explanatory Copy & Activity Highlights (comes in from left) */}
           <motion.div
-            initial={{ opacity: 0, x: -60 }}
+            initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            viewport={defaultViewport}
+            transition={scrollTransition}
             className="lg:col-span-7 text-left flex flex-col gap-5 sm:gap-6"
           >
 
@@ -115,10 +116,10 @@ export default function DailyJournalSection() {
 
           {/* Right Column: Screenshot Phone Frame (comes in from right) */}
           <motion.div
-            initial={{ opacity: 0, x: 60 }}
+            initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            viewport={defaultViewport}
+            transition={scrollTransition}
             className="lg:col-span-5 flex justify-center relative"
           >
             <div className="relative">

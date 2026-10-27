@@ -1,6 +1,7 @@
 import { Users, QrCode, CheckCircle, Smartphone, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import PhoneFrame from './PhoneFrame';
+import { defaultViewport, scrollTransition } from '../config/animationVariants';
 
 export default function FamilyHubSection() {
   const steps = [
@@ -42,10 +43,10 @@ export default function FamilyHubSection() {
           
           {/* Left Column: Device Screenshot (comes in from left) */}
           <motion.div
-            initial={{ opacity: 0, x: -60 }}
+            initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            viewport={defaultViewport}
+            transition={scrollTransition}
             className="lg:col-span-5 flex justify-center order-2 lg:order-1 relative"
           >
             <div className="relative">
@@ -89,10 +90,10 @@ export default function FamilyHubSection() {
 
           {/* Right Column: Explanatory Copy & 4 Steps (comes in from right) */}
           <motion.div
-            initial={{ opacity: 0, x: 60 }}
+            initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            viewport={defaultViewport}
+            transition={scrollTransition}
             className="lg:col-span-7 text-left flex flex-col gap-6 order-1 lg:order-2"
           >
             
@@ -115,11 +116,11 @@ export default function FamilyHubSection() {
                 return (
                   <motion.div
                     key={idx}
-                    initial={{ opacity: 0, y: 30, x: idx % 2 === 0 ? -25 : 25 }}
+                    initial={{ opacity: 0, y: 25, x: idx % 2 === 0 ? -25 : 25 }}
                     whileInView={{ opacity: 1, y: 0, x: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
+                    viewport={defaultViewport}
                     whileHover={{ y: -4, boxShadow: '0 14px 28px -6px rgba(46, 125, 50, 0.12)' }}
-                    transition={{ duration: 0.5, delay: idx * 0.1, ease: 'easeOut' }}
+                    transition={{ duration: 0.5, delay: idx * 0.08, ease: 'easeOut' }}
                     className="bg-[#F5F6F8] border border-slate-200/80 rounded-2xl p-4.5 flex flex-col gap-2 hover:bg-emerald-50/50 hover:border-emerald-300 transition-colors shadow-xs cursor-default"
                   >
                     <div className="flex items-center justify-between">
