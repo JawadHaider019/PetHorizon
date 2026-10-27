@@ -27,12 +27,12 @@ export default function BentoFamilyCard() {
   return (
     <motion.div
       {...staggerCard(1, 'up')}
-      className="w-[82vw] max-w-[320px] sm:w-[320px] md:w-auto shrink-0 snap-center bg-white rounded-3xl p-5 sm:p-6 border border-black/[0.06] shadow-sm hover:shadow-lg hover:border-black/[0.12] flex flex-col justify-between relative overflow-hidden group transition-all duration-200 text-left cursor-default"
+      className="w-full h-full bg-white rounded-[2.5rem] p-6 sm:p-7 border border-black/[0.08] shadow-sm hover:shadow-xl hover:border-black/[0.14] flex flex-col justify-between relative overflow-hidden group transition-all duration-300 text-left"
     >
       <div className="relative z-10 flex flex-col flex-1">
         <div className="flex items-center justify-between mb-3 gap-2">
-          <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-slate-800 bg-slate-900/[0.04] px-3 py-1 rounded-full border border-black/[0.06] flex items-center gap-1.5 whitespace-nowrap shrink-0">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0" />
+          <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-[#166534] bg-emerald-900/[0.05] px-3 py-1 rounded-full border border-emerald-800/15 flex items-center gap-1.5 whitespace-nowrap shrink-0">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#166534] shrink-0" />
             02 &bull; Co-Parenting
           </span>
           <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-emerald-950/[0.04] border border-emerald-900/10 text-emerald-900 flex items-center justify-center shadow-2xs group-hover:bg-emerald-950/[0.08] transition-colors duration-200 shrink-0">

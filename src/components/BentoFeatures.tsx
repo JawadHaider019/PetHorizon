@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
 import BentoCareCard from './bento/BentoCareCard';
 import BentoFamilyCard from './bento/BentoFamilyCard';
 import BentoClinicalCard from './bento/BentoClinicalCard';
@@ -36,21 +35,27 @@ export default function BentoFeatures() {
           </motion.div>
         </div>
 
-        {/* 4-COLUMN HORIZONTAL DECK (Composed from modular sub-components) */}
-        <div className="flex overflow-x-auto snap-x snap-mandatory pb-4 gap-4 sm:gap-5 md:grid md:grid-cols-2 lg:grid-cols-4 lg:gap-5 items-stretch no-scrollbar px-1">
-          <BentoCareCard />
-          <BentoFamilyCard />
-          <BentoClinicalCard />
-          <BentoBudgetCard />
-        </div>
+        {/* ASYMMETRIC BENTO GRID */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-stretch">
+          {/* Card 1: Wide Signature Routine Module (7 columns on desktop) */}
+          <div className="lg:col-span-7 flex">
+            <BentoCareCard />
+          </div>
 
-        {/* Mobile Swipe Hint Bar */}
-        <div className="flex md:hidden items-center justify-between mt-3 px-2 text-xs text-slate-500">
-          <span className="flex items-center gap-1.5 font-bold text-emerald-800 text-[11px] uppercase tracking-wider">
-            <span>Swipe 4 modules</span>
-            <ArrowRight className="w-3.5 h-3.5 animate-pulse text-emerald-700" />
-          </span>
-          <span className="text-[11px] font-mono text-slate-400">4 Modules &bull; Swipe Left</span>
+          {/* Card 2: Household Pass & Lock Module (5 columns on desktop) */}
+          <div className="lg:col-span-5 flex">
+            <BentoFamilyCard />
+          </div>
+
+          {/* Card 3: Clinical Care & Health Card (6 columns on desktop) */}
+          <div className="lg:col-span-6 flex">
+            <BentoClinicalCard />
+          </div>
+
+          {/* Card 4: Smart Budget & Expenses (6 columns on desktop) */}
+          <div className="lg:col-span-6 flex">
+            <BentoBudgetCard />
+          </div>
         </div>
       </div>
     </section>

@@ -29,29 +29,29 @@ export default function BentoClinicalCard() {
     <motion.div
       {...staggerCard(2, 'up')}
       transition={{ duration: 0.4, delay: 0.12 }}
-      className="w-[82vw] max-w-[320px] sm:w-[320px] md:w-auto shrink-0 snap-center bg-white rounded-3xl p-5 sm:p-6 border border-black/[0.06] shadow-sm hover:shadow-lg hover:border-black/[0.12] flex flex-col justify-between relative overflow-hidden group transition-all duration-200 text-left cursor-default"
+      className="w-full h-full bg-white rounded-[2.5rem] p-6 sm:p-7 border border-black/[0.08] shadow-sm hover:shadow-xl hover:border-black/[0.14] flex flex-col justify-between relative overflow-hidden group transition-all duration-300 text-left"
     >
       <div className="relative z-10 flex flex-col flex-1">
         <div className="flex items-center justify-between mb-3 gap-2">
-          <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-slate-800 bg-slate-900/[0.04] px-3 py-1 rounded-full border border-black/[0.06] flex items-center gap-1.5 whitespace-nowrap shrink-0">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0" />
-            03 &bull; Clinical Care
+          <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-[#166534] bg-emerald-900/[0.05] px-3 py-1 rounded-full border border-emerald-800/15 flex items-center gap-1.5 whitespace-nowrap shrink-0">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#166534] shrink-0" />
+            03 &bull; Clinical Care &amp; Health Card
           </span>
           <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-emerald-950/[0.04] border border-emerald-900/10 text-emerald-900 flex items-center justify-center shadow-2xs group-hover:bg-emerald-950/[0.08] transition-colors duration-200 shrink-0">
             <Pill className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
           </div>
         </div>
 
-        <h3 className="text-lg sm:text-xl font-black text-[#17191C] tracking-tight leading-snug group-hover:text-emerald-950 transition-colors min-h-[52px] flex items-center">
+        <h3 className="text-lg sm:text-xl font-black text-[#17191C] tracking-tight leading-snug group-hover:text-[#166534] transition-colors min-h-[52px] flex items-center">
           Never Double-Dose or Miss a Med
         </h3>
         <p className="text-slate-600 text-xs sm:text-sm mt-1 leading-relaxed font-normal min-h-[40px] line-clamp-2">
-          Smart prescription schedules, tap-to-verify confirmations, and automated refill tracking so nobody ever guesses.
+          Smart prescription schedules, tap-to-verify confirmations, low-stock alerts, and exportable digital vaccination passports.
         </p>
 
         <div className="grid grid-cols-2 gap-1.5 mt-3 pt-2.5 border-t border-black/[0.05] text-[11px] text-slate-600 font-medium">
-          <span className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-emerald-700 shrink-0" /> Dose confirmations</span>
-          <span className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-emerald-700 shrink-0" /> Low-stock refill alerts</span>
+          <span className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#166534] shrink-0" /> Dose confirmations</span>
+          <span className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#166534] shrink-0" /> Digital Health Card</span>
         </div>
       </div>
 
