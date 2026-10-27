@@ -22,7 +22,7 @@ export const SITE_CONFIG = {
    * Replace with your production Google Search Console verification HTML tag content:
    * e.g. 'google-site-verification-code-here'
    */
-  googleSiteVerification: 'GOOGLE_SEARCH_CONSOLE_VERIFICATION_TOKEN',
+  googleSiteVerification: 'MyQf9lnl3Ehgb9nukwNGGtBxo2QSTifZoSO5w4K50PU',
   /**
    * Google Analytics 4 (GA4) Measurement ID
    * Replace with your active stream ID: e.g. 'G-XXXXXXXXXX'
