@@ -27,7 +27,7 @@ export default function TourPhonePreview({
     return diff;
   };
 
-  // Card transform variants based on relative distance from center
+  // Card transform variants based on relative distance from center (all visible cards are solid 100% opaque)
   const getCardStyle = (diff: number) => {
     if (diff === 0) {
       return {
@@ -45,8 +45,8 @@ export default function TourPhonePreview({
         x: '-78%',
         scale: 0.88,
         zIndex: 20,
-        opacity: 0.8,
-        filter: 'brightness(0.92)',
+        opacity: 1,
+        filter: 'brightness(0.97)',
         cursor: 'pointer',
         pointerEvents: 'auto' as const
       };
@@ -56,8 +56,8 @@ export default function TourPhonePreview({
         x: '78%',
         scale: 0.88,
         zIndex: 20,
-        opacity: 0.8,
-        filter: 'brightness(0.92)',
+        opacity: 1,
+        filter: 'brightness(0.97)',
         cursor: 'pointer',
         pointerEvents: 'auto' as const
       };
@@ -67,8 +67,8 @@ export default function TourPhonePreview({
         x: '-148%',
         scale: 0.76,
         zIndex: 10,
-        opacity: 0.5,
-        filter: 'brightness(0.85)',
+        opacity: 1,
+        filter: 'brightness(0.94)',
         cursor: 'pointer',
         pointerEvents: 'auto' as const
       };
@@ -78,8 +78,8 @@ export default function TourPhonePreview({
         x: '148%',
         scale: 0.76,
         zIndex: 10,
-        opacity: 0.5,
-        filter: 'brightness(0.85)',
+        opacity: 1,
+        filter: 'brightness(0.94)',
         cursor: 'pointer',
         pointerEvents: 'auto' as const
       };
@@ -89,7 +89,7 @@ export default function TourPhonePreview({
       scale: 0.6,
       zIndex: 0,
       opacity: 0,
-      filter: 'brightness(0.75)',
+      filter: 'brightness(0.9)',
       cursor: 'default',
       pointerEvents: 'none' as const
     };
