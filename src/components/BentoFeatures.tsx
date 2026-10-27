@@ -21,8 +21,8 @@ export default function BentoFeatures() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
           <motion.div {...fadeInUp}>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-950 bg-emerald-950/[0.04] border border-emerald-900/10 mb-3 shadow-2xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0" />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-[#166534] bg-emerald-900/[0.05] border border-emerald-800/15 mb-3 shadow-2xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#166534] shrink-0" />
               <span>How Pet Horizon Works</span>
             </div>
 

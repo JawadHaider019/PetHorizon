@@ -16,16 +16,16 @@ const LIVE_NOTIFICATIONS = [
     message: 'Heartgard Plus administered to Luna',
     tag: 'Verified',
     icon: Pill,
-    color: 'text-emerald-700',
-    bg: 'bg-emerald-100'
+    color: 'text-[#166534]',
+    bg: 'bg-emerald-50'
   },
   {
     title: 'Household Pass • 07:50 AM',
     message: 'Maya R. (Pet Sitter) scanned QR code',
     tag: 'Connected',
     icon: Users,
-    color: 'text-emerald-700',
-    bg: 'bg-emerald-100'
+    color: 'text-[#166534]',
+    bg: 'bg-emerald-50'
   }
 ];
 
@@ -59,7 +59,7 @@ export default function HeroLiveNotifications() {
           <div className="min-w-0 flex-1">
             <div className="flex items-center justify-between gap-1">
               <p className="text-[9px] font-bold text-slate-400 uppercase tracking-wider truncate">{item.title}</p>
-              <span className="text-[9px] font-bold text-emerald-950 bg-emerald-950/5 border border-emerald-900/10 px-1.5 py-0.5 rounded-full shrink-0">{item.tag}</span>
+              <span className="text-[9px] font-bold text-[#166534] bg-emerald-50 border border-emerald-200/80 px-1.5 py-0.5 rounded-full shrink-0">{item.tag}</span>
             </div>
             <p className="text-[11px] font-bold text-[#17191C] truncate leading-snug">{item.message}</p>
           </div>
