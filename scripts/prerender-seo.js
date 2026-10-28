@@ -767,22 +767,17 @@ async function runPostBuild() {
   {
     let html = injectHead(baseTemplate, {
       title: '404 Page Not Found | Pet Horizon',
-      description: 'The requested page could not be found on Pet Horizon.',
+      description: 'Sniffing for clues, but nothing is here. The page you are looking for has wandered off.',
       canonicalUrl: `${BASE_URL}/404`,
       ogType: 'website',
       ogImage: `${BASE_URL}/applogo.png`
     });
-    const bodyHtml = `
-      <div style="max-width: 600px; margin: 100px auto; text-align: center; font-family: system-ui, sans-serif;">
-        <h1 style="font-size: 72px; font-weight: 900; color: #047857; margin: 0;">404</h1>
-        <h2 style="font-size: 24px; color: #111827; margin: 16px 0;">Page Not Found</h2>
-        <p style="color: #6b7280; margin-bottom: 24px;">The page you are looking for has been moved or does not exist.</p>
-        <a href="/" style="display: inline-block; background: #047857; color: #ffffff; padding: 12px 24px; border-radius: 9999px; text-decoration: none; font-weight: 600;">Return to Home</a>
-        <a href="/blogs" style="display: inline-block; margin-left: 12px; color: #047857; padding: 12px 24px; text-decoration: none; font-weight: 600;">Browse Pet Care Guides &rarr;</a>
-      </div>
-    `;
-    html = html.replace('<div id="root"></div>', `<div id="root">${bodyHtml}</div>`);
+    // Preload the lightweight 44KB 404 detective mascot so it renders instantaneously
+    html = html.replace('</head>', `  <link rel="preload" href="/mascots/404-detective.webp" as="image" type="image/webp" fetchpriority="high" />\n  </head>`);
+    
+    // Write 404.html and /404/index.html so Vercel and direct 404 hits load our custom NotFoundPage component cleanly
     writePrerenderedFile('404.html', html);
+    writePrerenderedFile('/404', html);
   }
 
   // 8. Copy public/rss.xml and public/seo to dist
