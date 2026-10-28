@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { NavView } from '../components/Navbar';
 import { BLOG_POSTS } from '../data/blogData';
 
-export type ExtendedAppView = NavView | 'blog-article' | 'changelog' | '404';
+export type ExtendedAppView = NavView | 'blog-article' | 'changelog' | '404' | 'pet-calorie-calculator';
 
 export interface ViewState {
   view: ExtendedAppView;
@@ -13,6 +13,18 @@ export const getViewStateFromLocation = (): ViewState => {
   const path = window.location.pathname;
   const lowerPath = path.toLowerCase();
   const hash = window.location.hash.toLowerCase();
+
+  // Match /tools/pet-calorie-calculator or /pet-calorie-calculator
+  if (
+    lowerPath === '/tools/pet-calorie-calculator' ||
+    lowerPath === '/tools/pet-calorie-calculator/' ||
+    lowerPath === '/pet-calorie-calculator' ||
+    lowerPath === '/pet-calorie-calculator/' ||
+    lowerPath === '/tools/calorie-calculator' ||
+    hash.includes('calorie-calculator')
+  ) {
+    return { view: 'pet-calorie-calculator', articleSlug: null };
+  }
 
   // Match /blogs/:slug or /blog/:slug
   const slugMatch = path.match(/^\/blogs?\/([a-zA-Z0-9-]+)/i);
@@ -95,6 +107,10 @@ export function useAppNavigation() {
     } else if (to === '404') {
       window.history.pushState({}, '', '/404');
       setViewState({ view: '404', articleSlug: null });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (to === 'pet-calorie-calculator') {
+      window.history.pushState({}, '', '/tools/pet-calorie-calculator');
+      setViewState({ view: 'pet-calorie-calculator', articleSlug: null });
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       const slug =

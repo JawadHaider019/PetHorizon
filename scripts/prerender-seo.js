@@ -47,6 +47,7 @@ function generateSitemap(posts) {
   const staticRoutes = [
     { loc: `${BASE_URL}/`, priority: '1.0', changefreq: 'daily' },
     { loc: `${BASE_URL}/blogs`, priority: '0.9', changefreq: 'daily' },
+    { loc: `${BASE_URL}/tools/pet-calorie-calculator`, priority: '0.8', changefreq: 'weekly' },
     { loc: `${BASE_URL}/changelog`, priority: '0.7', changefreq: 'weekly' },
     { loc: `${BASE_URL}/privacy-policy`, priority: '0.4', changefreq: 'monthly' },
     { loc: `${BASE_URL}/terms-of-service`, priority: '0.4', changefreq: 'monthly' },
@@ -653,6 +654,65 @@ async function runPostBuild() {
     `;
     html = html.replace('<div id="root"></div>', `<div id="root">${bodyHtml}</div>`);
     writePrerenderedFile('/changelog', html);
+  }
+
+  // 3.5 Prerender /tools/pet-calorie-calculator
+  {
+    const toolTitle = 'Pet Calorie & Daily Portion Calculator (Dogs & Cats) | Pet Horizon';
+    const toolDesc = 'Free veterinary-standard pet calorie and daily food portion calculator. Calculate RER, MER, daily grams, and cup measurements for dogs and cats based on WSAVA guidelines.';
+    const toolUrl = `${BASE_URL}/tools/pet-calorie-calculator`;
+
+    let html = injectHead(baseTemplate, {
+      title: toolTitle,
+      description: toolDesc,
+      canonicalUrl: toolUrl,
+      ogType: 'website',
+      ogImage: `${BASE_URL}/applogo.png`,
+      jsonLd: [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'WebApplication',
+          name: 'PetHorizon Calorie & Portion Calculator',
+          url: toolUrl,
+          description: toolDesc,
+          applicationCategory: 'HealthApplication',
+          operatingSystem: 'All',
+          offers: {
+            '@type': 'Offer',
+            price: '0',
+            priceCurrency: 'USD'
+          }
+        },
+        {
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+            { '@type': 'ListItem', position: 2, name: 'Tools', item: toolUrl },
+            { '@type': 'ListItem', position: 3, name: 'Pet Calorie Calculator', item: toolUrl }
+          ]
+        }
+      ]
+    });
+
+    const bodyHtml = `
+      <header style="max-width: 840px; margin: 40px auto 20px; padding: 0 16px;">
+        <nav style="font-size: 12px; color: #6b7280; margin-bottom: 16px;"><a href="/">Home</a> &gt; <span>Tools</span> &gt; <span>Pet Calorie Calculator</span></nav>
+        <h1 style="font-size: 32px; font-weight: 800; color: #111827;">Pet Calorie & Daily Portion Calculator</h1>
+        <p style="font-size: 16px; color: #4b5563; max-width: 720px; line-height: 1.6;">${toolDesc}</p>
+      </header>
+      <main style="max-width: 840px; margin: 0 auto; padding: 0 16px;">
+        <section style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 24px; margin-bottom: 24px;">
+          <h2 style="font-size: 20px; font-weight: bold; color: #047857;">Calculate RER & MER Veterinary Food Portions</h2>
+          <p style="color: #4b5563; line-height: 1.6; font-size: 14px;">Use our interactive veterinary tool to calculate exact daily energy requirements (RER = 70 × Weight^0.75) and maintenance feeding portions for puppies, adult dogs, kittens, and senior cats.</p>
+        </section>
+      </main>
+      <footer style="max-width: 840px; margin: 60px auto 40px; padding: 20px 16px; border-top: 1px solid #e5e7eb; font-size: 13px; color: #6b7280;">
+        <p>&copy; 2026 Pet Horizon. All rights reserved. <a href="/">Home</a> • <a href="/privacy-policy">Privacy Policy</a> • <a href="/changelog">Changelog</a></p>
+      </footer>
+    `;
+    html = html.replace('<div id="root"></div>', `<div id="root">${bodyHtml}</div>`);
+    writePrerenderedFile('/tools/pet-calorie-calculator', html);
   }
 
   // 4. Prerender /privacy-policy
