@@ -12,10 +12,10 @@ export default function HeroContent({ onOpenQrModal, onOpenIosModal }: HeroConte
     <div className="text-center lg:text-left flex flex-col items-center lg:items-start gap-3.5 sm:gap-4.5">
       {/* Top Badges Row: Live Google Play & Social Proof */}
       <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
-        <div className="inline-flex items-center space-x-2.5 bg-emerald-950/[0.04] border border-emerald-900/10 text-emerald-950 px-3.5 py-1.5 rounded-full w-fit shadow-2xs whitespace-nowrap shrink-0">
+        <div className="inline-flex items-center space-x-2.5 bg-emerald-900/[0.05] border border-emerald-800/15 text-[#166534] px-3.5 py-1.5 rounded-full w-fit shadow-2xs whitespace-nowrap shrink-0">
           <span className="flex h-2 w-2 relative shrink-0">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-700"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#166534] opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#166534]"></span>
           </span>
           <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider whitespace-nowrap">
             Live on Google Play
@@ -24,7 +24,7 @@ export default function HeroContent({ onOpenQrModal, onOpenIosModal }: HeroConte
 
         <div className="inline-flex items-center gap-2 bg-white border border-black/[0.06] rounded-full px-3 py-1 shadow-2xs">
           <div className="flex -space-x-1.5">
-            <div className="w-5 h-5 rounded-full bg-emerald-700 text-white text-[9px] font-bold flex items-center justify-center ring-1 ring-white">🐾</div>
+            <div className="w-5 h-5 rounded-full bg-[#166534] text-white text-[9px] font-bold flex items-center justify-center ring-1 ring-white">🐾</div>
             <div className="w-5 h-5 rounded-full bg-slate-900 text-white text-[9px] font-bold flex items-center justify-center ring-1 ring-white">🐕</div>
             <div className="w-5 h-5 rounded-full bg-amber-600 text-white text-[9px] font-bold flex items-center justify-center ring-1 ring-white">🐈</div>
           </div>
@@ -39,7 +39,7 @@ export default function HeroContent({ onOpenQrModal, onOpenIosModal }: HeroConte
       {/* Main Headline */}
       <h1 className="text-2xl sm:text-4xl lg:text-[40px] xl:text-[48px] font-black text-[#17191C] tracking-tight leading-[1.12]">
         The Complete Daily Care &amp;{' '}
-        <span className="bg-gradient-to-r from-emerald-800 via-emerald-700 to-emerald-600 bg-clip-text text-transparent">
+        <span className="text-[#166534]">
           Family Hub
         </span>{' '}
         For Your Pets
@@ -63,10 +63,10 @@ export default function HeroContent({ onOpenQrModal, onOpenIosModal }: HeroConte
         ].map((item, idx) => (
           <div
             key={idx}
-            className="flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-emerald-950/[0.06] rounded-xl px-3 py-1.5 shadow-2xs text-slate-700 font-semibold text-xs sm:text-[13px] hover:border-emerald-700/20 transition-colors"
+            className="flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-black/[0.05] rounded-xl px-3 py-1.5 shadow-2xs text-slate-700 font-semibold text-xs sm:text-[13px] hover:border-[#166534]/30 transition-colors"
           >
-            <div className="w-4.5 h-4.5 rounded-full bg-emerald-600/10 text-emerald-700 flex items-center justify-center shrink-0">
-              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700" />
+            <div className="w-4.5 h-4.5 rounded-full bg-emerald-800/10 text-[#166534] flex items-center justify-center shrink-0">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#166534]" />
             </div>
             <span className="truncate">{item.text}</span>
           </div>
@@ -75,8 +75,8 @@ export default function HeroContent({ onOpenQrModal, onOpenIosModal }: HeroConte
 
       {/* CTA Buttons */}
       <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 pt-1 sm:pt-2">
-        <GooglePlayBadge href={PLAY_STORE_URL} className="px-5 py-2.5 rounded-full shadow-lg" />
-        <AppStoreBadge onClick={onOpenIosModal} className="px-5 py-2.5 rounded-full shadow-lg" />
+        <GooglePlayBadge href={PLAY_STORE_URL} className="px-5 py-2.5 rounded-full shadow-md" />
+        <AppStoreBadge onClick={onOpenIosModal} className="px-5 py-2.5 rounded-full shadow-md" />
         {onOpenQrModal && (
           <div className="hidden sm:block">
             <QrScanButton onClick={onOpenQrModal} className="px-4 py-2.5 rounded-full shadow-sm" />
@@ -86,8 +86,8 @@ export default function HeroContent({ onOpenQrModal, onOpenIosModal }: HeroConte
 
       {/* Free Tier Callout */}
       <div className="hidden sm:flex items-center gap-2.5 pt-1 text-xs text-slate-500 font-medium">
-        <span className="inline-flex items-center gap-1 text-emerald-700 font-bold">
-          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Free to Start
+        <span className="inline-flex items-center gap-1 text-[#166534] font-bold">
+          <CheckCircle2 className="w-3.5 h-3.5 text-[#166534]" /> Free to Start
         </span>
         <span>•</span>
         <span>No credit card required</span>

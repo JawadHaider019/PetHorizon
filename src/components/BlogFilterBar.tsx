@@ -37,10 +37,10 @@ export default function BlogFilterBar({
               key={cat}
               type="button"
               onClick={() => onCategoryChange(cat)}
-              className={`shrink-0 rounded-full px-4 py-1.5 text-xs font-semibold transition-all cursor-pointer whitespace-nowrap ${
+              className={`shrink-0 rounded-xl px-3.5 py-1.5 text-xs font-bold transition-all cursor-pointer whitespace-nowrap select-none ${
                 isSelected
-                  ? 'bg-[#126c55] text-white shadow-xs'
-                  : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'
+                  ? 'bg-emerald-600 text-white shadow-sm shadow-emerald-700/20 scale-102'
+                  : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-50 border border-slate-200/80'
               }`}
             >
               {cat}
@@ -57,13 +57,13 @@ export default function BlogFilterBar({
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}
           placeholder="Search articles & guides..."
-          className="w-full rounded-full border border-slate-200 bg-white pl-9 pr-8 py-1.5 text-xs text-slate-800 placeholder:text-slate-400 focus:border-[#126c55] focus:outline-none focus:ring-1 focus:ring-[#126c55] transition-all"
+          className="w-full rounded-xl border border-slate-200/90 bg-white pl-9 pr-8 py-2 text-xs text-slate-800 placeholder:text-slate-400 focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 transition-all shadow-2xs"
         />
         {searchQuery && (
           <button
             type="button"
             onClick={() => onSearchChange('')}
-            className="absolute right-2.5 top-2 text-slate-400 hover:text-slate-600 cursor-pointer"
+            className="absolute right-2.5 top-2.5 text-slate-400 hover:text-slate-600 cursor-pointer"
             title="Clear search"
           >
             <X className="w-3.5 h-3.5" />

@@ -93,9 +93,9 @@ export default function Navbar({
               </div>
               <div className="flex flex-col">
                 <span className="text-lg sm:text-xl font-black tracking-tight text-slate-900 group-hover:text-emerald-700 transition-colors leading-none">
-                  Pet<span className="text-emerald-600 font-extrabold ml-0.5">Horizon</span>
+                  Pet<span className="text-[#166534] font-extrabold ml-0.5">Horizon</span>
                 </span>
-                <span className="text-[10px] text-emerald-800 font-bold uppercase tracking-widest mt-0.5">
+                <span className="text-[10px] text-[#166534] font-bold uppercase tracking-widest mt-0.5">
                   Family Pet Care
                 </span>
               </div>

@@ -3,7 +3,6 @@ import BackgroundCanvas from './components/BackgroundCanvas';
 import CookieBanner from './components/global/CookieBanner';
 import Navbar, { NavView } from './components/Navbar';
 import Hero from './components/Hero';
-import Partners from './components/Partners';
 import BentoFeatures from './components/BentoFeatures';
 import FamilyHubSection from './components/FamilyHubSection';
 import DailyJournalSection from './components/DailyJournalSection';
@@ -160,7 +159,6 @@ export default function App() {
             onOpenQrModal={() => setIsQrModalOpen(true)}
             onOpenIosModal={() => setIsIosModalOpen(true)}
           />
-          <Partners />
           <BentoFeatures />
           <FamilyHubSection />
           <DailyJournalSection />

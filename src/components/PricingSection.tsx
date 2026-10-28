@@ -22,8 +22,8 @@ export default function PricingSection() {
           transition={scrollTransition}
           className="text-center max-w-3xl mx-auto mb-8 sm:mb-14"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-950 bg-emerald-950/[0.04] border border-emerald-900/10 mb-2 sm:mb-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-[#166534] bg-emerald-900/[0.05] border border-emerald-800/15 mb-2 sm:mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#166534] shrink-0" />
             Pricing &amp; Plans
           </div>
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#17191C] tracking-tight leading-tight">

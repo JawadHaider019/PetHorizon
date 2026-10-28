@@ -133,3 +133,69 @@ body {
   0% { transform: rotate(0deg) translateX(38px) rotate(0deg); }
   100% { transform: rotate(360deg) translateX(38px) rotate(-360deg); }
 }
+
+/* Everystore-inspired Hero Animations */
+@keyframes heroRadiusPulse {
+  0% {
+    transform: scale(0.65);
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+@keyframes heroCardFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes heroAmbientBreathe {
+  0%, 100% {
+    transform: scale(0.96);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
+@keyframes heroMarquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-hero-radius-pulse {
+  animation: heroRadiusPulse 6s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+}
+
+.animate-hero-card-float {
+  animation: heroCardFloat 5s ease-in-out infinite;
+}
+
+.animate-hero-ambient-breathe {
+  animation: heroAmbientBreathe 5s ease-in-out infinite;
+}
+
+.animate-hero-marquee {
+  display: flex;
+  width: max-content;
+  animation: heroMarquee 28s linear infinite;
+}
+.animate-hero-marquee:hover {
+  animation-play-state: paused;
+}
+
