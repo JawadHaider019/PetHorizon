@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 interface PhoneFrameProps {
   src?: string;
@@ -19,6 +19,16 @@ export default function PhoneFrame({
   children,
   showButtons = true
 }: PhoneFrameProps) {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  // If the image was preloaded or already cached by the browser, mark it loaded immediately
+  useEffect(() => {
+    if (imgRef.current && imgRef.current.complete && imgRef.current.naturalWidth > 0) {
+      setIsLoaded(true);
+    }
+  }, [src]);
+
   return (
     <div
       className={`relative ${frameClassName} rounded-[2.8rem] sm:rounded-[3.2rem] p-2 sm:p-2.5 bg-[#0F1115] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.35),0_0_0_1px_rgba(255,255,255,0.08)] ring-1 ring-slate-800/80 select-none ${className}`}
@@ -37,18 +47,41 @@ export default function PhoneFrame({
         </>
       )}
 
-      {/* Screen Container: Edge-to-edge Content */}
-      <div className="relative rounded-[2.2rem] sm:rounded-[2.5rem] overflow-hidden aspect-[499/1024] shadow-inner bg-[#0F1115]">
+      {/* Screen Container: Edge-to-edge Content (Using light theme background #F8FAFC matching app palette instead of pitch black #0F1115) */}
+      <div className="relative rounded-[2.2rem] sm:rounded-[2.5rem] overflow-hidden aspect-[499/1024] shadow-inner bg-[#F8FAFC]">
+        {/* Elegant wireframe placeholder while image bytes decode */}
+        {src && !isLoaded && (
+          <div className="absolute inset-0 bg-gradient-to-b from-[#F4FBF5] via-[#FAF8F5] to-[#F1F5F9] flex flex-col p-4 animate-pulse z-0">
+            {/* Status bar mock */}
+            <div className="flex justify-between items-center mb-5 pt-1">
+              <div className="w-8 h-2 bg-emerald-900/10 rounded-full" />
+              <div className="w-10 h-2 bg-emerald-900/10 rounded-full" />
+            </div>
+            {/* Top hero banner mock */}
+            <div className="w-full h-24 bg-emerald-800/10 rounded-2xl mb-4" />
+            {/* Routine card mocks */}
+            <div className="space-y-2.5 flex-1">
+              <div className="w-full h-12 bg-slate-200/50 rounded-xl" />
+              <div className="w-full h-12 bg-slate-200/50 rounded-xl" />
+              <div className="w-full h-12 bg-slate-200/50 rounded-xl" />
+            </div>
+          </div>
+        )}
+
         {/* Content / Screenshot */}
         {src ? (
           <img
+            ref={imgRef}
             src={src}
             alt={alt}
             width={499}
             height={1024}
-            decoding="async"
-            className="w-full h-full object-cover object-top block"
+            decoding={priority ? 'sync' : 'async'}
+            className={`w-full h-full object-cover object-top block transition-opacity duration-300 relative z-10 ${
+              isLoaded || priority ? 'opacity-100' : 'opacity-0'
+            }`}
             loading={priority ? 'eager' : 'lazy'}
+            onLoad={() => setIsLoaded(true)}
             {...(priority ? { fetchPriority: 'high' } : {})}
           />
         ) : (
