@@ -27,7 +27,7 @@ export const SITE_CONFIG = {
    * Google Analytics 4 (GA4) Measurement ID
    * Replace with your active stream ID: e.g. 'G-XXXXXXXXXX'
    */
-  gaMeasurementId: 'G-MEASUREMENT_ID_PLACEHOLDER',
+  gaMeasurementId: 'G-FHBNRZ7X6T',
   /**
    * Bing Webmaster Tools & IndexNow Key
    */
