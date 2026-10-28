@@ -190,5 +190,13 @@ export function usePageSeo(viewState: ViewState, currentArticle: BlogPost | null
       updateMetaTag('meta[name="description"]', 'content', SITE_CONFIG.description);
       updateCanonical('');
     }
+
+    // Clean up dynamic blog article schema when visiting non-blog views
+    if (viewState.view !== 'blog-article' && viewState.view !== 'blog') {
+      const dynamicArticleSchema = document.getElementById('seo-schema-article');
+      if (dynamicArticleSchema) {
+        dynamicArticleSchema.remove();
+      }
+    }
   }, [viewState, currentArticle]);
 }
