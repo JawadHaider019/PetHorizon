@@ -19,8 +19,7 @@ import {
   Wifi,
   BatteryMedium,
   Activity,
-  HeartPulse,
-  BookOpen
+  HeartPulse
 } from 'lucide-react';
 import { fadeInUp } from '../../config/animationVariants';
 
