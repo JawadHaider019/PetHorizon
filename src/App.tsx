@@ -113,11 +113,11 @@ export default function App() {
         </>
       )}
 
-      {/* Legal Portals (Privacy & Deletion) */}
-      {['privacy', 'deletion'].includes(viewState.view) && (
+      {/* Legal Portals (Privacy, Terms & Deletion) */}
+      {['privacy', 'terms', 'deletion'].includes(viewState.view) && (
         <>
           <LegalPortal
-            initialDoc={viewState.view as 'privacy' | 'deletion'}
+            initialDoc={viewState.view === 'terms' ? 'privacy' : (viewState.view as 'privacy' | 'deletion')}
             onNavigateHome={() => navigateTo('home')}
             onSelectDoc={(doc) => navigateTo(doc)}
           />

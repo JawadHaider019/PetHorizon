@@ -177,6 +177,10 @@ export function usePageSeo(viewState: ViewState, currentArticle: BlogPost | null
       document.title = 'Official Privacy Policy | PetHorizon';
       updateMetaTag('meta[name="description"]', 'content', 'Read the official PetHorizon privacy policy regarding zero data monetization and encrypted pet records.');
       updateCanonical('/privacy-policy');
+    } else if (viewState.view === 'terms') {
+      document.title = 'Terms of Service | PetHorizon';
+      updateMetaTag('meta[name="description"]', 'content', 'Read the official terms of service and license agreement for Pet Horizon mobile application and web portal.');
+      updateCanonical('/terms-of-service');
     } else if (viewState.view === 'deletion') {
       document.title = 'Data & Account Deletion Instructions | PetHorizon';
       updateMetaTag('meta[name="description"]', 'content', 'How to request complete data and account deletion in PetHorizon.');

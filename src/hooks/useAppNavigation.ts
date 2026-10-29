@@ -53,7 +53,7 @@ export const getViewStateFromLocation = (): ViewState => {
     return { view: 'privacy', articleSlug: null };
   }
   if (lowerPath.includes('terms') || hash.includes('terms')) {
-    return { view: 'privacy', articleSlug: null };
+    return { view: 'terms', articleSlug: null };
   }
   if (
     lowerPath.includes('deletion') ||
@@ -116,11 +116,13 @@ export function useAppNavigation() {
       const slug =
         to === 'blog'
           ? 'blogs'
-          : to === 'privacy' || (to as string) === 'terms'
+          : to === 'privacy'
           ? 'privacy-policy'
+          : to === 'terms'
+          ? 'terms-of-service'
           : 'data-deletion';
       window.history.pushState({}, '', `/${slug}`);
-      setViewState({ view: to === 'terms' ? 'privacy' : (to as ExtendedAppView), articleSlug: null });
+      setViewState({ view: to as ExtendedAppView, articleSlug: null });
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }, []);
