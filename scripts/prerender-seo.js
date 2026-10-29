@@ -151,6 +151,9 @@ Disallow: /scratch_preview.html
 User-agent: Googlebot
 Allow: /
 
+User-agent: Google-Extended
+Allow: /
+
 User-agent: Bingbot
 Allow: /
 
@@ -169,11 +172,17 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-# 3. Model Training Bots (Documented Access)
+# 3. Model Training & AI Crawlers (AEO / GEO Optimization)
 User-agent: GPTBot
 Allow: /
 
 User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
 Allow: /
 
 # Sitemaps & Feeds
