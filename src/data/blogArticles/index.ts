@@ -33,6 +33,15 @@ import {
   torontoBudgetArticle,
   sydneyTrackersArticle
 } from './localizedCityArticles';
+import {
+  rabbitFeedingArticle,
+  parrotCareArticle,
+  rescueDog333Article
+} from './exoticAndRescueArticles';
+import {
+  petDiabetesInsulinArticle,
+  petMicrochipGuideArticle
+} from './chronicCareAndIdArticles';
 
 export * from './types';
 export {
@@ -69,7 +78,12 @@ export {
   nycVaccinationArticle,
   londonCoParentingArticle,
   torontoBudgetArticle,
-  sydneyTrackersArticle
+  sydneyTrackersArticle,
+  rabbitFeedingArticle,
+  parrotCareArticle,
+  rescueDog333Article,
+  petDiabetesInsulinArticle,
+  petMicrochipGuideArticle
 };
 
 const ARTICLES_MAP: Record<string, FullBlogArticle> = {
@@ -106,7 +120,12 @@ const ARTICLES_MAP: Record<string, FullBlogArticle> = {
   [nycVaccinationArticle.slug]: nycVaccinationArticle,
   [londonCoParentingArticle.slug]: londonCoParentingArticle,
   [torontoBudgetArticle.slug]: torontoBudgetArticle,
-  [sydneyTrackersArticle.slug]: sydneyTrackersArticle
+  [sydneyTrackersArticle.slug]: sydneyTrackersArticle,
+  [rabbitFeedingArticle.slug]: rabbitFeedingArticle,
+  [parrotCareArticle.slug]: parrotCareArticle,
+  [rescueDog333Article.slug]: rescueDog333Article,
+  [petDiabetesInsulinArticle.slug]: petDiabetesInsulinArticle,
+  [petMicrochipGuideArticle.slug]: petMicrochipGuideArticle
 };
 
 /**
