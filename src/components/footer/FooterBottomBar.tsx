@@ -1,15 +1,17 @@
 import { SITE_CONFIG } from '../../config/siteConfig';
 
 interface FooterBottomBarProps {
-  onLegalClick: (e: React.MouseEvent, doc: 'privacy' | 'deletion') => void;
+  onLegalClick: (e: React.MouseEvent, doc: 'privacy' | 'terms' | 'deletion') => void;
   onBlogClick: (e: React.MouseEvent) => void;
   onChangelogClick?: (e: React.MouseEvent) => void;
+  onToolClick?: (e: React.MouseEvent) => void;
 }
 
 export default function FooterBottomBar({
   onLegalClick,
   onBlogClick,
-  onChangelogClick
+  onChangelogClick,
+  onToolClick
 }: FooterBottomBarProps) {
   return (
     <div className="pt-4 sm:pt-5 border-t border-emerald-950/[0.08] flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-slate-500">
@@ -19,6 +21,13 @@ export default function FooterBottomBar({
           className="hover:text-[#166534] transition-colors cursor-pointer whitespace-nowrap"
         >
           Veterinary Guides
+        </button>
+        <span className="text-emerald-950/20">&bull;</span>
+        <button
+          onClick={onToolClick}
+          className="hover:text-[#166534] transition-colors cursor-pointer whitespace-nowrap"
+        >
+          Calorie Calculator
         </button>
         <span className="text-emerald-950/20">&bull;</span>
         <button
@@ -33,6 +42,13 @@ export default function FooterBottomBar({
           className="hover:text-[#166534] transition-colors cursor-pointer whitespace-nowrap"
         >
           Privacy Protocol
+        </button>
+        <span className="text-emerald-950/20">&bull;</span>
+        <button
+          onClick={(e) => onLegalClick(e, 'terms')}
+          className="hover:text-[#166534] transition-colors cursor-pointer whitespace-nowrap"
+        >
+          Terms of Service
         </button>
         <span className="text-emerald-950/20">&bull;</span>
         <button

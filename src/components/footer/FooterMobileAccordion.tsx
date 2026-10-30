@@ -3,15 +3,17 @@ import { ChevronDown } from 'lucide-react';
 import { SUPPORT_EMAIL } from '../../config/siteConfig';
 
 interface FooterMobileAccordionProps {
-  onLegalClick: (e: React.MouseEvent, doc: 'privacy' | 'deletion') => void;
+  onLegalClick: (e: React.MouseEvent, doc: 'privacy' | 'terms' | 'deletion') => void;
   onBlogClick: (e: React.MouseEvent) => void;
   onChangelogClick?: (e: React.MouseEvent) => void;
+  onToolClick?: (e: React.MouseEvent) => void;
 }
 
 export default function FooterMobileAccordion({
   onLegalClick,
   onBlogClick,
-  onChangelogClick
+  onChangelogClick,
+  onToolClick
 }: FooterMobileAccordionProps) {
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
 
@@ -40,6 +42,17 @@ export default function FooterMobileAccordion({
             <li><a href="#features" className="hover:text-[#166534] transition-colors font-medium block">Care Schedules &amp; Reminders</a></li>
             <li><a href="#family-hub" className="hover:text-[#166534] transition-colors font-medium block">Shared Family Care Hub</a></li>
             <li><a href="#journal" className="hover:text-[#166534] transition-colors font-medium block">Daily Photo Journal &amp; Milestones</a></li>
+            <li>
+              <button
+                onClick={onToolClick}
+                className="hover:text-[#166534] transition-colors font-medium text-left cursor-pointer flex items-center gap-1.5"
+              >
+                <span>Pet Calorie Calculator</span>
+                <span className="text-[9px] font-bold uppercase tracking-wider bg-emerald-50 text-[#166534] border border-emerald-200/70 px-1.5 py-0.2 rounded-full whitespace-nowrap">
+                  Free Tool
+                </span>
+              </button>
+            </li>
             <li><a href="#tour" className="hover:text-[#166534] transition-colors font-medium block">Interactive App Tour</a></li>
             <li><a href="#pricing" className="hover:text-[#166534] transition-colors font-medium block">Membership &amp; Family Plans</a></li>
           </ul>
@@ -116,6 +129,15 @@ export default function FooterMobileAccordion({
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-[#166534] shrink-0" />
                 <span>Privacy Policy</span>
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={(e) => onLegalClick(e, 'terms')}
+                className="hover:text-[#166534] transition-colors font-medium text-left cursor-pointer flex items-center gap-2"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0" />
+                <span>Terms of Service</span>
               </button>
             </li>
             <li>

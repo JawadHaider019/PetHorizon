@@ -53,11 +53,17 @@ export default function Navbar({
 
     if (onNavigate) {
       onNavigate(view, hash);
-    } else {
       if (view === 'home') {
         window.location.href = hash ? `/${hash}` : '/';
+      } else {
         const slug =
-          view === 'blog' ? 'blogs' : view === 'privacy' ? 'privacy-policy' : 'data-deletion';
+          view === 'blog'
+            ? 'blogs'
+            : view === 'privacy'
+            ? 'privacy-policy'
+            : view === 'terms'
+            ? 'terms-of-service'
+            : 'data-deletion';
         window.location.href = `/${slug}`;
       }
     }
