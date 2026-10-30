@@ -46,7 +46,7 @@ export default function HeroCenterpiece() {
           <div className="animate-hero-card-float" style={{ animationDelay: '0s' }}>
             <div className="w-[195px] xl:w-[215px] rounded-[20px] bg-white/95 backdrop-blur-md p-3 shadow-[0_12px_30px_rgba(0,0,0,0.08)] border border-black/[0.06] text-left">
               <div className="flex items-center justify-between mb-1">
-                <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider">
+                <span className="text-[9px] font-bold text-slate-600 uppercase tracking-wider">
                   Daily Routine
                 </span>
                 <span className="inline-flex items-center gap-1 text-[9px] font-bold text-[#166534] bg-emerald-50 border border-emerald-200/80 px-2 py-0.5 rounded-full">
@@ -57,7 +57,7 @@ export default function HeroCenterpiece() {
               <p className="text-[11.5px] font-extrabold text-[#17191C] leading-snug">
                 Michael fed Luna
               </p>
-              <div className="mt-0.5 flex items-center gap-1.5 text-[10px] text-slate-500 font-medium">
+              <div className="mt-0.5 flex items-center gap-1.5 text-[10px] text-slate-600 font-medium">
                 <Clock className="w-2.5 h-2.5 text-emerald-700 shrink-0" />
                 <span>Breakfast • 2 cups kibble</span>
               </div>
@@ -70,7 +70,7 @@ export default function HeroCenterpiece() {
           <div className="animate-hero-card-float" style={{ animationDelay: '1.25s' }}>
             <div className="w-[195px] xl:w-[215px] rounded-[20px] bg-white/95 backdrop-blur-md p-3 shadow-[0_12px_30px_rgba(0,0,0,0.08)] border border-black/[0.06] text-left">
               <div className="flex items-center justify-between mb-1">
-                <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider">
+                <span className="text-[9px] font-bold text-slate-600 uppercase tracking-wider">
                   Medication Due
                 </span>
                 <span className="inline-flex items-center gap-1 text-[9px] font-bold text-[#166534] bg-emerald-50 border border-emerald-200/80 px-2 py-0.5 rounded-full">
@@ -81,7 +81,7 @@ export default function HeroCenterpiece() {
               <p className="text-[11.5px] font-extrabold text-[#17191C] leading-snug">
                 Heartgard Plus Chew
               </p>
-              <div className="mt-0.5 flex items-center gap-1.5 text-[10px] text-slate-500 font-medium">
+              <div className="mt-0.5 flex items-center gap-1.5 text-[10px] text-slate-600 font-medium">
                 <Pill className="w-2.5 h-2.5 text-amber-600 shrink-0" />
                 <span>Luna • 08:00 AM Daily</span>
               </div>
@@ -94,7 +94,7 @@ export default function HeroCenterpiece() {
           <div className="animate-hero-card-float" style={{ animationDelay: '0.65s' }}>
             <div className="w-[195px] xl:w-[215px] rounded-[20px] bg-white/95 backdrop-blur-md p-3 shadow-[0_12px_30px_rgba(0,0,0,0.08)] border border-black/[0.06] text-left">
               <div className="flex items-center justify-between mb-1">
-                <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider">
+                <span className="text-[9px] font-bold text-slate-600 uppercase tracking-wider">
                   Caretaker Pass
                 </span>
                 <span className="inline-flex items-center gap-1 text-[9px] font-bold text-amber-700 bg-amber-50 border border-amber-200/80 px-2 py-0.5 rounded-full">
@@ -105,7 +105,7 @@ export default function HeroCenterpiece() {
               <p className="text-[11.5px] font-extrabold text-[#17191C] leading-snug">
                 Maya R. (Pet Sitter)
               </p>
-              <div className="mt-0.5 flex items-center gap-1.5 text-[10px] text-slate-500 font-medium">
+              <div className="mt-0.5 flex items-center gap-1.5 text-[10px] text-slate-600 font-medium">
                 <Users className="w-2.5 h-2.5 text-[#166534] shrink-0" />
                 <span>Full Access • Household Hub</span>
               </div>

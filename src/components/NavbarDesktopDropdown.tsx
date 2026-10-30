@@ -60,10 +60,10 @@ export default function NavbarDesktopDropdown({
                     <item.icon className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
+                    <span className="block text-xs font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
                       {item.title}
-                    </h4>
-                    <p className="text-[11px] text-slate-500 leading-snug mt-0.5">{item.desc}</p>
+                    </span>
+                    <p className="text-[11px] text-slate-600 leading-snug mt-0.5">{item.desc}</p>
                   </div>
                 </a>
               ))
@@ -83,16 +83,16 @@ export default function NavbarDesktopDropdown({
                   </div>
                   <div>
                     <div className="flex items-center gap-1.5">
-                      <h4 className="text-xs font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
+                      <span className="block text-xs font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
                         {item.title}
-                      </h4>
+                      </span>
                       {item.badge && (
                         <span className="text-[9px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-800 border border-emerald-200/70 px-1.5 py-0.2 rounded-full">
                           {item.badge}
                         </span>
                       )}
                     </div>
-                    <p className="text-[11px] text-slate-500 leading-snug mt-0.5">{item.desc}</p>
+                    <p className="text-[11px] text-slate-600 leading-snug mt-0.5">{item.desc}</p>
                   </div>
                 </a>
               ))
@@ -108,10 +108,10 @@ export default function NavbarDesktopDropdown({
                     <item.icon className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
+                    <span className="block text-xs font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
                       {item.title}
-                    </h4>
-                    <p className="text-[11px] text-slate-500 leading-snug mt-0.5">{item.desc}</p>
+                    </span>
+                    <p className="text-[11px] text-slate-600 leading-snug mt-0.5">{item.desc}</p>
                   </div>
                 </a>
               ))
