@@ -39,6 +39,9 @@ export function updateJsonLd(id: string, data: object | object[]): void {
 }
 
 export function buildArticleSchemas(article: BlogPost, baseUrl: string, pageDesc: string, articleUrl: string): object[] {
+  const isoPublished = !Number.isNaN(Date.parse(article.publishedAt))
+    ? new Date(article.publishedAt).toISOString()
+    : '2026-10-26T00:00:00.000Z';
   const schemas: object[] = [
     {
       '@context': 'https://schema.org',
@@ -46,8 +49,8 @@ export function buildArticleSchemas(article: BlogPost, baseUrl: string, pageDesc
       headline: article.title,
       description: pageDesc,
       image: [article.coverImage],
-      datePublished: article.publishedAt,
-      dateModified: article.publishedAt,
+      datePublished: isoPublished,
+      dateModified: isoPublished,
       author: {
         '@type': article.author.name.includes('Team') ? 'Organization' : 'Person',
         name: article.author.name,

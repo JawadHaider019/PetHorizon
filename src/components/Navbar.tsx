@@ -135,7 +135,7 @@ export default function Navbar({
               </a>
 
               <a
-                href="/blog"
+                href="/blogs"
                 onClick={(e) => handleLinkClick(e, 'blog')}
                 className={`px-3.5 py-2 rounded-xl text-sm font-semibold transition-all cursor-pointer select-none flex items-center gap-1.5 ${
                   currentView === 'blog'
