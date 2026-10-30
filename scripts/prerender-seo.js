@@ -210,8 +210,13 @@ Pet Horizon (https://pethorizon.jawumitech.com) is a comprehensive pet care plat
 - Google Play Store: https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon
 - Support Email: pethorizon2026@gmail.com
 - Privacy Policy: ${BASE_URL}/privacy-policy
+- Terms of Service: ${BASE_URL}/terms-of-service
 - Data Deletion: ${BASE_URL}/data-deletion
 - RSS Feed: ${BASE_URL}/rss.xml
+
+## Free Interactive Veterinary Tools
+- [Pet Calorie & Daily Portion Calculator (WSAVA RER/MER)](${BASE_URL}/tools/pet-calorie-calculator): Calculate exact Resting Energy Requirements (70 * kg^0.75), daily maintenance calories, gram portions, and cup conversions for dogs and cats.
+- [Pet Age Calculator in Human Years (AAHA Life Stage Matrix)](${BASE_URL}/tools/pet-age-calculator): Convert dog and cat chronological age into biological human years with breed size scaling, life stage gauges, and preventive health milestones.
 
 ## Topic Clusters & Canonical Guides (${posts.length} Active Guides)
 `;
@@ -464,7 +469,7 @@ async function runPostBuild() {
       }
     });
 
-    html = html.replace('<div id="root"></div>', `<div id="root">${semanticBody}</div>`);
+    html = html.replace(/<div id="root">[\s\S]*?<\/div>/i, `<div id="root">${semanticBody}</div>`);
     writePrerenderedFile('/blogs', html);
   }
 
@@ -662,7 +667,7 @@ async function runPostBuild() {
       jsonLd: articleJsonLd
     });
 
-    postHtml = postHtml.replace('<div id="root"></div>', `<div id="root">${articleHtml}</div>`);
+    postHtml = postHtml.replace(/<div id="root">[\s\S]*?<\/div>/i, `<div id="root">${articleHtml}</div>`);
     writePrerenderedFile(`/blogs/${post.slug}`, postHtml);
   }
 
@@ -687,7 +692,7 @@ async function runPostBuild() {
         <p style="font-size: 16px; color: #4b5563;">Explore continuous release updates, routine sync improvements, and health card features.</p>
       </header>
     `;
-    html = html.replace('<div id="root"></div>', `<div id="root">${bodyHtml}</div>`);
+    html = html.replace(/<div id="root">[\s\S]*?<\/div>/i, `<div id="root">${bodyHtml}</div>`);
     writePrerenderedFile('/changelog', html);
   }
 
@@ -746,7 +751,7 @@ async function runPostBuild() {
         <p>&copy; 2026 Pet Horizon. All rights reserved. <a href="/">Home</a> • <a href="/privacy-policy">Privacy Policy</a> • <a href="/changelog">Changelog</a></p>
       </footer>
     `;
-    html = html.replace('<div id="root"></div>', `<div id="root">${bodyHtml}</div>`);
+    html = html.replace(/<div id="root">[\s\S]*?<\/div>/i, `<div id="root">${bodyHtml}</div>`);
     writePrerenderedFile('/tools/pet-calorie-calculator', html);
   }
 
@@ -850,7 +855,7 @@ async function runPostBuild() {
         <p>&copy; 2026 Pet Horizon. All rights reserved. <a href="/">Home</a> • <a href="/tools/pet-calorie-calculator">Calorie Calculator</a> • <a href="/privacy-policy">Privacy Policy</a></p>
       </footer>
     `;
-    html = html.replace('<div id="root"></div>', `<div id="root">${bodyHtml}</div>`);
+    html = html.replace(/<div id="root">[\s\S]*?<\/div>/i, `<div id="root">${bodyHtml}</div>`);
     writePrerenderedFile('/tools/pet-age-calculator', html);
   }
 
@@ -867,6 +872,8 @@ async function runPostBuild() {
       ogType: 'website',
       ogImage: `${BASE_URL}/applogo.png`
     });
+    const bodyHtml = `<main style="max-width: 840px; margin: 40px auto; padding: 0 16px;"><h1>${privTitle}</h1><p>${privDesc}</p></main>`;
+    html = html.replace(/<div id="root">[\s\S]*?<\/div>/i, `<div id="root">${bodyHtml}</div>`);
     writePrerenderedFile('/privacy-policy', html);
   }
 
@@ -883,6 +890,8 @@ async function runPostBuild() {
       ogType: 'website',
       ogImage: `${BASE_URL}/applogo.png`
     });
+    const bodyHtml = `<main style="max-width: 840px; margin: 40px auto; padding: 0 16px;"><h1>${termsTitle}</h1><p>${termsDesc}</p></main>`;
+    html = html.replace(/<div id="root">[\s\S]*?<\/div>/i, `<div id="root">${bodyHtml}</div>`);
     writePrerenderedFile('/terms-of-service', html);
   }
 
@@ -899,6 +908,8 @@ async function runPostBuild() {
       ogType: 'website',
       ogImage: `${BASE_URL}/applogo.png`
     });
+    const bodyHtml = `<main style="max-width: 840px; margin: 40px auto; padding: 0 16px;"><h1>${delTitle}</h1><p>${delDesc}</p></main>`;
+    html = html.replace(/<div id="root">[\s\S]*?<\/div>/i, `<div id="root">${bodyHtml}</div>`);
     writePrerenderedFile('/data-deletion', html);
   }
 
