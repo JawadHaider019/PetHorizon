@@ -174,3 +174,4 @@ export default function BlogSectionExtras({ section }: BlogSectionExtrasProps) {
     </>
   );
 }
+
