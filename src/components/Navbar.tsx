@@ -53,19 +53,18 @@ export default function Navbar({
 
     if (onNavigate) {
       onNavigate(view, hash);
-      if (view === 'home') {
-        window.location.href = hash ? `/${hash}` : '/';
-      } else {
-        const slug =
-          view === 'blog'
-            ? 'blogs'
-            : view === 'privacy'
-            ? 'privacy-policy'
-            : view === 'terms'
-            ? 'terms-of-service'
-            : 'data-deletion';
-        window.location.href = `/${slug}`;
-      }
+    } else if (view === 'home') {
+      window.location.href = hash ? `/${hash}` : '/';
+    } else {
+      const slug =
+        view === 'blog'
+          ? 'blogs'
+          : view === 'privacy'
+          ? 'privacy-policy'
+          : view === 'terms'
+          ? 'terms-of-service'
+          : 'data-deletion';
+      window.location.href = `/${slug}`;
     }
   };
 
