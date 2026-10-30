@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import BackgroundCanvas from './components/BackgroundCanvas';
 import CookieBanner from './components/global/CookieBanner';
 import Navbar, { NavView } from './components/Navbar';
@@ -15,18 +15,20 @@ import FAQSection from './components/FAQSection';
 import ContactUs from './components/ContactUs';
 import DownloadCTA from './components/DownloadCTA';
 import Footer from './components/Footer';
-import LegalPortal from './components/LegalPortal';
-import BlogHub from './components/BlogHub';
-import BlogArticleDetail from './components/BlogArticleDetail';
-import ChangelogPage from './components/changelog/ChangelogPage';
-import NotFoundPage from './components/errors/NotFoundPage';
-import PetCalorieCalculator from './components/tools/PetCalorieCalculator';
-import PetAgeCalculator from './components/tools/PetAgeCalculator';
-import QrDownloadModal from './components/modals/QrDownloadModal';
-import IosWaitlistModal from './components/modals/IosWaitlistModal';
 import { BLOG_POSTS } from './data/blogData';
 import { useAppNavigation, ExtendedAppView } from './hooks/useAppNavigation';
 import { usePageSeo } from './hooks/usePageSeo';
+
+// Dynamic code-splitting for non-homepage views & modals to optimize initial bundle size & LCP
+const LegalPortal = lazy(() => import('./components/LegalPortal'));
+const BlogHub = lazy(() => import('./components/BlogHub'));
+const BlogArticleDetail = lazy(() => import('./components/BlogArticleDetail'));
+const ChangelogPage = lazy(() => import('./components/changelog/ChangelogPage'));
+const NotFoundPage = lazy(() => import('./components/errors/NotFoundPage'));
+const PetCalorieCalculator = lazy(() => import('./components/tools/PetCalorieCalculator'));
+const PetAgeCalculator = lazy(() => import('./components/tools/PetAgeCalculator'));
+const QrDownloadModal = lazy(() => import('./components/modals/QrDownloadModal'));
+const IosWaitlistModal = lazy(() => import('./components/modals/IosWaitlistModal'));
 
 export type { ExtendedAppView };
 
@@ -76,6 +78,14 @@ export default function App() {
     }`}>
       <BackgroundCanvas />
 
+      {/* Accessible Skip Link for Keyboard & Screen Reader Users */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-emerald-800 focus:text-white focus:rounded-lg focus:shadow-lg focus:font-bold focus:outline-none"
+      >
+        Skip to main content
+      </a>
+
       {/* Navigation Bar with Integrated Announcement Banner */}
       <Navbar
         currentView={navbarActiveView}
@@ -83,137 +93,104 @@ export default function App() {
         onOpenQrModal={() => setIsQrModalOpen(true)}
       />
 
-      {/* Blog Article View */}
-      {viewState.view === 'blog-article' && currentArticle && (
-        <>
-          <BlogArticleDetail
-            article={currentArticle}
-            onNavigateBack={() => navigateTo('blog')}
-            onSelectArticle={(slug) => navigateToArticle(slug)}
-            onOpenQrModal={() => setIsQrModalOpen(true)}
-          />
-          <Footer
-            onNavigate={(to, hash) => navigateTo(to as ExtendedAppView, hash)}
-            onNavigateLegal={(doc) => navigateTo(doc)}
-          />
-        </>
-      )}
+      {/* Primary Main Content Landmark for Screen Readers & Accessibility */}
+      <main id="main-content" tabIndex={-1} className="outline-none">
+        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center" />}>
+          {/* Blog Article View */}
+          {viewState.view === 'blog-article' && currentArticle && (
+            <BlogArticleDetail
+              article={currentArticle}
+              onNavigateBack={() => navigateTo('blog')}
+              onSelectArticle={(slug) => navigateToArticle(slug)}
+              onOpenQrModal={() => setIsQrModalOpen(true)}
+            />
+          )}
 
-      {/* Blog Hub View */}
-      {viewState.view === 'blog' && (
-        <>
-          <BlogHub
-            onNavigateHome={() => navigateTo('home')}
-            onNavigateLegal={(doc) => navigateTo(doc)}
-            onSelectArticle={(slug) => navigateToArticle(slug)}
-          />
-          <Footer
-            onNavigate={(to, hash) => navigateTo(to as ExtendedAppView, hash)}
-            onNavigateLegal={(doc) => navigateTo(doc)}
-          />
-        </>
-      )}
+          {/* Blog Hub View */}
+          {viewState.view === 'blog' && (
+            <BlogHub
+              onNavigateHome={() => navigateTo('home')}
+              onNavigateLegal={(doc) => navigateTo(doc)}
+              onSelectArticle={(slug) => navigateToArticle(slug)}
+            />
+          )}
 
-      {/* Legal Portals (Privacy, Terms & Deletion) */}
-      {['privacy', 'terms', 'deletion'].includes(viewState.view) && (
-        <>
-          <LegalPortal
-            initialDoc={viewState.view === 'terms' ? 'privacy' : (viewState.view as 'privacy' | 'deletion')}
-            onNavigateHome={() => navigateTo('home')}
-            onSelectDoc={(doc) => navigateTo(doc)}
-          />
-          <Footer
-            onNavigate={(to, hash) => navigateTo(to as ExtendedAppView, hash)}
-            onNavigateLegal={(doc) => navigateTo(doc)}
-          />
-        </>
-      )}
+          {/* Legal Portals (Privacy, Terms & Deletion) */}
+          {['privacy', 'terms', 'deletion'].includes(viewState.view) && (
+            <LegalPortal
+              initialDoc={viewState.view === 'terms' ? 'privacy' : (viewState.view as 'privacy' | 'deletion')}
+              onNavigateHome={() => navigateTo('home')}
+              onSelectDoc={(doc) => navigateTo(doc)}
+            />
+          )}
 
-      {/* Changelog View */}
-      {viewState.view === 'changelog' && (
-        <>
-          <ChangelogPage onNavigateHome={() => navigateTo('home')} />
-          <Footer
-            onNavigate={(to, hash) => navigateTo(to as ExtendedAppView, hash)}
-            onNavigateLegal={(doc) => navigateTo(doc)}
-          />
-        </>
-      )}
+          {/* Changelog View */}
+          {viewState.view === 'changelog' && (
+            <ChangelogPage onNavigateHome={() => navigateTo('home')} />
+          )}
 
-      {/* Pet Calorie & Daily Portion Calculator Tool */}
-      {viewState.view === 'pet-calorie-calculator' && (
-        <>
-          <PetCalorieCalculator
-            onNavigateHome={() => navigateTo('home')}
-            onOpenQrModal={() => setIsQrModalOpen(true)}
-          />
-          <Footer
-            onNavigate={(to, hash) => navigateTo(to as ExtendedAppView, hash)}
-            onNavigateLegal={(doc) => navigateTo(doc)}
-          />
-        </>
-      )}
+          {/* Pet Calorie & Daily Portion Calculator Tool */}
+          {viewState.view === 'pet-calorie-calculator' && (
+            <PetCalorieCalculator
+              onNavigateHome={() => navigateTo('home')}
+              onOpenQrModal={() => setIsQrModalOpen(true)}
+            />
+          )}
 
-      {/* Pet Age in Human Years Calculator Tool */}
-      {viewState.view === 'pet-age-calculator' && (
-        <>
-          <PetAgeCalculator
-            onNavigateHome={() => navigateTo('home')}
-            onOpenQrModal={() => setIsQrModalOpen(true)}
-          />
-          <Footer
-            onNavigate={(to, hash) => navigateTo(to as ExtendedAppView, hash)}
-            onNavigateLegal={(doc) => navigateTo(doc)}
-          />
-        </>
-      )}
+          {/* Pet Age in Human Years Calculator Tool */}
+          {viewState.view === 'pet-age-calculator' && (
+            <PetAgeCalculator
+              onNavigateHome={() => navigateTo('home')}
+              onOpenQrModal={() => setIsQrModalOpen(true)}
+            />
+          )}
 
-      {/* 404 Not Found View */}
-      {viewState.view === '404' && (
-        <>
-          <NotFoundPage
-            onNavigateHome={() => navigateTo('home')}
-            onNavigateBlog={() => navigateTo('blog')}
-          />
-          <Footer
-            onNavigate={(to, hash) => navigateTo(to as ExtendedAppView, hash)}
-            onNavigateLegal={(doc) => navigateTo(doc)}
-          />
-        </>
-      )}
+          {/* 404 Not Found View */}
+          {viewState.view === '404' && (
+            <NotFoundPage
+              onNavigateHome={() => navigateTo('home')}
+              onNavigateBlog={() => navigateTo('blog')}
+            />
+          )}
+        </Suspense>
 
-      {/* Home View */}
-      {viewState.view === 'home' && (
-        <>
-          <Hero
-            onOpenQrModal={() => setIsQrModalOpen(true)}
-            onOpenIosModal={() => setIsIosModalOpen(true)}
-          />
-          <BentoFeatures />
-          <FamilyHubSection />
-          <DailyJournalSection />
-          <InteractiveTour />
-          <TestimonialsSection />
-          <SpeciesGrid />
-          <DayTimeline />
-          <PricingSection />
-          <FAQSection />
-          <ContactUs />
-          <DownloadCTA
-            onOpenQrModal={() => setIsQrModalOpen(true)}
-            onOpenIosModal={() => setIsIosModalOpen(true)}
-          />
-          <Footer
-            onNavigate={(to, hash) => navigateTo(to as ExtendedAppView, hash)}
-            onNavigateLegal={(doc) => navigateTo(doc)}
-          />
-        </>
-      )}
+        {/* Home View */}
+        {viewState.view === 'home' && (
+          <>
+            <Hero
+              onOpenQrModal={() => setIsQrModalOpen(true)}
+              onOpenIosModal={() => setIsIosModalOpen(true)}
+            />
+            <BentoFeatures />
+            <FamilyHubSection />
+            <DailyJournalSection />
+            <InteractiveTour />
+            <TestimonialsSection />
+            <SpeciesGrid />
+            <DayTimeline />
+            <PricingSection />
+            <FAQSection />
+            <ContactUs />
+            <DownloadCTA
+              onOpenQrModal={() => setIsQrModalOpen(true)}
+              onOpenIosModal={() => setIsIosModalOpen(true)}
+            />
+          </>
+        )}
+      </main>
+
+      {/* Global Semantic Footer */}
+      <Footer
+        onNavigate={(to, hash) => navigateTo(to as ExtendedAppView, hash)}
+        onNavigateLegal={(doc) => navigateTo(doc)}
+      />
 
       {/* Global Modals & Overlays */}
       <CookieBanner onNavigateLegal={(doc) => navigateTo(doc)} />
-      <QrDownloadModal isOpen={isQrModalOpen} onClose={() => setIsQrModalOpen(false)} />
-      <IosWaitlistModal isOpen={isIosModalOpen} onClose={() => setIsIosModalOpen(false)} />
+      <Suspense fallback={null}>
+        <QrDownloadModal isOpen={isQrModalOpen} onClose={() => setIsQrModalOpen(false)} />
+        <IosWaitlistModal isOpen={isIosModalOpen} onClose={() => setIsIosModalOpen(false)} />
+      </Suspense>
     </div>
   );
 }
