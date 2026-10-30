@@ -81,9 +81,9 @@ export default function FooterDesktopColumns({
 
       {/* Col 2: Knowledge & Support */}
       <div>
-        <h4 className="text-xs font-extrabold uppercase tracking-wider text-slate-900 mb-3">
+        <h3 className="text-xs font-extrabold uppercase tracking-wider text-slate-900 mb-3">
           Knowledge &amp; Support
-        </h4>
+        </h3>
         <ul className="space-y-2 text-xs sm:text-sm">
           <li>
             <button
@@ -130,10 +130,10 @@ export default function FooterDesktopColumns({
 
       {/* Col 3: Legal & Trust */}
       <div>
-        <h4 className="text-xs font-extrabold uppercase tracking-wider text-slate-900 mb-3 flex items-center gap-1.5">
+        <h3 className="text-xs font-extrabold uppercase tracking-wider text-slate-900 mb-3 flex items-center gap-1.5">
           <ShieldCheck className="w-3.5 h-3.5 text-[#166534]" />
           <span>Trust &amp; Governance</span>
-        </h4>
+        </h3>
         <ul className="space-y-2 text-xs sm:text-sm">
           <li>
             <button
