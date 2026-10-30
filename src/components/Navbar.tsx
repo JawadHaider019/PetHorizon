@@ -21,7 +21,7 @@ export default function Navbar({
 }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<'product' | 'legal' | null>(null);
+  const [activeDropdown, setActiveDropdown] = useState<'product' | 'legal' | 'tools' | null>(null);
 
   const dropdownTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -35,7 +35,7 @@ export default function Navbar({
 
   const playStoreUrl = PLAY_STORE_URL;
 
-  const handleDropdownEnter = (menu: 'product' | 'legal') => {
+  const handleDropdownEnter = (menu: 'product' | 'legal' | 'tools') => {
     if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
     setActiveDropdown(menu);
   };
@@ -114,6 +114,15 @@ export default function Navbar({
                 label="Product"
                 isOpen={activeDropdown === 'product'}
                 onEnter={() => handleDropdownEnter('product')}
+                onLeave={handleDropdownLeave}
+                onLinkClick={handleLinkClick}
+              />
+
+              <NavbarDesktopDropdown
+                type="tools"
+                label="Free Tools"
+                isOpen={activeDropdown === 'tools'}
+                onEnter={() => handleDropdownEnter('tools')}
                 onLeave={handleDropdownLeave}
                 onLinkClick={handleLinkClick}
               />

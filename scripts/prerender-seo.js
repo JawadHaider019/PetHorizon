@@ -47,6 +47,7 @@ function generateSitemap(posts) {
   const staticRoutes = [
     { loc: `${BASE_URL}/`, priority: '1.0', changefreq: 'daily' },
     { loc: `${BASE_URL}/blogs`, priority: '0.9', changefreq: 'daily' },
+    { loc: `${BASE_URL}/tools/pet-age-calculator`, priority: '0.8', changefreq: 'weekly' },
     { loc: `${BASE_URL}/tools/pet-calorie-calculator`, priority: '0.8', changefreq: 'weekly' },
     { loc: `${BASE_URL}/changelog`, priority: '0.7', changefreq: 'weekly' },
     { loc: `${BASE_URL}/privacy-policy`, priority: '0.4', changefreq: 'monthly' },
@@ -747,6 +748,110 @@ async function runPostBuild() {
     `;
     html = html.replace('<div id="root"></div>', `<div id="root">${bodyHtml}</div>`);
     writePrerenderedFile('/tools/pet-calorie-calculator', html);
+  }
+
+  // 3.6 Prerender /tools/pet-age-calculator
+  {
+    const toolTitle = '[AAHA Chart] Pet Age Calculator in Human Years: Dog & Cat Converter | PetHorizon';
+    const toolDesc = 'Free veterinary AAHA-standard pet age calculator in human years. Convert dog and cat chronological age to exact biological human years with breed weight scaling, life stage gauges, and health milestones.';
+    const toolUrl = `${BASE_URL}/tools/pet-age-calculator`;
+
+    let html = injectHead(baseTemplate, {
+      title: toolTitle,
+      description: toolDesc,
+      canonicalUrl: toolUrl,
+      ogType: 'website',
+      ogImage: `${BASE_URL}/applogo.png`,
+      jsonLd: [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'WebApplication',
+          name: 'PetHorizon Pet Age in Human Years Calculator',
+          url: toolUrl,
+          description: toolDesc,
+          applicationCategory: 'HealthApplication',
+          operatingSystem: 'All',
+          offers: {
+            '@type': 'Offer',
+            price: '0',
+            priceCurrency: 'USD'
+          }
+        },
+        {
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+            { '@type': 'ListItem', position: 2, name: 'Tools', item: toolUrl },
+            { '@type': 'ListItem', position: 3, name: 'Pet Age Calculator', item: toolUrl }
+          ]
+        },
+        {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: [
+            {
+              '@type': 'Question',
+              name: 'Is 1 dog year really equal to 7 human years?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'No. The traditional "multiply by 7" rule is a popular myth that does not match biological science. Puppies reach the human equivalent of a 15-year-old by age one and 24 by age two. After age two, aging speed diverges based on breed size: small dogs age roughly 4 human years per calendar year, while giant breeds can age 8 to 9 human years annually.'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: 'Why do giant and large dogs age faster than small dogs?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Veterinary research indicates large dogs experience an accelerated growth rate during puppyhood with higher cellular turnover. While small dogs frequently live 15-18 years, giant breeds enter senior status at just 6 years old.'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: 'How do cats age compared to humans?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'At 1 calendar year, an indoor cat is biologically equivalent to a 15-year-old human. At 2 years, they reach 24 human years. Thereafter, each cat year corresponds to roughly 4 human years.'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: 'When is a dog or cat officially considered a senior?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Cats enter senior status at age 11. For dogs, giant breeds reach senior status around age 6, large breeds around age 7-8, medium dogs around age 8-9, and small breeds around age 10-11.'
+              }
+            }
+          ]
+        }
+      ]
+    });
+
+    const bodyHtml = `
+      <header style="max-width: 840px; margin: 40px auto 20px; padding: 0 16px;">
+        <nav style="font-size: 12px; color: #6b7280; margin-bottom: 16px;"><a href="/">Home</a> &gt; <span>Tools</span> &gt; <span>Pet Age Calculator</span></nav>
+        <h1 style="font-size: 32px; font-weight: 800; color: #111827;">[AAHA Chart] Pet Age Calculator in Human Years</h1>
+        <p style="font-size: 16px; color: #4b5563; max-width: 720px; line-height: 1.6;">${toolDesc}</p>
+      </header>
+      <main style="max-width: 840px; margin: 0 auto; padding: 0 16px;">
+        <section style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 24px; margin-bottom: 24px;">
+          <h2 style="font-size: 20px; font-weight: bold; color: #047857;">Scientific Dog & Cat Life Stage Conversion Matrix</h2>
+          <p style="color: #4b5563; line-height: 1.6; font-size: 14px;">According to AAHA and AVMA veterinary standards, pets mature rapidly in their first two years (Year 1 = 15 human years, Year 2 = 24 human years). Adult aging then scales by breed weight: Small dogs (+4 yrs/yr), Medium dogs (+5 yrs/yr), Large dogs (+6.5 yrs/yr), Giant breeds (+8 yrs/yr), and Domestic cats (+4 yrs/yr).</p>
+        </section>
+        <section style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 24px; margin-bottom: 24px;">
+          <h2 style="font-size: 20px; font-weight: bold; color: #111827;">Frequently Asked Questions: Pet Age & Lifespans</h2>
+          <h3 style="font-size: 16px; font-weight: bold; color: #047857; margin-top: 16px;">Is 1 dog year really equal to 7 human years?</h3>
+          <p style="color: #4b5563; line-height: 1.6; font-size: 14px;">No. The multiply-by-7 formula is scientifically debunked. Puppies reach the equivalent of a 15-year-old in their first year and 24 by year two.</p>
+          <h3 style="font-size: 16px; font-weight: bold; color: #047857; margin-top: 16px;">When is a pet considered senior?</h3>
+          <p style="color: #4b5563; line-height: 1.6; font-size: 14px;">Giant dogs reach senior status at age 6; large dogs at age 7-8; medium dogs at age 8-9; small dogs at age 10-11; and cats at age 11.</p>
+        </section>
+      </main>
+      <footer style="max-width: 840px; margin: 60px auto 40px; padding: 20px 16px; border-top: 1px solid #e5e7eb; font-size: 13px; color: #6b7280;">
+        <p>&copy; 2026 Pet Horizon. All rights reserved. <a href="/">Home</a> • <a href="/tools/pet-calorie-calculator">Calorie Calculator</a> • <a href="/privacy-policy">Privacy Policy</a></p>
+      </footer>
+    `;
+    html = html.replace('<div id="root"></div>', `<div id="root">${bodyHtml}</div>`);
+    writePrerenderedFile('/tools/pet-age-calculator', html);
   }
 
   // 4. Prerender /privacy-policy

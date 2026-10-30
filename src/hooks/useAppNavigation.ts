@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { NavView } from '../components/Navbar';
 import { BLOG_POSTS } from '../data/blogData';
 
-export type ExtendedAppView = NavView | 'blog-article' | 'changelog' | '404' | 'pet-calorie-calculator';
+export type ExtendedAppView = NavView | 'blog-article' | 'changelog' | '404' | 'pet-calorie-calculator' | 'pet-age-calculator';
 
 export interface ViewState {
   view: ExtendedAppView;
@@ -13,6 +13,18 @@ export const getViewStateFromLocation = (): ViewState => {
   const path = window.location.pathname;
   const lowerPath = path.toLowerCase();
   const hash = window.location.hash.toLowerCase();
+
+  // Match /tools/pet-age-calculator or /pet-age-calculator
+  if (
+    lowerPath === '/tools/pet-age-calculator' ||
+    lowerPath === '/tools/pet-age-calculator/' ||
+    lowerPath === '/pet-age-calculator' ||
+    lowerPath === '/pet-age-calculator/' ||
+    lowerPath === '/tools/dog-cat-age-calculator' ||
+    hash.includes('age-calculator')
+  ) {
+    return { view: 'pet-age-calculator', articleSlug: null };
+  }
 
   // Match /tools/pet-calorie-calculator or /pet-calorie-calculator
   if (
@@ -111,6 +123,10 @@ export function useAppNavigation() {
     } else if (to === 'pet-calorie-calculator') {
       window.history.pushState({}, '', '/tools/pet-calorie-calculator');
       setViewState({ view: 'pet-calorie-calculator', articleSlug: null });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (to === 'pet-age-calculator') {
+      window.history.pushState({}, '', '/tools/pet-age-calculator');
+      setViewState({ view: 'pet-age-calculator', articleSlug: null });
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       const slug =

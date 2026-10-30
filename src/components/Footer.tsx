@@ -4,7 +4,7 @@ import FooterMobileAccordion from './footer/FooterMobileAccordion';
 import FooterBottomBar from './footer/FooterBottomBar';
 
 interface FooterProps {
-  onNavigate?: (view: 'home' | 'blog' | 'privacy' | 'terms' | 'deletion' | 'changelog' | 'pet-calorie-calculator', hash?: string) => void;
+  onNavigate?: (view: 'home' | 'blog' | 'privacy' | 'terms' | 'deletion' | 'changelog' | 'pet-calorie-calculator' | 'pet-age-calculator', hash?: string) => void;
   onNavigateLegal?: (doc: 'privacy' | 'terms' | 'deletion') => void;
 }
 
@@ -47,6 +47,15 @@ export default function Footer({ onNavigate, onNavigateLegal }: FooterProps) {
     }
   };
 
+  const handleAgeToolClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (onNavigate) {
+      onNavigate('pet-age-calculator');
+    } else {
+      window.location.href = '/tools/pet-age-calculator';
+    }
+  };
+
   return (
     <footer className="bg-[#F2F8F5] text-slate-800 pt-8 sm:pt-10 pb-5 sm:pb-6 border-t border-emerald-950/[0.08] relative overflow-hidden">
       {/* Ambient background glows */}
@@ -65,6 +74,7 @@ export default function Footer({ onNavigate, onNavigateLegal }: FooterProps) {
               onBlogClick={handleBlogClick}
               onChangelogClick={handleChangelogClick}
               onToolClick={handleToolClick}
+              onAgeToolClick={handleAgeToolClick}
             />
           </div>
         </div>
@@ -77,6 +87,7 @@ export default function Footer({ onNavigate, onNavigateLegal }: FooterProps) {
             onBlogClick={handleBlogClick}
             onChangelogClick={handleChangelogClick}
             onToolClick={handleToolClick}
+            onAgeToolClick={handleAgeToolClick}
           />
         </div>
 
@@ -86,6 +97,7 @@ export default function Footer({ onNavigate, onNavigateLegal }: FooterProps) {
           onBlogClick={handleBlogClick}
           onChangelogClick={handleChangelogClick}
           onToolClick={handleToolClick}
+          onAgeToolClick={handleAgeToolClick}
         />
       </div>
     </footer>
