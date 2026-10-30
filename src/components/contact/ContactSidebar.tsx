@@ -27,12 +27,12 @@ export default function ContactSidebar() {
         {/* Email Box */}
         <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-2 mb-4">
           <div className="flex items-center justify-between">
-            <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+            <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">
               Developer Email
             </span>
             <button
               onClick={handleCopyEmail}
-              className="text-xs text-slate-500 hover:text-emerald-700 flex items-center gap-1 cursor-pointer"
+              className="text-xs text-slate-600 hover:text-emerald-700 flex items-center gap-1 cursor-pointer"
             >
               {copiedEmail ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
               <span>{copiedEmail ? 'Copied' : 'Copy'}</span>
