@@ -46,9 +46,9 @@ export const bestPetCareAppsArticle: FullBlogArticle = {
         { label: 'Zero Invasive Ads', text: 'Clean, modern UI designed to load instantly in veterinary reception rooms or rural dog parks without video popups.' }
       ],
       figure: {
-        imageUrl: 'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=1000&auto=format&fit=crop&q=80',
+        imageUrl: 'https://images.unsplash.com/photo-1522276498395-f4f68f7f8454?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
         caption: 'Unified household coordination: PetHorizon keeps partners, roommates, and pet sitters aligned on daily care.',
-        altText: 'Happy family in living room checking smartphone pet care app with golden retriever'
+        altText: 'Happy pet owners bonding with their dog at home'
       }
     },
     {

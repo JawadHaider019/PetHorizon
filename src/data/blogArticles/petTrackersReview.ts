@@ -17,9 +17,9 @@ export const petTrackersReviewArticle: FullBlogArticle = {
         'Combined with low-power 4G LTE-M and NB-IoT cellular transceivers, these devices operate reliably across wide geographical corridors while consuming fractions of the battery power required by legacy smartphones. The result is real-time escape tracking combined with passive biometric telemetry that continuously monitors your pet’s physiological baseline.'
       ],
       figure: {
-        imageUrl: 'https://images.unsplash.com/photo-1513245543132-31f507417b26?w=1000&auto=format&fit=crop&q=80',
+        imageUrl: 'https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
         caption: 'Field testing smart pet collars: Modern LTE attachments withstand deep mud, creek crossings, and rugged terrain.',
-        altText: 'An active dog hiking in nature wearing a smart GPS collar'
+        altText: 'An active dog running outdoors in nature wearing a smart GPS collar'
       }
     },
     {
@@ -52,7 +52,7 @@ export const petTrackersReviewArticle: FullBlogArticle = {
         title: 'PetHorizon Activity & Daily Routine Timeline',
         provider: 'Available on Google Play (Included Free in PetHorizon)',
         price: 'Free Lifetime Access',
-        image: 'https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=400&auto=format&fit=crop&q=80',
+        image: '/screenshots/journal-screen.webp',
         actionText: 'Track Daily Pet Activity',
         actionUrl: 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon',
         actionType: 'playStore'
@@ -69,7 +69,7 @@ export const petTrackersReviewArticle: FullBlogArticle = {
         'Crucially, we evaluated battery draw under varying cellular signal strengths. In rural fringe zones where cellular towers are sparse, modems amplify radio transmission power, causing battery drain to accelerate by up to 40%. The best devices utilize intelligent power-saving base stations: whenever the collar is within range of your home WiFi network, it sleeps the high-draw GPS radio entirely, preserving battery life for weeks.'
       ],
       figure: {
-        imageUrl: 'https://images.unsplash.com/photo-1516139008210-96e45dccd83b?w=1000&auto=format&fit=crop&q=80',
+        imageUrl: 'https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.35&q=85',
         caption: 'Activity telemetry: Pairing daily walk durations and route logs with PetHorizon creates an indisputable clinical baseline.',
         altText: 'A happy dog running on a beach during a GPS test'
       }

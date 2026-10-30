@@ -30,9 +30,9 @@ export const petHealthRecordsArticle: FullBlogArticle = {
         ]
       },
       figure: {
-        imageUrl: 'https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?w=1000&auto=format&fit=crop&q=80',
+        imageUrl: 'https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
         caption: 'Centralized health tracking: Storing medication dosages and vaccination due dates digitally eliminates paper record confusion.',
-        altText: 'Veterinarian reviewing digital pet health records on a tablet device'
+        altText: 'Veterinary clinical examination and digital pet health record tracking'
       }
     },
     {
@@ -97,7 +97,7 @@ export const petHealthRecordsArticle: FullBlogArticle = {
         title: 'PetHorizon Clinical Health Card & Medical Vault',
         provider: 'Included Free in PetHorizon (Android & iOS)',
         price: 'Free Lifetime Access',
-        image: 'https://images.unsplash.com/photo-1529778873920-4da4926a72c2?w=400&auto=format&fit=crop&q=80',
+        image: '/screenshots/pet-profile-screen.webp',
         actionText: 'Organize Pet Records in PetHorizon',
         actionUrl: 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon',
         actionType: 'playStore'
