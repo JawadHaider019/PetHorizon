@@ -54,6 +54,7 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
 
             {/* 3-Tone Punchy Headline (Everystore Style) */}
             <h1 className="text-3xl lg:text-[40px] xl:text-[46px] font-black tracking-tight leading-[1.12]">
+              <span className="sr-only">Pet Horizon – Smart Pet Care, Family Hub &amp; Daily Routine Tracker: </span>
               <span className="text-[#17191C]">Track. </span>
               <span className="text-[#166534]">Coordinate. </span>
               <span className="text-[#E67E22]">Cherish.</span>
