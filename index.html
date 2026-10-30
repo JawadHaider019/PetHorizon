@@ -8,7 +8,7 @@
     <!-- Primary SEO Meta Tags -->
     <title>Pet Horizon – Smart Pet Care, Family Hub & Daily Routine Tracker</title>
     <meta name="title" content="Pet Horizon – Smart Pet Care, Family Hub & Daily Routine Tracker" />
-    <meta name="description" content="Pet Horizon is the ultimate pet care companion app for Android. Organize smart medication alarms, daily feeding routines, vaccination history, and multi-caretaker family hub in one unified platform." />
+    <meta name="description" content="Pet Horizon is the smart pet care app for Android. Track medication alarms, feeding schedules, vaccination records, expenses, and family sync in one app." />
     <meta name="keywords" content="Pet Horizon, pet routine tracker, pet care app, dog schedule tracker, cat medication alarm, pet vaccination reminder, family pet hub, Android pet app" />
     <meta name="author" content="Pet Horizon" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -75,7 +75,7 @@
           "@type": "Organization",
           "@id": "https://pethorizon.jawumitech.com/#organization",
           "name": "Pet Horizon",
-          "url": "https://pethorizon.jawumitech.com",
+          "url": "https://pethorizon.jawumitech.com/",
           "logo": {
             "@type": "ImageObject",
             "@id": "https://pethorizon.jawumitech.com/#logo",
@@ -94,7 +94,7 @@
         {
           "@type": "WebSite",
           "@id": "https://pethorizon.jawumitech.com/#website",
-          "url": "https://pethorizon.jawumitech.com",
+          "url": "https://pethorizon.jawumitech.com/",
           "name": "Pet Horizon",
           "description": "Smart Pet Care, Family Hub & Daily Routine Tracker for Dogs and Cats",
           "publisher": {
@@ -113,6 +113,8 @@
           "@type": "SoftwareApplication",
           "@id": "https://pethorizon.jawumitech.com/#app",
           "name": "Pet Horizon",
+          "url": "https://pethorizon.jawumitech.com/",
+          "image": "https://pethorizon.jawumitech.com/applogo.png",
           "operatingSystem": "Android",
           "applicationCategory": "LifestyleApplication",
           "offers": {
@@ -226,7 +228,40 @@
   </head>
   <body class="bg-white">
     <div id="root">
-      <main id="main-content" aria-label="Pet Horizon"></main>
+      <header class="sr-only">
+        <nav aria-label="Primary Navigation">
+          <a href="/">Pet Horizon Home</a>
+          <a href="/blogs">Veterinary Care Guides &amp; Blog</a>
+          <a href="/tools/pet-calorie-calculator">Pet Calorie &amp; Daily Portion Calculator</a>
+          <a href="/tools/pet-age-calculator">Pet Age in Human Years Calculator</a>
+          <a href="/changelog">Product Changelog</a>
+          <a href="/privacy-policy">Privacy Policy</a>
+          <a href="/terms-of-service">Terms of Service</a>
+          <a href="/data-deletion">Data Deletion</a>
+        </nav>
+      </header>
+      <main id="main-content" aria-label="Pet Horizon" class="sr-only">
+        <h1>Pet Horizon – Smart Pet Care, Family Hub &amp; Daily Routine Tracker</h1>
+        <p>Pet Horizon is the unified Android companion app for multi-caregiver pet households. Organize daily feeding routines, recurring medication alarms, verified vaccination records, monthly expense budgets, and real-time family synchronization in one platform.</p>
+        <img src="/applogo.png" alt="Pet Horizon Smart Pet Care and Family Routine Tracker App Logo" width="128" height="128" />
+        <section>
+          <h2>Smart Medication Alarms &amp; Anti-Collision Care Lock</h2>
+          <p>Prevent accidental double-feeding and missed medication doses across partners, roommates, and pet sitters. When any caregiver starts a meal or medication task, Pet Horizon activates a real-time Care Lock across all connected household devices with live completion timestamps.</p>
+        </section>
+        <section>
+          <h2>Digital Pet Health Card &amp; Emergency Vet Mode</h2>
+          <p>Store DHPP, Rabies, FVRCP, and Bordetella vaccination certificates, microchip IDs, weight history, and clinic contacts in a portable digital passport. Launch Emergency Vet Mode with one tap for boarding check-ins or urgent veterinary visits.</p>
+        </section>
+        <section>
+          <h2>Free Veterinary Calculators &amp; Evidence-Based Pet Care Guides</h2>
+          <ul>
+            <li><a href="/tools/pet-calorie-calculator">WSAVA Pet Calorie &amp; Daily Gram Portion Calculator (RER &amp; MER)</a></li>
+            <li><a href="/tools/pet-age-calculator">AAHA Pet Age Calculator in Human Years for Dogs &amp; Cats</a></li>
+            <li><a href="/blogs">Explore 39+ Evidence-Based Veterinary &amp; Routine Care Guides</a></li>
+            <li><a href="https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon">Download Pet Horizon Free on Google Play Store</a></li>
+          </ul>
+        </section>
+      </main>
     </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

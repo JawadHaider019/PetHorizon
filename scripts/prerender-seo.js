@@ -357,20 +357,30 @@ async function runPostBuild() {
     prerenderCount++;
   }
 
+  function clampText(text, maxLen) {
+    const clean = (text || '').trim().replace(/\s+/g, ' ');
+    if (clean.length <= maxLen) return clean;
+    const cut = clean.slice(0, maxLen - 1);
+    const lastSpace = cut.lastIndexOf(' ');
+    return `${(lastSpace > maxLen * 0.6 ? cut.slice(0, lastSpace) : cut).replace(/[.,;:\-–—]+$/, '')}.`;
+  }
+
   // Helper to replace head metadata
   function injectHead(template, { title, description, canonicalUrl, ogType, ogImage, jsonLd }) {
     let html = template;
+    const safeTitle = clampText(title, 68);
+    const safeDesc = clampText(description, 158);
 
     // Title
-    html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${escapeHtml(title)}</title>`);
-    html = html.replace(/<meta name="title" content="[^"]*"/i, `<meta name="title" content="${escapeHtml(title)}"`);
-    html = html.replace(/<meta property="og:title" content="[^"]*"/i, `<meta property="og:title" content="${escapeHtml(title)}"`);
-    html = html.replace(/<meta name="twitter:title" content="[^"]*"/i, `<meta name="twitter:title" content="${escapeHtml(title)}"`);
+    html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${escapeHtml(safeTitle)}</title>`);
+    html = html.replace(/<meta name="title" content="[^"]*"/i, `<meta name="title" content="${escapeHtml(safeTitle)}"`);
+    html = html.replace(/<meta property="og:title" content="[^"]*"/i, `<meta property="og:title" content="${escapeHtml(safeTitle)}"`);
+    html = html.replace(/<meta name="twitter:title" content="[^"]*"/i, `<meta name="twitter:title" content="${escapeHtml(safeTitle)}"`);
 
     // Description
-    html = html.replace(/<meta name="description" content="[^"]*"/i, `<meta name="description" content="${escapeHtml(description)}"`);
-    html = html.replace(/<meta property="og:description" content="[^"]*"/i, `<meta property="og:description" content="${escapeHtml(description)}"`);
-    html = html.replace(/<meta name="twitter:description" content="[^"]*"/i, `<meta name="twitter:description" content="${escapeHtml(description)}"`);
+    html = html.replace(/<meta name="description" content="[^"]*"/i, `<meta name="description" content="${escapeHtml(safeDesc)}"`);
+    html = html.replace(/<meta property="og:description" content="[^"]*"/i, `<meta property="og:description" content="${escapeHtml(safeDesc)}"`);
+    html = html.replace(/<meta name="twitter:description" content="[^"]*"/i, `<meta name="twitter:description" content="${escapeHtml(safeDesc)}"`);
 
     // Canonical
     if (html.includes('rel="canonical"')) {
@@ -415,7 +425,7 @@ async function runPostBuild() {
   // 1. Prerender /blogs (Blog Hub)
   {
     const blogTitle = 'PetHorizon Blog — Evidence-Based Pet Care & Health Guides';
-    const blogDesc = 'Comprehensive veterinary-verified guides for dog and cat owners worldwide: puppy feeding schedules, feline hydration, missed medication safety, and family routine coordination.';
+    const blogDesc = 'Veterinary-verified pet care guides for dog and cat owners: puppy feeding schedules, vaccination charts, medication safety, and family routine sync.';
     const blogUrl = `${BASE_URL}/blogs`;
 
     const blogCardsHtml = BLOG_POSTS.map((post) => `
@@ -714,7 +724,7 @@ async function runPostBuild() {
   // 3.5 Prerender /tools/pet-calorie-calculator
   {
     const toolTitle = 'Pet Calorie & Daily Portion Calculator (Dogs & Cats) | Pet Horizon';
-    const toolDesc = 'Free veterinary-standard pet calorie and daily food portion calculator. Calculate RER, MER, daily grams, and cup measurements for dogs and cats based on WSAVA guidelines.';
+    const toolDesc = 'Free veterinary pet calorie and daily food portion calculator. Calculate RER, MER, daily grams, and cup measurements for dogs and cats using WSAVA standards.';
     const toolUrl = `${BASE_URL}/tools/pet-calorie-calculator`;
 
     let html = injectHead(baseTemplate, {
@@ -772,8 +782,8 @@ async function runPostBuild() {
 
   // 3.6 Prerender /tools/pet-age-calculator
   {
-    const toolTitle = '[AAHA Chart] Pet Age Calculator in Human Years: Dog & Cat Converter | PetHorizon';
-    const toolDesc = 'Free veterinary AAHA-standard pet age calculator in human years. Convert dog and cat chronological age to exact biological human years with breed weight scaling, life stage gauges, and health milestones.';
+    const toolTitle = 'Pet Age Calculator in Human Years (Dog & Cat Chart) | Pet Horizon';
+    const toolDesc = 'Free AAHA pet age calculator in human years. Convert dog and cat chronological age into biological human years with breed weight scaling and life stage charts.';
     const toolUrl = `${BASE_URL}/tools/pet-age-calculator`;
 
     let html = injectHead(baseTemplate, {
@@ -932,13 +942,15 @@ async function runPostBuild() {
   {
     let html = injectHead(baseTemplate, {
       title: '404 Page Not Found | Pet Horizon',
-      description: 'Sniffing for clues, but nothing is here. The page you are looking for has wandered off.',
+      description: 'Sniffing for clues, but nothing is here. Return to Pet Horizon home, veterinary calculators, or pet care guides.',
       canonicalUrl: `${BASE_URL}/404`,
       ogType: 'website',
       ogImage: `${BASE_URL}/applogo.png`
     });
     // Preload the lightweight 44KB 404 detective mascot so it renders instantaneously
     html = html.replace('</head>', `  <link rel="preload" href="/mascots/404-detective.webp" as="image" type="image/webp" fetchpriority="high" />\n  </head>`);
+    const notFoundBody = `<main style="max-width: 840px; margin: 40px auto; padding: 0 16px;"><h1>404 Page Not Found</h1><p>The page you are looking for has wandered off. Return to <a href="/">Pet Horizon Home</a> or browse our <a href="/blogs">Pet Care Guides</a>.</p></main>`;
+    html = html.replace(/<div id="root">[\s\S]*?<\/div>/i, `<div id="root">${notFoundBody}</div>`);
     
     // Write 404.html and /404/index.html so Vercel and direct 404 hits load our custom NotFoundPage component cleanly
     writePrerenderedFile('404.html', html);
