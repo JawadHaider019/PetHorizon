@@ -674,27 +674,27 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     id: 'post-introduce-kitten',
     slug: 'how-to-introduce-kitten-to-older-cat-guide',
-    title: 'Introducing a Kitten to an Older Cat: Step-by-Step Protocol & Scent-Swapping Guide',
-    excerpt: 'Prevent feline territorial aggression and stress spraying. Follow our 4-phase introduction timeline from sanctuary room isolation and scent swapping to supervised harmonious coexistence.',
+    title: 'How to Introduce a Kitten to an Older Cat: Step-by-Step Timeline & Protocol',
+    excerpt: 'Prevent feline territorial aggression and stress spraying. Follow our 4-phase introduction timetable from sanctuary room isolation and scent swapping to supervised harmonious coexistence.',
     category: 'Cat Care',
     readTime: '14 min read',
     coverImage: 'https://images.unsplash.com/photo-1561948955-570b270e7c36?w=900&auto=format&fit=crop&q=80',
     featured: false,
     targetLocation: 'Global',
-    tags: ['Cat Introduction', 'Kitten Care', 'Multi-Cat Household', 'Scent Swapping', 'Pet Horizon'],
-    seoKeyword: 'introduce kitten to older cat step by step',
-    searchVolume: '12K/mo',
+    tags: ['How to Introduce Kitten to Older Cat', 'Introducing Kitten to Older Cat', 'Kitten Timetable', 'Cat Introduction', 'Multi-Cat Household', 'Pet Horizon'],
+    seoKeyword: 'how to introduce kitten to older cat timetable',
+    searchVolume: '18K/mo',
     searchRankBadge: '🐱 Cat Harmony',
     keyTakeaways: [
       'Territorial cats require gradual scent desensitization over 10 to 21 days before physical contact ever occurs.',
       'Never allow cats to "fight it out"—traumatic fights permanently destroy inter-cat trust.',
       'Provide N + 1 resources: 2 cats require 3 litter boxes, 3 water bowls, and separate feeding stations.'
     ],
-    trendingSearches: ['#introduce kitten to cat', '#older cat hissing at kitten', '#cat scent swapping', '#multi cat introduction timeline'],
+    trendingSearches: ['#how to introduce kitten to older cat', '#introducing kitten to older cat', '#older cat hissing at kitten', '#kitten timetable schedule'],
     author: AUTHORS.editorial,
     publishedAt: 'October 26, 2026',
-    metaTitle: 'Introducing a Kitten to an Older Cat Guide | Pet Horizon',
-    metaDescription: 'Step-by-step veterinary guide to introducing a new kitten to a resident cat. Learn scent swapping, barrier feeding, and multi-cat management.',
+    metaTitle: 'How to Introduce Kitten to Older Cat: Step-by-Step Timetable',
+    metaDescription: 'Complete timetable to introduce a kitten to an older cat. 4-phase scent swapping protocol, barrier feeding schedule, and veterinary calming steps.',
     relatedProductLinks: [
       { feature: 'Multi-Cat Profiles & Feeding Logs', url: 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon', ctaText: 'Manage Multi-Cat Profiles', icon: 'Users' }
     ]
