@@ -93,8 +93,8 @@ export default function TestimonialsSection() {
                     {item.avatarText}
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-slate-900 leading-tight">{item.name}</h4>
-                    <p className="text-[10px] text-slate-400 font-medium">{item.petContext}</p>
+                    <h3 className="text-xs font-bold text-slate-900 leading-tight">{item.name}</h3>
+                    <p className="text-[10px] text-slate-500 font-medium">{item.petContext}</p>
                   </div>
                 </div>
                 <span className="text-[10px] text-slate-400 font-mono">{item.date}</span>

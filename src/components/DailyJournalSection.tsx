@@ -84,9 +84,9 @@ export default function DailyJournalSection() {
                     </div>
                     <div className="w-1.5 h-7 sm:h-8 rounded-full bg-emerald-600" />
                     <div>
-                      <h4 className="text-xs sm:text-sm font-bold text-slate-900">{act.title}</h4>
+                      <h3 className="text-xs sm:text-sm font-bold text-slate-900">{act.title}</h3>
                       {act.detail && (
-                        <p className="text-[11px] sm:text-xs text-slate-500 font-medium">{act.detail}</p>
+                        <p className="text-[11px] sm:text-xs text-slate-600 font-medium">{act.detail}</p>
                       )}
                     </div>
                   </div>
