@@ -1,11 +1,15 @@
-import { Calculator, Clock, ExternalLink, ShieldCheck } from 'lucide-react';
+import { useState } from 'react';
+import { Calculator, Check, Clock, Copy, ExternalLink, Link2, ShieldCheck } from 'lucide-react';
 import { BlogPost } from '../../data/blogData';
+import { SITE_CONFIG } from '../../config/siteConfig';
 
 interface BlogToolAndLinksCardProps {
   article: BlogPost;
 }
 
 export default function BlogToolAndLinksCard({ article }: BlogToolAndLinksCardProps) {
+  const [copiedCitation, setCopiedCitation] = useState(false);
+
   const isCalorieRelated =
     article.category === 'Feeding & Nutrition' ||
     article.slug.includes('feeding') ||
@@ -29,6 +33,17 @@ export default function BlogToolAndLinksCard({ article }: BlogToolAndLinksCardPr
   const toolCta = isCalorieRelated
     ? 'Open Calorie Calculator'
     : 'Open Pet Age Calculator';
+
+  const articleUrl = `${SITE_CONFIG.url}/blogs/${article.slug}`;
+  const htmlCitationSnippet = `<p>Clinical Reference: <a href="${articleUrl}" target="_blank" rel="noopener">${article.title} — Pet Horizon Veterinary Guide</a></p>`;
+
+  const handleCopyCitation = () => {
+    if (typeof navigator !== 'undefined' && navigator.clipboard) {
+      navigator.clipboard.writeText(htmlCitationSnippet);
+      setCopiedCitation(true);
+      setTimeout(() => setCopiedCitation(false), 2500);
+    }
+  };
 
   return (
     <div className="not-prose mt-10 space-y-6">
@@ -89,8 +104,8 @@ export default function BlogToolAndLinksCard({ article }: BlogToolAndLinksCardPr
         </div>
       )}
 
-      {/* 3. Veterinary E-E-A-T Clinical Standards Verification */}
-      <div className="rounded-2xl border border-slate-200/70 bg-slate-50/80 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-slate-600">
+      {/* 3. Veterinary E-E-A-T Clinical Verification & 1-Click Backlink Citation Magnet */}
+      <div className="rounded-2xl border border-slate-200/70 bg-slate-50/80 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs text-slate-600">
         <div className="flex items-start sm:items-center gap-2.5">
           <ShieldCheck className="w-5 h-5 text-emerald-700 shrink-0 mt-0.5 sm:mt-0" />
           <div>
@@ -102,8 +117,27 @@ export default function BlogToolAndLinksCard({ article }: BlogToolAndLinksCardPr
             </span>
           </div>
         </div>
+
+        <button
+          type="button"
+          onClick={handleCopyCitation}
+          className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl bg-white hover:bg-emerald-50 text-slate-700 hover:text-emerald-800 border border-slate-200/90 hover:border-emerald-200 font-bold text-[11px] whitespace-nowrap shrink-0 transition-all cursor-pointer shadow-2xs"
+          title="Copy HTML citation link for your blog, shelter, or veterinary clinic website"
+        >
+          {copiedCitation ? (
+            <>
+              <Check className="w-3.5 h-3.5 text-emerald-600" />
+              <span className="text-emerald-700">Copied HTML Citation</span>
+            </>
+          ) : (
+            <>
+              <Link2 className="w-3.5 h-3.5 text-emerald-700" />
+              <span>Cite This Guide (HTML)</span>
+              <Copy className="w-3 h-3 text-slate-400" />
+            </>
+          )}
+        </button>
       </div>
     </div>
   );
 }
-

@@ -10,6 +10,7 @@ import InteractiveTour from './components/InteractiveTour';
 import TestimonialsSection from './components/TestimonialsSection';
 import SpeciesGrid from './components/home/SpeciesGrid';
 import DayTimeline from './components/home/DayTimeline';
+import HomeSeoHubSection from './components/home/HomeSeoHubSection';
 import PricingSection from './components/PricingSection';
 import FAQSection from './components/FAQSection';
 import ContactUs from './components/ContactUs';
@@ -170,6 +171,10 @@ export default function App() {
             <SpeciesGrid />
             <DayTimeline />
             <PricingSection />
+            <HomeSeoHubSection
+              onNavigate={(view) => navigateTo(view)}
+              onSelectArticle={(slug) => navigateToArticle(slug)}
+            />
             <FAQSection />
             <ContactUs />
             <DownloadCTA
