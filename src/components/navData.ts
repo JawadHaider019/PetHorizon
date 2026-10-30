@@ -80,6 +80,13 @@ export const LEGAL_LINKS: LegalLink[] = [
     color: 'text-emerald-600 bg-emerald-50'
   },
   {
+    title: 'Terms of Service',
+    desc: 'Official terms of service and user license agreement',
+    icon: ShieldCheck,
+    view: 'terms',
+    color: 'text-slate-600 bg-slate-50'
+  },
+  {
     title: 'Data & Account Deletion',
     desc: 'Official 30-day data purging guide & self-service in-app deletion',
     icon: Trash2,

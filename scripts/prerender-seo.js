@@ -47,6 +47,7 @@ function generateSitemap(posts) {
   const staticRoutes = [
     { loc: `${BASE_URL}/`, priority: '1.0', changefreq: 'daily' },
     { loc: `${BASE_URL}/blogs`, priority: '0.9', changefreq: 'daily' },
+    { loc: `${BASE_URL}/tools/pet-calorie-calculator`, priority: '0.8', changefreq: 'weekly' },
     { loc: `${BASE_URL}/changelog`, priority: '0.7', changefreq: 'weekly' },
     { loc: `${BASE_URL}/privacy-policy`, priority: '0.4', changefreq: 'monthly' },
     { loc: `${BASE_URL}/terms-of-service`, priority: '0.4', changefreq: 'monthly' },
@@ -150,6 +151,9 @@ Disallow: /scratch_preview.html
 User-agent: Googlebot
 Allow: /
 
+User-agent: Google-Extended
+Allow: /
+
 User-agent: Bingbot
 Allow: /
 
@@ -168,11 +172,17 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-# 3. Model Training Bots (Documented Access)
+# 3. Model Training & AI Crawlers (AEO / GEO Optimization)
 User-agent: GPTBot
 Allow: /
 
 User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
 Allow: /
 
 # Sitemaps & Feeds
@@ -655,6 +665,65 @@ async function runPostBuild() {
     writePrerenderedFile('/changelog', html);
   }
 
+  // 3.5 Prerender /tools/pet-calorie-calculator
+  {
+    const toolTitle = 'Pet Calorie & Daily Portion Calculator (Dogs & Cats) | Pet Horizon';
+    const toolDesc = 'Free veterinary-standard pet calorie and daily food portion calculator. Calculate RER, MER, daily grams, and cup measurements for dogs and cats based on WSAVA guidelines.';
+    const toolUrl = `${BASE_URL}/tools/pet-calorie-calculator`;
+
+    let html = injectHead(baseTemplate, {
+      title: toolTitle,
+      description: toolDesc,
+      canonicalUrl: toolUrl,
+      ogType: 'website',
+      ogImage: `${BASE_URL}/applogo.png`,
+      jsonLd: [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'WebApplication',
+          name: 'PetHorizon Calorie & Portion Calculator',
+          url: toolUrl,
+          description: toolDesc,
+          applicationCategory: 'HealthApplication',
+          operatingSystem: 'All',
+          offers: {
+            '@type': 'Offer',
+            price: '0',
+            priceCurrency: 'USD'
+          }
+        },
+        {
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+            { '@type': 'ListItem', position: 2, name: 'Tools', item: toolUrl },
+            { '@type': 'ListItem', position: 3, name: 'Pet Calorie Calculator', item: toolUrl }
+          ]
+        }
+      ]
+    });
+
+    const bodyHtml = `
+      <header style="max-width: 840px; margin: 40px auto 20px; padding: 0 16px;">
+        <nav style="font-size: 12px; color: #6b7280; margin-bottom: 16px;"><a href="/">Home</a> &gt; <span>Tools</span> &gt; <span>Pet Calorie Calculator</span></nav>
+        <h1 style="font-size: 32px; font-weight: 800; color: #111827;">Pet Calorie & Daily Portion Calculator</h1>
+        <p style="font-size: 16px; color: #4b5563; max-width: 720px; line-height: 1.6;">${toolDesc}</p>
+      </header>
+      <main style="max-width: 840px; margin: 0 auto; padding: 0 16px;">
+        <section style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 24px; margin-bottom: 24px;">
+          <h2 style="font-size: 20px; font-weight: bold; color: #047857;">Calculate RER & MER Veterinary Food Portions</h2>
+          <p style="color: #4b5563; line-height: 1.6; font-size: 14px;">Use our interactive veterinary tool to calculate exact daily energy requirements (RER = 70 × Weight^0.75) and maintenance feeding portions for puppies, adult dogs, kittens, and senior cats.</p>
+        </section>
+      </main>
+      <footer style="max-width: 840px; margin: 60px auto 40px; padding: 20px 16px; border-top: 1px solid #e5e7eb; font-size: 13px; color: #6b7280;">
+        <p>&copy; 2026 Pet Horizon. All rights reserved. <a href="/">Home</a> • <a href="/privacy-policy">Privacy Policy</a> • <a href="/changelog">Changelog</a></p>
+      </footer>
+    `;
+    html = html.replace('<div id="root"></div>', `<div id="root">${bodyHtml}</div>`);
+    writePrerenderedFile('/tools/pet-calorie-calculator', html);
+  }
+
   // 4. Prerender /privacy-policy
   {
     const privTitle = 'Official Privacy Policy | Pet Horizon';
@@ -707,22 +776,17 @@ async function runPostBuild() {
   {
     let html = injectHead(baseTemplate, {
       title: '404 Page Not Found | Pet Horizon',
-      description: 'The requested page could not be found on Pet Horizon.',
+      description: 'Sniffing for clues, but nothing is here. The page you are looking for has wandered off.',
       canonicalUrl: `${BASE_URL}/404`,
       ogType: 'website',
       ogImage: `${BASE_URL}/applogo.png`
     });
-    const bodyHtml = `
-      <div style="max-width: 600px; margin: 100px auto; text-align: center; font-family: system-ui, sans-serif;">
-        <h1 style="font-size: 72px; font-weight: 900; color: #047857; margin: 0;">404</h1>
-        <h2 style="font-size: 24px; color: #111827; margin: 16px 0;">Page Not Found</h2>
-        <p style="color: #6b7280; margin-bottom: 24px;">The page you are looking for has been moved or does not exist.</p>
-        <a href="/" style="display: inline-block; background: #047857; color: #ffffff; padding: 12px 24px; border-radius: 9999px; text-decoration: none; font-weight: 600;">Return to Home</a>
-        <a href="/blogs" style="display: inline-block; margin-left: 12px; color: #047857; padding: 12px 24px; text-decoration: none; font-weight: 600;">Browse Pet Care Guides &rarr;</a>
-      </div>
-    `;
-    html = html.replace('<div id="root"></div>', `<div id="root">${bodyHtml}</div>`);
+    // Preload the lightweight 44KB 404 detective mascot so it renders instantaneously
+    html = html.replace('</head>', `  <link rel="preload" href="/mascots/404-detective.webp" as="image" type="image/webp" fetchpriority="high" />\n  </head>`);
+    
+    // Write 404.html and /404/index.html so Vercel and direct 404 hits load our custom NotFoundPage component cleanly
     writePrerenderedFile('404.html', html);
+    writePrerenderedFile('/404', html);
   }
 
   // 8. Copy public/rss.xml and public/seo to dist

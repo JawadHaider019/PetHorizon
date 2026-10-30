@@ -17,7 +17,13 @@ const POSTS_PER_PAGE = 9;
 
 export default function BlogHub({ onNavigateHome, onSelectArticle }: BlogHubProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>('All Stories');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState<string>(() => {
+    if (typeof window !== 'undefined') {
+      const q = new URLSearchParams(window.location.search).get('q');
+      return q ? q.trim() : '';
+    }
+    return '';
+  });
   const [currentPage, setCurrentPage] = useState<number>(1);
   const gridTopRef = useRef<HTMLDivElement>(null);
 

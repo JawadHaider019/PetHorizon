@@ -44,6 +44,7 @@ async function submitToIndexNow(urls, endpoint = 'www.bing.com') {
   const payload = JSON.stringify({
     host: HOST,
     key: INDEXNOW_KEY,
+    keyLocation: `https://${HOST}/${INDEXNOW_KEY}.txt`,
     urlList: urls
   });
 

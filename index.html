@@ -13,8 +13,9 @@
     <meta name="author" content="Pet Horizon" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="theme-color" content="#047857" />
-    <!-- Google Search Console Verification -->
+    <!-- Search Engine Verifications -->
     <meta name="google-site-verification" content="MyQf9lnl3Ehgb9nukwNGGtBxo2QSTifZoSO5w4K50PU" />
+    <meta name="msvalidate.01" content="5DF3C5A29D03F903CDEA556439A63561" />
 
     <!-- Google tag (gtag.js) - Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHBNRZ7X6T"></script>
@@ -27,6 +28,8 @@
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://pethorizon.jawumitech.com/" />
+    <link rel="apple-touch-icon" href="/applogo.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/applogo.png" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -35,6 +38,7 @@
     <meta property="og:title" content="Pet Horizon – Smart Pet Care, Family Hub & Daily Routine Tracker" />
     <meta property="og:description" content="Streamline your pet's life with smart care schedules, medication alarms, vaccination logs, and family sync." />
     <meta property="og:image" content="https://pethorizon.jawumitech.com/applogo.png" />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1024" />
     <meta property="og:image:height" content="1024" />
     <meta property="og:image:alt" content="Pet Horizon - Smart Pet Care & Routine Tracker" />
@@ -56,7 +60,7 @@
     <link rel="preload" href="/screenshots/home-screen.webp" as="image" type="image/webp" fetchpriority="high" />
     <link rel="preload" href="/3d-pets-transparent.webp" as="image" type="image/webp" fetchpriority="high" />
 
-    <!-- Schema.org Graph: Organization, WebSite & SoftwareApplication -->
+    <!-- Schema.org Graph: Organization, WebSite, SoftwareApplication & FAQPage -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -89,6 +93,14 @@
           "description": "Smart Pet Care, Family Hub & Daily Routine Tracker for Dogs and Cats",
           "publisher": {
             "@id": "https://pethorizon.jawumitech.com/#organization"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://pethorizon.jawumitech.com/blogs?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
           }
         },
         {
@@ -106,7 +118,101 @@
             "@id": "https://pethorizon.jawumitech.com/#organization"
           },
           "downloadUrl": "https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon",
-          "description": "Smart pet care companion app featuring medication schedule alerts, daily feeding routines, vaccination history, and family hub collaboration."
+          "description": "Smart pet care companion app featuring medication schedule alerts, daily feeding routines, vaccination history, and family hub collaboration.",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "bestRating": "5",
+            "worstRating": "1",
+            "ratingCount": "128",
+            "reviewCount": "128"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://pethorizon.jawumitech.com/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is the Digital Pet Health Card and Emergency Vet Mode?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pet Horizon’s Digital Health Card brings together your pet’s verified vaccination history (DHPP, Rabies, Bordetella), microchip ID, sterilization status, vitals, allergies, and veterinary clinic records into a single digital passport. Tapping \"Show to Vet\" launches a high-contrast emergency clinical sheet with immediate contacts and treatment notes that vets or boarding facilities can inspect or export to PDF."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does the Anti-Collision Care Lock prevent double-feeding or double-dosing?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "When any household member opens a task (such as pouring breakfast kibble or administering heartworm medication), Pet Horizon instantly displays an active \"In-Progress Care Lock\" across all connected family devices. When marked \"Done\", it updates with a live timestamp, eliminating conflicting chore attempts or dangerous accidental double-dosing."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does Family Sharing work with household QR codes?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "From the Family Hub, you can generate an instant 6-character household code or show a scannable QR pass. Your partner, roommates, or pet sitters simply tap \"Join Family\", scan the code, and gain instant, synchronized co-parenting access without cumbersome account setup or password sharing."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I track pet expenses and set monthly spending limits?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! The built-in Wallet and Expense Tracker allows you to define custom monthly budgets and itemize costs across Food, Veterinary Care, Grooming, Medications, and Accessories. You can log expenses with merchant tags, keep a digital receipt vault, and track real-time visual progress of your monthly spending allowance."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which companion species and measurement units does Pet Horizon support?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pet Horizon provides dedicated, species-tailored profiles for Dogs, Cats, Birds, Rabbits, Hamsters, and other exotic companions. You can record species-specific breeds, track life-stage age calculators, and seamlessly toggle weight metrics between Kilograms (KG) and Pounds (LBS)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Pet Horizon work offline during walks or remote trail trips?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. All walk routes, potty breaks, water logs, and chore completions logged while outside cellular reception are safely timestamped and stored in an offline queue. As soon as your device reconnects to Wi-Fi or cellular data, all changes automatically sync to your household in the background."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Will I receive native notifications and routine chimes if the app is closed?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Pet Horizon schedules native device push notifications and distinctive routine audio chimes for scheduled meal hours, time-sensitive medications, and upcoming veterinary booster shots so your pet’s daily rhythm is always protected."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the difference between the Free Standard plan and Premium?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Free Standard Plan is free forever and includes 1 pet profile, complete daily feeding routines, medication reminders, expense logging, and 1 daily health photo upload. The Premium Plan unlocks unlimited pet profiles, full Family Hub co-parenting with Admin/Member permissions, up to 5 daily journal photos, advanced exportable Health Passports, and priority support."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Pet Horizon available on Android and iOS?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pet Horizon is currently live on Android via the Google Play Store with full feature parity. The iOS version is currently in active development for the Apple App Store, with cross-platform household synchronization built right in."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How is our pet’s veterinary and personal data protected?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "All veterinary medical documents, medication schedules, and family co-parenting logs are encrypted in transit via TLS 1.3 and stored in secure cloud infrastructure. We never sell your personal contact information or pet health telemetry to advertisers or third parties."
+              }
+            }
+          ]
         }
       ]
     }

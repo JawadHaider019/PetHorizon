@@ -177,10 +177,56 @@ export function usePageSeo(viewState: ViewState, currentArticle: BlogPost | null
       document.title = 'Official Privacy Policy | PetHorizon';
       updateMetaTag('meta[name="description"]', 'content', 'Read the official PetHorizon privacy policy regarding zero data monetization and encrypted pet records.');
       updateCanonical('/privacy-policy');
+    } else if (viewState.view === 'terms') {
+      document.title = 'Terms of Service | PetHorizon';
+      updateMetaTag('meta[name="description"]', 'content', 'Read the official terms of service and license agreement for Pet Horizon mobile application and web portal.');
+      updateCanonical('/terms-of-service');
     } else if (viewState.view === 'deletion') {
       document.title = 'Data & Account Deletion Instructions | PetHorizon';
       updateMetaTag('meta[name="description"]', 'content', 'How to request complete data and account deletion in PetHorizon.');
       updateCanonical('/data-deletion');
+    } else if (viewState.view === 'pet-calorie-calculator') {
+      const toolTitle = 'Pet Calorie & Daily Portion Calculator (Dogs & Cats) | PetHorizon';
+      const toolDesc = 'Free veterinary-standard pet calorie and daily food portion calculator. Calculate RER, MER, daily grams, and cup measurements for dogs and cats based on WSAVA guidelines.';
+      const toolUrl = `${baseUrl}/tools/pet-calorie-calculator`;
+
+      document.title = toolTitle;
+      updateMetaTag('meta[name="description"]', 'content', toolDesc);
+      updateMetaTag('meta[name="keywords"]', 'content', 'pet calorie calculator, dog calorie calculator, cat feeding portion calculator, RER calculator, MER pet calculator, WSAVA dog calories');
+      updateMetaTag('meta[property="og:title"]', 'content', toolTitle);
+      updateMetaTag('meta[property="og:description"]', 'content', toolDesc);
+      updateMetaTag('meta[property="og:type"]', 'content', 'website');
+      updateMetaTag('meta[property="og:url"]', 'content', toolUrl);
+      updateMetaTag('meta[name="twitter:card"]', 'content', 'summary_large_image');
+      updateMetaTag('meta[name="twitter:title"]', 'content', toolTitle);
+      updateMetaTag('meta[name="twitter:description"]', 'content', toolDesc);
+      updateCanonical('/tools/pet-calorie-calculator');
+
+      updateJsonLd('seo-schema-article', [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'WebApplication',
+          name: 'PetHorizon Calorie & Portion Calculator',
+          url: toolUrl,
+          description: toolDesc,
+          applicationCategory: 'HealthApplication',
+          operatingSystem: 'All',
+          offers: {
+            '@type': 'Offer',
+            price: '0',
+            priceCurrency: 'USD'
+          }
+        },
+        {
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${baseUrl}/` },
+            { '@type': 'ListItem', position: 2, name: 'Tools', item: toolUrl },
+            { '@type': 'ListItem', position: 3, name: 'Pet Calorie Calculator', item: toolUrl }
+          ]
+        }
+      ]);
     } else if (viewState.view === '404') {
       document.title = '404 Page Not Found | PetHorizon';
       updateMetaTag('meta[name="description"]', 'content', 'The page you were looking for could not be found.');
@@ -189,6 +235,14 @@ export function usePageSeo(viewState: ViewState, currentArticle: BlogPost | null
       document.title = `${SITE_CONFIG.name} – ${SITE_CONFIG.tagline}`;
       updateMetaTag('meta[name="description"]', 'content', SITE_CONFIG.description);
       updateCanonical('');
+    }
+
+    // Clean up dynamic blog article schema when visiting non-blog views
+    if (viewState.view !== 'blog-article' && viewState.view !== 'blog') {
+      const dynamicArticleSchema = document.getElementById('seo-schema-article');
+      if (dynamicArticleSchema) {
+        dynamicArticleSchema.remove();
+      }
     }
   }, [viewState, currentArticle]);
 }

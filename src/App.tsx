@@ -20,6 +20,7 @@ import BlogHub from './components/BlogHub';
 import BlogArticleDetail from './components/BlogArticleDetail';
 import ChangelogPage from './components/changelog/ChangelogPage';
 import NotFoundPage from './components/errors/NotFoundPage';
+import PetCalorieCalculator from './components/tools/PetCalorieCalculator';
 import QrDownloadModal from './components/modals/QrDownloadModal';
 import IosWaitlistModal from './components/modals/IosWaitlistModal';
 import { BLOG_POSTS } from './data/blogData';
@@ -112,11 +113,11 @@ export default function App() {
         </>
       )}
 
-      {/* Legal Portals (Privacy & Deletion) */}
-      {['privacy', 'deletion'].includes(viewState.view) && (
+      {/* Legal Portals (Privacy, Terms & Deletion) */}
+      {['privacy', 'terms', 'deletion'].includes(viewState.view) && (
         <>
           <LegalPortal
-            initialDoc={viewState.view as 'privacy' | 'deletion'}
+            initialDoc={viewState.view === 'terms' ? 'privacy' : (viewState.view as 'privacy' | 'deletion')}
             onNavigateHome={() => navigateTo('home')}
             onSelectDoc={(doc) => navigateTo(doc)}
           />
@@ -131,6 +132,20 @@ export default function App() {
       {viewState.view === 'changelog' && (
         <>
           <ChangelogPage onNavigateHome={() => navigateTo('home')} />
+          <Footer
+            onNavigate={(to, hash) => navigateTo(to as ExtendedAppView, hash)}
+            onNavigateLegal={(doc) => navigateTo(doc)}
+          />
+        </>
+      )}
+
+      {/* Pet Calorie & Daily Portion Calculator Tool */}
+      {viewState.view === 'pet-calorie-calculator' && (
+        <>
+          <PetCalorieCalculator
+            onNavigateHome={() => navigateTo('home')}
+            onOpenQrModal={() => setIsQrModalOpen(true)}
+          />
           <Footer
             onNavigate={(to, hash) => navigateTo(to as ExtendedAppView, hash)}
             onNavigateLegal={(doc) => navigateTo(doc)}

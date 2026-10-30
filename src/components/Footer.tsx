@@ -4,19 +4,19 @@ import FooterMobileAccordion from './footer/FooterMobileAccordion';
 import FooterBottomBar from './footer/FooterBottomBar';
 
 interface FooterProps {
-  onNavigate?: (view: 'home' | 'blog' | 'privacy' | 'terms' | 'deletion' | 'changelog', hash?: string) => void;
-  onNavigateLegal?: (doc: 'privacy' | 'deletion') => void;
+  onNavigate?: (view: 'home' | 'blog' | 'privacy' | 'terms' | 'deletion' | 'changelog' | 'pet-calorie-calculator', hash?: string) => void;
+  onNavigateLegal?: (doc: 'privacy' | 'terms' | 'deletion') => void;
 }
 
 export default function Footer({ onNavigate, onNavigateLegal }: FooterProps) {
-  const handleLegalClick = (e: React.MouseEvent, doc: 'privacy' | 'deletion') => {
+  const handleLegalClick = (e: React.MouseEvent, doc: 'privacy' | 'terms' | 'deletion') => {
     e.preventDefault();
     if (onNavigate) {
       onNavigate(doc);
     } else if (onNavigateLegal) {
       onNavigateLegal(doc);
     } else {
-      window.location.href = `/${doc === 'privacy' ? 'privacy-policy' : 'data-deletion'}`;
+      window.location.href = `/${doc === 'privacy' ? 'privacy-policy' : doc === 'terms' ? 'terms-of-service' : 'data-deletion'}`;
     }
   };
 
@@ -25,7 +25,7 @@ export default function Footer({ onNavigate, onNavigateLegal }: FooterProps) {
     if (onNavigate) {
       onNavigate('blog');
     } else {
-      window.location.href = '/blog';
+      window.location.href = '/blogs';
     }
   };
 
@@ -35,6 +35,15 @@ export default function Footer({ onNavigate, onNavigateLegal }: FooterProps) {
       onNavigate('changelog');
     } else {
       window.location.href = '/changelog';
+    }
+  };
+
+  const handleToolClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (onNavigate) {
+      onNavigate('pet-calorie-calculator');
+    } else {
+      window.location.href = '/tools/pet-calorie-calculator';
     }
   };
 
@@ -55,6 +64,7 @@ export default function Footer({ onNavigate, onNavigateLegal }: FooterProps) {
               onLegalClick={handleLegalClick}
               onBlogClick={handleBlogClick}
               onChangelogClick={handleChangelogClick}
+              onToolClick={handleToolClick}
             />
           </div>
         </div>
@@ -66,6 +76,7 @@ export default function Footer({ onNavigate, onNavigateLegal }: FooterProps) {
             onLegalClick={handleLegalClick}
             onBlogClick={handleBlogClick}
             onChangelogClick={handleChangelogClick}
+            onToolClick={handleToolClick}
           />
         </div>
 
@@ -74,6 +85,7 @@ export default function Footer({ onNavigate, onNavigateLegal }: FooterProps) {
           onLegalClick={handleLegalClick}
           onBlogClick={handleBlogClick}
           onChangelogClick={handleChangelogClick}
+          onToolClick={handleToolClick}
         />
       </div>
     </footer>

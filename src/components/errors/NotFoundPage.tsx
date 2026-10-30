@@ -95,8 +95,12 @@ export default function NotFoundPage({ onNavigateHome, onNavigateBlog }: NotFoun
           className="inline-flex flex-col items-center mb-4"
         >
           <motion.img
-            src="/mascots/404-detective.jpg"
+            src="/mascots/404-detective.webp"
             alt="Pet Horizon Detective Puppy"
+            width={288}
+            height={288}
+            fetchPriority="high"
+            decoding="async"
             animate={{ y: [0, -14, 0] }}
             transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
             className="w-64 h-64 sm:w-72 sm:h-72 object-contain"
