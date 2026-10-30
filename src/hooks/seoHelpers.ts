@@ -72,6 +72,10 @@ export function buildArticleSchemas(article: BlogPost, baseUrl: string, pageDesc
       mainEntityOfPage: {
         '@type': 'WebPage',
         '@id': articleUrl
+      },
+      speakable: {
+        '@type': 'SpeakableSpecification',
+        cssSelector: ['h1', 'h2', '#main-content p']
       }
     },
     {
@@ -92,6 +96,17 @@ export function buildArticleSchemas(article: BlogPost, baseUrl: string, pageDesc
   ];
 
   if (article.keyTakeaways && article.keyTakeaways.length > 0) {
+    schemas.push({
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: `${article.title} — Clinical Checklist & Key Steps`,
+      itemListElement: article.keyTakeaways.map((takeaway, idx) => ({
+        '@type': 'ListItem',
+        position: idx + 1,
+        name: takeaway
+      }))
+    });
+
     schemas.push({
       '@context': 'https://schema.org',
       '@type': 'FAQPage',

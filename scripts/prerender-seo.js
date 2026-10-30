@@ -619,6 +619,10 @@ async function runPostBuild() {
         mainEntityOfPage: {
           '@type': 'WebPage',
           '@id': postUrl
+        },
+        speakable: {
+          '@type': 'SpeakableSpecification',
+          cssSelector: ['h1', 'h2', 'main p']
         }
       },
       {
@@ -634,6 +638,17 @@ async function runPostBuild() {
     ];
 
     if (post.keyTakeaways && post.keyTakeaways.length > 0) {
+      articleJsonLd.push({
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        name: `${post.title} — Clinical Checklist & Key Steps`,
+        itemListElement: post.keyTakeaways.map((takeaway, idx) => ({
+          '@type': 'ListItem',
+          position: idx + 1,
+          name: takeaway
+        }))
+      });
+
       articleJsonLd.push({
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
