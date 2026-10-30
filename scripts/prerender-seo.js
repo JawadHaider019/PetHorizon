@@ -627,6 +627,31 @@ async function runPostBuild() {
       }
     ];
 
+    if (post.keyTakeaways && post.keyTakeaways.length > 0) {
+      articleJsonLd.push({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: post.keyTakeaways.map((takeaway, idx) => {
+          const colonIdx = takeaway.indexOf(':');
+          const question = colonIdx > 5 && colonIdx < 80
+            ? takeaway.substring(0, colonIdx).trim()
+            : idx === 0
+            ? `What is the key takeaway for ${post.seoKeyword || post.title}?`
+            : idx === 1
+            ? `How often should you follow this routine?`
+            : `What is the recommended veterinary guideline for ${post.category}?`;
+          return {
+            '@type': 'Question',
+            name: question,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: takeaway
+            }
+          };
+        })
+      });
+    }
+
     let postHtml = injectHead(baseTemplate, {
       title: postTitle,
       description: postDesc,

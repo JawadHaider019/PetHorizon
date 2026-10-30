@@ -72,8 +72,32 @@ export function usePageSeo(viewState: ViewState, currentArticle: BlogPost | null
 
       updateCanonical(`/blogs/${currentArticle.slug}`);
 
-      // Google E-E-A-T Structured Data Schema (BlogPosting + BreadcrumbList)
-      updateJsonLd('seo-schema-article', [
+      // Generate high-CTR FAQPage schema from article keyTakeaways
+      const articleFaqSchema = currentArticle.keyTakeaways && currentArticle.keyTakeaways.length > 0 ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: currentArticle.keyTakeaways.map((takeaway, idx) => {
+          const colonIdx = takeaway.indexOf(':');
+          const question = colonIdx > 5 && colonIdx < 80 
+            ? takeaway.substring(0, colonIdx).trim()
+            : idx === 0 
+            ? `What is the key takeaway for ${currentArticle.seoKeyword || currentArticle.title}?`
+            : idx === 1 
+            ? `How often should you follow this routine?`
+            : `What is the recommended veterinary guideline for ${currentArticle.category}?`;
+          return {
+            '@type': 'Question',
+            name: question,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: takeaway
+            }
+          };
+        })
+      } : null;
+
+      // Google E-E-A-T Structured Data Schema (BlogPosting + BreadcrumbList + FAQPage)
+      const schemas: object[] = [
         {
           '@context': 'https://schema.org',
           '@type': 'BlogPosting',
@@ -135,7 +159,13 @@ export function usePageSeo(viewState: ViewState, currentArticle: BlogPost | null
             }
           ]
         }
-      ]);
+      ];
+
+      if (articleFaqSchema) {
+        schemas.push(articleFaqSchema);
+      }
+
+      updateJsonLd('seo-schema-article', schemas);
     } else if (viewState.view === 'blog') {
       const blogTitle = 'PetHorizon Blog — Evidence-Based Pet Care & Health Guides';
       const blogDesc = 'Guides and tips for pet health, veterinary schedules, household co-parenting, and smart budgeting: track vaccines, prevent double-feeding, and care for your pets with PetHorizon.';
