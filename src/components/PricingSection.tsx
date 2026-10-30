@@ -115,7 +115,7 @@ export default function PricingSection() {
                     </span>
                   </div>
                   <h3 className="text-2xl font-black text-slate-900">{plan.name}</h3>
-                  <p className="text-xs text-slate-500 mt-1 mb-5 min-h-[32px] flex items-center">{plan.description}</p>
+                  <p className="text-xs text-slate-600 mt-1 mb-5 min-h-[32px] flex items-center">{plan.description}</p>
 
                   <div className="mb-6 min-h-[76px] flex flex-col justify-center">
                     <div className="flex items-baseline gap-1.5">
@@ -131,7 +131,7 @@ export default function PricingSection() {
                           {currentPrice}
                         </motion.span>
                       </AnimatePresence>
-                      <span className="text-slate-500 text-xs sm:text-sm font-semibold">{currentPeriod}</span>
+                      <span className="text-slate-600 text-xs sm:text-sm font-semibold">{currentPeriod}</span>
                     </div>
                     {currentSubnote && (
                       <p className="text-[11px] text-emerald-800 font-semibold mt-1">
@@ -192,7 +192,7 @@ export default function PricingSection() {
           })}
         </div>
 
-        <p className="text-center text-xs text-slate-500 mt-10">
+        <p className="text-center text-xs text-slate-600 mt-10">
           In-app purchases are securely processed through Google Play. Cancel anytime with a single tap in your Google Play Store subscriptions.
         </p>
       </div>
