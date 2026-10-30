@@ -20,9 +20,9 @@ export default function FooterDesktopColumns({
     <div className="grid grid-cols-3 gap-6 sm:gap-8 text-left">
       {/* Col 1: Product Features */}
       <div>
-        <h4 className="text-xs font-extrabold uppercase tracking-wider text-slate-900 mb-3">
+        <h3 className="text-xs font-extrabold uppercase tracking-wider text-slate-900 mb-3">
           Product Features
-        </h4>
+        </h3>
         <ul className="space-y-2 text-xs sm:text-sm">
           <li>
             <a href="#how-it-works" className="text-slate-600 hover:text-[#166534] transition-colors font-medium block">

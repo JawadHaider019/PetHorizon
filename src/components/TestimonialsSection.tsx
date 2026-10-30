@@ -166,10 +166,10 @@ export default function TestimonialsSection() {
                     {item.avatarText}
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-slate-900 leading-tight">
+                    <h3 className="text-xs font-bold text-slate-900 leading-tight">
                       {item.name}
-                    </h4>
-                    <p className="text-[10px] text-slate-400 font-medium">
+                    </h3>
+                    <p className="text-[10px] text-slate-500 font-medium">
                       {item.date}
                     </p>
                   </div>
@@ -193,7 +193,7 @@ export default function TestimonialsSection() {
       </div>
 
       {/* Trust Endorsements Strip */}
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 mt-10 pt-6 border-t border-slate-200/70 flex flex-wrap items-center justify-center gap-5 sm:gap-10 text-xs font-semibold text-slate-500">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 mt-10 pt-6 border-t border-slate-200/70 flex flex-wrap items-center justify-center gap-5 sm:gap-10 text-xs font-semibold text-slate-600">
         <div className="flex items-center gap-1.5">
           <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
           <span>100% Genuine Play Store & Tester Reviews</span>

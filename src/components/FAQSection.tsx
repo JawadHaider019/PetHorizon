@@ -152,8 +152,8 @@ export default function FAQSection() {
         {/* Still have questions banner */}
         <div className="mt-12 text-center p-6 bg-white rounded-2xl border border-black/[0.06] shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-left">
-            <h4 className="text-sm font-bold text-slate-900">Have a question not listed here?</h4>
-            <p className="text-xs text-slate-500 mt-0.5">Reach out to our support team and we will be happy to assist.</p>
+            <h3 className="text-sm font-bold text-slate-900">Have a question not listed here?</h3>
+            <p className="text-xs text-slate-600 mt-0.5">Reach out to our support team and we will be happy to assist.</p>
           </div>
           <a
             href="#contact"
