@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useScroll, motion } from 'framer-motion';
-import { Mail, ChevronRight, ArrowLeft, ShieldCheck, Trash2 } from 'lucide-react';
-import { PRIVACY_POLICY, DATA_DELETION_GUIDE, LegalDocument } from '../data/legalData';
+import { Mail, ChevronRight, ArrowLeft, ShieldCheck, Trash2, FileText } from 'lucide-react';
+import { PRIVACY_POLICY, DATA_DELETION_GUIDE, TERMS_OF_SERVICE, LegalDocument } from '../data/legalData';
 import LegalSidebar from './LegalSidebar';
 import LegalSectionsList from './LegalSectionsList';
 
 interface LegalPortalProps {
-  initialDoc?: 'privacy' | 'deletion';
+  initialDoc?: 'privacy' | 'terms' | 'deletion';
   onNavigateHome: () => void;
-  onSelectDoc?: (docId: 'privacy' | 'deletion') => void;
+  onSelectDoc?: (docId: 'privacy' | 'terms' | 'deletion') => void;
 }
 
 export default function LegalPortal({
@@ -16,7 +16,7 @@ export default function LegalPortal({
   onNavigateHome,
   onSelectDoc
 }: LegalPortalProps) {
-  const [activeDocId, setActiveDocId] = useState<'privacy' | 'deletion'>(initialDoc);
+  const [activeDocId, setActiveDocId] = useState<'privacy' | 'terms' | 'deletion'>(initialDoc);
   const [activeSectionId, setActiveSectionId] = useState<string>('');
   const [readPercent, setReadPercent] = useState(0);
 
@@ -27,7 +27,11 @@ export default function LegalPortal({
   }, [initialDoc]);
 
   const currentDoc: LegalDocument =
-    activeDocId === 'privacy' ? PRIVACY_POLICY : DATA_DELETION_GUIDE;
+    activeDocId === 'privacy'
+      ? PRIVACY_POLICY
+      : activeDocId === 'terms'
+      ? TERMS_OF_SERVICE
+      : DATA_DELETION_GUIDE;
 
   useEffect(() => {
     return scrollYProgress.on('change', (latest) => {

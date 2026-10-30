@@ -101,6 +101,7 @@ export default function App() {
             <BlogArticleDetail
               article={currentArticle}
               onNavigateBack={() => navigateTo('blog')}
+              onNavigateHome={() => navigateTo('home')}
               onSelectArticle={(slug) => navigateToArticle(slug)}
               onOpenQrModal={() => setIsQrModalOpen(true)}
             />
@@ -118,7 +119,7 @@ export default function App() {
           {/* Legal Portals (Privacy, Terms & Deletion) */}
           {['privacy', 'terms', 'deletion'].includes(viewState.view) && (
             <LegalPortal
-              initialDoc={viewState.view === 'terms' ? 'privacy' : (viewState.view as 'privacy' | 'deletion')}
+              initialDoc={viewState.view as 'privacy' | 'terms' | 'deletion'}
               onNavigateHome={() => navigateTo('home')}
               onSelectDoc={(doc) => navigateTo(doc)}
             />

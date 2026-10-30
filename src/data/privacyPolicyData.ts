@@ -10,7 +10,7 @@ export interface LegalSection {
 }
 
 export interface LegalDocument {
-  id: 'privacy' | 'deletion';
+  id: 'privacy' | 'terms' | 'deletion';
   title: string;
   subtitle: string;
   effectiveDate: string;
