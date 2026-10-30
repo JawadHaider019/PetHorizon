@@ -1,10 +1,10 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { NavView } from './Navbar';
-import { PRODUCT_LINKS, LEGAL_LINKS } from './navData';
+import { PRODUCT_LINKS, LEGAL_LINKS, TOOL_LINKS } from './navData';
 
 interface NavbarDesktopDropdownProps {
-  type: 'product' | 'legal';
+  type: 'product' | 'legal' | 'tools';
   label: string;
   isOpen: boolean;
   onEnter: () => void;
@@ -45,46 +45,77 @@ export default function NavbarDesktopDropdown({
             exit={{ opacity: 0, y: 8, scale: 0.98 }}
             transition={{ duration: 0.18, ease: 'easeOut' }}
             className={`absolute top-full mt-1.5 bg-white rounded-2xl shadow-xl border border-slate-200/90 p-2.5 z-50 grid gap-1 ${
-              type === 'product' ? 'left-0 w-80' : 'right-0 w-84'
+              type === 'product' ? 'left-0 w-80' : type === 'tools' ? 'left-0 w-84' : 'right-0 w-84'
             }`}
           >
-            {type === 'product'
-              ? PRODUCT_LINKS.map((item) => (
-                  <a
-                    key={item.title}
-                    href={item.hash}
-                    onClick={(e) => onLinkClick(e, 'home', item.hash)}
-                    className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group cursor-pointer"
-                  >
-                    <div className={`p-2 rounded-xl ${item.color} shrink-0 mt-0.5`}>
-                      <item.icon className="w-4 h-4" />
-                    </div>
-                    <div>
+            {type === 'product' ? (
+              PRODUCT_LINKS.map((item) => (
+                <a
+                  key={item.title}
+                  href={item.hash}
+                  onClick={(e) => onLinkClick(e, 'home', item.hash)}
+                  className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group cursor-pointer"
+                >
+                  <div className={`p-2 rounded-xl ${item.color} shrink-0 mt-0.5`}>
+                    <item.icon className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
+                      {item.title}
+                    </h4>
+                    <p className="text-[11px] text-slate-500 leading-snug mt-0.5">{item.desc}</p>
+                  </div>
+                </a>
+              ))
+            ) : type === 'tools' ? (
+              TOOL_LINKS.map((item) => (
+                <a
+                  key={item.title}
+                  href={item.path}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = item.path;
+                  }}
+                  className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group cursor-pointer"
+                >
+                  <div className={`p-2 rounded-xl ${item.color} shrink-0 mt-0.5`}>
+                    <item.icon className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-1.5">
                       <h4 className="text-xs font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
                         {item.title}
                       </h4>
-                      <p className="text-[11px] text-slate-500 leading-snug mt-0.5">{item.desc}</p>
+                      {item.badge && (
+                        <span className="text-[9px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-800 border border-emerald-200/70 px-1.5 py-0.2 rounded-full">
+                          {item.badge}
+                        </span>
+                      )}
                     </div>
-                  </a>
-                ))
-              : LEGAL_LINKS.map((item) => (
-                  <a
-                    key={item.title}
-                    href={`/${item.view}`}
-                    onClick={(e) => onLinkClick(e, item.view)}
-                    className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group cursor-pointer"
-                  >
-                    <div className={`p-2 rounded-xl ${item.color} shrink-0 mt-0.5`}>
-                      <item.icon className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
-                        {item.title}
-                      </h4>
-                      <p className="text-[11px] text-slate-500 leading-snug mt-0.5">{item.desc}</p>
-                    </div>
-                  </a>
-                ))}
+                    <p className="text-[11px] text-slate-500 leading-snug mt-0.5">{item.desc}</p>
+                  </div>
+                </a>
+              ))
+            ) : (
+              LEGAL_LINKS.map((item) => (
+                <a
+                  key={item.title}
+                  href={`/${item.view}`}
+                  onClick={(e) => onLinkClick(e, item.view)}
+                  className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group cursor-pointer"
+                >
+                  <div className={`p-2 rounded-xl ${item.color} shrink-0 mt-0.5`}>
+                    <item.icon className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
+                      {item.title}
+                    </h4>
+                    <p className="text-[11px] text-slate-500 leading-snug mt-0.5">{item.desc}</p>
+                  </div>
+                </a>
+              ))
+            )}
           </motion.div>
         )}
       </AnimatePresence>

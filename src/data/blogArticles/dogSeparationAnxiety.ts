@@ -4,13 +4,13 @@ export const dogSeparationAnxietyArticle: FullBlogArticle = {
   slug: 'dog-separation-anxiety-training-routine-guide',
   readTime: '15 min read',
   overviewSummary:
-    'Separation anxiety affects an estimated 20% to 40% of companion dogs referred to animal behavior practices. True clinical separation distress is a panic state triggered when a dog is left alone or isolated from their primary attachment figure. Unlike destructive boredom, separation anxiety manifests within 5 to 30 minutes of departure. This veterinary and behavioral guide provides evidence-based desensitization schedules, departure cue fading protocols, and household routine tracking to help your dog gain calm independence.',
+    'Dog separation anxiety training requires clinical precision and patience. Affecting an estimated 20% to 40% of companion dogs, true separation anxiety is a panic disorder triggered when a dog is left alone. Unlike destructive boredom, distress starts within 5 to 15 minutes of departure. This veterinary guide provides evidence-based dog separation anxiety training routines, desensitization schedules, departure cue fading protocols, and household tracking to help your dog achieve calm independence.',
   sections: [
     {
       id: 'separation-anxiety-vs-boredom',
-      heading: 'True Separation Anxiety vs. Boredom: Diagnostic Differentiators',
+      heading: 'Dog Separation Anxiety Training vs. Boredom: Diagnostic Differentiators',
       intro:
-        'Many dog owners mistakenly label destructive chewing or potty accidents as "spite" or bad behavior. In veterinary behavioral medicine, anxiety is an involuntary physiological panic response.',
+        'Successful dog separation anxiety training begins with accurate diagnosis. Many dog owners mistakenly label destructive chewing or potty accidents as "spite" or bad behavior. In veterinary behavioral medicine, anxiety is an involuntary physiological panic response.',
       paragraphs: [
         'Dogs suffering from separation anxiety experience an acute spike in cortisol and adrenaline immediately as departure cues begin. Symptoms typically appear within 15 minutes of the owner leaving, whereas dogs that are simply bored usually sleep for several hours before chewing items out of curiosity.',
         'Primary clinical signs include continuous vocalization (distress howling or persistent barking), hypersalivation, pacing, trembling, scratching at door frames or window sills (escape attempts), and loss of bladder or bowel control despite being house-trained.',

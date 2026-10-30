@@ -2,46 +2,17 @@ import { useEffect } from 'react';
 import { ViewState } from './useAppNavigation';
 import { BlogPost } from '../data/blogData';
 import { SITE_CONFIG } from '../config/siteConfig';
+import {
+  updateMetaTag,
+  updateCanonical,
+  updateJsonLd,
+  buildArticleSchemas,
+  buildCalorieToolSchema,
+  buildAgeToolSchema
+} from './seoHelpers';
 
 export function usePageSeo(viewState: ViewState, currentArticle: BlogPost | null) {
   useEffect(() => {
-    const updateMetaTag = (selector: string, attr: string, value: string) => {
-      let el = document.querySelector(selector);
-      if (!el) {
-        el = document.createElement('meta');
-        if (selector.includes('property=')) {
-          const propName = selector.match(/property="([^"]+)"/)?.[1];
-          if (propName) el.setAttribute('property', propName);
-        } else if (selector.includes('name=')) {
-          const nameValue = selector.match(/name="([^"]+)"/)?.[1];
-          if (nameValue) el.setAttribute('name', nameValue);
-        }
-        document.head.appendChild(el);
-      }
-      el.setAttribute(attr, value);
-    };
-
-    const updateCanonical = (path: string) => {
-      let canonicalEl = document.querySelector('link[rel="canonical"]');
-      if (!canonicalEl) {
-        canonicalEl = document.createElement('link');
-        canonicalEl.setAttribute('rel', 'canonical');
-        document.head.appendChild(canonicalEl);
-      }
-      canonicalEl.setAttribute('href', `${SITE_CONFIG.url}${path}`);
-    };
-
-    const updateJsonLd = (id: string, data: object | object[]) => {
-      let script = document.getElementById(id) as HTMLScriptElement | null;
-      if (!script) {
-        script = document.createElement('script');
-        script.id = id;
-        script.type = 'application/ld+json';
-        document.head.appendChild(script);
-      }
-      script.textContent = JSON.stringify(data);
-    };
-
     const baseUrl = SITE_CONFIG.url;
 
     if (viewState.view === 'blog-article' && currentArticle) {
@@ -55,87 +26,19 @@ export function usePageSeo(viewState: ViewState, currentArticle: BlogPost | null
       document.title = pageTitle;
       updateMetaTag('meta[name="description"]', 'content', pageDesc);
       updateMetaTag('meta[name="keywords"]', 'content', `${currentArticle.tags.join(', ')}, ${currentArticle.seoKeyword}`);
-      
-      // OpenGraph
       updateMetaTag('meta[property="og:title"]', 'content', pageTitle);
       updateMetaTag('meta[property="og:description"]', 'content', pageDesc);
       updateMetaTag('meta[property="og:image"]', 'content', absoluteCoverImage);
       updateMetaTag('meta[property="og:type"]', 'content', 'article');
       updateMetaTag('meta[property="og:url"]', 'content', articleUrl);
       updateMetaTag('meta[property="og:site_name"]', 'content', 'Pet Horizon');
-
-      // Twitter Cards
       updateMetaTag('meta[name="twitter:card"]', 'content', 'summary_large_image');
       updateMetaTag('meta[name="twitter:title"]', 'content', pageTitle);
       updateMetaTag('meta[name="twitter:description"]', 'content', pageDesc);
       updateMetaTag('meta[name="twitter:image"]', 'content', absoluteCoverImage);
-
       updateCanonical(`/blogs/${currentArticle.slug}`);
 
-      // Google E-E-A-T Structured Data Schema (BlogPosting + BreadcrumbList)
-      updateJsonLd('seo-schema-article', [
-        {
-          '@context': 'https://schema.org',
-          '@type': 'BlogPosting',
-          headline: currentArticle.title,
-          description: pageDesc,
-          image: [currentArticle.coverImage],
-          datePublished: currentArticle.publishedAt,
-          dateModified: currentArticle.publishedAt,
-          author: {
-            '@type': currentArticle.author.name.includes('Team') ? 'Organization' : 'Person',
-            name: currentArticle.author.name,
-            jobTitle: currentArticle.author.role,
-            image: currentArticle.author.avatar.startsWith('/')
-              ? `${baseUrl}${currentArticle.author.avatar}`
-              : currentArticle.author.avatar,
-            description: currentArticle.author.bio
-          },
-          publisher: {
-            '@type': 'Organization',
-            name: 'Pet Horizon',
-            url: baseUrl,
-            logo: {
-              '@type': 'ImageObject',
-              url: `${baseUrl}/app-icon.png`
-            }
-          },
-          mainEntityOfPage: {
-            '@type': 'WebPage',
-            '@id': articleUrl
-          }
-        },
-        {
-          '@context': 'https://schema.org',
-          '@type': 'BreadcrumbList',
-          itemListElement: [
-            {
-              '@type': 'ListItem',
-              position: 1,
-              name: 'Home',
-              item: `${baseUrl}/`
-            },
-            {
-              '@type': 'ListItem',
-              position: 2,
-              name: 'Blogs',
-              item: `${baseUrl}/blogs`
-            },
-            {
-              '@type': 'ListItem',
-              position: 3,
-              name: currentArticle.category,
-              item: `${baseUrl}/blogs?category=${encodeURIComponent(currentArticle.category)}`
-            },
-            {
-              '@type': 'ListItem',
-              position: 4,
-              name: currentArticle.title,
-              item: articleUrl
-            }
-          ]
-        }
-      ]);
+      updateJsonLd('seo-schema-article', buildArticleSchemas(currentArticle, baseUrl, pageDesc, articleUrl));
     } else if (viewState.view === 'blog') {
       const blogTitle = 'PetHorizon Blog — Evidence-Based Pet Care & Health Guides';
       const blogDesc = 'Guides and tips for pet health, veterinary schedules, household co-parenting, and smart budgeting: track vaccines, prevent double-feeding, and care for your pets with PetHorizon.';
@@ -202,31 +105,25 @@ export function usePageSeo(viewState: ViewState, currentArticle: BlogPost | null
       updateMetaTag('meta[name="twitter:description"]', 'content', toolDesc);
       updateCanonical('/tools/pet-calorie-calculator');
 
-      updateJsonLd('seo-schema-article', [
-        {
-          '@context': 'https://schema.org',
-          '@type': 'WebApplication',
-          name: 'PetHorizon Calorie & Portion Calculator',
-          url: toolUrl,
-          description: toolDesc,
-          applicationCategory: 'HealthApplication',
-          operatingSystem: 'All',
-          offers: {
-            '@type': 'Offer',
-            price: '0',
-            priceCurrency: 'USD'
-          }
-        },
-        {
-          '@context': 'https://schema.org',
-          '@type': 'BreadcrumbList',
-          itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: `${baseUrl}/` },
-            { '@type': 'ListItem', position: 2, name: 'Tools', item: toolUrl },
-            { '@type': 'ListItem', position: 3, name: 'Pet Calorie Calculator', item: toolUrl }
-          ]
-        }
-      ]);
+      updateJsonLd('seo-schema-article', buildCalorieToolSchema(toolUrl, toolDesc, baseUrl));
+    } else if (viewState.view === 'pet-age-calculator') {
+      const toolTitle = '[AAHA Chart] Pet Age Calculator in Human Years: Dog & Cat Converter | PetHorizon';
+      const toolDesc = 'Free veterinary AAHA-standard pet age calculator in human years. Convert dog and cat chronological age to exact biological human years with breed weight scaling, life stage gauges, and health milestones.';
+      const toolUrl = `${baseUrl}/tools/pet-age-calculator`;
+
+      document.title = toolTitle;
+      updateMetaTag('meta[name="description"]', 'content', toolDesc);
+      updateMetaTag('meta[name="keywords"]', 'content', 'pet age calculator, dog age in human years, cat age calculator, dog age chart by weight, AAHA pet life stages, how old is my dog in human years');
+      updateMetaTag('meta[property="og:title"]', 'content', toolTitle);
+      updateMetaTag('meta[property="og:description"]', 'content', toolDesc);
+      updateMetaTag('meta[property="og:type"]', 'content', 'website');
+      updateMetaTag('meta[property="og:url"]', 'content', toolUrl);
+      updateMetaTag('meta[name="twitter:card"]', 'content', 'summary_large_image');
+      updateMetaTag('meta[name="twitter:title"]', 'content', toolTitle);
+      updateMetaTag('meta[name="twitter:description"]', 'content', toolDesc);
+      updateCanonical('/tools/pet-age-calculator');
+
+      updateJsonLd('seo-schema-article', buildAgeToolSchema(toolUrl, toolDesc, baseUrl));
     } else if (viewState.view === '404') {
       document.title = '404 Page Not Found | PetHorizon';
       updateMetaTag('meta[name="description"]', 'content', 'The page you were looking for could not be found.');
@@ -237,12 +134,13 @@ export function usePageSeo(viewState: ViewState, currentArticle: BlogPost | null
       updateCanonical('');
     }
 
-    // Clean up dynamic blog article schema when visiting non-blog views
-    if (viewState.view !== 'blog-article' && viewState.view !== 'blog') {
-      const dynamicArticleSchema = document.getElementById('seo-schema-article');
-      if (dynamicArticleSchema) {
-        dynamicArticleSchema.remove();
-      }
+    if (
+      viewState.view !== 'blog-article' &&
+      viewState.view !== 'blog' &&
+      viewState.view !== 'pet-calorie-calculator' &&
+      viewState.view !== 'pet-age-calculator'
+    ) {
+      document.getElementById('seo-schema-article')?.remove();
     }
   }, [viewState, currentArticle]);
 }

@@ -6,13 +6,15 @@ interface FooterDesktopColumnsProps {
   onBlogClick: (e: React.MouseEvent) => void;
   onChangelogClick?: (e: React.MouseEvent) => void;
   onToolClick?: (e: React.MouseEvent) => void;
+  onAgeToolClick?: (e: React.MouseEvent) => void;
 }
 
 export default function FooterDesktopColumns({
   onLegalClick,
   onBlogClick,
   onChangelogClick,
-  onToolClick
+  onToolClick,
+  onAgeToolClick
 }: FooterDesktopColumnsProps) {
   return (
     <div className="grid grid-cols-3 gap-6 sm:gap-8 text-left">
@@ -41,6 +43,17 @@ export default function FooterDesktopColumns({
             <a href="#journal" className="text-slate-600 hover:text-[#166534] transition-colors font-medium block">
               Daily Photo Journal &amp; Milestones
             </a>
+          </li>
+          <li>
+            <button
+              onClick={onAgeToolClick}
+              className="text-slate-600 hover:text-[#166534] transition-colors font-medium text-left cursor-pointer flex items-center gap-1.5"
+            >
+              <span>Pet Age Calculator</span>
+              <span className="text-[9px] font-bold uppercase tracking-wider bg-emerald-50 text-[#166534] border border-emerald-200/70 px-1.5 py-0.2 rounded-full whitespace-nowrap">
+                New Tool
+              </span>
+            </button>
           </li>
           <li>
             <button

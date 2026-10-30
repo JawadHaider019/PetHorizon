@@ -70,11 +70,11 @@ Hydration Awareness: For dogs fed exclusively dry kibble (which contains only 8�
 ## Puppy & Kitten Vaccination Schedule: Core Booster Timetable & In-App Milestones
 **URL:** https://pethorizon.jawumitech.com/blogs/puppy-kitten-vaccination-schedule-booster-guide-worldwide
 **Category:** Health & Vaccines | **Target:** Worldwide English-speaking Dog & Cat Owners
-**Summary:** Complete veterinary-verified vaccination guide for puppies and kittens. Learn exact timing for DHPP, Rabies, Leptospirosis, and how to digitize your pet’s health passport with PetHorizon.
+**Summary:** Complete veterinary-verified vaccination guide for puppies and kittens. Learn exact timing for DHPP, FVRCP, Rabies, and how to digitize your pet’s health passport with PetHorizon.
 
 ### Key Takeaways
-- Maternal antibodies decline between 6 to 16 weeks of age, leaving puppies vulnerable to parvovirus and distemper.
-- Core puppy vaccines (DHPP/DA2PP) must be administered every 3-4 weeks until at least 16 weeks old.
+- Maternal antibodies decline between 6 to 16 weeks of age, leaving puppies and kittens vulnerable to fatal viral pathogens.
+- Core kitten vaccines (FVRCP) and puppy vaccines (DHPP) must be administered every 3-4 weeks until at least 16 weeks old.
 - Universal veterinary standards established by the AVMA, WSAVA, and RCVS dictate mandatory rabies immunizations.
 - PetHorizon automatically syncs upcoming booster due dates and lets you export a digital vaccination certificate for boarding.
 
@@ -96,12 +96,15 @@ Modern veterinary immunology separates vaccines into two distinct operational ca
 
 Killed vaccines, by contrast, incorporate inactivated antigens paired with specialized chemical adjuvants designed to provoke an immune response. Rabies and Leptospirosis formulations typically employ this mechanism, offering exceptionally stable protection with zero risk of viral reactivation.
 
-| Age Interval | Vaccine Type | Target Pathogens | Legal & Clinical Status |
+| Age Interval | Patient / Vaccine | Target Pathogens | Legal & Clinical Status |
 | --- | --- | --- | --- |
-| 6 – 8 Weeks | DHPP / DA2PP Dose 1 | Distemper, Adenovirus-2 (Hepatitis), Parvovirus, Parainfluenza | Core (Universally Mandated) |
-| 10 – 12 Weeks | DHPP Dose 2 + Leptospirosis 1 | Parvovirus booster + 4-serovar bacterial protection | Core + High-Priority Lifestyle |
-| 14 – 16 Weeks | DHPP Dose 3 + Rabies (1-Year) | Terminal puppy core booster + 100% fatal zoonotic rabies | Core (Mandated by Municipal Law) |
-| 12 – 16 Months | DHPP Adult Booster + Rabies 3-Yr | Sustained adult anamnestic response | Core Adult Maintenance Protocol |
+| 6 – 8 Weeks (Kitten) | FVRCP Dose 1 | Feline Viral Rhinotracheitis, Calicivirus, Panleukopenia | Kitten Core (Essential Pediatric) |
+| 6 – 8 Weeks (Puppy) | DHPP / DA2PP Dose 1 | Distemper, Adenovirus-2 (Hepatitis), Parvovirus, Parainfluenza | Puppy Core (Universally Mandated) |
+| 10 – 12 Weeks (Kitten) | FVRCP Dose 2 + FeLV 1 | Respiratory booster + Feline Leukemia Virus risk shield | Kitten Core + Lifestyle Standard |
+| 10 – 12 Weeks (Puppy) | DHPP Dose 2 + Leptospirosis 1 | Parvovirus booster + 4-serovar bacterial protection | Puppy Core + High-Priority Lifestyle |
+| 14 – 16 Weeks (Kitten) | FVRCP Dose 3 + Rabies (1-Yr) | Terminal kitten core series + mandatory Rabies booster | Core (Mandated by Municipal Law) |
+| 14 – 16 Weeks (Puppy) | DHPP Dose 3 + Rabies (1-Year) | Terminal puppy core booster + 100% fatal zoonotic rabies | Core (Mandated by Municipal Law) |
+| 1 Year Booster | Adult FVRCP / DHPP + Rabies | Sustained adult anamnestic immune defense | Core Adult Maintenance Protocol |
 
 ### Real-World Clinical Scenarios & Daily Practicality: Beyond the Waiting Room
 How does vaccine management translate into everyday life for urban and suburban pet owners? The reality is fraught with subtle hazards that paper booklets simply cannot solve.
@@ -414,18 +417,18 @@ Our technical evaluation team rated modern LTE pet tracking systems across satel
 
 ---
 
-## The Real Cost of Owning a Dog or Cat: Monthly Expenses & Vet Cost Guide
+## Cost of Pet Care: Real Monthly Expenses, Vet Bills for Dogs & Budget Guide
 **URL:** https://pethorizon.jawumitech.com/blogs/monthly-pet-care-cost-vet-expense-budget-worldwide
 **Category:** Dog Care | **Target:** Worldwide English-speaking Dog & Cat Owners
-**Summary:** How much does pet ownership actually cost? Get a transparent breakdown of premium nutrition, routine veterinary checkups, dental cleanings, and emergency reserves.
+**Summary:** How much do vet bills and pet care actually cost? Get a transparent breakdown of routine veterinary visits, emergency costs, dental cleanings, and monthly food budgets.
 
 ### Key Takeaways
 - First-year puppy and kitten expenses average 2 to 3 times the recurring cost of an adult pet due to initial vaccines, spay/neuter, and supplies.
 - Routine preventive veterinary care (vaccines, parasite prevention, annual bloodwork) saves thousands in avoided emergency procedures.
 - PetHorizon Budget & Expense Manager lets you categorize recurring pet costs and set monthly threshold alerts.
 
-### Overview, Economic Realities & First Principles: The True Lifetime Financial Equation
-When aspiring pet owners calculate the expense of acquiring a companion animal, their estimates are almost universally skewed toward the immediate upfront horizon: the shelter adoption fee, an initial bag of kibble, a bed, and a collar.
+### Cost of Pet Care & Vet Bills for Dogs: The True Financial Equation
+When aspiring pet owners calculate the cost of pet care and upcoming vet bills for dogs, their estimates are almost universally skewed toward the immediate upfront horizon: the shelter adoption fee, an initial bag of kibble, a bed, and a collar.
 
 However, comprehensive economic surveys published by the American Pet Products Association (APPA) and the British Veterinary Association (BVA) reveal an eye-opening reality: the lifetime cost of raising an adult medium-sized dog ranges from $18,000 to over $45,000, while feline companions typically incur $14,000 to $32,000 across an average 13-to-17-year lifespan.
 
@@ -508,12 +511,15 @@ Modern veterinary immunology separates vaccines into two distinct operational ca
 
 Killed vaccines, by contrast, incorporate inactivated antigens paired with specialized chemical adjuvants designed to provoke an immune response. Rabies and Leptospirosis formulations typically employ this mechanism, offering exceptionally stable protection with zero risk of viral reactivation.
 
-| Age Interval | Vaccine Type | Target Pathogens | Legal & Clinical Status |
+| Age Interval | Patient / Vaccine | Target Pathogens | Legal & Clinical Status |
 | --- | --- | --- | --- |
-| 6 – 8 Weeks | DHPP / DA2PP Dose 1 | Distemper, Adenovirus-2 (Hepatitis), Parvovirus, Parainfluenza | Core (Universally Mandated) |
-| 10 – 12 Weeks | DHPP Dose 2 + Leptospirosis 1 | Parvovirus booster + 4-serovar bacterial protection | Core + High-Priority Lifestyle |
-| 14 – 16 Weeks | DHPP Dose 3 + Rabies (1-Year) | Terminal puppy core booster + 100% fatal zoonotic rabies | Core (Mandated by Municipal Law) |
-| 12 – 16 Months | DHPP Adult Booster + Rabies 3-Yr | Sustained adult anamnestic response | Core Adult Maintenance Protocol |
+| 6 – 8 Weeks (Kitten) | FVRCP Dose 1 | Feline Viral Rhinotracheitis, Calicivirus, Panleukopenia | Kitten Core (Essential Pediatric) |
+| 6 – 8 Weeks (Puppy) | DHPP / DA2PP Dose 1 | Distemper, Adenovirus-2 (Hepatitis), Parvovirus, Parainfluenza | Puppy Core (Universally Mandated) |
+| 10 – 12 Weeks (Kitten) | FVRCP Dose 2 + FeLV 1 | Respiratory booster + Feline Leukemia Virus risk shield | Kitten Core + Lifestyle Standard |
+| 10 – 12 Weeks (Puppy) | DHPP Dose 2 + Leptospirosis 1 | Parvovirus booster + 4-serovar bacterial protection | Puppy Core + High-Priority Lifestyle |
+| 14 – 16 Weeks (Kitten) | FVRCP Dose 3 + Rabies (1-Yr) | Terminal kitten core series + mandatory Rabies booster | Core (Mandated by Municipal Law) |
+| 14 – 16 Weeks (Puppy) | DHPP Dose 3 + Rabies (1-Year) | Terminal puppy core booster + 100% fatal zoonotic rabies | Core (Mandated by Municipal Law) |
+| 1 Year Booster | Adult FVRCP / DHPP + Rabies | Sustained adult anamnestic immune defense | Core Adult Maintenance Protocol |
 
 ### Real-World Clinical Scenarios & Daily Practicality: Beyond the Waiting Room
 How does vaccine management translate into everyday life for urban and suburban pet owners? The reality is fraught with subtle hazards that paper booklets simply cannot solve.
@@ -620,8 +626,8 @@ Our editorial review panel rigorously stress-tested PetHorizon’s Family Hub ac
 - Salt-treated winter sidewalks require budget allocations for protective boots or paw balms.
 - PetHorizon Expense Manager tracks receipts in CAD and warns you before exceeding monthly targets.
 
-### Overview, Economic Realities & First Principles: The True Lifetime Financial Equation
-When aspiring pet owners calculate the expense of acquiring a companion animal, their estimates are almost universally skewed toward the immediate upfront horizon: the shelter adoption fee, an initial bag of kibble, a bed, and a collar.
+### Cost of Pet Care & Vet Bills for Dogs: The True Financial Equation
+When aspiring pet owners calculate the cost of pet care and upcoming vet bills for dogs, their estimates are almost universally skewed toward the immediate upfront horizon: the shelter adoption fee, an initial bag of kibble, a bed, and a collar.
 
 However, comprehensive economic surveys published by the American Pet Products Association (APPA) and the British Veterinary Association (BVA) reveal an eye-opening reality: the lifetime cost of raising an adult medium-sized dog ranges from $18,000 to over $45,000, while feline companions typically incur $14,000 to $32,000 across an average 13-to-17-year lifespan.
 
@@ -1220,8 +1226,8 @@ In emergency situations—such as a dog fight at a park or unexpected weekend tr
 - Systematic desensitization by uncoupling departure cues and practicing micro-absences rewires canine fear responses.
 - Never use punishment collars or aversive methods, which increase panic and trigger fear aggression.
 
-### True Separation Anxiety vs. Boredom: Diagnostic Differentiators
-Many dog owners mistakenly label destructive chewing or potty accidents as "spite" or bad behavior. In veterinary behavioral medicine, anxiety is an involuntary physiological panic response.
+### Dog Separation Anxiety Training vs. Boredom: Diagnostic Differentiators
+Successful dog separation anxiety training begins with accurate diagnosis. Many dog owners mistakenly label destructive chewing or potty accidents as "spite" or bad behavior. In veterinary behavioral medicine, anxiety is an involuntary physiological panic response.
 
 Dogs suffering from separation anxiety experience an acute spike in cortisol and adrenaline immediately as departure cues begin. Symptoms typically appear within 15 minutes of the owner leaving, whereas dogs that are simply bored usually sleep for several hours before chewing items out of curiosity.
 
@@ -1268,18 +1274,18 @@ For moderate to severe separation anxiety, veterinary-prescribed medications (su
 
 ---
 
-## Introducing a Kitten to an Older Cat: Step-by-Step Protocol & Scent-Swapping Guide
+## How to Introduce a Kitten to an Older Cat: Step-by-Step Timeline & Protocol
 **URL:** https://pethorizon.jawumitech.com/blogs/how-to-introduce-kitten-to-older-cat-guide
 **Category:** Cat Care | **Target:** Worldwide English-speaking Dog & Cat Owners
-**Summary:** Prevent feline territorial aggression and stress spraying. Follow our 4-phase introduction timeline from sanctuary room isolation and scent swapping to supervised harmonious coexistence.
+**Summary:** Prevent feline territorial aggression and stress spraying. Follow our 4-phase introduction timetable from sanctuary room isolation and scent swapping to supervised harmonious coexistence.
 
 ### Key Takeaways
 - Territorial cats require gradual scent desensitization over 10 to 21 days before physical contact ever occurs.
 - Never allow cats to "fight it out"—traumatic fights permanently destroy inter-cat trust.
 - Provide N + 1 resources: 2 cats require 3 litter boxes, 3 water bowls, and separate feeding stations.
 
-### Feline Territorial Biology: Why Direct Face-to-Face Introductions Fail
-In feline ecology, unfamiliar animals represent resource competition and potential disease vectors. Unlike dogs who form social pack structures, cats establish individual home ranges.
+### How to Introduce a Kitten to an Older Cat: Territorial Biology & Psychology
+Learning how to introduce a kitten to an older cat begins with understanding feline instincts. Unfamiliar animals represent territory competition and potential disease vectors. Unlike pack-oriented dogs, cats defend individual home ranges.
 
 When a resident cat hears, smells, or sees a new kitten without warning, their sympathetic nervous system triggers fight-or-flight hormones. Hissing, growling, and swatting are defensive reactions indicating high anxiety, not inherent malice.
 
@@ -1289,8 +1295,8 @@ A gradual phased introduction allows both felines to become accustomed to each o
 
 > **WARNING - Never Let Them "Fight It Out"**: Allowing cats to engage in a physical fight shatters trust permanently. Once traumatic associations and redirected aggression form, rehabilitating feline relationships can take months of intensive behavioral therapy.
 
-### The 4-Stage Protocol: From Scent Swapping to Supervised Coexistence
-Follow this veterinary-recommended protocol over 2 to 4 weeks. Do not advance to the next stage until both cats show calm, relaxed body language at the current level.
+### The 4-Stage Kitten Timetable: From Scent Swapping to Supervised Coexistence
+Follow this veterinary kitten timetable protocol over 2 to 4 weeks. Do not advance to the next stage until both cats show calm, relaxed body language at the current level.
 
 During Phase 1, place the kitten in a safe, fully equipped room (litter box, food, water, scratcher, toys). Feed both cats their favorite meals right next to the closed door so they associate the smell of the other cat with delicious food.
 

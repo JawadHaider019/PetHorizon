@@ -5,13 +5,15 @@ interface FooterBottomBarProps {
   onBlogClick: (e: React.MouseEvent) => void;
   onChangelogClick?: (e: React.MouseEvent) => void;
   onToolClick?: (e: React.MouseEvent) => void;
+  onAgeToolClick?: (e: React.MouseEvent) => void;
 }
 
 export default function FooterBottomBar({
   onLegalClick,
   onBlogClick,
   onChangelogClick,
-  onToolClick
+  onToolClick,
+  onAgeToolClick
 }: FooterBottomBarProps) {
   return (
     <div className="pt-4 sm:pt-5 border-t border-emerald-950/[0.08] flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-slate-500">
@@ -21,6 +23,13 @@ export default function FooterBottomBar({
           className="hover:text-[#166534] transition-colors cursor-pointer whitespace-nowrap"
         >
           Veterinary Guides
+        </button>
+        <span className="text-emerald-950/20">&bull;</span>
+        <button
+          onClick={onAgeToolClick}
+          className="hover:text-[#166534] transition-colors cursor-pointer whitespace-nowrap"
+        >
+          Pet Age Calculator
         </button>
         <span className="text-emerald-950/20">&bull;</span>
         <button

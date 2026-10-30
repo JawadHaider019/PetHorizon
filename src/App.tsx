@@ -21,6 +21,7 @@ import BlogArticleDetail from './components/BlogArticleDetail';
 import ChangelogPage from './components/changelog/ChangelogPage';
 import NotFoundPage from './components/errors/NotFoundPage';
 import PetCalorieCalculator from './components/tools/PetCalorieCalculator';
+import PetAgeCalculator from './components/tools/PetAgeCalculator';
 import QrDownloadModal from './components/modals/QrDownloadModal';
 import IosWaitlistModal from './components/modals/IosWaitlistModal';
 import { BLOG_POSTS } from './data/blogData';
@@ -143,6 +144,20 @@ export default function App() {
       {viewState.view === 'pet-calorie-calculator' && (
         <>
           <PetCalorieCalculator
+            onNavigateHome={() => navigateTo('home')}
+            onOpenQrModal={() => setIsQrModalOpen(true)}
+          />
+          <Footer
+            onNavigate={(to, hash) => navigateTo(to as ExtendedAppView, hash)}
+            onNavigateLegal={(doc) => navigateTo(doc)}
+          />
+        </>
+      )}
+
+      {/* Pet Age in Human Years Calculator Tool */}
+      {viewState.view === 'pet-age-calculator' && (
+        <>
+          <PetAgeCalculator
             onNavigateHome={() => navigateTo('home')}
             onOpenQrModal={() => setIsQrModalOpen(true)}
           />

@@ -7,13 +7,15 @@ interface FooterMobileAccordionProps {
   onBlogClick: (e: React.MouseEvent) => void;
   onChangelogClick?: (e: React.MouseEvent) => void;
   onToolClick?: (e: React.MouseEvent) => void;
+  onAgeToolClick?: (e: React.MouseEvent) => void;
 }
 
 export default function FooterMobileAccordion({
   onLegalClick,
   onBlogClick,
   onChangelogClick,
-  onToolClick
+  onToolClick,
+  onAgeToolClick
 }: FooterMobileAccordionProps) {
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
 
@@ -31,7 +33,7 @@ export default function FooterMobileAccordion({
         >
           <span>Product Features</span>
           <ChevronDown
-            className={`w-4 h-4 text-slate-400 transition-transform duration-200 ${
+            className={`w-4 h-4 text-slate-500 transition-transform duration-200 ${
               openAccordion === 'product' ? 'rotate-180 text-[#166534]' : ''
             }`}
           />
@@ -42,6 +44,17 @@ export default function FooterMobileAccordion({
             <li><a href="#features" className="hover:text-[#166534] transition-colors font-medium block">Care Schedules &amp; Reminders</a></li>
             <li><a href="#family-hub" className="hover:text-[#166534] transition-colors font-medium block">Shared Family Care Hub</a></li>
             <li><a href="#journal" className="hover:text-[#166534] transition-colors font-medium block">Daily Photo Journal &amp; Milestones</a></li>
+            <li>
+              <button
+                onClick={onAgeToolClick}
+                className="hover:text-[#166534] transition-colors font-medium text-left cursor-pointer flex items-center gap-1.5"
+              >
+                <span>Pet Age Calculator</span>
+                <span className="text-[9px] font-bold uppercase tracking-wider bg-emerald-50 text-[#166534] border border-emerald-200/70 px-1.5 py-0.2 rounded-full whitespace-nowrap">
+                  New Tool
+                </span>
+              </button>
+            </li>
             <li>
               <button
                 onClick={onToolClick}

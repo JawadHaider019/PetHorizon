@@ -43,20 +43,22 @@ export default function BlogArticleBody({
             </p>
           ))}
 
-          {/* Authentic Section Figure matching Everystore Figure & Caption */}
+          {/* Authentic Section Figure with proper full-width 16:9 editorial proportions */}
           {section.figure && (
-            <figure className="my-8 max-w-full not-prose">
-              <div className="bg-[#f9fafb] border border-gray-200/90 rounded-2xl p-4 flex items-center justify-center max-h-[460px] overflow-hidden shadow-2xs">
+            <figure className="my-8 not-prose">
+              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-gray-100 shadow-sm bg-gray-50">
                 <img
                   src={section.figure.imageUrl}
                   alt={section.figure.altText || section.figure.caption}
-                  className="max-w-full max-h-[420px] w-auto h-auto object-contain rounded-xl block mx-auto shadow-xs"
+                  className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-[1.01]"
                   loading="lazy"
                 />
               </div>
-              <figcaption className="text-center text-xs text-gray-500 mt-2.5 italic">
-                {section.figure.caption}
-              </figcaption>
+              {section.figure.caption && (
+                <figcaption className="text-center text-xs text-gray-500 mt-2.5 italic">
+                  {section.figure.caption}
+                </figcaption>
+              )}
             </figure>
           )}
 

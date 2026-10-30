@@ -4,13 +4,13 @@ export const introducingKittenToCatArticle: FullBlogArticle = {
   slug: 'how-to-introduce-kitten-to-older-cat-guide',
   readTime: '14 min read',
   overviewSummary:
-    'Cats are territorial, obligate solitary hunters by nature. Plunging a high-energy kitten directly into an established resident cat’s living territory without preparation is a recipe for chronic stress, territorial spraying, and feline inter-cat aggression. By following a structured scent-swapping and visual desensitization protocol over 10 to 21 days, you can foster mutual tolerance and lifelong companionship. This guide covers the phased introduction timeline, resource distribution rules, and behavioral red flags.',
+    'Wondering how to introduce a kitten to an older cat? In feline ecology, cats are territorial solitary hunters by nature. Plunging a high-energy kitten into an established resident cat’s territory without a phased timetable causes severe stress, hissing, and aggression. Following an evidence-based introduction schedule and scent-swapping protocol over 10 to 21 days builds lasting mutual trust. This veterinary guide outlines the complete kitten timetable, barrier feeding stages, and resource allocation rules.',
   sections: [
     {
       id: 'feline-territorial-psychology',
-      heading: 'Feline Territorial Biology: Why Direct Face-to-Face Introductions Fail',
+      heading: 'How to Introduce a Kitten to an Older Cat: Territorial Biology & Psychology',
       intro:
-        'In feline ecology, unfamiliar animals represent resource competition and potential disease vectors. Unlike dogs who form social pack structures, cats establish individual home ranges.',
+        'Learning how to introduce a kitten to an older cat begins with understanding feline instincts. Unfamiliar animals represent territory competition and potential disease vectors. Unlike pack-oriented dogs, cats defend individual home ranges.',
       paragraphs: [
         'When a resident cat hears, smells, or sees a new kitten without warning, their sympathetic nervous system triggers fight-or-flight hormones. Hissing, growling, and swatting are defensive reactions indicating high anxiety, not inherent malice.',
         'Kittens lack adult feline social boundaries: they pounce, stalk, and invade personal space, which an adult cat interprets as intolerable disrespect or aggression.',
@@ -23,9 +23,9 @@ export const introducingKittenToCatArticle: FullBlogArticle = {
     },
     {
       id: 'step-by-step-introduction-timeline',
-      heading: 'The 4-Stage Protocol: From Scent Swapping to Supervised Coexistence',
+      heading: 'The 4-Stage Kitten Timetable: From Scent Swapping to Supervised Coexistence',
       intro:
-        'Follow this veterinary-recommended protocol over 2 to 4 weeks. Do not advance to the next stage until both cats show calm, relaxed body language at the current level.',
+        'Follow this veterinary kitten timetable protocol over 2 to 4 weeks. Do not advance to the next stage until both cats show calm, relaxed body language at the current level.',
       table: {
         headers: ['Introduction Phase', 'Duration', 'Core Action', 'Success Criteria to Advance'],
         rows: [

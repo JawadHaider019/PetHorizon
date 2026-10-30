@@ -6,7 +6,9 @@ import {
   CreditCard,
   HelpCircle,
   ShieldCheck,
-  Trash2
+  Trash2,
+  Calendar,
+  Calculator
 } from 'lucide-react';
 import { NavView } from './Navbar';
 
@@ -25,6 +27,34 @@ export interface LegalLink {
   view: NavView;
   color: string;
 }
+
+export interface ToolLink {
+  title: string;
+  desc: string;
+  icon: any;
+  path: string;
+  badge?: string;
+  color: string;
+}
+
+export const TOOL_LINKS: ToolLink[] = [
+  {
+    title: 'Pet Age Calculator',
+    desc: '[AAHA Chart] Dog & Cat human years converter with breed sizing',
+    icon: Calendar,
+    path: '/tools/pet-age-calculator',
+    badge: 'New',
+    color: 'text-emerald-700 bg-emerald-100/80'
+  },
+  {
+    title: 'Pet Calorie Calculator',
+    desc: 'WSAVA veterinary daily portion & RER energy calculator',
+    icon: Calculator,
+    path: '/tools/pet-calorie-calculator',
+    badge: 'Free',
+    color: 'text-teal-700 bg-teal-100/80'
+  }
+];
 
 export const PRODUCT_LINKS: ProductLink[] = [
   {
