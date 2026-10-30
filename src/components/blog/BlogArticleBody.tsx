@@ -119,12 +119,15 @@ export default function BlogArticleBody({
           {section.productShowcase && (
             <div className="product-showcase-card not-prose my-8 p-5 rounded-2xl border-2 border-emerald-200/90 bg-gradient-to-br from-emerald-50/60 via-white to-teal-50/40 shadow-sm overflow-hidden">
               <div className="flex flex-col sm:flex-row items-center sm:items-stretch gap-5">
-                <div className="w-[130px] h-[130px] min-w-[130px] max-w-[130px] shrink-0 bg-white p-2 rounded-xl border border-gray-200/80 shadow-2xs flex items-center justify-center overflow-hidden">
+                <div className="w-[130px] h-[130px] min-w-[130px] max-w-[130px] shrink-0 bg-white p-1.5 rounded-xl border border-gray-200/80 shadow-2xs flex items-center justify-center overflow-hidden">
                   <img
                     src={section.productShowcase.image}
                     alt={section.productShowcase.title}
-                    className="w-full h-full object-cover rounded-lg"
+                    className="w-full h-full object-contain rounded-lg"
                     loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.src = '/app-icon.png';
+                    }}
                   />
                 </div>
 
