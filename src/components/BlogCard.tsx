@@ -35,8 +35,12 @@ export default function BlogCard({ post, onClick, compact = false }: BlogCardPro
 
   if (compact) {
     return (
-      <div
-        onClick={onClick}
+      <a
+        href={`/blogs/${post.slug}`}
+        onClick={(e) => {
+          e.preventDefault();
+          onClick();
+        }}
         className="p-3.5 rounded-2xl bg-white hover:bg-emerald-50/40 border border-slate-100 hover:border-emerald-200 transition-all cursor-pointer flex items-start gap-3.5 group shadow-2xs"
       >
         <div className="w-20 h-14 rounded-xl overflow-hidden shrink-0 bg-slate-100 relative">
@@ -57,7 +61,7 @@ export default function BlogCard({ post, onClick, compact = false }: BlogCardPro
             {post.title}
           </h5>
         </div>
-      </div>
+      </a>
     );
   }
 
@@ -67,7 +71,14 @@ export default function BlogCard({ post, onClick, compact = false }: BlogCardPro
       className="group flex flex-col rounded-2xl bg-white border border-slate-100 p-3.5 shadow-2xs hover:shadow-md hover:border-slate-200 transition-all duration-200 cursor-pointer"
     >
       {/* 16:10 Aspect Ratio Image Container */}
-      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-slate-100 block">
+      <a
+        href={`/blogs/${post.slug}`}
+        onClick={(e) => {
+          e.preventDefault();
+          onClick();
+        }}
+        className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-slate-100 block"
+      >
         <img
           src={post.coverImage}
           alt={post.title}
@@ -79,7 +90,7 @@ export default function BlogCard({ post, onClick, compact = false }: BlogCardPro
             Featured
           </span>
         )}
-      </div>
+      </a>
 
       {/* Content Area */}
       <div className="flex flex-1 flex-col pt-3.5 pb-1">
@@ -109,7 +120,15 @@ export default function BlogCard({ post, onClick, compact = false }: BlogCardPro
 
         {/* Title */}
         <h2 className="text-base font-bold text-slate-900 group-hover:text-emerald-700 transition-colors leading-snug line-clamp-2">
-          {post.title}
+          <a
+            href={`/blogs/${post.slug}`}
+            onClick={(e) => {
+              e.preventDefault();
+              onClick();
+            }}
+          >
+            {post.title}
+          </a>
         </h2>
 
         {/* Excerpt */}

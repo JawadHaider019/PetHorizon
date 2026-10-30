@@ -4,36 +4,48 @@ import { BlogPost } from '../../data/blogData';
 interface BlogArticleHeaderProps {
   article: BlogPost;
   onNavigateBack: () => void;
+  onNavigateHome?: () => void;
 }
 
-export default function BlogArticleHeader({ article, onNavigateBack }: BlogArticleHeaderProps) {
+export default function BlogArticleHeader({
+  article,
+  onNavigateBack,
+  onNavigateHome
+}: BlogArticleHeaderProps) {
   return (
     <header className="bg-white border-b border-slate-100 pt-28 sm:pt-36 pb-10 md:pb-14">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb Navigation */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 sm:pb-6 border-b border-slate-100 mb-8">
-          <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 flex-wrap">
-            <button
-              type="button"
-              onClick={onNavigateBack}
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-semibold text-slate-500 flex-wrap">
+            <a
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                if (onNavigateHome) onNavigateHome();
+                else onNavigateBack();
+              }}
               className="hover:text-emerald-700 flex items-center gap-1 cursor-pointer transition-colors whitespace-nowrap"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               Home
-            </button>
+            </a>
             <span className="text-slate-300">/</span>
-            <button
-              type="button"
-              onClick={onNavigateBack}
+            <a
+              href="/blogs"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigateBack();
+              }}
               className="hover:text-emerald-700 flex items-center gap-1 cursor-pointer transition-colors whitespace-nowrap"
             >
               Blogs
-            </button>
+            </a>
             <span className="text-slate-300">/</span>
             <span className="text-emerald-800 font-bold bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100 whitespace-nowrap shrink-0">
               {article.category}
             </span>
-          </div>
+          </nav>
 
           <div className="flex items-center gap-2 flex-wrap">
             <span className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-800 bg-emerald-100/80 px-3 py-1 rounded-full border border-emerald-200 shadow-2xs w-fit whitespace-nowrap shrink-0">

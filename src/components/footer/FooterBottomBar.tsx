@@ -18,54 +18,61 @@ export default function FooterBottomBar({
   return (
     <div className="pt-4 sm:pt-5 border-t border-emerald-950/[0.08] flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-slate-600">
       <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-3 gap-y-1 font-medium">
-        <button
+        <a
+          href="/blogs"
           onClick={onBlogClick}
           className="min-h-[44px] py-2 px-1 inline-flex items-center hover:text-[#166534] transition-colors cursor-pointer whitespace-nowrap"
         >
           Veterinary Guides
-        </button>
+        </a>
         <span className="text-emerald-950/20" aria-hidden="true">&bull;</span>
-        <button
+        <a
+          href="/tools/pet-age-calculator"
           onClick={onAgeToolClick}
           className="min-h-[44px] py-2 px-1 inline-flex items-center hover:text-[#166534] transition-colors cursor-pointer whitespace-nowrap"
         >
           Pet Age Calculator
-        </button>
+        </a>
         <span className="text-emerald-950/20" aria-hidden="true">&bull;</span>
-        <button
+        <a
+          href="/tools/pet-calorie-calculator"
           onClick={onToolClick}
           className="min-h-[44px] py-2 px-1 inline-flex items-center hover:text-[#166534] transition-colors cursor-pointer whitespace-nowrap"
         >
           Calorie Calculator
-        </button>
+        </a>
         <span className="text-emerald-950/20" aria-hidden="true">&bull;</span>
-        <button
+        <a
+          href="/changelog"
           onClick={onChangelogClick}
           className="min-h-[44px] py-2 px-1 inline-flex items-center hover:text-[#166534] transition-colors cursor-pointer whitespace-nowrap"
         >
           Changelog
-        </button>
+        </a>
         <span className="text-emerald-950/20" aria-hidden="true">&bull;</span>
-        <button
+        <a
+          href="/privacy-policy"
           onClick={(e) => onLegalClick(e, 'privacy')}
           className="min-h-[44px] py-2 px-1 inline-flex items-center hover:text-[#166534] transition-colors cursor-pointer whitespace-nowrap"
         >
           Privacy Protocol
-        </button>
+        </a>
         <span className="text-emerald-950/20" aria-hidden="true">&bull;</span>
-        <button
+        <a
+          href="/terms-of-service"
           onClick={(e) => onLegalClick(e, 'terms')}
           className="min-h-[44px] py-2 px-1 inline-flex items-center hover:text-[#166534] transition-colors cursor-pointer whitespace-nowrap"
         >
           Terms of Service
-        </button>
+        </a>
         <span className="text-emerald-950/20" aria-hidden="true">&bull;</span>
-        <button
+        <a
+          href="/data-deletion"
           onClick={(e) => onLegalClick(e, 'deletion')}
           className="min-h-[44px] py-2 px-1 inline-flex items-center hover:text-rose-600 transition-colors cursor-pointer whitespace-nowrap"
         >
           Data Deletion
-        </button>
+        </a>
         <span className="text-emerald-950/20" aria-hidden="true">&bull;</span>
         <a href="#contact" className="min-h-[44px] py-2 px-1 inline-flex items-center hover:text-[#166534] transition-colors whitespace-nowrap">
           Engineering Support
