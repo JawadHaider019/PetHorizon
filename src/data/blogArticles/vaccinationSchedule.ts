@@ -33,12 +33,15 @@ export const vaccinationScheduleArticle: FullBlogArticle = {
         'Killed vaccines, by contrast, incorporate inactivated antigens paired with specialized chemical adjuvants designed to provoke an immune response. Rabies and Leptospirosis formulations typically employ this mechanism, offering exceptionally stable protection with zero risk of viral reactivation.'
       ],
       table: {
-        headers: ['Age Interval', 'Vaccine Type', 'Target Pathogens', 'Legal & Clinical Status'],
+        headers: ['Age Interval', 'Patient / Vaccine', 'Target Pathogens', 'Legal & Clinical Status'],
         rows: [
-          ['6 – 8 Weeks', 'DHPP / DA2PP Dose 1', 'Distemper, Adenovirus-2 (Hepatitis), Parvovirus, Parainfluenza', 'Core (Universally Mandated)'],
-          ['10 – 12 Weeks', 'DHPP Dose 2 + Leptospirosis 1', 'Parvovirus booster + 4-serovar bacterial protection', 'Core + High-Priority Lifestyle'],
-          ['14 – 16 Weeks', 'DHPP Dose 3 + Rabies (1-Year)', 'Terminal puppy core booster + 100% fatal zoonotic rabies', 'Core (Mandated by Municipal Law)'],
-          ['12 – 16 Months', 'DHPP Adult Booster + Rabies 3-Yr', 'Sustained adult anamnestic response', 'Core Adult Maintenance Protocol']
+          ['6 – 8 Weeks (Kitten)', 'FVRCP Dose 1', 'Feline Viral Rhinotracheitis, Calicivirus, Panleukopenia', 'Kitten Core (Essential Pediatric)'],
+          ['6 – 8 Weeks (Puppy)', 'DHPP / DA2PP Dose 1', 'Distemper, Adenovirus-2 (Hepatitis), Parvovirus, Parainfluenza', 'Puppy Core (Universally Mandated)'],
+          ['10 – 12 Weeks (Kitten)', 'FVRCP Dose 2 + FeLV 1', 'Respiratory booster + Feline Leukemia Virus risk shield', 'Kitten Core + Lifestyle Standard'],
+          ['10 – 12 Weeks (Puppy)', 'DHPP Dose 2 + Leptospirosis 1', 'Parvovirus booster + 4-serovar bacterial protection', 'Puppy Core + High-Priority Lifestyle'],
+          ['14 – 16 Weeks (Kitten)', 'FVRCP Dose 3 + Rabies (1-Yr)', 'Terminal kitten core series + mandatory Rabies booster', 'Core (Mandated by Municipal Law)'],
+          ['14 – 16 Weeks (Puppy)', 'DHPP Dose 3 + Rabies (1-Year)', 'Terminal puppy core booster + 100% fatal zoonotic rabies', 'Core (Mandated by Municipal Law)'],
+          ['1 Year Booster', 'Adult FVRCP / DHPP + Rabies', 'Sustained adult anamnestic immune defense', 'Core Adult Maintenance Protocol']
         ]
       },
       productShowcase: {
