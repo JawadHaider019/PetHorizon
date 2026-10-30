@@ -27,6 +27,12 @@ import { winterPetCareArticle } from './winterPetCare';
 import { multiplePetManagementArticle } from './multiplePetManagement';
 import { petFirstAidKitArticle } from './petFirstAidKit';
 import { petInsuranceVsSavingsArticle } from './petInsuranceVsSavings';
+import {
+  nycVaccinationArticle,
+  londonCoParentingArticle,
+  torontoBudgetArticle,
+  sydneyTrackersArticle
+} from './localizedCityArticles';
 
 export * from './types';
 export {
@@ -59,7 +65,11 @@ export {
   winterPetCareArticle,
   multiplePetManagementArticle,
   petFirstAidKitArticle,
-  petInsuranceVsSavingsArticle
+  petInsuranceVsSavingsArticle,
+  nycVaccinationArticle,
+  londonCoParentingArticle,
+  torontoBudgetArticle,
+  sydneyTrackersArticle
 };
 
 const ARTICLES_MAP: Record<string, FullBlogArticle> = {
@@ -92,7 +102,11 @@ const ARTICLES_MAP: Record<string, FullBlogArticle> = {
   [winterPetCareArticle.slug]: winterPetCareArticle,
   [multiplePetManagementArticle.slug]: multiplePetManagementArticle,
   [petFirstAidKitArticle.slug]: petFirstAidKitArticle,
-  [petInsuranceVsSavingsArticle.slug]: petInsuranceVsSavingsArticle
+  [petInsuranceVsSavingsArticle.slug]: petInsuranceVsSavingsArticle,
+  [nycVaccinationArticle.slug]: nycVaccinationArticle,
+  [londonCoParentingArticle.slug]: londonCoParentingArticle,
+  [torontoBudgetArticle.slug]: torontoBudgetArticle,
+  [sydneyTrackersArticle.slug]: sydneyTrackersArticle
 };
 
 /**
