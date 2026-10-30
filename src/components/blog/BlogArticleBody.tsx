@@ -1,6 +1,7 @@
 import { BlogPost } from '../../data/blogData';
 import { FullBlogArticle } from '../../data/blogArticles';
 import BlogSectionExtras, { BlogArticleIntroSummary } from './BlogSectionExtras';
+import BlogToolAndLinksCard from './BlogToolAndLinksCard';
 
 interface BlogArticleBodyProps {
   article: BlogPost;
@@ -177,6 +178,9 @@ export default function BlogArticleBody({
           <BlogSectionExtras section={section} />
         </section>
       ))}
+
+      {/* Interactive Tool Callout, Related Product Links & E-E-A-T Clinical Verification */}
+      <BlogToolAndLinksCard article={article} />
     </div>
   );
 }
