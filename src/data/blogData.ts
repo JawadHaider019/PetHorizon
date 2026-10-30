@@ -1,3 +1,5 @@
+import { NEW_BLOG_POSTS } from './newBlogPostsData';
+
 export type BlogCategory =
   | 'Dog Care'
   | 'Cat Care'
@@ -1088,6 +1090,7 @@ export const BLOG_POSTS: BlogPost[] = [
     relatedProductLinks: [
       { feature: 'Pet Expense & Budget Manager', url: 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon', ctaText: 'Track Vet Expenses in PetHorizon', icon: 'DollarSign' }
     ]
-  }
+  },
+  ...NEW_BLOG_POSTS
 ];
 
