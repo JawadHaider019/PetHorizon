@@ -25,7 +25,7 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
     category: 'Feeding & Nutrition',
     readTime: '14 min read',
     coverImage:
-      'https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?w=900&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
     featured: false,
     targetLocation: 'Global',
     tags: [
@@ -81,7 +81,7 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
     category: 'Feeding & Nutrition',
     readTime: '13 min read',
     coverImage:
-      'https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=900&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1646291077846-c4ca2ac3d0ce?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
     featured: false,
     targetLocation: 'Global',
     tags: [
@@ -131,7 +131,7 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
     category: 'Dog Care',
     readTime: '15 min read',
     coverImage:
-      'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=900&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
     featured: true,
     targetLocation: 'Global',
     tags: [
@@ -187,7 +187,7 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
     category: 'Health & Vaccines',
     readTime: '15 min read',
     coverImage:
-      'https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?w=900&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
     featured: false,
     targetLocation: 'Global',
     tags: [
@@ -237,7 +237,7 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
     category: 'Health & Vaccines',
     readTime: '12 min read',
     coverImage:
-      'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=900&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1583511655826-05700d52f4d9?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
     featured: false,
     targetLocation: 'Global',
     tags: [
