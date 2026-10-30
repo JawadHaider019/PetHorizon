@@ -52,3 +52,4 @@ export const AUTHORS = {
     bio: 'Dedicated to helping multi-caregiver households coordinate daily pet routines, medications, and preventive care.'
   }
 };
+
