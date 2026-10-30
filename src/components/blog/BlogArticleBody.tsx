@@ -58,16 +58,19 @@ export default function BlogArticleBody({
           {/* Section Figure */}
           {section.figure && (
             <figure className="my-8 not-prose">
-              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-gray-100 shadow-sm bg-gray-50">
+              <div className="relative aspect-[16/10] sm:aspect-[16/9] max-h-[340px] sm:max-h-[380px] w-full overflow-hidden rounded-2xl border border-slate-200/80 shadow-xs bg-slate-100">
                 <img
                   src={section.figure.imageUrl}
                   alt={section.figure.altText || section.figure.caption}
-                  className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-[1.01]"
+                  className="w-full h-full object-cover object-[center_35%] transition-transform duration-500 hover:scale-[1.01]"
                   loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.src = article.coverImage;
+                  }}
                 />
               </div>
               {section.figure.caption && (
-                <figcaption className="text-center text-xs text-gray-500 mt-2.5 italic">
+                <figcaption className="text-center text-xs text-slate-500 mt-2.5 italic">
                   {section.figure.caption}
                 </figcaption>
               )}

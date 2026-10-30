@@ -47,8 +47,11 @@ export default function BlogCard({ post, onClick, compact = false }: BlogCardPro
           <img
             src={post.coverImage}
             alt={post.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            className="w-full h-full object-cover object-[center_35%] group-hover:scale-105 transition-transform duration-300"
             loading="lazy"
+            onError={(e) => {
+              e.currentTarget.src = '/3d-pets-hero.jpg';
+            }}
           />
         </div>
         <div className="flex-1 min-w-0">
@@ -82,8 +85,11 @@ export default function BlogCard({ post, onClick, compact = false }: BlogCardPro
         <img
           src={post.coverImage}
           alt={post.title}
-          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+          className="w-full h-full object-cover object-[center_35%] transition-transform duration-300 group-hover:scale-105"
           loading="lazy"
+          onError={(e) => {
+            e.currentTarget.src = '/3d-pets-hero.jpg';
+          }}
         />
         {post.featured && (
           <span className="absolute top-2.5 right-2.5 bg-emerald-600 text-white text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-md shadow-xs">
