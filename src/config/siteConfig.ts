@@ -7,14 +7,14 @@ export const SITE_CONFIG = {
   name: 'Pet Horizon',
   tagline: 'Smart Pet Care, Family Hub & Daily Routine Tracker',
   description:
-    'Pet Horizon is the all-in-one smart pet care app & family routine tracker for Android. Sync feeding schedules, medication alarms, vet vaccine records, and budgets.',
+    'Pet Horizon is the smart pet care app and family routine tracker for Android. Sync feeding schedules, medication alarms, vaccine records, and budgets.',
   url: 'https://pethorizon.jawumitech.com',
   playStoreUrl: 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon',
   instagramUrl: 'https://www.instagram.com/pethorizon.app/',
   formspreeEndpoint: 'https://formspree.io/f/mnppnazk',
   supportEmail: 'pethorizon2026@gmail.com',
   author: {
-    name: 'Aqib Mansoor',
+    name: 'Aqib',
     url: 'https://aqibfolio.vercel.app/'
   },
   themeColor: '#047857',

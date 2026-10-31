@@ -3,6 +3,7 @@ import { ViewState } from './useAppNavigation';
 import { BlogPost } from '../data/blogData';
 import { SITE_CONFIG } from '../config/siteConfig';
 import {
+  clampMetaDescription,
   updateMetaTag,
   updateCanonical,
   updateJsonLd,
@@ -17,7 +18,7 @@ export function usePageSeo(viewState: ViewState, currentArticle: BlogPost | null
 
     if (viewState.view === 'blog-article' && currentArticle) {
       const pageTitle = currentArticle.metaTitle || `${currentArticle.title} | PetHorizon Guides`;
-      const pageDesc = currentArticle.metaDescription || currentArticle.excerpt;
+      const pageDesc = clampMetaDescription(currentArticle.metaDescription || currentArticle.excerpt);
       const articleUrl = `${baseUrl}/blogs/${currentArticle.slug}`;
       const absoluteCoverImage = currentArticle.coverImage.startsWith('http')
         ? currentArticle.coverImage
@@ -41,7 +42,7 @@ export function usePageSeo(viewState: ViewState, currentArticle: BlogPost | null
       updateJsonLd('seo-schema-article', buildArticleSchemas(currentArticle, baseUrl, pageDesc, articleUrl));
     } else if (viewState.view === 'blog') {
       const blogTitle = 'PetHorizon Blog — Evidence-Based Pet Care & Health Guides';
-      const blogDesc = 'Guides and tips for pet health, veterinary schedules, household co-parenting, and smart budgeting: track vaccines, prevent double-feeding, and care for your pets with PetHorizon.';
+      const blogDesc = 'Veterinary-verified pet care guides for dog and cat owners: feeding schedules, vaccination charts, medication safety, and family routine sync.';
 
       document.title = blogTitle;
       updateMetaTag('meta[name="description"]', 'content', blogDesc);
@@ -86,11 +87,11 @@ export function usePageSeo(viewState: ViewState, currentArticle: BlogPost | null
       updateCanonical('/terms-of-service');
     } else if (viewState.view === 'deletion') {
       document.title = 'Data & Account Deletion Instructions | PetHorizon';
-      updateMetaTag('meta[name="description"]', 'content', 'How to request complete data and account deletion in PetHorizon.');
+      updateMetaTag('meta[name="description"]', 'content', 'How to request complete data, account, and pet records deletion in PetHorizon in compliance with Google Play policies.');
       updateCanonical('/data-deletion');
     } else if (viewState.view === 'pet-calorie-calculator') {
       const toolTitle = 'Pet Calorie & Daily Portion Calculator (Dogs & Cats) | PetHorizon';
-      const toolDesc = 'Free veterinary-standard pet calorie and daily food portion calculator. Calculate RER, MER, daily grams, and cup measurements for dogs and cats based on WSAVA guidelines.';
+      const toolDesc = 'Free veterinary pet calorie and daily food portion calculator. Calculate RER, MER, daily grams, and cups for dogs and cats using WSAVA standards.';
       const toolUrl = `${baseUrl}/tools/pet-calorie-calculator`;
 
       document.title = toolTitle;
@@ -108,7 +109,7 @@ export function usePageSeo(viewState: ViewState, currentArticle: BlogPost | null
       updateJsonLd('seo-schema-article', buildCalorieToolSchema(toolUrl, toolDesc, baseUrl));
     } else if (viewState.view === 'pet-age-calculator') {
       const toolTitle = '[AAHA Chart] Pet Age Calculator in Human Years: Dog & Cat Converter | PetHorizon';
-      const toolDesc = 'Free veterinary AAHA-standard pet age calculator in human years. Convert dog and cat chronological age to exact biological human years with breed weight scaling, life stage gauges, and health milestones.';
+      const toolDesc = 'Free AAHA pet age calculator in human years. Convert dog and cat age into biological human years with breed weight scaling and life stage charts.';
       const toolUrl = `${baseUrl}/tools/pet-age-calculator`;
 
       document.title = toolTitle;

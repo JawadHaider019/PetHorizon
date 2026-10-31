@@ -378,8 +378,8 @@ async function runPostBuild() {
   // Helper to replace head metadata
   function injectHead(template, { title, description, canonicalUrl, ogType, ogImage, jsonLd }) {
     let html = template;
-    const safeTitle = clampText(title, 68);
-    const safeDesc = clampText(description, 158);
+    const safeTitle = clampText(title, 65);
+    const safeDesc = clampText(description, 152);
 
     // Title
     html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${escapeHtml(safeTitle)}</title>`);
