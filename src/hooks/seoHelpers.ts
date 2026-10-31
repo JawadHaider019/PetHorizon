@@ -66,7 +66,9 @@ export function buildArticleSchemas(article: BlogPost, baseUrl: string, pageDesc
         url: baseUrl,
         logo: {
           '@type': 'ImageObject',
-          url: `${baseUrl}/app-icon.png`
+          url: `${baseUrl}/favicon-512x512.png`,
+          width: 512,
+          height: 512
         }
       },
       mainEntityOfPage: {

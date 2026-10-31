@@ -12,6 +12,7 @@ import path from 'path';
 import process from 'node:process';
 import { fileURLToPath } from 'url';
 import { createServer } from 'vite';
+import { generateFavicons } from './generate-favicons.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -289,6 +290,9 @@ async function runPreBuild() {
   if (!fs.existsSync(publicDir)) {
     fs.mkdirSync(publicDir, { recursive: true });
   }
+
+  // 0. Generate Google Search Central compliant App Logo favicons (.ico, 48x48, 96x96, 144x144, 192x192, 512x512, apple-touch-icon)
+  await generateFavicons();
 
   const { BLOG_POSTS, getFullBlogArticle } = await loadAppData();
   console.log(`Loaded ${BLOG_POSTS.length} pSEO blog posts.`);
