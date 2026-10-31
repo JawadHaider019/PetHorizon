@@ -6,6 +6,8 @@
 
 import fs from 'fs';
 import path from 'path';
+import { Buffer } from 'node:buffer';
+import process from 'node:process';
 import { fileURLToPath } from 'url';
 import sharp from 'sharp';
 
