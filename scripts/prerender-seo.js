@@ -339,21 +339,26 @@ async function runPostBuild() {
 
   let prerenderCount = 0;
 
-  // Helper to write static file
+  // Helper to write static file (writes both <route>/index.html and <route>.html for Vercel cleanUrls compatibility)
   function writePrerenderedFile(relUrl, html) {
-    let targetPath;
     if (relUrl === '/' || relUrl === '') {
-      targetPath = path.join(distDir, 'index.html');
+      fs.writeFileSync(path.join(distDir, 'index.html'), html, 'utf-8');
     } else if (relUrl.endsWith('.html')) {
-      targetPath = path.join(distDir, relUrl);
+      fs.writeFileSync(path.join(distDir, relUrl), html, 'utf-8');
     } else {
-      const folder = path.join(distDir, relUrl);
+      const cleanRel = relUrl.replace(/^\/+/, '');
+      const folder = path.join(distDir, cleanRel);
       if (!fs.existsSync(folder)) {
         fs.mkdirSync(folder, { recursive: true });
       }
-      targetPath = path.join(folder, 'index.html');
+      fs.writeFileSync(path.join(folder, 'index.html'), html, 'utf-8');
+      const htmlFilePath = path.join(distDir, `${cleanRel}.html`);
+      const htmlFileDir = path.dirname(htmlFilePath);
+      if (!fs.existsSync(htmlFileDir)) {
+        fs.mkdirSync(htmlFileDir, { recursive: true });
+      }
+      fs.writeFileSync(htmlFilePath, html, 'utf-8');
     }
-    fs.writeFileSync(targetPath, html, 'utf-8');
     prerenderCount++;
   }
 
@@ -408,6 +413,9 @@ async function runPostBuild() {
       html = html.replace(/<meta property="og:image" content="[^"]*"/i, `<meta property="og:image" content="${ogImage}"`);
       html = html.replace(/<meta name="twitter:image" content="[^"]*"/i, `<meta name="twitter:image" content="${ogImage}"`);
     }
+
+    // Remove homepage-only FAQPage/SoftwareApplication schema from subpages to prevent duplicate FAQPage schema errors
+    html = html.replace(/<script type="application\/ld\+json" id="root-seo-schema">[\s\S]*?<\/script>/i, '');
 
     // Injected JSON-LD
     if (jsonLd) {
@@ -763,17 +771,40 @@ async function runPostBuild() {
     const bodyHtml = `
       <header style="max-width: 840px; margin: 40px auto 20px; padding: 0 16px;">
         <nav style="font-size: 12px; color: #6b7280; margin-bottom: 16px;"><a href="/">Home</a> &gt; <span>Tools</span> &gt; <span>Pet Calorie Calculator</span></nav>
-        <h1 style="font-size: 32px; font-weight: 800; color: #111827;">Pet Calorie & Daily Portion Calculator</h1>
+        <h1 style="font-size: 32px; font-weight: 800; color: #111827;">Pet Calorie &amp; Daily Portion Calculator (Dogs &amp; Cats)</h1>
         <p style="font-size: 16px; color: #4b5563; max-width: 720px; line-height: 1.6;">${toolDesc}</p>
       </header>
       <main style="max-width: 840px; margin: 0 auto; padding: 0 16px;">
         <section style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 24px; margin-bottom: 24px;">
-          <h2 style="font-size: 20px; font-weight: bold; color: #047857;">Calculate RER & MER Veterinary Food Portions</h2>
-          <p style="color: #4b5563; line-height: 1.6; font-size: 14px;">Use our interactive veterinary tool to calculate exact daily energy requirements (RER = 70 × Weight^0.75) and maintenance feeding portions for puppies, adult dogs, kittens, and senior cats.</p>
+          <h2 style="font-size: 20px; font-weight: bold; color: #047857;">Calculate RER &amp; MER Veterinary Food Portions</h2>
+          <p style="color: #4b5563; line-height: 1.6; font-size: 14px;">Use our interactive veterinary calculator to determine exact Resting Energy Requirements (RER = 70 &times; Weight in kg<sup>0.75</sup>) and Maintenance Energy Requirements (MER) for puppies, adult dogs, kittens, and senior cats following World Small Animal Veterinary Association (WSAVA) Global Nutrition Guidelines.</p>
+          <p style="color: #4b5563; line-height: 1.6; font-size: 14px;">Volumetric scoop cups vary by up to 25% per meal. Converting daily kilocalories (kcal/day) into exact gram weights using your kibble or wet food caloric density (kcal/kg) prevents accidental overfeeding, canine obesity, and feline diabetes.</p>
+        </section>
+        <section style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 24px; margin-bottom: 24px;">
+          <h2 style="font-size: 20px; font-weight: bold; color: #111827;">WSAVA Daily Energy Multiplier Reference</h2>
+          <ul style="color: #4b5563; line-height: 1.7; font-size: 14px;">
+            <li><strong>Neutered Adult Dog:</strong> 1.6 &times; RER (standard indoor/moderate exercise maintenance)</li>
+            <li><strong>Intact Adult Dog:</strong> 1.8 &times; RER</li>
+            <li><strong>Weight Loss Dog:</strong> 1.0 &times; RER (for ideal target weight under veterinary supervision)</li>
+            <li><strong>Growing Puppy (0–4 Months):</strong> 3.0 &times; RER (split across 3–4 daily meals)</li>
+            <li><strong>Growing Puppy (4–12 Months):</strong> 2.0 &times; RER</li>
+            <li><strong>Neutered Indoor Cat:</strong> 1.2 &times; RER</li>
+            <li><strong>Active Adult Cat:</strong> 1.4 &times; RER</li>
+            <li><strong>Growing Kitten:</strong> 2.5 &times; RER</li>
+          </ul>
+        </section>
+        <section style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 24px; margin-bottom: 24px;">
+          <h2 style="font-size: 20px; font-weight: bold; color: #111827;">Related Veterinary Nutrition Guides</h2>
+          <ul style="color: #047857; line-height: 1.7; font-size: 14px;">
+            <li><a href="/blogs/dog-feeding-schedule-by-age-puppy-to-adult">Dog Feeding Schedule by Age: Complete Puppy to Adult Portion Guide</a></li>
+            <li><a href="/blogs/cat-feeding-schedule-wet-vs-dry-food-hydration">Cat Feeding Schedule: Wet vs. Dry Food &amp; Feline Hydration Guide</a></li>
+            <li><a href="/blogs/pet-weight-management-obesity-rer-calorie-guide">Pet Weight Management &amp; Obesity Prevention Guide</a></li>
+            <li><a href="/tools/pet-age-calculator">AAHA Pet Age Calculator in Human Years</a></li>
+          </ul>
         </section>
       </main>
       <footer style="max-width: 840px; margin: 60px auto 40px; padding: 20px 16px; border-top: 1px solid #e5e7eb; font-size: 13px; color: #6b7280;">
-        <p>&copy; 2026 Pet Horizon. All rights reserved. <a href="/">Home</a> • <a href="/privacy-policy">Privacy Policy</a> • <a href="/changelog">Changelog</a></p>
+        <p>&copy; 2026 Pet Horizon. All rights reserved. <a href="/">Home</a> • <a href="/blogs">Veterinary Guides</a> • <a href="/tools/pet-age-calculator">Pet Age Calculator</a> • <a href="/privacy-policy">Privacy Policy</a> • <a href="/changelog">Changelog</a></p>
       </footer>
     `;
     html = html.replace(/<div id="root">[\s\S]*?<\/div>/i, `<div id="root">${bodyHtml}</div>`);
