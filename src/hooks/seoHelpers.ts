@@ -64,6 +64,10 @@ export function buildArticleSchemas(article: BlogPost, baseUrl: string, pageDesc
         '@type': 'Organization',
         name: 'Pet Horizon',
         url: baseUrl,
+        sameAs: [
+          'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon',
+          'https://www.instagram.com/pethorizon.app/'
+        ],
         logo: {
           '@type': 'ImageObject',
           url: `${baseUrl}/favicon-512x512.png`,

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, BookOpen, ArrowUpRight, Calculator } from 'lucide-react';
 import { NavView } from './Navbar';
 import { PRODUCT_LINKS, LEGAL_LINKS, TOOL_LINKS } from './navData';
+import { INSTAGRAM_URL } from '../config/siteConfig';
 
 interface NavbarMobileMenuProps {
   isOpen: boolean;
@@ -162,7 +163,7 @@ export default function NavbarMobileMenu({
               Contact Support
             </a>
 
-            <div className="pt-3 mt-2 border-t border-slate-100">
+            <div className="pt-3 mt-2 border-t border-slate-100 space-y-2">
               <a
                 href={playStoreUrl}
                 target="_blank"
@@ -171,6 +172,15 @@ export default function NavbarMobileMenu({
               >
                 <span>Get Pet Horizon on Google Play</span>
                 <ArrowUpRight className="w-4 h-4" />
+              </a>
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="me noopener noreferrer"
+                className="w-full text-center bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200/80 py-2.5 rounded-xl font-semibold text-xs flex items-center justify-center gap-1.5 transition-colors"
+              >
+                <span>Follow @pethorizon.app on Instagram</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-slate-400" />
               </a>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import { ShieldCheck } from 'lucide-react';
-import { SUPPORT_EMAIL } from '../../config/siteConfig';
+import { SUPPORT_EMAIL, INSTAGRAM_URL } from '../../config/siteConfig';
 
 interface FooterDesktopColumnsProps {
   onLegalClick: (e: React.MouseEvent, doc: 'privacy' | 'terms' | 'deletion') => void;
@@ -119,6 +119,16 @@ export default function FooterDesktopColumns({
           <li>
             <a href="#contact" className="text-slate-600 hover:text-[#166534] transition-colors font-medium block">
               Contact Support Desk
+            </a>
+          </li>
+          <li>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="me noopener noreferrer"
+              className="text-slate-600 hover:text-[#166534] transition-colors font-medium block"
+            >
+              Instagram (@pethorizon.app)
             </a>
           </li>
           <li>

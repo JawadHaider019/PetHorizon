@@ -1,5 +1,5 @@
 import { GooglePlayBadge, AppStoreBadge } from '../AppBadges';
-import { PLAY_STORE_URL } from '../../config/siteConfig';
+import { PLAY_STORE_URL, INSTAGRAM_URL } from '../../config/siteConfig';
 
 export default function FooterBrandHeader() {
   return (
@@ -35,6 +35,34 @@ export default function FooterBrandHeader() {
       <div className="flex flex-wrap sm:flex-nowrap items-center gap-2.5 pt-1 max-w-xs sm:max-w-none">
         <GooglePlayBadge href={PLAY_STORE_URL} className="shadow-xs" />
         <AppStoreBadge className="shadow-xs" />
+      </div>
+
+      {/* Official Social Channel */}
+      <div className="pt-0.5">
+        <a
+          href={INSTAGRAM_URL}
+          target="_blank"
+          rel="me noopener noreferrer"
+          aria-label="Follow Pet Horizon on Instagram (@pethorizon.app)"
+          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/90 hover:bg-white border border-emerald-900/10 hover:border-emerald-700/30 text-xs font-semibold text-slate-700 hover:text-[#166534] shadow-2xs transition-all duration-200 group"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="w-3.5 h-3.5 text-[#E1306C] group-hover:scale-110 transition-transform shrink-0"
+            aria-hidden="true"
+          >
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+          </svg>
+          <span>Follow <strong className="font-bold text-slate-900 group-hover:text-[#166534]">@pethorizon.app</strong> on Instagram</span>
+        </a>
       </div>
     </div>
   );

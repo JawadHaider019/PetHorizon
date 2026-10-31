@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import { SUPPORT_EMAIL } from '../../config/siteConfig';
+import { SUPPORT_EMAIL, INSTAGRAM_URL } from '../../config/siteConfig';
 
 interface FooterMobileAccordionProps {
   onLegalClick: (e: React.MouseEvent, doc: 'privacy' | 'terms' | 'deletion') => void;
@@ -115,6 +115,16 @@ export default function FooterMobileAccordion({
             </li>
             <li><a href="#faq" className="hover:text-[#166534] transition-colors font-medium block">Frequently Asked Questions</a></li>
             <li><a href="#contact" className="hover:text-[#166534] transition-colors font-medium block">Contact Support Desk</a></li>
+            <li>
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="me noopener noreferrer"
+                className="hover:text-[#166534] transition-colors font-medium block"
+              >
+                Instagram (@pethorizon.app)
+              </a>
+            </li>
             <li>
               <a href={`mailto:${SUPPORT_EMAIL}`} className="text-[#166534] font-semibold text-xs block truncate mt-1">
                 {SUPPORT_EMAIL}

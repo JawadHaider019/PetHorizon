@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Mail, Clock, Smartphone, ExternalLink, Check, Copy } from 'lucide-react';
 import { DISPLAY_SUPPORT_EMAIL, PLAY_STORE_URL } from './contactData';
+import { INSTAGRAM_URL } from '../../config/siteConfig';
 
 export default function ContactSidebar() {
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -66,15 +67,27 @@ export default function ContactSidebar() {
           <p className="text-xs text-slate-600 leading-relaxed font-normal">
             Ensure you are running the latest version from Google Play for automatic cloud syncing and bug fixes.
           </p>
-          <a
-            href={PLAY_STORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs font-bold text-emerald-700 hover:underline inline-flex items-center gap-1 mt-1"
-          >
-            <span>Open Google Play Store</span>
-            <ExternalLink className="w-3.5 h-3.5" />
-          </a>
+          <div className="flex flex-wrap items-center gap-3 mt-1">
+            <a
+              href={PLAY_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-bold text-emerald-700 hover:underline inline-flex items-center gap-1"
+            >
+              <span>Google Play Store</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+            <span className="text-slate-300" aria-hidden="true">&bull;</span>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="me noopener noreferrer"
+              className="text-xs font-bold text-slate-700 hover:text-emerald-700 hover:underline inline-flex items-center gap-1"
+            >
+              <span>@pethorizon.app</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          </div>
         </div>
       </div>
 

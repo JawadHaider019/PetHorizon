@@ -209,6 +209,7 @@ Pet Horizon (https://pethorizon.jawumitech.com) is a comprehensive pet care plat
 
 ## Official App & Downloads
 - Google Play Store: https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon
+- Official Instagram: https://www.instagram.com/pethorizon.app/
 - Support Email: pethorizon2026@gmail.com
 - Privacy Policy: ${BASE_URL}/privacy-policy
 - Terms of Service: ${BASE_URL}/terms-of-service
