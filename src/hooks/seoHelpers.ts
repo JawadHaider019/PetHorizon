@@ -1,6 +1,14 @@
 import { BlogPost } from '../data/blogData';
 import { SITE_CONFIG } from '../config/siteConfig';
 
+export function clampMetaDescription(text: string, maxLen = 154): string {
+  const clean = (text || '').trim().replace(/\s+/g, ' ');
+  if (clean.length <= maxLen) return clean;
+  const cut = clean.slice(0, maxLen - 1);
+  const lastSpace = cut.lastIndexOf(' ');
+  return `${(lastSpace > maxLen * 0.6 ? cut.slice(0, lastSpace) : cut).replace(/[.,;:\-–—]+$/, '')}.`;
+}
+
 export function updateMetaTag(selector: string, attr: string, value: string): void {
   let el = document.querySelector(selector);
   if (!el) {
