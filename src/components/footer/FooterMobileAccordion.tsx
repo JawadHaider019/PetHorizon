@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import { SUPPORT_EMAIL } from '../../config/siteConfig';
+import { SUPPORT_EMAIL, INSTAGRAM_URL } from '../../config/siteConfig';
 
 interface FooterMobileAccordionProps {
   onLegalClick: (e: React.MouseEvent, doc: 'privacy' | 'terms' | 'deletion') => void;
@@ -45,7 +45,8 @@ export default function FooterMobileAccordion({
             <li><a href="#family-hub" className="hover:text-[#166534] transition-colors font-medium block">Shared Family Care Hub</a></li>
             <li><a href="#journal" className="hover:text-[#166534] transition-colors font-medium block">Daily Photo Journal &amp; Milestones</a></li>
             <li>
-              <button
+              <a
+                href="/tools/pet-age-calculator"
                 onClick={onAgeToolClick}
                 className="hover:text-[#166534] transition-colors font-medium text-left cursor-pointer flex items-center gap-1.5"
               >
@@ -53,10 +54,11 @@ export default function FooterMobileAccordion({
                 <span className="text-[9px] font-bold uppercase tracking-wider bg-emerald-50 text-[#166534] border border-emerald-200/70 px-1.5 py-0.2 rounded-full whitespace-nowrap">
                   New Tool
                 </span>
-              </button>
+              </a>
             </li>
             <li>
-              <button
+              <a
+                href="/tools/pet-calorie-calculator"
                 onClick={onToolClick}
                 className="hover:text-[#166534] transition-colors font-medium text-left cursor-pointer flex items-center gap-1.5"
               >
@@ -64,7 +66,7 @@ export default function FooterMobileAccordion({
                 <span className="text-[9px] font-bold uppercase tracking-wider bg-emerald-50 text-[#166534] border border-emerald-200/70 px-1.5 py-0.2 rounded-full whitespace-nowrap">
                   Free Tool
                 </span>
-              </button>
+              </a>
             </li>
             <li><a href="#tour" className="hover:text-[#166534] transition-colors font-medium block">Interactive App Tour</a></li>
             <li><a href="#pricing" className="hover:text-[#166534] transition-colors font-medium block">Membership &amp; Family Plans</a></li>
@@ -88,7 +90,8 @@ export default function FooterMobileAccordion({
         {openAccordion === 'knowledge' && (
           <ul className="pb-3 space-y-2 text-xs text-slate-600 pl-1">
             <li>
-              <button
+              <a
+                href="/blogs"
                 onClick={onBlogClick}
                 className="hover:text-[#166534] transition-colors font-medium text-left cursor-pointer flex items-center gap-1.5"
               >
@@ -96,10 +99,11 @@ export default function FooterMobileAccordion({
                 <span className="text-[9px] font-bold uppercase tracking-wider bg-emerald-50 text-[#166534] border border-emerald-200/70 px-1.5 py-0.2 rounded-full whitespace-nowrap">
                   New
                 </span>
-              </button>
+              </a>
             </li>
             <li>
-              <button
+              <a
+                href="/changelog"
                 onClick={onChangelogClick}
                 className="hover:text-[#166534] transition-colors font-medium text-left cursor-pointer flex items-center gap-1.5"
               >
@@ -107,10 +111,20 @@ export default function FooterMobileAccordion({
                 <span className="text-[9px] font-bold uppercase tracking-wider bg-slate-100 text-slate-700 border border-slate-200 px-1.5 py-0.5 rounded-full whitespace-nowrap">
                   v1.0.10
                 </span>
-              </button>
+              </a>
             </li>
             <li><a href="#faq" className="hover:text-[#166534] transition-colors font-medium block">Frequently Asked Questions</a></li>
             <li><a href="#contact" className="hover:text-[#166534] transition-colors font-medium block">Contact Support Desk</a></li>
+            <li>
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="me noopener noreferrer"
+                className="hover:text-[#166534] transition-colors font-medium block"
+              >
+                Instagram (@pethorizon.app)
+              </a>
+            </li>
             <li>
               <a href={`mailto:${SUPPORT_EMAIL}`} className="text-[#166534] font-semibold text-xs block truncate mt-1">
                 {SUPPORT_EMAIL}
@@ -136,31 +150,34 @@ export default function FooterMobileAccordion({
         {openAccordion === 'legal' && (
           <ul className="pb-3 space-y-2 text-xs text-slate-600 pl-1">
             <li>
-              <button
+              <a
+                href="/privacy-policy"
                 onClick={(e) => onLegalClick(e, 'privacy')}
                 className="hover:text-[#166534] transition-colors font-medium text-left cursor-pointer flex items-center gap-2"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-[#166534] shrink-0" />
                 <span>Privacy Policy</span>
-              </button>
+              </a>
             </li>
             <li>
-              <button
+              <a
+                href="/terms-of-service"
                 onClick={(e) => onLegalClick(e, 'terms')}
                 className="hover:text-[#166534] transition-colors font-medium text-left cursor-pointer flex items-center gap-2"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0" />
                 <span>Terms of Service</span>
-              </button>
+              </a>
             </li>
             <li>
-              <button
+              <a
+                href="/data-deletion"
                 onClick={(e) => onLegalClick(e, 'deletion')}
                 className="hover:text-rose-600 transition-colors font-medium text-left cursor-pointer flex items-center gap-2"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0" />
                 <span>Data &amp; Account Deletion</span>
-              </button>
+              </a>
             </li>
             <li className="text-xs text-slate-500 pt-1 font-normal">Google Play Policy Compliant</li>
             <li className="text-xs text-slate-500 font-normal">TLS 1.3 Health Encryption</li>

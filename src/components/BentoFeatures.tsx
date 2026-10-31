@@ -131,7 +131,7 @@ export default function BentoFeatures() {
                     transformStyle: 'preserve-3d',
                     transform: isHovered 
                       ? 'none' 
-                      : (window.innerWidth >= 1024 ? module.perspectiveAngle : 'none')
+                      : (typeof window !== 'undefined' && window.innerWidth >= 1024 ? module.perspectiveAngle : 'none')
                   }}
                 >
                   {/* Floating Circular Medallion Pinned to Left Edge (Matching Reference) */}
@@ -142,7 +142,7 @@ export default function BentoFeatures() {
                   <div>
                     {/* Step Label */}
                     <div className="flex items-center justify-between mb-4 pl-2">
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-slate-500 bg-slate-100/90 px-2.5 py-0.5 rounded-full border border-black/[0.04]">
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-slate-700 bg-slate-100/90 px-2.5 py-0.5 rounded-full border border-black/[0.04]">
                         {module.step}
                       </span>
                       {module.featured && (

@@ -38,8 +38,8 @@ export default function PricingSection() {
             <button
               type="button"
               onClick={() => setBillingCycle('monthly')}
-              className={`text-xs sm:text-sm font-bold px-3 py-1.5 rounded-full cursor-pointer transition-colors whitespace-nowrap shrink-0 ${
-                billingCycle === 'monthly' ? 'text-slate-900 bg-white shadow-2xs border border-black/[0.06]' : 'text-slate-500 hover:text-slate-700'
+              className={`text-xs sm:text-sm font-bold px-3.5 py-2 rounded-full min-h-[40px] cursor-pointer transition-colors whitespace-nowrap shrink-0 ${
+                billingCycle === 'monthly' ? 'text-slate-900 bg-white shadow-2xs border border-black/[0.06]' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               Monthly Billing
@@ -47,11 +47,11 @@ export default function PricingSection() {
             <button
               type="button"
               onClick={() => setBillingCycle(billingCycle === 'monthly' ? 'yearly' : 'monthly')}
-              className="w-11 sm:w-14 h-6 sm:h-8 rounded-full bg-slate-200 p-0.5 sm:p-1 flex items-center transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-700/40 shrink-0"
+              className="w-12 sm:w-14 h-7 sm:h-8 rounded-full bg-slate-200 p-0.5 sm:p-1 flex items-center transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-700/40 shrink-0"
               aria-label="Toggle billing frequency"
             >
               <div
-                className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-slate-900 shadow-md transform transition-transform duration-200 ${
+                className={`w-6 h-6 rounded-full bg-slate-900 shadow-md transform transition-transform duration-200 ${
                   billingCycle === 'yearly' ? 'translate-x-5 sm:translate-x-6' : 'translate-x-0'
                 }`}
               />
@@ -59,12 +59,12 @@ export default function PricingSection() {
             <button
               type="button"
               onClick={() => setBillingCycle('yearly')}
-              className={`flex items-center gap-1 sm:gap-1.5 px-3 py-1.5 rounded-full cursor-pointer text-left focus:outline-none whitespace-nowrap shrink-0 ${
+              className={`flex items-center gap-1 sm:gap-1.5 px-3.5 py-2 rounded-full min-h-[40px] cursor-pointer text-left focus:outline-none whitespace-nowrap shrink-0 ${
                 billingCycle === 'yearly' ? 'bg-white shadow-2xs border border-black/[0.06]' : ''
               }`}
             >
               <span className={`text-xs sm:text-sm font-bold transition-colors whitespace-nowrap ${
-                billingCycle === 'yearly' ? 'text-slate-900' : 'text-slate-500 hover:text-slate-700'
+                billingCycle === 'yearly' ? 'text-slate-900' : 'text-slate-600 hover:text-slate-900'
               }`}>
                 Annual Billing
               </span>
@@ -115,7 +115,7 @@ export default function PricingSection() {
                     </span>
                   </div>
                   <h3 className="text-2xl font-black text-slate-900">{plan.name}</h3>
-                  <p className="text-xs text-slate-500 mt-1 mb-5 min-h-[32px] flex items-center">{plan.description}</p>
+                  <p className="text-xs text-slate-600 mt-1 mb-5 min-h-[32px] flex items-center">{plan.description}</p>
 
                   <div className="mb-6 min-h-[76px] flex flex-col justify-center">
                     <div className="flex items-baseline gap-1.5">
@@ -131,7 +131,7 @@ export default function PricingSection() {
                           {currentPrice}
                         </motion.span>
                       </AnimatePresence>
-                      <span className="text-slate-500 text-xs sm:text-sm font-semibold">{currentPeriod}</span>
+                      <span className="text-slate-600 text-xs sm:text-sm font-semibold">{currentPeriod}</span>
                     </div>
                     {currentSubnote && (
                       <p className="text-[11px] text-emerald-800 font-semibold mt-1">
@@ -192,7 +192,7 @@ export default function PricingSection() {
           })}
         </div>
 
-        <p className="text-center text-xs text-slate-500 mt-10">
+        <p className="text-center text-xs text-slate-600 mt-10">
           In-app purchases are securely processed through Google Play. Cancel anytime with a single tap in your Google Play Store subscriptions.
         </p>
       </div>

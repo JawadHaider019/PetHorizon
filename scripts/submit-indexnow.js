@@ -44,11 +44,11 @@ async function submitToIndexNow(urls, endpoint = 'www.bing.com') {
   const payload = JSON.stringify({
     host: HOST,
     key: INDEXNOW_KEY,
-    keyLocation: `https://${HOST}/${INDEXNOW_KEY}.txt`,
+    keyLocation: KEY_LOCATION,
     urlList: urls
   });
 
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     const options = {
       hostname: endpoint,
       port: 443,

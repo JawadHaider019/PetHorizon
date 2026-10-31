@@ -1,0 +1,47 @@
+{
+  "name": "Pet Horizon – Smart Pet Care, Family Hub & Routine Tracker",
+  "short_name": "Pet Horizon",
+  "description": "Pet Horizon is the smart pet care app & family routine tracker. Organize medication alarms, WSAVA feeding schedules, vaccination passports, and family QR sync.",
+  "start_url": "/",
+  "id": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#047857",
+  "icons": [
+    {
+      "src": "/favicon-48x48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon",
+      "id": "com.anonymous.PetHorizon"
+    }
+  ],
+  "prefer_related_applications": false
+}

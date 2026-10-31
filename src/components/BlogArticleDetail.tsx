@@ -11,6 +11,7 @@ import BlogCard from './BlogCard';
 interface BlogArticleDetailProps {
   article: BlogPost;
   onNavigateBack: () => void;
+  onNavigateHome?: () => void;
   onSelectArticle: (slug: string) => void;
   onOpenQrModal?: () => void;
 }
@@ -18,6 +19,7 @@ interface BlogArticleDetailProps {
 export default function BlogArticleDetail({
   article,
   onNavigateBack,
+  onNavigateHome,
   onSelectArticle,
   onOpenQrModal
 }: BlogArticleDetailProps) {
@@ -28,7 +30,18 @@ export default function BlogArticleDetail({
   }, [article.slug]);
 
   const fullContent = getFullBlogArticle(article.slug);
-  const related = BLOG_POSTS.filter((p) => p.slug !== article.slug).slice(0, 3);
+  const related = BLOG_POSTS.filter((p) => p.slug !== article.slug)
+    .map((candidate) => {
+      let score = candidate.category === article.category ? 3 : 0;
+      const articleTags = new Set(article.tags.map((t) => t.toLowerCase()));
+      candidate.tags.forEach((t) => {
+        if (articleTags.has(t.toLowerCase())) score += 1;
+      });
+      return { candidate, score };
+    })
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 3)
+    .map((item) => item.candidate);
   const articleUrl = typeof window !== 'undefined' ? window.location.href : '';
 
   useEffect(() => {
@@ -61,19 +74,32 @@ export default function BlogArticleDetail({
   };
 
   return (
-    <main className="flex-1 pb-16 bg-[#FDFDFC] text-slate-800 antialiased selection:bg-emerald-500/20 selection:text-emerald-800">
+    <div className="flex-1 pb-16 bg-[#FDFDFC] text-slate-800 antialiased selection:bg-emerald-500/20 selection:text-emerald-800">
       {/* 1. Header & Metadata */}
-      <BlogArticleHeader article={article} onNavigateBack={onNavigateBack} />
+      <BlogArticleHeader
+        article={article}
+        onNavigateBack={onNavigateBack}
+        onNavigateHome={onNavigateHome}
+      />
 
-      {/* 2. Hero 21:9 Cover */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 -mt-2 pt-8">
-        <div className="relative aspect-[21/9] w-full overflow-hidden rounded-3xl border border-gray-100 shadow-md bg-gray-100">
+      {/* 2. Balanced Editorial Cover Frame */}
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8">
+        <figure className="relative aspect-[16/10] sm:aspect-[16/9] max-h-[360px] sm:max-h-[430px] w-full overflow-hidden rounded-3xl border border-slate-200/80 shadow-sm bg-slate-100">
           <img
             src={article.coverImage}
             alt={article.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-[center_35%]"
+            onError={(e) => {
+              e.currentTarget.src = '/3d-pets-hero.jpg';
+            }}
           />
-        </div>
+          <figcaption className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-auto bg-slate-900/75 backdrop-blur-md text-white text-[11px] font-semibold px-3.5 py-1.5 rounded-xl border border-white/15 inline-flex items-center gap-2 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
+            <span className="truncate capitalize">
+              {article.category} &bull; {article.seoKeyword}
+            </span>
+          </figcaption>
+        </figure>
       </div>
 
       {/* 3. 2-Column Content Layout */}
@@ -130,13 +156,16 @@ export default function BlogArticleDetail({
             <h3 className="text-2xl font-bold text-gray-900 tracking-tight">Related Stories</h3>
             <p className="text-xs text-gray-500 mt-1">More tips and stories you might enjoy</p>
           </div>
-          <button
-            type="button"
-            onClick={onNavigateBack}
+          <a
+            href="/blogs"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigateBack();
+            }}
             className="text-xs font-semibold text-[#126c55] hover:underline cursor-pointer"
           >
             View all articles &rarr;
-          </button>
+          </a>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -148,6 +177,6 @@ export default function BlogArticleDetail({
 
       {/* 5. Bottom Conversion Banner */}
       <BlogConversionBanner onOpenQrModal={onOpenQrModal} />
-    </main>
+    </div>
   );
 }

@@ -59,9 +59,12 @@ export default function SpeciesGrid() {
                     <img
                       src={spec.mascotImage}
                       alt={`${spec.name} 3D Mascot`}
+                      width={56}
+                      height={56}
                       className="w-14 h-14 object-contain"
                       style={{ filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.12))' }}
                       loading="lazy"
+                      decoding="async"
                     />
                   </div>
 
@@ -69,7 +72,7 @@ export default function SpeciesGrid() {
                   <h3 className="font-black text-slate-900 text-lg mb-1 group-hover:text-[#166534] transition-colors">
                     {spec.name}
                   </h3>
-                  <p className="text-xs text-slate-500 mb-4 leading-relaxed font-normal">
+                  <p className="text-xs text-slate-600 mb-4 leading-relaxed font-normal">
                     {spec.subtitle}
                   </p>
 

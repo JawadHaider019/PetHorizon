@@ -63,13 +63,16 @@ export default function ContactForm({
         {/* Name & Email Row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
           <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1.5">
+            <label htmlFor="contact-name" className="block text-xs font-bold text-slate-700 mb-1.5">
               Full Name <span className="text-rose-500">*</span>
             </label>
             <div className="relative">
               <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
               <input
+                id="contact-name"
+                name="name"
                 type="text"
+                autoComplete="name"
                 value={name}
                 onChange={(e) => {
                   setName(e.target.value);
@@ -85,13 +88,16 @@ export default function ContactForm({
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1.5">
+            <label htmlFor="contact-email" className="block text-xs font-bold text-slate-700 mb-1.5">
               Email Address <span className="text-rose-500">*</span>
             </label>
             <div className="relative">
               <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
               <input
+                id="contact-email"
+                name="email"
                 type="email"
+                autoComplete="email"
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
@@ -166,12 +172,14 @@ export default function ContactForm({
         {/* Message */}
         <div className="mb-4">
           <div className="flex items-center justify-between mb-1.5">
-            <label className="block text-xs font-bold text-slate-700">
+            <label htmlFor="contact-message" className="block text-xs font-bold text-slate-700">
               Message Details <span className="text-rose-500">*</span>
             </label>
-            <span className="text-[10px] text-slate-400 font-mono">{message.length}/1500 chars</span>
+            <span className="text-[10px] text-slate-500 font-mono">{message.length}/1500 chars</span>
           </div>
           <textarea
+            id="contact-message"
+            name="message"
             rows={4}
             maxLength={1500}
             value={message}

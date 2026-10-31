@@ -2,14 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Google Search Central Compliant App Logo Favicons (Multiples of 48px) -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="144x144" href="/favicon-144x144.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     
-    <!-- Primary SEO Meta Tags -->
+    <!-- Primary SEO Meta Tags & Site Name Signals -->
     <title>Pet Horizon – Smart Pet Care, Family Hub & Daily Routine Tracker</title>
+    <meta name="application-name" content="Pet Horizon" />
+    <meta name="apple-mobile-web-app-title" content="Pet Horizon" />
     <meta name="title" content="Pet Horizon – Smart Pet Care, Family Hub & Daily Routine Tracker" />
-    <meta name="description" content="Pet Horizon is the ultimate pet care companion app for Android. Organize smart medication alarms, daily feeding routines, vaccination history, and multi-caretaker family hub in one unified platform." />
-    <meta name="keywords" content="Pet Horizon, pet routine tracker, pet care app, dog schedule tracker, cat medication alarm, pet vaccination reminder, family pet hub, Android pet app" />
+    <meta name="description" content="Pet Horizon is the all-in-one smart pet care app & family routine tracker for Android. Sync feeding schedules, medication alarms, vet vaccine records, and budgets." />
+    <meta name="keywords" content="Pet Horizon, PetHorizon, Pet Horizon app, pet routine tracker, smart pet care app, dog schedule tracker, cat medication alarm, pet vaccination reminder, family pet hub, Android pet app" />
     <meta name="author" content="Pet Horizon" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="theme-color" content="#047857" />
@@ -26,42 +36,46 @@
       gtag('config', 'G-FHBNRZ7X6T');
     </script>
 
-    <!-- Canonical URL -->
+    <!-- Canonical URL & Web App Manifest -->
     <link rel="canonical" href="https://pethorizon.jawumitech.com/" />
-    <link rel="apple-touch-icon" href="/applogo.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/applogo.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="alternate" type="application/rss+xml" title="Pet Horizon Blog RSS Feed" href="https://pethorizon.jawumitech.com/rss.xml" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://pethorizon.jawumitech.com/" />
     <meta property="og:site_name" content="Pet Horizon" />
     <meta property="og:title" content="Pet Horizon – Smart Pet Care, Family Hub & Daily Routine Tracker" />
-    <meta property="og:description" content="Streamline your pet's life with smart care schedules, medication alarms, vaccination logs, and family sync." />
-    <meta property="og:image" content="https://pethorizon.jawumitech.com/applogo.png" />
+    <meta property="og:description" content="Pet Horizon is the all-in-one smart pet care app & family routine tracker for Android. Sync feeding schedules, medication alarms, vet vaccine records, and budgets." />
+    <meta property="og:image" content="https://pethorizon.jawumitech.com/favicon-512x512.png" />
     <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1024" />
-    <meta property="og:image:height" content="1024" />
-    <meta property="og:image:alt" content="Pet Horizon - Smart Pet Care & Routine Tracker" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:image:alt" content="Pet Horizon App Logo - Smart Pet Care & Routine Tracker" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://pethorizon.jawumitech.com/" />
     <meta name="twitter:title" content="Pet Horizon – Smart Pet Care, Family Hub & Daily Routine Tracker" />
-    <meta name="twitter:description" content="Streamline your pet's life with smart care schedules, medication alarms, vaccination logs, and family sync." />
-    <meta name="twitter:image" content="https://pethorizon.jawumitech.com/applogo.png" />
-    <meta name="twitter:image:alt" content="Pet Horizon App Icon" />
+    <meta name="twitter:description" content="Pet Horizon is the all-in-one smart pet care app & family routine tracker for Android. Sync feeding schedules, medication alarms, vet vaccine records, and budgets." />
+    <meta name="twitter:image" content="https://pethorizon.jawumitech.com/favicon-512x512.png" />
+    <meta name="twitter:image:alt" content="Pet Horizon App Logo" />
 
-    <!-- Google Fonts: Inter -->
+    <!-- Google Fonts: Inter (Non-render-blocking with font-display swap) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    </noscript>
 
     <!-- Preload Critical Above-The-Fold Assets -->
     <link rel="preload" href="/screenshots/home-screen.webp" as="image" type="image/webp" fetchpriority="high" />
     <link rel="preload" href="/3d-pets-transparent.webp" as="image" type="image/webp" fetchpriority="high" />
 
     <!-- Schema.org Graph: Organization, WebSite, SoftwareApplication & FAQPage -->
-    <script type="application/ld+json">
+    <script type="application/ld+json" id="root-seo-schema">
     {
       "@context": "https://schema.org",
       "@graph": [
@@ -69,27 +83,34 @@
           "@type": "Organization",
           "@id": "https://pethorizon.jawumitech.com/#organization",
           "name": "Pet Horizon",
-          "url": "https://pethorizon.jawumitech.com",
+          "alternateName": ["PetHorizon", "Pet Horizon App"],
+          "url": "https://pethorizon.jawumitech.com/",
           "logo": {
             "@type": "ImageObject",
             "@id": "https://pethorizon.jawumitech.com/#logo",
-            "url": "https://pethorizon.jawumitech.com/applogo.png",
-            "caption": "Pet Horizon Logo"
+            "url": "https://pethorizon.jawumitech.com/favicon-512x512.png",
+            "contentUrl": "https://pethorizon.jawumitech.com/favicon-512x512.png",
+            "width": 512,
+            "height": 512,
+            "caption": "Pet Horizon App Logo"
           },
+          "image": "https://pethorizon.jawumitech.com/favicon-512x512.png",
           "contactPoint": {
             "@type": "ContactPoint",
             "contactType": "customer support",
             "email": "pethorizon2026@gmail.com"
           },
           "sameAs": [
-            "https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon"
+            "https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon",
+            "https://www.instagram.com/pethorizon.app/"
           ]
         },
         {
           "@type": "WebSite",
           "@id": "https://pethorizon.jawumitech.com/#website",
-          "url": "https://pethorizon.jawumitech.com",
+          "url": "https://pethorizon.jawumitech.com/",
           "name": "Pet Horizon",
+          "alternateName": ["PetHorizon", "Pet Horizon App", "pethorizon.jawumitech.com"],
           "description": "Smart Pet Care, Family Hub & Daily Routine Tracker for Dogs and Cats",
           "publisher": {
             "@id": "https://pethorizon.jawumitech.com/#organization"
@@ -107,6 +128,9 @@
           "@type": "SoftwareApplication",
           "@id": "https://pethorizon.jawumitech.com/#app",
           "name": "Pet Horizon",
+          "alternateName": "PetHorizon – Smart Pet Care & Routine Tracker",
+          "url": "https://pethorizon.jawumitech.com/",
+          "image": "https://pethorizon.jawumitech.com/favicon-512x512.png",
           "operatingSystem": "Android",
           "applicationCategory": "LifestyleApplication",
           "offers": {
@@ -118,7 +142,8 @@
             "@id": "https://pethorizon.jawumitech.com/#organization"
           },
           "downloadUrl": "https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon",
-          "description": "Smart pet care companion app featuring medication schedule alerts, daily feeding routines, vaccination history, and family hub collaboration.",
+          "installUrl": "https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon",
+          "description": "Pet Horizon is the smart pet care companion app featuring medication schedule alerts, daily feeding routines, vaccination history, and family hub collaboration.",
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "5.0",
@@ -219,7 +244,43 @@
     </script>
   </head>
   <body class="bg-white">
-    <div id="root"></div>
+    <div id="root">
+      <header class="sr-only">
+        <nav aria-label="Primary Navigation">
+          <a href="/">Pet Horizon Home</a>
+          <a href="/blogs">Veterinary Care Guides &amp; Blog</a>
+          <a href="/tools/pet-calorie-calculator">Pet Calorie &amp; Daily Portion Calculator</a>
+          <a href="/tools/pet-age-calculator">Pet Age in Human Years Calculator</a>
+          <a href="/changelog">Product Changelog</a>
+          <a href="/privacy-policy">Privacy Policy</a>
+          <a href="/terms-of-service">Terms of Service</a>
+          <a href="/data-deletion">Data Deletion</a>
+        </nav>
+      </header>
+      <main id="main-content" aria-label="Pet Horizon" class="sr-only">
+        <h1>Pet Horizon – Smart Pet Care, Family Hub &amp; Daily Routine Tracker</h1>
+        <p>Pet Horizon is the unified Android companion app for multi-caregiver pet households. Organize daily feeding routines, recurring medication alarms, verified vaccination records, monthly expense budgets, and real-time family synchronization in one platform.</p>
+        <img src="/applogo.png" alt="Pet Horizon Smart Pet Care and Family Routine Tracker App Logo" width="128" height="128" />
+        <section>
+          <h2>Smart Medication Alarms &amp; Anti-Collision Care Lock</h2>
+          <p>Prevent accidental double-feeding and missed medication doses across partners, roommates, and pet sitters. When any caregiver starts a meal or medication task, Pet Horizon activates a real-time Care Lock across all connected household devices with live completion timestamps.</p>
+        </section>
+        <section>
+          <h2>Digital Pet Health Card &amp; Emergency Vet Mode</h2>
+          <p>Store DHPP, Rabies, FVRCP, and Bordetella vaccination certificates, microchip IDs, weight history, and clinic contacts in a portable digital passport. Launch Emergency Vet Mode with one tap for boarding check-ins or urgent veterinary visits.</p>
+        </section>
+        <section>
+          <h2>Free Veterinary Calculators &amp; Evidence-Based Pet Care Guides</h2>
+          <ul>
+            <li><a href="/tools/pet-calorie-calculator">WSAVA Pet Calorie &amp; Daily Gram Portion Calculator (RER &amp; MER)</a></li>
+            <li><a href="/tools/pet-age-calculator">AAHA Pet Age Calculator in Human Years for Dogs &amp; Cats</a></li>
+            <li><a href="/blogs">Explore 39+ Evidence-Based Veterinary &amp; Routine Care Guides</a></li>
+            <li><a href="https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon">Download Pet Horizon Free on Google Play Store</a></li>
+            <li><a href="https://www.instagram.com/pethorizon.app/" rel="me noopener noreferrer">Follow Pet Horizon Official Instagram (@pethorizon.app)</a></li>
+          </ul>
+        </section>
+      </main>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

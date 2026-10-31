@@ -190,18 +190,22 @@ export default function TourPhonePreview({
           </button>
 
           {/* Pagination Dots */}
-          <div className="flex items-center gap-1.5 sm:gap-2 bg-white/90 backdrop-blur-sm px-3.5 py-2 rounded-full border border-slate-200/90 shadow-2xs">
+          <div className="flex items-center gap-0.5 sm:gap-1 bg-white/90 backdrop-blur-sm px-2 sm:px-3 py-1 rounded-full border border-slate-200/90 shadow-2xs">
             {TOUR_SCREENS.map((s, i) => (
               <button
                 key={s.id}
                 onClick={() => onSelectIndex(i)}
-                className={`transition-all duration-300 rounded-full cursor-pointer ${
-                  i === currentIndex
-                    ? 'w-6 sm:w-8 h-2 sm:h-2.5 bg-emerald-600'
-                    : 'w-2 sm:w-2.5 h-2 sm:h-2.5 bg-slate-300 hover:bg-slate-400'
-                }`}
+                className="min-w-[34px] min-h-[34px] sm:min-w-[38px] sm:min-h-[38px] flex items-center justify-center cursor-pointer rounded-full focus:outline-none focus:ring-2 focus:ring-emerald-600/40 transition-transform active:scale-90"
                 aria-label={`Jump to ${s.name}`}
-              />
+              >
+                <span
+                  className={`block transition-all duration-300 rounded-full ${
+                    i === currentIndex
+                      ? 'w-6 sm:w-8 h-2 sm:h-2.5 bg-emerald-600'
+                      : 'w-2 sm:w-2.5 h-2 sm:h-2.5 bg-slate-300 hover:bg-slate-400'
+                  }`}
+                />
+              </button>
             ))}
           </div>
 

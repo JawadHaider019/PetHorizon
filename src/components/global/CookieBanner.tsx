@@ -54,9 +54,9 @@ export default function CookieBanner({ onNavigateLegal }: CookieBannerProps) {
               <Cookie className="w-4 h-4" />
             </span>
             <div>
-              <h4 className="text-sm font-black text-slate-900 tracking-tight">
+              <h2 className="text-sm font-black text-slate-900 tracking-tight">
                 Cookie &amp; Privacy Notice
-              </h4>
+              </h2>
               <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider">
                 Pet Horizon Security
               </span>

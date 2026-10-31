@@ -18,7 +18,7 @@ export const vaccinationScheduleArticle: FullBlogArticle = {
         'To overcome this biological roadblock, the American Veterinary Medical Association (AVMA) and World Small Animal Veterinary Association (WSAVA) established an international consensus protocol: administering vaccine boosters every 3 to 4 weeks across early development until the animal reaches at least 16 weeks of age. This sequential cadence guarantees that at least one dose is received precisely when maternal antibodies have cleared, triggering sustained, robust humoral immunity.'
       ],
       figure: {
-        imageUrl: 'https://images.unsplash.com/photo-1568572933382-74d440642117?w=1000&auto=format&fit=crop&q=80',
+        imageUrl: 'https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
         caption: 'Pediatric veterinary examination: Evaluating mucosal coloration and core vital signs prior to first inoculations.',
         altText: 'Veterinarian carefully examining a young golden retriever puppy'
       }
@@ -49,7 +49,7 @@ export const vaccinationScheduleArticle: FullBlogArticle = {
         title: 'PetHorizon Clinical Health Card & Milestone Tracker',
         provider: 'Available on Google Play (Included Free in PetHorizon)',
         price: 'Free Lifetime Access',
-        image: 'https://images.unsplash.com/photo-1535930749574-1399327ce78f?w=400&auto=format&fit=crop&q=80',
+        image: '/screenshots/pet-profile-screen.webp',
         actionText: 'Track Vaccines on PetHorizon',
         actionUrl: 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon',
         actionType: 'playStore'
@@ -66,9 +66,9 @@ export const vaccinationScheduleArticle: FullBlogArticle = {
         'Furthermore, tracking vaccine expirations across multiple family members is notoriously disorganized. When booking emergency boarding or an urgent grooming session, facilities require immediate verification of Bordetella and Rabies certificates. Scrambling through physical drawers to find an elusive stamp card often results in missed appointments or emergency revaccinations that cause unnecessary systemic stress.'
       ],
       figure: {
-        imageUrl: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=1000&auto=format&fit=crop&q=80',
+        imageUrl: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.45&q=85',
         caption: 'PetHorizon in action: Exporting verified digital vaccine passports instantly for dog daycares and emergency clinics.',
-        altText: 'Pet owner using a smartphone app to verify dog medical records'
+        altText: 'Young kitten resting safely after pediatric vaccination care'
       }
     },
     {

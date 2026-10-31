@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useScroll, motion } from 'framer-motion';
-import { Mail, ChevronRight, ArrowLeft, ShieldCheck, Trash2 } from 'lucide-react';
-import { PRIVACY_POLICY, DATA_DELETION_GUIDE, LegalDocument } from '../data/legalData';
+import { Mail, ChevronRight, ArrowLeft, ShieldCheck, Trash2, FileText } from 'lucide-react';
+import { PRIVACY_POLICY, DATA_DELETION_GUIDE, TERMS_OF_SERVICE, LegalDocument } from '../data/legalData';
 import LegalSidebar from './LegalSidebar';
 import LegalSectionsList from './LegalSectionsList';
 
 interface LegalPortalProps {
-  initialDoc?: 'privacy' | 'deletion';
+  initialDoc?: 'privacy' | 'terms' | 'deletion';
   onNavigateHome: () => void;
-  onSelectDoc?: (docId: 'privacy' | 'deletion') => void;
+  onSelectDoc?: (docId: 'privacy' | 'terms' | 'deletion') => void;
 }
 
 export default function LegalPortal({
@@ -16,7 +16,7 @@ export default function LegalPortal({
   onNavigateHome,
   onSelectDoc
 }: LegalPortalProps) {
-  const [activeDocId, setActiveDocId] = useState<'privacy' | 'deletion'>(initialDoc);
+  const [activeDocId, setActiveDocId] = useState<'privacy' | 'terms' | 'deletion'>(initialDoc);
   const [activeSectionId, setActiveSectionId] = useState<string>('');
   const [readPercent, setReadPercent] = useState(0);
 
@@ -27,7 +27,11 @@ export default function LegalPortal({
   }, [initialDoc]);
 
   const currentDoc: LegalDocument =
-    activeDocId === 'privacy' ? PRIVACY_POLICY : DATA_DELETION_GUIDE;
+    activeDocId === 'privacy'
+      ? PRIVACY_POLICY
+      : activeDocId === 'terms'
+      ? TERMS_OF_SERVICE
+      : DATA_DELETION_GUIDE;
 
   useEffect(() => {
     return scrollYProgress.on('change', (latest) => {
@@ -42,7 +46,7 @@ export default function LegalPortal({
     }
   }, [activeDocId]);
 
-  const handleDocChange = (id: 'privacy' | 'deletion') => {
+  const handleDocChange = (id: 'privacy' | 'terms' | 'deletion') => {
     setActiveDocId(id);
     if (onSelectDoc) onSelectDoc(id);
   };
@@ -62,18 +66,26 @@ export default function LegalPortal({
         {/* Navigation Breadcrumb (Identical styling to BlogHub) */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 sm:pb-6 border-b border-slate-100 mb-8">
           <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 flex-wrap">
-            <button
-              onClick={onNavigateHome}
+            <a
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigateHome();
+              }}
               className="hover:text-emerald-700 flex items-center gap-1 cursor-pointer transition-colors whitespace-nowrap"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               Home
-            </button>
+            </a>
             <span className="text-slate-300">/</span>
             <span className="text-slate-500 whitespace-nowrap">Legal &amp; Trust Center</span>
             <span className="text-slate-300">/</span>
             <span className="text-emerald-800 font-bold bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100 whitespace-nowrap shrink-0">
-              {activeDocId === 'privacy' ? 'Privacy Policy' : 'Data & Account Deletion'}
+              {activeDocId === 'privacy'
+                ? 'Privacy Policy'
+                : activeDocId === 'terms'
+                ? 'Terms of Service'
+                : 'Data & Account Deletion'}
             </span>
           </div>
 
@@ -96,8 +108,10 @@ export default function LegalPortal({
             </p>
 
             <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-              {activeDocId === 'privacy' 
-                ? 'Pet Horizon Privacy Policy' 
+              {activeDocId === 'privacy'
+                ? 'Pet Horizon Privacy Policy'
+                : activeDocId === 'terms'
+                ? 'Terms of Service & License Agreement'
                 : 'User Data & Account Deletion Protocol'}
             </h1>
 
@@ -118,6 +132,18 @@ export default function LegalPortal({
             >
               <ShieldCheck className="w-4 h-4 shrink-0" />
               <span>Privacy Policy</span>
+            </button>
+
+            <button
+              onClick={() => handleDocChange('terms')}
+              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap select-none ${
+                activeDocId === 'terms'
+                  ? 'bg-emerald-600 text-white shadow-sm shadow-emerald-700/20 scale-102'
+                  : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-50 border border-slate-200/80'
+              }`}
+            >
+              <FileText className="w-4 h-4 shrink-0" />
+              <span>Terms of Service</span>
             </button>
 
             <button

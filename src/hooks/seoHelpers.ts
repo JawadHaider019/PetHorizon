@@ -39,6 +39,9 @@ export function updateJsonLd(id: string, data: object | object[]): void {
 }
 
 export function buildArticleSchemas(article: BlogPost, baseUrl: string, pageDesc: string, articleUrl: string): object[] {
+  const isoPublished = !Number.isNaN(Date.parse(article.publishedAt))
+    ? new Date(article.publishedAt).toISOString()
+    : '2026-10-26T00:00:00.000Z';
   const schemas: object[] = [
     {
       '@context': 'https://schema.org',
@@ -46,8 +49,8 @@ export function buildArticleSchemas(article: BlogPost, baseUrl: string, pageDesc
       headline: article.title,
       description: pageDesc,
       image: [article.coverImage],
-      datePublished: article.publishedAt,
-      dateModified: article.publishedAt,
+      datePublished: isoPublished,
+      dateModified: isoPublished,
       author: {
         '@type': article.author.name.includes('Team') ? 'Organization' : 'Person',
         name: article.author.name,
@@ -61,14 +64,24 @@ export function buildArticleSchemas(article: BlogPost, baseUrl: string, pageDesc
         '@type': 'Organization',
         name: 'Pet Horizon',
         url: baseUrl,
+        sameAs: [
+          'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon',
+          'https://www.instagram.com/pethorizon.app/'
+        ],
         logo: {
           '@type': 'ImageObject',
-          url: `${baseUrl}/app-icon.png`
+          url: `${baseUrl}/favicon-512x512.png`,
+          width: 512,
+          height: 512
         }
       },
       mainEntityOfPage: {
         '@type': 'WebPage',
         '@id': articleUrl
+      },
+      speakable: {
+        '@type': 'SpeakableSpecification',
+        cssSelector: ['h1', 'h2', '#main-content p']
       }
     },
     {
@@ -89,6 +102,17 @@ export function buildArticleSchemas(article: BlogPost, baseUrl: string, pageDesc
   ];
 
   if (article.keyTakeaways && article.keyTakeaways.length > 0) {
+    schemas.push({
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: `${article.title} — Clinical Checklist & Key Steps`,
+      itemListElement: article.keyTakeaways.map((takeaway, idx) => ({
+        '@type': 'ListItem',
+        position: idx + 1,
+        name: takeaway
+      }))
+    });
+
     schemas.push({
       '@context': 'https://schema.org',
       '@type': 'FAQPage',

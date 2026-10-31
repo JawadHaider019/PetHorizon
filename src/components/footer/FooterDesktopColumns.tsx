@@ -1,5 +1,5 @@
 import { ShieldCheck } from 'lucide-react';
-import { SUPPORT_EMAIL } from '../../config/siteConfig';
+import { SUPPORT_EMAIL, INSTAGRAM_URL } from '../../config/siteConfig';
 
 interface FooterDesktopColumnsProps {
   onLegalClick: (e: React.MouseEvent, doc: 'privacy' | 'terms' | 'deletion') => void;
@@ -20,9 +20,9 @@ export default function FooterDesktopColumns({
     <div className="grid grid-cols-3 gap-6 sm:gap-8 text-left">
       {/* Col 1: Product Features */}
       <div>
-        <h4 className="text-xs font-extrabold uppercase tracking-wider text-slate-900 mb-3">
+        <h3 className="text-xs font-extrabold uppercase tracking-wider text-slate-900 mb-3">
           Product Features
-        </h4>
+        </h3>
         <ul className="space-y-2 text-xs sm:text-sm">
           <li>
             <a href="#how-it-works" className="text-slate-600 hover:text-[#166534] transition-colors font-medium block">
@@ -45,7 +45,8 @@ export default function FooterDesktopColumns({
             </a>
           </li>
           <li>
-            <button
+            <a
+              href="/tools/pet-age-calculator"
               onClick={onAgeToolClick}
               className="text-slate-600 hover:text-[#166534] transition-colors font-medium text-left cursor-pointer flex items-center gap-1.5"
             >
@@ -53,10 +54,11 @@ export default function FooterDesktopColumns({
               <span className="text-[9px] font-bold uppercase tracking-wider bg-emerald-50 text-[#166534] border border-emerald-200/70 px-1.5 py-0.2 rounded-full whitespace-nowrap">
                 New Tool
               </span>
-            </button>
+            </a>
           </li>
           <li>
-            <button
+            <a
+              href="/tools/pet-calorie-calculator"
               onClick={onToolClick}
               className="text-slate-600 hover:text-[#166534] transition-colors font-medium text-left cursor-pointer flex items-center gap-1.5"
             >
@@ -64,7 +66,7 @@ export default function FooterDesktopColumns({
               <span className="text-[9px] font-bold uppercase tracking-wider bg-emerald-50 text-[#166534] border border-emerald-200/70 px-1.5 py-0.2 rounded-full whitespace-nowrap">
                 Free Tool
               </span>
-            </button>
+            </a>
           </li>
           <li>
             <a href="#tour" className="text-slate-600 hover:text-[#166534] transition-colors font-medium block">
@@ -81,12 +83,13 @@ export default function FooterDesktopColumns({
 
       {/* Col 2: Knowledge & Support */}
       <div>
-        <h4 className="text-xs font-extrabold uppercase tracking-wider text-slate-900 mb-3">
+        <h3 className="text-xs font-extrabold uppercase tracking-wider text-slate-900 mb-3">
           Knowledge &amp; Support
-        </h4>
+        </h3>
         <ul className="space-y-2 text-xs sm:text-sm">
           <li>
-            <button
+            <a
+              href="/blogs"
               onClick={onBlogClick}
               className="text-slate-600 hover:text-[#166534] transition-colors font-medium text-left cursor-pointer flex items-center gap-1.5"
             >
@@ -94,10 +97,11 @@ export default function FooterDesktopColumns({
               <span className="text-[9px] font-bold uppercase tracking-wider bg-emerald-50 text-[#166534] border border-emerald-200/70 px-1.5 py-0.2 rounded-full whitespace-nowrap">
                 New
               </span>
-            </button>
+            </a>
           </li>
           <li>
-            <button
+            <a
+              href="/changelog"
               onClick={onChangelogClick}
               className="text-slate-600 hover:text-[#166534] transition-colors font-medium text-left cursor-pointer flex items-center gap-1.5"
             >
@@ -105,7 +109,7 @@ export default function FooterDesktopColumns({
               <span className="text-[9px] font-bold uppercase tracking-wider bg-slate-100 text-slate-700 border border-slate-200 px-1.5 py-0.5 rounded-full whitespace-nowrap">
                 v1.0.10
               </span>
-            </button>
+            </a>
           </li>
           <li>
             <a href="#faq" className="text-slate-600 hover:text-[#166534] transition-colors font-medium block">
@@ -115,6 +119,16 @@ export default function FooterDesktopColumns({
           <li>
             <a href="#contact" className="text-slate-600 hover:text-[#166534] transition-colors font-medium block">
               Contact Support Desk
+            </a>
+          </li>
+          <li>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="me noopener noreferrer"
+              className="text-slate-600 hover:text-[#166534] transition-colors font-medium block"
+            >
+              Instagram (@pethorizon.app)
             </a>
           </li>
           <li>
@@ -130,37 +144,40 @@ export default function FooterDesktopColumns({
 
       {/* Col 3: Legal & Trust */}
       <div>
-        <h4 className="text-xs font-extrabold uppercase tracking-wider text-slate-900 mb-3 flex items-center gap-1.5">
+        <h3 className="text-xs font-extrabold uppercase tracking-wider text-slate-900 mb-3 flex items-center gap-1.5">
           <ShieldCheck className="w-3.5 h-3.5 text-[#166534]" />
           <span>Trust &amp; Governance</span>
-        </h4>
+        </h3>
         <ul className="space-y-2 text-xs sm:text-sm">
           <li>
-            <button
+            <a
+              href="/privacy-policy"
               onClick={(e) => onLegalClick(e, 'privacy')}
               className="text-slate-600 hover:text-[#166534] transition-colors font-medium text-left cursor-pointer flex items-center gap-2"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#166534] shrink-0" />
               <span>Privacy Policy</span>
-            </button>
+            </a>
           </li>
           <li>
-            <button
+            <a
+              href="/terms-of-service"
               onClick={(e) => onLegalClick(e, 'terms')}
               className="text-slate-600 hover:text-[#166534] transition-colors font-medium text-left cursor-pointer flex items-center gap-2"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0" />
               <span>Terms of Service</span>
-            </button>
+            </a>
           </li>
           <li>
-            <button
+            <a
+              href="/data-deletion"
               onClick={(e) => onLegalClick(e, 'deletion')}
               className="text-slate-600 hover:text-rose-600 transition-colors font-medium text-left cursor-pointer flex items-center gap-2"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0" />
               <span>Data &amp; Account Deletion</span>
-            </button>
+            </a>
           </li>
           <li className="text-xs text-slate-500 pt-1 font-normal leading-normal">
             Google Play Policy Compliant

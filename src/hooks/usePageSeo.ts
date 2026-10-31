@@ -131,7 +131,7 @@ export function usePageSeo(viewState: ViewState, currentArticle: BlogPost | null
     } else {
       document.title = `${SITE_CONFIG.name} – ${SITE_CONFIG.tagline}`;
       updateMetaTag('meta[name="description"]', 'content', SITE_CONFIG.description);
-      updateCanonical('');
+      updateCanonical('/');
     }
 
     if (

@@ -13,12 +13,18 @@ Pet Horizon (https://pethorizon.jawumitech.com) is a comprehensive pet care plat
 
 ## Official App & Downloads
 - Google Play Store: https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon
+- Official Instagram: https://www.instagram.com/pethorizon.app/
 - Support Email: pethorizon2026@gmail.com
 - Privacy Policy: https://pethorizon.jawumitech.com/privacy-policy
+- Terms of Service: https://pethorizon.jawumitech.com/terms-of-service
 - Data Deletion: https://pethorizon.jawumitech.com/data-deletion
 - RSS Feed: https://pethorizon.jawumitech.com/rss.xml
 
-## Topic Clusters & Canonical Guides (34 Active Guides)
+## Free Interactive Veterinary Tools
+- [Pet Calorie & Daily Portion Calculator (WSAVA RER/MER)](https://pethorizon.jawumitech.com/tools/pet-calorie-calculator): Calculate exact Resting Energy Requirements (70 * kg^0.75), daily maintenance calories, gram portions, and cup conversions for dogs and cats.
+- [Pet Age Calculator in Human Years (AAHA Life Stage Matrix)](https://pethorizon.jawumitech.com/tools/pet-age-calculator): Convert dog and cat chronological age into biological human years with breed size scaling, life stage gauges, and preventive health milestones.
+
+## Topic Clusters & Canonical Guides (39 Active Guides)
 - [Dog Feeding Schedule by Age: Complete Puppy to Adult Portion & Routine Guide](https://pethorizon.jawumitech.com/blogs/dog-feeding-schedule-by-age-puppy-to-adult): How often should you feed your dog? Discover veterinary-backed daily feeding schedules, Resting Energy Requirement (RER) calculations, bloat prevention tips, and in-app routine tracking.
 - [Puppy & Kitten Vaccination Schedule: Core Booster Timetable & In-App Milestones](https://pethorizon.jawumitech.com/blogs/puppy-kitten-vaccination-schedule-booster-guide-worldwide): Complete veterinary-verified vaccination guide for puppies and kittens. Learn exact timing for DHPP, FVRCP, Rabies, and how to digitize your pet’s health passport with PetHorizon.
 - [Pet Health Records: What Every Pet Owner Should Track & How to Manage Medication Schedules](https://pethorizon.jawumitech.com/blogs/pet-health-records-medication-schedule-tracker): Never scramble for vet papers again. Learn the 5 vital health records every pet parent must maintain, missed medication protocols, and how to store complete medical histories in PetHorizon.
@@ -53,6 +59,11 @@ Pet Horizon (https://pethorizon.jawumitech.com) is a comprehensive pet care plat
 - [Multiple Pet Management: Organizing Routines for Multi-Dog and Multi-Cat Homes](https://pethorizon.jawumitech.com/blogs/multiple-pet-management-multi-dog-cat-household-routines): Managing multiple pets means juggling different life-stage diets, conflicting medication schedules, and preventing mealtime fights. Master separate room feeding, zero-error med protocols, and household sync.
 - [Pet First Aid Kit Checklist: Emergency Preparedness Plan & Action Protocols](https://pethorizon.jawumitech.com/blogs/pet-first-aid-kit-checklist-emergency-preparedness-plan): When accidents happen, seconds count. Stock your veterinary first aid kit with self-adherent cohesive wrap, chlorhexidine flushes, and learn canine/feline CPR techniques and emergency vital checks.
 - [Pet Insurance vs. Emergency Savings Fund: Transparent Veterinary Cost Guide](https://pethorizon.jawumitech.com/blogs/pet-insurance-vs-savings-fund-vet-cost-guide): Surgeries for foreign body obstructions or torn cruciate ligaments exceed $5,000. Analyze the math behind monthly premiums, pre-existing condition exclusions, and high-deductible hybrid strategies.
+- [Rabbit Feeding Schedule & Daily Routine: Hay Ratios, Leafy Greens & GI Stasis Guide](https://pethorizon.jawumitech.com/blogs/rabbit-feeding-schedule-hay-diet-gi-stasis-guide): Rabbits require an 85% grass hay diet to keep their hindgut moving and wear down continuously growing teeth. Learn safe leafy green portions, pellet gram limits, and early GI stasis warning signs.
+- [Companion Bird & Parrot Daily Routine: Fresh Chop Diet, UV Hours & 12-Hour Sleep Guide](https://pethorizon.jawumitech.com/blogs/parrot-bird-daily-routine-chop-diet-sleep-guide): All-seed diets and erratic indoor lighting cause avian fatty liver disease and hormonal plucking. Master the morning vegetable chop routine, UV-B exposure, and 12-hour dark sleep schedules.
+- [The 3-3-3 Rule for Rescue Dogs: First 3 Days, 3 Weeks & 3 Months Routine Checklist](https://pethorizon.jawumitech.com/blogs/rescue-dog-3-3-3-rule-decompression-routine-guide): Bringing home an adopted shelter dog? Understand the veterinary behavior 3-3-3 decompression timeline and how clockwork feeding and walking routines eliminate post-adoption anxiety.
+- [Dog & Cat Diabetes Insulin Schedule: 12-Hour Meal Timing, Missed Dose Rules & Family Sync](https://pethorizon.jawumitech.com/blogs/dog-cat-diabetes-insulin-feeding-schedule-guide): Managing pet diabetes requires strict 12-hour coordination between weighed meals and insulin injections. Learn the "Feed First, Then Inject" rule, missed dose safety, and how to prevent double-dosing.
+- [Pet Microchip Registration & Universal Lookup Guide: ISO Standards & Vet Passport Tracking](https://pethorizon.jawumitech.com/blogs/pet-microchip-registration-lookup-guide): Nearly 40% of microchipped lost pets have unregistered or outdated contact files. Understand 15-digit ISO 11784/11785 standards, the AAHA Universal Microchip Lookup tool, and digital ID storage.
 
 ## Extended Documentation
 - [Full Clinical Text and Veterinary Protocols](https://pethorizon.jawumitech.com/llms-full.txt)

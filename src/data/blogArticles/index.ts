@@ -27,6 +27,21 @@ import { winterPetCareArticle } from './winterPetCare';
 import { multiplePetManagementArticle } from './multiplePetManagement';
 import { petFirstAidKitArticle } from './petFirstAidKit';
 import { petInsuranceVsSavingsArticle } from './petInsuranceVsSavings';
+import {
+  nycVaccinationArticle,
+  londonCoParentingArticle,
+  torontoBudgetArticle,
+  sydneyTrackersArticle
+} from './localizedCityArticles';
+import {
+  rabbitFeedingArticle,
+  parrotCareArticle,
+  rescueDog333Article
+} from './exoticAndRescueArticles';
+import {
+  petDiabetesInsulinArticle,
+  petMicrochipGuideArticle
+} from './chronicCareAndIdArticles';
 
 export * from './types';
 export {
@@ -59,7 +74,16 @@ export {
   winterPetCareArticle,
   multiplePetManagementArticle,
   petFirstAidKitArticle,
-  petInsuranceVsSavingsArticle
+  petInsuranceVsSavingsArticle,
+  nycVaccinationArticle,
+  londonCoParentingArticle,
+  torontoBudgetArticle,
+  sydneyTrackersArticle,
+  rabbitFeedingArticle,
+  parrotCareArticle,
+  rescueDog333Article,
+  petDiabetesInsulinArticle,
+  petMicrochipGuideArticle
 };
 
 const ARTICLES_MAP: Record<string, FullBlogArticle> = {
@@ -92,7 +116,16 @@ const ARTICLES_MAP: Record<string, FullBlogArticle> = {
   [winterPetCareArticle.slug]: winterPetCareArticle,
   [multiplePetManagementArticle.slug]: multiplePetManagementArticle,
   [petFirstAidKitArticle.slug]: petFirstAidKitArticle,
-  [petInsuranceVsSavingsArticle.slug]: petInsuranceVsSavingsArticle
+  [petInsuranceVsSavingsArticle.slug]: petInsuranceVsSavingsArticle,
+  [nycVaccinationArticle.slug]: nycVaccinationArticle,
+  [londonCoParentingArticle.slug]: londonCoParentingArticle,
+  [torontoBudgetArticle.slug]: torontoBudgetArticle,
+  [sydneyTrackersArticle.slug]: sydneyTrackersArticle,
+  [rabbitFeedingArticle.slug]: rabbitFeedingArticle,
+  [parrotCareArticle.slug]: parrotCareArticle,
+  [rescueDog333Article.slug]: rescueDog333Article,
+  [petDiabetesInsulinArticle.slug]: petDiabetesInsulinArticle,
+  [petMicrochipGuideArticle.slug]: petMicrochipGuideArticle
 };
 
 /**

@@ -26,9 +26,9 @@ export const seniorDogCareArticle: FullBlogArticle = {
         ]
       },
       figure: {
-        imageUrl: 'https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?w=1000&auto=format&fit=crop&q=80',
+        imageUrl: 'https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
         caption: 'Biannual veterinary exams, low-impact exercise, and orthopedic support keep senior dogs pain-free and cognitively engaged.',
-        altText: 'Senior golden retriever resting peacefully on dense orthopedic memory foam bed'
+        altText: 'Senior Labrador retriever resting comfortably'
       }
     },
     {

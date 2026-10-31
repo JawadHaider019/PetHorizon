@@ -132,7 +132,7 @@ export default function FamilyHubSection() {
                         {st.num}
                       </span>
                     </div>
-                    <h4 className="text-sm font-bold text-slate-900 mt-1">{st.title}</h4>
+                    <h3 className="text-sm font-bold text-slate-900 mt-1">{st.title}</h3>
                     <p className="text-xs text-slate-600 leading-relaxed font-normal">
                       {st.desc}
                     </p>
@@ -151,7 +151,7 @@ export default function FamilyHubSection() {
                 <span>Try Family Hub on Android</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <span className="text-xs text-slate-500 font-medium">
+              <span className="text-xs text-slate-600 font-medium">
                 Included in Free Plan • 1 Family &amp; Caretaker connection
               </span>
             </div>

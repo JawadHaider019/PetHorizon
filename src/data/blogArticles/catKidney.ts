@@ -27,9 +27,9 @@ export const catKidneyArticle: FullBlogArticle = {
         ]
       },
       figure: {
-        imageUrl: 'https://images.unsplash.com/photo-1571566882372-1598d88abd90?w=1000&auto=format&fit=crop&q=80',
+        imageUrl: 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
         caption: 'Monitoring feline litter clump volume and water bowl visits provides the earliest behavioral warning of advancing renal disease.',
-        altText: 'Senior tabby cat drinking fresh filtered water from ceramic fountain'
+        altText: 'Senior tabby cat resting comfortably at home'
       }
     },
     {

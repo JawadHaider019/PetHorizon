@@ -1,5 +1,33 @@
+import { useState, useEffect } from 'react';
+
 export type PetType = 'dog' | 'cat';
 export type DogBreedSize = 'small' | 'medium' | 'large' | 'giant';
+
+export function useAnimatedNumber(value: number, duration: number = 350) {
+  const [displayValue, setDisplayValue] = useState(value);
+
+  useEffect(() => {
+    let startTime: number | null = null;
+    const startVal = displayValue;
+    const diff = value - startVal;
+    if (diff === 0) return;
+
+    let frameId: number;
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      setDisplayValue(Math.round(startVal + diff * ease));
+      if (progress < 1) {
+        frameId = requestAnimationFrame(step);
+      }
+    };
+    frameId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(frameId);
+  }, [value]);
+
+  return displayValue;
+}
 
 export interface BreedSizeInfo {
   id: DogBreedSize;
