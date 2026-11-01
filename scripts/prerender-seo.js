@@ -28,6 +28,7 @@ async function loadAppData() {
   const vite = await createServer({
     root: rootDir,
     server: { middlewareMode: true },
+    optimizeDeps: { noDiscovery: true, include: [] },
     appType: 'custom'
   });
 
