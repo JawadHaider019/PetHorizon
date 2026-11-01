@@ -376,11 +376,30 @@ async function runPostBuild() {
     return `${(lastSpace > maxLen * 0.6 ? cut.slice(0, lastSpace) : cut).replace(/[.,;:\-–—]+$/, '')}.`;
   }
 
+  function clampDescription(text, minLen = 151, maxLen = 158) {
+    let clean = (text || '').trim().replace(/\s+/g, ' ');
+    const padPhrases = [
+      ' — Pet Horizon Veterinary Care & Family Routine Guide.',
+      ' Sync schedules and health records in the Pet Horizon app.'
+    ];
+    for (const pad of padPhrases) {
+      if (clean.length < minLen) {
+        clean = `${clean.replace(/[.,;:\-–—]+$/, '')}.${pad}`;
+      }
+    }
+    if (clean.length > maxLen) {
+      const cut = clean.slice(0, maxLen - 1);
+      const lastSpace = cut.lastIndexOf(' ');
+      clean = `${(lastSpace >= minLen - 1 ? cut.slice(0, lastSpace) : cut).replace(/[.,;:\-–—]+$/, '')}.`;
+    }
+    return clean;
+  }
+
   // Helper to replace head metadata
   function injectHead(template, { title, description, canonicalUrl, ogType, ogImage, jsonLd }) {
     let html = template;
     const safeTitle = clampText(title, 65);
-    const safeDesc = clampText(description, 152);
+    const safeDesc = clampDescription(description, 151, 158);
 
     // Title
     html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${escapeHtml(safeTitle)}</title>`);
@@ -439,7 +458,7 @@ async function runPostBuild() {
   // 1. Prerender /blogs (Blog Hub)
   {
     const blogTitle = 'PetHorizon Blog — Evidence-Based Pet Care & Health Guides';
-    const blogDesc = 'Veterinary-verified pet care guides for dog and cat owners: puppy feeding schedules, vaccination charts, medication safety, and family routine sync.';
+    const blogDesc = 'Explore veterinary-verified pet care guides for dog and cat owners: daily feeding schedules, vaccination charts, medication alarms, and family routine sync.';
     const blogUrl = `${BASE_URL}/blogs`;
 
     const blogCardsHtml = BLOG_POSTS.map((post) => `
@@ -713,7 +732,7 @@ async function runPostBuild() {
   // 3. Prerender /changelog
   {
     const changelogTitle = 'Changelog & Version Release Notes | Pet Horizon';
-    const changelogDesc = 'Track the latest features, improvements, expense manager enhancements, and release notes across every Pet Horizon update.';
+    const changelogDesc = 'Track the latest Pet Horizon app releases, smart medication alarm updates, family QR sync improvements, expense manager features, and version release notes.';
     const changelogUrl = `${BASE_URL}/changelog`;
 
     let html = injectHead(baseTemplate, {
@@ -924,7 +943,7 @@ async function runPostBuild() {
   // 4. Prerender /privacy-policy
   {
     const privTitle = 'Official Privacy Policy | Pet Horizon';
-    const privDesc = 'Read the official Pet Horizon privacy policy regarding encrypted pet records, zero data monetization, and local offline-first security.';
+    const privDesc = 'Read the official Pet Horizon privacy policy covering encrypted pet health records, zero third-party data selling, and offline-first household data safety.';
     const privUrl = `${BASE_URL}/privacy-policy`;
 
     let html = injectHead(baseTemplate, {
@@ -942,7 +961,7 @@ async function runPostBuild() {
   // 5. Prerender /terms-of-service
   {
     const termsTitle = 'Terms of Service | Pet Horizon';
-    const termsDesc = 'Read the official terms of service and license agreement for Pet Horizon mobile application and web portal.';
+    const termsDesc = 'Read the official Pet Horizon terms of service, user license agreement, family hub sharing guidelines, and medical disclaimer for our Android and web app.';
     const termsUrl = `${BASE_URL}/terms-of-service`;
 
     let html = injectHead(baseTemplate, {
@@ -960,7 +979,7 @@ async function runPostBuild() {
   // 6. Prerender /data-deletion
   {
     const delTitle = 'Data & Account Deletion Instructions | Pet Horizon';
-    const delDesc = 'How to request complete data, account, and pet records deletion in compliance with Google Play Store policies and GDPR.';
+    const delDesc = 'Learn how to request complete account, household hub, and pet health record deletion in Pet Horizon in full compliance with Google Play and GDPR policies.';
     const delUrl = `${BASE_URL}/data-deletion`;
 
     let html = injectHead(baseTemplate, {
