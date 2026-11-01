@@ -2,7 +2,7 @@ import { FullBlogArticle } from './types';
 
 export const winterPetCareArticle: FullBlogArticle = {
   slug: 'winter-pet-care-cold-weather-paw-safety-guide',
-  readTime: '16 min read',
+  readTime: '5 min read',
   overviewSummary:
     'Freezing ambient temperatures, wind-chill factors, corrosive sidewalk chemical de-icers, and sweet-tasting toxic antifreeze spills make winter a hazardous season for companion animals. While thick double-coated northern breeds (Siberian Huskies, Alaskan Malamutes, Great Pyrenees) possess dense undercoats insulated for sub-zero conditions, short-coated, lean, toy, and senior dogs (Whippets, Greyhounds, Chihuahuas) can develop hypothermia and frostbite in temperatures as mild as 32°F (0°C). This veterinary guide breaks down the Tufts Animal Care and Condition (TACC) cold safety scale, hypothermia rewarming protocols, sidewalk de-icing chemical hazards, and lethal ethylene glycol antifreeze emergencies.',
   sections: [

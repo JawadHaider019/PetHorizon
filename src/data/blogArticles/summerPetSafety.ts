@@ -2,7 +2,7 @@ import { FullBlogArticle } from './types';
 
 export const summerPetSafetyArticle: FullBlogArticle = {
   slug: 'summer-pet-safety-heatstroke-prevention-hot-pavement-guide',
-  readTime: '16 min read',
+  readTime: '5 min read',
   overviewSummary:
     'Summer brings hiking trails, lake days, and longer evening walks, but high ambient temperatures and humidity present acute, life-threatening physiological hazards to companion animals. Unlike humans who dissipate heat across millions of eccrine sweat glands, dogs can only sweat through tiny merocrine glands in their paw pads and must rely almost entirely on respiratory panting. When relative humidity exceeds 70% or ambient temperatures surpass 85°F (29°C), panting loses evaporative cooling efficacy, predisposing canines to rapid heatstroke, cellular necrosis, endotoxemia, and fatal disseminated intravascular coagulation (DIC). This veterinary guide details the biological cascade of heatstroke, safe emergency cooling protocols, asphalt temperature scales, and water intoxication risks.',
   sections: [

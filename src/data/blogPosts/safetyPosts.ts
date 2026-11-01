@@ -189,7 +189,7 @@ export const SAFETY_POSTS: BlogPost[] = [
     trendingSearches: ['#is pet insurance worth it', '#pet emergency fund vs insurance', '#how pet insurance reimbursement works', '#average vet bill cost'],
     author: AUTHORS.careTeam,
     sourceName: 'North American Pet Health Insurance Association (NAPHIA)',
-    sourceUrl: 'https://naphia.org/',
+    sourceUrl: 'https://naphia.org/find-pet-insurance/',
     publishedAt: 'October 26, 2026',
     updatedAt: 'October 28, 2026',
     metaTitle: 'Pet Insurance vs. Emergency Savings Guide | Pet Horizon',

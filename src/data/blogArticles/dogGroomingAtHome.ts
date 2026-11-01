@@ -2,7 +2,7 @@ import { FullBlogArticle } from './types';
 
 export const dogGroomingAtHomeArticle: FullBlogArticle = {
   slug: 'dog-grooming-at-home-beginners-step-by-step-guide',
-  readTime: '15 min read',
+  readTime: '5 min read',
   overviewSummary:
     'Routine home grooming is not just about keeping your dog smelling fresh—it is a vital preventive health practice that allows you to inspect skin, detect parasites early, and prevent painful conditions like ingrown dewclaws and severe coat matting. Professional grooming visits cost between $60 and $150 per session; learning proper home maintenance can save hundreds of dollars annually while strengthening your bond with your pet. This comprehensive guide details nail trimming safety, double-coat line brushing, ear hygiene protocols, and bath routines.',
   sections: [

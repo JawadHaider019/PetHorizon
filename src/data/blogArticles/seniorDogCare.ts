@@ -2,7 +2,7 @@ import { FullBlogArticle } from './types';
 
 export const seniorDogCareArticle: FullBlogArticle = {
   slug: 'senior-dog-care-mobility-nutrition-routine-guide',
-  readTime: '16 min read',
+  readTime: '5 min read',
   overviewSummary:
     'Advances in companion animal medicine, preventive diagnostic blood screening, and clinical nutrition have extended canine life expectancy significantly over the last two decades. However, chronological aging introduces distinct physiological challenges: osteoarthritis affects an estimated 80% of dogs over eight years of age, metabolic efficiency declines, and canine cognitive dysfunction syndrome (CDS) can alter circadian sleep-wake cycles. Caring for a senior dog requires proactive veterinary monitoring, evidence-based multimodal pain management, targeted neuroprotective nutrition, and environmental home modifications.',
   sections: [

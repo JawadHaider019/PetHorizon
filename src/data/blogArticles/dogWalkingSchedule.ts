@@ -2,7 +2,7 @@ import { FullBlogArticle } from './types';
 
 export const dogWalkingScheduleArticle: FullBlogArticle = {
   slug: 'dog-walking-schedule-by-age-breed-exercise-guide',
-  readTime: '16 min read',
+  readTime: '5 min read',
   overviewSummary:
     'Daily walks provide far more than physical exercise: they represent your dog’s primary opportunity for olfactory sensory exploration, mental decompression, social engagement, and circadian synchronization. Yet exercise requirements vary dramatically depending on biological age, breed classification, orthopedic morphology, and ambient weather. Over-exercising a developing puppy can permanently damage cartilaginous growth plates, while under-exercising an energetic working breed triggers destructive chewing and chronic anxiety. This veterinary and behavioral guide details exercise duration by life stage, the "5-minute rule" for puppies, breed energy matrixes, and extreme weather safety.',
   sections: [

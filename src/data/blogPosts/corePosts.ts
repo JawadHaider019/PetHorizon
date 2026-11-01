@@ -235,7 +235,7 @@ export const CORE_POSTS: BlogPost[] = [
     metaTitle: 'Vet Bills for Dogs & Cost of Pet Care: Real Monthly Budget',
     metaDescription: 'Transparent breakdown of vet bills for dogs, preventive clinics, and the true cost of pet care. Learn smart budgeting and track expenses in Pet Horizon.',
     sourceName: 'APPA National Pet Owners Survey & Veterinary Benchmarks',
-    sourceUrl: 'https://www.americanpetproducts.org/',
+    sourceUrl: 'https://www.americanpetproducts.org/industry-trends-and-stats',
     relatedProductLinks: [
       { feature: 'Expense & Budget Manager', url: 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon', ctaText: 'Track Pet Expenses in PetHorizon', icon: 'DollarSign' },
       { feature: 'Preventive Care Scheduler', url: 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon', ctaText: 'Schedule Routine Vet Care', icon: 'Calendar' }

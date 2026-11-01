@@ -2,7 +2,7 @@ import { FullBlogArticle } from './types';
 
 export const dogDentalCareArticle: FullBlogArticle = {
   slug: 'dog-dental-care-brushing-teeth-periodontal-guide',
-  readTime: '14 min read',
+  readTime: '5 min read',
   overviewSummary:
     'Periodontal disease is the single most common clinical condition diagnosed in adult dogs: veterinary studies show that over 80% of dogs over the age of three show active signs of oral disease. Left untreated, bacteria living in subgingival plaque enter the bloodstream through inflamed gums, causing microscopic micro-abscesses in the heart valves, liver, and kidneys. Daily tooth brushing and dental hygiene can extend your dog’s life expectancy by 2 to 4 years. This veterinary guide breaks down tooth brushing habituation, the VOHC certification seal, and veterinary cleaning protocols.',
   sections: [

@@ -2,7 +2,7 @@ import { FullBlogArticle } from './types';
 
 export const toxicFoodsArticle: FullBlogArticle = {
   slug: 'toxic-foods-dogs-cats-poison-checklist',
-  readTime: '16 min read',
+  readTime: '5 min read',
   overviewSummary:
     'Accidental poison ingestion is one of the most frequent clinical crises handled by veterinary emergency hospitals and animal poison control centers. Common human pantry items, holiday foods, and decorative indoor houseplants contain chemical compounds that are benign to humans but acutely fatal to dogs and cats due to unique feline and canine metabolic pathways. Supported by case registries from the ASPCA Animal Poison Control Center (APCC) and the Pet Poison Helpline, this emergency clinical reference outlines high-risk household toxins, exact toxic mechanisms, lethal dose thresholds, and veterinary decontamination windows.',
   sections: [

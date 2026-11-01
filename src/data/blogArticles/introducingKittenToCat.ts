@@ -2,7 +2,7 @@ import { FullBlogArticle } from './types';
 
 export const introducingKittenToCatArticle: FullBlogArticle = {
   slug: 'how-to-introduce-kitten-to-older-cat-guide',
-  readTime: '14 min read',
+  readTime: '5 min read',
   overviewSummary:
     'Wondering how to introduce a kitten to an older cat? In feline ecology, cats are territorial solitary hunters by nature. Plunging a high-energy kitten into an established resident cat’s territory without a phased timetable causes severe stress, hissing, and aggression. Following an evidence-based introduction schedule and scent-swapping protocol over 10 to 21 days builds lasting mutual trust. This veterinary guide outlines the complete kitten timetable, barrier feeding stages, and resource allocation rules.',
   sections: [

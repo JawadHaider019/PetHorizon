@@ -2,7 +2,7 @@ import { FullBlogArticle } from './types';
 
 export const dogFeedingScheduleArticle: FullBlogArticle = {
   slug: 'dog-feeding-schedule-by-age-puppy-to-adult',
-  readTime: '15 min read',
+  readTime: '6 min read',
   overviewSummary:
     'Establishing a consistent, age-appropriate feeding schedule is the foundation of lifelong canine health. From rapid skeletal growth in puppies to metabolic deceleration in senior dogs, nutritional requirements and meal frequency evolve constantly. This veterinary-backed guide breaks down exact daily feeding frequencies, portion calculation formulas, kibble transition protocols, and how PetHorizon helps households track feeding times with zero guesswork.',
   sections: [

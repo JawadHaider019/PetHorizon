@@ -24,7 +24,7 @@ export const ROUTINE_POSTS: BlogPost[] = [
     trendingSearches: ['#pet sitter instructions', '#what to leave for dog sitter', '#emergency vet authorization form', '#pet care handover checklist'],
     author: AUTHORS.careTeam,
     sourceName: 'National Association of Professional Pet Sitters (NAPPS)',
-    sourceUrl: 'https://petsitters.org/',
+    sourceUrl: 'https://petsitters.org/page/PetCareLibrary',
     publishedAt: 'October 26, 2026',
     updatedAt: 'October 28, 2026',
     metaTitle: 'Pet Sitter Instructions & Handover Checklist | Pet Horizon',

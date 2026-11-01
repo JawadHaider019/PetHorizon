@@ -2,7 +2,7 @@ import { FullBlogArticle } from './types';
 
 export const seniorCatCareArticle: FullBlogArticle = {
   slug: 'senior-cat-care-health-diet-comfort-guide',
-  readTime: '16 min read',
+  readTime: '5 min read',
   overviewSummary:
     'Cats are masters of masking pain and weakness—an evolutionary adaptation developed by small solitary predators to avoid attracting larger carnivores in the wild. Consequently, an older cat does not slow down simply due to "normal old age"; underlying conditions like feline degenerative joint disease (present in over 90% of cats over age 12), chronic kidney disease, hyperthyroidism, and systemic hypertension are almost invariably the true clinical culprits. This veterinary guide breaks down subtle feline pain markers, geriatric digestive physiology, home accessibility adaptations, and clinical screening protocols.',
   sections: [

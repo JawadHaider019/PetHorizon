@@ -494,9 +494,11 @@ Our economic review team evaluated PetHorizon’s Budget & Expense Manager acros
 ### NYC Health Code Article 161: Rabies & Dog Licensing Laws
 Under New York City Health Code Article 161, every dog and cat kept in the five boroughs must maintain an active, veterinarian-certified rabies immunization starting at 12 to 16 weeks of age.
 
-For Manhattan, Brooklyn, Queens, Bronx, and Staten Island apartment dwellers, co-op boards and residential management companies routinely require a verified Rabies Certificate and NYC DOHMH Dog License before approving pet occupancy.
+For Manhattan, Brooklyn, Queens, Bronx, and Staten Island apartment dwellers, co-op boards and residential management companies routinely require a verified Rabies Certificate and NYC DOHMH Dog License ($8.50/year for spayed/neutered dogs, $34 for intact dogs) before approving pet occupancy.
 
-Beyond legal compliance, NYC’s dense urban footprint creates unique infectious exposure vectors. Standing rainwater puddles near curb grates and parks carry Leptospira bacteria shed by urban rodents, making the 2-dose Leptospirosis series essential for city dogs.
+Beyond legal compliance, NYC’s dense urban footprint creates unique infectious exposure vectors. Standing rainwater puddles near curb grates, subway vents, and tree pits frequently carry Leptospira bacteria shed by urban rodent populations. A 2-dose Leptospirosis vaccine series is vital for any dog walking city sidewalks.
+
+Keep 24/7 veterinary emergency contacts saved in advance, including the Schwarzman Animal Medical Center (AMC) on Manhattan’s Upper East Side and BluePearl referral hospitals in Midtown, Brooklyn, and Queens.
 
 | Age Window | NYC Puppy Protocol | NYC Kitten Protocol | Borough Risk Factor |
 | --- | --- | --- | --- |
@@ -505,7 +507,7 @@ Beyond legal compliance, NYC’s dense urban footprint creates unique infectious
 | 14 – 16 Weeks | DHPP #3 + Rabies (NYC Law) + Lepto #2 + Lyme #2 | FVRCP #3 + Rabies (1-Yr) | Mandatory for NYC DOHMH license & dog runs |
 | 12 Months | 1-Yr DHPP, Lepto, Bordetella & 3-Yr Rabies | 1-Yr FVRCP & Rabies Booster | Required by NYC daycares & groomers |
 
-> **WARNING - NYC Sidewalk & Dog Run Wait Rule**: Avoid public NYC dog runs (such as Tompkins Square, Madison Square, or Central Park off-leash hours) and street puddles until 14 days after your puppy’s final 16-week DHPP and Leptospirosis boosters.
+> **WARNING - NYC Sidewalk & Dog Run Wait Rule**: Avoid public NYC dog runs (such as Tompkins Square, Madison Square, or Central Park off-leash hours) and curb puddles until 14 days after your puppy’s final 16-week DHPP and Leptospirosis boosters.
 
 ### Digitizing Vaccine Certificates for NYC Daycares & Co-op Boards
 Licensed NYC doggy daycares, groomers, and boarding facilities strictly inspect Bordetella (every 6–12 months), Canine Influenza (H3N2/H3N8), DHPP, and Rabies dates prior to check-in.
@@ -535,6 +537,8 @@ When one partner catches an early Northern Line train at 7:15 AM and another wor
 
 Veterinary surgeons across the UK report that uncoordinated feeding between partners and flatmates is a primary driver of gradual pet weight gain. Even a single extra scoop of kibble twice a week adds thousands of surplus kilocalories over a year.
 
+Transport for London (TfL) permits dogs on the Tube, buses, and Overground on leash (carried on escalators for paw safety), but syncing midday walk handoffs with hired dog walkers or housemates remains tricky.
+
 By replacing kitchen whiteboards and buried WhatsApp threads with PetHorizon’s Family Hub, London households get an active Anti-Collision Care Lock: the moment one person starts pouring breakfast or clipping on the lead for a Hampstead Heath or Victoria Park walk, every paired phone updates in real time.
 
 | London Household Scenario | Common Breakdown | PetHorizon Family Hub Solution |
@@ -548,6 +552,10 @@ By replacing kitchen whiteboards and buried WhatsApp threads with PetHorizon’s
 Under UK legislation (including the compulsory cat microchipping regulations in England), both dogs and cats must be microchipped and registered on an approved database before 20 weeks of age.
 
 PetHorizon stores your pet’s 15-digit UK ISO microchip number, RCVS veterinary practice contact details, and annual booster history (DHP, Leptospirosis L4, Kennel Cough, and Feline Enteritis) in an offline-accessible passport.
+
+- **Defra Database Alignment**: Confirm your chip is logged on a Defra-compliant database (such as Petlog or Identibase).
+- **Tube Escalator Safety**: Carry dogs on TfL escalators or use station lifts to prevent claw avulsion injuries.
+- **Shared Medication Log**: Eliminate duplicate flea and worming doses across busy London households.
 
 > **ROUTINE TIP - Sync Your London Household in 10 Seconds**: Generate a household QR code in PetHorizon so partners, flatmates, and sitters stay in lockstep.
 
@@ -566,7 +574,9 @@ PetHorizon stores your pet’s 15-digit UK ISO microchip number, RCVS veterinary
 ### Average Monthly Dog & Cat Costs in Toronto (CAD Breakdown)
 Veterinary clinical fees, urban daycare rates, and specialty pet nutrition in the Greater Toronto Area reflect Ontario’s higher operating and staffing standards.
 
-For Toronto dog owners, recurring monthly costs typically range from $185 to $360 CAD, while indoor cats average $95 to $175 CAD per month. Setting aside a dedicated preventive care and seasonal gear allowance prevents financial surprise during annual wellness visits.
+For Toronto dog owners, recurring monthly costs typically range from $185 to $360 CAD, while indoor cats average $95 to $175 CAD per month. Mandatory City of Toronto pet licenses cost $25/year for spayed/neutered dogs ($15 for cats) and $60 for unsterilized pets.
+
+Setting aside a dedicated preventive care and seasonal gear allowance prevents financial surprise during annual wellness visits, especially with Ontario veterinary clinic fees adjusted annually to OVMA benchmarks.
 
 | Expense Category | Toronto Dog (Monthly CAD) | Toronto Cat (Monthly CAD) | Local GTA Cost Driver |
 | --- | --- | --- | --- |
@@ -578,9 +588,13 @@ For Toronto dog owners, recurring monthly costs typically range from $185 to $36
 > **WARNING - Toronto Ravines & Year-Round Tick Risk**: Blacklegged ticks carrying Lyme disease are active across the Don Valley, Rouge Park, and Toronto Islands whenever temperatures exceed 4°C. Budgeting for year-round parasite prevention is far cheaper than treating canine Lyme nephritis.
 
 ### Tracking CAD Vet Receipts & Seasonal Winter Gear in PetHorizon
-Heavy municipal road salting across downtown Toronto sidewalks between December and March makes protective dog booties, paw wax, and post-walk rinses essential.
+Heavy municipal road salting (calcium chloride) across downtown Toronto sidewalks between December and March makes protective dog booties, paw wax, and post-walk foot rinses essential.
 
-Use PetHorizon’s Wallet & Expense Tracker to log veterinary invoices, food purchases, and seasonal gear with monthly budget alerts tailored to your household allowance.
+Use PetHorizon’s Wallet & Expense Tracker to log veterinary invoices, food purchases, and seasonal gear with monthly budget alerts tailored to your Canadian household allowance.
+
+- **Salt Burn Protection**: Budget $40–$80 CAD for durable fleece-lined winter dog boots and natural beeswax paw balm.
+- **Tick Season Coverage**: Toronto vets recommend 9 to 12 months of tick and heartworm preventive coverage in southern Ontario.
+- **Emergency Reserve**: Maintain a $1,500 CAD emergency fund for Toronto 24/7 animal hospital triage deposits.
 
 > **ROUTINE TIP - Track Your Toronto Pet Budget**: Categorize vet bills, food, and grooming expenses in PetHorizon to stay ahead of monthly spending.
 
@@ -603,6 +617,8 @@ Bluetooth proximity tags fail rapidly in dense Australian eucalyptus bushland wh
 
 Equally vital for NSW coastal pet owners is true IP68 waterproofing and rinsing the collar dock with fresh tap water after saltwater swims to prevent charging contact corrosion.
 
+Remember that in New South Wales, all dogs and cats must be microchipped and registered on the NSW Pet Registry by 12 weeks of age. A GPS wearable is an active recovery tool, not a substitute for legal microchipping.
+
 | Evaluation Metric | Sydney Coastal / Bush Requirement | Why It Matters in NSW |
 | --- | --- | --- |
 | Cellular Network | 4G LTE-M (Telstra / Optus bands) | Penetrates sandstone gullies & coastal headlands |
@@ -616,6 +632,10 @@ Equally vital for NSW coastal pet owners is true IP68 waterproofing and rinsing 
 A GPS wearable shows where your dog ran today, while PetHorizon unifies their complete preventive tick treatments, weight in kilograms, and family walk handoffs.
 
 By logging monthly oral or spot-on paralysis tick preventatives (such as Isoxazoline-class chewables) alongside daily beach walks in PetHorizon, your entire household knows your pet is protected before heading off-leash.
+
+- **Saltwater Care Routine**: Rinse GPS charging pins with freshwater after harbour or ocean beach sessions.
+- **NSW Pet Registry Alignment**: Keep your NSW microchip record updated with current contact details and address.
+- **Heat & Bushfire Awareness**: Monitor wearable activity on hot summer days (above 30°C) to prevent canine heat stress.
 
 > **ROUTINE TIP - Never Miss a Tick Preventative Dose**: Set recurring paralysis tick & heartworm alarms in PetHorizon and log daily Sydney beach walks.
 
@@ -1979,7 +1999,9 @@ A rabbit’s open-rooted hypsodont teeth grow continuously at 2 to 3 millimeters
 
 Adult rabbits (over 7 months old) require unlimited, 24/7 access to fresh Timothy, Orchard, or Meadow hay—comprising 80% to 85% of their total dietary intake. Alfalfa hay is legume-based and overly high in calcium and protein; it should be reserved strictly for growing kits under 6 months or nursing does to prevent bladder sludge and uroliths.
 
-Fresh leafy greens (Romaine lettuce, cilantro, parsley, dandelion greens, bok choy) should make up 10% of the daily diet, measured at roughly 1 packed cup per 2 lbs (0.9 kg) of body weight. Fortified Timothy-based pellets must be restricted to 5% (1/8 to 1/4 cup daily for an average 5 lb rabbit).
+Fresh leafy greens (Romaine lettuce, cilantro, parsley, dandelion greens, bok choy) should make up 10% of the daily diet, measured at roughly 1 packed cup per 2 lbs (0.9 kg) of body weight. Fortified Timothy-based pellets must be restricted to 5% (1/8 to 1/4 cup daily for an average 5 lb rabbit). Avoid sugary treats, seeds, or corn which trigger cecal dysbiosis.
+
+Rabbits also produce cecotropes—nutrient-rich clustered night feces that they ingest directly to absorb B vitamins and amino acids. Uneaten cecotropes clinging to the fur are an early indicator of obesity, dental spurs, or excess dietary sugars.
 
 | Life Stage | Hay Type & Allocation | Daily Leafy Greens | Fortified Timothy Pellets |
 | --- | --- | --- | --- |
@@ -1990,9 +2012,9 @@ Fresh leafy greens (Romaine lettuce, cilantro, parsley, dandelion greens, bok ch
 ### Recognizing & Preventing Gastrointestinal (GI) Stasis
 GI stasis occurs when intestinal peristalsis slows or halts due to low fiber intake, dehydration, dental spurs, or acute stress—allowing gas-producing pathogenic bacteria (*Clostridium* spp.) to proliferate.
 
-- **Fecal Pellet Monitoring**: Healthy rabbit droppings are large, round, uniform, and fibrous. Suddenly smaller, tear-drop-shaped, or absent fecal pellets are the earliest clinical warning sign.
+- **Fecal Pellet Monitoring**: Healthy droppings are large, round, uniform, and fibrous. Small, tear-drop-shaped, or absent pellets are the earliest clinical warning sign.
 - **Posture & Tooth Grinding**: A hunched posture, pressing the abdomen to the floor, refusal of favorite greens, or loud tooth grinding (bruxism) indicates acute visceral pain.
-- **Hydration Bowl vs. Bottle**: Heavy ceramic water bowls increase daily water consumption by up to 30% compared to ball-bearing sipper bottles.
+- **Hydration via Ceramic Bowl**: Heavy ceramic water bowls increase daily water intake by up to 30% compared to sipper bottles, protecting cecal hydration.
 
 > **WARNING - 12-Hour Exotic Veterinary Emergency Rule**: If your rabbit refuses food or produces zero fecal pellets for 8 to 12 hours, contact an exotic-savvy veterinarian immediately. Never force-feed a rabbit without veterinary imaging to rule out a mechanical gastric obstruction.
 
@@ -2014,26 +2036,26 @@ GI stasis occurs when intestinal peristalsis slows or halts due to low fiber int
 ### Avian Nutrition: Transitioning from Seeds to Pellets & Morning "Chop"
 Commercial seed mixes are extraordinarily high in fat and deficient in Vitamin A, calcium, and iodine—predisposing companion birds to hepatic lipidosis and respiratory infections.
 
-Association of Avian Veterinarians (AAV) guidelines recommend that formulated avian pellets comprise 60% to 70% of the daily diet, paired with 20% to 30% fresh vegetable "chop" (finely diced dark leafy greens, bell peppers, broccoli, cooked quinoa, and beta-carotene-rich sweet potato).
+Avian veterinarians recommend a baseline diet of 60% formulated organic pellets (such as Harrison’s, Tops, or Roudybush) paired with 25% to 30% freshly diced vegetable "chop" and 10% cooked grains or legumes. Seeds should be reserved solely for training rewards.
 
-Because fresh vegetable chop spoils rapidly at room temperature, serve morning chop for a strict 2-hour window before removing the dish to prevent bacterial or fungal crop infections.
+An ideal daily chop mix balances raw chopped kale, broccoli florets, grated sweet potato, chili peppers (birds lack capsaicin receptors and love peppers), and sprouted mung beans. Never feed avocado (persin toxin), chocolate, fruit seeds (apple seeds contain cyanide), onions, or caffeine.
 
-| Daily Time Block | Avian Routine Task | Clinical Purpose |
-| --- | --- | --- |
-| 7:30 AM – 8:00 AM | Uncover cage, weigh bird (grams), serve fresh vegetable chop | Morning hunger maximizes vegetable acceptance |
-| 10:00 AM | Remove fresh chop bowl; refresh clean water & dry pellets | Prevents bacterial spoilage in warm rooms |
-| 1:00 PM – 4:00 PM | Foraging toys, out-of-cage flight & UV-B light session | Stimulates mental enrichment & calcium metabolism |
-| 7:30 PM – 7:30 AM | 12 hours of uninterrupted dark, quiet covered sleep | Regulates photoperiod hormones & prevents screaming |
+Household air safety is equally vital: non-stick Teflon/PTFE cookware fumes cause fatal polytetrafluoroethylene toxicosis within minutes. Remove scented candles, plug-in air fresheners, and aerosol sprays entirely from homes with birds.
 
-> **WARNING - Lethal Household Inhalants & Toxic Foods for Birds**: Avian air sacs are acutely sensitive to airborne toxins: overheated PTFE (Teflon) non-stick cookware, aerosol sprays, and scented candles can cause fatal respiratory arrest in minutes. Avocado, chocolate, onion, garlic, and fruit pits are also toxic.
+| Feeding Window | Dietary Component | Preparation Protocol | Behavioral Goal |
+| --- | --- | --- | --- |
+| Morning (7:00 – 9:00 AM) | Fresh Veggie "Chop" (2–3 tbsp) | Finely diced kale, sweet potato & legumes | Natural peak foraging engagement |
+| All Day (Cage Forager) | Cold-Pressed Avian Pellets | Placed in puzzle toys and foraging cups | Active physical & cognitive problem solving |
+| Late Afternoon (4:00 PM) | Chop Removal & Fresh Water | Discard moist chop to prevent bacterial growth | Avian hygiene & crop safety |
 
-### The 12-Hour Photoperiod Sleep Rule & Weekly Gram Weighing
-Because prey birds instinctually mask illness ("the preservation reflex") until they are critically decompensated, visual observation alone often misses early infection.
+### The 10–12 Hour Uninterrupted Darkness Sleep Requirement
+Equatorial parrots depend on consistent 10 to 12-hour photoperiods. Extended exposure to living room artificial lighting triggers continuous reproductive hormones, resulting in aggression, feather plucking, and egg-binding in females.
 
-- **Weekly Digital Gram Scale Checks**: Weigh your bird on a T-perch digital scale every Sunday morning before breakfast. A 10% weight drop is an urgent clinical indicator.
-- **12-Hour Dark Sleep Cycle**: Long artificial evening light mimics summer breeding days, triggering chronic egg-laying in females and territorial biting.
+- **Dedicated Sleep Cage**: Transfer your bird to a smaller, covered sleep cage in a dark, quiet room away from television noise.
+- **Full-Spectrum UV-B Lighting**: Provide 3–4 hours of avian-specific UV-B lighting daily to synthesize Vitamin D3 for calcium absorption.
+- **Weighing on Gram Scale**: Weigh your bird on a digital gram scale 2–3 times a week; sudden weight loss of 5–10% is often the only early sign of illness.
 
-> **ROUTINE TIP - Track Avian Gram Weights & Cage Routines in PetHorizon**: Log weekly gram weights, molt cycles, and morning chop removal reminders across your household in PetHorizon.
+> **ROUTINE TIP - Maintain Avian Health & Sleep Timestamps**: Log weekly gram weights, molt cycles, and morning chop removal reminders across your household in PetHorizon.
 
 ---
 
@@ -2051,9 +2073,9 @@ Because prey birds instinctually mask illness ("the preservation reflex") until 
 ### The 3-3-3 Rescue Dog Decompression Matrix Explained
 Canine cortisol (stress hormone) takes up to 72 hours to clear the bloodstream after a single stressful event. During shelter transport and rehoming, your new dog is operating in survival mode.
 
-Phase 1 — The First 3 Days (Decompression & Overwhelm): Newly adopted dogs often hide in crates, refuse food or water for 24 hours, pace, or experience stress diarrhea. Conversely, some shut down completely, appearing unusually quiet until they feel safe.
+Phase 1 — The First 3 Days (Decompression & Overwhelm): Newly adopted dogs often hide in crates, refuse food or water for 24 hours, pace, or experience stress diarrhea. Conversely, some shut down completely, appearing unusually quiet until they feel safe. Set up a quiet sanctuary room with a comfortable bed, open crate, and fresh water away from high-traffic household areas.
 
-Phase 2 — The First 3 Weeks (Settling In & Testing Boundaries): As adrenaline fades, your dog begins learning your household’s daily rhythm. True personality traits—and potential behavioral hurdles like leash reactivity, counter-surfing, or separation whining—typically surface during weeks two and three.
+Phase 2 — The First 3 Weeks (Settling In & Testing Boundaries): As adrenaline fades, your dog begins learning your household’s daily rhythm. True personality traits—and potential behavioral hurdles like leash reactivity, counter-surfing, or separation whining—typically surface during weeks two and three. Hand-feeding a portion of daily kibble during calm moments accelerates trust and positive association.
 
 Phase 3 — The First 3 Months (Trust & True Bonding): By 90 days of consistent meal times, walk routes, and positive reinforcement, your rescue dog recognizes your home as permanent territory and forms a secure attachment bond.
 
@@ -2069,7 +2091,8 @@ Phase 3 — The First 3 Months (Trust & True Bonding): By 90 days of consistent 
 To an anxious rescue dog, unpredictability equals danger. When breakfast, potty walks, and bedtime occur at the exact same hour every day, nervous system hypervigilance drops dramatically.
 
 - **Synchronize All Family Members**: Use identical cue words ("Outside", "Crate", "Wait") and feeding times across all partners and kids.
-- **Double-Leash Safety for Flight Risk**: Newly adopted dogs can slip collars when startled by city traffic; pair a martingale collar with a secure Y-front harness.
+- **Double-Leash Flight Risk Safety**: Newly adopted dogs can slip collars when startled by traffic; pair a martingale collar with a secure Y-front harness and dual leashes.
+- **Low-Pressure Decompression Walks**: Opt for quiet neighborhood routes or sniffaris rather than busy urban shopping strips during the first month.
 
 > **ROUTINE TIP - Coordinate Your Rescue Dog’s 3-3-3 Routine in PetHorizon**: Share a unified daily feeding, walk, and potty timetable with your household via PetHorizon Family Hub.
 
@@ -2093,6 +2116,8 @@ Regardless of species, the golden veterinary rule is "Feed First, Confirm Appeti
 
 Space injections strictly 12 hours apart (for example, 7:00 AM and 7:00 PM). Consistent gram portions weighed on a digital scale ensure the glycaemic curve remains predictable from day to day.
 
+Always verify syringe calibration: U-40 veterinary insulins (Vetsulin, ProZinc) must only be drawn using red-capped U-40 syringes. Human insulins (Glargine/Lantus) require orange-capped U-100 syringes. Using a U-100 syringe with U-40 insulin causes a lethal 2.5-times overdose error.
+
 | Clinical Scenario | Appetite / Dosing Status | AAHA Veterinary Action Protocol |
 | --- | --- | --- |
 | Normal Meal Window | Pet eats 100% of measured meal | Administer full prescribed insulin dose immediately after eating |
@@ -2100,13 +2125,14 @@ Space injections strictly 12 hours apart (for example, 7:00 AM and 7:00 PM). Con
 | Partial / Uncertainty Leak | Fur feels wet after injection | NEVER re-inject a second dose; wait until the next 12-hour scheduled window |
 | Missed Window (> 2–3 hrs late) | Caregiver forgot on-time dose | Skip or contact vet; never double the next scheduled dose |
 
-> **WARNING - Emergency Hypoglycemia (Low Blood Sugar) Protocol**: Hyperglycemia (high blood sugar) damages organs slowly over months, but Hypoglycemia kills within minutes. If your diabetic pet appears drunken, glassy-eyed, trembling, or seizing, rub corn syrup (Karo) or honey directly onto their gums and drive to a 24/7 veterinary ER immediately.
+> **WARNING - Emergency Hypoglycemia (Low Blood Sugar) Protocol**: Hyperglycemia damages organs slowly over months, but Hypoglycemia kills within minutes. If your diabetic pet appears drunken, glassy-eyed, trembling, or seizing, rub corn syrup (Karo) or honey directly onto their gums and drive to a 24/7 veterinary ER immediately.
 
 ### Eliminating Accidental Double-Dosing in Multi-Person Homes
 Veterinary emergency toxicologists report that accidental double-dosing by well-meaning spouses or roommates is one of the most common causes of iatrogenic insulin overdose.
 
 - **Active Care Lock**: Use PetHorizon’s Anti-Collision Care Lock so the moment one partner draws up the syringe, every family phone displays an active lock.
 - **Insulin Storage Integrity**: Store vials upright in the refrigerator (never the door shelf); roll suspension insulins gently between palms rather than shaking vigorously.
+- **Syringe Disposal**: Discard single-use syringes immediately into a puncture-proof sharps container to prevent accidental needle reuse.
 
 > **ROUTINE TIP - Protect 12-Hour Insulin Windows with PetHorizon**: Set locked 12-hour insulin and feeding alarms in PetHorizon so every family caregiver sees real-time administration timestamps.
 
@@ -2123,25 +2149,28 @@ Veterinary emergency toxicologists report that accidental double-dosing by well-
 - Use the AAHA Universal Pet Microchip Lookup tool annually to verify which registry holds your active contact record.
 - Store your pet’s 15-digit microchip code inside PetHorizon’s Clinical Health Card for instant copy and PDF export.
 
-### How Pet Microchips & The AAHA Universal Lookup Tool Work
+### How Pet Microchips & Universal Lookup Registries Work
 Contrary to popular belief, a microchip does not contain a GPS battery or real-time satellite transmitter—and implanting the chip at your vet clinic does not automatically register your phone number in every national database.
 
-When an animal shelter or veterinary clinic scans a lost dog or cat with a universal RFID scanner, the screen displays a unique 9-, 10-, or 15-digit alphanumeric identification code. Staff then enter that number into the AAHA Universal Pet Microchip Lookup tool (or EuroPetNet / UK DEFRA-approved registries), which queries participating manufacturers (HomeAgain, AKC Reunite, 24PetWatch, Found Animals, PetLink) to find the registry holding the owner’s latest contact file.
+When an animal shelter or veterinary clinic scans a lost dog or cat with a universal RFID scanner, the screen displays a unique 9-, 10-, or 15-digit alphanumeric identification code. In the US, staff enter that number into the AAHA Universal Pet Microchip Lookup tool (`petmicrochiplookup.org`), which queries participating manufacturers (HomeAgain, AKC Reunite, 24PetWatch, Found Animals, PetLink).
 
-If you moved apartments, changed mobile numbers, or adopted a pre-chipped rescue pet without completing the registry transfer, the scanner returns a dead end.
+In the UK, databases must meet Defra standards (such as Petlog or Identibase). Under UK law, all dogs (by 8 weeks) and cats (by 20 weeks) must be microchipped. In Australia, records must be entered into the NSW Pet Registry or Central Animal Records (CAR).
+
+If you moved homes, changed phone numbers, or adopted a rescue pet without completing the legal registry transfer, a shelter scanner returns a dead-end record.
 
 | Microchip Standard | Digit Length & Frequency | Global & Travel Compatibility |
 | --- | --- | --- |
-| ISO Standard 11784/11785 | 15 Digits (134.2 kHz) | Universal global standard; mandatory for EU, UK & international pet travel |
-| Legacy Encrypted (FECAVA) | 10 Digits (125 kHz) | Read by modern multi-frequency US scanners; requires ISO chip or scanner for EU travel |
+| ISO Standard 11784/11785 | 15 Digits (134.2 kHz) | Universal global standard; mandatory for EU, UK, Canada & AU travel |
+| Legacy Encrypted (FECAVA) | 10 Digits (125 kHz) | Read by modern multi-frequency US scanners; upgrade for EU travel |
 | Legacy AVID Encrypted | 9 Digits (125 kHz) | Legacy US domestic format; upgrade to 15-digit ISO prior to international flights |
 
 > **WARNING - International Travel Rule: Implant ISO Microchip BEFORE Rabies Vaccine**: For USDA APHIS and EU/UK Animal Health Certificates, your pet’s 15-digit ISO microchip MUST be implanted and scanned on or before the date their rabies vaccination is administered. Any rabies shot given before microchipping is legally invalid for international border entry.
 
 ### Storing Your Pet’s 15-Digit Microchip ID in PetHorizon
-During an emergency evacuation, international flight check-in, or lost-pet alert, most owners cannot locate the paper sticker given to them years ago.
+During an emergency evacuation, international flight check-in, or lost-pet alert, most owners cannot locate the paper certificate given to them years ago.
 
 - **Annual Scan Verification**: Ask your veterinarian to scan your pet’s shoulders during every annual wellness exam to confirm the transponder has not migrated.
+- **Immediate Database Updates**: Log into your microchip registry immediately whenever you update your mobile phone number or home address.
 - **Digital Health Passport**: Record the exact 15-digit code, registry brand, and primary clinic phone inside PetHorizon’s Clinical Health Card for 1-tap copy and PDF export.
 
 > **ROUTINE TIP - Save Your Pet’s Microchip & Rabies Passport**: Keep your pet’s 15-digit microchip number, vaccine lot numbers, and emergency contacts in PetHorizon.

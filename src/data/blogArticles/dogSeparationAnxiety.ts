@@ -2,7 +2,7 @@ import { FullBlogArticle } from './types';
 
 export const dogSeparationAnxietyArticle: FullBlogArticle = {
   slug: 'dog-separation-anxiety-training-routine-guide',
-  readTime: '15 min read',
+  readTime: '6 min read',
   overviewSummary:
     'Dog separation anxiety training requires clinical precision and patience. Affecting an estimated 20% to 40% of companion dogs, true separation anxiety is a panic disorder triggered when a dog is left alone. Unlike destructive boredom, distress starts within 5 to 15 minutes of departure. This veterinary guide provides evidence-based dog separation anxiety training routines, desensitization schedules, departure cue fading protocols, and household tracking to help your dog achieve calm independence.',
   sections: [

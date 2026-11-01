@@ -2,7 +2,7 @@ import { FullBlogArticle } from './types';
 
 export const bestPetCareAppsArticle: FullBlogArticle = {
   slug: 'best-pet-care-apps-medication-reminders-family-sync',
-  readTime: '16 min read',
+  readTime: '5 min read',
   overviewSummary:
     'Managing recurring flea and heartworm preventatives, complex chronic prescription dosages, veterinary appointment records, and daily feeding handoffs across partners, roommates, and family members is chaotic with refrigerator sticky notes or cluttered group chats. Studies in veterinary practice management demonstrate that over 40% of pet medication failures result from accidental double-dosing or missed doses caused by household miscommunication. We audited and evaluated the leading pet care apps of 2026 across multi-caregiver synchronization, clinical health card portability, offline reliability, user privacy, and daily routine usability.',
   sections: [

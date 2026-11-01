@@ -2,7 +2,7 @@ import { FullBlogArticle } from './types';
 
 export const catLitterBoxProblemsArticle: FullBlogArticle = {
   slug: 'cat-litter-box-problems-causes-solutions-guide',
-  readTime: '16 min read',
+  readTime: '5 min read',
   overviewSummary:
     'Inappropriate elimination outside the litter box is the single leading behavioral reason domestic cats are surrendered to animal shelters or euthanized worldwide. Yet domestic cats possess an innate evolutionary drive to bury their urine and feces in soft, clean substrate to avoid attracting larger predators. Refusing the litter box is almost never "spite," "anger," or bad attitude; instead, it is an urgent distress signal pointing to an underlying medical emergency (such as Feline Idiopathic Cystitis or urethral crystals) or a severe environmental aversion to human-convenience litter box setups. This veterinary guide breaks down medical triage, Pandora syndrome, litter box architecture rules, and enzymatic cleanup.',
   sections: [

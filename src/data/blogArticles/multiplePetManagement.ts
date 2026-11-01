@@ -2,7 +2,7 @@ import { FullBlogArticle } from './types';
 
 export const multiplePetManagementArticle: FullBlogArticle = {
   slug: 'multiple-pet-management-multi-dog-cat-household-routines',
-  readTime: '16 min read',
+  readTime: '5 min read',
   overviewSummary:
     'Sharing your domestic life with multiple companion animals—whether two high-energy dogs, three territorial cats, or an integrated multi-species household—brings boundless joy alongside exponential logistical complexity. Managing conflicting life-stage nutrition, strict prescription regimens, veterinary appointment schedules, and preventing inter-pet resource competition requires structured household organization. This comprehensive veterinary and behavioral guide details mealtime separation strategies, prescription cross-contamination hazards, littermate syndrome prevention, and multi-profile digital coordination.',
   sections: [

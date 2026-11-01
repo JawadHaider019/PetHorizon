@@ -2,7 +2,7 @@ import { FullBlogArticle } from './types';
 
 export const emergencyVetArticle: FullBlogArticle = {
   slug: 'emergency-vet-symptoms-red-flags-petmd',
-  readTime: '15 min read',
+  readTime: '5 min read',
   overviewSummary:
     'In a veterinary medical emergency, minutes directly determine whether an animal survives. Knowing how to distinguish true life-threatening emergencies from conditions that can wait for regular clinic hours is essential for every pet parent. Conditions like Gastric Dilatation-Volvulus (GDV bloat) in large dogs or urethral obstructions in male cats can cause fatal cardiac arrest or gastric necrosis in under two to four hours. This clinical guide outlines the five critical emergency red flags, the Manchester veterinary triage categories, safe emergency transit stretchers, and pre-arrival phone protocols.',
   sections: [
@@ -66,7 +66,7 @@ export const emergencyVetArticle: FullBlogArticle = {
 
 export const heartwormArticle: FullBlogArticle = {
   slug: 'flea-tick-heartworm-prevention-ahs-protocol',
-  readTime: '15 min read',
+  readTime: '5 min read',
   overviewSummary:
     'Heartworm disease (*Dirofilaria immitis*) is a potentially fatal parasitic infection transmitted through the bite of infected mosquitoes. Once inside the host, microscopic larvae undergo complex tissue molts before migrating into the pulmonary arterial tree and right ventricle of the heart, growing into 12-inch-long adult worms that cause severe vascular scarring, pulmonary hypertension, and congestive heart failure. Supported by the American Heartworm Society (AHS) and AAHA guidelines, this clinical guide breaks down the parasite lifecycle, retroactive kill windows, feline heartworm vulnerabilities, and missed dose safety protocols.',
   sections: [
@@ -128,7 +128,7 @@ export const heartwormArticle: FullBlogArticle = {
 
 export const petCaloriesArticle: FullBlogArticle = {
   slug: 'pet-calorie-calculator-feeding-guide-apop',
-  readTime: '15 min read',
+  readTime: '5 min read',
   overviewSummary:
     'Pet obesity is classified as the number one preventable health epidemic facing companion animals: surveys by the Association for Pet Obesity Prevention (APOP) demonstrate that over 59% of dogs and 61% of cats in developed nations are overweight or obese. Carrying excess adipose tissue is not cosmetic; fat is an active endocrine organ that secretes pro-inflammatory adipokines, accelerating osteoarthritis, predisposing felines to type 2 diabetes mellitus, and shortening median canine lifespan by 2.5 years. This clinical guide details the Resting Energy Requirement (RER) mathematical formula, life-stage Maintenance Energy Requirement (MER) multipliers, and kitchen scale precision.',
   sections: [

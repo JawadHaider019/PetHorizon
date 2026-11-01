@@ -2,7 +2,7 @@ import { FullBlogArticle } from './types';
 
 export const monthlyBudgetGuideArticle: FullBlogArticle = {
   slug: 'monthly-pet-care-cost-vet-expense-budget-worldwide',
-  readTime: '16 min read',
+  readTime: '6 min read',
   overviewSummary:
     'Understanding the true cost of pet care and managing vet bills for dogs is essential for every pet guardian. Far beyond initial adoption fees, pet parents face recurring expenses: nutrition, veterinary checkups, dental cleanings, vaccines, and emergency treatment reserves. In this economic audit, the Pet Horizon Editorial Team breaks down realistic expense tiers, the average cost of pet care, hidden vet bills for dogs, and how PetHorizon’s Budget & Expense Manager ensures complete financial control.',
   sections: [

@@ -91,7 +91,7 @@ export const LOCAL_CITY_POSTS: BlogPost[] = [
     metaTitle: 'Cost of Owning a Pet in Toronto | Pet Horizon Expense Guide',
     metaDescription: 'Breakdown of monthly dog and cat costs in Toronto. Track nutrition, tick preventives, and vet bills in PetHorizon.',
     sourceName: 'Ontario Veterinary Medical Association (OVMA) Fee Guide',
-    sourceUrl: 'https://www.ovma.org/pet-owners/',
+    sourceUrl: 'https://www.ovma.org/pet-owners/basic-pet-care/',
     relatedProductLinks: [
       { feature: 'Budget & Expense Manager', url: 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon', ctaText: 'Set Toronto Pet Budget', icon: 'DollarSign' }
     ]
@@ -123,7 +123,7 @@ export const LOCAL_CITY_POSTS: BlogPost[] = [
     metaTitle: 'Best Pet GPS Trackers in Sydney | Pet Horizon Tech Review',
     metaDescription: 'Top dog GPS trackers reviewed for Sydney conditions. Waterproofing, bushwalk safety, and PetHorizon activity record integration.',
     sourceName: 'Australian Veterinary Association (AVA) Electronic ID Standards',
-    sourceUrl: 'https://www.ava.com.au/policy-advocacy/policies/',
+    sourceUrl: 'https://www.ava.com.au/policy-advocacy/policies/companion-animals-health/microchipping-of-companion-animals/',
     relatedProductLinks: [
       { feature: 'Activity Timeline', url: 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon', ctaText: 'Log Sydney Beach Walks', icon: 'Activity' }
     ]

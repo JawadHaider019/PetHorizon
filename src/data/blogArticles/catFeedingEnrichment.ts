@@ -2,7 +2,7 @@ import { FullBlogArticle } from './types';
 
 export const catFeedingEnrichmentArticle: FullBlogArticle = {
   slug: 'cat-feeding-schedule-indoor-enrichment-guide',
-  readTime: '14 min read',
+  readTime: '5 min read',
   overviewSummary:
     'Domestic cats are obligate carnivores with evolutionary biology finely tuned for hunting multiple small, protein-dense meals throughout the day. In modern indoor environments, free-feeding dry carbohydrates often leads to feline obesity, boredom, and urinary tract disorders. This guide details veterinary-approved feeding schedules by life stage, moisture-rich hydration strategies, and indoor environmental enrichment techniques to keep cats physically and cognitively thriving.',
   sections: [
