@@ -162,6 +162,7 @@ export default function NavbarMobileMenu({
                 href={playStoreUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackPlayStoreClick('mobile_menu')}
                 className="w-full text-center bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-md shadow-emerald-700/20"
               >
                 <span>Get Pet Horizon on Google Play</span>

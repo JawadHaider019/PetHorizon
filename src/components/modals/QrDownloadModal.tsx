@@ -4,6 +4,7 @@ import { X, Smartphone, Check, Copy, ShieldCheck, Star } from 'lucide-react';
 import QrCodeSvg from '../common/QrCodeSvg';
 import { GooglePlayIcon } from '../AppBadges';
 import { PLAY_STORE_URL } from '../../config/siteConfig';
+import { trackPlayStoreClick } from '../../utils/analytics';
 
 interface QrDownloadModalProps {
   isOpen: boolean;
