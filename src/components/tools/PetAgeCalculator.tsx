@@ -50,6 +50,15 @@ export default function PetAgeCalculator({
 
   const animatedHumanAge = useAnimatedNumber(humanAge);
 
+  useEffect(() => {
+    if (humanAge > 0) {
+      const timer = setTimeout(() => {
+        trackCalculatorCompleted('pet_age', petType);
+      }, 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [humanAge, petType]);
+
   const handleConfettiSync = () => {
     try {
       confetti({
