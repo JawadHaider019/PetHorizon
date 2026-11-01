@@ -883,6 +883,36 @@ async function runPostBuild() {
             { '@type': 'ListItem', position: 2, name: 'Tools', item: toolUrl },
             { '@type': 'ListItem', position: 3, name: 'Pet Calorie Calculator', item: toolUrl }
           ]
+        },
+        {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: [
+            {
+              '@type': 'Question',
+              name: 'How do veterinarians calculate daily calories for dogs and cats?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Veterinarians calculate Resting Energy Requirement using the WSAVA formula RER = 70 × (Body Weight in kg)^0.75, then multiply by a life-stage factor (1.6 for neutered adult dogs, 1.2 for indoor neutered cats, and 2.0–3.0 for growing puppies and kittens).'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: 'Why is weighing pet food in grams better than using a measuring cup?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Volumetric scoop cups vary by up to 25% per meal depending on kibble size and packing density. Weighing meals on a digital kitchen scale in grams prevents accidental overfeeding, canine obesity, and feline diabetes.'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: 'How many times a day should puppies, kittens, and adult pets eat?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Puppies and kittens under 4 months need 3 to 4 meals daily to prevent hypoglycemia. Adult dogs thrive on 2 timed meals per day, while indoor cats benefit from 2 to 4 smaller moisture-rich meals.'
+              }
+            }
+          ]
         }
       ]
     });
@@ -916,8 +946,10 @@ async function runPostBuild() {
           <h2 style="font-size: 20px; font-weight: bold; color: #111827;">Related Veterinary Nutrition Guides</h2>
           <ul style="color: #047857; line-height: 1.7; font-size: 14px;">
             <li><a href="/blogs/dog-feeding-schedule-by-age-puppy-to-adult">Dog Feeding Schedule by Age: Complete Puppy to Adult Portion Guide</a></li>
-            <li><a href="/blogs/cat-feeding-schedule-wet-vs-dry-food-hydration">Cat Feeding Schedule: Wet vs. Dry Food &amp; Feline Hydration Guide</a></li>
-            <li><a href="/blogs/pet-weight-management-obesity-rer-calorie-guide">Pet Weight Management &amp; Obesity Prevention Guide</a></li>
+            <li><a href="/blogs/cat-feeding-schedule-indoor-enrichment-guide">Cat Feeding Schedule Chart: Wet vs. Dry Food &amp; Indoor Enrichment Guide</a></li>
+            <li><a href="/blogs/pet-calorie-calculator-feeding-guide-apop">Pet Calorie Calculator &amp; Clinical RER Formula Feeding Guide</a></li>
+            <li><a href="/blogs/dog-cat-diabetes-insulin-feeding-schedule-guide">Dog &amp; Cat Diabetes Insulin &amp; 12-Hour Meal Timing Guide</a></li>
+            <li><a href="/blogs/rabbit-feeding-schedule-hay-diet-gi-stasis-guide">Rabbit Feeding Schedule: 85% Hay Ratio &amp; GI Stasis Prevention</a></li>
             <li><a href="/tools/pet-age-calculator">AAHA Pet Age Calculator in Human Years</a></li>
           </ul>
         </section>
@@ -1015,19 +1047,29 @@ async function runPostBuild() {
       </header>
       <main style="max-width: 840px; margin: 0 auto; padding: 0 16px;">
         <section style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 24px; margin-bottom: 24px;">
-          <h2 style="font-size: 20px; font-weight: bold; color: #047857;">Scientific Dog & Cat Life Stage Conversion Matrix</h2>
+          <h2 style="font-size: 20px; font-weight: bold; color: #047857;">Scientific Dog &amp; Cat Life Stage Conversion Matrix</h2>
           <p style="color: #4b5563; line-height: 1.6; font-size: 14px;">According to AAHA and AVMA veterinary standards, pets mature rapidly in their first two years (Year 1 = 15 human years, Year 2 = 24 human years). Adult aging then scales by breed weight: Small dogs (+4 yrs/yr), Medium dogs (+5 yrs/yr), Large dogs (+6.5 yrs/yr), Giant breeds (+8 yrs/yr), and Domestic cats (+4 yrs/yr).</p>
         </section>
         <section style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 24px; margin-bottom: 24px;">
-          <h2 style="font-size: 20px; font-weight: bold; color: #111827;">Frequently Asked Questions: Pet Age & Lifespans</h2>
+          <h2 style="font-size: 20px; font-weight: bold; color: #111827;">Frequently Asked Questions: Pet Age &amp; Lifespans</h2>
           <h3 style="font-size: 16px; font-weight: bold; color: #047857; margin-top: 16px;">Is 1 dog year really equal to 7 human years?</h3>
           <p style="color: #4b5563; line-height: 1.6; font-size: 14px;">No. The multiply-by-7 formula is scientifically debunked. Puppies reach the equivalent of a 15-year-old in their first year and 24 by year two.</p>
           <h3 style="font-size: 16px; font-weight: bold; color: #047857; margin-top: 16px;">When is a pet considered senior?</h3>
           <p style="color: #4b5563; line-height: 1.6; font-size: 14px;">Giant dogs reach senior status at age 6; large dogs at age 7-8; medium dogs at age 8-9; small dogs at age 10-11; and cats at age 11.</p>
         </section>
+        <section style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 24px; margin-bottom: 24px;">
+          <h2 style="font-size: 20px; font-weight: bold; color: #111827;">Related Life-Stage &amp; Senior Care Guides</h2>
+          <ul style="color: #047857; line-height: 1.7; font-size: 14px;">
+            <li><a href="/blogs/senior-dog-care-mobility-nutrition-routine-guide">Senior Dog Care: Mobility, Joint Supplements &amp; Daily Routine Guide</a></li>
+            <li><a href="/blogs/senior-cat-care-health-diet-comfort-guide">Senior Cat Care: Managing Arthritis, Appetite &amp; Kidney Health</a></li>
+            <li><a href="/blogs/puppy-kitten-vaccination-schedule-booster-guide-worldwide">Kitten &amp; Puppy Vaccination Timetable: Core Booster Schedule</a></li>
+            <li><a href="/blogs/new-puppy-checklist-first-year-budget-guide">New Puppy Checklist: Essential Supplies &amp; First-Year Budget</a></li>
+            <li><a href="/tools/pet-calorie-calculator">WSAVA Pet Calorie &amp; Daily Portion Calculator</a></li>
+          </ul>
+        </section>
       </main>
       <footer style="max-width: 840px; margin: 60px auto 40px; padding: 20px 16px; border-top: 1px solid #e5e7eb; font-size: 13px; color: #6b7280;">
-        <p>&copy; 2026 Pet Horizon. All rights reserved. <a href="/">Home</a> • <a href="/tools/pet-calorie-calculator">Calorie Calculator</a> • <a href="/privacy-policy">Privacy Policy</a></p>
+        <p>&copy; 2026 Pet Horizon. All rights reserved. <a href="/">Home</a> • <a href="/blogs">Veterinary Guides</a> • <a href="/tools/pet-calorie-calculator">Calorie Calculator</a> • <a href="/privacy-policy">Privacy Policy</a></p>
       </footer>
     `;
     html = html.replace(/<div id="root">[\s\S]*?<\/div>/i, `<div id="root">${bodyHtml}</div>`);
