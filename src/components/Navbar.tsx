@@ -5,6 +5,7 @@ import NavbarMobileMenu from './NavbarMobileMenu';
 import AnnouncementBar from './global/AnnouncementBar';
 
 import { PLAY_STORE_URL } from '../config/siteConfig';
+import { trackPlayStoreClick } from '../utils/analytics';
 
 export type NavView = 'home' | 'privacy' | 'terms' | 'deletion' | 'blog';
 
@@ -200,6 +201,7 @@ export default function Navbar({
                 href={playStoreUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackPlayStoreClick('navbar')}
                 className="inline-flex items-center gap-2 bg-slate-900 hover:bg-black text-white text-xs sm:text-[13px] font-bold px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transition-all duration-150 group"
               >
                 <span>Download App</span>

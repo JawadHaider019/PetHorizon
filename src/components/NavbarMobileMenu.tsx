@@ -3,6 +3,7 @@ import { ChevronDown, BookOpen, ArrowUpRight, Calculator } from 'lucide-react';
 import { NavView } from './Navbar';
 import { PRODUCT_LINKS, LEGAL_LINKS, TOOL_LINKS } from './navData';
 import { INSTAGRAM_URL } from '../config/siteConfig';
+import { trackPlayStoreClick } from '../utils/analytics';
 
 interface NavbarMobileMenuProps {
   isOpen: boolean;
