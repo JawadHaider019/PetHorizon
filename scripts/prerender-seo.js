@@ -218,6 +218,7 @@ Allow: /
 
 # Sitemaps & Feeds
 Sitemap: ${BASE_URL}/sitemap.xml
+Sitemap: ${BASE_URL}/rss.xml
 `;
 }
 
