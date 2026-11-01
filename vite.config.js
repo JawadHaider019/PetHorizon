@@ -23,16 +23,21 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
-          if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
+          const norm = id.replace(/\\/g, '/');
+          if (
+            norm.includes('/node_modules/react/') ||
+            norm.includes('/node_modules/react-dom/') ||
+            norm.includes('/node_modules/scheduler/')
+          ) {
             return 'vendor-react';
           }
-          if (id.includes('node_modules/framer-motion')) {
+          if (norm.includes('/node_modules/framer-motion/') || norm.includes('/node_modules/motion-')) {
             return 'vendor-motion';
           }
-          if (id.includes('node_modules/lucide-react')) {
+          if (norm.includes('/node_modules/lucide-react/')) {
             return 'vendor-icons';
           }
-          if (id.includes('node_modules/canvas-confetti')) {
+          if (norm.includes('/node_modules/canvas-confetti/')) {
             return 'vendor-confetti';
           }
         }
