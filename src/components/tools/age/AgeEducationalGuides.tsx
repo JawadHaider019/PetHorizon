@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { fadeInUp } from '../../../config/animationVariants';
 import { PLAY_STORE_URL } from '../../../config/siteConfig';
+import { trackPlayStoreClick } from '../../../utils/analytics';
 
 interface AgeEducationalGuidesProps {
   onOpenQrModal: () => void;
@@ -181,6 +182,7 @@ export default function AgeEducationalGuides({ onOpenQrModal }: AgeEducationalGu
           href={PLAY_STORE_URL}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackPlayStoreClick('age_calculator_guide')}
           className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-xl bg-[#047857] hover:bg-[#065f46] text-white font-bold text-sm shadow-md shadow-emerald-900/15 transition-all hover:-translate-y-0.5"
         >
           <Download className="w-4 h-4" />
