@@ -68,7 +68,7 @@ export default function HeroContent({ onOpenQrModal, onOpenIosModal }: HeroConte
 
       {/* CTA Buttons */}
       <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 pt-1 sm:pt-2">
-        <GooglePlayBadge href={PLAY_STORE_URL} className="px-5 py-2.5 rounded-full shadow-md" />
+        <GooglePlayBadge href={PLAY_STORE_URL} trackingLocation="homepage_hero" className="px-5 py-2.5 rounded-full shadow-md" />
         <AppStoreBadge onClick={onOpenIosModal} className="px-5 py-2.5 rounded-full shadow-md" />
         {onOpenQrModal && (
           <div className="hidden sm:block">

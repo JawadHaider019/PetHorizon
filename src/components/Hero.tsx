@@ -75,6 +75,7 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 lg:gap-2.5 pt-0.5 lg:pt-1.5 pb-0.5 lg:pb-0">
               <GooglePlayBadge
                 href={PLAY_STORE_URL}
+                trackingLocation="homepage_hero"
                 className="!px-3 !py-1 lg:!px-4 lg:!py-2 !rounded-full shadow-xs lg:shadow-sm !gap-1.5 lg:!gap-2.5 !h-8 lg:!h-auto text-[10px] lg:text-xs"
               />
               <AppStoreBadge

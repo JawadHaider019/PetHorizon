@@ -42,7 +42,7 @@ export default function DownloadCTA({ onOpenQrModal, onOpenIosModal }: DownloadC
 
               {/* Download Buttons */}
               <div className="flex flex-wrap items-center gap-3 pt-2">
-                <GooglePlayBadge href={playStoreUrl} className="px-5 py-3 rounded-full shadow-md" />
+                <GooglePlayBadge href={playStoreUrl} trackingLocation="download_cta_section" className="px-5 py-3 rounded-full shadow-md" />
                 <AppStoreBadge onClick={onOpenIosModal} className="px-5 py-3 rounded-full shadow-md" />
                 {onOpenQrModal && (
                   <QrScanButton onClick={onOpenQrModal} className="px-4 py-3 rounded-full shadow-sm bg-[#FAF8F5] text-slate-800 hover:bg-slate-100 border border-black/[0.08]" />
