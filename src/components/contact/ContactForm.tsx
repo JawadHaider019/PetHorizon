@@ -164,7 +164,7 @@ export default function ContactForm({
               <span>Urgent</span>
             </button>
           </div>
-          <span className="text-[11px] text-slate-400">
+          <span className="text-[11px] text-slate-600">
             {priority === 'urgent' ? 'Priority turnaround target: < 6 hours' : 'Typical turnaround: < 24 hours'}
           </span>
         </div>

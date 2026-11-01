@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { BlogPost, BLOG_POSTS } from '../data/blogData';
 import { getFullBlogArticle } from '../data/blogArticles';
+import { usePageSeo } from '../hooks/usePageSeo';
 import BlogArticleHeader from './blog/BlogArticleHeader';
 import BlogSidebarToc from './blog/BlogSidebarToc';
 import BlogShareWidget from './blog/BlogShareWidget';
@@ -9,21 +10,50 @@ import BlogConversionBanner from './blog/BlogConversionBanner';
 import BlogCard from './BlogCard';
 
 interface BlogArticleDetailProps {
-  article: BlogPost;
+  articleSlug: string;
   onNavigateBack: () => void;
   onNavigateHome?: () => void;
   onSelectArticle: (slug: string) => void;
   onOpenQrModal?: () => void;
 }
 
+function resolveArticleBySlug(slug: string): BlogPost {
+  return (
+    BLOG_POSTS.find((p) => p.slug === slug) ||
+    BLOG_POSTS.find((p) => p.slug.includes(slug)) ||
+    BLOG_POSTS.find((p) => {
+      if (slug.includes('cat-feeding')) return p.slug.includes('cat-feeding');
+      if (slug.includes('feeding')) return p.slug.includes('feeding');
+      if (slug.includes('kidney') || slug.includes('hydration')) return p.slug.includes('kidney');
+      if (slug.includes('emergency') || slug.includes('red-flag')) return p.slug.includes('emergency');
+      if (slug.includes('toxic') || slug.includes('poison')) return p.slug.includes('toxic');
+      if (slug.includes('potty')) return p.slug.includes('potty');
+      if (slug.includes('heartworm') || slug.includes('flea')) return p.slug.includes('heartworm');
+      if (slug.includes('calorie') || slug.includes('rer')) return p.slug.includes('calorie');
+      if (slug.includes('vaccin')) return p.slug.includes('vaccin');
+      if (slug.includes('pet-apps') || slug.includes('care-apps')) return p.slug.includes('best-pet-care-apps');
+      if (slug.includes('medication') || slug.includes('record')) return p.slug.includes('record');
+      if (slug.includes('coparent')) return p.slug.includes('coparent');
+      if (slug.includes('checklist')) return p.slug.includes('checklist');
+      if (slug.includes('tracker')) return p.slug.includes('tracker');
+      if (slug.includes('cost') || slug.includes('budget')) return p.slug.includes('budget');
+      return false;
+    }) ||
+    BLOG_POSTS[0]
+  );
+}
+
 export default function BlogArticleDetail({
-  article,
+  articleSlug,
   onNavigateBack,
   onNavigateHome,
   onSelectArticle,
   onOpenQrModal
 }: BlogArticleDetailProps) {
+  const article = resolveArticleBySlug(articleSlug);
   const [activeSectionId, setActiveSectionId] = useState<string>('');
+
+  usePageSeo({ view: 'blog-article', articleSlug: article.slug }, article);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });

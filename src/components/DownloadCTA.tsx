@@ -79,8 +79,8 @@ export default function DownloadCTA({ onOpenQrModal, onOpenIosModal }: DownloadC
                     <img
                       src="/cute-3d-pets.webp"
                       alt="Pet Horizon 3D Mascot Companions - Golden Retriever Puppy and Fluffy Kitten"
-                      width={1024}
-                      height={1024}
+                      width={528}
+                      height={528}
                       loading="lazy"
                       decoding="async"
                       className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"

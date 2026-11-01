@@ -92,8 +92,8 @@ export default function SpeciesGrid() {
 
                 {/* Bottom breeds note */}
                 <div className="pt-3 border-t border-black/[0.05] text-left">
-                  <p className="text-[10px] text-slate-400 font-medium leading-tight">
-                    <span className="font-bold text-slate-600">Popular: </span>
+                  <p className="text-[10px] text-slate-600 font-medium leading-tight">
+                    <span className="font-bold text-slate-800">Popular: </span>
                     {spec.popularBreeds}
                   </p>
                 </div>

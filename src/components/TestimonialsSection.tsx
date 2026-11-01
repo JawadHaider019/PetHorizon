@@ -41,7 +41,7 @@ export default function TestimonialsSection() {
                 ))}
               </div>
               <span className="text-xs font-black text-slate-900">5.0 / 5.0</span>
-              <span className="text-[11px] text-slate-400 font-medium">Google Play Store</span>
+              <span className="text-[11px] text-slate-600 font-medium">Google Play Store</span>
             </div>
 
             <a
@@ -97,12 +97,12 @@ export default function TestimonialsSection() {
                     <p className="text-[10px] text-slate-500 font-medium">{item.petContext}</p>
                   </div>
                 </div>
-                <span className="text-[10px] text-slate-400 font-mono">{item.date}</span>
+                <span className="text-[10px] text-slate-600 font-mono">{item.date}</span>
               </div>
             </div>
           ))}
         </div>
-        <p className="text-center text-[10px] text-slate-400 mt-1">Swipe to view more verified reviews</p>
+        <p className="text-center text-[10px] text-slate-600 mt-1">Swipe to view more verified reviews</p>
       </div>
 
       {/* DESKTOP VIEW: Continuous Smooth Sliding Marquee (>=sm) */}

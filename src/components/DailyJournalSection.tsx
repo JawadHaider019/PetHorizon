@@ -79,7 +79,7 @@ export default function DailyJournalSection() {
                   className={`${index === 2 ? 'hidden sm:flex' : 'flex'} bg-white p-3.5 sm:p-4 rounded-2xl border border-black/[0.06] shadow-sm items-center justify-between gap-3 sm:gap-4 cursor-default transition-all hover:border-black/[0.12]`}
                 >
                   <div className="flex items-center gap-3">
-                    <div className="text-xs font-bold text-slate-400 font-mono w-14 sm:w-16">
+                    <div className="text-xs font-bold text-slate-600 font-mono w-14 sm:w-16">
                       {act.time}
                     </div>
                     <div className="w-1.5 h-7 sm:h-8 rounded-full bg-emerald-600" />
@@ -140,7 +140,7 @@ export default function DailyJournalSection() {
                   <Camera className="w-4 h-4 text-emerald-800" />
                 </div>
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-wider text-slate-400">Journal Memories</p>
+                  <p className="text-[10px] font-black uppercase tracking-wider text-slate-600">Journal Memories</p>
                   <p className="text-xs font-bold text-slate-900 leading-tight">Photo Saved to Timeline</p>
                 </div>
               </motion.div>

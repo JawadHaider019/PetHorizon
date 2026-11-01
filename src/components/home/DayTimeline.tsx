@@ -122,7 +122,7 @@ export default function DayTimeline() {
                       <span className="text-xs font-mono font-bold text-slate-900 bg-white px-3 py-1 rounded-full border border-black/[0.06] shadow-2xs">
                         {event.time}
                       </span>
-                      <span className="text-[10px] font-mono font-bold text-slate-400 bg-white/90 px-2.5 py-0.5 rounded-full border border-black/[0.05]">
+                      <span className="text-[10px] font-mono font-bold text-slate-600 bg-white/90 px-2.5 py-0.5 rounded-full border border-black/[0.05]">
                         0{index + 1}
                       </span>
                     </div>

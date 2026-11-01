@@ -1,5 +1,5 @@
 import { ArrowRight, BookOpen, Calculator, Clock, Scale } from 'lucide-react';
-import { BLOG_POSTS } from '../../data/blogData';
+import { FEATURED_BLOG_GUIDES, TOTAL_BLOG_GUIDES_COUNT } from '../../data/featuredGuidesData';
 import BlogCard from '../BlogCard';
 import { ExtendedAppView } from '../../hooks/useAppNavigation';
 
@@ -12,7 +12,7 @@ export default function HomeSeoHubSection({
   onNavigate,
   onSelectArticle
 }: HomeSeoHubSectionProps) {
-  const featuredGuides = BLOG_POSTS.filter((p) => p.featured).slice(0, 6);
+  const featuredGuides = FEATURED_BLOG_GUIDES;
 
   return (
     <section
@@ -47,7 +47,7 @@ export default function HomeSeoHubSection({
             }}
             className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#166534] hover:text-emerald-900 bg-white hover:bg-emerald-50/70 px-4 py-2.5 rounded-xl border border-slate-200/90 shadow-2xs transition-all w-fit shrink-0"
           >
-            <span>Explore All {BLOG_POSTS.length} Guides</span>
+            <span>Explore All {TOTAL_BLOG_GUIDES_COUNT} Guides</span>
             <ArrowRight className="w-4 h-4" />
           </a>
         </div>
@@ -70,7 +70,7 @@ export default function HomeSeoHubSection({
                 <span className="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">
                   WSAVA RER / MER Formula
                 </span>
-                <span className="text-[11px] font-semibold text-slate-400">Free Interactive Tool</span>
+                <span className="text-[11px] font-semibold text-slate-600">Free Interactive Tool</span>
               </div>
               <h3 className="text-base sm:text-lg font-extrabold text-slate-900 group-hover:text-[#166534] transition-colors">
                 Pet Calorie &amp; Daily Gram Portion Calculator
@@ -100,7 +100,7 @@ export default function HomeSeoHubSection({
                 <span className="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-100 text-amber-900">
                   AAHA Life-Stage Matrix
                 </span>
-                <span className="text-[11px] font-semibold text-slate-400">Free Interactive Tool</span>
+                <span className="text-[11px] font-semibold text-slate-600">Free Interactive Tool</span>
               </div>
               <h3 className="text-base sm:text-lg font-extrabold text-slate-900 group-hover:text-[#166534] transition-colors">
                 Pet Age in Human Years Converter (Dogs &amp; Cats)
@@ -117,7 +117,7 @@ export default function HomeSeoHubSection({
 
         {/* 2. Featured Pillar Blog Guides Grid (Click Depth = 1) */}
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-xs font-extrabold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
+          <h3 className="text-xs font-extrabold uppercase tracking-wider text-slate-600 flex items-center gap-1.5">
             <Clock className="w-3.5 h-3.5 text-emerald-700" />
             <span>Most-Read Veterinary &amp; Routine Pillar Guides</span>
           </h3>
