@@ -130,3 +130,4 @@ export const FEATURED_BLOG_GUIDES: BlogPost[] = [
     metaDescription: 'Evaluate pet insurance against a dedicated emergency savings fund. Understand deductibles, pre-existing condition clauses, and track vet costs in Pet Horizon.'
   }
 ];
+
