@@ -209,8 +209,8 @@ export const CLINICAL_AND_NUTRITION_POSTS: BlogPost[] = [
     trendingSearches: ['#cat feeding schedule', '#how often to feed cat wet food', '#indoor cat enrichment ideas', '#puzzle feeder for cats'],
     author: AUTHORS.editorial,
     publishedAt: 'October 26, 2026',
-    metaTitle: 'Cat Feeding Schedule & Indoor Enrichment Guide | Pet Horizon',
-    metaDescription: 'Veterinary guide to feline nutrition and indoor enrichment. Learn daily meal schedules by age, wet food hydration tips, and track feeding in Pet Horizon.',
+    metaTitle: 'Cat Feeding Schedule Chart (Kitten to Senior) | Pet Horizon',
+    metaDescription: 'Complete cat feeding schedule chart by age & weight. Learn wet vs. dry food gram portions, kitten feeding timetables, and indoor enrichment.',
     relatedProductLinks: [
       { feature: 'Feline Feeding & Hydration Tracker', url: 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon', ctaText: 'Schedule Cat Meals in PetHorizon', icon: 'Clock' },
       { feature: 'Family QR Household Sync', url: 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon', ctaText: 'Sync Cat Care with Family', icon: 'Users' }

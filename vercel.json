@@ -1,6 +1,28 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/blogs/dog-dental-care-at-home-tartar-brushing-guide",
+      "destination": "/blogs/dog-dental-care-brushing-teeth-periodontal-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/best-pet-care-apps-daily-routine-health-passports",
+      "destination": "/blogs/best-pet-care-apps-medication-reminders-family-sync",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/cat-feeding-schedule-wet-vs-dry-food-hydration",
+      "destination": "/blogs/cat-feeding-schedule-indoor-enrichment-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/pet-weight-management-obesity-rer-calorie-guide",
+      "destination": "/blogs/pet-calorie-calculator-feeding-guide-apop",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
