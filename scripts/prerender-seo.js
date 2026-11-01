@@ -102,6 +102,34 @@ function generateRssFeed(posts) {
     <atom:link href="${BASE_URL}/rss.xml" rel="self" type="application/rss+xml" />
 `;
 
+  // Interactive Veterinary Tools in RSS Feed
+  const toolItems = [
+    {
+      title: 'Pet Calorie & Daily Portion Calculator (Dogs & Cats) — WSAVA RER/MER Tool',
+      url: `${BASE_URL}/tools/pet-calorie-calculator`,
+      description: 'Free veterinary pet calorie and daily food portion calculator. Calculate RER, MER, daily grams, and cup measurements for dogs and cats using WSAVA standards.',
+      category: 'Feeding & Nutrition'
+    },
+    {
+      title: 'Pet Age Calculator in Human Years (Dog & Cat AAHA Life Stage Chart)',
+      url: `${BASE_URL}/tools/pet-age-calculator`,
+      description: 'Free AAHA pet age calculator in human years. Convert dog and cat chronological age into biological human years with breed weight scaling and life stage charts.',
+      category: 'Health & Vaccines'
+    }
+  ];
+
+  toolItems.forEach((tool) => {
+    rss += `    <item>
+      <title>${escapeXml(tool.title)}</title>
+      <link>${tool.url}</link>
+      <guid isPermaLink="true">${tool.url}</guid>
+      <pubDate>${buildDate}</pubDate>
+      <description>${escapeXml(tool.description)}</description>
+      <category>${escapeXml(tool.category)}</category>
+      <author>Pet Horizon Editorial Team</author>
+    </item>\n`;
+  });
+
   posts.forEach((post) => {
     const postUrl = `${BASE_URL}/blogs/${post.slug}`;
     const pubDate = new Date(post.publishedAt || '2026-10-26').toUTCString();
