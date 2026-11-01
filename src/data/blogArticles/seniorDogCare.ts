@@ -26,7 +26,7 @@ export const seniorDogCareArticle: FullBlogArticle = {
         ]
       },
       figure: {
-        imageUrl: 'https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
+        imageUrl: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
         caption: 'Biannual veterinary exams, low-impact exercise, and orthopedic support keep senior dogs pain-free and cognitively engaged.',
         altText: 'Senior Labrador retriever resting comfortably'
       }

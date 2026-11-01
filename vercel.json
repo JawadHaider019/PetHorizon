@@ -21,6 +21,26 @@
       "source": "/blogs/pet-weight-management-obesity-rer-calorie-guide",
       "destination": "/blogs/pet-calorie-calculator-feeding-guide-apop",
       "permanent": true
+    },
+    {
+      "source": "/blogs/toxic-foods-dogs-cats-aspca-poison-control",
+      "destination": "/blogs/toxic-foods-dogs-cats-poison-checklist",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/puppy-potty-training-schedule-crate-routine",
+      "destination": "/blogs/puppy-potty-training-schedule-akc-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/heartworm-flea-tick-prevention-aaha",
+      "destination": "/blogs/flea-tick-heartworm-prevention-ahs-protocol",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/dog-cat-calorie-calculator-rer-wsava",
+      "destination": "/blogs/pet-calorie-calculator-feeding-guide-apop",
+      "permanent": true
     }
   ],
   "headers": [

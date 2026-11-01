@@ -88,9 +88,9 @@ export default function PetAgeCalculator({
             <Calendar className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
             <span>AAHA Veterinary Standards</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-[#17191C] tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-3xl font-black text-[#17191C] tracking-tight leading-tight">
             Pet Age in Human Years Calculator
-          </h1>
+          </h2>
           <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed">
             Convert calendar age to biological human years. Adjust breed size and age below to view health milestones.
           </p>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { BlogPost, BLOG_POSTS } from '../data/blogData';
-import { getFullBlogArticle } from '../data/blogArticles';
+import { loadFullBlogArticle } from '../data/blogArticles/loaders';
+import type { FullBlogArticle } from '../data/blogArticles/types';
 import { usePageSeo } from '../hooks/usePageSeo';
 import BlogArticleHeader from './blog/BlogArticleHeader';
 import BlogSidebarToc from './blog/BlogSidebarToc';
@@ -8,6 +9,7 @@ import BlogShareWidget from './blog/BlogShareWidget';
 import BlogArticleBody from './blog/BlogArticleBody';
 import BlogConversionBanner from './blog/BlogConversionBanner';
 import BlogCard from './BlogCard';
+import NotFoundPage from './errors/NotFoundPage';
 
 interface BlogArticleDetailProps {
   articleSlug: string;
@@ -17,30 +19,8 @@ interface BlogArticleDetailProps {
   onOpenQrModal?: () => void;
 }
 
-function resolveArticleBySlug(slug: string): BlogPost {
-  return (
-    BLOG_POSTS.find((p) => p.slug === slug) ||
-    BLOG_POSTS.find((p) => p.slug.includes(slug)) ||
-    BLOG_POSTS.find((p) => {
-      if (slug.includes('cat-feeding')) return p.slug.includes('cat-feeding');
-      if (slug.includes('feeding')) return p.slug.includes('feeding');
-      if (slug.includes('kidney') || slug.includes('hydration')) return p.slug.includes('kidney');
-      if (slug.includes('emergency') || slug.includes('red-flag')) return p.slug.includes('emergency');
-      if (slug.includes('toxic') || slug.includes('poison')) return p.slug.includes('toxic');
-      if (slug.includes('potty')) return p.slug.includes('potty');
-      if (slug.includes('heartworm') || slug.includes('flea')) return p.slug.includes('heartworm');
-      if (slug.includes('calorie') || slug.includes('rer')) return p.slug.includes('calorie');
-      if (slug.includes('vaccin')) return p.slug.includes('vaccin');
-      if (slug.includes('pet-apps') || slug.includes('care-apps')) return p.slug.includes('best-pet-care-apps');
-      if (slug.includes('medication') || slug.includes('record')) return p.slug.includes('record');
-      if (slug.includes('coparent')) return p.slug.includes('coparent');
-      if (slug.includes('checklist')) return p.slug.includes('checklist');
-      if (slug.includes('tracker')) return p.slug.includes('tracker');
-      if (slug.includes('cost') || slug.includes('budget')) return p.slug.includes('budget');
-      return false;
-    }) ||
-    BLOG_POSTS[0]
-  );
+function resolveArticleBySlug(slug: string): BlogPost | undefined {
+  return BLOG_POSTS.find((p) => p.slug === slug);
 }
 
 export default function BlogArticleDetail({
@@ -53,13 +33,43 @@ export default function BlogArticleDetail({
   const article = resolveArticleBySlug(articleSlug);
   const [activeSectionId, setActiveSectionId] = useState<string>('');
 
-  usePageSeo({ view: 'blog-article', articleSlug: article.slug }, article);
+  usePageSeo(
+    article
+      ? { view: 'blog-article', articleSlug: article.slug }
+      : { view: '404', articleSlug: null },
+    article || null
+  );
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
-  }, [article.slug]);
+    if (article) {
+      window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+    }
+  }, [article?.slug]);
 
-  const fullContent = getFullBlogArticle(article.slug);
+  if (!article) {
+    return (
+      <NotFoundPage
+        onNavigateHome={onNavigateHome || onNavigateBack}
+        onNavigateBlog={onNavigateBack}
+      />
+    );
+  }
+
+  const [fullContent, setFullContent] = useState<FullBlogArticle | null>(null);
+
+  useEffect(() => {
+    let active = true;
+    if (article) {
+      loadFullBlogArticle(article.slug).then((res) => {
+        if (active) {
+          setFullContent(res);
+        }
+      });
+    }
+    return () => {
+      active = false;
+    };
+  }, [article?.slug]);
   const related = BLOG_POSTS.filter((p) => p.slug !== article.slug)
     .map((candidate) => {
       let score = candidate.category === article.category ? 3 : 0;

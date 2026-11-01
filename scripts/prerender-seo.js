@@ -39,41 +39,49 @@ async function loadAppData() {
   return { BLOG_POSTS, getFullBlogArticle };
 }
 
+function formatIsoDate(dateStr, fallback = '2026-10-26') {
+  if (!dateStr) return fallback;
+  const parsed = Date.parse(dateStr);
+  if (!Number.isNaN(parsed)) {
+    return new Date(parsed).toISOString().split('T')[0];
+  }
+  return fallback;
+}
+
 // 2. Generate XML Sitemap
 function generateSitemap(posts) {
   let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
   xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n`;
   xml += `        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n`;
 
-  // Static core routes
+  // Static core routes with verifiable lastmod timestamps
   const staticRoutes = [
-    { loc: `${BASE_URL}/`, priority: '1.0', changefreq: 'daily' },
-    { loc: `${BASE_URL}/blogs`, priority: '0.9', changefreq: 'daily' },
-    { loc: `${BASE_URL}/tools/pet-age-calculator`, priority: '0.8', changefreq: 'weekly' },
-    { loc: `${BASE_URL}/tools/pet-calorie-calculator`, priority: '0.8', changefreq: 'weekly' },
-    { loc: `${BASE_URL}/changelog`, priority: '0.7', changefreq: 'weekly' },
-    { loc: `${BASE_URL}/privacy-policy`, priority: '0.4', changefreq: 'monthly' },
-    { loc: `${BASE_URL}/terms-of-service`, priority: '0.4', changefreq: 'monthly' },
-    { loc: `${BASE_URL}/data-deletion`, priority: '0.4', changefreq: 'monthly' }
+    { loc: `${BASE_URL}/`, priority: '1.0', changefreq: 'weekly', lastmod: '2026-11-01' },
+    { loc: `${BASE_URL}/blogs`, priority: '0.9', changefreq: 'weekly', lastmod: '2026-10-30' },
+    { loc: `${BASE_URL}/tools/pet-age-calculator`, priority: '0.8', changefreq: 'monthly', lastmod: '2026-10-28' },
+    { loc: `${BASE_URL}/tools/pet-calorie-calculator`, priority: '0.8', changefreq: 'monthly', lastmod: '2026-10-28' },
+    { loc: `${BASE_URL}/changelog`, priority: '0.7', changefreq: 'weekly', lastmod: '2026-10-30' },
+    { loc: `${BASE_URL}/privacy-policy`, priority: '0.4', changefreq: 'monthly', lastmod: '2026-10-26' },
+    { loc: `${BASE_URL}/terms-of-service`, priority: '0.4', changefreq: 'monthly', lastmod: '2026-10-26' },
+    { loc: `${BASE_URL}/data-deletion`, priority: '0.4', changefreq: 'monthly', lastmod: '2026-10-26' }
   ];
-
-  const todayIso = new Date().toISOString().split('T')[0];
 
   staticRoutes.forEach((route) => {
     xml += `  <url>\n`;
     xml += `    <loc>${route.loc}</loc>\n`;
-    xml += `    <lastmod>${todayIso}</lastmod>\n`;
+    xml += `    <lastmod>${route.lastmod}</lastmod>\n`;
     xml += `    <changefreq>${route.changefreq}</changefreq>\n`;
     xml += `    <priority>${route.priority}</priority>\n`;
     xml += `  </url>\n`;
   });
 
-  // Dynamic Blog routes (34 total)
+  // Dynamic Blog routes (39 total)
   posts.forEach((post) => {
+    const postLastmod = formatIsoDate(post.updatedAt || post.publishedAt);
     xml += `  <url>\n`;
     xml += `    <loc>${BASE_URL}/blogs/${post.slug}</loc>\n`;
-    xml += `    <lastmod>${todayIso}</lastmod>\n`;
-    xml += `    <changefreq>weekly</changefreq>\n`;
+    xml += `    <lastmod>${postLastmod}</lastmod>\n`;
+    xml += `    <changefreq>monthly</changefreq>\n`;
     xml += `    <priority>${post.featured ? '0.9' : '0.8'}</priority>\n`;
     if (post.coverImage) {
       xml += `    <image:image>\n`;
@@ -563,30 +571,6 @@ async function runPostBuild() {
       heading: sec.heading
     }));
 
-    // Build natural-language FAQ items for both visible HTML and FAQPage JSON-LD
-    const faqItems = (post.keyTakeaways || []).map((takeaway, idx) => {
-      const colonIdx = takeaway.indexOf(':');
-      let question = '';
-      let answer = takeaway;
-      if (colonIdx > 4 && colonIdx < 85) {
-        const prefix = takeaway.substring(0, colonIdx).trim();
-        question = prefix.endsWith('?') ? prefix : `What should pet owners know about ${prefix.toLowerCase()}?`;
-        answer = takeaway.substring(colonIdx + 1).trim() || takeaway;
-      } else if (tocItems[idx]) {
-        const h = tocItems[idx].heading.replace(/\?$/, '');
-        question = h.toLowerCase().startsWith('how') || h.toLowerCase().startsWith('what') || h.toLowerCase().startsWith('why') || h.toLowerCase().startsWith('when')
-          ? `${h}?`
-          : `What is the veterinary guideline for ${h.toLowerCase()}?`;
-      } else if (idx === 0) {
-        question = `What is the most important clinical rule for ${post.seoKeyword || post.title.toLowerCase()}?`;
-      } else if (idx === 1) {
-        question = `How often should you follow a ${post.seoKeyword || post.category.toLowerCase()} routine?`;
-      } else {
-        question = `How can multi-caregiver households track ${post.seoKeyword || post.category.toLowerCase()} safely?`;
-      }
-      return { question, answer };
-    });
-
     // Build Related Internal Topic Cluster Links (same category + featured pillars)
     const sameCategoryPosts = BLOG_POSTS.filter((p) => p.slug !== post.slug && p.category === post.category);
     const otherFeaturedPosts = BLOG_POSTS.filter((p) => p.slug !== post.slug && p.category !== post.category && p.featured);
@@ -623,7 +607,6 @@ async function runPostBuild() {
           <strong style="font-size: 14px; color: #111827; display: block; margin-bottom: 8px;">Table of Contents — Quick Jump Links</strong>
           <ol style="margin: 0 0 0 20px; padding: 0; font-size: 14px; line-height: 1.7;">
             ${tocItems.map((t) => `<li><a href="#${t.id}" style="color: #047857; text-decoration: none;">${escapeHtml(t.heading)}</a></li>`).join('')}
-            <li><a href="#frequently-asked-questions" style="color: #047857; text-decoration: none;">Frequently Asked Questions (FAQ)</a></li>
           </ol>
         </nav>
         ` : ''}
@@ -697,21 +680,6 @@ async function runPostBuild() {
       });
     }
 
-    // Visible FAQ Section for Google Rich Results & People Also Ask
-    if (faqItems.length > 0) {
-      articleHtml += `
-        <section id="frequently-asked-questions" style="background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 16px; padding: 24px; margin: 40px 0;">
-          <h2 style="font-size: 22px; font-weight: 800; color: #111827; margin-top: 0;">Frequently Asked Questions: ${escapeHtml(post.title)}</h2>
-          ${faqItems.map((item) => `
-            <div style="margin-top: 16px;">
-              <h3 style="font-size: 16px; font-weight: 700; color: #047857; margin: 0 0 6px 0;">${escapeHtml(item.question)}</h3>
-              <p style="font-size: 15px; color: #374151; margin: 0; line-height: 1.6;">${escapeHtml(item.answer)}</p>
-            </div>
-          `).join('')}
-        </section>
-      `;
-    }
-
     // Related Topic Cluster & Interactive Tools Internal Link Mesh
     articleHtml += `
         <section aria-label="Related Veterinary Guides and Tools" style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 24px; margin: 40px 0;">
@@ -736,6 +704,13 @@ async function runPostBuild() {
     `;
 
     // Structured data
+    const articlePublishedIso = post.publishedAt && !Number.isNaN(Date.parse(post.publishedAt))
+      ? new Date(post.publishedAt).toISOString()
+      : '2026-10-26T00:00:00Z';
+    const articleModifiedIso = post.updatedAt && !Number.isNaN(Date.parse(post.updatedAt))
+      ? new Date(post.updatedAt).toISOString()
+      : articlePublishedIso;
+
     const articleJsonLd = [
       {
         '@context': 'https://schema.org',
@@ -746,8 +721,8 @@ async function runPostBuild() {
         image: [coverImg],
         articleSection: post.category,
         keywords: (post.tags || []).join(', '),
-        datePublished: '2026-10-26T00:00:00Z',
-        dateModified: new Date().toISOString(),
+        datePublished: articlePublishedIso,
+        dateModified: articleModifiedIso,
         author: {
           '@type': post.author.name.includes('Team') ? 'Organization' : 'Person',
           name: post.author.name,
@@ -793,19 +768,6 @@ async function runPostBuild() {
           '@type': 'ListItem',
           position: idx + 1,
           name: takeaway
-        }))
-      });
-
-      articleJsonLd.push({
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        mainEntity: faqItems.map((item) => ({
-          '@type': 'Question',
-          name: item.question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: item.answer
-          }
         }))
       });
     }

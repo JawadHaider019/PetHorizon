@@ -1,7 +1,7 @@
 import { FullBlogArticle } from './types';
 
 export const pottyTrainingArticle: FullBlogArticle = {
-  slug: 'puppy-potty-training-schedule-crate-routine',
+  slug: 'puppy-potty-training-schedule-akc-guide',
   readTime: '15 min read',
   overviewSummary:
     'House-training a young puppy is not a battle of wills; it is a masterclass in behavioral conditioning, canine neurobiology, and digestive transit timing. Young puppies possess underdeveloped external urinary sphincters and cannot physically retain urine beyond their physiological bladder capacity. By aligning feeding schedules with the gastrocolic reflex, properly sizing a den-like crate, and adhering to strict 2-second positive reinforcement windows, you can achieve 95% house-training reliability in under 14 days. This veterinary and behavioral guide provides hour-by-hour schedules, crate sizing mechanics, accident remediation, and household routine tracking.',

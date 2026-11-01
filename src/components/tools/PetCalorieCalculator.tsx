@@ -99,9 +99,9 @@ export default function PetCalorieCalculator({
             <Calculator className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
             <span>WSAVA Veterinary Standards</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-[#17191C] tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-3xl font-black text-[#17191C] tracking-tight leading-tight">
             Pet Calorie &amp; Portion Calculator
-          </h1>
+          </h2>
           <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed">
             Calculate resting (RER) and maintenance (MER) calories. Adjust weight below to see exact grams per meal.
           </p>

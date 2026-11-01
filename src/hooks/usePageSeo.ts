@@ -128,10 +128,12 @@ export function usePageSeo(viewState: ViewState, currentArticle: BlogPost | null
     } else if (viewState.view === '404') {
       document.title = '404 Page Not Found | PetHorizon';
       updateMetaTag('meta[name="description"]', 'content', 'The page you were looking for could not be found.');
+      updateMetaTag('meta[name="robots"]', 'content', 'noindex, nofollow');
       updateCanonical('/404');
     } else {
       document.title = `${SITE_CONFIG.name} – ${SITE_CONFIG.tagline}`;
       updateMetaTag('meta[name="description"]', 'content', SITE_CONFIG.description);
+      updateMetaTag('meta[name="robots"]', 'content', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
       updateCanonical('/');
     }
 
@@ -142,6 +144,7 @@ export function usePageSeo(viewState: ViewState, currentArticle: BlogPost | null
       viewState.view !== 'pet-age-calculator'
     ) {
       document.getElementById('seo-schema-article')?.remove();
+      document.getElementById('seo-prerender-schema')?.remove();
     }
   }, [viewState, currentArticle]);
 }

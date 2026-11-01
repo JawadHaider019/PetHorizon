@@ -40,6 +40,12 @@ export function updateCanonical(path: string): void {
 }
 
 export function updateJsonLd(id: string, data: object | object[]): void {
+  // Remove prerendered schema if present to prevent duplicate JSON-LD in the DOM
+  const prerenderScript = document.getElementById('seo-prerender-schema');
+  if (prerenderScript) {
+    prerenderScript.remove();
+  }
+
   let script = document.getElementById(id) as HTMLScriptElement | null;
   if (!script) {
     script = document.createElement('script');
@@ -123,27 +129,6 @@ export function buildArticleSchemas(article: BlogPost, baseUrl: string, pageDesc
         position: idx + 1,
         name: takeaway
       }))
-    });
-
-    schemas.push({
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: article.keyTakeaways.map((takeaway, idx) => {
-        const colonIdx = takeaway.indexOf(':');
-        const question =
-          colonIdx > 5 && colonIdx < 80
-            ? takeaway.substring(0, colonIdx).trim()
-            : idx === 0
-            ? `What is the key takeaway for ${article.seoKeyword || article.title}?`
-            : idx === 1
-            ? 'How often should you follow this routine?'
-            : `What is the recommended veterinary guideline for ${article.category}?`;
-        return {
-          '@type': 'Question',
-          name: question,
-          acceptedAnswer: { '@type': 'Answer', text: takeaway }
-        };
-      })
     });
   }
 

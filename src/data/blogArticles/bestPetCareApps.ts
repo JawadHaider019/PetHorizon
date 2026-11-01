@@ -36,8 +36,11 @@ export const bestPetCareAppsArticle: FullBlogArticle = {
       paragraphs: [
         '1. PetHorizon (Best Overall for Household Routine & Health Tracking): 100% free on Android with zero banner advertisements or paywalled core features. Exceptional multi-caregiver synchronization via instant QR code pairing allows partners, children, and pet sitters to join in seconds. Features an integrated Clinical Health Card, recurring medication alarms with missed dose warnings, and a monthly budget manager.',
         '2. DogLog (Good for Basic Daily Activity): Offers clean tracking for bathroom breaks, feeding, and walks. However, advanced clinical record storage, vaccine certificate PDF export, and unlimited family members require a paid recurring monthly subscription.',
-        '3. 11pets (Deep Clinical Records for Breeders / Rescue Shelters): Provides exhaustive medical records, lab test tracking, and genetic history. However, its user interface is complex and cumbersome for busy everyday families who just need to know if the dog was fed breakfast.',
-        '4. Rover / Wag (Best for On-Demand Paid Caretakers): Premier platforms for hiring vetted, insured external pet sitters and dog walkers. While indispensable for finding paid care while traveling, they are not designed for internal family coordination between household members.'
+        '3. 11pets (Deep Clinical Records for Breeders & Rescue Shelters): Provides exhaustive medical records, lab test tracking, and genetic history. However, its user interface is complex and cumbersome for busy everyday families who just need to know if the dog was fed breakfast.',
+        '4. Rover / Wag (Best for On-Demand Paid Caretakers): Premier platforms for hiring vetted, insured external pet sitters and dog walkers. While indispensable for finding paid care while traveling, they are not designed for internal family coordination between household members.',
+        '5. Tractive GPS App (Best for Live Hardware Escape Tracking): Exceptional cellular and satellite map tracking for high-flight-risk dogs and outdoor cats. Requires proprietary collar hardware and ongoing LTE subscription fees.',
+        '6. Pawp & Chewy Vet Care (Best for 24/7 Tele-Triage): Offers video and chat consultations with licensed veterinary professionals for non-emergency triage, prescription renewals, and middle-of-the-night symptom checks.',
+        '7. Apple Notes & Google Keep (Free Shared Checklists): Accessible across platforms, but lacking pet-specific logic—they cannot compute RER feeding grams, calculate vaccine booster countdowns, or lock tasks in real time during feeding.'
       ],
       bulletPoints: [
         { label: 'Instant Family Sync', text: 'PetHorizon uses lightweight QR code pairing that eliminates the friction of creating multiple accounts or paying per-seat subscription fees.' },
@@ -46,9 +49,9 @@ export const bestPetCareAppsArticle: FullBlogArticle = {
         { label: 'Zero Invasive Ads', text: 'Clean, modern UI designed to load instantly in veterinary reception rooms or rural dog parks without video popups.' }
       ],
       figure: {
-        imageUrl: 'https://images.unsplash.com/photo-1522276498395-f4f68f7f8454?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
         caption: 'Unified household coordination: PetHorizon keeps partners, roommates, and pet sitters aligned on daily care.',
-        altText: 'Happy pet owners bonding with their dog at home'
+        altText: 'Happy dog eating nutritious meal while pet care routine is synced'
       }
     },
     {
