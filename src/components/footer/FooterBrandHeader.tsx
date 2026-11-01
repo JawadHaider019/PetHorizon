@@ -37,7 +37,7 @@ export default function FooterBrandHeader() {
 
       {/* Badges */}
       <div className="flex flex-wrap sm:flex-nowrap items-center gap-2.5 pt-1 max-w-xs sm:max-w-none">
-        <GooglePlayBadge href={PLAY_STORE_URL} className="shadow-xs" />
+        <GooglePlayBadge href={PLAY_STORE_URL} trackingLocation="footer" className="shadow-xs" />
         <AppStoreBadge className="shadow-xs" />
       </div>
 
