@@ -1,4 +1,5 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
+import { trackCalculatorCompleted } from '../../utils/analytics';
 import { ArrowLeft, Calculator } from 'lucide-react';
 // @ts-expect-error canvas-confetti has no types
 import confetti from 'canvas-confetti';
@@ -70,6 +71,15 @@ export default function PetCalorieCalculator({
     setHasCelebrated(true);
     setTimeout(() => setHasCelebrated(false), 2400);
   };
+
+  useEffect(() => {
+    if (calculations.mer > 0) {
+      const timer = setTimeout(() => {
+        trackCalculatorCompleted('pet_calorie', petType);
+      }, 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [calculations.mer, petType]);
 
   const displayName = petName.trim() ? petName.trim() : petType === 'dog' ? 'Your Dog' : 'Your Cat';
 

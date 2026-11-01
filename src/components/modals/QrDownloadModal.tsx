@@ -183,6 +183,7 @@ export default function QrDownloadModal({ isOpen, onClose }: QrDownloadModalProp
                     href={PLAY_STORE_URL}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackPlayStoreClick('qr_download_modal')}
                     className="w-full inline-flex items-center justify-center gap-3 px-5 py-3 rounded-xl bg-black hover:bg-neutral-900 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all cursor-pointer"
                   >
                     <GooglePlayIcon className="w-5 h-5 shrink-0" />

@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect } from 'react';
+import { trackCalculatorCompleted } from '../../utils/analytics';
 import { ArrowLeft, Calendar } from 'lucide-react';
 // @ts-expect-error canvas-confetti has no types
 import confetti from 'canvas-confetti';
