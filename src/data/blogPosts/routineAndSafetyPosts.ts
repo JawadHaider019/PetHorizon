@@ -155,27 +155,27 @@ export const ROUTINE_AND_SAFETY_POSTS: BlogPost[] = [
   {
     id: 'post-pet-travel-checklist',
     slug: 'pet-travel-checklist-flying-car-trips-vet-records',
-    title: 'Pet Travel Checklist: Flying, Car Trips, Health Certificates & Safety Protocols',
-    excerpt: 'Traveling with a dog or cat? Navigate airline crate dimensions, USDA APHIS 10-day health certificates, crash-tested car restraints, and motion sickness protocols with confidence.',
+    title: 'Pet Travel Checklist & Regulations: Airline Rules, USDA Health Certificates & Car Safety',
+    excerpt: 'Navigate 2026 pet travel regulations, airline cabin carrier dimensions, USDA APHIS 10-day health certificates, ISO microchip rules, and crash-tested car restraints with our veterinary checklist.',
     category: 'Family & Routine',
     readTime: '16 min read',
     coverImage: 'https://images.unsplash.com/photo-1559190394-df5a28aab5c5?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
-    featured: false,
+    featured: true,
     targetLocation: 'Global',
-    tags: ['Pet Travel Checklist', 'Flying With Dog', 'Car Road Trip With Cat', 'USDA Health Certificate', 'Pet Horizon'],
-    seoKeyword: 'pet travel checklist flying car trips guide',
+    tags: ['Pet Travel Regulations', 'Pet Travel Checklist', 'Flying With Dog', 'USDA Health Certificate', 'Pet Horizon'],
+    seoKeyword: 'pet travel regulations checklist flying car trips',
     searchVolume: '7.8K/mo',
     searchRankBadge: 'Travel Ready',
     keyTakeaways: [
-      'Most airlines and international borders require USDA-accredited health certificates signed within 10 days of departure.',
-      'Brachycephalic snub-nosed breeds are prohibited from flying cargo due to high risks of respiratory arrest.',
-      'Unrestrained pets in cars become 300-pound projectiles during a 30 mph crash; always use crash-tested crates or harnesses.'
+      'What are the core pet travel regulations for airlines?: Most airlines and borders require a 15-digit ISO microchip, current rabies certificate, and a USDA-accredited health certificate signed within 10 days of departure.',
+      'Why are snub-nosed breeds restricted from cargo flights?: Brachycephalic dogs and cats face high risks of respiratory arrest under altitude pressure changes.',
+      'How should pets be restrained on car trips?: Always use CPS crash-tested crates or seat-belt harnesses; unrestrained pets risk severe injury during sudden stops.'
     ],
-    trendingSearches: ['#pet travel checklist', '#flying with a dog in cabin', '#usda pet health certificate', '#dog car safety harness'],
+    trendingSearches: ['#pet travel regulations', '#pet travel checklist', '#flying with a dog in cabin', '#usda pet health certificate'],
     author: AUTHORS.careTeam,
     publishedAt: 'October 26, 2026',
-    metaTitle: 'Pet Travel Checklist: Flying & Car Trips | Pet Horizon',
-    metaDescription: 'Complete pet travel checklist. Learn airline carrier guidelines, USDA health certificate timing, car safety, and store travel records in Pet Horizon.',
+    metaTitle: 'Pet Travel Checklist & Regulations: Airline & Vet Rules',
+    metaDescription: 'Complete 2026 pet travel regulations and checklist. Learn airline carrier rules, 10-day USDA health certificates, ISO microchips, and car safety.',
     relatedProductLinks: [
       { feature: 'Clinical Health Card Document Vault', url: 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon', ctaText: 'Store Travel Passports in PetHorizon', icon: 'ShieldCheck' }
     ]
