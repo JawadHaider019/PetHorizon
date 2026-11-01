@@ -143,3 +143,4 @@ Generic homepage citations were upgraded to deep guideline links across `clinica
 ### Coding Standards Compliance (`AGENTS.md`)
 - Strict Hard Ceiling: No file exceeds 250–300 lines (all files verified between 38 and 259 lines).
 - Aesthetics: Zero sparkles, zero glitter emojis, professional SaaS typography and crisp Lucide SVG icons.
+
