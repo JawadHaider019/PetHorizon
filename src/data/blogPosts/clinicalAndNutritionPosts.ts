@@ -252,27 +252,28 @@ export const CLINICAL_AND_NUTRITION_POSTS: BlogPost[] = [
   {
     id: 'post-dog-separation-anxiety',
     slug: 'dog-separation-anxiety-training-routine-guide',
-    title: 'Dog Separation Anxiety: Proven Calming Routines, Desensitization Schedule & Training Guide',
-    excerpt: 'Is your dog barking, pacing, or chewing door frames when left alone? Discover clinical desensitization schedules, departure cue fading protocols, and how routine tracking restores calm independence.',
+    title: 'Dog Separation Anxiety Training: Step-by-Step Desensitization Schedule & Calming Routine',
+    excerpt: 'Master separation anxiety in dogs training with a clinical step-by-step desensitization timetable. Learn departure cue fading, threshold exercises, and how routine tracking stops barking and pacing when left alone.',
     category: 'Dog Care',
     readTime: '15 min read',
     coverImage: 'https://images.unsplash.com/photo-1587402092301-725e37c70fd8?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.45&q=85',
-    featured: false,
+    featured: true,
     targetLocation: 'Global',
-    tags: ['Dog Separation Anxiety', 'Separation Anxiety Dog Training', 'Alone Time Training', 'Canine Panic', 'Desensitization', 'Pet Horizon'],
+    tags: ['Dog Separation Anxiety Training', 'Separation Anxiety in Dogs Training', 'Separation Anxiety Dog Training', 'Alone Time Training', 'Desensitization Schedule', 'Pet Horizon'],
     seoKeyword: 'dog separation anxiety training',
     searchVolume: '38K/mo',
     searchRankBadge: 'Behavioral Pillar',
     keyTakeaways: [
-      'True separation anxiety is an acute panic disorder occurring within 15 minutes of owner departure, distinct from midday boredom.',
-      'Systematic desensitization by uncoupling departure cues and practicing micro-absences rewires canine fear responses.',
-      'Never use punishment collars or aversive methods, which increase panic and trigger fear aggression.'
+      'What is true canine separation anxiety?: Acute panic occurring within 15 minutes of owner departure, distinct from daytime boredom.',
+      'How does separation anxiety dog training work?: Gradual sub-threshold desensitization starting with 10–30 second micro-absences rewires fear responses.',
+      'How to fade departure cues?: Pick up keys, put on shoes, and sit back down 10 times daily so pre-departure triggers lose their panic association.',
+      'Why avoid shock or bark collars?: Punishment increases cortisol panic and worsens separation anxiety in dogs.'
     ],
-    trendingSearches: ['#dog separation anxiety training', '#separation anxiety dog training', '#how to cure separation anxiety in dogs', '#leaving dog alone training', '#calming anxious dog'],
+    trendingSearches: ['#dog separation anxiety training', '#separation anxiety dog training', '#separation anxiety in dogs training', '#leaving dog alone training', '#calming anxious dog'],
     author: AUTHORS.editorial,
     publishedAt: 'October 26, 2026',
-    metaTitle: 'Dog Separation Anxiety Training: Calming Routine & Steps',
-    metaDescription: 'Step-by-step dog separation anxiety training guide. Veterinary desensitization schedule, departure cue fading, and daily routine tracking.',
+    metaTitle: 'Dog Separation Anxiety Training: 4-Week Schedule & Guide',
+    metaDescription: 'Proven separation anxiety in dogs training guide. Follow our veterinary 4-week desensitization schedule, departure cue drills, and calming routine.',
     relatedProductLinks: [
       { feature: 'Daily Routine Timeline & Calming Logs', url: 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon', ctaText: 'Track Alone Time in PetHorizon', icon: 'Clock' },
       { feature: 'Family Hub Caregiver Sync', url: 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon', ctaText: 'Sync Household Routines', icon: 'Users' }
