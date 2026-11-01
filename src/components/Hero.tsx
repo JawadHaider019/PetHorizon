@@ -27,24 +27,23 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-1.5 sm:gap-2 lg:gap-6 xl:gap-10 items-center max-w-md lg:max-w-none mx-auto w-full">
           {/* LEFT / TOP COLUMN: Headline, Subtitle, Checkpoints & Store Badges */}
           <div className="lg:col-span-7 xl:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left gap-1.5 sm:gap-2 lg:gap-3 xl:gap-3.5 lg:pr-2">
-            {/* Live Pill Badge with Explicit Brand Name */}
-            <div className="inline-flex items-center gap-1.5 lg:gap-2 rounded-full border border-emerald-800/15 bg-emerald-50/90 px-3 lg:px-3.5 py-0.5 lg:py-1 shadow-2xs backdrop-blur-xs">
-              <span className="flex h-1.5 w-1.5 lg:h-2 lg:w-2 relative shrink-0">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 lg:h-2 lg:w-2 bg-emerald-600"></span>
+            {/* Single Always-Visible Semantic H1 for Mobile-First & Desktop Crawlers (Zero sr-only) */}
+            <h1 className="flex flex-col items-center lg:items-start gap-1.5 sm:gap-2 lg:gap-3">
+              <span className="inline-flex items-center gap-1.5 lg:gap-2 rounded-full border border-emerald-800/15 bg-emerald-50/90 px-3 lg:px-3.5 py-0.5 lg:py-1 shadow-2xs backdrop-blur-xs text-[10px] lg:text-xs font-semibold text-emerald-950 tracking-normal leading-normal">
+                <span className="flex h-1.5 w-1.5 lg:h-2 lg:w-2 relative shrink-0" aria-hidden="true">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 lg:h-2 lg:w-2 bg-emerald-600"></span>
+                </span>
+                <span>
+                  <span className="font-extrabold text-[#166534]">Pet Horizon</span> • Smart Pet Care &amp;{' '}
+                  <span className="font-extrabold text-[#166534]">Family Hub</span>
+                </span>
               </span>
-              <p className="text-[10px] lg:text-xs font-semibold text-emerald-950">
-                <span className="font-extrabold text-[#166534]">Pet Horizon</span> • Smart Pet Care &amp;{' '}
-                <span className="font-extrabold text-[#166534]">Family Hub</span>
-              </p>
-            </div>
-
-            {/* Single Always-Visible Semantic H1 for Mobile-First & Desktop Crawlers */}
-            <h1 className="text-2xl sm:text-3xl lg:text-[40px] xl:text-[46px] font-black tracking-tight leading-[1.12]">
-              <span className="sr-only">Pet Horizon – Smart Pet Care, Family Hub &amp; Daily Routine Tracker: </span>
-              <span className="text-[#17191C]">Track. </span>
-              <span className="text-[#166534]">Coordinate. </span>
-              <span className="text-[#E67E22]">Cherish.</span>
+              <span className="text-2xl sm:text-3xl lg:text-[40px] xl:text-[46px] font-black tracking-tight leading-[1.12] block">
+                <span className="text-[#17191C]">Track. </span>
+                <span className="text-[#166534]">Coordinate. </span>
+                <span className="text-[#E67E22]">Cherish.</span>
+              </span>
             </h1>
 
             {/* Brand-Rich Subtitle */}
