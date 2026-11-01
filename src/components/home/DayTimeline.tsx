@@ -1,5 +1,4 @@
 import {
-  Clock,
   CheckCircle2,
   ShieldCheck,
   UtensilsCrossed,

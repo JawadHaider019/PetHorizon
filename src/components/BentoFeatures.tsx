@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { UtensilsCrossed, Users, ShieldCheck, Wallet, Check, ArrowRight } from 'lucide-react';
+import { UtensilsCrossed, Users, ShieldCheck, Wallet, Check } from 'lucide-react';
 import { fadeInUp, staggerCard } from '../config/animationVariants';
 
 interface CareModule {

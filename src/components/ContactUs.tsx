@@ -69,6 +69,7 @@ export default function ContactUs() {
       }
 
       try {
+        // @ts-expect-error canvas-confetti does not ship internal module types
         const { default: confetti } = await import('canvas-confetti');
         confetti({ particleCount: 50, spread: 60, origin: { y: 0.65 } });
       } catch {
