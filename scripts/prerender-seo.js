@@ -502,14 +502,18 @@ async function runPostBuild() {
     const semanticBody = `
       <header style="max-width: 960px; margin: 40px auto 20px; padding: 0 16px;">
         <nav style="font-size: 12px; color: #6b7280; margin-bottom: 16px;"><a href="/">Home</a> &gt; <span>Blogs</span></nav>
-        <h1 style="font-size: 32px; font-weight: 800; color: #111827;">Pet Horizon Evidence-Based Care & Health Guides</h1>
+        <h1 style="font-size: 32px; font-weight: 800; color: #111827;">Pet Horizon Evidence-Based Care &amp; Health Guides</h1>
         <p style="font-size: 16px; color: #4b5563; max-width: 720px; line-height: 1.6;">${blogDesc}</p>
+        <div style="margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="/tools/pet-calorie-calculator" style="background: #ecfdf5; color: #047857; padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 700; text-decoration: none;">WSAVA Pet Calorie &amp; Portion Calculator &rarr;</a>
+          <a href="/tools/pet-age-calculator" style="background: #ecfdf5; color: #047857; padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 700; text-decoration: none;">AAHA Pet Age in Human Years Calculator &rarr;</a>
+        </div>
       </header>
       <main style="max-width: 960px; margin: 0 auto; padding: 0 16px;">
         ${blogCardsHtml}
       </main>
       <footer style="max-width: 960px; margin: 60px auto 40px; padding: 20px 16px; border-top: 1px solid #e5e7eb; font-size: 13px; color: #6b7280;">
-        <p>&copy; 2026 Pet Horizon. All rights reserved. <a href="/">Home</a> • <a href="/privacy-policy">Privacy Policy</a> • <a href="/changelog">Changelog</a> • <a href="/rss.xml">RSS Feed</a></p>
+        <p>&copy; 2026 Pet Horizon. All rights reserved. <a href="/">Home</a> • <a href="/tools/pet-calorie-calculator">Calorie Calculator</a> • <a href="/tools/pet-age-calculator">Age Calculator</a> • <a href="/privacy-policy">Privacy Policy</a> • <a href="/changelog">Changelog</a> • <a href="/rss.xml">RSS Feed</a></p>
       </footer>
     `;
 
@@ -545,7 +549,7 @@ async function runPostBuild() {
     writePrerenderedFile('/blogs', html);
   }
 
-  // 2. Prerender all 34 /blogs/[slug]
+  // 2. Prerender all /blogs/[slug]
   for (const post of BLOG_POSTS) {
     const full = getFullBlogArticle(post.slug);
     const postTitle = post.metaTitle || `${post.title} | Pet Horizon`;
@@ -553,10 +557,45 @@ async function runPostBuild() {
     const postUrl = `${BASE_URL}/blogs/${post.slug}`;
     const coverImg = post.coverImage.startsWith('http') ? post.coverImage : `${BASE_URL}${post.coverImage}`;
 
+    // Build Table of Contents jump links for Google Search Jump-to Sitelinks
+    const tocItems = (full && full.sections ? full.sections : []).map((sec) => ({
+      id: sec.id,
+      heading: sec.heading
+    }));
+
+    // Build natural-language FAQ items for both visible HTML and FAQPage JSON-LD
+    const faqItems = (post.keyTakeaways || []).map((takeaway, idx) => {
+      const colonIdx = takeaway.indexOf(':');
+      let question = '';
+      let answer = takeaway;
+      if (colonIdx > 4 && colonIdx < 85) {
+        const prefix = takeaway.substring(0, colonIdx).trim();
+        question = prefix.endsWith('?') ? prefix : `What should pet owners know about ${prefix.toLowerCase()}?`;
+        answer = takeaway.substring(colonIdx + 1).trim() || takeaway;
+      } else if (tocItems[idx]) {
+        const h = tocItems[idx].heading.replace(/\?$/, '');
+        question = h.toLowerCase().startsWith('how') || h.toLowerCase().startsWith('what') || h.toLowerCase().startsWith('why') || h.toLowerCase().startsWith('when')
+          ? `${h}?`
+          : `What is the veterinary guideline for ${h.toLowerCase()}?`;
+      } else if (idx === 0) {
+        question = `What is the most important clinical rule for ${post.seoKeyword || post.title.toLowerCase()}?`;
+      } else if (idx === 1) {
+        question = `How often should you follow a ${post.seoKeyword || post.category.toLowerCase()} routine?`;
+      } else {
+        question = `How can multi-caregiver households track ${post.seoKeyword || post.category.toLowerCase()} safely?`;
+      }
+      return { question, answer };
+    });
+
+    // Build Related Internal Topic Cluster Links (same category + featured pillars)
+    const sameCategoryPosts = BLOG_POSTS.filter((p) => p.slug !== post.slug && p.category === post.category);
+    const otherFeaturedPosts = BLOG_POSTS.filter((p) => p.slug !== post.slug && p.category !== post.category && p.featured);
+    const relatedClusterPosts = [...sameCategoryPosts, ...otherFeaturedPosts].slice(0, 6);
+
     // Generate rich semantic HTML body for crawlers
     let articleHtml = `
       <header style="max-width: 840px; margin: 40px auto 20px; padding: 0 16px;">
-        <nav style="font-size: 12px; color: #6b7280; margin-bottom: 16px;">
+        <nav aria-label="Breadcrumb" style="font-size: 12px; color: #6b7280; margin-bottom: 16px;">
           <a href="/">Home</a> &gt; <a href="/blogs">Blogs</a> &gt; <span>${escapeHtml(post.category)}</span>
         </nav>
         <span style="display: inline-block; background: #ecfdf5; color: #047857; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 9999px; text-transform: uppercase;">${escapeHtml(post.category)}</span>
@@ -572,12 +611,22 @@ async function runPostBuild() {
           <figcaption style="font-size: 12px; color: #6b7280; text-align: center; margin-top: 8px;">${escapeHtml(post.title)}</figcaption>
         </figure>
 
-        <section style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 20px; margin-bottom: 32px;">
-          <h2 style="font-size: 18px; font-weight: 800; color: #065f46; margin-top: 0;">Key Takeaways & Summary</h2>
+        <section style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 20px; margin-bottom: 24px;">
+          <h2 style="font-size: 18px; font-weight: 800; color: #065f46; margin-top: 0;">Key Takeaways &amp; Veterinary Summary</h2>
           <ul style="margin: 12px 0 0 20px; padding: 0; color: #166534; font-size: 14px; line-height: 1.6;">
             ${(post.keyTakeaways || []).map((k) => `<li>${escapeHtml(k)}</li>`).join('')}
           </ul>
         </section>
+
+        ${tocItems.length > 0 ? `
+        <nav aria-label="Table of Contents" style="background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 18px 20px; margin-bottom: 32px;">
+          <strong style="font-size: 14px; color: #111827; display: block; margin-bottom: 8px;">Table of Contents — Quick Jump Links</strong>
+          <ol style="margin: 0 0 0 20px; padding: 0; font-size: 14px; line-height: 1.7;">
+            ${tocItems.map((t) => `<li><a href="#${t.id}" style="color: #047857; text-decoration: none;">${escapeHtml(t.heading)}</a></li>`).join('')}
+            <li><a href="#frequently-asked-questions" style="color: #047857; text-decoration: none;">Frequently Asked Questions (FAQ)</a></li>
+          </ol>
+        </nav>
+        ` : ''}
 
         <p style="font-size: 18px; line-height: 1.7; color: #1f2937; margin-bottom: 32px; font-weight: 500;">${escapeHtml(full?.overviewSummary || post.excerpt)}</p>
     `;
@@ -648,8 +697,32 @@ async function runPostBuild() {
       });
     }
 
-    // App CTA box inside article
+    // Visible FAQ Section for Google Rich Results & People Also Ask
+    if (faqItems.length > 0) {
+      articleHtml += `
+        <section id="frequently-asked-questions" style="background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 16px; padding: 24px; margin: 40px 0;">
+          <h2 style="font-size: 22px; font-weight: 800; color: #111827; margin-top: 0;">Frequently Asked Questions: ${escapeHtml(post.title)}</h2>
+          ${faqItems.map((item) => `
+            <div style="margin-top: 16px;">
+              <h3 style="font-size: 16px; font-weight: 700; color: #047857; margin: 0 0 6px 0;">${escapeHtml(item.question)}</h3>
+              <p style="font-size: 15px; color: #374151; margin: 0; line-height: 1.6;">${escapeHtml(item.answer)}</p>
+            </div>
+          `).join('')}
+        </section>
+      `;
+    }
+
+    // Related Topic Cluster & Interactive Tools Internal Link Mesh
     articleHtml += `
+        <section aria-label="Related Veterinary Guides and Tools" style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 24px; margin: 40px 0;">
+          <h2 style="font-size: 20px; font-weight: 800; color: #111827; margin-top: 0;">Related ${escapeHtml(post.category)} Guides &amp; Interactive Calculators</h2>
+          <ul style="margin: 12px 0 0 20px; padding: 0; font-size: 15px; line-height: 1.8;">
+            <li><a href="/tools/pet-calorie-calculator" style="color: #047857; font-weight: 700;">Free WSAVA Pet Calorie &amp; Daily Gram Portion Calculator (Dogs &amp; Cats)</a></li>
+            <li><a href="/tools/pet-age-calculator" style="color: #047857; font-weight: 700;">Free AAHA Pet Age Calculator in Human Years (Breed Weight Matrix)</a></li>
+            ${relatedClusterPosts.map((rel) => `<li><a href="/blogs/${rel.slug}" style="color: #047857;">${escapeHtml(rel.title)}</a></li>`).join('')}
+          </ul>
+        </section>
+
         <div style="background: #111827; color: #ffffff; border-radius: 16px; padding: 32px 24px; margin: 48px 0; text-align: center;">
           <h3 style="font-size: 24px; font-weight: 800; margin-top: 0; color: #ffffff;">Streamline Your Pet Routine with Pet Horizon</h3>
           <p style="color: #9ca3af; font-size: 15px; max-width: 600px; margin: 12px auto 24px;">Organize medication reminders, veterinary vaccination records, and multi-user family sync in one free, privacy-first companion app.</p>
@@ -658,7 +731,7 @@ async function runPostBuild() {
       </main>
 
       <footer style="max-width: 840px; margin: 60px auto 40px; padding: 20px 16px; border-top: 1px solid #e5e7eb; font-size: 13px; color: #6b7280;">
-        <p>&copy; 2026 Pet Horizon. All rights reserved. <a href="/">Home</a> • <a href="/blogs">All Guides</a> • <a href="/privacy-policy">Privacy Policy</a> • <a href="/rss.xml">RSS Feed</a></p>
+        <p>&copy; 2026 Pet Horizon. All rights reserved. <a href="/">Home</a> • <a href="/blogs">All Guides</a> • <a href="/tools/pet-calorie-calculator">Calorie Calculator</a> • <a href="/tools/pet-age-calculator">Age Calculator</a> • <a href="/privacy-policy">Privacy Policy</a> • <a href="/rss.xml">RSS Feed</a></p>
       </footer>
     `;
 
@@ -671,6 +744,8 @@ async function runPostBuild() {
         headline: post.title,
         description: postDesc,
         image: [coverImg],
+        articleSection: post.category,
+        keywords: (post.tags || []).join(', '),
         datePublished: '2026-10-26T00:00:00Z',
         dateModified: new Date().toISOString(),
         author: {
@@ -724,24 +799,14 @@ async function runPostBuild() {
       articleJsonLd.push({
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
-        mainEntity: post.keyTakeaways.map((takeaway, idx) => {
-          const colonIdx = takeaway.indexOf(':');
-          const question = colonIdx > 5 && colonIdx < 80
-            ? takeaway.substring(0, colonIdx).trim()
-            : idx === 0
-            ? `What is the key takeaway for ${post.seoKeyword || post.title}?`
-            : idx === 1
-            ? `How often should you follow this routine?`
-            : `What is the recommended veterinary guideline for ${post.category}?`;
-          return {
-            '@type': 'Question',
-            name: question,
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: takeaway
-            }
-          };
-        })
+        mainEntity: faqItems.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer
+          }
+        }))
       });
     }
 
