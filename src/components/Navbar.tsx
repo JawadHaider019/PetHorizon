@@ -88,11 +88,14 @@ export default function Navbar({
             >
               <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-100/90 flex items-center justify-center p-1.5 shadow-xs group-hover:scale-105 group-hover:bg-emerald-100/60 transition-all duration-200">
                 <img
-                  src="/ph-logo-mark.png"
+                  src="/ph-logo-mark.webp"
                   alt="Pet Horizon Logo"
+                  width={28}
+                  height={28}
+                  decoding="async"
                   className="w-full h-full object-contain"
                   onError={(e) => {
-                    (e.currentTarget as HTMLImageElement).src = '/app-icon.png';
+                    (e.currentTarget as HTMLImageElement).src = '/ph-logo-mark.png';
                   }}
                 />
               </div>

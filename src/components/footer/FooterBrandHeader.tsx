@@ -8,11 +8,15 @@ export default function FooterBrandHeader() {
       <div className="flex items-center space-x-3 shrink-0">
         <div className="w-10 h-10 rounded-2xl bg-[#166534] flex items-center justify-center p-2 shadow-xs shadow-emerald-900/20">
           <img
-            src="/ph-logo-white.png"
+            src="/ph-logo-white.webp"
             alt="Pet Horizon"
+            width={24}
+            height={24}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-contain"
             onError={(e) => {
-              (e.currentTarget as HTMLImageElement).src = '/ph-logo-mark.png';
+              (e.currentTarget as HTMLImageElement).src = '/ph-logo-white.png';
             }}
           />
         </div>

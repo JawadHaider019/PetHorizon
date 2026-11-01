@@ -9,14 +9,15 @@ export default function BackgroundCanvas() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // 1. Accessibility: Respect user's motion preferences
+    // 1. Accessibility & Mobile Performance: Skip on reduced-motion or small screens where sections cover canvas
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) {
+    if (prefersReducedMotion || window.innerWidth < 768) {
       return;
     }
 
     let animationFrameId: number;
-    let isRunning = true;
+    let startTimeoutId: ReturnType<typeof setTimeout>;
+    let isRunning = false;
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
@@ -29,10 +30,9 @@ export default function BackgroundCanvas() {
       alpha: number;
     }
 
-    // 2. Performance: Mobile-friendly particle cap to prevent CPU drain
-    const isMobile = width < 768;
-    const maxParticles = isMobile ? 25 : 45;
-    const particleCount = Math.min(maxParticles, Math.max(15, Math.floor((width * height) / 32000)));
+    // 2. Performance: Lightweight desktop particle cap
+    const maxParticles = 32;
+    const particleCount = Math.min(maxParticles, Math.max(15, Math.floor((width * height) / 40000)));
 
     const particles: Particle[] = [];
     for (let i = 0; i < particleCount; i++) {
@@ -65,7 +65,7 @@ export default function BackgroundCanvas() {
     };
     document.addEventListener('visibilitychange', handleVisibilityChange);
 
-    const maxDistance = isMobile ? 100 : 130;
+    const maxDistance = 120;
     const maxDistanceSq = maxDistance * maxDistance;
 
     const animate = () => {
@@ -112,15 +112,22 @@ export default function BackgroundCanvas() {
       animationFrameId = requestAnimationFrame(animate);
     };
 
-    animate();
+    // Defer canvas animation start until after initial load/LCP to protect TBT
+    startTimeoutId = setTimeout(() => {
+      if (!document.hidden) {
+        isRunning = true;
+        animate();
+      }
+    }, 2500);
 
     return () => {
       isRunning = false;
+      clearTimeout(startTimeoutId);
       window.removeEventListener('resize', handleResize);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-0" aria-hidden="true" />;
+  return <canvas ref={canvasRef} className="hidden md:block fixed inset-0 pointer-events-none z-0" aria-hidden="true" />;
 }

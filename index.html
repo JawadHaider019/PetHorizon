@@ -27,13 +27,35 @@
     <meta name="google-site-verification" content="MyQf9lnl3Ehgb9nukwNGGtBxo2QSTifZoSO5w4K50PU" />
     <meta name="msvalidate.01" content="5DF3C5A29D03F903CDEA556439A63561" />
 
-    <!-- Google tag (gtag.js) - Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHBNRZ7X6T"></script>
+    <!-- Google tag (gtag.js) - Deferred until idle/interaction to protect FCP, LCP & TBT -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-FHBNRZ7X6T');
+      (function() {
+        var loaded = false;
+        function loadGtag() {
+          if (loaded) return;
+          loaded = true;
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-FHBNRZ7X6T';
+          document.head.appendChild(s);
+        }
+        if ('requestIdleCallback' in window) {
+          window.addEventListener('load', function() {
+            requestIdleCallback(loadGtag, { timeout: 4000 });
+          }, { once: true });
+        } else {
+          window.addEventListener('load', function() {
+            setTimeout(loadGtag, 3500);
+          }, { once: true });
+        }
+        ['scroll', 'pointerdown', 'keydown', 'touchstart'].forEach(function(evt) {
+          window.addEventListener(evt, loadGtag, { once: true, passive: true });
+        });
+      })();
     </script>
 
     <!-- Canonical URL & Web App Manifest -->
@@ -61,18 +83,16 @@
     <meta name="twitter:image" content="https://pethorizon.jawumitech.com/favicon-512x512.png" />
     <meta name="twitter:image:alt" content="Pet Horizon App Logo" />
 
-    <!-- Google Fonts: Inter (Non-render-blocking with font-display swap) -->
+    <!-- Google Fonts: Plus Jakarta Sans & Inter (Non-render-blocking with font-display swap) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     </noscript>
 
-    <!-- Preload Critical Above-The-Fold Assets -->
+    <!-- Preload Primary Hero LCP Image -->
     <link rel="preload" href="/screenshots/home-screen.webp" as="image" type="image/webp" fetchpriority="high" />
-    <link rel="preload" href="/3d-pets-transparent.webp" as="image" type="image/webp" fetchpriority="high" />
 
     <!-- Schema.org Graph: Organization, WebSite, SoftwareApplication & FAQPage -->
     <script type="application/ld+json" id="root-seo-schema">
@@ -260,7 +280,6 @@
       <main id="main-content" aria-label="Pet Horizon" class="sr-only">
         <h1>Pet Horizon – Smart Pet Care, Family Hub &amp; Daily Routine Tracker</h1>
         <p>Pet Horizon is the unified Android companion app for multi-caregiver pet households. Organize daily feeding routines, recurring medication alarms, verified vaccination records, monthly expense budgets, and real-time family synchronization in one platform.</p>
-        <img src="/applogo.png" alt="Pet Horizon Smart Pet Care and Family Routine Tracker App Logo" width="128" height="128" />
         <section>
           <h2>Smart Medication Alarms &amp; Anti-Collision Care Lock</h2>
           <p>Prevent accidental double-feeding and missed medication doses across partners, roommates, and pet sitters. When any caregiver starts a meal or medication task, Pet Horizon activates a real-time Care Lock across all connected household devices with live completion timestamps.</p>

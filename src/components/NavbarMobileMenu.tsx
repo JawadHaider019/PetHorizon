@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, BookOpen, ArrowUpRight, Calculator } from 'lucide-react';
 import { NavView } from './Navbar';
 import { PRODUCT_LINKS, LEGAL_LINKS, TOOL_LINKS } from './navData';
@@ -20,16 +19,10 @@ export default function NavbarMobileMenu({
   const [toolsOpen, setToolsOpen] = useState(false);
   const [legalOpen, setLegalOpen] = useState(false);
 
+  if (!isOpen) return null;
+
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0, y: -10 }}
-          animate={{ opacity: 1, height: 'auto', y: 0 }}
-          exit={{ opacity: 0, height: 0, y: -10 }}
-          transition={{ duration: 0.22, ease: 'easeOut' }}
-          className="w-full bg-white/98 backdrop-blur-2xl border-b border-slate-200 shadow-2xl px-5 py-5 lg:hidden overflow-y-auto max-h-[calc(100vh-100px)]"
-        >
+    <div className="w-full bg-white/98 backdrop-blur-2xl border-b border-slate-200 shadow-2xl px-5 py-5 lg:hidden overflow-y-auto max-h-[calc(100vh-100px)] animate-in fade-in slide-in-from-top-2 duration-200">
           <div className="flex flex-col space-y-2">
             {/* Free Pet Tools Accordion */}
             <div className="border border-emerald-200/80 rounded-2xl overflow-hidden bg-emerald-50/30">
@@ -184,8 +177,6 @@ export default function NavbarMobileMenu({
               </a>
             </div>
           </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+        </div>
   );
 }

@@ -1,4 +1,3 @@
-import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { NavView } from './Navbar';
 import { PRODUCT_LINKS, LEGAL_LINKS, TOOL_LINKS } from './navData';
@@ -25,6 +24,8 @@ export default function NavbarDesktopDropdown({
   return (
     <div className="relative" onMouseEnter={onEnter} onMouseLeave={onLeave}>
       <button
+        type="button"
+        aria-expanded={isOpen}
         className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold transition-colors cursor-pointer ${
           isOpen || isActiveView ? 'text-emerald-700 bg-emerald-50/80 font-bold' : 'text-slate-700 hover:text-emerald-700 hover:bg-slate-50'
         }`}
@@ -32,22 +33,17 @@ export default function NavbarDesktopDropdown({
         <span>{label}</span>
         <ChevronDown
           className={`w-3.5 h-3.5 transition-transform duration-200 ${
-            isOpen ? 'rotate-180 text-emerald-600' : 'text-slate-400'
+            isOpen ? 'rotate-180 text-emerald-600' : 'text-slate-500'
           }`}
         />
       </button>
 
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: 10, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 8, scale: 0.98 }}
-            transition={{ duration: 0.18, ease: 'easeOut' }}
-            className={`absolute top-full mt-1.5 bg-white rounded-2xl shadow-xl border border-slate-200/90 p-2.5 z-50 grid gap-1 ${
-              type === 'product' ? 'left-0 w-80' : type === 'tools' ? 'left-0 w-84' : 'right-0 w-84'
-            }`}
-          >
+      {isOpen && (
+        <div
+          className={`absolute top-full mt-1.5 bg-white rounded-2xl shadow-xl border border-slate-200/90 p-2.5 z-50 grid gap-1 animate-in fade-in zoom-in-95 duration-150 ${
+            type === 'product' ? 'left-0 w-80' : type === 'tools' ? 'left-0 w-84' : 'right-0 w-84'
+          }`}
+        >
             {type === 'product' ? (
               PRODUCT_LINKS.map((item) => (
                 <a
@@ -116,9 +112,8 @@ export default function NavbarDesktopDropdown({
                 </a>
               ))
             )}
-          </motion.div>
-        )}
-      </AnimatePresence>
+        </div>
+      )}
     </div>
   );
 }

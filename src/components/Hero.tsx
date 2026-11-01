@@ -97,26 +97,21 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
             </div>
 
             {/* Social Proof Rating */}
-            <div className="hidden lg:flex items-center gap-2.5 text-xs text-slate-500 font-medium pt-0.5">
+            <div className="hidden lg:flex items-center gap-2.5 text-xs text-slate-600 font-medium pt-0.5">
               <span className="inline-flex items-center gap-1 text-[#166534] font-bold">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#166534]" /> Free to Start
               </span>
-              <span>•</span>
-              <span className="text-amber-500 font-bold">★★★★★ 5.0</span>
-              <span>•</span>
+              <span aria-hidden="true">•</span>
+              <span className="text-amber-700 font-bold">★★★★★ 5.0</span>
+              <span aria-hidden="true">•</span>
               <span>1,200+ Pet Families</span>
             </div>
-          </motion.div>
+          </div>
 
           {/* RIGHT / BOTTOM COLUMN: Single Mounted Phone Mockup Centerpiece */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
-            className="lg:col-span-5 xl:col-span-6 relative flex items-center justify-center pt-1 lg:pt-0 w-full"
-          >
+          <div className="lg:col-span-5 xl:col-span-6 relative flex items-center justify-center pt-1 lg:pt-0 w-full">
             <HeroCenterpiece />
-          </motion.div>
+          </div>
         </div>
       </div>
 
