@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Calendar, Users, Camera, CheckCircle2, ShieldCheck } from 'lucide-react';
 import { GooglePlayBadge, AppStoreBadge, QrScanButton } from './AppBadges';
 import { PLAY_STORE_URL } from '../config/siteConfig';
@@ -23,16 +22,11 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
       <div className="absolute top-10 left-1/4 w-[500px] h-[500px] bg-emerald-600/[0.04] rounded-full blur-[140px] pointer-events-none -z-10" />
       <div className="absolute top-1/4 right-1/4 w-[480px] h-[480px] bg-amber-400/[0.035] rounded-full blur-[150px] pointer-events-none -z-10" />
 
-      {/* Unified Responsive Container (Single DOM tree for Mobile-First SEO & LCP) */}
+      {/* Unified Responsive Container (Single DOM tree for Mobile-First SEO & Zero-Delay LCP) */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex-1 flex flex-col justify-center my-auto py-1">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-1.5 sm:gap-2 lg:gap-6 xl:gap-10 items-center max-w-md lg:max-w-none mx-auto w-full">
           {/* LEFT / TOP COLUMN: Headline, Subtitle, Checkpoints & Store Badges */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="lg:col-span-7 xl:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left gap-1.5 sm:gap-2 lg:gap-3 xl:gap-3.5 lg:pr-2"
-          >
+          <div className="lg:col-span-7 xl:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left gap-1.5 sm:gap-2 lg:gap-3 xl:gap-3.5 lg:pr-2">
             {/* Live Pill Badge with Explicit Brand Name */}
             <div className="inline-flex items-center gap-1.5 lg:gap-2 rounded-full border border-emerald-800/15 bg-emerald-50/90 px-3 lg:px-3.5 py-0.5 lg:py-1 shadow-2xs backdrop-blur-xs">
               <span className="flex h-1.5 w-1.5 lg:h-2 lg:w-2 relative shrink-0">

@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-// @ts-expect-error canvas-confetti does not ship internal types
-import confetti from 'canvas-confetti';
 import { Mail, CheckCircle2, AlertCircle, X, ExternalLink } from 'lucide-react';
 import {
   SUPPORT_TOPICS,
@@ -71,6 +69,7 @@ export default function ContactUs() {
       }
 
       try {
+        const { default: confetti } = await import('canvas-confetti');
         confetti({ particleCount: 50, spread: 60, origin: { y: 0.65 } });
       } catch {
         // safe fallback

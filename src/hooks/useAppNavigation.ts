@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
 import { NavView } from '../components/Navbar';
-import { BLOG_POSTS } from '../data/blogData';
 
 export type ExtendedAppView = NavView | 'blog-article' | 'changelog' | '404' | 'pet-calorie-calculator' | 'pet-age-calculator';
 
@@ -42,8 +41,7 @@ export const getViewStateFromLocation = (): ViewState => {
   const slugMatch = path.match(/^\/blogs?\/([a-zA-Z0-9-]+)/i);
   if (slugMatch) {
     const slug = slugMatch[1].toLowerCase();
-    const exists = BLOG_POSTS.some((p) => p.slug === slug);
-    if (exists || slug.length > 3) {
+    if (slug.length > 2) {
       return { view: 'blog-article', articleSlug: slug };
     }
   }
