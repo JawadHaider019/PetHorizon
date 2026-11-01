@@ -21,7 +21,7 @@ const MARQUEE_ITEMS = [
   { text: 'Shared Photo Memories', icon: Camera },
   { text: 'Walk GPS Tracker', icon: MapPin },
   { text: 'Dogs, Cats, Birds & Rabbits', icon: HeartHandshake },
-  { text: '1,200+ Active Pet Families', icon: Award },
+  { text: 'Built for Pet Families & Multi-Caregiver Homes', icon: Award },
 ];
 
 export default function HeroMarquee() {

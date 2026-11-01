@@ -219,7 +219,7 @@ export function calculatePetAge(
       description = 'Middle-aged companion (human 45–60). Metabolism begins gradual slowing; early joint changes emerge.';
       milestones = [
         { title: 'Senior Baseline Blood & Chemistry Panel', desc: 'Screen liver, kidney function, and electrolytes before symptoms appear.' },
-        { title: 'Joint Mobility & Glucosamine Support', desc: 'Introduce vet-approved omega-3 EPA/DHA and chondroitin for cartilage maintenance.' },
+        { title: 'Joint Mobility & Glucosamine Support', desc: 'Introduce veterinarian-recommended omega-3 EPA/DHA and chondroitin in consultation with your vet.' },
         { title: 'Ocular & Ear Examination', desc: 'Check for lenticular sclerosis (normal clouding) vs cataracts and chronic ear canal health.' }
       ];
       vetAdvice = 'Watch for stiffness upon waking up or reluctance to jump into cars. Subtle mobility slowing is manageable with early care.';

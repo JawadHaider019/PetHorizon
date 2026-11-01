@@ -100,17 +100,12 @@ export default function QrDownloadModal({ isOpen, onClose }: QrDownloadModalProp
                 {/* Verified Social Proof Footer */}
                 <div className="relative z-10 pt-3 border-t border-slate-200/80">
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-1.5">
-                      <div className="flex items-center text-amber-500">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                        ))}
-                      </div>
-                      <span className="text-xs font-black text-slate-800">5.0</span>
+                    <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800">
+                      <span>Early Access Release</span>
                     </div>
                     <div className="flex items-center gap-1 text-[11px] font-semibold text-slate-600">
                       <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                      <span>Google Play Verified</span>
+                      <span>Google Play Available</span>
                     </div>
                   </div>
                 </div>

@@ -92,8 +92,7 @@ export default function DownloadCTA({ onOpenQrModal, onOpenIosModal }: DownloadC
                       Co-manage all your pets in harmony
                     </p>
                     <div className="flex items-center justify-center gap-1.5 mt-1.5 text-[11px] font-semibold text-slate-600">
-                      <span className="text-amber-500">★★★★★</span>
-                      <span className="font-bold text-slate-900">Rated 5.0 on Google Play</span>
+                      <span className="font-bold text-slate-900">Early Access on Google Play</span>
                     </div>
                   </div>
                 </motion.div>

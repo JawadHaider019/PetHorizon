@@ -5,6 +5,7 @@ import { X, Mail, CheckCircle2, ArrowRight, ShieldCheck, Loader2 } from 'lucide-
 import confetti from 'canvas-confetti';
 import { AppleIcon } from '../AppBadges';
 import { FORMSPREE_ENDPOINT } from '../contact/contactData';
+import { trackLeadGenerated } from '../../utils/analytics';
 import IosWaitlistBenefits from './IosWaitlistBenefits';
 
 interface IosWaitlistModalProps {
@@ -71,6 +72,7 @@ export default function IosWaitlistModal({ isOpen, onClose }: IosWaitlistModalPr
 
     setIsSubmitting(false);
     setIsSubmitted(true);
+    trackLeadGenerated('ios_waitlist_modal');
     try {
       confetti({
         particleCount: 60,

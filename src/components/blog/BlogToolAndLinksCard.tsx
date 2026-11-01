@@ -35,7 +35,7 @@ export default function BlogToolAndLinksCard({ article }: BlogToolAndLinksCardPr
     : 'Open Pet Age Calculator';
 
   const articleUrl = `${SITE_CONFIG.url}/blogs/${article.slug}`;
-  const htmlCitationSnippet = `<p>Clinical Reference: <a href="${articleUrl}" target="_blank" rel="noopener">${article.title} — Pet Horizon Veterinary Guide</a></p>`;
+  const htmlCitationSnippet = `<p>Reference: <a href="${articleUrl}" target="_blank" rel="noopener">${article.title} — Pet Horizon Pet Care Guide</a></p>`;
 
   const handleCopyCitation = () => {
     if (typeof navigator !== 'undefined' && navigator.clipboard) {
@@ -110,10 +110,10 @@ export default function BlogToolAndLinksCard({ article }: BlogToolAndLinksCardPr
           <ShieldCheck className="w-5 h-5 text-emerald-700 shrink-0 mt-0.5 sm:mt-0" />
           <div>
             <strong className="font-bold text-slate-900 block sm:inline">
-              Veterinary Consensus &amp; Clinical Review:{' '}
+              Veterinary Guidance &amp; Reference Review:{' '}
             </strong>
             <span>
-              Protocols cross-referenced with published guidelines from the AVMA, AAHA, WSAVA Global Nutrition Committee, and Cornell Feline Health Center.
+              Protocols informed by established veterinary guidance, including published materials from the AVMA, AAHA, WSAVA, and Cornell Feline Health Center.
             </span>
           </div>
         </div>

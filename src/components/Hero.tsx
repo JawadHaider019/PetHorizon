@@ -89,15 +89,13 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
               )}
             </div>
 
-            {/* Social Proof Rating */}
+            {/* Social Proof */}
             <div className="hidden lg:flex items-center gap-2.5 text-xs text-slate-600 font-medium pt-0.5">
               <span className="inline-flex items-center gap-1 text-[#166534] font-bold">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#166534]" /> Free to Start
               </span>
               <span aria-hidden="true">•</span>
-              <span className="text-amber-700 font-bold">★★★★★ 5.0</span>
-              <span aria-hidden="true">•</span>
-              <span>1,200+ Pet Families</span>
+              <span>Built for Pet Families and Multi-Caregiver Homes</span>
             </div>
           </div>
 
