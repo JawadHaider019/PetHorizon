@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Clock, Smartphone, ExternalLink, Check, Copy } from 'lucide-react';
+import { Clock, Smartphone, ExternalLink, Check, Copy } from 'lucide-react';
 import { DISPLAY_SUPPORT_EMAIL, PLAY_STORE_URL } from './contactData';
 import { INSTAGRAM_URL } from '../../config/siteConfig';
 

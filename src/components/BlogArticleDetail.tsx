@@ -1,35 +1,75 @@
 import { useState, useEffect } from 'react';
 import { BlogPost, BLOG_POSTS } from '../data/blogData';
-import { getFullBlogArticle } from '../data/blogArticles';
+import { loadFullBlogArticle } from '../data/blogArticles/loaders';
+import type { FullBlogArticle } from '../data/blogArticles/types';
+import { usePageSeo } from '../hooks/usePageSeo';
 import BlogArticleHeader from './blog/BlogArticleHeader';
 import BlogSidebarToc from './blog/BlogSidebarToc';
 import BlogShareWidget from './blog/BlogShareWidget';
 import BlogArticleBody from './blog/BlogArticleBody';
 import BlogConversionBanner from './blog/BlogConversionBanner';
 import BlogCard from './BlogCard';
+import NotFoundPage from './errors/NotFoundPage';
 
 interface BlogArticleDetailProps {
-  article: BlogPost;
+  articleSlug: string;
   onNavigateBack: () => void;
   onNavigateHome?: () => void;
   onSelectArticle: (slug: string) => void;
   onOpenQrModal?: () => void;
 }
 
+function resolveArticleBySlug(slug: string): BlogPost | undefined {
+  return BLOG_POSTS.find((p) => p.slug === slug);
+}
+
 export default function BlogArticleDetail({
-  article,
+  articleSlug,
   onNavigateBack,
   onNavigateHome,
   onSelectArticle,
   onOpenQrModal
 }: BlogArticleDetailProps) {
+  const article = resolveArticleBySlug(articleSlug);
   const [activeSectionId, setActiveSectionId] = useState<string>('');
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
-  }, [article.slug]);
+  usePageSeo(
+    article
+      ? { view: 'blog-article', articleSlug: article.slug }
+      : { view: '404', articleSlug: null },
+    article || null
+  );
 
-  const fullContent = getFullBlogArticle(article.slug);
+  useEffect(() => {
+    if (article) {
+      window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+    }
+  }, [article?.slug]);
+
+  if (!article) {
+    return (
+      <NotFoundPage
+        onNavigateHome={onNavigateHome || onNavigateBack}
+        onNavigateBlog={onNavigateBack}
+      />
+    );
+  }
+
+  const [fullContent, setFullContent] = useState<FullBlogArticle | null>(null);
+
+  useEffect(() => {
+    let active = true;
+    if (article) {
+      loadFullBlogArticle(article.slug).then((res) => {
+        if (active) {
+          setFullContent(res);
+        }
+      });
+    }
+    return () => {
+      active = false;
+    };
+  }, [article?.slug]);
   const related = BLOG_POSTS.filter((p) => p.slug !== article.slug)
     .map((candidate) => {
       let score = candidate.category === article.category ? 3 : 0;

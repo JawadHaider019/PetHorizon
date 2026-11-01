@@ -2,7 +2,7 @@ import { FullBlogArticle } from './types';
 
 export const catKidneyArticle: FullBlogArticle = {
   slug: 'feline-kidney-disease-dehydration-cornell',
-  readTime: '15 min read',
+  readTime: '5 min read',
   overviewSummary:
     'Chronic Kidney Disease (CKD) is one of the leading causes of morbidity and mortality in aging felines, affecting over 30% of cats over 10 years of age and more than 80% of cats aged 15 and older. Because cats evolved as desert animals with highly efficient kidneys, they naturally mask pain and gradual physical decline. By the time classical signs like overt lethargy and emaciation appear, over two-thirds of functional renal nephrons have already suffered irreversible fibrosis. This clinical guide breaks down the International Renal Interest Society (IRIS) staging criteria, early diagnostic biomarkers (SDMA and USG), the Cornell Feline Health Center hydration protocol, and home fluid tracking.',
   sections: [

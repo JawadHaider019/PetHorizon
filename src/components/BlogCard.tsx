@@ -1,11 +1,19 @@
 import { useState } from 'react';
 import { Clock, MapPin, Bookmark, Check } from 'lucide-react';
-import { BlogPost } from '../data/blogData';
+import { BlogPost } from '../data/blogPosts/authors';
 
 interface BlogCardProps {
   post: BlogPost;
   onClick: () => void;
   compact?: boolean;
+}
+
+function optimizeCoverImage(url: string, compact: boolean): string {
+  if (!url.includes('images.unsplash.com')) return url;
+  return url
+    .replace(/w=\d+/, compact ? 'w=240' : 'w=600')
+    .replace(/h=\d+/, compact ? 'h=168' : 'h=375')
+    .replace(/q=\d+/, 'q=75') + '&fm=webp';
 }
 
 export default function BlogCard({ post, onClick, compact = false }: BlogCardProps) {
@@ -45,24 +53,27 @@ export default function BlogCard({ post, onClick, compact = false }: BlogCardPro
       >
         <div className="w-20 h-14 rounded-xl overflow-hidden shrink-0 bg-slate-100 relative">
           <img
-            src={post.coverImage}
+            src={optimizeCoverImage(post.coverImage, true)}
             alt={post.title}
+            width={80}
+            height={56}
+            decoding="async"
             className="w-full h-full object-cover object-[center_35%] group-hover:scale-105 transition-transform duration-300"
             loading="lazy"
             onError={(e) => {
-              e.currentTarget.src = '/3d-pets-hero.jpg';
+              e.currentTarget.src = '/3d-pets-hero.webp';
             }}
           />
         </div>
         <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-1.5 text-[10px] font-semibold text-slate-500 mb-1">
+          <div className="flex items-center gap-1.5 text-[10px] font-semibold text-slate-600 mb-1">
             <span className="text-emerald-700 font-bold">{post.category}</span>
-            <span>&bull;</span>
+            <span aria-hidden="true">&bull;</span>
             <span>{post.readTime}</span>
           </div>
-          <h5 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-2 leading-snug">
+          <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-2 leading-snug">
             {post.title}
-          </h5>
+          </h4>
         </div>
       </a>
     );
@@ -83,12 +94,15 @@ export default function BlogCard({ post, onClick, compact = false }: BlogCardPro
         className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-slate-100 block"
       >
         <img
-          src={post.coverImage}
+          src={optimizeCoverImage(post.coverImage, false)}
           alt={post.title}
+          width={600}
+          height={375}
+          decoding="async"
           className="w-full h-full object-cover object-[center_35%] transition-transform duration-300 group-hover:scale-105"
           loading="lazy"
           onError={(e) => {
-            e.currentTarget.src = '/3d-pets-hero.jpg';
+            e.currentTarget.src = '/3d-pets-hero.webp';
           }}
         />
         {post.featured && (
@@ -147,8 +161,11 @@ export default function BlogCard({ post, onClick, compact = false }: BlogCardPro
           <div className="flex items-center gap-2.5">
             <div className="relative h-8 w-8 overflow-hidden rounded-full border border-slate-200 shrink-0">
               <img
-                src={post.author.avatar}
+                src="/app-icon.webp"
                 alt={post.author.name}
+                width={32}
+                height={32}
+                decoding="async"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -157,7 +174,7 @@ export default function BlogCard({ post, onClick, compact = false }: BlogCardPro
               <p className="text-xs font-bold text-slate-900 leading-none">
                 {post.author.name}
               </p>
-              <p className="text-[11px] text-slate-400 mt-1">
+              <p className="text-[11px] text-slate-500 mt-1">
                 {post.publishedAt}
               </p>
             </div>

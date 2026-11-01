@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { fadeInUp } from '../../../config/animationVariants';
 import { PLAY_STORE_URL } from '../../../config/siteConfig';
+import { trackPlayStoreClick } from '../../../utils/analytics';
 
 interface CalorieEducationalGuidesProps {
   onOpenQrModal: () => void;
@@ -163,6 +164,7 @@ export default function CalorieEducationalGuides({ onOpenQrModal }: CalorieEduca
           href={PLAY_STORE_URL}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackPlayStoreClick('calorie_calculator_guide')}
           className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-xl bg-[#047857] hover:bg-[#065f46] text-white font-bold text-sm shadow-md shadow-emerald-900/15 transition-all hover:-translate-y-0.5"
         >
           <Download className="w-4 h-4" />
@@ -179,9 +181,19 @@ export default function CalorieEducationalGuides({ onOpenQrModal }: CalorieEduca
         </button>
       </div>
 
+      {/* Kibble Density Transparency & Veterinary Disclaimer */}
+      <div className="p-3.5 rounded-2xl bg-amber-50/70 border border-amber-200/80 text-[11px] text-amber-950 space-y-1.5 leading-relaxed">
+        <p>
+          <strong>Food Weight Transparency:</strong> Food weight estimates use an assumed kibble density of 105g per cup. Actual food density varies by brand and formula. Check your food packaging or weigh portions on a digital scale for maximum accuracy.
+        </p>
+        <p className="text-amber-900/80">
+          <strong>Veterinary Disclaimer:</strong> Calorie calculations are estimated guidelines based on WSAVA and NRC mathematical models. Individual metabolic rates, body condition, activity, and medical history vary. Always consult your veterinarian before implementing significant dietary restrictions or weight loss plans.
+        </p>
+      </div>
+
       <div className="text-[11px] text-slate-500 flex items-center gap-2 pt-1">
         <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-        <span>Evidence-based clinical formulas verified against WSAVA &amp; AAHA guidelines.</span>
+        <span>Evidence-based clinical formulas informed by WSAVA &amp; AAHA guidelines.</span>
       </div>
     </motion.div>
   );

@@ -1,4 +1,5 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
+import { trackCalculatorCompleted } from '../../utils/analytics';
 import { ArrowLeft, Calculator } from 'lucide-react';
 // @ts-expect-error canvas-confetti has no types
 import confetti from 'canvas-confetti';
@@ -71,6 +72,15 @@ export default function PetCalorieCalculator({
     setTimeout(() => setHasCelebrated(false), 2400);
   };
 
+  useEffect(() => {
+    if (calculations.mer > 0) {
+      const timer = setTimeout(() => {
+        trackCalculatorCompleted('pet_calorie', petType);
+      }, 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [calculations.mer, petType]);
+
   const displayName = petName.trim() ? petName.trim() : petType === 'dog' ? 'Your Dog' : 'Your Cat';
 
   const adjustWeight = (delta: number) => {
@@ -99,9 +109,9 @@ export default function PetCalorieCalculator({
             <Calculator className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
             <span>WSAVA Veterinary Standards</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-[#17191C] tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-3xl font-black text-[#17191C] tracking-tight leading-tight">
             Pet Calorie &amp; Portion Calculator
-          </h1>
+          </h2>
           <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed">
             Calculate resting (RER) and maintenance (MER) calories. Adjust weight below to see exact grams per meal.
           </p>

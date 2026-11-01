@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Calendar, Users, Camera, CheckCircle2, ShieldCheck } from 'lucide-react';
 import { GooglePlayBadge, AppStoreBadge, QrScanButton } from './AppBadges';
 import { PLAY_STORE_URL } from '../config/siteConfig';
@@ -23,34 +22,28 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
       <div className="absolute top-10 left-1/4 w-[500px] h-[500px] bg-emerald-600/[0.04] rounded-full blur-[140px] pointer-events-none -z-10" />
       <div className="absolute top-1/4 right-1/4 w-[480px] h-[480px] bg-amber-400/[0.035] rounded-full blur-[150px] pointer-events-none -z-10" />
 
-      {/* Unified Responsive Container (Single DOM tree for Mobile-First SEO & LCP) */}
+      {/* Unified Responsive Container (Single DOM tree for Mobile-First SEO & Zero-Delay LCP) */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex-1 flex flex-col justify-center my-auto py-1">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-1.5 sm:gap-2 lg:gap-6 xl:gap-10 items-center max-w-md lg:max-w-none mx-auto w-full">
           {/* LEFT / TOP COLUMN: Headline, Subtitle, Checkpoints & Store Badges */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="lg:col-span-7 xl:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left gap-1.5 sm:gap-2 lg:gap-3 xl:gap-3.5 lg:pr-2"
-          >
-            {/* Live Pill Badge with Explicit Brand Name */}
-            <div className="inline-flex items-center gap-1.5 lg:gap-2 rounded-full border border-emerald-800/15 bg-emerald-50/90 px-3 lg:px-3.5 py-0.5 lg:py-1 shadow-2xs backdrop-blur-xs">
-              <span className="flex h-1.5 w-1.5 lg:h-2 lg:w-2 relative shrink-0">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 lg:h-2 lg:w-2 bg-emerald-600"></span>
+          <div className="lg:col-span-7 xl:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left gap-1.5 sm:gap-2 lg:gap-3 xl:gap-3.5 lg:pr-2">
+            {/* Single Always-Visible Semantic H1 for Mobile-First & Desktop Crawlers (Zero sr-only) */}
+            <h1 className="flex flex-col items-center lg:items-start gap-1.5 sm:gap-2 lg:gap-3">
+              <span className="inline-flex items-center gap-1.5 lg:gap-2 rounded-full border border-emerald-800/15 bg-emerald-50/90 px-3 lg:px-3.5 py-0.5 lg:py-1 shadow-2xs backdrop-blur-xs text-[10px] lg:text-xs font-semibold text-emerald-950 tracking-normal leading-normal">
+                <span className="flex h-1.5 w-1.5 lg:h-2 lg:w-2 relative shrink-0" aria-hidden="true">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 lg:h-2 lg:w-2 bg-emerald-600"></span>
+                </span>
+                <span>
+                  <span className="font-extrabold text-[#166534]">Pet Horizon</span> • Smart Pet Care &amp;{' '}
+                  <span className="font-extrabold text-[#166534]">Family Hub</span>
+                </span>
               </span>
-              <p className="text-[10px] lg:text-xs font-semibold text-emerald-950">
-                <span className="font-extrabold text-[#166534]">Pet Horizon</span> • Smart Pet Care &amp;{' '}
-                <span className="font-extrabold text-[#166534]">Family Hub</span>
-              </p>
-            </div>
-
-            {/* Single Always-Visible Semantic H1 for Mobile-First & Desktop Crawlers */}
-            <h1 className="text-2xl sm:text-3xl lg:text-[40px] xl:text-[46px] font-black tracking-tight leading-[1.12]">
-              <span className="sr-only">Pet Horizon – Smart Pet Care, Family Hub &amp; Daily Routine Tracker: </span>
-              <span className="text-[#17191C]">Track. </span>
-              <span className="text-[#166534]">Coordinate. </span>
-              <span className="text-[#E67E22]">Cherish.</span>
+              <span className="text-2xl sm:text-3xl lg:text-[40px] xl:text-[46px] font-black tracking-tight leading-[1.12] block">
+                <span className="text-[#17191C]">Track. </span>
+                <span className="text-[#166534]">Coordinate. </span>
+                <span className="text-[#E67E22]">Cherish.</span>
+              </span>
             </h1>
 
             {/* Brand-Rich Subtitle */}
@@ -82,6 +75,7 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 lg:gap-2.5 pt-0.5 lg:pt-1.5 pb-0.5 lg:pb-0">
               <GooglePlayBadge
                 href={PLAY_STORE_URL}
+                trackingLocation="homepage_hero"
                 className="!px-3 !py-1 lg:!px-4 lg:!py-2 !rounded-full shadow-xs lg:shadow-sm !gap-1.5 lg:!gap-2.5 !h-8 lg:!h-auto text-[10px] lg:text-xs"
               />
               <AppStoreBadge
@@ -96,27 +90,20 @@ export default function Hero({ onOpenQrModal, onOpenIosModal }: HeroProps) {
               )}
             </div>
 
-            {/* Social Proof Rating */}
-            <div className="hidden lg:flex items-center gap-2.5 text-xs text-slate-500 font-medium pt-0.5">
+            {/* Social Proof */}
+            <div className="hidden lg:flex items-center gap-2.5 text-xs text-slate-600 font-medium pt-0.5">
               <span className="inline-flex items-center gap-1 text-[#166534] font-bold">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#166534]" /> Free to Start
               </span>
-              <span>•</span>
-              <span className="text-amber-500 font-bold">★★★★★ 5.0</span>
-              <span>•</span>
-              <span>1,200+ Pet Families</span>
+              <span aria-hidden="true">•</span>
+              <span>Built for Pet Families and Multi-Caregiver Homes</span>
             </div>
-          </motion.div>
+          </div>
 
           {/* RIGHT / BOTTOM COLUMN: Single Mounted Phone Mockup Centerpiece */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
-            className="lg:col-span-5 xl:col-span-6 relative flex items-center justify-center pt-1 lg:pt-0 w-full"
-          >
+          <div className="lg:col-span-5 xl:col-span-6 relative flex items-center justify-center pt-1 lg:pt-0 w-full">
             <HeroCenterpiece />
-          </motion.div>
+          </div>
         </div>
       </div>
 

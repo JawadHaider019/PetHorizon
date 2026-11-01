@@ -1,5 +1,3 @@
-import React from 'react';
-import { motion } from 'framer-motion';
 import { CheckCircle2, Clock, Pill, Users } from 'lucide-react';
 import PhoneFrame from '../PhoneFrame';
 
@@ -149,23 +147,17 @@ export default function HeroCenterpiece() {
         </div>
 
         {/* 3D Pet Companions (Puppy and Kitten sitting beside the phone, clear of the screen UI) */}
-        <motion.div
-          animate={{ y: [0, -4, 0] }}
-          transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute -bottom-1 sm:-bottom-2 left-[82%] sm:left-[85%] lg:left-[86%] w-22 sm:w-26 lg:w-30 xl:w-34 pointer-events-none z-20 select-none drop-shadow-xl"
-        >
+        <div className="animate-hero-card-float absolute -bottom-1 sm:-bottom-2 left-[82%] sm:left-[85%] lg:left-[86%] w-22 sm:w-26 lg:w-30 xl:w-34 pointer-events-none z-20 select-none drop-shadow-xl">
           <img
             src="/3d-pets-transparent.webp"
             alt="Pet Horizon Puppy and Kitten Companions"
-            width={1024}
-            height={1024}
+            width={272}
+            height={272}
             loading="eager"
             decoding="async"
-            // @ts-ignore
-            fetchPriority="high"
             className="w-full h-auto object-contain"
           />
-        </motion.div>
+        </div>
 
       </div>
 

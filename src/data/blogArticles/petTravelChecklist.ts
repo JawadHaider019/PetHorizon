@@ -2,7 +2,7 @@ import { FullBlogArticle } from './types';
 
 export const petTravelChecklistArticle: FullBlogArticle = {
   slug: 'pet-travel-checklist-flying-car-trips-vet-records',
-  readTime: '16 min read',
+  readTime: '5 min read',
   overviewSummary:
     'Traveling with a companion animal—whether taking an interstate highway road trip or boarding a long-haul commercial flight—demands rigorous logistical, medical, and behavioral preparation. Strict airline in-cabin carrier dimensions, mandatory USDA APHIS health certification windows, International Air Transport Association (IATA) Live Animals Regulations, motion sickness management, and international rabies titer testing can quickly overwhelm pet parents. This comprehensive veterinary travel guide details airline carrier specifications, crash-tested vehicle restraint physics, motion sickness protocols, and digital health passport organization.',
   sections: [

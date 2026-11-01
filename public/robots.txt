@@ -47,3 +47,4 @@ Allow: /
 
 # Sitemaps & Feeds
 Sitemap: https://pethorizon.jawumitech.com/sitemap.xml
+Sitemap: https://pethorizon.jawumitech.com/rss.xml

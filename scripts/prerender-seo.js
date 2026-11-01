@@ -28,6 +28,7 @@ async function loadAppData() {
   const vite = await createServer({
     root: rootDir,
     server: { middlewareMode: true },
+    optimizeDeps: { noDiscovery: true, include: [] },
     appType: 'custom'
   });
 
@@ -38,41 +39,49 @@ async function loadAppData() {
   return { BLOG_POSTS, getFullBlogArticle };
 }
 
+function formatIsoDate(dateStr, fallback = '2026-10-26') {
+  if (!dateStr) return fallback;
+  const parsed = Date.parse(dateStr);
+  if (!Number.isNaN(parsed)) {
+    return new Date(parsed).toISOString().split('T')[0];
+  }
+  return fallback;
+}
+
 // 2. Generate XML Sitemap
 function generateSitemap(posts) {
   let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
   xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n`;
   xml += `        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n`;
 
-  // Static core routes
+  // Static core routes with verifiable lastmod timestamps
   const staticRoutes = [
-    { loc: `${BASE_URL}/`, priority: '1.0', changefreq: 'daily' },
-    { loc: `${BASE_URL}/blogs`, priority: '0.9', changefreq: 'daily' },
-    { loc: `${BASE_URL}/tools/pet-age-calculator`, priority: '0.8', changefreq: 'weekly' },
-    { loc: `${BASE_URL}/tools/pet-calorie-calculator`, priority: '0.8', changefreq: 'weekly' },
-    { loc: `${BASE_URL}/changelog`, priority: '0.7', changefreq: 'weekly' },
-    { loc: `${BASE_URL}/privacy-policy`, priority: '0.4', changefreq: 'monthly' },
-    { loc: `${BASE_URL}/terms-of-service`, priority: '0.4', changefreq: 'monthly' },
-    { loc: `${BASE_URL}/data-deletion`, priority: '0.4', changefreq: 'monthly' }
+    { loc: `${BASE_URL}/`, priority: '1.0', changefreq: 'weekly', lastmod: '2026-11-01' },
+    { loc: `${BASE_URL}/blogs`, priority: '0.9', changefreq: 'weekly', lastmod: '2026-10-30' },
+    { loc: `${BASE_URL}/tools/pet-age-calculator`, priority: '0.8', changefreq: 'monthly', lastmod: '2026-10-28' },
+    { loc: `${BASE_URL}/tools/pet-calorie-calculator`, priority: '0.8', changefreq: 'monthly', lastmod: '2026-10-28' },
+    { loc: `${BASE_URL}/changelog`, priority: '0.7', changefreq: 'weekly', lastmod: '2026-10-30' },
+    { loc: `${BASE_URL}/privacy-policy`, priority: '0.4', changefreq: 'monthly', lastmod: '2026-10-26' },
+    { loc: `${BASE_URL}/terms-of-service`, priority: '0.4', changefreq: 'monthly', lastmod: '2026-10-26' },
+    { loc: `${BASE_URL}/data-deletion`, priority: '0.4', changefreq: 'monthly', lastmod: '2026-10-26' }
   ];
-
-  const todayIso = new Date().toISOString().split('T')[0];
 
   staticRoutes.forEach((route) => {
     xml += `  <url>\n`;
     xml += `    <loc>${route.loc}</loc>\n`;
-    xml += `    <lastmod>${todayIso}</lastmod>\n`;
+    xml += `    <lastmod>${route.lastmod}</lastmod>\n`;
     xml += `    <changefreq>${route.changefreq}</changefreq>\n`;
     xml += `    <priority>${route.priority}</priority>\n`;
     xml += `  </url>\n`;
   });
 
-  // Dynamic Blog routes (34 total)
+  // Dynamic Blog routes (39 total)
   posts.forEach((post) => {
+    const postLastmod = formatIsoDate(post.updatedAt || post.publishedAt);
     xml += `  <url>\n`;
     xml += `    <loc>${BASE_URL}/blogs/${post.slug}</loc>\n`;
-    xml += `    <lastmod>${todayIso}</lastmod>\n`;
-    xml += `    <changefreq>weekly</changefreq>\n`;
+    xml += `    <lastmod>${postLastmod}</lastmod>\n`;
+    xml += `    <changefreq>monthly</changefreq>\n`;
     xml += `    <priority>${post.featured ? '0.9' : '0.8'}</priority>\n`;
     if (post.coverImage) {
       xml += `    <image:image>\n`;
@@ -100,6 +109,34 @@ function generateRssFeed(posts) {
     <lastBuildDate>${buildDate}</lastBuildDate>
     <atom:link href="${BASE_URL}/rss.xml" rel="self" type="application/rss+xml" />
 `;
+
+  // Interactive Veterinary Tools in RSS Feed
+  const toolItems = [
+    {
+      title: 'Pet Calorie & Daily Portion Calculator (Dogs & Cats) — WSAVA RER/MER Tool',
+      url: `${BASE_URL}/tools/pet-calorie-calculator`,
+      description: 'Free veterinary pet calorie and daily food portion calculator. Calculate RER, MER, daily grams, and cup measurements for dogs and cats using WSAVA standards.',
+      category: 'Feeding & Nutrition'
+    },
+    {
+      title: 'Pet Age Calculator in Human Years (Dog & Cat AAHA Life Stage Chart)',
+      url: `${BASE_URL}/tools/pet-age-calculator`,
+      description: 'Free AAHA pet age calculator in human years. Convert dog and cat chronological age into biological human years with breed weight scaling and life stage charts.',
+      category: 'Health & Vaccines'
+    }
+  ];
+
+  toolItems.forEach((tool) => {
+    rss += `    <item>
+      <title>${escapeXml(tool.title)}</title>
+      <link>${tool.url}</link>
+      <guid isPermaLink="true">${tool.url}</guid>
+      <pubDate>${buildDate}</pubDate>
+      <description>${escapeXml(tool.description)}</description>
+      <category>${escapeXml(tool.category)}</category>
+      <author>Pet Horizon Editorial Team</author>
+    </item>\n`;
+  });
 
   posts.forEach((post) => {
     const postUrl = `${BASE_URL}/blogs/${post.slug}`;
@@ -189,6 +226,7 @@ Allow: /
 
 # Sitemaps & Feeds
 Sitemap: ${BASE_URL}/sitemap.xml
+Sitemap: ${BASE_URL}/rss.xml
 `;
 }
 
@@ -375,11 +413,30 @@ async function runPostBuild() {
     return `${(lastSpace > maxLen * 0.6 ? cut.slice(0, lastSpace) : cut).replace(/[.,;:\-–—]+$/, '')}.`;
   }
 
+  function clampDescription(text, minLen = 151, maxLen = 158) {
+    let clean = (text || '').trim().replace(/\s+/g, ' ');
+    const padPhrases = [
+      ' — Pet Horizon Veterinary Care & Family Routine Guide.',
+      ' Sync schedules and health records in the Pet Horizon app.'
+    ];
+    for (const pad of padPhrases) {
+      if (clean.length < minLen) {
+        clean = `${clean.replace(/[.,;:\-–—]+$/, '')}.${pad}`;
+      }
+    }
+    if (clean.length > maxLen) {
+      const cut = clean.slice(0, maxLen - 1);
+      const lastSpace = cut.lastIndexOf(' ');
+      clean = `${(lastSpace >= minLen - 1 ? cut.slice(0, lastSpace) : cut).replace(/[.,;:\-–—]+$/, '')}.`;
+    }
+    return clean;
+  }
+
   // Helper to replace head metadata
   function injectHead(template, { title, description, canonicalUrl, ogType, ogImage, jsonLd }) {
     let html = template;
     const safeTitle = clampText(title, 65);
-    const safeDesc = clampText(description, 152);
+    const safeDesc = clampDescription(description, 151, 158);
 
     // Title
     html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${escapeHtml(safeTitle)}</title>`);
@@ -438,7 +495,7 @@ async function runPostBuild() {
   // 1. Prerender /blogs (Blog Hub)
   {
     const blogTitle = 'PetHorizon Blog — Evidence-Based Pet Care & Health Guides';
-    const blogDesc = 'Veterinary-verified pet care guides for dog and cat owners: puppy feeding schedules, vaccination charts, medication safety, and family routine sync.';
+    const blogDesc = 'Explore veterinary-verified pet care guides for dog and cat owners: daily feeding schedules, vaccination charts, medication alarms, and family routine sync.';
     const blogUrl = `${BASE_URL}/blogs`;
 
     const blogCardsHtml = BLOG_POSTS.map((post) => `
@@ -453,14 +510,18 @@ async function runPostBuild() {
     const semanticBody = `
       <header style="max-width: 960px; margin: 40px auto 20px; padding: 0 16px;">
         <nav style="font-size: 12px; color: #6b7280; margin-bottom: 16px;"><a href="/">Home</a> &gt; <span>Blogs</span></nav>
-        <h1 style="font-size: 32px; font-weight: 800; color: #111827;">Pet Horizon Evidence-Based Care & Health Guides</h1>
+        <h1 style="font-size: 32px; font-weight: 800; color: #111827;">Pet Horizon Evidence-Based Care &amp; Health Guides</h1>
         <p style="font-size: 16px; color: #4b5563; max-width: 720px; line-height: 1.6;">${blogDesc}</p>
+        <div style="margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="/tools/pet-calorie-calculator" style="background: #ecfdf5; color: #047857; padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 700; text-decoration: none;">WSAVA Pet Calorie &amp; Portion Calculator &rarr;</a>
+          <a href="/tools/pet-age-calculator" style="background: #ecfdf5; color: #047857; padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 700; text-decoration: none;">AAHA Pet Age in Human Years Calculator &rarr;</a>
+        </div>
       </header>
       <main style="max-width: 960px; margin: 0 auto; padding: 0 16px;">
         ${blogCardsHtml}
       </main>
       <footer style="max-width: 960px; margin: 60px auto 40px; padding: 20px 16px; border-top: 1px solid #e5e7eb; font-size: 13px; color: #6b7280;">
-        <p>&copy; 2026 Pet Horizon. All rights reserved. <a href="/">Home</a> • <a href="/privacy-policy">Privacy Policy</a> • <a href="/changelog">Changelog</a> • <a href="/rss.xml">RSS Feed</a></p>
+        <p>&copy; 2026 Pet Horizon. All rights reserved. <a href="/">Home</a> • <a href="/tools/pet-calorie-calculator">Calorie Calculator</a> • <a href="/tools/pet-age-calculator">Age Calculator</a> • <a href="/privacy-policy">Privacy Policy</a> • <a href="/changelog">Changelog</a> • <a href="/rss.xml">RSS Feed</a></p>
       </footer>
     `;
 
@@ -496,7 +557,7 @@ async function runPostBuild() {
     writePrerenderedFile('/blogs', html);
   }
 
-  // 2. Prerender all 34 /blogs/[slug]
+  // 2. Prerender all /blogs/[slug]
   for (const post of BLOG_POSTS) {
     const full = getFullBlogArticle(post.slug);
     const postTitle = post.metaTitle || `${post.title} | Pet Horizon`;
@@ -504,10 +565,21 @@ async function runPostBuild() {
     const postUrl = `${BASE_URL}/blogs/${post.slug}`;
     const coverImg = post.coverImage.startsWith('http') ? post.coverImage : `${BASE_URL}${post.coverImage}`;
 
+    // Build Table of Contents jump links for Google Search Jump-to Sitelinks
+    const tocItems = (full && full.sections ? full.sections : []).map((sec) => ({
+      id: sec.id,
+      heading: sec.heading
+    }));
+
+    // Build Related Internal Topic Cluster Links (same category + featured pillars)
+    const sameCategoryPosts = BLOG_POSTS.filter((p) => p.slug !== post.slug && p.category === post.category);
+    const otherFeaturedPosts = BLOG_POSTS.filter((p) => p.slug !== post.slug && p.category !== post.category && p.featured);
+    const relatedClusterPosts = [...sameCategoryPosts, ...otherFeaturedPosts].slice(0, 6);
+
     // Generate rich semantic HTML body for crawlers
     let articleHtml = `
       <header style="max-width: 840px; margin: 40px auto 20px; padding: 0 16px;">
-        <nav style="font-size: 12px; color: #6b7280; margin-bottom: 16px;">
+        <nav aria-label="Breadcrumb" style="font-size: 12px; color: #6b7280; margin-bottom: 16px;">
           <a href="/">Home</a> &gt; <a href="/blogs">Blogs</a> &gt; <span>${escapeHtml(post.category)}</span>
         </nav>
         <span style="display: inline-block; background: #ecfdf5; color: #047857; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 9999px; text-transform: uppercase;">${escapeHtml(post.category)}</span>
@@ -523,12 +595,21 @@ async function runPostBuild() {
           <figcaption style="font-size: 12px; color: #6b7280; text-align: center; margin-top: 8px;">${escapeHtml(post.title)}</figcaption>
         </figure>
 
-        <section style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 20px; margin-bottom: 32px;">
-          <h2 style="font-size: 18px; font-weight: 800; color: #065f46; margin-top: 0;">Key Takeaways & Summary</h2>
+        <section style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 20px; margin-bottom: 24px;">
+          <h2 style="font-size: 18px; font-weight: 800; color: #065f46; margin-top: 0;">Key Takeaways &amp; Veterinary Summary</h2>
           <ul style="margin: 12px 0 0 20px; padding: 0; color: #166534; font-size: 14px; line-height: 1.6;">
             ${(post.keyTakeaways || []).map((k) => `<li>${escapeHtml(k)}</li>`).join('')}
           </ul>
         </section>
+
+        ${tocItems.length > 0 ? `
+        <nav aria-label="Table of Contents" style="background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 18px 20px; margin-bottom: 32px;">
+          <strong style="font-size: 14px; color: #111827; display: block; margin-bottom: 8px;">Table of Contents — Quick Jump Links</strong>
+          <ol style="margin: 0 0 0 20px; padding: 0; font-size: 14px; line-height: 1.7;">
+            ${tocItems.map((t) => `<li><a href="#${t.id}" style="color: #047857; text-decoration: none;">${escapeHtml(t.heading)}</a></li>`).join('')}
+          </ol>
+        </nav>
+        ` : ''}
 
         <p style="font-size: 18px; line-height: 1.7; color: #1f2937; margin-bottom: 32px; font-weight: 500;">${escapeHtml(full?.overviewSummary || post.excerpt)}</p>
     `;
@@ -599,8 +680,17 @@ async function runPostBuild() {
       });
     }
 
-    // App CTA box inside article
+    // Related Topic Cluster & Interactive Tools Internal Link Mesh
     articleHtml += `
+        <section aria-label="Related Veterinary Guides and Tools" style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 24px; margin: 40px 0;">
+          <h2 style="font-size: 20px; font-weight: 800; color: #111827; margin-top: 0;">Related ${escapeHtml(post.category)} Guides &amp; Interactive Calculators</h2>
+          <ul style="margin: 12px 0 0 20px; padding: 0; font-size: 15px; line-height: 1.8;">
+            <li><a href="/tools/pet-calorie-calculator" style="color: #047857; font-weight: 700;">Free WSAVA Pet Calorie &amp; Daily Gram Portion Calculator (Dogs &amp; Cats)</a></li>
+            <li><a href="/tools/pet-age-calculator" style="color: #047857; font-weight: 700;">Free AAHA Pet Age Calculator in Human Years (Breed Weight Matrix)</a></li>
+            ${relatedClusterPosts.map((rel) => `<li><a href="/blogs/${rel.slug}" style="color: #047857;">${escapeHtml(rel.title)}</a></li>`).join('')}
+          </ul>
+        </section>
+
         <div style="background: #111827; color: #ffffff; border-radius: 16px; padding: 32px 24px; margin: 48px 0; text-align: center;">
           <h3 style="font-size: 24px; font-weight: 800; margin-top: 0; color: #ffffff;">Streamline Your Pet Routine with Pet Horizon</h3>
           <p style="color: #9ca3af; font-size: 15px; max-width: 600px; margin: 12px auto 24px;">Organize medication reminders, veterinary vaccination records, and multi-user family sync in one free, privacy-first companion app.</p>
@@ -609,11 +699,18 @@ async function runPostBuild() {
       </main>
 
       <footer style="max-width: 840px; margin: 60px auto 40px; padding: 20px 16px; border-top: 1px solid #e5e7eb; font-size: 13px; color: #6b7280;">
-        <p>&copy; 2026 Pet Horizon. All rights reserved. <a href="/">Home</a> • <a href="/blogs">All Guides</a> • <a href="/privacy-policy">Privacy Policy</a> • <a href="/rss.xml">RSS Feed</a></p>
+        <p>&copy; 2026 Pet Horizon. All rights reserved. <a href="/">Home</a> • <a href="/blogs">All Guides</a> • <a href="/tools/pet-calorie-calculator">Calorie Calculator</a> • <a href="/tools/pet-age-calculator">Age Calculator</a> • <a href="/privacy-policy">Privacy Policy</a> • <a href="/rss.xml">RSS Feed</a></p>
       </footer>
     `;
 
     // Structured data
+    const articlePublishedIso = post.publishedAt && !Number.isNaN(Date.parse(post.publishedAt))
+      ? new Date(post.publishedAt).toISOString()
+      : '2026-10-26T00:00:00Z';
+    const articleModifiedIso = post.updatedAt && !Number.isNaN(Date.parse(post.updatedAt))
+      ? new Date(post.updatedAt).toISOString()
+      : articlePublishedIso;
+
     const articleJsonLd = [
       {
         '@context': 'https://schema.org',
@@ -622,8 +719,10 @@ async function runPostBuild() {
         headline: post.title,
         description: postDesc,
         image: [coverImg],
-        datePublished: '2026-10-26T00:00:00Z',
-        dateModified: new Date().toISOString(),
+        articleSection: post.category,
+        keywords: (post.tags || []).join(', '),
+        datePublished: articlePublishedIso,
+        dateModified: articleModifiedIso,
         author: {
           '@type': post.author.name.includes('Team') ? 'Organization' : 'Person',
           name: post.author.name,
@@ -671,29 +770,6 @@ async function runPostBuild() {
           name: takeaway
         }))
       });
-
-      articleJsonLd.push({
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        mainEntity: post.keyTakeaways.map((takeaway, idx) => {
-          const colonIdx = takeaway.indexOf(':');
-          const question = colonIdx > 5 && colonIdx < 80
-            ? takeaway.substring(0, colonIdx).trim()
-            : idx === 0
-            ? `What is the key takeaway for ${post.seoKeyword || post.title}?`
-            : idx === 1
-            ? `How often should you follow this routine?`
-            : `What is the recommended veterinary guideline for ${post.category}?`;
-          return {
-            '@type': 'Question',
-            name: question,
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: takeaway
-            }
-          };
-        })
-      });
     }
 
     let postHtml = injectHead(baseTemplate, {
@@ -712,7 +788,7 @@ async function runPostBuild() {
   // 3. Prerender /changelog
   {
     const changelogTitle = 'Changelog & Version Release Notes | Pet Horizon';
-    const changelogDesc = 'Track the latest features, improvements, expense manager enhancements, and release notes across every Pet Horizon update.';
+    const changelogDesc = 'Track the latest Pet Horizon app releases, smart medication alarm updates, family QR sync improvements, expense manager features, and version release notes.';
     const changelogUrl = `${BASE_URL}/changelog`;
 
     let html = injectHead(baseTemplate, {
@@ -769,6 +845,36 @@ async function runPostBuild() {
             { '@type': 'ListItem', position: 2, name: 'Tools', item: toolUrl },
             { '@type': 'ListItem', position: 3, name: 'Pet Calorie Calculator', item: toolUrl }
           ]
+        },
+        {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: [
+            {
+              '@type': 'Question',
+              name: 'How do veterinarians calculate daily calories for dogs and cats?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Veterinarians calculate Resting Energy Requirement using the WSAVA formula RER = 70 × (Body Weight in kg)^0.75, then multiply by a life-stage factor (1.6 for neutered adult dogs, 1.2 for indoor neutered cats, and 2.0–3.0 for growing puppies and kittens).'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: 'Why is weighing pet food in grams better than using a measuring cup?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Volumetric scoop cups vary by up to 25% per meal depending on kibble size and packing density. Weighing meals on a digital kitchen scale in grams prevents accidental overfeeding, canine obesity, and feline diabetes.'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: 'How many times a day should puppies, kittens, and adult pets eat?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Puppies and kittens under 4 months need 3 to 4 meals daily to prevent hypoglycemia. Adult dogs thrive on 2 timed meals per day, while indoor cats benefit from 2 to 4 smaller moisture-rich meals.'
+              }
+            }
+          ]
         }
       ]
     });
@@ -802,8 +908,10 @@ async function runPostBuild() {
           <h2 style="font-size: 20px; font-weight: bold; color: #111827;">Related Veterinary Nutrition Guides</h2>
           <ul style="color: #047857; line-height: 1.7; font-size: 14px;">
             <li><a href="/blogs/dog-feeding-schedule-by-age-puppy-to-adult">Dog Feeding Schedule by Age: Complete Puppy to Adult Portion Guide</a></li>
-            <li><a href="/blogs/cat-feeding-schedule-wet-vs-dry-food-hydration">Cat Feeding Schedule: Wet vs. Dry Food &amp; Feline Hydration Guide</a></li>
-            <li><a href="/blogs/pet-weight-management-obesity-rer-calorie-guide">Pet Weight Management &amp; Obesity Prevention Guide</a></li>
+            <li><a href="/blogs/cat-feeding-schedule-indoor-enrichment-guide">Cat Feeding Schedule Chart: Wet vs. Dry Food &amp; Indoor Enrichment Guide</a></li>
+            <li><a href="/blogs/pet-calorie-calculator-feeding-guide-apop">Pet Calorie Calculator &amp; Clinical RER Formula Feeding Guide</a></li>
+            <li><a href="/blogs/dog-cat-diabetes-insulin-feeding-schedule-guide">Dog &amp; Cat Diabetes Insulin &amp; 12-Hour Meal Timing Guide</a></li>
+            <li><a href="/blogs/rabbit-feeding-schedule-hay-diet-gi-stasis-guide">Rabbit Feeding Schedule: 85% Hay Ratio &amp; GI Stasis Prevention</a></li>
             <li><a href="/tools/pet-age-calculator">AAHA Pet Age Calculator in Human Years</a></li>
           </ul>
         </section>
@@ -901,19 +1009,29 @@ async function runPostBuild() {
       </header>
       <main style="max-width: 840px; margin: 0 auto; padding: 0 16px;">
         <section style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 24px; margin-bottom: 24px;">
-          <h2 style="font-size: 20px; font-weight: bold; color: #047857;">Scientific Dog & Cat Life Stage Conversion Matrix</h2>
+          <h2 style="font-size: 20px; font-weight: bold; color: #047857;">Scientific Dog &amp; Cat Life Stage Conversion Matrix</h2>
           <p style="color: #4b5563; line-height: 1.6; font-size: 14px;">According to AAHA and AVMA veterinary standards, pets mature rapidly in their first two years (Year 1 = 15 human years, Year 2 = 24 human years). Adult aging then scales by breed weight: Small dogs (+4 yrs/yr), Medium dogs (+5 yrs/yr), Large dogs (+6.5 yrs/yr), Giant breeds (+8 yrs/yr), and Domestic cats (+4 yrs/yr).</p>
         </section>
         <section style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 24px; margin-bottom: 24px;">
-          <h2 style="font-size: 20px; font-weight: bold; color: #111827;">Frequently Asked Questions: Pet Age & Lifespans</h2>
+          <h2 style="font-size: 20px; font-weight: bold; color: #111827;">Frequently Asked Questions: Pet Age &amp; Lifespans</h2>
           <h3 style="font-size: 16px; font-weight: bold; color: #047857; margin-top: 16px;">Is 1 dog year really equal to 7 human years?</h3>
           <p style="color: #4b5563; line-height: 1.6; font-size: 14px;">No. The multiply-by-7 formula is scientifically debunked. Puppies reach the equivalent of a 15-year-old in their first year and 24 by year two.</p>
           <h3 style="font-size: 16px; font-weight: bold; color: #047857; margin-top: 16px;">When is a pet considered senior?</h3>
           <p style="color: #4b5563; line-height: 1.6; font-size: 14px;">Giant dogs reach senior status at age 6; large dogs at age 7-8; medium dogs at age 8-9; small dogs at age 10-11; and cats at age 11.</p>
         </section>
+        <section style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 24px; margin-bottom: 24px;">
+          <h2 style="font-size: 20px; font-weight: bold; color: #111827;">Related Life-Stage &amp; Senior Care Guides</h2>
+          <ul style="color: #047857; line-height: 1.7; font-size: 14px;">
+            <li><a href="/blogs/senior-dog-care-mobility-nutrition-routine-guide">Senior Dog Care: Mobility, Joint Supplements &amp; Daily Routine Guide</a></li>
+            <li><a href="/blogs/senior-cat-care-health-diet-comfort-guide">Senior Cat Care: Managing Arthritis, Appetite &amp; Kidney Health</a></li>
+            <li><a href="/blogs/puppy-kitten-vaccination-schedule-booster-guide-worldwide">Kitten &amp; Puppy Vaccination Timetable: Core Booster Schedule</a></li>
+            <li><a href="/blogs/new-puppy-checklist-first-year-budget-guide">New Puppy Checklist: Essential Supplies &amp; First-Year Budget</a></li>
+            <li><a href="/tools/pet-calorie-calculator">WSAVA Pet Calorie &amp; Daily Portion Calculator</a></li>
+          </ul>
+        </section>
       </main>
       <footer style="max-width: 840px; margin: 60px auto 40px; padding: 20px 16px; border-top: 1px solid #e5e7eb; font-size: 13px; color: #6b7280;">
-        <p>&copy; 2026 Pet Horizon. All rights reserved. <a href="/">Home</a> • <a href="/tools/pet-calorie-calculator">Calorie Calculator</a> • <a href="/privacy-policy">Privacy Policy</a></p>
+        <p>&copy; 2026 Pet Horizon. All rights reserved. <a href="/">Home</a> • <a href="/blogs">Veterinary Guides</a> • <a href="/tools/pet-calorie-calculator">Calorie Calculator</a> • <a href="/privacy-policy">Privacy Policy</a></p>
       </footer>
     `;
     html = html.replace(/<div id="root">[\s\S]*?<\/div>/i, `<div id="root">${bodyHtml}</div>`);
@@ -923,7 +1041,7 @@ async function runPostBuild() {
   // 4. Prerender /privacy-policy
   {
     const privTitle = 'Official Privacy Policy | Pet Horizon';
-    const privDesc = 'Read the official Pet Horizon privacy policy regarding encrypted pet records, zero data monetization, and local offline-first security.';
+    const privDesc = 'Read the official Pet Horizon privacy policy covering encrypted pet health records, zero third-party data selling, and offline-first household data safety.';
     const privUrl = `${BASE_URL}/privacy-policy`;
 
     let html = injectHead(baseTemplate, {
@@ -941,7 +1059,7 @@ async function runPostBuild() {
   // 5. Prerender /terms-of-service
   {
     const termsTitle = 'Terms of Service | Pet Horizon';
-    const termsDesc = 'Read the official terms of service and license agreement for Pet Horizon mobile application and web portal.';
+    const termsDesc = 'Read the official Pet Horizon terms of service, user license agreement, family hub sharing guidelines, and medical disclaimer for our Android and web app.';
     const termsUrl = `${BASE_URL}/terms-of-service`;
 
     let html = injectHead(baseTemplate, {
@@ -959,7 +1077,7 @@ async function runPostBuild() {
   // 6. Prerender /data-deletion
   {
     const delTitle = 'Data & Account Deletion Instructions | Pet Horizon';
-    const delDesc = 'How to request complete data, account, and pet records deletion in compliance with Google Play Store policies and GDPR.';
+    const delDesc = 'Learn how to request complete account, household hub, and pet health record deletion in Pet Horizon in full compliance with Google Play and GDPR policies.';
     const delUrl = `${BASE_URL}/data-deletion`;
 
     let html = injectHead(baseTemplate, {

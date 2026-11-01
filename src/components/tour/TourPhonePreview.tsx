@@ -163,7 +163,7 @@ export default function TourPhonePreview({
                   src={screen.screenshot}
                   alt={`Pet Horizon ${screen.name} Screen`}
                   frameClassName="w-[220px] sm:w-[260px] lg:w-[285px]"
-                  priority={Math.abs(diff) <= 1}
+                  priority={false}
                 />
 
                 {/* Interactive Dim Overlay for flanking non-active devices */}

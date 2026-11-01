@@ -2,7 +2,7 @@ import { FullBlogArticle } from './types';
 
 export const petFirstAidKitArticle: FullBlogArticle = {
   slug: 'pet-first-aid-kit-checklist-emergency-preparedness-plan',
-  readTime: '16 min read',
+  readTime: '8 min read',
   overviewSummary:
     'When an acute medical crisis strikes—whether an arterial laceration from broken glass, sudden airway obstruction, chemical exposure, or sudden cardiopulmonary arrest—having a purpose-built pet first aid kit and knowing evidence-based stabilization protocols can mean the difference between survival and death before reaching an emergency veterinary hospital. Standard human first aid kits contain analgesics (such as acetaminophen, ibuprofen, and naproxen) and topical agents (such as tea tree oil or hydrocortisone formulations with zinc) that cause acute renal failure, hepatic necrosis, or red blood cell hemolysis in dogs and cats. This veterinary emergency preparedness guide adheres to the RECOVER Initiative (Reassessment Campaign on Veterinary Resuscitation) clinical guidelines, detailing vital sign diagnostic thresholds, triage scoring, life-support algorithms, arterial hemorrhage control, and 72-hour disaster evacuation go-bags.',
   sections: [

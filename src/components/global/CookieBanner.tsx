@@ -14,7 +14,7 @@ export default function CookieBanner({ onNavigateLegal }: CookieBannerProps) {
     try {
       const consent = localStorage.getItem(STORAGE_KEY);
       if (!consent) {
-        const timer = setTimeout(() => setIsVisible(true), 1000);
+        const timer = setTimeout(() => setIsVisible(true), 2800);
         return () => clearTimeout(timer);
       }
     } catch {

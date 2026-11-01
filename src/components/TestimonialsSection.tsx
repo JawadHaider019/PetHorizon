@@ -21,27 +21,21 @@ export default function TestimonialsSection() {
         <motion.div {...fadeInUp} className="text-center max-w-2xl mx-auto mb-6 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-[#166534] bg-emerald-900/[0.05] border border-emerald-800/15 mb-2 sm:mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#166534] shrink-0" />
-            Google Play &amp; Verified Tester Reviews
+            Early Access Beta Feedback
           </div>
 
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#17191C] tracking-tight leading-tight">
-            Real Reviews from Pet Parents
+            Early Feedback from Our Beta Testing Community
           </h2>
 
           <p className="text-slate-600 text-xs sm:text-base mt-2 font-normal">
-            Authentic experiences from pet families tracking feeding, medication, and veterinary logs on Android.
+            Authentic feedback from early-access pet parents and community testers coordinating feeding, medication alarms, and veterinary logs on Android.
           </p>
 
-          {/* Google Play Rating Strip with Direct Link */}
+          {/* Google Play Early Access Link */}
           <div className="mt-4 sm:mt-5 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white rounded-full border border-black/[0.06] shadow-2xs whitespace-nowrap shrink-0">
-              <div className="flex items-center gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                ))}
-              </div>
-              <span className="text-xs font-black text-slate-900">5.0 / 5.0</span>
-              <span className="text-[11px] text-slate-400 font-medium">Google Play Store</span>
+              <span className="text-xs font-bold text-slate-800">Early Access on Google Play</span>
             </div>
 
             <a
@@ -97,12 +91,12 @@ export default function TestimonialsSection() {
                     <p className="text-[10px] text-slate-500 font-medium">{item.petContext}</p>
                   </div>
                 </div>
-                <span className="text-[10px] text-slate-400 font-mono">{item.date}</span>
+                <span className="text-[10px] text-slate-600 font-mono">{item.date}</span>
               </div>
             </div>
           ))}
         </div>
-        <p className="text-center text-[10px] text-slate-400 mt-1">Swipe to view more verified reviews</p>
+        <p className="text-center text-[10px] text-slate-600 mt-1">Swipe to view more verified reviews</p>
       </div>
 
       {/* DESKTOP VIEW: Continuous Smooth Sliding Marquee (>=sm) */}

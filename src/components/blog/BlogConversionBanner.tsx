@@ -1,4 +1,5 @@
 import { PLAY_STORE_URL } from '../../config/siteConfig';
+import { trackPlayStoreClick } from '../../utils/analytics';
 
 interface BlogConversionBannerProps {
   onOpenQrModal?: () => void;
@@ -19,6 +20,7 @@ export default function BlogConversionBanner({ onOpenQrModal }: BlogConversionBa
             href={PLAY_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackPlayStoreClick('blog_conversion_banner')}
             className="rounded-xl bg-white px-5 py-2.5 text-xs font-bold text-[#0c1b1a] hover:bg-gray-100 transition shadow-sm"
           >
             Download on Google Play

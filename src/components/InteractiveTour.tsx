@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { TOUR_SCREENS } from '../data/tourData';
 import TourPhonePreview from './tour/TourPhonePreview';
 
@@ -7,6 +7,7 @@ import { fadeInUp } from '../config/animationVariants';
 
 export default function InteractiveTour() {
   const [selectedScreen, setSelectedScreen] = useState<string>('home');
+  const sectionRef = useRef<HTMLElement>(null);
   const current = TOUR_SCREENS.find((s) => s.id === selectedScreen) || TOUR_SCREENS[0];
   const currentIndex = TOUR_SCREENS.findIndex((s) => s.id === selectedScreen);
 
@@ -15,24 +16,30 @@ export default function InteractiveTour() {
     setSelectedScreen(TOUR_SCREENS[index].id);
   };
 
-  // Preload all tour screenshots into browser cache on mount/idle so tab switches are instantaneous
+  // Preload tour screenshots only when user scrolls near the tour section to avoid competing with Hero LCP
   useEffect(() => {
-    const preloadScreenshots = () => {
-      TOUR_SCREENS.forEach((screen) => {
-        const img = new Image();
-        img.src = screen.screenshot;
-      });
-    };
+    const el = sectionRef.current;
+    if (!el || typeof IntersectionObserver === 'undefined') return;
 
-    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-      (window as any).requestIdleCallback(preloadScreenshots, { timeout: 1500 });
-    } else {
-      setTimeout(preloadScreenshots, 200);
-    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          TOUR_SCREENS.forEach((screen) => {
+            const img = new Image();
+            img.src = screen.screenshot;
+          });
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '300px' }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <section id="tour" className="py-14 sm:py-24 bg-[#FAF8F5] relative overflow-hidden scroll-mt-20 border-t border-black/[0.05]">
+    <section ref={sectionRef} id="tour" className="py-14 sm:py-24 bg-[#FAF8F5] relative overflow-hidden scroll-mt-20 border-t border-black/[0.05]">
       <div id="features" className="absolute -top-20 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">

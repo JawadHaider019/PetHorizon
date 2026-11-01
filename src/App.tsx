@@ -3,24 +3,12 @@ import BackgroundCanvas from './components/BackgroundCanvas';
 import CookieBanner from './components/global/CookieBanner';
 import Navbar, { NavView } from './components/Navbar';
 import Hero from './components/Hero';
-import BentoFeatures from './components/BentoFeatures';
-import FamilyHubSection from './components/FamilyHubSection';
-import DailyJournalSection from './components/DailyJournalSection';
-import InteractiveTour from './components/InteractiveTour';
-import TestimonialsSection from './components/TestimonialsSection';
-import SpeciesGrid from './components/home/SpeciesGrid';
-import DayTimeline from './components/home/DayTimeline';
-import HomeSeoHubSection from './components/home/HomeSeoHubSection';
-import PricingSection from './components/PricingSection';
-import FAQSection from './components/FAQSection';
-import ContactUs from './components/ContactUs';
-import DownloadCTA from './components/DownloadCTA';
 import Footer from './components/Footer';
-import { BLOG_POSTS } from './data/blogData';
 import { useAppNavigation, ExtendedAppView } from './hooks/useAppNavigation';
 import { usePageSeo } from './hooks/usePageSeo';
 
-// Dynamic code-splitting for non-homepage views & modals to optimize initial bundle size & LCP
+// Dynamic code-splitting for below-the-fold homepage & subpage views to maximize FCP, LCP & TBT
+const HomeBelowFold = lazy(() => import('./components/home/HomeBelowFold'));
 const LegalPortal = lazy(() => import('./components/LegalPortal'));
 const BlogHub = lazy(() => import('./components/BlogHub'));
 const BlogArticleDetail = lazy(() => import('./components/BlogArticleDetail'));
@@ -38,33 +26,7 @@ export default function App() {
   const [isQrModalOpen, setIsQrModalOpen] = useState(false);
   const [isIosModalOpen, setIsIosModalOpen] = useState(false);
 
-  const currentArticle =
-    viewState.view === 'blog-article' && viewState.articleSlug
-      ? BLOG_POSTS.find((p) => p.slug === viewState.articleSlug) ||
-        BLOG_POSTS.find((p) => viewState.articleSlug && p.slug.includes(viewState.articleSlug)) ||
-        // Dynamic fallback for localized or partial slug variations
-        BLOG_POSTS.find((p) => {
-          const s = viewState.articleSlug || '';
-          if (s.includes('cat-feeding')) return p.slug.includes('cat-feeding');
-          if (s.includes('feeding')) return p.slug.includes('feeding');
-          if (s.includes('kidney') || s.includes('hydration')) return p.slug.includes('kidney');
-          if (s.includes('emergency') || s.includes('red-flag')) return p.slug.includes('emergency');
-          if (s.includes('toxic') || s.includes('poison')) return p.slug.includes('toxic');
-          if (s.includes('potty')) return p.slug.includes('potty');
-          if (s.includes('heartworm') || s.includes('flea')) return p.slug.includes('heartworm');
-          if (s.includes('calorie') || s.includes('rer')) return p.slug.includes('calorie');
-          if (s.includes('vaccin')) return p.slug.includes('vaccin');
-          if (s.includes('pet-apps') || s.includes('care-apps')) return p.slug.includes('best-pet-care-apps');
-          if (s.includes('medication') || s.includes('record')) return p.slug.includes('record');
-          if (s.includes('coparent')) return p.slug.includes('coparent');
-          if (s.includes('checklist')) return p.slug.includes('checklist');
-          if (s.includes('tracker')) return p.slug.includes('tracker');
-          if (s.includes('cost') || s.includes('budget')) return p.slug.includes('budget');
-          return false;
-        }) || null
-      : null;
-
-  usePageSeo(viewState, currentArticle);
+  usePageSeo(viewState, null);
 
   const navbarActiveView: NavView =
     viewState.view === 'blog-article'
@@ -98,9 +60,9 @@ export default function App() {
       <main id="main-content" tabIndex={-1} className="outline-none">
         <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center" />}>
           {/* Blog Article View */}
-          {viewState.view === 'blog-article' && currentArticle && (
+          {viewState.view === 'blog-article' && viewState.articleSlug && (
             <BlogArticleDetail
-              article={currentArticle}
+              articleSlug={viewState.articleSlug}
               onNavigateBack={() => navigateTo('blog')}
               onNavigateHome={() => navigateTo('home')}
               onSelectArticle={(slug) => navigateToArticle(slug)}
@@ -163,24 +125,14 @@ export default function App() {
               onOpenQrModal={() => setIsQrModalOpen(true)}
               onOpenIosModal={() => setIsIosModalOpen(true)}
             />
-            <BentoFeatures />
-            <FamilyHubSection />
-            <DailyJournalSection />
-            <InteractiveTour />
-            <TestimonialsSection />
-            <SpeciesGrid />
-            <DayTimeline />
-            <PricingSection />
-            <HomeSeoHubSection
-              onNavigate={(view) => navigateTo(view)}
-              onSelectArticle={(slug) => navigateToArticle(slug)}
-            />
-            <FAQSection />
-            <ContactUs />
-            <DownloadCTA
-              onOpenQrModal={() => setIsQrModalOpen(true)}
-              onOpenIosModal={() => setIsIosModalOpen(true)}
-            />
+            <Suspense fallback={<div className="min-h-screen" />}>
+              <HomeBelowFold
+                onNavigate={(view) => navigateTo(view)}
+                onSelectArticle={(slug) => navigateToArticle(slug)}
+                onOpenQrModal={() => setIsQrModalOpen(true)}
+                onOpenIosModal={() => setIsIosModalOpen(true)}
+              />
+            </Suspense>
           </>
         )}
       </main>
@@ -193,10 +145,16 @@ export default function App() {
 
       {/* Global Modals & Overlays */}
       <CookieBanner onNavigateLegal={(doc) => navigateTo(doc)} />
-      <Suspense fallback={null}>
-        <QrDownloadModal isOpen={isQrModalOpen} onClose={() => setIsQrModalOpen(false)} />
-        <IosWaitlistModal isOpen={isIosModalOpen} onClose={() => setIsIosModalOpen(false)} />
-      </Suspense>
+      {isQrModalOpen && (
+        <Suspense fallback={null}>
+          <QrDownloadModal isOpen={isQrModalOpen} onClose={() => setIsQrModalOpen(false)} />
+        </Suspense>
+      )}
+      {isIosModalOpen && (
+        <Suspense fallback={null}>
+          <IosWaitlistModal isOpen={isIosModalOpen} onClose={() => setIsIosModalOpen(false)} />
+        </Suspense>
+      )}
     </div>
   );
 }

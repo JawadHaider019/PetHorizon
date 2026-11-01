@@ -23,18 +23,12 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
     excerpt:
       'Rabbits require an 85% grass hay diet to keep their hindgut moving and wear down continuously growing teeth. Learn safe leafy green portions, pellet gram limits, and early GI stasis warning signs.',
     category: 'Feeding & Nutrition',
-    readTime: '14 min read',
+    readTime: '3 min read',
     coverImage:
       'https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
     featured: false,
     targetLocation: 'Global',
-    tags: [
-      'Rabbit Feeding Schedule',
-      'Rabbit Hay Diet',
-      'GI Stasis Prevention',
-      'Small Pet Care',
-      'Pet Horizon'
-    ],
+    tags: ['Rabbit Feeding Schedule', 'Rabbit Hay Diet', 'GI Stasis Prevention', 'Small Pet Care', 'Pet Horizon'],
     seoKeyword: 'rabbit feeding schedule hay diet gi stasis guide',
     searchVolume: '14.2K/mo',
     searchRankBadge: 'Small Pet Pillar',
@@ -44,14 +38,12 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
       'Zero fecal output or refusal of greens for 8 to 12 hours is a life-threatening exotic veterinary emergency.',
       'PetHorizon Small Pet profiles let families log daily hay refills, greens, and litter output.'
     ],
-    trendingSearches: [
-      '#rabbit feeding schedule',
-      '#gi stasis rabbit signs',
-      '#how much hay for rabbit',
-      '#safe leafy greens for rabbits'
-    ],
+    trendingSearches: ['#rabbit feeding schedule', '#gi stasis rabbit signs', '#how much hay for rabbit', '#safe leafy greens for rabbits'],
     author: EDITORIAL_AUTHOR,
+    sourceName: 'House Rabbit Society (HRS)',
+    sourceUrl: 'https://rabbit.org/care/diet/',
     publishedAt: 'October 28, 2026',
+    updatedAt: 'October 30, 2026',
     metaTitle: 'Rabbit Feeding Schedule, Hay Ratios & GI Stasis Guide | Pet Horizon',
     metaDescription:
       'Complete exotic veterinary rabbit feeding schedule. Learn the 85% hay pyramid, safe daily greens, pellet limits, and how to prevent GI stasis.',
@@ -79,18 +71,12 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
     excerpt:
       'All-seed diets and erratic indoor lighting cause avian fatty liver disease and hormonal plucking. Master the morning vegetable chop routine, UV-B exposure, and 12-hour dark sleep schedules.',
     category: 'Feeding & Nutrition',
-    readTime: '13 min read',
+    readTime: '3 min read',
     coverImage:
       'https://images.unsplash.com/photo-1646291077846-c4ca2ac3d0ce?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
     featured: false,
     targetLocation: 'Global',
-    tags: [
-      'Parrot Daily Routine',
-      'Bird Chop Recipe',
-      'Avian Care Schedule',
-      'Cockatiel Conure Care',
-      'Pet Horizon'
-    ],
+    tags: ['Parrot Daily Routine', 'Bird Chop Recipe', 'Avian Care Schedule', 'Cockatiel Conure Care', 'Pet Horizon'],
     seoKeyword: 'parrot bird daily routine chop diet sleep schedule',
     searchVolume: '9.4K/mo',
     searchRankBadge: 'Avian Care Guide',
@@ -100,14 +86,12 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
       'Companion birds require 10 to 12 hours of uninterrupted dark, quiet sleep to regulate photoperiod hormones.',
       'Weigh birds weekly on a digital gram scale in PetHorizon to detect masked illness before symptoms escalate.'
     ],
-    trendingSearches: [
-      '#parrot chop diet schedule',
-      '#how much sleep do parrots need',
-      '#bird daily care routine',
-      '#avian weight tracking'
-    ],
+    trendingSearches: ['#parrot chop diet schedule', '#how much sleep do parrots need', '#bird daily care routine', '#avian weight tracking'],
     author: EDITORIAL_AUTHOR,
+    sourceName: 'Association of Avian Veterinarians (AAV)',
+    sourceUrl: 'https://www.aav.org/page/birdowners',
     publishedAt: 'October 28, 2026',
+    updatedAt: 'October 30, 2026',
     metaTitle: 'Parrot & Bird Daily Routine: Chop Diet & Sleep Schedule | Pet Horizon',
     metaDescription:
       'Evidence-based daily care schedule for parrots, cockatiels, budgies, and conures. Learn fresh chop feeding windows, UV needs, and 12-hour sleep rules.',
@@ -129,18 +113,12 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
     excerpt:
       'Bringing home an adopted shelter dog? Understand the veterinary behavior 3-3-3 decompression timeline and how clockwork feeding and walking routines eliminate post-adoption anxiety.',
     category: 'Dog Care',
-    readTime: '15 min read',
+    readTime: '3 min read',
     coverImage:
-      'https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
+      'https://images.unsplash.com/photo-1535930891776-0c2dfb7fda1a?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
     featured: true,
     targetLocation: 'Global',
-    tags: [
-      '3-3-3 Rule Rescue Dog',
-      'Adopting Shelter Dog',
-      'Dog Decompression Routine',
-      'New Rescue Dog Schedule',
-      'Pet Horizon'
-    ],
+    tags: ['3-3-3 Rule Rescue Dog', 'Adopting Shelter Dog', 'Dog Decompression Routine', 'New Rescue Dog Schedule', 'Pet Horizon'],
     seoKeyword: '3 3 3 rule rescue dog decompression routine',
     searchVolume: '28K/mo',
     searchRankBadge: 'Adoption Essential',
@@ -150,14 +128,12 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
       'First 3 Months: Secure attachment forms and house-training solidifies through predictable daily routines.',
       'PetHorizon Family Hub keeps every household member aligned on exact walk, crate, and meal times.'
     ],
-    trendingSearches: [
-      '#3 3 3 rule dog adoption',
-      '#rescue dog decompression timeline',
-      '#first week with adopted dog',
-      '#shelter dog routine schedule'
-    ],
+    trendingSearches: ['#3 3 3 rule dog adoption', '#rescue dog decompression timeline', '#first week with adopted dog', '#shelter dog routine schedule'],
     author: CARE_TEAM_AUTHOR,
+    sourceName: 'The Humane Society of the United States (HSUS)',
+    sourceUrl: 'https://www.humanesociety.org/resources/how-help-fearful-dog',
     publishedAt: 'October 29, 2026',
+    updatedAt: 'October 30, 2026',
     metaTitle: '3-3-3 Rule for Rescue Dogs: Decompression & Routine Checklist | Pet Horizon',
     metaDescription:
       'Master the 3-3-3 rule for newly adopted rescue dogs. Learn what to expect in the first 3 days, 3 weeks, and 3 months with a structured daily schedule.',
@@ -185,18 +161,12 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
     excerpt:
       'Managing pet diabetes requires strict 12-hour coordination between weighed meals and insulin injections. Learn the "Feed First, Then Inject" rule, missed dose safety, and how to prevent double-dosing.',
     category: 'Health & Vaccines',
-    readTime: '15 min read',
+    readTime: '3 min read',
     coverImage:
-      'https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
+      'https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
     featured: false,
     targetLocation: 'Global',
-    tags: [
-      'Dog Diabetes Insulin Schedule',
-      'Cat Diabetes Feeding',
-      'Pet Medication Alarm',
-      'Prevent Double Dosing',
-      'Pet Horizon'
-    ],
+    tags: ['Dog Diabetes Insulin Schedule', 'Cat Diabetes Feeding', 'Pet Medication Alarm', 'Prevent Double Dosing', 'Pet Horizon'],
     seoKeyword: 'dog cat diabetes insulin feeding schedule',
     searchVolume: '11.8K/mo',
     searchRankBadge: 'Clinical Protocol',
@@ -206,14 +176,12 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
       'Keep corn syrup or honey accessible to rub on gums immediately if hypoglycemic trembling or weakness occurs.',
       'PetHorizon’s Anti-Collision Care Lock prevents spouses or roommates from accidentally administering a second insulin dose.'
     ],
-    trendingSearches: [
-      '#dog insulin feeding schedule',
-      '#cat diabetes missed insulin dose',
-      '#prevent double dosing pet medicine',
-      '#12 hour pet medication alarm'
-    ],
+    trendingSearches: ['#dog insulin feeding schedule', '#cat diabetes missed insulin dose', '#prevent double dosing pet medicine', '#12 hour pet medication alarm'],
     author: EDITORIAL_AUTHOR,
+    sourceName: 'American Animal Hospital Association (AAHA) Diabetes Guidelines',
+    sourceUrl: 'https://www.aaha.org/aaha-guidelines/diabetes-management/diabetes-management-home/',
     publishedAt: 'October 29, 2026',
+    updatedAt: 'October 30, 2026',
     metaTitle: 'Dog & Cat Diabetes Insulin & Feeding Schedule Guide | Pet Horizon',
     metaDescription:
       'AAHA-aligned guide to managing dog and cat diabetes. Master 12-hour meal and insulin timing, missed dose rules, and family double-dose prevention.',
@@ -235,18 +203,12 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
     excerpt:
       'Nearly 40% of microchipped lost pets have unregistered or outdated contact files. Understand 15-digit ISO 11784/11785 standards, the AAHA Universal Microchip Lookup tool, and digital ID storage.',
     category: 'Health & Vaccines',
-    readTime: '12 min read',
+    readTime: '3 min read',
     coverImage:
-      'https://images.unsplash.com/photo-1583511655826-05700d52f4d9?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
+      'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
     featured: false,
     targetLocation: 'Global',
-    tags: [
-      'Pet Microchip Lookup',
-      'ISO 15 Digit Microchip',
-      'AAHA Microchip Registry',
-      'Digital Pet Health Card',
-      'Pet Horizon'
-    ],
+    tags: ['Pet Microchip Lookup', 'ISO 15 Digit Microchip', 'AAHA Microchip Registry', 'Digital Pet Health Card', 'Pet Horizon'],
     seoKeyword: 'pet microchip registration universal lookup guide',
     searchVolume: '16.4K/mo',
     searchRankBadge: 'ID & Travel Standard',
@@ -256,14 +218,12 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
       'Use the AAHA Universal Pet Microchip Lookup tool annually to verify which registry holds your active contact record.',
       'Store your pet’s 15-digit microchip code inside PetHorizon’s Clinical Health Card for instant copy and PDF export.'
     ],
-    trendingSearches: [
-      '#pet microchip lookup',
-      '#how to register dog microchip',
-      '#iso 15 digit microchip travel',
-      '#aaha universal microchip search'
-    ],
+    trendingSearches: ['#pet microchip lookup', '#how to register dog microchip', '#iso 15 digit microchip travel', '#aaha universal microchip search'],
     author: CARE_TEAM_AUTHOR,
+    sourceName: 'American Animal Hospital Association (AAHA) Universal Microchip Lookup',
+    sourceUrl: 'https://www.aaha.org/your-pet/pet-owner-education/ask-aaha/microchips/',
     publishedAt: 'October 30, 2026',
+    updatedAt: 'October 30, 2026',
     metaTitle: 'Pet Microchip Registration & Universal Lookup Guide | Pet Horizon',
     metaDescription:
       'Learn how to check and register your dog or cat’s microchip using the AAHA Universal Lookup tool, ISO 15-digit travel rules, and PetHorizon Health Cards.',
@@ -277,4 +237,3 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
     ]
   }
 ];
-

@@ -28,8 +28,11 @@ export interface BlogPost {
     bio: string;
   };
   publishedAt: string;
+  updatedAt?: string;
   metaTitle: string;
   metaDescription: string;
+  sourceName?: string;
+  sourceUrl?: string;
   relatedProductLinks?: {
     feature: string;
     url: string;

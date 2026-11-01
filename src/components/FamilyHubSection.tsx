@@ -63,7 +63,7 @@ export default function FamilyHubSection() {
                 className="hidden sm:flex absolute -top-5 -left-6 sm:-left-12 bg-white text-slate-900 rounded-2xl p-2.5 shadow-xl border border-black/[0.06] items-center gap-2.5 z-30 text-left"
               >
                 <div className="w-10 h-10 rounded-xl overflow-hidden border border-black/[0.05] shadow-2xs shrink-0">
-                  <img src="/cute-3d-pets.webp" alt="Pet Companions" className="w-full h-full object-cover" style={{ mixBlendMode: 'multiply' }} />
+                  <img src="/cute-3d-pets-sm.webp" alt="Pet Companions" width={40} height={40} loading="lazy" decoding="async" className="w-full h-full object-cover" style={{ mixBlendMode: 'multiply' }} />
                 </div>
                 <div className="pr-1.5">
                   <p className="text-[9px] font-black uppercase tracking-wider text-emerald-800">Shared Pet Profile</p>
@@ -128,7 +128,7 @@ export default function FamilyHubSection() {
                       <div className="w-8 h-8 rounded-xl bg-emerald-950/[0.05] text-emerald-800 flex items-center justify-center font-bold text-xs">
                         <Icon className="w-4 h-4" />
                       </div>
-                      <span className="text-xs font-bold text-slate-400 font-mono tracking-wider">
+                      <span className="text-xs font-bold text-slate-600 font-mono tracking-wider">
                         {st.num}
                       </span>
                     </div>

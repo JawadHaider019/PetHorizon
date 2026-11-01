@@ -41,9 +41,13 @@ export function AppleIcon({ className = "w-6 h-6" }: { className?: string }) {
   );
 }
 
+import { trackPlayStoreClick } from '../utils/analytics';
+
 interface BadgeProps {
   href?: string;
   className?: string;
+  trackingLocation?: string;
+  onClick?: () => void;
 }
 
 /**
@@ -52,12 +56,20 @@ interface BadgeProps {
 export function GooglePlayBadge({
   href = "https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon",
   className = "",
+  trackingLocation = "general_badge",
+  onClick,
 }: BadgeProps) {
+  const handleClick = () => {
+    trackPlayStoreClick(trackingLocation);
+    if (onClick) onClick();
+  };
+
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={handleClick}
       className={`inline-flex items-center gap-2.5 sm:gap-3 bg-black hover:bg-neutral-900 text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-neutral-700/80 shadow-xs hover:shadow-md transition-all duration-200 group shrink-0 ${className}`}
     >
       <GooglePlayIcon className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 group-hover:scale-105 transition-transform" />

@@ -42,7 +42,7 @@ export default function DownloadCTA({ onOpenQrModal, onOpenIosModal }: DownloadC
 
               {/* Download Buttons */}
               <div className="flex flex-wrap items-center gap-3 pt-2">
-                <GooglePlayBadge href={playStoreUrl} className="px-5 py-3 rounded-full shadow-md" />
+                <GooglePlayBadge href={playStoreUrl} trackingLocation="download_cta_section" className="px-5 py-3 rounded-full shadow-md" />
                 <AppStoreBadge onClick={onOpenIosModal} className="px-5 py-3 rounded-full shadow-md" />
                 {onOpenQrModal && (
                   <QrScanButton onClick={onOpenQrModal} className="px-4 py-3 rounded-full shadow-sm bg-[#FAF8F5] text-slate-800 hover:bg-slate-100 border border-black/[0.08]" />
@@ -79,8 +79,8 @@ export default function DownloadCTA({ onOpenQrModal, onOpenIosModal }: DownloadC
                     <img
                       src="/cute-3d-pets.webp"
                       alt="Pet Horizon 3D Mascot Companions - Golden Retriever Puppy and Fluffy Kitten"
-                      width={1024}
-                      height={1024}
+                      width={528}
+                      height={528}
                       loading="lazy"
                       decoding="async"
                       className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
@@ -92,8 +92,7 @@ export default function DownloadCTA({ onOpenQrModal, onOpenIosModal }: DownloadC
                       Co-manage all your pets in harmony
                     </p>
                     <div className="flex items-center justify-center gap-1.5 mt-1.5 text-[11px] font-semibold text-slate-600">
-                      <span className="text-amber-500">★★★★★</span>
-                      <span className="font-bold text-slate-900">Rated 5.0 on Google Play</span>
+                      <span className="font-bold text-slate-900">Early Access on Google Play</span>
                     </div>
                   </div>
                 </motion.div>

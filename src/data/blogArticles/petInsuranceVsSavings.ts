@@ -2,7 +2,7 @@ import { FullBlogArticle } from './types';
 
 export const petInsuranceVsSavingsArticle: FullBlogArticle = {
   slug: 'pet-insurance-vs-savings-fund-vet-cost-guide',
-  readTime: '15 min read',
+  readTime: '5 min read',
   overviewSummary:
     'Veterinary medicine has achieved unprecedented technological sophistication—including 3D MRI scans, specialized canine oncology, advanced orthopedic cruciate ligament surgeries (TPLO), and laparoscopic biopsies. But advanced care carries human-grade costs: emergency foreign body surgeries frequently run between $3,500 and $7,000, while complex cancer protocols easily surpass $10,000. Faced with these potential expenses, pet owners must evaluate: is comprehensive pet health insurance truly worth the monthly premium, or is a dedicated high-yield emergency savings fund a superior financial strategy? This unbiased guide analyzes the mathematics, pre-existing condition exclusions, reimbursement models, and budgeting strategies.',
   sections: [

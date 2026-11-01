@@ -1,6 +1,48 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/blogs/dog-dental-care-at-home-tartar-brushing-guide",
+      "destination": "/blogs/dog-dental-care-brushing-teeth-periodontal-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/best-pet-care-apps-daily-routine-health-passports",
+      "destination": "/blogs/best-pet-care-apps-medication-reminders-family-sync",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/cat-feeding-schedule-wet-vs-dry-food-hydration",
+      "destination": "/blogs/cat-feeding-schedule-indoor-enrichment-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/pet-weight-management-obesity-rer-calorie-guide",
+      "destination": "/blogs/pet-calorie-calculator-feeding-guide-apop",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/toxic-foods-dogs-cats-aspca-poison-control",
+      "destination": "/blogs/toxic-foods-dogs-cats-poison-checklist",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/puppy-potty-training-schedule-crate-routine",
+      "destination": "/blogs/puppy-potty-training-schedule-akc-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/heartworm-flea-tick-prevention-aaha",
+      "destination": "/blogs/flea-tick-heartworm-prevention-ahs-protocol",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/dog-cat-calorie-calculator-rer-wsava",
+      "destination": "/blogs/pet-calorie-calculator-feeding-guide-apop",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -14,6 +56,18 @@
       "source": "/assets/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(screenshots|mascots)/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*\\.(?:webp|png|jpg|jpeg|svg|ico))",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=604800, stale-while-revalidate=2592000" }
       ]
     },
     {

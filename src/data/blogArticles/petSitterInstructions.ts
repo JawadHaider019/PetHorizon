@@ -2,7 +2,7 @@ import { FullBlogArticle } from './types';
 
 export const petSitterInstructionsArticle: FullBlogArticle = {
   slug: 'pet-sitter-instructions-handover-checklist-template',
-  readTime: '16 min read',
+  readTime: '5 min read',
   overviewSummary:
     'Entrusting your dog or cat to a professional pet sitter, friend, or relative while traveling requires far more than casual text messages or verbal reminders. Misunderstandings regarding precise gram food portions, chronic medication schedules, fear triggers (thunderstorms, door-darting), and emergency veterinary spending authorizations account for the vast majority of preventable vacation emergencies. This comprehensive guide provides a complete 5-part caregiver handover checklist, a legally binding veterinary emergency treatment proxy form, feline- and canine-specific safety protocols, and digital QR synchronization.',
   sections: [

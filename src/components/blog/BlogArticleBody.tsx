@@ -1,7 +1,8 @@
 import { BlogPost } from '../../data/blogData';
-import { FullBlogArticle } from '../../data/blogArticles';
+import type { FullBlogArticle } from '../../data/blogArticles/types';
 import BlogSectionExtras, { BlogArticleIntroSummary } from './BlogSectionExtras';
 import BlogToolAndLinksCard from './BlogToolAndLinksCard';
+import BlogCitationCard from './BlogCitationCard';
 
 interface BlogArticleBodyProps {
   article: BlogPost;
@@ -184,6 +185,11 @@ export default function BlogArticleBody({
           <BlogSectionExtras section={section} />
         </section>
       ))}
+
+      {/* Clinical Evidence & Accredited Veterinary Citation */}
+      {article.sourceName && article.sourceUrl && (
+        <BlogCitationCard article={article} />
+      )}
 
       {/* Interactive Tool Callout, Related Product Links & E-E-A-T Clinical Verification */}
       <BlogToolAndLinksCard article={article} />

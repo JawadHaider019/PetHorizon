@@ -48,9 +48,9 @@ export default function PhoneFrame({
       )}
 
       {/* Screen Container: Edge-to-edge Content (Using light theme background #F8FAFC matching app palette instead of pitch black #0F1115) */}
-      <div className="relative rounded-[2.2rem] sm:rounded-[2.5rem] overflow-hidden aspect-[499/1024] shadow-inner bg-[#F8FAFC]">
-        {/* Elegant wireframe placeholder while image bytes decode */}
-        {src && !isLoaded && (
+      <div className="relative rounded-[2.2rem] sm:rounded-[2.5rem] overflow-hidden aspect-[460/944] shadow-inner bg-[#F8FAFC]">
+        {/* Elegant wireframe placeholder while non-priority image bytes decode */}
+        {src && !priority && !isLoaded && (
           <div className="absolute inset-0 bg-gradient-to-b from-[#F4FBF5] via-[#FAF8F5] to-[#F1F5F9] flex flex-col p-4 animate-pulse z-0">
             {/* Status bar mock */}
             <div className="flex justify-between items-center mb-5 pt-1">
@@ -74,8 +74,8 @@ export default function PhoneFrame({
             ref={imgRef}
             src={src}
             alt={alt}
-            width={499}
-            height={1024}
+            width={460}
+            height={944}
             decoding={priority ? 'sync' : 'async'}
             className={`w-full h-full object-cover object-top block transition-opacity duration-300 relative z-10 ${
               isLoaded || priority ? 'opacity-100' : 'opacity-0'

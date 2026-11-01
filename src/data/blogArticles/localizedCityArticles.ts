@@ -2,7 +2,7 @@ import { FullBlogArticle } from './types';
 
 export const nycVaccinationArticle: FullBlogArticle = {
   slug: 'puppy-kitten-vaccination-schedule-booster-guide-new-york',
-  readTime: '8 min read',
+  readTime: '3 min read',
   overviewSummary:
     'Raising a puppy or kitten in New York City requires navigating high-density sidewalks, shared apartment elevators, dog runs, and strict NYC Department of Health (DOHMH) mandates. This localized veterinary timetable outlines core boosters, mandatory NYC rabies licensing laws, and urban Leptospirosis and Bordetella protocols.',
   sections: [
@@ -12,8 +12,9 @@ export const nycVaccinationArticle: FullBlogArticle = {
       intro:
         'Under New York City Health Code Article 161, every dog and cat kept in the five boroughs must maintain an active, veterinarian-certified rabies immunization starting at 12 to 16 weeks of age.',
       paragraphs: [
-        'For Manhattan, Brooklyn, Queens, Bronx, and Staten Island apartment dwellers, co-op boards and residential management companies routinely require a verified Rabies Certificate and NYC DOHMH Dog License before approving pet occupancy.',
-        'Beyond legal compliance, NYC’s dense urban footprint creates unique infectious exposure vectors. Standing rainwater puddles near curb grates and parks carry Leptospira bacteria shed by urban rodents, making the 2-dose Leptospirosis series essential for city dogs.'
+        'For Manhattan, Brooklyn, Queens, Bronx, and Staten Island apartment dwellers, co-op boards and residential management companies routinely require a verified Rabies Certificate and NYC DOHMH Dog License ($8.50/year for spayed/neutered dogs, $34 for intact dogs) before approving pet occupancy.',
+        'Beyond legal compliance, NYC’s dense urban footprint creates unique infectious exposure vectors. Standing rainwater puddles near curb grates, subway vents, and tree pits frequently carry Leptospira bacteria shed by urban rodent populations. A 2-dose Leptospirosis vaccine series is vital for any dog walking city sidewalks.',
+        'Keep 24/7 veterinary emergency contacts saved in advance, including the Schwarzman Animal Medical Center (AMC) on Manhattan’s Upper East Side and BluePearl referral hospitals in Midtown, Brooklyn, and Queens.'
       ],
       table: {
         headers: ['Age Window', 'NYC Puppy Protocol', 'NYC Kitten Protocol', 'Borough Risk Factor'],
@@ -26,7 +27,7 @@ export const nycVaccinationArticle: FullBlogArticle = {
       },
       warningBox: {
         title: 'NYC Sidewalk & Dog Run Wait Rule',
-        text: 'Avoid public NYC dog runs (such as Tompkins Square, Madison Square, or Central Park off-leash hours) and street puddles until 14 days after your puppy’s final 16-week DHPP and Leptospirosis boosters.'
+        text: 'Avoid public NYC dog runs (such as Tompkins Square, Madison Square, or Central Park off-leash hours) and curb puddles until 14 days after your puppy’s final 16-week DHPP and Leptospirosis boosters.'
       }
     },
     {
@@ -53,7 +54,7 @@ export const nycVaccinationArticle: FullBlogArticle = {
 
 export const londonCoParentingArticle: FullBlogArticle = {
   slug: 'household-pet-coparenting-feeding-routine-sync-london',
-  readTime: '7 min read',
+  readTime: '3 min read',
   overviewSummary:
     'Between staggered London Underground commutes, hybrid office days in the City, and shared flatshares across Zone 1 to Zone 4, coordinating daily dog walks and cat feedings is a common household challenge. Learn how London pet owners prevent double-feeding and sync RCVS health records.',
   sections: [
@@ -64,6 +65,7 @@ export const londonCoParentingArticle: FullBlogArticle = {
         'When one partner catches an early Northern Line train at 7:15 AM and another works from home in Clapham or Hackney, verbal handoffs frequently break down—leading to accidental double breakfasts or missed evening medications.',
       paragraphs: [
         'Veterinary surgeons across the UK report that uncoordinated feeding between partners and flatmates is a primary driver of gradual pet weight gain. Even a single extra scoop of kibble twice a week adds thousands of surplus kilocalories over a year.',
+        'Transport for London (TfL) permits dogs on the Tube, buses, and Overground on leash (carried on escalators for paw safety), but syncing midday walk handoffs with hired dog walkers or housemates remains tricky.',
         'By replacing kitchen whiteboards and buried WhatsApp threads with PetHorizon’s Family Hub, London households get an active Anti-Collision Care Lock: the moment one person starts pouring breakfast or clipping on the lead for a Hampstead Heath or Victoria Park walk, every paired phone updates in real time.'
       ],
       table: {
@@ -84,6 +86,11 @@ export const londonCoParentingArticle: FullBlogArticle = {
       paragraphs: [
         'PetHorizon stores your pet’s 15-digit UK ISO microchip number, RCVS veterinary practice contact details, and annual booster history (DHP, Leptospirosis L4, Kennel Cough, and Feline Enteritis) in an offline-accessible passport.'
       ],
+      bulletPoints: [
+        { label: 'Defra Database Alignment', text: 'Confirm your chip is logged on a Defra-compliant database (such as Petlog or Identibase).' },
+        { label: 'Tube Escalator Safety', text: 'Carry dogs on TfL escalators or use station lifts to prevent claw avulsion injuries.' },
+        { label: 'Shared Medication Log', text: 'Eliminate duplicate flea and worming doses across busy London households.' }
+      ],
       routineTip: {
         title: 'Sync Your London Household in 10 Seconds',
         text: 'Generate a household QR code in PetHorizon so partners, flatmates, and sitters stay in lockstep.',
@@ -95,7 +102,7 @@ export const londonCoParentingArticle: FullBlogArticle = {
 
 export const torontoBudgetArticle: FullBlogArticle = {
   slug: 'monthly-pet-care-cost-vet-expense-budget-toronto',
-  readTime: '8 min read',
+  readTime: '3 min read',
   overviewSummary:
     'From Ontario Veterinary Medical Association (OVMA) exam rates to 12-month Lyme tick preventatives for High Park and Don Valley trails, owning a dog or cat in Toronto requires realistic CAD budgeting. Review our transparent Greater Toronto Area (GTA) monthly cost breakdown.',
   sections: [
@@ -105,7 +112,8 @@ export const torontoBudgetArticle: FullBlogArticle = {
       intro:
         'Veterinary clinical fees, urban daycare rates, and specialty pet nutrition in the Greater Toronto Area reflect Ontario’s higher operating and staffing standards.',
       paragraphs: [
-        'For Toronto dog owners, recurring monthly costs typically range from $185 to $360 CAD, while indoor cats average $95 to $175 CAD per month. Setting aside a dedicated preventive care and seasonal gear allowance prevents financial surprise during annual wellness visits.'
+        'For Toronto dog owners, recurring monthly costs typically range from $185 to $360 CAD, while indoor cats average $95 to $175 CAD per month. Mandatory City of Toronto pet licenses cost $25/year for spayed/neutered dogs ($15 for cats) and $60 for unsterilized pets.',
+        'Setting aside a dedicated preventive care and seasonal gear allowance prevents financial surprise during annual wellness visits, especially with Ontario veterinary clinic fees adjusted annually to OVMA benchmarks.'
       ],
       table: {
         headers: ['Expense Category', 'Toronto Dog (Monthly CAD)', 'Toronto Cat (Monthly CAD)', 'Local GTA Cost Driver'],
@@ -125,9 +133,14 @@ export const torontoBudgetArticle: FullBlogArticle = {
       id: 'winter-salt-budgeting-gta',
       heading: 'Tracking CAD Vet Receipts & Seasonal Winter Gear in PetHorizon',
       intro:
-        'Heavy municipal road salting across downtown Toronto sidewalks between December and March makes protective dog booties, paw wax, and post-walk rinses essential.',
+        'Heavy municipal road salting (calcium chloride) across downtown Toronto sidewalks between December and March makes protective dog booties, paw wax, and post-walk foot rinses essential.',
       paragraphs: [
-        'Use PetHorizon’s Wallet & Expense Tracker to log veterinary invoices, food purchases, and seasonal gear with monthly budget alerts tailored to your household allowance.'
+        'Use PetHorizon’s Wallet & Expense Tracker to log veterinary invoices, food purchases, and seasonal gear with monthly budget alerts tailored to your Canadian household allowance.'
+      ],
+      bulletPoints: [
+        { label: 'Salt Burn Protection', text: 'Budget $40–$80 CAD for durable fleece-lined winter dog boots and natural beeswax paw balm.' },
+        { label: 'Tick Season Coverage', text: 'Toronto vets recommend 9 to 12 months of tick and heartworm preventive coverage in southern Ontario.' },
+        { label: 'Emergency Reserve', text: 'Maintain a $1,500 CAD emergency fund for Toronto 24/7 animal hospital triage deposits.' }
       ],
       routineTip: {
         title: 'Track Your Toronto Pet Budget',
@@ -140,7 +153,7 @@ export const torontoBudgetArticle: FullBlogArticle = {
 
 export const sydneyTrackersArticle: FullBlogArticle = {
   slug: 'best-pet-gps-trackers-health-wearables-review-sydney',
-  readTime: '9 min read',
+  readTime: '3 min read',
   overviewSummary:
     'Testing pet GPS trackers and health wearables across Sydney’s off-leash coastal beaches, humid bushland reserves, and suburban backyards. Compare IP68 saltwater durability, Telstra/Optus 4G LTE-M coverage, and early paralysis tick lethargy detection.',
   sections: [
@@ -151,7 +164,8 @@ export const sydneyTrackersArticle: FullBlogArticle = {
         'From Sirius Cove and Curl Curl Lagoon to Ku-ring-gai Chase bush tracks, Sydney dogs face rugged terrain, sandstone gullies, and corrosive ocean surf that quickly destroy low-grade electronics.',
       paragraphs: [
         'Bluetooth proximity tags fail rapidly in dense Australian eucalyptus bushland where few passerby phones are nearby. Dedicated GPS collars utilizing Australian 4G LTE-M cellular bands (Telstra and Optus footprints) provide continuous real-time coordinates when a high-prey-drive dog bolts after bush turkeys or wallabies.',
-        'Equally vital for NSW coastal pet owners is true IP68 waterproofing and rinsing the collar dock with fresh tap water after saltwater swims to prevent charging contact corrosion.'
+        'Equally vital for NSW coastal pet owners is true IP68 waterproofing and rinsing the collar dock with fresh tap water after saltwater swims to prevent charging contact corrosion.',
+        'Remember that in New South Wales, all dogs and cats must be microchipped and registered on the NSW Pet Registry by 12 weeks of age. A GPS wearable is an active recovery tool, not a substitute for legal microchipping.'
       ],
       table: {
         headers: ['Evaluation Metric', 'Sydney Coastal / Bush Requirement', 'Why It Matters in NSW'],
@@ -175,6 +189,11 @@ export const sydneyTrackersArticle: FullBlogArticle = {
       paragraphs: [
         'By logging monthly oral or spot-on paralysis tick preventatives (such as Isoxazoline-class chewables) alongside daily beach walks in PetHorizon, your entire household knows your pet is protected before heading off-leash.'
       ],
+      bulletPoints: [
+        { label: 'Saltwater Care Routine', text: 'Rinse GPS charging pins with freshwater after harbour or ocean beach sessions.' },
+        { label: 'NSW Pet Registry Alignment', text: 'Keep your NSW microchip record updated with current contact details and address.' },
+        { label: 'Heat & Bushfire Awareness', text: 'Monitor wearable activity on hot summer days (above 30°C) to prevent canine heat stress.' }
+      ],
       routineTip: {
         title: 'Never Miss a Tick Preventative Dose',
         text: 'Set recurring paralysis tick & heartworm alarms in PetHorizon and log daily Sydney beach walks.',
@@ -183,4 +202,3 @@ export const sydneyTrackersArticle: FullBlogArticle = {
     }
   ]
 };
-

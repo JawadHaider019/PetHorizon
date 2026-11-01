@@ -1,22 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { ArrowUpRight, X } from 'lucide-react';
 import { PLAY_STORE_URL } from '../../config/siteConfig';
 
 const STORAGE_KEY = 'ph_announce_dismissed_v1010';
 
 export default function AnnouncementBar() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
+  const [isVisible, setIsVisible] = useState(() => {
     try {
-      const isDismissed = localStorage.getItem(STORAGE_KEY);
-      if (!isDismissed) {
-        setIsVisible(true);
-      }
+      return !localStorage.getItem(STORAGE_KEY);
     } catch {
-      setIsVisible(true);
+      return true;
     }
-  }, []);
+  });
 
   const handleDismiss = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -61,7 +56,7 @@ export default function AnnouncementBar() {
         <button
           onClick={handleDismiss}
           aria-label="Dismiss announcement"
-          className="p-1 rounded-md text-slate-400 hover:text-slate-700 hover:bg-emerald-100/60 transition-colors shrink-0 cursor-pointer"
+          className="p-1 rounded-md text-slate-600 hover:text-slate-900 hover:bg-emerald-100/60 transition-colors shrink-0 cursor-pointer"
         >
           <X className="w-3.5 h-3.5" />
         </button>

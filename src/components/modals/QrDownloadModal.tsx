@@ -4,6 +4,7 @@ import { X, Smartphone, Check, Copy, ShieldCheck, Star } from 'lucide-react';
 import QrCodeSvg from '../common/QrCodeSvg';
 import { GooglePlayIcon } from '../AppBadges';
 import { PLAY_STORE_URL } from '../../config/siteConfig';
+import { trackPlayStoreClick } from '../../utils/analytics';
 
 interface QrDownloadModalProps {
   isOpen: boolean;
@@ -100,17 +101,12 @@ export default function QrDownloadModal({ isOpen, onClose }: QrDownloadModalProp
                 {/* Verified Social Proof Footer */}
                 <div className="relative z-10 pt-3 border-t border-slate-200/80">
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-1.5">
-                      <div className="flex items-center text-amber-500">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                        ))}
-                      </div>
-                      <span className="text-xs font-black text-slate-800">5.0</span>
+                    <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800">
+                      <span>Early Access Release</span>
                     </div>
                     <div className="flex items-center gap-1 text-[11px] font-semibold text-slate-600">
                       <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                      <span>Google Play Verified</span>
+                      <span>Google Play Available</span>
                     </div>
                   </div>
                 </div>
@@ -187,6 +183,7 @@ export default function QrDownloadModal({ isOpen, onClose }: QrDownloadModalProp
                     href={PLAY_STORE_URL}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackPlayStoreClick('qr_download_modal')}
                     className="w-full inline-flex items-center justify-center gap-3 px-5 py-3 rounded-xl bg-black hover:bg-neutral-900 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all cursor-pointer"
                   >
                     <GooglePlayIcon className="w-5 h-5 shrink-0" />

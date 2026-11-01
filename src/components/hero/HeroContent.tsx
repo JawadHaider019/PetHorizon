@@ -22,17 +22,10 @@ export default function HeroContent({ onOpenQrModal, onOpenIosModal }: HeroConte
           </span>
         </div>
 
-        <div className="inline-flex items-center gap-2 bg-white border border-black/[0.06] rounded-full px-3 py-1 shadow-2xs">
-          <div className="flex -space-x-1.5">
-            <div className="w-5 h-5 rounded-full bg-[#166534] text-white text-[9px] font-bold flex items-center justify-center ring-1 ring-white">🐾</div>
-            <div className="w-5 h-5 rounded-full bg-slate-900 text-white text-[9px] font-bold flex items-center justify-center ring-1 ring-white">🐕</div>
-            <div className="w-5 h-5 rounded-full bg-amber-600 text-white text-[9px] font-bold flex items-center justify-center ring-1 ring-white">🐈</div>
-          </div>
-          <div className="flex items-center gap-1 text-[11px] font-bold text-slate-800">
-            <span className="text-amber-500">★★★★★</span>
-            <span>5.0</span>
-            <span className="text-slate-400 font-normal hidden sm:inline">• 1,200+ Pet Families</span>
-          </div>
+        <div className="inline-flex items-center gap-2 bg-white border border-black/[0.06] rounded-full px-3.5 py-1 shadow-2xs">
+          <span className="text-[11px] font-bold text-slate-800">
+            Built for Pet Families and Multi-Caregiver Homes
+          </span>
         </div>
       </div>
 
@@ -75,7 +68,7 @@ export default function HeroContent({ onOpenQrModal, onOpenIosModal }: HeroConte
 
       {/* CTA Buttons */}
       <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 pt-1 sm:pt-2">
-        <GooglePlayBadge href={PLAY_STORE_URL} className="px-5 py-2.5 rounded-full shadow-md" />
+        <GooglePlayBadge href={PLAY_STORE_URL} trackingLocation="homepage_hero" className="px-5 py-2.5 rounded-full shadow-md" />
         <AppStoreBadge onClick={onOpenIosModal} className="px-5 py-2.5 rounded-full shadow-md" />
         {onOpenQrModal && (
           <div className="hidden sm:block">

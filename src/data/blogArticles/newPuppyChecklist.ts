@@ -2,7 +2,7 @@ import { FullBlogArticle } from './types';
 
 export const newPuppyChecklistArticle: FullBlogArticle = {
   slug: 'new-puppy-checklist-first-year-budget-guide',
-  readTime: '16 min read',
+  readTime: '6 min read',
   overviewSummary:
     'Welcoming a new puppy into your home is an exciting milestone, but unprepared pet parents are often blindsided by unexpected costs, sleepless nights, and home hazards. From essential first-week supplies to budgeting for veterinary wellness exams, preventive medications, and unexpected emergencies, this comprehensive checklist ensures you are fully prepared. Learn how to puppy-proof your home, manage your budget, and build daily routines with PetHorizon.',
   sections: [

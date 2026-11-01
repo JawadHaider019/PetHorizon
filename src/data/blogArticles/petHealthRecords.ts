@@ -2,7 +2,7 @@ import { FullBlogArticle } from './types';
 
 export const petHealthRecordsArticle: FullBlogArticle = {
   slug: 'pet-health-records-medication-schedule-tracker',
-  readTime: '15 min read',
+  readTime: '5 min read',
   overviewSummary:
     'Whether managing a senior dog with heart disease, a diabetic cat, or simply keeping routine vaccinations organized, maintaining meticulous pet health records is essential. During after-hours veterinary emergencies or unexpected hospitalizations, having instant access to your pet’s complete medical history can be lifesaving. This clinical guide outlines the five vital records every pet parent must maintain, veterinary protocols for administering medications safely, and how PetHorizon unifies your pet’s health passport.',
   sections: [

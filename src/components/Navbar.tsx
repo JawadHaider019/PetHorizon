@@ -5,6 +5,7 @@ import NavbarMobileMenu from './NavbarMobileMenu';
 import AnnouncementBar from './global/AnnouncementBar';
 
 import { PLAY_STORE_URL } from '../config/siteConfig';
+import { trackPlayStoreClick } from '../utils/analytics';
 
 export type NavView = 'home' | 'privacy' | 'terms' | 'deletion' | 'blog';
 
@@ -88,11 +89,14 @@ export default function Navbar({
             >
               <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-100/90 flex items-center justify-center p-1.5 shadow-xs group-hover:scale-105 group-hover:bg-emerald-100/60 transition-all duration-200">
                 <img
-                  src="/ph-logo-mark.png"
+                  src="/ph-logo-mark.webp"
                   alt="Pet Horizon Logo"
+                  width={28}
+                  height={28}
+                  decoding="async"
                   className="w-full h-full object-contain"
                   onError={(e) => {
-                    (e.currentTarget as HTMLImageElement).src = '/app-icon.png';
+                    (e.currentTarget as HTMLImageElement).src = '/ph-logo-mark.png';
                   }}
                 />
               </div>
@@ -197,6 +201,7 @@ export default function Navbar({
                 href={playStoreUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackPlayStoreClick('navbar')}
                 className="inline-flex items-center gap-2 bg-slate-900 hover:bg-black text-white text-xs sm:text-[13px] font-bold px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transition-all duration-150 group"
               >
                 <span>Download App</span>
