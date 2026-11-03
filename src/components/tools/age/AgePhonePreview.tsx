@@ -1,13 +1,10 @@
 import {
   Wifi,
   BatteryMedium,
-  HeartPulse,
   Minus,
   Plus,
-  Share2,
   CheckCircle2,
-  Calendar,
-  Sparkles
+  ShieldCheck
 } from 'lucide-react';
 import {
   PetType,
@@ -290,11 +287,11 @@ export default function AgePhonePreview({
               {hasCelebrated ? (
                 <>
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-300" />
-                  <span>Result Synced! 🎉</span>
+                  <span>Milestones Saved &amp; Sync Ready</span>
                 </>
               ) : (
                 <>
-                  <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                   <span>Sync {displayName}&apos;s Milestones</span>
                 </>
               )}
