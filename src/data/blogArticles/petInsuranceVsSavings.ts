@@ -10,7 +10,7 @@ export const petInsuranceVsSavingsArticle: FullBlogArticle = {
       id: 'how-pet-insurance-works',
       heading: 'How Pet Health Insurance Works: Deductibles, Co-Pays & Reimbursement',
       intro:
-        'Unlike human health insurance where insurance companies deal directly with in-network healthcare providers, pet insurance operates almost exclusively on an indemnity reimbursement model.',
+        'Unlike human health insurance where insurance companies deal directly with in-network healthcare providers, pet insurance operates almost exclusively on an indemnity reimbursement model. To plan for both routine maintenance and unexpected hospital bills, cross-reference our [cost of pet care and vet expenses budget guide](/blogs/monthly-pet-care-cost-vet-expense-budget-worldwide).',
       paragraphs: [
         'The Reimbursement Workflow: As the pet owner, you pay the veterinary hospital upfront at the time of discharge using cash, credit, or medical financing. You then upload the finalized itemized invoice and doctor SOAP medical notes to your insurer’s mobile app. If approved, the insurer issues a direct deposit reimbursement.',
         'Annual vs. Per-Incident Deductibles: An annual deductible ($250 to $500 per policy year) must be met once across all covered claims. A per-condition deductible requires you to pay a separate deductible for every unrelated illness throughout your pet’s life.',
@@ -49,7 +49,7 @@ export const petInsuranceVsSavingsArticle: FullBlogArticle = {
       id: 'the-math-emergency-scenarios',
       heading: 'The Financial Breakdown: 3 Real-World Emergency Scenarios',
       intro:
-        'Let’s compare out-of-pocket costs across common veterinary emergency scenarios.',
+        'Let’s compare out-of-pocket costs across common veterinary emergency scenarios (learn how to recognize critical red flags in our [emergency vet symptoms guide](/blogs/emergency-vet-symptoms-red-flags-petmd)).',
       bulletPoints: [
         { label: 'Scenario A: Foreign Body Obstruction (Dog eats sock)', text: 'Emergency diagnostic x-rays, exploratory laparotomy, 2-day ICU: $4,800. With 80% insurance ($500 deductible): Owner pays $1,360 (saves $3,440). With savings fund: Requires $4,800 liquid cash immediately.' },
         { label: 'Scenario B: Canine Cruciate Ligament TPLO Surgery', text: 'Specialist orthopedic surgeon, pre-op CT scan, TPLO titanium plate, post-op rehab: $6,200. With insurance: Owner pays $1,640. With savings fund: Completely wipes out typical multi-year savings balances.' },

@@ -14,7 +14,7 @@ export const monthlyBudgetGuideArticle: FullBlogArticle = {
       paragraphs: [
         'However, comprehensive economic surveys published by the American Pet Products Association (APPA) and the British Veterinary Association (BVA) reveal an eye-opening reality: the lifetime cost of raising an adult medium-sized dog ranges from $18,000 to over $45,000, while feline companions typically incur $14,000 to $32,000 across an average 13-to-17-year lifespan.',
         'This wide divergence in spending is dictated not by luxury accessories or designer clothing, but by routine biological necessities: caloric requirements, size-dependent drug dosing for parasiticides, geriatric diagnostic screenings, and unexpected medical interventions.',
-        'Failing to establish a dedicated, transparent monthly budget leads directly to veterinary economic heartbreak—the painful dilemma where a pet parent is forced to compromise treatment decisions during an acute medical emergency simply because they lack an organized financial safety net.',
+        'Failing to establish a dedicated, transparent monthly budget leads directly to veterinary economic heartbreak. When estimating initial puppyhood expenses, review our [first-year puppy checklist and budget guide](/blogs/new-puppy-checklist-first-year-budget-guide). For regional comparisons, Canadian owners can see our [Toronto pet care budget guide](/blogs/monthly-pet-care-cost-vet-expense-budget-toronto).',
         'By understanding realistic monthly expense allocations and tracking receipts through PetHorizon’s Budget Manager, pet owners transform unpredictable veterinary anxiety into a predictable, stress-free household budgeting routine.'
       ],
       figure: {
@@ -109,7 +109,7 @@ export const monthlyBudgetGuideArticle: FullBlogArticle = {
       id: 'market-price-warranty-comparison',
       heading: 'Pet Insurance vs. Dedicated Savings Reserves: Navigating the Financial Matrix',
       intro:
-        'A frequent question from pet parents is whether comprehensive pet insurance or a dedicated high-yield savings account is the superior financial safeguard:',
+        'A frequent question from pet parents is whether comprehensive pet insurance or a dedicated high-yield savings account is the superior financial safeguard (we analyze policy math in our [pet insurance vs savings guide](/blogs/pet-insurance-vs-savings-fund-vet-cost-guide)):',
       paragraphs: [
         'Pet insurance operates on an indemnity reimbursement model: you pay the veterinary hospital upfront out of pocket, submit itemized clinical notes and receipts, and the insurer reimburses 70% to 90% of eligible expenses after meeting your annual deductible ($250 to $750). Premiums typically cost between $40 and $90 per month for dogs, and $20 to $45 per month for cats, increasing steadily as your animal enters their senior years.',
         'For sudden catastrophic medical events—such as an emergency foreign body gastrotomy ($4,500), complex spinal disc fenestration ($8,000), or oncological chemotherapy ($6,000)—pet insurance provides unmatched peace of mind, ensuring you never have to make life-or-death decisions based on your bank balance.',

@@ -14,7 +14,7 @@ export const petTrackersReviewArticle: FullBlogArticle = {
       paragraphs: [
         'Early pet collars from the 2018 era were universally plagued by three fatal compromises: massive brick-like enclosures that weighed down medium-sized dogs, battery cells that died within forty-eight hours of outdoor use, and unreliable 2G cellular connectivity that lost signal in modern metropolitan networks.',
         'Today’s flagship smart collars and clip-on modules represent true miniaturized marvels. Tipping the scales at under 30 grams, modern devices integrate multi-GNSS antennas capable of receiving satellite positioning signals from GPS (USA), GLONASS (Russia), Galileo (European Union), and BeiDou (China) simultaneously.',
-        'Combined with low-power 4G LTE-M and NB-IoT cellular transceivers, these devices operate reliably across wide geographical corridors while consuming fractions of the battery power required by legacy smartphones. The result is real-time escape tracking combined with passive biometric telemetry that continuously monitors your pet’s physiological baseline.'
+        'Combined with low-power 4G LTE-M and NB-IoT cellular transceivers, these devices operate reliably across wide geographical corridors while consuming fractions of the battery power required by legacy smartphones. For Australian pet owners, our [Sydney pet GPS tracker field test](/blogs/best-pet-gps-trackers-health-wearables-review-sydney) examines how cellular networks handle bushland trails and coastal saltwater conditions.'
       ],
       figure: {
         imageUrl: 'https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
@@ -119,7 +119,7 @@ export const petTrackersReviewArticle: FullBlogArticle = {
             number: 1,
             title: 'Equip & Calibrate Your Smart Collar',
             description:
-              'Fasten your LTE GPS tracker to your dog’s primary walking collar using the manufacturer’s reinforced silicone mount, ensuring a snug two-finger fit that prevents snagging during brush play.'
+              'Fasten your LTE GPS tracker to your dog’s primary walking collar. Pairing hardware collar tracking with [dedicated pet care companion apps](/blogs/best-pet-care-apps-medication-reminders-family-sync) keeps multi-caregiver households updated on daily routines and activity logs.'
           },
           {
             number: 2,
@@ -131,7 +131,7 @@ export const petTrackersReviewArticle: FullBlogArticle = {
             number: 3,
             title: 'Share Health Trends with Your Veterinarian',
             description:
-              'At your pet’s annual wellness checkup, open PetHorizon to share verified activity graphs, weight curves, and feeding history directly with your clinician, transforming subjective guesswork into objective diagnostic data.'
+              'At your pet’s annual wellness checkup, reference your [digital pet health record passport](/blogs/pet-health-records-medication-schedule-tracker) to share verified activity graphs, weight curves, and feeding history directly with your clinician, transforming subjective guesswork into objective diagnostic data.'
           }
         ]
       }

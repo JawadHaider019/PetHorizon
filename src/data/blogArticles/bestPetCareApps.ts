@@ -40,7 +40,7 @@ export const bestPetCareAppsArticle: FullBlogArticle = {
         '4. Rover / Wag (Best for On-Demand Paid Caretakers): Premier platforms for hiring vetted, insured external pet sitters and dog walkers. While indispensable for finding paid care while traveling, they are not designed for internal family coordination between household members.',
         '5. Tractive GPS App (Best for Live Hardware Escape Tracking): Exceptional cellular and satellite map tracking for high-flight-risk dogs and outdoor cats. Requires proprietary collar hardware and ongoing LTE subscription fees.',
         '6. Pawp & Chewy Vet Care (Best for 24/7 Tele-Triage): Offers video and chat consultations with licensed veterinary professionals for non-emergency triage, prescription renewals, and middle-of-the-night symptom checks.',
-        '7. Apple Notes & Google Keep (Free Shared Checklists): Accessible across platforms, but lacking pet-specific logic—they cannot compute RER feeding grams, calculate vaccine booster countdowns, or lock tasks in real time during feeding.'
+        '7. Apple Notes & Google Keep (Free Shared Checklists): Accessible across platforms, but lacking pet-specific logic—they cannot compute daily portions (try our [WSAVA pet calorie calculator](/tools/pet-calorie-calculator)), convert biological age (try our [pet age calculator](/tools/pet-age-calculator)), or manage vaccine booster alerts.'
       ],
       bulletPoints: [
         { label: 'Instant Family Sync', text: 'PetHorizon uses lightweight QR code pairing that eliminates the friction of creating multiple accounts or paying per-seat subscription fees.' },
@@ -61,7 +61,7 @@ export const bestPetCareAppsArticle: FullBlogArticle = {
         'Scrambling through kitchen drawers for a crinkled rabies vaccination paper while standing at a boarding kennel desk or an emergency animal hospital triage counter is a stressful relic of the past.',
       paragraphs: [
         'Modern boarding kennels, doggy daycares, training facilities, and domestic airlines legally require proof of up-to-date core vaccinations (DHPP/FVRCP, Rabies, Bordetella, Leptospirosis) before accepting an animal into their care.',
-        'Maintaining a digital health card on your smartphone ensures that complete immunization timetables, microchip manufacturer registry numbers, and chronic medical history (known drug allergies, surgical notes) are instantly viewable and exportable via PDF or QR code.',
+        'Maintaining a digital health card on your smartphone ensures that complete immunization timetables, microchip manufacturer registry numbers, and chronic medical history (known drug allergies, surgical notes) are instantly viewable and exportable via PDF or QR code. We detail how to organize these documents in our [pet health records guide](/blogs/pet-health-records-medication-schedule-tracker).',
         'In emergency situations—such as a dog fight at a park or unexpected weekend travel—having immediate access to verified clinical records protects your pet from redundant vaccinations and accelerates hospital admission.'
       ],
       routineTip: {

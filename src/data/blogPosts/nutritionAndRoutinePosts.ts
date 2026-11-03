@@ -163,7 +163,7 @@ export const NUTRITION_AND_ROUTINE_POSTS: BlogPost[] = [
     sourceUrl: 'https://www.akc.org/expert-advice/grooming/dog-grooming-tips/',
     publishedAt: 'October 26, 2026',
     updatedAt: 'October 28, 2026',
-    metaTitle: 'Dog Grooming at Home: Beginner Step-by-Step Guide | Pet Horizon',
+    metaTitle: 'Dog Grooming at Home: Beginner Care Guide | Pet Horizon',
     metaDescription: 'Learn how to groom your dog at home. Master nail trimming without bleeding, line brushing double coats, ear cleaning, and routine bath schedules.',
     relatedProductLinks: [
       { feature: 'Grooming Schedule & Task Reminders', url: 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon', ctaText: 'Schedule Grooming in PetHorizon', icon: 'Clock' }

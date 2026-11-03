@@ -25,7 +25,7 @@ export const LOCAL_CITY_POSTS: BlogPost[] = [
     publishedAt: 'October 26, 2026',
     updatedAt: 'November 1, 2026',
     metaTitle: 'Puppy & Kitten Vaccination Schedule in New York | Pet Horizon',
-    metaDescription: 'Complete NYC puppy vaccination timetable. Understand local rabies and lepto rules, and organize your pet’s records in PetHorizon.',
+    metaDescription: 'Complete NYC puppy and kitten vaccination schedule. Learn city rabies mandates, park leptospirosis risks, and track vet booster due dates in Pet Horizon.',
     sourceName: 'NYC Department of Health & Mental Hygiene (Article 161)',
     sourceUrl: 'https://www.nyc.gov/site/doh/health/health-topics/dog-licenses.page',
     relatedProductLinks: [
@@ -57,7 +57,7 @@ export const LOCAL_CITY_POSTS: BlogPost[] = [
     publishedAt: 'October 25, 2026',
     updatedAt: 'November 1, 2026',
     metaTitle: 'London Household Pet Routine Coordination | Pet Horizon',
-    metaDescription: 'Eliminate double-feeding in London homes. Coordinate dog walks, meals, and vet appointments across partners and flatmates.',
+    metaDescription: 'Coordinate pet care across busy London households. Synchronize dog walks, feeding times, and vet meds between partners and flatmates with Pet Horizon.',
     sourceName: 'UK PDSA Animal Wellbeing (PAW) Report & RCVS Code',
     sourceUrl: 'https://www.pdsa.org.uk/what-we-do/pdsa-animal-wellbeing-report',
     relatedProductLinks: [
@@ -89,7 +89,7 @@ export const LOCAL_CITY_POSTS: BlogPost[] = [
     publishedAt: 'October 24, 2026',
     updatedAt: 'November 1, 2026',
     metaTitle: 'Cost of Owning a Pet in Toronto | Pet Horizon Expense Guide',
-    metaDescription: 'Breakdown of monthly dog and cat costs in Toronto. Track nutrition, tick preventives, and vet bills in PetHorizon.',
+    metaDescription: 'Realistic monthly dog and cat expense breakdown for Toronto owners. Track food, winter paw care, tick prevention, and OVMA clinic fees in Pet Horizon.',
     sourceName: 'Ontario Veterinary Medical Association (OVMA) Fee Guide',
     sourceUrl: 'https://www.ovma.org/pet-owners/basic-pet-care/',
     relatedProductLinks: [
@@ -121,7 +121,7 @@ export const LOCAL_CITY_POSTS: BlogPost[] = [
     publishedAt: 'October 23, 2026',
     updatedAt: 'November 1, 2026',
     metaTitle: 'Best Pet GPS Trackers in Sydney | Pet Horizon Tech Review',
-    metaDescription: 'Top dog GPS trackers reviewed for Sydney conditions. Waterproofing, bushwalk safety, and PetHorizon activity record integration.',
+    metaDescription: 'Review of top pet GPS trackers for Sydney dogs. Tested for coastal saltwater resistance, bushwalk safety, LTE-M coverage, and Pet Horizon activity sync.',
     sourceName: 'Australian Veterinary Association (AVA) Electronic ID Standards',
     sourceUrl: 'https://www.ava.com.au/policy-advocacy/policies/companion-animals-health/microchipping-of-companion-animals/',
     relatedProductLinks: [

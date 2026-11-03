@@ -176,6 +176,20 @@ function escapeHtml(unsafe) {
 }
 
 // 4. Generate robots.txt
+function formatRichTextHtml(text) {
+  if (!text) return '';
+  if (!text.includes('](')) return escapeHtml(text);
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  return parts.map((part) => {
+    const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (match) {
+      const [, label, href] = match;
+      return `<a href="${escapeHtml(href)}" style="color: #047857; text-decoration: underline; font-weight: 600;">${escapeHtml(label)}</a>`;
+    }
+    return escapeHtml(part);
+  }).join('');
+}
+
 function generateRobotsTxt() {
   return `# Pet Horizon - Official Robots.txt
 # Technical SEO, AEO & AI Crawler Specification
@@ -619,12 +633,12 @@ async function runPostBuild() {
         articleHtml += `
           <section id="${sec.id}" style="margin-bottom: 40px;">
             <h2 style="font-size: 24px; font-weight: 800; color: #111827; margin: 32px 0 16px;">${escapeHtml(sec.heading)}</h2>
-            ${sec.intro ? `<p style="font-size: 16px; line-height: 1.7; color: #374151;">${escapeHtml(sec.intro)}</p>` : ''}
+            ${sec.intro ? `<p style="font-size: 16px; line-height: 1.7; color: #374151;">${formatRichTextHtml(sec.intro)}</p>` : ''}
         `;
 
         if (sec.paragraphs) {
           sec.paragraphs.forEach((p) => {
-            articleHtml += `<p style="font-size: 16px; line-height: 1.7; color: #374151;">${escapeHtml(p)}</p>`;
+            articleHtml += `<p style="font-size: 16px; line-height: 1.7; color: #374151;">${formatRichTextHtml(p)}</p>`;
           });
         }
 

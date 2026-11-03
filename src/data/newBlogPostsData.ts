@@ -44,7 +44,7 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
     sourceUrl: 'https://rabbit.org/care/diet/',
     publishedAt: 'October 28, 2026',
     updatedAt: 'October 30, 2026',
-    metaTitle: 'Rabbit Feeding Schedule, Hay Ratios & GI Stasis Guide | Pet Horizon',
+    metaTitle: 'Rabbit Feeding Schedule & GI Stasis Prevention | Pet Horizon',
     metaDescription:
       'Complete exotic veterinary rabbit feeding schedule. Learn the 85% hay pyramid, safe daily greens, pellet limits, and how to prevent GI stasis.',
     relatedProductLinks: [
@@ -92,7 +92,7 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
     sourceUrl: 'https://www.aav.org/page/birdowners',
     publishedAt: 'October 28, 2026',
     updatedAt: 'October 30, 2026',
-    metaTitle: 'Parrot & Bird Daily Routine: Chop Diet & Sleep Schedule | Pet Horizon',
+    metaTitle: 'Parrot & Bird Daily Routine: Chop Diet & Care | Pet Horizon',
     metaDescription:
       'Evidence-based daily care schedule for parrots, cockatiels, budgies, and conures. Learn fresh chop feeding windows, UV needs, and 12-hour sleep rules.',
     relatedProductLinks: [
@@ -134,7 +134,7 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
     sourceUrl: 'https://www.humanesociety.org/resources/how-help-fearful-dog',
     publishedAt: 'October 29, 2026',
     updatedAt: 'October 30, 2026',
-    metaTitle: '3-3-3 Rule for Rescue Dogs: Decompression & Routine Checklist | Pet Horizon',
+    metaTitle: '3-3-3 Rule for Rescue Dogs: Daily Routine Guide | Pet Horizon',
     metaDescription:
       'Master the 3-3-3 rule for newly adopted rescue dogs. Learn what to expect in the first 3 days, 3 weeks, and 3 months with a structured daily schedule.',
     relatedProductLinks: [
@@ -182,7 +182,7 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
     sourceUrl: 'https://www.aaha.org/aaha-guidelines/diabetes-management/diabetes-management-home/',
     publishedAt: 'October 29, 2026',
     updatedAt: 'October 30, 2026',
-    metaTitle: 'Dog & Cat Diabetes Insulin & Feeding Schedule Guide | Pet Horizon',
+    metaTitle: 'Dog & Cat Diabetes Insulin & Feeding Schedule | Pet Horizon',
     metaDescription:
       'AAHA-aligned guide to managing dog and cat diabetes. Master 12-hour meal and insulin timing, missed dose rules, and family double-dose prevention.',
     relatedProductLinks: [
@@ -224,7 +224,7 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
     sourceUrl: 'https://www.aaha.org/your-pet/pet-owner-education/ask-aaha/microchips/',
     publishedAt: 'October 30, 2026',
     updatedAt: 'October 30, 2026',
-    metaTitle: 'Pet Microchip Registration & Universal Lookup Guide | Pet Horizon',
+    metaTitle: 'Pet Microchip Registration & Lookup Guide | Pet Horizon',
     metaDescription:
       'Learn how to check and register your dog or cat’s microchip using the AAHA Universal Lookup tool, ISO 15-digit travel rules, and PetHorizon Health Cards.',
     relatedProductLinks: [

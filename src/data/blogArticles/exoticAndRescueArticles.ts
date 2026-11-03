@@ -105,7 +105,7 @@ export const rescueDog333Article: FullBlogArticle = {
         'Canine cortisol (stress hormone) takes up to 72 hours to clear the bloodstream after a single stressful event. During shelter transport and rehoming, your new dog is operating in survival mode.',
       paragraphs: [
         'Phase 1 — The First 3 Days (Decompression & Overwhelm): Newly adopted dogs often hide in crates, refuse food or water for 24 hours, pace, or experience stress diarrhea. Conversely, some shut down completely, appearing unusually quiet until they feel safe. Set up a quiet sanctuary room with a comfortable bed, open crate, and fresh water away from high-traffic household areas.',
-        'Phase 2 — The First 3 Weeks (Settling In & Testing Boundaries): As adrenaline fades, your dog begins learning your household’s daily rhythm. True personality traits—and potential behavioral hurdles like leash reactivity, counter-surfing, or separation whining—typically surface during weeks two and three. Hand-feeding a portion of daily kibble during calm moments accelerates trust and positive association.',
+        'Phase 2 — The First 3 Weeks (Settling In & Testing Boundaries): As adrenaline fades, your dog begins learning your household’s daily rhythm. True personality traits—and potential behavioral hurdles like leash reactivity, counter-surfing, or separation whining—typically surface during weeks two and three (see our [dog separation anxiety training guide](/blogs/dog-separation-anxiety-training-routine-guide) for desensitization protocols). Hand-feeding a portion of daily kibble during calm moments accelerates trust and positive association.',
         'Phase 3 — The First 3 Months (Trust & True Bonding): By 90 days of consistent meal times, walk routes, and positive reinforcement, your rescue dog recognizes your home as permanent territory and forms a secure attachment bond.'
       ],
       table: {
@@ -129,7 +129,7 @@ export const rescueDog333Article: FullBlogArticle = {
       bulletPoints: [
         { label: 'Synchronize All Family Members', text: 'Use identical cue words ("Outside", "Crate", "Wait") and feeding times across all partners and kids.' },
         { label: 'Double-Leash Flight Risk Safety', text: 'Newly adopted dogs can slip collars when startled by traffic; pair a martingale collar with a secure Y-front harness and dual leashes.' },
-        { label: 'Low-Pressure Decompression Walks', text: 'Opt for quiet neighborhood routes or sniffaris rather than busy urban shopping strips during the first month.' }
+        { label: 'Low-Pressure Decompression Walks', text: 'Opt for quiet neighborhood routes or sniffaris rather than busy urban shopping strips during the first month, adjusting distance based on our [dog walking schedule by age and breed](/blogs/dog-walking-schedule-by-age-breed-exercise-guide).' }
       ],
       routineTip: {
         title: 'Coordinate Your Rescue Dog’s 3-3-3 Routine in PetHorizon',

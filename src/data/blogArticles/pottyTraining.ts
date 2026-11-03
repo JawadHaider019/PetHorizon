@@ -34,11 +34,11 @@ export const pottyTrainingArticle: FullBlogArticle = {
         'Canine biological systems thrive on rigid circadian predictability. Establish this structured daily timetable from day one:',
       paragraphs: [
         '6:30 AM: Immediate Morning Outing. Carry (do not let the puppy walk) directly from the crate to the designated outdoor grass patch. Walking stimulates the bladder; carrying prevents doorway accidents. Give your verbal cue (e.g., "Go Potty") once. When the puppy eliminates, praise enthusiastically and deliver a high-value treat within 2 seconds.',
-        '7:00 AM – 7:30 AM: Breakfast & Hydration. Feed measured breakfast kibble. Leave the bowl down for 15 minutes, then pick it up. Do not free-feed: scheduled input produces scheduled output.',
+        '7:00 AM – 7:30 AM: Breakfast & Hydration. Feed measured breakfast kibble portioned according to our [dog feeding schedule by life stage](/blogs/dog-feeding-schedule-by-age-puppy-to-adult). Leave the bowl down for 15 minutes, then pick it up. Do not free-feed: scheduled input produces scheduled output.',
         '7:45 AM: Post-Breakfast Outing. The gastrocolic reflex moves digested food into the colon within 15 to 30 minutes of eating. Head straight outdoors for a bowel movement.',
         '8:00 AM – 9:00 AM: Supervised Play & Training. Interactive play on easy-to-clean flooring with 100% human eyes on the puppy. If you must look away to answer an email, place the puppy in their playpen or crate.',
         '9:00 AM – 11:30 AM: Crate Naptime. Puppies require 18 to 20 hours of sleep daily to support neurological development. Enforced crate naps prevent overtired biting and hyperactivity.',
-        '11:30 AM – 12:30 PM: Midday Outing, Lunch (for young puppies on 3 meals), and gentle walk on grass.',
+        '11:30 AM – 12:30 PM: Midday Outing, Lunch (for young puppies on 3 meals), and gentle stroll following our [dog walking schedule by age and breed](/blogs/dog-walking-schedule-by-age-breed-exercise-guide).',
         '5:30 PM – 6:15 PM: Dinner Meal and subsequent 20-minute post-dinner outdoor outing.',
         '8:00 PM: Water Cut-Off. Pick up the water bowl 2 to 2.5 hours before final bedtime. This empties the bladder before the long overnight stretch.',
         '10:30 PM: Final Nighttime Outing. Calm, boring outdoor bathroom trip on a leash. No games, no excited talking. Back into the bedroom crate for sleep.'

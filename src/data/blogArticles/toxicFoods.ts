@@ -10,11 +10,11 @@ export const toxicFoodsArticle: FullBlogArticle = {
       id: 'emergency-action-protocol',
       heading: 'The 15-Minute Poison Emergency Action Protocol',
       intro:
-        'When you discover your pet has ingested a toxic food, chemical, or plant, panic is your greatest enemy. Follow this veterinary protocol immediately:',
+        'When you discover your pet has ingested a toxic food, chemical, or plant, panic is your greatest enemy. Check for red flags outlined in our [emergency vet symptoms guide](/blogs/emergency-vet-symptoms-red-flags-petmd) and follow this veterinary protocol immediately:',
       paragraphs: [
         'Step 1: Terminate Ingestion & Preserve Packaging. Immediately remove remaining items from your pet’s mouth or environment. Collect the wrapper, food container, candy label, or plant leaves into a sealable bag. The exact ingredients list, cocoa percentage, or artificial sweetener concentration allows the toxicologist to calculate lethal dose per kilogram in seconds.',
         'Step 2: Do NOT Induce Vomiting at Home Without Veterinary Authorization. Administering table salt is notoriously dangerous and frequently fatal, causing acute hypernatremia and irreversible cerebral edema. Using concentrated household hydrogen peroxide causes severe hemorrhagic gastritis and, if aspirated into the lungs, fatal chemical pneumonia. Never induce vomiting if the pet is lethargic, seizing, recumbent, or if the toxin was caustic or hydrocarbon-based.',
-        'Step 3: Call Ahead to the Emergency Animal Hospital. Inform the triage staff of your pet’s exact body weight, the ingested substance, the estimated quantity consumed, and the time elapsed. This allows technicians to prepare apomorphine (for dogs) or dexmedetomidine (for cats) and calculate activated charcoal doses before you arrive.'
+        'Step 3: Call Ahead to the Emergency Animal Hospital. Inform the triage staff of your pet’s exact body weight, the ingested substance, the estimated quantity consumed, and the time elapsed. Having poison control numbers and emergency items ready in your home [pet first aid kit](/blogs/pet-first-aid-kit-checklist-emergency-preparedness-plan) saves critical minutes while en route.'
       ],
       warningBox: {
         title: '24/7 Animal Poison Hotlines (US, Canada & International)',
@@ -25,7 +25,7 @@ export const toxicFoodsArticle: FullBlogArticle = {
       id: 'high-risk-toxins-breakdown',
       heading: 'The 8 Most Dangerous Household Food Toxins & Their Pathology',
       intro:
-        'Different chemical compounds target distinct mammalian organs. Review the biological mechanisms and clinical danger thresholds below:',
+        'Different chemical compounds target distinct mammalian organs. When offering pet-safe produce (carrots, blueberries, or apples), use our [pet calorie calculator](/tools/pet-calorie-calculator) to ensure total treats stay under 10% of daily calories. Review the biological mechanisms and clinical danger thresholds below:',
       paragraphs: [
         '1. Chocolate & Cocoa Products (Theobromine & Caffeine): Methylxanthine alkaloids stimulate the central nervous system and cardiac beta-receptors while inhibiting cellular adenosine receptors and intracellular calcium reuptake. Dogs metabolize theobromine extraordinarily slowly (half-life of 17.5 hours compared to 6 hours in humans). Clinical signs progress from hyperactivity and polydipsia to severe tachyarrhythmias, muscle tremors, seizures, and fatal cardiac collapse. Baker’s unsweetened chocolate and dark cocoa powder contain 5 to 10 times more theobromine than milk chocolate.',
         '2. Xylitol / Birch Bark Sweetener (Wood Sugar): Found in sugar-free chewing gums, peanut butters, baked goods, and chewable human vitamins. In canines, xylitol triggers an immediate, massive 6-fold surge in pancreatic insulin release. Within 15 to 30 minutes, blood glucose plunges into profound hypoglycemia (seizures, coma, collapse). Doses exceeding 0.5 g/kg trigger acute, irreversible hepatic necrosis and coagulopathy.',

@@ -13,7 +13,7 @@ export const dogSeparationAnxietyArticle: FullBlogArticle = {
         'Successful dog separation anxiety training begins with accurate diagnosis. Many dog owners mistakenly label destructive chewing or potty accidents as "spite" or bad behavior. In veterinary behavioral medicine, anxiety is an involuntary physiological panic response.',
       paragraphs: [
         'Dogs suffering from separation anxiety experience an acute spike in cortisol and adrenaline immediately as departure cues begin. Symptoms typically appear within 15 minutes of the owner leaving, whereas dogs that are simply bored usually sleep for several hours before chewing items out of curiosity.',
-        'Primary clinical signs include continuous vocalization (distress howling or persistent barking), hypersalivation, pacing, trembling, scratching at door frames or window sills (escape attempts), and loss of bladder or bowel control despite being house-trained.',
+        'Primary clinical signs include continuous vocalization (distress howling or persistent barking), hypersalivation, pacing, trembling, scratching at door frames or window sills (escape attempts), and loss of bladder or bowel control despite being house-trained. If your dog is newly adopted from a shelter, consider how stress manifests along the [rescue dog 3-3-3 decompression timeline](/blogs/rescue-dog-3-3-3-rule-decompression-routine-guide).',
         'A critical diagnostic test is reviewing video footage: a bored dog investigates toys or trash cans leisurely with a relaxed body, while an anxious dog fixates on departure thresholds with dilated pupils, lip licking, and rapid respiration.'
       ],
       table: {
@@ -38,7 +38,7 @@ export const dogSeparationAnxietyArticle: FullBlogArticle = {
       intro:
         'The gold standard treatment established by the American College of Veterinary Behaviorists (ACVB) is systematic desensitization: exposing the dog to absences that start so short they remain completely below the panic threshold.',
       paragraphs: [
-        'Phase 1 focuses on uncoupling departure cues. Pick up your car keys, put on your shoes, or touch the door handle 8 to 10 times daily without actually leaving. When keys no longer predict abandonment, the dog stops anticipating panic.',
+        'Phase 1 focuses on uncoupling departure cues. Pick up your car keys, put on your shoes, or touch the door handle 8 to 10 times daily without actually leaving. Providing structured physical and mental stimulation beforehand following our [dog walking schedule by age and breed](/blogs/dog-walking-schedule-by-age-breed-exercise-guide) helps release pent-up energy before training starts.',
         'Phase 2 involves micro-absences. Step outside the front door for 3 seconds, then return calmly before any whining begins. Repeat 4 to 5 times per session, gradually increasing duration to 15 seconds, 30 seconds, 1 minute, and 3 minutes.',
         'Phase 3 breaks through the critical 15-minute barrier. Once a dog can comfortably relax for 15 to 20 minutes alone, brain neurotransmitters stabilize, allowing increments to jump by 5 to 10 minutes.',
         'Phase 4 reaches full independence (2 to 4 hours). Practice random variable schedules—never make every consecutive absence longer than the previous one to avoid fatigue.'
@@ -58,7 +58,7 @@ export const dogSeparationAnxietyArticle: FullBlogArticle = {
       },
       routineTip: {
         title: 'Track Alone-Time Milestones in PetHorizon',
-        text: 'Log every absence duration and dog calm score in the PetHorizon Activity Timeline. Sharing updates across household members prevents anyone from pushing duration too fast.',
+        text: 'Log every absence duration and dog calm score in the PetHorizon Activity Timeline. Sharing updates across household members helps [coordinate routines and avoid mixed departure signals](/blogs/household-pet-coparenting-feeding-routine-sync-worldwide).',
         actionLabel: 'Log Alone-Time Training in PetHorizon'
       }
     },

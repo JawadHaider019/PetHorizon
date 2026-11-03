@@ -14,7 +14,7 @@ export const emergencyVetArticle: FullBlogArticle = {
       paragraphs: [
         'Level 1 (Resuscitation / Immediate): Catastrophic collapse, respiratory arrest, absent pulse, active status epilepticus (> 5 minutes), or severe traumatic hemorrhage. Patient is taken directly to the ICU crash bay with zero wait time.',
         'Level 2 (Emergent / Life-Threatening): Signs of severe shock, acute GDV bloat, male cat urinary blockage, respiratory distress (dyspnea), open pneumothorax, or penetrating thoracic wounds. Triage goal is veterinary intervention within 15 minutes.',
-        'Level 3 (Urgent): Severe intractable pain, acute blunt trauma with stable vitals, persistent vomiting with dehydration, deep skin lacerations, or suspected toxin ingestion within the decontamination window. Evaluated within 30 to 60 minutes.',
+        'Level 3 (Urgent): Severe intractable pain, acute blunt trauma with stable vitals, persistent vomiting with dehydration, deep skin lacerations, or suspected toxin ingestion (cross-check our [toxic foods and pet poison checklist](/blogs/toxic-foods-dogs-cats-poison-checklist)). Evaluated within 30 to 60 minutes.',
         'Level 4 (Semi-Urgent / Non-Critical): Mild limping, ear infections, localized hot spots, chronic diarrhea with bright demeanor, or minor superficial scrapes. Can be safely examined once emergent patients are stabilized.'
       ],
       table: {
@@ -48,7 +48,7 @@ export const emergencyVetArticle: FullBlogArticle = {
       id: 'emergency-transport-and-handling',
       heading: 'Safe Emergency Handling & Transport Protocols',
       intro:
-        'Handling an animal in severe pain requires caution: pain triggers reflexive biting even in gentle, devoted companion animals.',
+        'Handling an animal in severe pain requires caution: pain triggers reflexive biting even in gentle, devoted companion animals. Having supplies prepared in advance from our [pet first aid kit checklist](/blogs/pet-first-aid-kit-checklist-emergency-preparedness-plan) allows safe handling during transit.',
       bulletPoints: [
         { label: 'Improvised Stretcher for Large Dogs', text: 'Slide a rigid ironing board, large wooden board, or taut heavy blanket under a dog with suspected spinal injury or GDV to lift them without twisting the spine or compressing the abdomen.' },
         { label: 'Gentle Towel Wrap for Cats', text: 'Wrap a distressed cat loosely in a thick bath towel ("burrito wrap") to protect their limbs, prevent thrashing, and secure them inside a rigid top-loading carrier.' },
@@ -139,7 +139,7 @@ export const petCaloriesArticle: FullBlogArticle = {
         'Feeding charts printed on commercial pet food bags provide broad population averages that frequently overestimate caloric requirements by 20% to 40%, predisposing indoor and neutered pets to chronic obesity.',
       paragraphs: [
         'Resting Energy Requirement (RER): The baseline energy expenditure of a dog or cat at rest in a thermoneutral environment, supporting vital metabolic processes including cellular ion pumping, cardiac function, respiration, and thermoregulation.',
-        'The Scientific Allometric Equation: The gold-standard equation recognized by the World Small Animal Veterinary Association (WSAVA) and the American College of Veterinary Internal Medicine (ACVIM) is: RER (kcal/day) = 70 × (Body Weight in kg)^0.75.',
+        'The Scientific Allometric Equation: The gold-standard equation recognized by the World Small Animal Veterinary Association (WSAVA) and the American College of Veterinary Internal Medicine (ACVIM) is: RER (kcal/day) = 70 × (Body Weight in kg)^0.75. You can calculate your pet\'s exact daily baseline instantly using our [WSAVA Pet Calorie Calculator](/tools/pet-calorie-calculator).',
         'The Linear Approximation: For pets weighing between 2 kg and 20 kg (4.4 lbs to 44 lbs), veterinary teams often use the linear approximation: RER (kcal/day) = (30 × Body Weight in kg) + 70. However, for giant breeds (> 25 kg) or toy breeds (< 2 kg), only the exponential 0.75 power formula provides accurate metabolic scaling.'
       ],
       table: {
@@ -158,7 +158,7 @@ export const petCaloriesArticle: FullBlogArticle = {
       id: 'mer-lifestage-multipliers',
       heading: 'Maintenance Energy Requirements (MER): Life-Stage & Activity Factors',
       intro:
-        'RER represents coma baseline energy. To calculate total daily calories (Maintenance Energy Requirement / MER), multiply RER by your pet’s physiological life stage factor:',
+        'RER represents baseline energy at rest. To calculate total daily calories (Maintenance Energy Requirement / MER), multiply RER by your pet’s physiological life stage factor. Pair these targets with our [dog feeding schedule by life stage](/blogs/dog-feeding-schedule-by-age-puppy-to-adult) or our [cat feeding schedule and hydration guide](/blogs/cat-feeding-schedule-indoor-enrichment-guide) to divide portions evenly:',
       bulletPoints: [
         { label: 'Neutered Adult Dog', text: 'Factor: 1.6 × RER. Baseline for typical house pets with standard daily 30-to-60 minute leash walks.' },
         { label: 'Intact Adult Dog', text: 'Factor: 1.8 × RER. Unaltered reproductive hormones increase baseline metabolic rate.' },

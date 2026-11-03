@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import { trackCalculatorCompleted } from '../../utils/analytics';
 import { ArrowLeft, Calculator } from 'lucide-react';
 // @ts-expect-error canvas-confetti has no types
@@ -32,8 +32,11 @@ export default function PetCalorieCalculator({
   const [mealsPerDay, setMealsPerDay] = useState<number>(2);
   const [gramsPerCup, setGramsPerCup] = useState<number>(105);
   const [hasCelebrated, setHasCelebrated] = useState<boolean>(false);
+  const hasInteractedRef = useRef<boolean>(false);
+  const lastTrackedKeyRef = useRef<string>('');
 
   const handlePetTypeChange = (type: PetType) => {
+    hasInteractedRef.current = true;
     setPetType(type);
     if (type === 'dog') {
       setSelectedStageId('adult_neutered');
@@ -59,6 +62,12 @@ export default function PetCalorieCalculator({
   const animatedWater = useAnimatedNumber(calculations.dailyWaterMl);
 
   const handleConfettiSync = () => {
+    hasInteractedRef.current = true;
+    const key = `${petType}-${weight}-${unit}-${selectedStageId}-${mealsPerDay}-${gramsPerCup}`;
+    if (calculations.mer > 0 && key !== lastTrackedKeyRef.current) {
+      lastTrackedKeyRef.current = key;
+      trackCalculatorCompleted('pet_calorie', petType);
+    }
     try {
       confetti({
         particleCount: 45,
@@ -74,17 +83,42 @@ export default function PetCalorieCalculator({
   };
 
   useEffect(() => {
-    if (calculations.mer > 0) {
+    if (!hasInteractedRef.current) return;
+    const key = `${petType}-${weight}-${unit}-${selectedStageId}-${mealsPerDay}-${gramsPerCup}`;
+    if (calculations.mer > 0 && key !== lastTrackedKeyRef.current) {
       const timer = setTimeout(() => {
+        lastTrackedKeyRef.current = key;
         trackCalculatorCompleted('pet_calorie', petType);
       }, 1500);
       return () => clearTimeout(timer);
     }
-  }, [calculations.mer, petType]);
+  }, [calculations.mer, petType, weight, unit, selectedStageId, mealsPerDay, gramsPerCup]);
 
   const displayName = petName.trim() ? petName.trim() : petType === 'dog' ? 'Your Dog' : 'Your Cat';
 
+  const handleUnitChange = (val: WeightUnit) => {
+    hasInteractedRef.current = true;
+    setUnit(val);
+  };
+  const handleStageChange = (val: string) => {
+    hasInteractedRef.current = true;
+    setSelectedStageId(val);
+  };
+  const handleMealsChange = (val: number) => {
+    hasInteractedRef.current = true;
+    setMealsPerDay(val);
+  };
+  const handleGramsPerCupChange = (val: number) => {
+    hasInteractedRef.current = true;
+    setGramsPerCup(val);
+  };
+  const handleWeightChange = (val: number) => {
+    hasInteractedRef.current = true;
+    setWeight(val);
+  };
+
   const adjustWeight = (delta: number) => {
+    hasInteractedRef.current = true;
     setWeight((prev) => Math.max(0.5, Math.round((prev + delta) * 10) / 10));
   };
 
@@ -128,16 +162,16 @@ export default function PetCalorieCalculator({
             setPetName={setPetName}
             displayName={displayName}
             weight={weight}
-            setWeight={setWeight}
+            setWeight={handleWeightChange}
             adjustWeight={adjustWeight}
             unit={unit}
-            setUnit={setUnit}
+            setUnit={handleUnitChange}
             selectedStageId={selectedStageId}
-            setSelectedStageId={setSelectedStageId}
+            setSelectedStageId={handleStageChange}
             currentStages={currentStages}
             currentStage={currentStage}
             mealsPerDay={mealsPerDay}
-            setMealsPerDay={setMealsPerDay}
+            setMealsPerDay={handleMealsChange}
             calculations={calculations}
             animatedMer={animatedMer}
             animatedGrams={animatedGrams}
@@ -145,7 +179,7 @@ export default function PetCalorieCalculator({
             hasCelebrated={hasCelebrated}
             onSync={handleConfettiSync}
             gramsPerCup={gramsPerCup}
-            setGramsPerCup={setGramsPerCup}
+            setGramsPerCup={handleGramsPerCupChange}
           />
         </div>
 

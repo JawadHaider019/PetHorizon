@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import { trackCalculatorCompleted } from '../../utils/analytics';
 import { ArrowLeft, Calendar } from 'lucide-react';
 // @ts-expect-error canvas-confetti has no types
@@ -29,18 +29,36 @@ export default function PetAgeCalculator({
   const [months, setMonths] = useState<number>(0);
   const [petName, setPetName] = useState<string>('Luna');
   const [hasCelebrated, setHasCelebrated] = useState<boolean>(false);
+  const hasInteractedRef = useRef<boolean>(false);
+  const lastTrackedKeyRef = useRef<string>('');
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
   const handlePetTypeChange = (type: PetType) => {
+    hasInteractedRef.current = true;
     setPetType(type);
     if (type === 'dog') {
       if (petName === 'Mochi' || !petName) setPetName('Luna');
     } else {
       if (petName === 'Luna' || !petName) setPetName('Mochi');
     }
+  };
+
+  const handleDogSizeChange = (val: DogBreedSize) => {
+    hasInteractedRef.current = true;
+    setDogSize(val);
+  };
+
+  const handleYearsChange = (val: number) => {
+    hasInteractedRef.current = true;
+    setYears(val);
+  };
+
+  const handleMonthsChange = (val: number) => {
+    hasInteractedRef.current = true;
+    setMonths(val);
   };
 
   const { humanAge, stageDetails } = useMemo(
@@ -51,15 +69,24 @@ export default function PetAgeCalculator({
   const animatedHumanAge = useAnimatedNumber(humanAge);
 
   useEffect(() => {
-    if (humanAge > 0) {
+    if (!hasInteractedRef.current) return;
+    const key = `${petType}-${dogSize}-${years}-${months}`;
+    if (humanAge > 0 && key !== lastTrackedKeyRef.current) {
       const timer = setTimeout(() => {
+        lastTrackedKeyRef.current = key;
         trackCalculatorCompleted('pet_age', petType);
       }, 1500);
       return () => clearTimeout(timer);
     }
-  }, [humanAge, petType]);
+  }, [humanAge, petType, dogSize, years, months]);
 
   const handleConfettiSync = () => {
+    hasInteractedRef.current = true;
+    const key = `${petType}-${dogSize}-${years}-${months}`;
+    if (humanAge > 0 && key !== lastTrackedKeyRef.current) {
+      lastTrackedKeyRef.current = key;
+      trackCalculatorCompleted('pet_age', petType);
+    }
     try {
       confetti({
         particleCount: 50,
@@ -113,14 +140,14 @@ export default function PetAgeCalculator({
             petType={petType}
             onPetTypeChange={handlePetTypeChange}
             dogSize={dogSize}
-            setDogSize={setDogSize}
+            setDogSize={handleDogSizeChange}
             petName={petName}
             setPetName={setPetName}
             displayName={displayName}
             years={years}
-            setYears={setYears}
+            setYears={handleYearsChange}
             months={months}
-            setMonths={setMonths}
+            setMonths={handleMonthsChange}
             humanAge={humanAge}
             animatedHumanAge={animatedHumanAge}
             stageDetails={stageDetails}

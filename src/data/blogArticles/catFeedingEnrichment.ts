@@ -14,7 +14,7 @@ export const catFeedingEnrichmentArticle: FullBlogArticle = {
       paragraphs: [
         'Kittens under 4 months grow at an exponential rate, doubling their birth weight in the first weeks of life. They require high-calorie kitten formulations rich in docosahexaenoic acid (DHA) for retinal and neurological development, divided into 3 to 4 daily meals.',
         'From 4 to 12 months, young cats can gradually transition to 2 to 3 structured meals per day. Monitor body condition score (BCS) closely around month 6, especially after spaying or neutering, as resting metabolic rate drops by up to 30% post-surgery.',
-        'Adult cats (1 to 10 years) thrive best on 2 to 3 portion-controlled meals combining canned wet food and moisture-rich toppers. Free-feeding dry kibble all day is the leading cause of feline diabetes and chronic dehydration.',
+        'Adult cats (1 to 10 years) thrive best on 2 to 3 portion-controlled meals combining canned wet food and moisture-rich toppers. You can calculate your cat\'s exact daily caloric and wet-food gram portion using our [pet calorie calculator](/tools/pet-calorie-calculator). Free-feeding dry kibble all day is the leading cause of feline diabetes and chronic dehydration.',
         'Senior cats (10+ years) require easily digestible proteins, controlled phosphorus levels to protect kidneys, and increased moisture to counteract fading thirst drive.'
       ],
       table: {
@@ -39,7 +39,7 @@ export const catFeedingEnrichmentArticle: FullBlogArticle = {
         'Cats evolved from African desert wildcats (*Felis lybica*) and possess an inherently low thirst drive. In nature, their prey consists of 70% to 75% water.',
       paragraphs: [
         'Dry kibble contains only 8% to 10% water. Even cats that appear to drink water from bowls rarely drink enough to compensate for dry food deficits, leading to chronic subclinical dehydration.',
-        'Over time, concentrated urine creates a fertile environment for struvite and calcium oxalate crystal formation, leading to Feline Lower Urinary Tract Disease (FLUTD) and life-threatening urethral obstructions in male cats.',
+        'Over time, concentrated urine creates a fertile environment for struvite and calcium oxalate crystal formation, leading to Feline Lower Urinary Tract Disease (FLUTD) and chronic renal strain, as explored in our [Cornell feline kidney disease guide](/blogs/feline-kidney-disease-dehydration-cornell).',
         'Transitioning at least 50% to 100% of a cat’s daily calories to canned wet food or rehydrated freeze-dried diets dramatically increases urinary volume and dilutes urine specific gravity.'
       ],
       warningBox: {
@@ -58,7 +58,7 @@ export const catFeedingEnrichmentArticle: FullBlogArticle = {
       intro:
         'Indoor cats are safe from predators, traffic, and parasites, but sensory deprivation and sedentary boredom can lead to behavioral problems like over-grooming, destructive scratching, and nighttime vocalization.',
       paragraphs: [
-        'The Hunt-Catch-Kill-Eat-Groom-Sleep Cycle: Cats are wired for predatory bursts. Instead of dropping food into a stationary bowl, use interactive puzzle feeders, snuffle mats, or slow-feeder mice hidden around the house.',
+        'The Hunt-Catch-Kill-Eat-Groom-Sleep Cycle: Cats are wired for predatory bursts. Instead of dropping food into a stationary bowl, use interactive puzzle feeders, snuffle mats, or slow-feeder mice hidden around the house. Be sure to keep food areas separated from waste boxes to prevent stress house-soiling triggers covered in our [cat litter box solutions guide](/blogs/cat-litter-box-problems-causes-solutions-guide).',
         'Vertical Territory and Micro-Climbing: Cats perceive their environment three-dimensionally. Cat trees, wall perches, and window hammocks create safe vantage points that lower feline cortisol and territorial stress.',
         'Sensory Stimulation & Play Therapy: Schedule two 10-minute active play sessions daily using wand toys or laser pointers (ending with a tangible toy catch and a small treat) to fulfill predatory completion instincts.'
       ],
