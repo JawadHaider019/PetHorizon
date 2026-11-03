@@ -30,6 +30,7 @@ export default function PetCalorieCalculator({
   const [unit, setUnit] = useState<WeightUnit>('kg');
   const [selectedStageId, setSelectedStageId] = useState<string>('adult_neutered');
   const [mealsPerDay, setMealsPerDay] = useState<number>(2);
+  const [gramsPerCup, setGramsPerCup] = useState<number>(105);
   const [hasCelebrated, setHasCelebrated] = useState<boolean>(false);
 
   const handlePetTypeChange = (type: PetType) => {
@@ -49,8 +50,8 @@ export default function PetCalorieCalculator({
   const currentStage = currentStages.find((s) => s.id === selectedStageId) || currentStages[0];
 
   const calculations = useMemo(
-    () => calculatePetCalories(weight, unit, currentStage, mealsPerDay),
-    [weight, unit, currentStage, mealsPerDay]
+    () => calculatePetCalories(weight, unit, currentStage, mealsPerDay, 375, gramsPerCup),
+    [weight, unit, currentStage, mealsPerDay, gramsPerCup]
   );
 
   const animatedMer = useAnimatedNumber(calculations.mer);
@@ -143,6 +144,8 @@ export default function PetCalorieCalculator({
             animatedWater={animatedWater}
             hasCelebrated={hasCelebrated}
             onSync={handleConfettiSync}
+            gramsPerCup={gramsPerCup}
+            setGramsPerCup={setGramsPerCup}
           />
         </div>
 
