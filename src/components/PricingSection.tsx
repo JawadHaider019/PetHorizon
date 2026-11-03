@@ -3,6 +3,7 @@ import { Check } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PRICING_PLANS } from '../data/pricingData';
 import { PLAY_STORE_URL } from '../config/siteConfig';
+import { trackPlayStoreClick } from '../utils/analytics';
 
 import { defaultViewport, scrollTransition } from '../config/animationVariants';
 
@@ -176,6 +177,7 @@ export default function PricingSection() {
                     href={playStoreUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackPlayStoreClick('pricing_section')}
                     className={`w-full text-center block py-3.5 rounded-full font-bold text-sm transition-all duration-200 ${
                       isFeatured
                         ? 'bg-slate-900 hover:bg-black text-white shadow-md hover:scale-[1.02]'

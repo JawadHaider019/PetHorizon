@@ -2,6 +2,7 @@ import { Users, QrCode, CheckCircle, Smartphone, ArrowRight } from 'lucide-react
 import { motion } from 'framer-motion';
 import PhoneFrame from './PhoneFrame';
 import { defaultViewport, scrollTransition } from '../config/animationVariants';
+import { trackPlayStoreClick } from '../utils/analytics';
 
 export default function FamilyHubSection() {
   const steps = [
@@ -146,6 +147,7 @@ export default function FamilyHubSection() {
                 href="https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackPlayStoreClick('family_hub_section')}
                 className="bg-slate-900 hover:bg-black text-white font-bold px-6 py-3.5 rounded-full flex items-center gap-2 shadow-md transition-all text-sm"
               >
                 <span>Try Family Hub on Android</span>
