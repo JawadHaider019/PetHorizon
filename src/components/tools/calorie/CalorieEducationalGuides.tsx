@@ -184,7 +184,7 @@ export default function CalorieEducationalGuides({ onOpenQrModal }: CalorieEduca
       {/* Kibble Density Transparency & Veterinary Disclaimer */}
       <div className="p-3.5 rounded-2xl bg-amber-50/70 border border-amber-200/80 text-[11px] text-amber-950 space-y-1.5 leading-relaxed">
         <p>
-          <strong>Food Weight Transparency:</strong> Food weight estimates use an assumed kibble density of 105g per cup. Actual food density varies by brand and formula. Check your food packaging or weigh portions on a digital scale for maximum accuracy.
+          <strong>Food Weight Transparency:</strong> Food weight estimates use an assumed kibble density of 105g per cup. Actual food density varies by product. Check your food packaging or weigh the portion for greater accuracy.
         </p>
         <p className="text-amber-900/80">
           <strong>Veterinary Disclaimer:</strong> Calorie calculations are estimated guidelines based on WSAVA and NRC mathematical models. Individual metabolic rates, body condition, activity, and medical history vary. Always consult your veterinarian before implementing significant dietary restrictions or weight loss plans.

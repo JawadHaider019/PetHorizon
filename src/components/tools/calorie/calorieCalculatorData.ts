@@ -12,22 +12,22 @@ export interface LifeStage {
 }
 
 export const DOG_STAGES: LifeStage[] = [
-  { id: 'adult_neutered', label: 'Adult (Neutered / Spayed)', shortLabel: 'Adult Neutered', description: 'Standard indoor/outdoor companion', multiplier: 1.6 },
-  { id: 'adult_intact', label: 'Adult (Intact)', shortLabel: 'Adult Intact', description: 'Higher basal metabolic energy', multiplier: 1.8 },
-  { id: 'inactive_weight_loss', label: 'Weight Loss / Inactive', shortLabel: 'Weight Loss', description: 'Safe caloric deficit for gradual slimming', multiplier: 1.0 },
-  { id: 'active_working', label: 'High Activity / Working / Agile', shortLabel: 'Active / Athlete', description: 'Daily agility, long runs, working breeds', multiplier: 2.2 },
-  { id: 'puppy_under_4m', label: 'Young Puppy (< 4 Months)', shortLabel: 'Puppy < 4m', description: 'Rapid growth and bone skeletal phase', multiplier: 3.0 },
-  { id: 'puppy_over_4m', label: 'Adolescent Puppy (4+ Months)', shortLabel: 'Puppy 4-12m', description: 'Sustained adolescent energy', multiplier: 2.0 },
-  { id: 'senior_dog', label: 'Senior Dog (7+ Years)', shortLabel: 'Senior 7+y', description: 'Gentle routine with metabolic joint-care', multiplier: 1.2 }
+  { id: 'adult_neutered', label: 'Adult (Neutered / Spayed)', shortLabel: 'Adult Neutered', description: 'Estimated baseline for standard companion', multiplier: 1.6 },
+  { id: 'adult_intact', label: 'Adult (Intact)', shortLabel: 'Adult Intact', description: 'Estimated baseline for higher basal metabolic rate', multiplier: 1.8 },
+  { id: 'inactive_weight_loss', label: 'Weight Loss / Inactive', shortLabel: 'Weight Loss', description: 'Estimated caloric deficit for gradual slimming', multiplier: 1.0 },
+  { id: 'active_working', label: 'High Activity / Working / Agile', shortLabel: 'Active / Athlete', description: 'Estimated baseline for working/agility breeds', multiplier: 2.2 },
+  { id: 'puppy_under_4m', label: 'Young Puppy (< 4 Months)', shortLabel: 'Puppy < 4m', description: 'Estimated baseline for rapid skeletal growth', multiplier: 3.0 },
+  { id: 'puppy_over_4m', label: 'Adolescent Puppy (4+ Months)', shortLabel: 'Puppy 4-12m', description: 'Estimated baseline for adolescent energy', multiplier: 2.0 },
+  { id: 'senior_dog', label: 'Senior Dog (7+ Years)', shortLabel: 'Senior 7+y', description: 'Estimated baseline with joint-conscious moderation', multiplier: 1.2 }
 ];
 
 export const CAT_STAGES: LifeStage[] = [
-  { id: 'cat_adult_neutered', label: 'Adult (Neutered / Indoor)', shortLabel: 'Indoor Neutered', description: 'Standard indoor domestic companion', multiplier: 1.2 },
-  { id: 'cat_adult_intact', label: 'Adult (Intact)', shortLabel: 'Adult Intact', description: 'Intact feline maintenance profile', multiplier: 1.4 },
-  { id: 'cat_weight_loss', label: 'Weight Management / Gentle Slim', shortLabel: 'Weight Loss', description: 'Safe deficit avoiding feline hepatic lipidosis', multiplier: 0.9 },
-  { id: 'cat_active_outdoor', label: 'Active Outdoor / Hunter', shortLabel: 'Outdoor Hunter', description: 'Regular hunting, territory roaming, climbing', multiplier: 1.6 },
-  { id: 'kitten', label: 'Kitten (< 1 Year)', shortLabel: 'Kitten < 1y', description: 'High-protein growth phase for young kittens', multiplier: 2.5 },
-  { id: 'cat_senior', label: 'Senior Cat (10+ Years)', shortLabel: 'Senior 10+y', description: 'Gentle digestion with kidney-conscious hydration', multiplier: 1.1 }
+  { id: 'cat_adult_neutered', label: 'Adult (Neutered / Indoor)', shortLabel: 'Indoor Neutered', description: 'Estimated baseline for indoor domestic companion', multiplier: 1.2 },
+  { id: 'cat_adult_intact', label: 'Adult (Intact)', shortLabel: 'Adult Intact', description: 'Estimated baseline for intact feline maintenance', multiplier: 1.4 },
+  { id: 'cat_weight_loss', label: 'Weight Management / Gentle Slim', shortLabel: 'Weight Loss', description: 'Estimated safe deficit avoiding hepatic lipidosis', multiplier: 0.9 },
+  { id: 'cat_active_outdoor', label: 'Active Outdoor / Hunter', shortLabel: 'Outdoor Hunter', description: 'Estimated baseline for outdoor territory roaming', multiplier: 1.6 },
+  { id: 'kitten', label: 'Kitten (< 1 Year)', shortLabel: 'Kitten < 1y', description: 'Estimated baseline for high-protein kitten growth', multiplier: 2.5 },
+  { id: 'cat_senior', label: 'Senior Cat (10+ Years)', shortLabel: 'Senior 10+y', description: 'Estimated baseline with kidney-conscious hydration', multiplier: 1.1 }
 ];
 
 export interface CalorieCalculations {
@@ -46,13 +46,15 @@ export function calculatePetCalories(
   unit: WeightUnit,
   currentStage: LifeStage,
   mealsPerDay: number,
-  foodKcalPerCup: number = 375
+  foodKcalPerCup: number = 375,
+  gramsPerCup: number = 105
 ): CalorieCalculations {
   const weightInKg = unit === 'kg' ? Math.max(0.5, weight) : Math.max(0.5, weight * 0.453592);
   const rer = Math.round(70 * Math.pow(weightInKg, 0.75));
   const mer = Math.round(rer * currentStage.multiplier);
 
-  const kcalPerGram = foodKcalPerCup / 105;
+  const safeGramsPerCup = gramsPerCup > 0 ? gramsPerCup : 105;
+  const kcalPerGram = foodKcalPerCup / safeGramsPerCup;
   const dailyGrams = Math.round(mer / kcalPerGram);
   const dailyCups = (mer / foodKcalPerCup).toFixed(2);
   const gramsPerMeal = Math.round(dailyGrams / mealsPerDay);
