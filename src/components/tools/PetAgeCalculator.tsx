@@ -51,14 +51,14 @@ export default function PetAgeCalculator({
     setDogSize(val);
   };
 
-  const handleYearsChange = (val: number) => {
+  const handleYearsChange = (fn: (prev: number) => number) => {
     hasInteractedRef.current = true;
-    setYears(val);
+    setYears(fn);
   };
 
-  const handleMonthsChange = (val: number) => {
+  const handleMonthsChange = (fn: (prev: number) => number) => {
     hasInteractedRef.current = true;
-    setMonths(val);
+    setMonths(fn);
   };
 
   const { humanAge, stageDetails } = useMemo(

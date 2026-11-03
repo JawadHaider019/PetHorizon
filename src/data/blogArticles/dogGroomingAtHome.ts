@@ -10,7 +10,7 @@ export const dogGroomingAtHomeArticle: FullBlogArticle = {
       id: 'nail-trimming-quick-anatomy',
       heading: 'Trimming Dog Nails Safely: Understanding Quick Anatomy & Bleeding Protocols',
       intro:
-        'Trimming nails is often the most anxiety-inducing grooming task for both owners and dogs. Overgrown nails force toes to splay outward, altering skeletal alignment and causing chronic arthritis.',
+        'Trimming nails is often the most anxiety-inducing grooming task for both owners and dogs. Overgrown nails force toes to splay outward, altering skeletal alignment and causing chronic arthritis. Conditioning your dog to clippers works best with gradual desensitization, similar to the steps in our [dog separation anxiety training guide](/blogs/dog-separation-anxiety-training-routine-guide).',
       paragraphs: [
         'Every canine nail contains the "quick"—a core of living blood vessels and nerve endings. In clear nails, the quick appears as a distinct pink core. In black nails, the quick is invisible from the exterior, requiring a millimeter-by-millimeter approach.',
         'When trimming black nails, look directly at the cut surface after every tiny slice. When you see a white or grayish circular center, you are approaching the quick. When a distinct black dot appears in the center, STOP cutting immediately.',
@@ -27,7 +27,7 @@ export const dogGroomingAtHomeArticle: FullBlogArticle = {
       },
       warningBox: {
         title: 'Emergency Styptic Preparation',
-        text: 'Never begin trimming nails without your styptic powder bottle open and a cotton swab ready. If styptic powder is unavailable, cornstarch or baking flour pressed into the nail tip acts as an effective emergency clotting agent.'
+        text: 'Never begin trimming nails without your styptic powder bottle open and a cotton swab ready. If styptic powder is unavailable, cornstarch or baking flour pressed into the nail tip acts as an emergency clotting agent; keep these supplies stocked in your home [pet first aid kit](/blogs/pet-first-aid-kit-checklist-emergency-preparation).'
       }
     },
     {
@@ -36,7 +36,7 @@ export const dogGroomingAtHomeArticle: FullBlogArticle = {
       intro:
         'Surface brushing only grooms the top guard hairs, leaving the dense undercoat to tangle and turn into pelt-like mats against the skin that trap moisture and cause painful hot spots.',
       paragraphs: [
-        'For double-coated breeds (Golden Retrievers, Huskies, German Shepherds), practice "line brushing": use your non-dominant hand to part the coat down to the pink skin line, then gently brush down the exposed layer using a slicker brush, repeating row by row.',
+        'For double-coated breeds (Golden Retrievers, Huskies, German Shepherds), practice "line brushing": use your non-dominant hand to part the coat down to the pink skin line, then gently brush down the exposed layer using a slicker brush, repeating row by row. This is also an opportune time to inspect the skin for external parasites following our [flea and tick prevention protocol](/blogs/flea-tick-heartworm-prevention-ahs-protocol).',
         'Never brush a completely dry, dirty coat—friction damages the hair cuticle and causes static electricity. Lightly mist the fur with a pet conditioning spray or diluted leave-in detangler before brushing.',
         'For curly or non-shedding breeds (Poodles, Doodles, Bichons), follow your slicker brush with a metal greyhound comb. If the metal comb catches or resists anywhere near the skin, there is a hidden knot that requires gentle manual finger-separation.'
       ],
@@ -68,9 +68,4 @@ export const dogGroomingAtHomeArticle: FullBlogArticle = {
       bulletPoints: [
         { label: 'Weekly Ear Flush', text: 'Clean ears after every swim or bath to evaporate trapped moisture and prevent yeast overgrowth.' },
         { label: 'No Q-Tips in Canal', text: 'Use cotton pads on visible flap areas only; never probe inside the L-shaped auditory canal.' },
-        { label: 'Check Paw Pads', text: 'Inspect paw webbing for foxtails, burrs, or redness after outdoor hikes.' },
-        { label: 'Grooming Log', text: 'Record ear cleaner brands and reaction dates in the PetHorizon health vault.' }
-      ]
-    }
-  ]
-};
+        { label: 'Check Paw Pads', text: 'Inspect paw webbing for foxtails, burrs, 

@@ -15,7 +15,7 @@ export const dogDentalCareArticle: FullBlogArticle = {
         'Within 48 to 72 hours, minerals in canine saliva combine with plaque to form rock-hard calculus (tartar). Tartar provides a porous surface for anaerobic bacteria to migrate under the gumline.',
         'Stage 1 (Gingivitis) is reversible: gums swell, redden, and bleed easily upon contact. At this stage, daily home brushing can restore gum health.',
         'Stages 2 to 4 (Periodontitis) involve irreversible destruction of periodontal ligaments and alveolar bone. Teeth loosen, roots develop abscesses, and jawbones can fracture under minor chewing stress.',
-        'Most dangerously, bacteremia from severe dental disease places continuous inflammatory stress on systemic organs, predisposing dogs to mitral valve endocarditis, hepatic fibrosis, and chronic renal failure.'
+        'Most dangerously, bacteremia from severe dental disease places continuous inflammatory stress on systemic organs, predisposing dogs to mitral valve endocarditis, hepatic fibrosis, and chronic renal failure. Tracking routine cleanings and vet diagnostics in our [pet health records tracker](/blogs/pet-health-records-medication-schedule-tracker) helps detect oral deterioration early.'
       ],
       table: {
         headers: ['Periodontal Stage', 'Clinical Signs', 'Bone Loss', 'Treatment Required'],
@@ -28,7 +28,7 @@ export const dogDentalCareArticle: FullBlogArticle = {
       },
       warningBox: {
         title: 'Never Use Human Toothpaste for Dogs',
-        text: 'Human toothpaste contains foaming detergents (sodium lauryl sulfate) that upset canine stomachs, and often includes Xylitol (birch bark sweetener), an artificial sweetener that causes catastrophic hypoglycemic liver failure in dogs within 30 minutes.'
+        text: 'Human toothpaste contains foaming detergents (sodium lauryl sulfate) that upset canine stomachs, and often includes Xylitol (birch bark sweetener), an artificial sweetener that causes catastrophic hypoglycemic liver failure in dogs within 30 minutes. Learn more in our [toxic foods poison checklist](/blogs/toxic-foods-dogs-cats-poison-checklist) and [emergency vet symptoms guide](/blogs/emergency-vet-symptoms-red-flags-petmd).'
       }
     },
     {

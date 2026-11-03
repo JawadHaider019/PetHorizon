@@ -10,7 +10,7 @@ export const seniorCatCareArticle: FullBlogArticle = {
       id: 'feline-lifestage-and-subtle-pain',
       heading: 'The Feline Aging Matrix: Mature, Senior & Geriatric Life Stages',
       intro:
-        'The American Association of Feline Practitioners (AAFP) categorizes feline aging into three distinct advanced stages based on physiological and metabolic benchmarks:',
+        'The American Association of Feline Practitioners (AAFP) categorizes feline aging into three distinct advanced stages based on physiological and metabolic benchmarks (which you can track with our [pet age calculator](/tools/pet-age-calculator)):',
       paragraphs: [
         'Mature (7 to 10 Years): Feline metabolic rate begins to slow, predisposing sedentary indoor cats to middle-aged obesity and early insulin resistance.',
         'Senior (11 to 14 Years): The critical transition window where subclinical degenerative diseases (osteoarthritis, chronic kidney disease, hyperthyroidism, dental resorptive lesions) begin their clinical onset. Semiannual veterinary screening becomes essential.',
@@ -35,7 +35,7 @@ export const seniorCatCareArticle: FullBlogArticle = {
         'A critical physiological divergence occurs between senior dogs and senior cats: while aging dogs need fewer calories, cats over 12 years of age experience a marked decrease in digestive enzyme activity.',
       paragraphs: [
         'Clinical nutrition studies published by the Cornell Feline Health Center demonstrate that geriatric cats show a 20% to 30% reduction in their ability to digest dietary proteins and fats. If fed a restricted-protein senior diet prematurely, an older cat will catabolize their own skeletal muscle to meet basic amino acid requirements, resulting in severe sarcopenia.',
-        'Unless a cat has advanced IRIS Stage 3 or 4 chronic kidney disease requiring strict phosphorus restriction, senior cats thrive on highly digestible, moisture-dense animal proteins (poultry, rabbit, egg white) with moderate phosphorus levels (< 0.6% dry matter).',
+        'Unless a cat has advanced IRIS Stage 3 or 4 chronic kidney disease requiring strict phosphorus restriction (see our complete guide on [feline kidney disease hydration](/blogs/feline-kidney-disease-dehydration-cornell) and [cat feeding schedules](/blogs/cat-feeding-schedule-indoor-enrichment-guide)), senior cats thrive on highly digestible, moisture-dense animal proteins (poultry, rabbit, egg white) with moderate phosphorus levels (< 0.6% dry matter).',
         'Combatting Subclinical Dehydration: Older cats experience an age-related decline in thirst drive and kidney filtration. Adding warm water, bone broth, or pureed toppers to canned food provides the 40 to 50 mL/kg of daily dietary water necessary to prevent chronic constipation and preserve renal health.'
       ],
       warningBox: {
