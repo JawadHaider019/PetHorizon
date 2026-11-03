@@ -1,5 +1,4 @@
-import { useRef, useState } from 'react';
-import { motion, AnimatePresence, MotionValue } from 'framer-motion';
+import { useState } from 'react';
 import {
   ShieldCheck,
   Trash2,
@@ -7,11 +6,9 @@ import {
   Mail,
   Copy,
   Check,
-  ChevronDown,
   Calendar,
   Lock,
-  Smartphone,
-  UserCheck
+  Smartphone
 } from 'lucide-react';
 import { LegalDocument } from '../data/legalData';
 
@@ -20,30 +17,24 @@ interface LegalHeaderProps {
   activeDocId: 'privacy' | 'deletion';
   onDocChange: (id: 'privacy' | 'deletion') => void;
   onNavigateHome: () => void;
-  readPercent: number;
-  activeSectionId: string;
-  onScrollToSection: (id: string) => void;
+  readPercent?: number;
+  activeSectionId?: string;
+  onScrollToSection?: (id: string) => void;
 }
 
 export default function LegalHeader({
   currentDoc,
   activeDocId,
   onDocChange,
-  onNavigateHome,
-  readPercent,
-  activeSectionId,
-  onScrollToSection
+  onNavigateHome
 }: LegalHeaderProps) {
   const [copied, setCopied] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(window.location.href);
     setCopied(true);
     setTimeout(() => setCopied(false), 2200);
   };
-
-  const activeIdx = currentDoc.sections.findIndex((s) => s.id === activeSectionId);
 
   return (
     <>

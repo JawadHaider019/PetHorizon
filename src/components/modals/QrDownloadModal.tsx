@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Smartphone, Check, Copy, ShieldCheck, Star } from 'lucide-react';
+import { X, Smartphone, Check, Copy, ShieldCheck } from 'lucide-react';
 import QrCodeSvg from '../common/QrCodeSvg';
 import { GooglePlayIcon } from '../AppBadges';
 import { PLAY_STORE_URL } from '../../config/siteConfig';
