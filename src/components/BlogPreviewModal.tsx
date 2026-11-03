@@ -94,7 +94,7 @@ export default function BlogPreviewModal({ post, onClose }: BlogPreviewModalProp
               rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs shadow-md shadow-emerald-800/20 transition-all cursor-pointer whitespace-nowrap"
             >
-              <span>Read Full Guide on {post.sourceName.split(' ')[0]}</span>
+              <span>Read Full Guide on {post.sourceName ? post.sourceName.split(' ')[0] : 'Source'}</span>
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
           </div>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Check, CheckCircle2, Clock } from 'lucide-react';
+import { Check, CheckCircle2, Clock } from 'lucide-react';
 // @ts-expect-error canvas-confetti has no types
 import confetti from 'canvas-confetti';
 
