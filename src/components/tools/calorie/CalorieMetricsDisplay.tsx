@@ -73,3 +73,4 @@ export default function CalorieMetricsDisplay({
     </motion.div>
   );
 }
+
