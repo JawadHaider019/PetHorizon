@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowUpRight, Layers, Search } from 'lucide-react';
 import { CHANGELOG_RELEASES, ChangelogRelease } from '../../data/changelogData';
 import { PLAY_STORE_URL } from '../../config/siteConfig';
+import { trackPlayStoreClick } from '../../utils/analytics';
 import ChangelogFilterBar, { FilterTag } from './ChangelogFilterBar';
 import ChangelogReleaseCard from './ChangelogReleaseCard';
 
@@ -69,6 +70,7 @@ export default function ChangelogPage({ onNavigateHome }: ChangelogPageProps) {
             href={PLAY_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackPlayStoreClick('changelog_page')}
             className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 active:scale-98 text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-xl shadow-xs hover:shadow-md transition-all group"
           >
             <span>Get on Google Play</span>
