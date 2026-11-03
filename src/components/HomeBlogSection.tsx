@@ -25,7 +25,7 @@ export default function HomeBlogSection({
             </p>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-              Trending Pet Care Guides &amp; <span className="text-emerald-700">Vet-Reviewed</span> Answers
+              Trending Pet Care Guides &amp; <span className="text-emerald-700">Veterinary-Informed</span> Answers
             </h2>
 
             <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
@@ -65,7 +65,7 @@ export default function HomeBlogSection({
               </h4>
             </div>
             <span className="text-xs font-semibold text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100 whitespace-nowrap shrink-0 w-fit">
-              Reviewed by Veterinary Advisory Board
+              Informed by Established Veterinary Guidance
             </span>
           </div>
 

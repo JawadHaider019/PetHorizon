@@ -6,8 +6,8 @@
 
 declare global {
   interface Window {
-    dataLayer?: any[];
-    gtag?: (...args: any[]) => void;
+    dataLayer?: unknown[];
+    gtag?: (...args: unknown[]) => void;
   }
 }
 
@@ -49,7 +49,11 @@ export function trackEvent<E extends AnalyticsEvent>(name: E['name'], params: E[
       window.gtag('event', name, eventPayload);
     } else {
       window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push(['event', name, eventPayload]);
+      window.gtag = function () {
+        // eslint-disable-next-line prefer-rest-params
+        window.dataLayer?.push(arguments);
+      };
+      window.gtag('event', name, eventPayload);
     }
   } catch {
     // Fail silently in development or ad-blocker environments
