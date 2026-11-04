@@ -32,11 +32,13 @@ export default function PetCalorieCalculator({
   const [mealsPerDay, setMealsPerDay] = useState<number>(2);
   const [gramsPerCup, setGramsPerCup] = useState<number>(105);
   const [hasCelebrated, setHasCelebrated] = useState<boolean>(false);
-  const hasInteractedRef = useRef<boolean>(false);
-  const lastTrackedKeyRef = useRef<string>('');
+  const lastCompletedKeyRef = useRef<string>('');
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
   const handlePetTypeChange = (type: PetType) => {
-    hasInteractedRef.current = true;
     setPetType(type);
     if (type === 'dog') {
       setSelectedStageId('adult_neutered');
@@ -62,12 +64,19 @@ export default function PetCalorieCalculator({
   const animatedWater = useAnimatedNumber(calculations.dailyWaterMl);
 
   const handleConfettiSync = () => {
-    hasInteractedRef.current = true;
-    const key = `${petType}-${weight}-${unit}-${selectedStageId}-${mealsPerDay}-${gramsPerCup}`;
-    if (calculations.mer > 0 && key !== lastTrackedKeyRef.current) {
-      lastTrackedKeyRef.current = key;
-      trackCalculatorCompleted('pet_calorie', petType);
+    const isValidCalculation =
+      calculations.mer > 0 &&
+      weight > 0 &&
+      !isNaN(calculations.mer) &&
+      calculations.gramsPerMeal > 0;
+
+    const currentKey = `${petType}-${weight}-${unit}-${selectedStageId}-${mealsPerDay}-${gramsPerCup}`;
+
+    if (isValidCalculation && currentKey !== lastCompletedKeyRef.current) {
+      lastCompletedKeyRef.current = currentKey;
+      trackCalculatorCompleted('pet_calorie', petType, 'save_sync');
     }
+
     try {
       confetti({
         particleCount: 45,
@@ -82,43 +91,25 @@ export default function PetCalorieCalculator({
     setTimeout(() => setHasCelebrated(false), 2400);
   };
 
-  useEffect(() => {
-    if (!hasInteractedRef.current) return;
-    const key = `${petType}-${weight}-${unit}-${selectedStageId}-${mealsPerDay}-${gramsPerCup}`;
-    if (calculations.mer > 0 && key !== lastTrackedKeyRef.current) {
-      const timer = setTimeout(() => {
-        lastTrackedKeyRef.current = key;
-        trackCalculatorCompleted('pet_calorie', petType);
-      }, 1500);
-      return () => clearTimeout(timer);
-    }
-  }, [calculations.mer, petType, weight, unit, selectedStageId, mealsPerDay, gramsPerCup]);
-
   const displayName = petName.trim() ? petName.trim() : petType === 'dog' ? 'Your Dog' : 'Your Cat';
 
   const handleUnitChange = (val: WeightUnit) => {
-    hasInteractedRef.current = true;
     setUnit(val);
   };
   const handleStageChange = (val: string) => {
-    hasInteractedRef.current = true;
     setSelectedStageId(val);
   };
   const handleMealsChange = (val: number) => {
-    hasInteractedRef.current = true;
     setMealsPerDay(val);
   };
   const handleGramsPerCupChange = (val: number) => {
-    hasInteractedRef.current = true;
     setGramsPerCup(val);
   };
   const handleWeightChange = (val: number) => {
-    hasInteractedRef.current = true;
     setWeight(val);
   };
 
   const adjustWeight = (delta: number) => {
-    hasInteractedRef.current = true;
     setWeight((prev) => Math.max(0.5, Math.round((prev + delta) * 10) / 10));
   };
 

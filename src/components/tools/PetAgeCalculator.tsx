@@ -29,15 +29,13 @@ export default function PetAgeCalculator({
   const [months, setMonths] = useState<number>(0);
   const [petName, setPetName] = useState<string>('Luna');
   const [hasCelebrated, setHasCelebrated] = useState<boolean>(false);
-  const hasInteractedRef = useRef<boolean>(false);
-  const lastTrackedKeyRef = useRef<string>('');
+  const lastCompletedKeyRef = useRef<string>('');
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
   const handlePetTypeChange = (type: PetType) => {
-    hasInteractedRef.current = true;
     setPetType(type);
     if (type === 'dog') {
       if (petName === 'Mochi' || !petName) setPetName('Luna');
@@ -47,17 +45,14 @@ export default function PetAgeCalculator({
   };
 
   const handleDogSizeChange = (val: DogBreedSize) => {
-    hasInteractedRef.current = true;
     setDogSize(val);
   };
 
   const handleYearsChange = (fn: (prev: number) => number) => {
-    hasInteractedRef.current = true;
     setYears(fn);
   };
 
   const handleMonthsChange = (fn: (prev: number) => number) => {
-    hasInteractedRef.current = true;
     setMonths(fn);
   };
 
@@ -68,26 +63,15 @@ export default function PetAgeCalculator({
 
   const animatedHumanAge = useAnimatedNumber(humanAge);
 
-  useEffect(() => {
-    if (!hasInteractedRef.current) return;
-    const key = `${petType}-${dogSize}-${years}-${months}`;
-    if (humanAge > 0 && key !== lastTrackedKeyRef.current) {
-      const timer = setTimeout(() => {
-        lastTrackedKeyRef.current = key;
-        trackCalculatorCompleted('pet_age', petType);
-      }, 1500);
-      return () => clearTimeout(timer);
-    }
-  }, [humanAge, petType, dogSize, years, months]);
-
-
   const handleConfettiSync = () => {
-    hasInteractedRef.current = true;
-    const key = `${petType}-${dogSize}-${years}-${months}`;
-    if (humanAge > 0 && key !== lastTrackedKeyRef.current) {
-      lastTrackedKeyRef.current = key;
-      trackCalculatorCompleted('pet_age', petType);
+    const isValidCalculation = humanAge > 0 && years >= 0 && months >= 0 && !isNaN(humanAge);
+    const currentKey = `${petType}-${dogSize}-${years}-${months}`;
+
+    if (isValidCalculation && currentKey !== lastCompletedKeyRef.current) {
+      lastCompletedKeyRef.current = currentKey;
+      trackCalculatorCompleted('pet_age', petType, 'save_sync');
     }
+
     try {
       confetti({
         particleCount: 50,
