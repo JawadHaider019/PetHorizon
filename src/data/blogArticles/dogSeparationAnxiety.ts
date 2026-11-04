@@ -58,7 +58,7 @@ export const dogSeparationAnxietyArticle: FullBlogArticle = {
       },
       routineTip: {
         title: 'Track Alone-Time Milestones in PetHorizon',
-        text: 'Log every absence duration and dog calm score in the PetHorizon Activity Timeline. Sharing updates across household members helps [coordinate routines and avoid mixed departure signals](/blogs/household-pet-coparenting-feeding-routine-sync).',
+        text: 'Log every absence duration and dog calm score in the PetHorizon Activity Timeline. Sharing updates across household members helps [coordinate routines and avoid mixed departure signals](/blogs/household-pet-coparenting-feeding-routine-sync-worldwide).',
         actionLabel: 'Log Alone-Time Training in PetHorizon'
       }
     },
