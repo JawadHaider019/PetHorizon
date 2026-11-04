@@ -27,7 +27,7 @@ export const dogGroomingAtHomeArticle: FullBlogArticle = {
       },
       warningBox: {
         title: 'Emergency Styptic Preparation',
-        text: 'Never begin trimming nails without your styptic powder bottle open and a cotton swab ready. If styptic powder is unavailable, cornstarch or baking flour pressed into the nail tip acts as an emergency clotting agent; keep these supplies stocked in your home [pet first aid kit](/blogs/pet-first-aid-kit-checklist-emergency-preparation).'
+        text: 'Never begin trimming nails without your styptic powder bottle open and a cotton swab ready. If styptic powder is unavailable, cornstarch or baking flour pressed into the nail tip acts as an emergency clotting agent; keep these supplies stocked in your home [pet first aid kit](/blogs/pet-first-aid-kit-checklist-emergency-preparedness-plan).'
       }
     },
     {

@@ -27,7 +27,7 @@ export const petTravelChecklistArticle: FullBlogArticle = {
       },
       warningBox: {
         title: 'The USDA APHIS 10-Day Health Certificate Rule',
-        text: 'Most commercial airlines and international agricultural departments mandate a Certificate of Veterinary Inspection (CVI) signed by an accredited USDA veterinarian within exactly 10 days of departure. Keep digital copies organized in your [pet health records tracker](/blogs/pet-health-records-medication-schedule-tracker) alongside emergency supplies from our [pet first aid kit checklist](/blogs/pet-first-aid-kit-checklist-emergency-preparation).'
+        text: 'Most commercial airlines and international agricultural departments mandate a Certificate of Veterinary Inspection (CVI) signed by an accredited USDA veterinarian within exactly 10 days of departure. Keep digital copies organized in your [pet health records tracker](/blogs/pet-health-records-medication-schedule-tracker) alongside emergency supplies from our [pet first aid kit checklist](/blogs/pet-first-aid-kit-checklist-emergency-preparedness-plan).'
       }
     },
     {

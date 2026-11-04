@@ -14,7 +14,7 @@ export const introducingKittenToCatArticle: FullBlogArticle = {
       paragraphs: [
         'When a resident cat hears, smells, or sees a new kitten without warning, their sympathetic nervous system triggers fight-or-flight hormones. Hissing, growling, and swatting are defensive reactions indicating high anxiety, not inherent malice.',
         'Kittens lack adult feline social boundaries: they pounce, stalk, and invade personal space, which an adult cat interprets as intolerable disrespect or aggression.',
-        'A gradual phased introduction allows both felines to become accustomed to each other’s scent, vocalizations, and presence in micro-doses before physical contact ever occurs. For broader multi-animal dynamics, explore our [multi-pet household management guide](/blogs/multiple-pet-management-multi-dog-cat-households).'
+        'A gradual phased introduction allows both felines to become accustomed to each other’s scent, vocalizations, and presence in micro-doses before physical contact ever occurs. For broader multi-animal dynamics, explore our [multi-pet household management guide](/blogs/multiple-pet-management-multi-dog-cat-household-routines).'
       ],
       warningBox: {
         title: 'Never Let Them "Fight It Out"',
