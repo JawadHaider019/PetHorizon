@@ -14,7 +14,7 @@ export const introducingKittenToCatArticle: FullBlogArticle = {
       paragraphs: [
         'When a resident cat hears, smells, or sees a new kitten without warning, their sympathetic nervous system triggers fight-or-flight hormones. Hissing, growling, and swatting are defensive reactions indicating high anxiety, not inherent malice.',
         'Kittens lack adult feline social boundaries: they pounce, stalk, and invade personal space, which an adult cat interprets as intolerable disrespect or aggression.',
-        'A gradual phased introduction allows both felines to become accustomed to each other’s scent, vocalizations, and presence in micro-doses before physical contact ever occurs.'
+        'A gradual phased introduction allows both felines to become accustomed to each other’s scent, vocalizations, and presence in micro-doses before physical contact ever occurs. For broader multi-animal dynamics, explore our [multi-pet household management guide](/blogs/multiple-pet-management-multi-dog-cat-households).'
       ],
       warningBox: {
         title: 'Never Let Them "Fight It Out"',
@@ -36,7 +36,7 @@ export const introducingKittenToCatArticle: FullBlogArticle = {
         ]
       },
       paragraphs: [
-        'During Phase 1, place the kitten in a safe, fully equipped room (litter box, food, water, scratcher, toys). Feed both cats their favorite meals right next to the closed door so they associate the smell of the other cat with delicious food.',
+        'During Phase 1, place the kitten in a safe, fully equipped room (litter box, food, water, scratcher, toys). Feed both cats their favorite meals right next to the closed door so they associate the smell of the other cat with delicious food; manage portions using our [cat feeding schedule and indoor enrichment guide](/blogs/cat-feeding-schedule-indoor-enrichment-guide).',
         'During Phase 2, rub a soft clean towel around the kitten’s scent glands (cheeks, chin, forehead) and place it under the adult cat’s food dish. Then do the reverse. Swap their living spaces for an hour so the kitten explores the house and the adult cat inspects the kitten room.',
         'In Phase 3, install a tall baby gate or double stacked gates. Feed canned wet food at opposite sides, gradually moving bowls closer over 4 to 5 days.',
         'In Phase 4, allow short supervised interactions. Always engage both cats in active play with separate wand toys to burn nervous adrenaline.'

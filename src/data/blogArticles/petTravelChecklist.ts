@@ -12,7 +12,7 @@ export const petTravelChecklistArticle: FullBlogArticle = {
       intro:
         'Airlines enforce rigid biological and physical criteria governing pet transit to maintain aircraft safety, cabin hygiene, and animal welfare:',
       paragraphs: [
-        'In-Cabin Travel Regulations: Permitted for cats and small dogs whose combined body weight with their carrier does not exceed airline limits (typically 15 to 20 lbs / 7 to 9 kg). The carrier must fit completely underneath the seat directly in front of you without compressing your pet. The animal must be able to stand up, turn around completely, and lie down in a natural resting posture throughout the flight.',
+        'In-Cabin Travel Regulations: Permitted for cats and small dogs whose combined body weight with their carrier does not exceed airline limits (typically 15 to 20 lbs / 7 to 9 kg). The carrier must fit completely underneath the seat directly in front of you without compressing your pet. The animal must be able to stand up, turn around completely, and lie down in a natural resting posture throughout the flight. For peace of mind during transit, equip your pet’s collar with devices reviewed in our guide on [best pet GPS trackers and health wearables](/blogs/best-pet-gps-trackers-health-wearables-review-worldwide).',
         'Brachycephalic Breed Bans: Due to high historic mortality rates associated with severe respiratory distress and heat stress at high altitudes, snub-nosed dog breeds (French Bulldogs, Pugs, English Bulldogs, Boxers) and brachycephalic cats (Persians, Himalayans) are strictly prohibited from flying in cargo holds by virtually every major global airline.',
         'Cargo Hold Realities (IATA LAR Compliance): Large dogs that exceed in-cabin limits must fly as manifest cargo or checked baggage in rigid, fiberglass/hard-plastic crates meeting IATA Live Animals Regulations (LAR Container Requirement 1). Crates must feature metal bolt fasteners (never plastic dial clips), exterior water funnels, absorbent bedding, and ventilation on all four sides. Always book non-stop flights during temperate seasons (early morning or late evening in summer; midday in winter) to prevent tarmac thermal extremes.'
       ],
@@ -27,7 +27,7 @@ export const petTravelChecklistArticle: FullBlogArticle = {
       },
       warningBox: {
         title: 'The USDA APHIS 10-Day Health Certificate Rule',
-        text: 'Most commercial airlines and international agricultural departments mandate a Certificate of Veterinary Inspection (CVI) signed by an accredited USDA veterinarian within exactly 10 days of departure. Missing this strict 10-day window results in denied airline boarding at check-in with zero exceptions.'
+        text: 'Most commercial airlines and international agricultural departments mandate a Certificate of Veterinary Inspection (CVI) signed by an accredited USDA veterinarian within exactly 10 days of departure. Keep digital copies organized in your [pet health records tracker](/blogs/pet-health-records-medication-schedule-tracker) alongside emergency supplies from our [pet first aid kit checklist](/blogs/pet-first-aid-kit-checklist-emergency-preparation).'
       }
     },
     {

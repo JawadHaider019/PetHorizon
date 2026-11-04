@@ -13,7 +13,7 @@ export const petDiabetesInsulinArticle: FullBlogArticle = {
         'Canine diabetes is typically insulin-dependent (resembling human Type 1 diabetes), whereas feline diabetes frequently resembles Type 2 insulin resistance and can achieve clinical remission when treated early with low-carbohydrate wet diets and glargine/protamine zinc insulin.',
       paragraphs: [
         'Regardless of species, the golden veterinary rule is "Feed First, Confirm Appetite, Then Inject." Your pet must consume at least 50% to 75% of their measured meal before the morning or evening insulin injection is administered. This guarantees that exogenous insulin peaks alongside intestinal glucose absorption.',
-        'Space injections strictly 12 hours apart (for example, 7:00 AM and 7:00 PM). Consistent gram portions weighed on a digital scale ensure the glycaemic curve remains predictable from day to day.',
+        'Space injections strictly 12 hours apart (for example, 7:00 AM and 7:00 PM). Consistent gram portions weighed on a digital scale ensure the glycaemic curve remains predictable from day to day; calculate target daily caloric limits using our [pet calorie calculator](/tools/pet-calorie-calculator).',
         'Always verify syringe calibration: U-40 veterinary insulins (Vetsulin, ProZinc) must only be drawn using red-capped U-40 syringes. Human insulins (Glargine/Lantus) require orange-capped U-100 syringes. Using a U-100 syringe with U-40 insulin causes a lethal 2.5-times overdose error.'
       ],
       table: {
@@ -27,7 +27,7 @@ export const petDiabetesInsulinArticle: FullBlogArticle = {
       },
       warningBox: {
         title: 'Emergency Hypoglycemia (Low Blood Sugar) Protocol',
-        text: 'Hyperglycemia damages organs slowly over months, but Hypoglycemia kills within minutes. If your diabetic pet appears drunken, glassy-eyed, trembling, or seizing, rub corn syrup (Karo) or honey directly onto their gums and drive to a 24/7 veterinary ER immediately.'
+        text: 'Hyperglycemia damages organs slowly over months, but Hypoglycemia kills within minutes. If your diabetic pet appears drunken, glassy-eyed, trembling, or seizing, rub corn syrup (Karo) or honey directly onto their gums and drive to a 24/7 veterinary ER immediately. Review full triage protocols in our [emergency vet symptoms guide](/blogs/emergency-vet-symptoms-red-flags-petmd).'
       }
     },
     {
@@ -59,11 +59,11 @@ export const petMicrochipGuideArticle: FullBlogArticle = {
       id: 'how-microchip-registries-work',
       heading: 'How Pet Microchips & Universal Lookup Registries Work',
       intro:
-        'Contrary to popular belief, a microchip does not contain a GPS battery or real-time satellite transmitter—and implanting the chip at your vet clinic does not automatically register your phone number in every national database.',
+        'Contrary to popular belief, a microchip does not contain a GPS battery or real-time satellite transmitter—and implanting the chip at your vet clinic does not automatically register your phone number in every national database. For real-time live location tracking and geofencing, explore our guide on [best pet GPS trackers and health wearables](/blogs/best-pet-gps-trackers-health-wearables-review-worldwide).',
       paragraphs: [
         'When an animal shelter or veterinary clinic scans a lost dog or cat with a universal RFID scanner, the screen displays a unique 9-, 10-, or 15-digit alphanumeric identification code. In the US, staff enter that number into the AAHA Universal Pet Microchip Lookup tool (`petmicrochiplookup.org`), which queries participating manufacturers (HomeAgain, AKC Reunite, 24PetWatch, Found Animals, PetLink).',
         'In the UK, databases must meet Defra standards (such as Petlog or Identibase). Under UK law, all dogs (by 8 weeks) and cats (by 20 weeks) must be microchipped. In Australia, records must be entered into the NSW Pet Registry or Central Animal Records (CAR).',
-        'If you moved homes, changed phone numbers, or adopted a rescue pet without completing the legal registry transfer, a shelter scanner returns a dead-end record.'
+        'If you moved homes, changed phone numbers, or adopted a rescue pet without completing the legal registry transfer, a shelter scanner returns a dead-end record. Storing your chip details digitally in our [pet health records tracker](/blogs/pet-health-records-medication-schedule-tracker) ensures permanent access.'
       ],
       table: {
         headers: ['Microchip Standard', 'Digit Length & Frequency', 'Global & Travel Compatibility'],

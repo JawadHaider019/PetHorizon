@@ -103,7 +103,7 @@ export const heartwormArticle: FullBlogArticle = {
       ],
       warningBox: {
         title: 'Why Year-Round Prevention is Mandatory',
-        text: 'Monthly heartworm preventatives do not form a protective shield against future mosquito bites; they work RETROACTIVELY by eliminating L3 and L4 larvae acquired during the previous 30 days. Stopping medication during winter leaves larvae free to develop into adult worms that cannot be killed by preventatives.'
+        text: 'Monthly heartworm preventatives do not form a protective shield against future mosquito bites; they work RETROACTIVELY by eliminating L3 and L4 larvae acquired during the previous 30 days. Synchronize doses alongside your [puppy and kitten vaccination schedule](/blogs/puppy-kitten-vaccination-schedule-booster-guide) and learn critical toxicity red flags in our [emergency vet symptoms guide](/blogs/emergency-vet-symptoms-red-flags-petmd). Stopping medication during winter leaves larvae free to develop into adult worms.'
       }
     },
     {
@@ -139,7 +139,7 @@ export const petCaloriesArticle: FullBlogArticle = {
         'Feeding charts printed on commercial pet food bags provide broad population averages that frequently overestimate caloric requirements by 20% to 40%, predisposing indoor and neutered pets to chronic obesity.',
       paragraphs: [
         'Resting Energy Requirement (RER): The baseline energy expenditure of a dog or cat at rest in a thermoneutral environment, supporting vital metabolic processes including cellular ion pumping, cardiac function, respiration, and thermoregulation.',
-        'The Scientific Allometric Equation: The gold-standard equation recognized by the World Small Animal Veterinary Association (WSAVA) and the American College of Veterinary Internal Medicine (ACVIM) is: RER (kcal/day) = 70 × (Body Weight in kg)^0.75. You can calculate your pet\'s exact daily baseline instantly using our [WSAVA Pet Calorie Calculator](/tools/pet-calorie-calculator).',
+        'The Scientific Allometric Equation: The gold-standard equation recognized by the World Small Animal Veterinary Association (WSAVA) and the American College of Veterinary Internal Medicine (ACVIM) is: RER (kcal/day) = 70 × (Body Weight in kg)^0.75. You can calculate your pet’s exact daily baseline instantly using our [WSAVA Pet Calorie Calculator](/tools/pet-calorie-calculator).',
         'The Linear Approximation: For pets weighing between 2 kg and 20 kg (4.4 lbs to 44 lbs), veterinary teams often use the linear approximation: RER (kcal/day) = (30 × Body Weight in kg) + 70. However, for giant breeds (> 25 kg) or toy breeds (< 2 kg), only the exponential 0.75 power formula provides accurate metabolic scaling.'
       ],
       table: {

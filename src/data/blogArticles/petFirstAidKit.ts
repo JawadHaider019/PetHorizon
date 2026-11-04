@@ -10,7 +10,7 @@ export const petFirstAidKitArticle: FullBlogArticle = {
       id: 'essential-pet-first-aid-inventory',
       heading: 'The Clinical Pet First Aid Kit: Essential Triage & Trauma Supplies',
       intro:
-        'A dedicated pet first aid kit should be housed in an airtight, water-resistant container with organized internal compartments. Every family member and caregiver must know its exact storage location, and expiration dates on sterile flushes and topical antiseptics should be audited every six months.',
+        'A dedicated pet first aid kit should be housed in an airtight, water-resistant container with organized internal compartments. Every family member and caregiver must know its exact storage location. Knowing when to stabilize at home versus immediately rushing to the clinic is essential; consult our [emergency vet symptoms and red flags guide](/blogs/emergency-vet-symptoms-red-flags-petmd).',
       table: {
         headers: ['Category', 'Required Supplies', 'Clinical Purpose & Usage Technique'],
         rows: [
@@ -98,7 +98,7 @@ export const petFirstAidKitArticle: FullBlogArticle = {
       paragraphs: [
         '1. Verify Cardiac Arrest (Rule of 5-10 Seconds): Call the pet’s name, touch the shoulder, and check for spontaneous chest movement or femoral pulse for no more than 10 seconds. If there is no response and no palpable pulse, initiate CPR immediately. Research demonstrates that the harm of brief CPR on an unresponsive animal is minimal compared to the catastrophic delay of withholding compressions.',
         '2. Patient Positioning: Lay the dog or cat in lateral recumbency (on their right side) on a rigid, flat surface or hard floor. Stand or kneel behind the animal’s spine.',
-        '3. Chest Compression Mechanics: Lock your elbows, align your shoulders directly over your hands, and bend from your waist to deliver force. Compress at a frequency of 100 to 120 compressions per minute (the tempo of the Bee Gees song "Stayin\' Alive"). Depress the chest by 1/3 to 1/2 of its lateral diameter, allowing complete, unobstructed elastic chest recoil between compressions to facilitate diastolic cardiac refill.',
+        '3. Chest Compression Mechanics: Lock your elbows, align your shoulders directly over your hands, and bend from your waist to deliver force. Compress at a frequency of 100 to 120 compressions per minute (the tempo of the Bee Gees song "Stayin’ Alive"). Depress the chest by 1/3 to 1/2 of its lateral diameter, allowing complete, unobstructed elastic chest recoil between compressions to facilitate diastolic cardiac refill.',
         'Chest Conformation Variations:',
         '• Keel-Chested / Deep-Chested Dogs (Greyhounds, Dobermans, Boxers): Position your hands directly over the heart (ventral third of the chest, at the level of the retracted elbow) using the cardiac pump theory.',
         '• Barrel-Chested / Round Dogs (Labradors, Golden Retrievers, Bulldogs): Position your hands over the widest circumference of the rib cage using the thoracic pump theory, where compressions elevate overall intrathoracic pressure to eject blood.',
@@ -136,7 +136,7 @@ export const petFirstAidKitArticle: FullBlogArticle = {
           ],
           [
             'Medical & Prescription Dossier',
-            'Waterproof pouch with rabies certificates, vaccination titers, 14-day supply of chronic medications, microchip registry ID',
+            'Waterproof pouch with rabies certificates, vaccination titers, 14-day supply of chronic medications, microchip registry ID. Verify poison hazards with our [toxic foods poison checklist](/blogs/toxic-foods-dogs-cats-poison-checklist).',
             'Emergency boarding facilities and out-of-state shelters cannot accept companion animals without verified rabies status.'
           ],
           [

@@ -80,6 +80,7 @@ export default function PetAgeCalculator({
     }
   }, [humanAge, petType, dogSize, years, months]);
 
+
   const handleConfettiSync = () => {
     hasInteractedRef.current = true;
     const key = `${petType}-${dogSize}-${years}-${months}`;

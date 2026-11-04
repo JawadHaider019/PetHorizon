@@ -13,8 +13,8 @@ export const nycVaccinationArticle: FullBlogArticle = {
         'Under New York City Health Code Article 161, every dog and cat kept in the five boroughs must maintain an active, veterinarian-certified rabies immunization starting at 12 to 16 weeks of age.',
       paragraphs: [
         'For Manhattan, Brooklyn, Queens, Bronx, and Staten Island apartment dwellers, co-op boards and residential management companies routinely require a verified Rabies Certificate and NYC DOHMH Dog License ($8.50/year for spayed/neutered dogs, $34 for intact dogs) before approving pet occupancy.',
-        'Beyond legal compliance, NYC’s dense urban footprint creates unique infectious exposure vectors. Standing rainwater puddles near curb grates, subway vents, and tree pits frequently carry Leptospira bacteria shed by urban rodent populations. A 2-dose Leptospirosis vaccine series is vital for any dog walking city sidewalks.',
-        'Keep 24/7 veterinary emergency contacts saved in advance, including the Schwarzman Animal Medical Center (AMC) on Manhattan’s Upper East Side and BluePearl referral hospitals in Midtown, Brooklyn, and Queens.'
+        'Beyond legal compliance, NYC’s dense urban footprint creates unique infectious exposure vectors. Standing rainwater puddles near curb grates, subway vents, and tree pits frequently carry Leptospira bacteria shed by urban rodent populations. A 2-dose Leptospirosis vaccine series is vital for any dog walking city sidewalks; follow our core [puppy and kitten vaccination schedule](/blogs/puppy-kitten-vaccination-schedule-booster-guide) for age milestones.',
+        'Keep 24/7 veterinary emergency contacts saved in advance, including the Schwarzman Animal Medical Center (AMC) on Manhattan’s Upper East Side and BluePearl referral hospitals in Midtown, Brooklyn, and Queens. Plan first-year urban veterinary costs with our [monthly pet care budget guide](/blogs/monthly-pet-care-cost-vet-expense-budget-worldwide).'
       ],
       table: {
         headers: ['Age Window', 'NYC Puppy Protocol', 'NYC Kitten Protocol', 'Borough Risk Factor'],
@@ -64,7 +64,7 @@ export const londonCoParentingArticle: FullBlogArticle = {
       intro:
         'When one partner catches an early Northern Line train at 7:15 AM and another works from home in Clapham or Hackney, verbal handoffs frequently break down—leading to accidental double breakfasts or missed evening medications.',
       paragraphs: [
-        'Veterinary surgeons across the UK report that uncoordinated feeding between partners and flatmates is a primary driver of gradual pet weight gain. Even a single extra scoop of kibble twice a week adds thousands of surplus kilocalories over a year.',
+        'Veterinary surgeons across the UK report that uncoordinated feeding between partners and flatmates is a primary driver of gradual pet weight gain. Explore our comprehensive [household pet co-parenting feeding routine guide](/blogs/household-pet-coparenting-feeding-routine-sync) and compare collaborative platforms in our [best pet care apps review](/blogs/best-pet-care-apps-medication-reminders-family-sync). Even a single extra scoop of kibble twice a week adds thousands of surplus kilocalories over a year.',
         'Transport for London (TfL) permits dogs on the Tube, buses, and Overground on leash (carried on escalators for paw safety), but syncing midday walk handoffs with hired dog walkers or housemates remains tricky.',
         'By replacing kitchen whiteboards and buried WhatsApp threads with PetHorizon’s Family Hub, London households get an active Anti-Collision Care Lock: the moment one person starts pouring breakfast or clipping on the lead for a Hampstead Heath or Victoria Park walk, every paired phone updates in real time.'
       ],
@@ -113,7 +113,7 @@ export const torontoBudgetArticle: FullBlogArticle = {
         'Veterinary clinical fees, urban daycare rates, and specialty pet nutrition in the Greater Toronto Area reflect Ontario’s higher operating and staffing standards.',
       paragraphs: [
         'For Toronto dog owners, recurring monthly costs typically range from $185 to $360 CAD, while indoor cats average $95 to $175 CAD per month. Mandatory City of Toronto pet licenses cost $25/year for spayed/neutered dogs ($15 for cats) and $60 for unsterilized pets.',
-        'Setting aside a dedicated preventive care and seasonal gear allowance prevents financial surprise during annual wellness visits, especially with Ontario veterinary clinic fees adjusted annually to OVMA benchmarks.'
+        'Setting aside a dedicated preventive care and seasonal gear allowance prevents financial surprise during annual wellness visits; compare global benchmarks in our [monthly pet care cost guide](/blogs/monthly-pet-care-cost-vet-expense-budget-worldwide) and explore financial safety nets in our [pet insurance vs savings fund guide](/blogs/pet-insurance-vs-savings-fund-vet-cost-guide).'
       ],
       table: {
         headers: ['Expense Category', 'Toronto Dog (Monthly CAD)', 'Toronto Cat (Monthly CAD)', 'Local GTA Cost Driver'],
@@ -165,7 +165,7 @@ export const sydneyTrackersArticle: FullBlogArticle = {
       paragraphs: [
         'Bluetooth proximity tags fail rapidly in dense Australian eucalyptus bushland where few passerby phones are nearby. Dedicated GPS collars utilizing Australian 4G LTE-M cellular bands (Telstra and Optus footprints) provide continuous real-time coordinates when a high-prey-drive dog bolts after bush turkeys or wallabies.',
         'Equally vital for NSW coastal pet owners is true IP68 waterproofing and rinsing the collar dock with fresh tap water after saltwater swims to prevent charging contact corrosion.',
-        'Remember that in New South Wales, all dogs and cats must be microchipped and registered on the NSW Pet Registry by 12 weeks of age. A GPS wearable is an active recovery tool, not a substitute for legal microchipping.'
+        'Remember that in New South Wales, all dogs and cats must be microchipped and registered on the NSW Pet Registry by 12 weeks of age. A GPS wearable is an active recovery tool, not a substitute for legal microchipping; review global hardware comparisons in our [best pet GPS trackers and health wearables review](/blogs/best-pet-gps-trackers-health-wearables-review-worldwide) and structure exercise safety with our [dog walking schedule guide](/blogs/dog-walking-schedule-by-age-breed-exercise-guide).'
       ],
       table: {
         headers: ['Evaluation Metric', 'Sydney Coastal / Bush Requirement', 'Why It Matters in NSW'],

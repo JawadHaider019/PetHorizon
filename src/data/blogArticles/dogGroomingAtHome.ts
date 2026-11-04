@@ -68,4 +68,9 @@ export const dogGroomingAtHomeArticle: FullBlogArticle = {
       bulletPoints: [
         { label: 'Weekly Ear Flush', text: 'Clean ears after every swim or bath to evaporate trapped moisture and prevent yeast overgrowth.' },
         { label: 'No Q-Tips in Canal', text: 'Use cotton pads on visible flap areas only; never probe inside the L-shaped auditory canal.' },
-        { label: 'Check Paw Pads', text: 'Inspect paw webbing for foxtails, burrs, 
+        { label: 'Check Paw Pads', text: 'Inspect paw webbing for foxtails, burrs, or redness after outdoor hikes.' },
+        { label: 'Grooming Log', text: 'Record ear cleaner brands and reaction dates in the PetHorizon health vault.' }
+      ]
+    }
+  ]
+};
