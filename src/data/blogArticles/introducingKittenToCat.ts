@@ -13,7 +13,7 @@ export const introducingKittenToCatArticle: FullBlogArticle = {
         'Learning how to introduce a kitten to an older cat begins with understanding feline instincts. Unfamiliar animals represent territory competition and potential disease vectors. Unlike pack-oriented dogs, cats defend individual home ranges.',
       paragraphs: [
         'When a resident cat hears, smells, or sees a new kitten without warning, their sympathetic nervous system triggers fight-or-flight hormones. Hissing, growling, and swatting are defensive reactions indicating high anxiety, not inherent malice.',
-        'Kittens lack adult feline social boundaries: they pounce, stalk, and invade personal space, which an adult cat interprets as intolerable disrespect or aggression.',
+        'Kittens lack adult feline social boundaries: they pounce, stalk, and invade personal space, which an adult cat interprets as intolerable disrespect or aggression. Comparing their physiological maturity using our [pet age calculator](/tools/pet-age-calculator) clarifies why juvenile energy often conflicts with mature feline calm.',
         'A gradual phased introduction allows both felines to become accustomed to each other’s scent, vocalizations, and presence in micro-doses before physical contact ever occurs. For broader multi-animal dynamics, explore our [multi-pet household management guide](/blogs/multiple-pet-management-multi-dog-cat-household-routines).'
       ],
       warningBox: {
@@ -54,8 +54,8 @@ export const introducingKittenToCatArticle: FullBlogArticle = {
         'Feline territorial stress occurs when key survival resources are clustered or limited. In multi-cat homes, resource distribution is everything.',
       paragraphs: [
         'The universal feline veterinary rule is N + 1 for all critical items: if you have 2 cats, you must provide at least 3 litter boxes, 3 fresh water stations, and multiple separate scratching posts located in distinct rooms.',
-        'Never place litter boxes directly adjacent to each other—a cat perceives two side-by-side boxes as a single large box that can be easily cornered or ambushed by an aggressive housemate.',
-        'Vertical territory is essential. Provide tall cat trees, window perches, and wall shelves so the adult cat can retreat to elevated safe zones when the kitten’s high-energy play becomes overwhelming.'
+        'Never place litter boxes directly adjacent to each other—a cat perceives two side-by-side boxes as a single large box that can be easily cornered or ambushed by an aggressive housemate, which is a leading trigger for bathroom avoidance covered in our [cat litter box problems guide](/blogs/cat-litter-box-problems-causes-solutions-guide).',
+        'Vertical territory is essential. Provide tall cat trees, window perches, and wall shelves so the adult cat can retreat to elevated safe zones when the kitten’s high-energy play becomes overwhelming, especially if your older cat has joint discomfort outlined in our [senior cat care guide](/blogs/senior-cat-care-health-diet-comfort-guide).'
       ],
       bulletPoints: [
         { label: 'Litter Box Calculation', text: 'Provide 3 litter boxes in 3 separate rooms so one cat cannot blockade bathroom access.' },

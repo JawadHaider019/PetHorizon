@@ -13,7 +13,7 @@ export const petDiabetesInsulinArticle: FullBlogArticle = {
         'Canine diabetes is typically insulin-dependent (resembling human Type 1 diabetes), whereas feline diabetes frequently resembles Type 2 insulin resistance and can achieve clinical remission when treated early with low-carbohydrate wet diets and glargine/protamine zinc insulin.',
       paragraphs: [
         'Regardless of species, the golden veterinary rule is "Feed First, Confirm Appetite, Then Inject." Your pet must consume at least 50% to 75% of their measured meal before the morning or evening insulin injection is administered. This guarantees that exogenous insulin peaks alongside intestinal glucose absorption.',
-        'Space injections strictly 12 hours apart (for example, 7:00 AM and 7:00 PM). Consistent gram portions weighed on a digital scale ensure the glycaemic curve remains predictable from day to day; calculate target daily caloric limits using our [pet calorie calculator](/tools/pet-calorie-calculator).',
+        'Space injections strictly 12 hours apart (for example, 7:00 AM and 7:00 PM). Consistent gram portions weighed on a digital scale ensure the glycaemic curve remains predictable from day to day; calculate target daily caloric limits using our [pet calorie calculator](/tools/pet-calorie-calculator) and review clinical portion formulas in our [pet calorie calculation guide](/blogs/pet-calorie-calculator-feeding-guide-apop) and [dog feeding schedule guide](/blogs/dog-feeding-schedule-by-age-puppy-to-adult).',
         'Always verify syringe calibration: U-40 veterinary insulins (Vetsulin, ProZinc) must only be drawn using red-capped U-40 syringes. Human insulins (Glargine/Lantus) require orange-capped U-100 syringes. Using a U-100 syringe with U-40 insulin causes a lethal 2.5-times overdose error.'
       ],
       table: {
@@ -34,7 +34,7 @@ export const petDiabetesInsulinArticle: FullBlogArticle = {
       id: 'preventing-household-double-dosing',
       heading: 'Eliminating Accidental Double-Dosing in Multi-Person Homes',
       intro:
-        'Veterinary emergency toxicologists report that accidental double-dosing by well-meaning spouses or roommates is one of the most common causes of iatrogenic insulin overdose.',
+        'Veterinary emergency toxicologists report that accidental double-dosing by well-meaning spouses or roommates is one of the most common causes of iatrogenic insulin overdose; synchronizing responsibility through our [household pet co-parenting guide](/blogs/household-pet-coparenting-feeding-routine-sync-worldwide) eliminates this risk.',
       bulletPoints: [
         { label: 'Active Care Lock', text: 'Use PetHorizon’s Anti-Collision Care Lock so the moment one partner draws up the syringe, every family phone displays an active lock.' },
         { label: 'Insulin Storage Integrity', text: 'Store vials upright in the refrigerator (never the door shelf); roll suspension insulins gently between palms rather than shaking vigorously.' },
@@ -75,7 +75,7 @@ export const petMicrochipGuideArticle: FullBlogArticle = {
       },
       warningBox: {
         title: 'International Travel Rule: Implant ISO Microchip BEFORE Rabies Vaccine',
-        text: 'For USDA APHIS and EU/UK Animal Health Certificates, your pet’s 15-digit ISO microchip MUST be implanted and scanned on or before the date their rabies vaccination is administered. Any rabies shot given before microchipping is legally invalid for international border entry.'
+        text: 'For USDA APHIS and EU/UK Animal Health Certificates, your pet’s 15-digit ISO microchip MUST be implanted and scanned on or before the date their rabies vaccination is administered. Any rabies shot given before microchipping is legally invalid for international border entry; consult our complete [pet travel checklist and regulations guide](/blogs/pet-travel-checklist-flying-car-trips-vet-records) and [puppy and kitten vaccination schedule](/blogs/puppy-kitten-vaccination-schedule-booster-guide-worldwide).'
       }
     },
     {

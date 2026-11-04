@@ -10,7 +10,7 @@ export const petFirstAidKitArticle: FullBlogArticle = {
       id: 'essential-pet-first-aid-inventory',
       heading: 'The Clinical Pet First Aid Kit: Essential Triage & Trauma Supplies',
       intro:
-        'A dedicated pet first aid kit should be housed in an airtight, water-resistant container with organized internal compartments. Every family member and caregiver must know its exact storage location. Knowing when to stabilize at home versus immediately rushing to the clinic is essential; consult our [emergency vet symptoms and red flags guide](/blogs/emergency-vet-symptoms-red-flags-petmd).',
+        'A dedicated pet first aid kit should be housed in an airtight, water-resistant container with organized internal compartments. Every family member and caregiver must know its exact storage location. Knowing when to stabilize at home versus immediately rushing to the clinic is essential; consult our [emergency vet symptoms and red flags guide](/blogs/emergency-vet-symptoms-red-flags-petmd). For small companion animals, keep recovery feeding equipment and oral syringes stocked as detailed in our [rabbit feeding schedule and GI stasis guide](/blogs/rabbit-feeding-schedule-hay-diet-gi-stasis-guide).',
       table: {
         headers: ['Category', 'Required Supplies', 'Clinical Purpose & Usage Technique'],
         rows: [
@@ -59,7 +59,7 @@ export const petFirstAidKitArticle: FullBlogArticle = {
       bulletPoints: [
         {
           label: 'Core Body Temperature (Rectal)',
-          text: 'Apply lubricating jelly to a dedicated digital thermometer. Insert gently 1 to 2 inches into the rectum against the mucosal wall. Healthy baseline: 100.5°F to 102.5°F (38.0°C to 39.2°C). A temperature above 104.0°F (40.0°C) signifies active hyperthermia/heatstroke demanding immediate cooling; a temperature below 99.0°F (37.2°C) signals impending circulatory shock or severe hypothermia.'
+          text: 'Apply lubricating jelly to a dedicated digital thermometer. Insert gently 1 to 2 inches into the rectum against the mucosal wall. Healthy baseline: 100.5°F to 102.5°F (38.0°C to 39.2°C). A temperature above 104.0°F (40.0°C) signifies active hyperthermia demanding immediate cooling via our [summer pet safety heatstroke guide](/blogs/summer-pet-safety-heatstroke-prevention-hot-pavement-guide); a temperature below 99.0°F (37.2°C) signals impending circulatory shock or hypothermia managed using our [winter pet care cold weather guide](/blogs/winter-pet-care-cold-weather-paw-safety-guide).'
         },
         {
           label: 'Femoral Arterial Pulse & Heart Rate',

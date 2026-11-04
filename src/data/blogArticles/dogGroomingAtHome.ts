@@ -10,7 +10,7 @@ export const dogGroomingAtHomeArticle: FullBlogArticle = {
       id: 'nail-trimming-quick-anatomy',
       heading: 'Trimming Dog Nails Safely: Understanding Quick Anatomy & Bleeding Protocols',
       intro:
-        'Trimming nails is often the most anxiety-inducing grooming task for both owners and dogs. Overgrown nails force toes to splay outward, altering skeletal alignment and causing chronic arthritis. Conditioning your dog to clippers works best with gradual desensitization, similar to the steps in our [dog separation anxiety training guide](/blogs/dog-separation-anxiety-training-routine-guide).',
+        'Trimming nails is often the most anxiety-inducing grooming task for both owners and dogs. Overgrown nails force toes to splay outward, altering skeletal alignment and exacerbating chronic joint pain as detailed in our [senior dog care guide](/blogs/senior-dog-care-mobility-nutrition-routine-guide). Conditioning your dog to clippers works best with gradual desensitization, similar to the steps in our [dog separation anxiety training guide](/blogs/dog-separation-anxiety-training-routine-guide).',
       paragraphs: [
         'Every canine nail contains the "quick"—a core of living blood vessels and nerve endings. In clear nails, the quick appears as a distinct pink core. In black nails, the quick is invisible from the exterior, requiring a millimeter-by-millimeter approach.',
         'When trimming black nails, look directly at the cut surface after every tiny slice. When you see a white or grayish circular center, you are approaching the quick. When a distinct black dot appears in the center, STOP cutting immediately.',
@@ -37,7 +37,7 @@ export const dogGroomingAtHomeArticle: FullBlogArticle = {
         'Surface brushing only grooms the top guard hairs, leaving the dense undercoat to tangle and turn into pelt-like mats against the skin that trap moisture and cause painful hot spots.',
       paragraphs: [
         'For double-coated breeds (Golden Retrievers, Huskies, German Shepherds), practice "line brushing": use your non-dominant hand to part the coat down to the pink skin line, then gently brush down the exposed layer using a slicker brush, repeating row by row. This is also an opportune time to inspect the skin for external parasites following our [flea and tick prevention protocol](/blogs/flea-tick-heartworm-prevention-ahs-protocol).',
-        'Never brush a completely dry, dirty coat—friction damages the hair cuticle and causes static electricity. Lightly mist the fur with a pet conditioning spray or diluted leave-in detangler before brushing.',
+        'Never brush a completely dry, dirty coat—friction damages the hair cuticle and causes static electricity. Lightly mist the fur with a pet conditioning spray or diluted leave-in detangler before brushing. For young dogs, incorporating gentle desensitization into your [new puppy checklist routine](/blogs/new-puppy-checklist-first-year-budget-guide) ensures calm handling for life.',
         'For curly or non-shedding breeds (Poodles, Doodles, Bichons), follow your slicker brush with a metal greyhound comb. If the metal comb catches or resists anywhere near the skin, there is a hidden knot that requires gentle manual finger-separation.'
       ],
       stepByStep: {
@@ -63,7 +63,7 @@ export const dogGroomingAtHomeArticle: FullBlogArticle = {
       paragraphs: [
         'To clean ears, fill the canal with a veterinary-formulated drying ear cleanser, massage the base of the ear for 30 seconds until you hear a "squishing" sound to break up wax, then step back and let the dog shake their head.',
         'Wipe away loosened debris with a soft cotton round. Never insert cotton swabs (Q-tips) into the ear canal, as this packs debris deeper against the delicate eardrum and risks perforation.',
-        'Inspect ears weekly: healthy ears are pale pink, cool, and odorless. Yellow or brown discharge accompanied by a sweet yeasty smell or frequent head shaking indicates an ear infection requiring prescription drops.'
+        'Inspect ears weekly: healthy ears are pale pink, cool, and odorless. Yellow or brown discharge accompanied by a sweet yeasty smell or frequent head shaking indicates an ear infection requiring prescription drops. Pair weekly ear checks with daily brushing outlined in our [dog dental care guide](/blogs/dog-dental-care-brushing-teeth-periodontal-guide) to maintain a complete head-to-tail hygiene routine.'
       ],
       bulletPoints: [
         { label: 'Weekly Ear Flush', text: 'Clean ears after every swim or bath to evaporate trapped moisture and prevent yeast overgrowth.' },

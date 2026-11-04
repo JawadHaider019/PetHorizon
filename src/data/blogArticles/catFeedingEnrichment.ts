@@ -14,8 +14,8 @@ export const catFeedingEnrichmentArticle: FullBlogArticle = {
       paragraphs: [
         'Kittens under 4 months grow at an exponential rate, doubling their birth weight in the first weeks of life. They require high-calorie kitten formulations rich in docosahexaenoic acid (DHA) for retinal and neurological development, divided into 3 to 4 daily meals.',
         'From 4 to 12 months, young cats can gradually transition to 2 to 3 structured meals per day. Monitor body condition score (BCS) closely around month 6, especially after spaying or neutering, as resting metabolic rate drops by up to 30% post-surgery.',
-        "Adult cats (1 to 10 years) thrive best on 2 to 3 portion-controlled meals combining canned wet food and moisture-rich toppers. You can calculate your cat's exact daily caloric and wet-food gram portion using our [pet calorie calculator](/tools/pet-calorie-calculator). Free-feeding dry kibble all day is the leading cause of feline diabetes and chronic dehydration.",
-        'Senior cats (10+ years) require easily digestible proteins, controlled phosphorus levels to protect kidneys, and increased moisture to counteract fading thirst drive.'
+        "Adult cats (1 to 10 years) thrive best on 2 to 3 portion-controlled meals combining canned wet food and moisture-rich toppers. You can calculate your cat's exact daily caloric and wet-food gram portion using our [pet calorie calculator](/tools/pet-calorie-calculator) and review clinical guidelines in our [pet calorie calculation guide](/blogs/pet-calorie-calculator-feeding-guide-apop). Free-feeding dry kibble all day is the leading cause of feline diabetes and chronic dehydration.",
+        'Senior cats (10+ years) require easily digestible proteins, controlled phosphorus levels to protect kidneys, and increased moisture as outlined in our [senior cat care guide](/blogs/senior-cat-care-health-diet-comfort-guide); track age-stage benchmarks with our [pet age calculator](/tools/pet-age-calculator).'
       ],
       table: {
         headers: ['Life Stage', 'Age Window', 'Recommended Feeding Frequency', 'Nutritional Focus & Target'],
@@ -44,7 +44,7 @@ export const catFeedingEnrichmentArticle: FullBlogArticle = {
       ],
       warningBox: {
         title: 'Emergency Red Flag: Male Cat Straining in Litter Box',
-        text: 'If a male cat strains, cries, or repeatedly visits the litter box without producing urine, seek emergency veterinary care immediately. Urethral blockage is 100% fatal within 24 to 48 hours without catheter relief.'
+        text: 'If a male cat strains, cries, or repeatedly visits the litter box without producing urine, seek emergency veterinary care immediately. Urethral blockage is 100% fatal within 24 to 48 hours without catheter relief; review critical emergency protocols in our [emergency vet symptoms guide](/blogs/emergency-vet-symptoms-red-flags-petmd).'
       },
       routineTip: {
         title: 'Log Feline Water & Wet Meals in PetHorizon',
@@ -59,7 +59,7 @@ export const catFeedingEnrichmentArticle: FullBlogArticle = {
         'Indoor cats are safe from predators, traffic, and parasites, but sensory deprivation and sedentary boredom can lead to behavioral problems like over-grooming, destructive scratching, and nighttime vocalization.',
       paragraphs: [
         'The Hunt-Catch-Kill-Eat-Groom-Sleep Cycle: Cats are wired for predatory bursts. Instead of dropping food into a stationary bowl, use interactive puzzle feeders, snuffle mats, or slow-feeder mice hidden around the house. Be sure to keep food areas separated from waste boxes to prevent stress house-soiling triggers covered in our [cat litter box solutions guide](/blogs/cat-litter-box-problems-causes-solutions-guide).',
-        'Vertical Territory and Micro-Climbing: Cats perceive their environment three-dimensionally. Cat trees, wall perches, and window hammocks create safe vantage points that lower feline cortisol and territorial stress.',
+        'Vertical Territory and Micro-Climbing: Cats perceive their environment three-dimensionally. Cat trees, wall perches, and window hammocks create safe vantage points that lower feline cortisol, particularly when managing multi-cat territories or following our protocol on [how to introduce a kitten to an older cat](/blogs/how-to-introduce-kitten-to-older-cat-guide).',
         'Sensory Stimulation & Play Therapy: Schedule two 10-minute active play sessions daily using wand toys or laser pointers (ending with a tangible toy catch and a small treat) to fulfill predatory completion instincts.'
       ],
       stepByStep: {
