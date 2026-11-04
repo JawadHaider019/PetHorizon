@@ -65,9 +65,12 @@ export default function PetAgeCalculator({
 
   const handleConfettiSync = () => {
     const isValidCalculation = humanAge > 0 && years >= 0 && months >= 0 && !isNaN(humanAge);
+
+    if (!isValidCalculation) return;
+
     const currentKey = `${petType}-${dogSize}-${years}-${months}`;
 
-    if (isValidCalculation && currentKey !== lastCompletedKeyRef.current) {
+    if (currentKey !== lastCompletedKeyRef.current) {
       lastCompletedKeyRef.current = currentKey;
       trackCalculatorCompleted('pet_age', petType, 'save_sync');
     }

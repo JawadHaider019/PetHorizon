@@ -70,9 +70,11 @@ export default function PetCalorieCalculator({
       !isNaN(calculations.mer) &&
       calculations.gramsPerMeal > 0;
 
+    if (!isValidCalculation) return;
+
     const currentKey = `${petType}-${weight}-${unit}-${selectedStageId}-${mealsPerDay}-${gramsPerCup}`;
 
-    if (isValidCalculation && currentKey !== lastCompletedKeyRef.current) {
+    if (currentKey !== lastCompletedKeyRef.current) {
       lastCompletedKeyRef.current = currentKey;
       trackCalculatorCompleted('pet_calorie', petType, 'save_sync');
     }
