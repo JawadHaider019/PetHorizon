@@ -17,10 +17,14 @@ export default function BlogRelatedPosts({
       <h3 className="text-xl font-black text-slate-900 mb-6">Related High-Ranking Guides</h3>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
         {related.map((item) => (
-          <div
+          <a
             key={item.id}
-            onClick={() => onSelectArticle(item.slug)}
-            className="bg-white p-5 rounded-2xl border border-slate-200/80 hover:border-emerald-300 shadow-2xs hover:shadow-md transition-all cursor-pointer flex flex-col justify-between group"
+            href={`/blogs/${item.slug}`}
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectArticle(item.slug);
+            }}
+            className="bg-white p-5 rounded-2xl border border-slate-200/80 hover:border-emerald-300 shadow-2xs hover:shadow-md transition-all cursor-pointer flex flex-col justify-between group no-underline"
           >
             <div>
               <span className="text-[10px] font-bold text-amber-800 block mb-1">
@@ -33,7 +37,7 @@ export default function BlogRelatedPosts({
             <span className="text-xs font-bold text-emerald-600 mt-4 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
               Read Guide <ChevronRight className="w-3.5 h-3.5" />
             </span>
-          </div>
+          </a>
         ))}
       </div>
 
