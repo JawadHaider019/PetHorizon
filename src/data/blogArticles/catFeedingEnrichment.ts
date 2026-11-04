@@ -14,7 +14,7 @@ export const catFeedingEnrichmentArticle: FullBlogArticle = {
       paragraphs: [
         'Kittens under 4 months grow at an exponential rate, doubling their birth weight in the first weeks of life. They require high-calorie kitten formulations rich in docosahexaenoic acid (DHA) for retinal and neurological development, divided into 3 to 4 daily meals.',
         'From 4 to 12 months, young cats can gradually transition to 2 to 3 structured meals per day. Monitor body condition score (BCS) closely around month 6, especially after spaying or neutering, as resting metabolic rate drops by up to 30% post-surgery.',
-        'Adult cats (1 to 10 years) thrive best on 2 to 3 portion-controlled meals combining canned wet food and moisture-rich toppers. You can calculate your cat’s exact daily caloric and wet-food gram portion using our [pet calorie calculator](/tools/pet-calorie-calculator). Free-feeding dry kibble all day is the leading cause of feline diabetes and chronic dehydration.',
+        "Adult cats (1 to 10 years) thrive best on 2 to 3 portion-controlled meals combining canned wet food and moisture-rich toppers. You can calculate your cat's exact daily caloric and wet-food gram portion using our [pet calorie calculator](/tools/pet-calorie-calculator). Free-feeding dry kibble all day is the leading cause of feline diabetes and chronic dehydration.",
         'Senior cats (10+ years) require easily digestible proteins, controlled phosphorus levels to protect kidneys, and increased moisture to counteract fading thirst drive.'
       ],
       table: {
