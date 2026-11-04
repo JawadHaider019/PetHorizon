@@ -167,7 +167,7 @@ runTest('SimulatedState', 'PetCalorie: Failed validation blocks celebration and 
     // Blocks early
   } else {
     lastCompletedKey = `dog-${invalidWeight}-kg-stage-2-105`;
-    trackCalculatorCompleted('pet_calorie', 'dog', 'save_sync');
+    trackCalculatorCompleted('pet_calorie', 'dog', 'user_confirmed');
   }
 
   assert.strictEqual(dispatchedEvents.length, 0, 'Invalid calculation must not fire completion');
@@ -185,7 +185,7 @@ runTest('SimulatedState', 'PetCalorie: Failed attempt followed by valid retry su
   let isValid = calculations.mer > 0 && weight > 0 && !isNaN(calculations.mer) && calculations.gramsPerMeal > 0;
 
   if (isValid) {
-    trackCalculatorCompleted('pet_calorie', 'dog', 'save_sync');
+    trackCalculatorCompleted('pet_calorie', 'dog', 'user_confirmed');
   }
   assert.strictEqual(dispatchedEvents.length, 0, 'Failed attempt must not dispatch');
 
@@ -197,7 +197,7 @@ runTest('SimulatedState', 'PetCalorie: Failed attempt followed by valid retry su
   const currentKey = `dog-${weight}-kg-adult_neutered-2-105`;
   const isDuplicate = currentKey === lastCompletedKey && (Date.now() - lastCompletedTime < 4000);
   if (isValid && !isDuplicate) {
-    const success = trackCalculatorCompleted('pet_calorie', 'dog', 'save_sync');
+    const success = trackCalculatorCompleted('pet_calorie', 'dog', 'user_confirmed');
     if (success) {
       lastCompletedKey = currentKey;
       lastCompletedTime = Date.now();
@@ -207,66 +207,66 @@ runTest('SimulatedState', 'PetCalorie: Failed attempt followed by valid retry su
   assert.strictEqual(dispatchedEvents.length, 1, 'Retry after correction must dispatch exactly one event');
   assert.strictEqual(dispatchedEvents[0].payload.calculator_type, 'pet_calorie');
   assert.strictEqual(dispatchedEvents[0].payload.pet_type, 'dog');
+  assert.strictEqual(dispatchedEvents[0].payload.completion_method, 'user_confirmed');
 });
 
-runTest('SimulatedState', 'PetCalorie: Rapid double-clicks (<4000ms) on identical calculation are suppressed', () => {
+runTest('SimulatedState', 'PetCalorie: Exact 5-step lifecycle (double-click suppression -> 2.4s timer reset -> cooldown expiry -> identical repeat completion)', () => {
   dispatchedEvents.length = 0;
   let lastCompletedKey = '';
   let lastCompletedTime = 0;
   let hasCelebrated = false;
-
-  const weight = 12;
-  const currentKey = `dog-${weight}-kg-adult_neutered-2-105`;
-
-  const triggerSync = (timestamp, isCelebrating) => {
-    const isDuplicate = currentKey === lastCompletedKey && (timestamp - lastCompletedTime < 4000 || isCelebrating);
-    if (!isDuplicate) {
-      const dispatched = trackCalculatorCompleted('pet_calorie', 'dog', 'save_sync');
-      if (dispatched) {
-        lastCompletedKey = currentKey;
-        lastCompletedTime = timestamp;
-      }
-    }
-  };
-
-  // First click at t=1000ms
-  triggerSync(1000, false);
-  hasCelebrated = true;
-  assert.strictEqual(dispatchedEvents.length, 1, 'First click must dispatch');
-
-  // Rapid button spamming at t=1200ms, t=1500ms, t=2000ms
-  triggerSync(1200, hasCelebrated);
-  triggerSync(1500, hasCelebrated);
-  triggerSync(2000, hasCelebrated);
-
-  assert.strictEqual(dispatchedEvents.length, 1, 'Rapid repeat clicks (<4000ms) must be suppressed');
-});
-
-runTest('SimulatedState', 'PetCalorie: Legitimate intentional repeat calculation after cooldown (>4000ms) is allowed', () => {
-  dispatchedEvents.length = 0;
-  let lastCompletedKey = '';
-  let lastCompletedTime = 0;
+  let celebrationTimer = null;
 
   const currentKey = 'dog-12-kg-adult_neutered-2-105';
 
-  const triggerSync = (timestamp, isCelebrating) => {
-    const isDuplicate = currentKey === lastCompletedKey && (timestamp - lastCompletedTime < 4000 || isCelebrating);
-    if (!isDuplicate) {
-      const dispatched = trackCalculatorCompleted('pet_calorie', 'dog', 'save_sync');
-      if (dispatched) {
-        lastCompletedKey = currentKey;
-        lastCompletedTime = timestamp;
-      }
+  const triggerSync = (simulatedTime) => {
+    const isDuplicate =
+      currentKey === lastCompletedKey &&
+      (simulatedTime - lastCompletedTime < 4000 || hasCelebrated);
+
+    if (isDuplicate) return;
+
+    const dispatched = trackCalculatorCompleted('pet_calorie', 'dog', 'user_confirmed');
+    if (dispatched) {
+      lastCompletedKey = currentKey;
+      lastCompletedTime = simulatedTime;
     }
+
+    hasCelebrated = true;
+    if (celebrationTimer) clearTimeout(celebrationTimer);
+    celebrationTimer = {
+      firesAt: simulatedTime + 2400,
+      run: () => {
+        hasCelebrated = false;
+        celebrationTimer = null;
+      }
+    };
   };
 
-  // Initial calculation at t=10000ms
-  triggerSync(10000, false);
-  assert.strictEqual(dispatchedEvents.length, 1);
+  // Step 1: Complete valid calculation at t = 1000ms
+  triggerSync(1000);
+  assert.strictEqual(dispatchedEvents.length, 1, 'Step 1: First click must dispatch event');
+  assert.strictEqual(hasCelebrated, true, 'hasCelebrated must be true');
 
-  // Intentional re-sync after 15 seconds (celebration finished, cooldown elapsed)
-  triggerSync(25000, false);
-  assert.strictEqual(dispatchedEvents.length, 2, 'Intentional repeat after cooldown must dispatch a new completion');
+  // Step 2: Immediate click at t = 1300ms (300ms later)
+  triggerSync(1300);
+  assert.strictEqual(dispatchedEvents.length, 1, 'Step 2: Rapid double click must be suppressed');
+
+  // Step 3: Simulation time advances to t = 3400ms (2400ms timer elapses)
+  if (celebrationTimer && celebrationTimer.firesAt <= 3400) {
+    celebrationTimer.run();
+  }
+  assert.strictEqual(hasCelebrated, false, 'Step 3: hasCelebrated must reset to false after 2400ms');
+
+  // Attempt click at t = 3500ms (within 4000ms cooldown, even though hasCelebrated is false)
+  triggerSync(3500);
+  assert.strictEqual(dispatchedEvents.length, 1, 'Click within 4000ms cooldown window must be suppressed');
+
+  // Step 4 & 5: Simulation time advances to t = 6000ms (5 seconds after initial completion)
+  // User intentionally clicks Save with identical inputs
+  triggerSync(6000);
+  assert.strictEqual(dispatchedEvents.length, 2, 'Step 5: Identical calculation after cooldown (>4000ms) dispatches EXACTLY ONE new event');
+  assert.strictEqual(dispatchedEvents[1].payload.completion_method, 'user_confirmed');
 });
 
 runTest('SimulatedState', 'PetCalorie: Switching pets (Dog -> Cat -> Dog) records distinct legitimate conversions', () => {
@@ -277,7 +277,7 @@ runTest('SimulatedState', 'PetCalorie: Switching pets (Dog -> Cat -> Dog) record
   const trigger = (key, petType, time) => {
     const isDuplicate = key === lastCompletedKey && (time - lastCompletedTime < 4000);
     if (!isDuplicate) {
-      const dispatched = trackCalculatorCompleted('pet_calorie', petType, 'save_sync');
+      const dispatched = trackCalculatorCompleted('pet_calorie', petType, 'user_confirmed');
       if (dispatched) {
         lastCompletedKey = key;
         lastCompletedTime = time;
@@ -315,7 +315,7 @@ runTest('SimulatedState', 'Analytics Dispatch Failure: Does NOT lock deduplicati
   const attempt = (time) => {
     const isDuplicate = currentKey === lastCompletedKey && (time - lastCompletedTime < 4000);
     if (!isDuplicate) {
-      const dispatched = trackCalculatorCompleted('pet_calorie', 'dog', 'save_sync');
+      const dispatched = trackCalculatorCompleted('pet_calorie', 'dog', 'user_confirmed');
       if (dispatched) {
         lastCompletedKey = currentKey;
         lastCompletedTime = time;
@@ -337,11 +337,12 @@ runTest('SimulatedState', 'Analytics Dispatch Failure: Does NOT lock deduplicati
   assert.strictEqual(dispatchedEvents.length, 1);
 });
 
-runTest('SimulatedState', 'PetAge: Deduplication, slider isolation, and retry behavior operate identically', () => {
+runTest('SimulatedState', 'PetAge: Deduplication, slider isolation, 2.4s reset and repeat completions operate identically', () => {
   dispatchedEvents.length = 0;
   window.location.pathname = '/tools/pet-age-calculator';
   let lastCompletedKey = '';
   let lastCompletedTime = 0;
+  let hasCelebrated = false;
 
   // Dragging age sliders
   let years = 1;
@@ -352,13 +353,14 @@ runTest('SimulatedState', 'PetAge: Deduplication, slider isolation, and retry be
   assert.strictEqual(dispatchedEvents.length, 0, 'Age sliders must not dispatch events');
 
   const trigger = (key, petType, time) => {
-    const isDuplicate = key === lastCompletedKey && (time - lastCompletedTime < 4000);
+    const isDuplicate = key === lastCompletedKey && (time - lastCompletedTime < 4000 || hasCelebrated);
     if (!isDuplicate) {
-      const dispatched = trackCalculatorCompleted('pet_age', petType, 'save_sync');
+      const dispatched = trackCalculatorCompleted('pet_age', petType, 'user_confirmed');
       if (dispatched) {
         lastCompletedKey = key;
         lastCompletedTime = time;
       }
+      hasCelebrated = true;
     }
   };
 
@@ -371,10 +373,19 @@ runTest('SimulatedState', 'PetAge: Deduplication, slider isolation, and retry be
   trigger(ageKey1, 'dog', 1500);
   assert.strictEqual(dispatchedEvents.length, 1);
 
+  // Timer elapses at 3400ms
+  hasCelebrated = false;
+
+  // Identical repeat click at 6000ms (>4000ms cooldown)
+  trigger(ageKey1, 'dog', 6000);
+  assert.strictEqual(dispatchedEvents.length, 2, 'Identical repeat after cooldown succeeds');
+
   // New age calculation
   const ageKey2 = 'cat-medium-5-6';
-  trigger(ageKey2, 'cat', 2000);
-  assert.strictEqual(dispatchedEvents.length, 2);
+  hasCelebrated = false;
+  trigger(ageKey2, 'cat', 7000);
+  assert.strictEqual(dispatchedEvents.length, 3);
+  assert.strictEqual(dispatchedEvents[2].payload.completion_method, 'user_confirmed');
 });
 
 // =============================================================
@@ -424,12 +435,12 @@ runTest('Privacy', 'Event payloads contain zero personal names, zero pet names, 
   dispatchedEvents.length = 0;
   window.location.pathname = '/tools/pet-calorie-calculator';
 
-  trackCalculatorCompleted('pet_calorie', 'dog', 'save_sync');
+  trackCalculatorCompleted('pet_calorie', 'dog', 'user_confirmed');
   const payload = dispatchedEvents[0].payload;
 
   assert.strictEqual(payload.calculator_type, 'pet_calorie');
   assert.strictEqual(payload.pet_type, 'dog');
-  assert.strictEqual(payload.completion_method, 'save_sync');
+  assert.strictEqual(payload.completion_method, 'user_confirmed');
   assert.strictEqual(payload.page_path, '/tools/pet-calorie-calculator');
 
   // Verify non-PII

@@ -32,7 +32,7 @@ export type AnalyticsEvent =
       params: {
         calculator_type: 'pet_calorie' | 'pet_age';
         pet_type: 'dog' | 'cat';
-        completion_method?: 'save_sync' | 'explicit_calculate';
+        completion_method?: 'user_confirmed' | 'explicit_complete';
       };
     };
 
@@ -82,7 +82,7 @@ export function trackLeadGenerated(formName: string): boolean {
 export function trackCalculatorCompleted(
   calculatorType: 'pet_calorie' | 'pet_age',
   petType: 'dog' | 'cat',
-  completionMethod: 'save_sync' | 'explicit_calculate' = 'save_sync'
+  completionMethod: 'user_confirmed' | 'explicit_complete' = 'user_confirmed'
 ): boolean {
   return trackEvent('calculator_completed', {
     calculator_type: calculatorType,

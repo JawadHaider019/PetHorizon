@@ -31,9 +31,15 @@ export default function PetAgeCalculator({
   const [hasCelebrated, setHasCelebrated] = useState<boolean>(false);
   const lastCompletedKeyRef = useRef<string>('');
   const lastCompletedTimeRef = useRef<number>(0);
+  const celebrationTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    return () => {
+      if (celebrationTimerRef.current) {
+        clearTimeout(celebrationTimerRef.current);
+      }
+    };
   }, []);
 
   const handlePetTypeChange = (type: PetType) => {
@@ -74,12 +80,12 @@ export default function PetAgeCalculator({
       currentKey === lastCompletedKeyRef.current &&
       (Date.now() - lastCompletedTimeRef.current < 4000 || hasCelebrated);
 
-    if (!isDuplicate) {
-      const dispatched = trackCalculatorCompleted('pet_age', petType, 'save_sync');
-      if (dispatched) {
-        lastCompletedKeyRef.current = currentKey;
-        lastCompletedTimeRef.current = Date.now();
-      }
+    if (isDuplicate) return;
+
+    const dispatched = trackCalculatorCompleted('pet_age', petType, 'user_confirmed');
+    if (dispatched) {
+      lastCompletedKeyRef.current = currentKey;
+      lastCompletedTimeRef.current = Date.now();
     }
 
     try {
@@ -92,8 +98,15 @@ export default function PetAgeCalculator({
     } catch {
       // safe fallback
     }
+
     setHasCelebrated(true);
-    setTimeout(() => setHasCelebrated(false), 2400);
+    if (celebrationTimerRef.current) {
+      clearTimeout(celebrationTimerRef.current);
+    }
+    celebrationTimerRef.current = setTimeout(() => {
+      setHasCelebrated(false);
+      celebrationTimerRef.current = null;
+    }, 2400);
   };
 
   const displayName = petName.trim() ? petName.trim() : petType === 'dog' ? 'Your Dog' : 'Your Cat';
