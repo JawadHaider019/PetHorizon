@@ -1,0 +1,945 @@
+{
+  "categories": {
+    "Feeding & Nutrition": 5,
+    "Health & Vaccines": 11,
+    "Family & Routine": 7,
+    "Dog Care": 11,
+    "Cat Care": 5
+  },
+  "articles": [
+    {
+      "index": 1,
+      "title": "Dog Feeding Schedule by Age: Complete Puppy to Adult Portion & Routine Guide",
+      "slug": "dog-feeding-schedule-by-age-puppy-to-adult",
+      "category": "Feeding & Nutrition",
+      "seoKeyword": "dog feeding schedule",
+      "targetLocation": "Global",
+      "featured": true,
+      "searchRankBadge": "#1 Nutrition Query",
+      "links": [
+        {
+          "anchor": "puppy potty training schedule",
+          "url": "/blogs/puppy-potty-training-schedule-akc-guide",
+          "loc": "sec[0].p[2]"
+        },
+        {
+          "anchor": "WSAVA pet calorie calculator",
+          "url": "/tools/pet-calorie-calculator",
+          "loc": "sec[1].p[1]"
+        },
+        {
+          "anchor": "pet age calculator in human years",
+          "url": "/tools/pet-age-calculator",
+          "loc": "sec[2].p[0]"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "title": "Puppy & Kitten Vaccination Schedule: Core Booster Timetable & In-App Milestones",
+      "slug": "puppy-kitten-vaccination-schedule-booster-guide-worldwide",
+      "category": "Health & Vaccines",
+      "seoKeyword": "kittens timetable puppy vaccination schedule",
+      "targetLocation": "Global",
+      "featured": true,
+      "searchRankBadge": "High Clinical Intent",
+      "links": [
+        {
+          "anchor": "pet age calculator in human years",
+          "url": "/tools/pet-age-calculator",
+          "loc": "sec[0].p[3]"
+        },
+        {
+          "anchor": "NYC puppy vaccination guide",
+          "url": "/blogs/puppy-kitten-vaccination-schedule-booster-guide-new-york",
+          "loc": "sec[1].p[1]"
+        },
+        {
+          "anchor": "flea, tick, and heartworm prevention guide",
+          "url": "/blogs/flea-tick-heartworm-prevention-ahs-protocol",
+          "loc": "sec[2].p[2]"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "title": "Pet Health Records: What Every Pet Owner Should Track & How to Manage Medication Schedules",
+      "slug": "pet-health-records-medication-schedule-tracker",
+      "category": "Health & Vaccines",
+      "seoKeyword": "pet health records",
+      "targetLocation": "Global",
+      "featured": false,
+      "searchRankBadge": "Preventive Care",
+      "links": [
+        {
+          "anchor": "puppy and kitten vaccination schedule guide",
+          "url": "/blogs/puppy-kitten-vaccination-schedule-booster-guide-worldwide",
+          "loc": "sec[0].p[2]"
+        },
+        {
+          "anchor": "pet microchip registration and lookup guide",
+          "url": "/blogs/pet-microchip-registration-lookup-guide",
+          "loc": "sec[0].p[5]"
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "title": "Managing Household Pet Routines: How to Coordinate Feeding & Avoid Double-Feeding",
+      "slug": "household-pet-coparenting-feeding-routine-sync-worldwide",
+      "category": "Family & Routine",
+      "seoKeyword": "did you feed the dog shared routine tracker",
+      "targetLocation": "Global",
+      "featured": true,
+      "searchRankBadge": "#1 Household Query",
+      "links": [
+        {
+          "anchor": "WSAVA pet calorie calculator",
+          "url": "/tools/pet-calorie-calculator",
+          "loc": "sec[0].p[2]"
+        },
+        {
+          "anchor": "dog and cat diabetes insulin schedule guide",
+          "url": "/blogs/dog-cat-diabetes-insulin-feeding-schedule-guide",
+          "loc": "sec[1].p[0]"
+        },
+        {
+          "anchor": "London pet co-parenting guide",
+          "url": "/blogs/household-pet-coparenting-feeding-routine-sync-london",
+          "loc": "sec[2].p[0]"
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "title": "New Puppy Checklist: Essential Supplies, First-Week Setup & True First-Year Costs",
+      "slug": "new-puppy-checklist-first-year-budget-guide",
+      "category": "Dog Care",
+      "seoKeyword": "new puppy checklist",
+      "targetLocation": "Global",
+      "featured": true,
+      "searchRankBadge": "New Pet Guide",
+      "links": [
+        {
+          "anchor": "monthly pet care cost and veterinary expense guide",
+          "url": "/blogs/monthly-pet-care-cost-vet-expense-budget-worldwide",
+          "loc": "sec[0].p[0]"
+        },
+        {
+          "anchor": "puppy potty training schedule",
+          "url": "/blogs/puppy-potty-training-schedule-akc-guide",
+          "loc": "sec[0].p[1]"
+        },
+        {
+          "anchor": "puppy and kitten vaccination schedule",
+          "url": "/blogs/puppy-kitten-vaccination-schedule-booster-guide-worldwide",
+          "loc": "sec[0].p[1]"
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "title": "Best Pet GPS Trackers & Smart Pet Wearables: In-Depth 2026 Testing & Buying Guide",
+      "slug": "best-pet-gps-trackers-health-wearables-review-worldwide",
+      "category": "Dog Care",
+      "seoKeyword": "best pet gps trackers smart pet wearables",
+      "targetLocation": "Global",
+      "featured": false,
+      "searchRankBadge": "Hardware Guide",
+      "links": [
+        {
+          "anchor": "Sydney pet GPS tracker field test",
+          "url": "/blogs/best-pet-gps-trackers-health-wearables-review-sydney",
+          "loc": "sec[0].p[2]"
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "title": "Cost of Pet Care: Real Monthly Expenses, Vet Bills for Dogs & Budget Guide",
+      "slug": "monthly-pet-care-cost-vet-expense-budget-worldwide",
+      "category": "Dog Care",
+      "seoKeyword": "vet bills for dogs cost of pet care",
+      "targetLocation": "Global",
+      "featured": false,
+      "searchRankBadge": "Financial Guide",
+      "links": [
+        {
+          "anchor": "first-year puppy checklist and budget guide",
+          "url": "/blogs/new-puppy-checklist-first-year-budget-guide",
+          "loc": "sec[0].p[2]"
+        },
+        {
+          "anchor": "Toronto pet care budget guide",
+          "url": "/blogs/monthly-pet-care-cost-vet-expense-budget-toronto",
+          "loc": "sec[0].p[2]"
+        },
+        {
+          "anchor": "pet insurance vs savings guide",
+          "url": "/blogs/pet-insurance-vs-savings-fund-vet-cost-guide",
+          "loc": "sec[4].intro"
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "title": "Puppy & Kitten Vaccination Schedule in New York: Vet Booster Timetable",
+      "slug": "puppy-kitten-vaccination-schedule-booster-guide-new-york",
+      "category": "Health & Vaccines",
+      "seoKeyword": "puppy vaccine schedule nyc",
+      "targetLocation": "New York",
+      "searchRankBadge": "Local Guide",
+      "links": [
+        {
+          "anchor": "puppy and kitten vaccination schedule",
+          "url": "/blogs/puppy-kitten-vaccination-schedule-booster-guide-worldwide",
+          "loc": "sec[0].p[1]"
+        },
+        {
+          "anchor": "monthly pet care budget guide",
+          "url": "/blogs/monthly-pet-care-cost-vet-expense-budget-worldwide",
+          "loc": "sec[0].p[2]"
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "title": "Managing Household Pet Routines in London: Eliminating Double-Feeding with PetHorizon",
+      "slug": "household-pet-coparenting-feeding-routine-sync-london",
+      "category": "Family & Routine",
+      "seoKeyword": "shared pet care app london",
+      "targetLocation": "London",
+      "searchRankBadge": "Local Guide",
+      "links": [
+        {
+          "anchor": "household pet co-parenting feeding routine guide",
+          "url": "/blogs/household-pet-coparenting-feeding-routine-sync-worldwide",
+          "loc": "sec[0].p[0]"
+        },
+        {
+          "anchor": "best pet care apps review",
+          "url": "/blogs/best-pet-care-apps-medication-reminders-family-sync",
+          "loc": "sec[0].p[0]"
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "title": "The Real Cost of Owning a Dog or Cat in Toronto: Monthly Expense Breakdown",
+      "slug": "monthly-pet-care-cost-vet-expense-budget-toronto",
+      "category": "Dog Care",
+      "seoKeyword": "cost of owning a dog in toronto",
+      "targetLocation": "Toronto",
+      "searchRankBadge": "Local Guide",
+      "links": [
+        {
+          "anchor": "monthly pet care cost guide",
+          "url": "/blogs/monthly-pet-care-cost-vet-expense-budget-worldwide",
+          "loc": "sec[0].p[1]"
+        },
+        {
+          "anchor": "pet insurance vs savings fund guide",
+          "url": "/blogs/pet-insurance-vs-savings-fund-vet-cost-guide",
+          "loc": "sec[0].p[1]"
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "title": "Best Pet GPS Trackers & Health Wearables in Sydney: Beach & Bushwalk Testing",
+      "slug": "best-pet-gps-trackers-health-wearables-review-sydney",
+      "category": "Dog Care",
+      "seoKeyword": "best dog gps tracker australia",
+      "targetLocation": "Sydney",
+      "searchRankBadge": "Local Guide",
+      "links": [
+        {
+          "anchor": "best pet GPS trackers and health wearables review",
+          "url": "/blogs/best-pet-gps-trackers-health-wearables-review-worldwide",
+          "loc": "sec[0].p[2]"
+        },
+        {
+          "anchor": "dog walking schedule guide",
+          "url": "/blogs/dog-walking-schedule-by-age-breed-exercise-guide",
+          "loc": "sec[0].p[2]"
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "title": "Feline Chronic Kidney Disease (CKD): Early Warning Signs & Cornell Hydration Protocol",
+      "slug": "feline-kidney-disease-dehydration-cornell",
+      "category": "Cat Care",
+      "seoKeyword": "feline kidney disease hydration protocol",
+      "targetLocation": "Global",
+      "featured": false,
+      "searchRankBadge": "Senior Cat Health",
+      "links": [
+        {
+          "anchor": "cat feeding schedule and enrichment guide",
+          "url": "/blogs/cat-feeding-schedule-indoor-enrichment-guide",
+          "loc": "sec[0].p[2]"
+        },
+        {
+          "anchor": "senior cat care guide",
+          "url": "/blogs/senior-cat-care-health-diet-comfort-guide",
+          "loc": "sec[1].p[4]"
+        },
+        {
+          "anchor": "pet age calculator",
+          "url": "/tools/pet-age-calculator",
+          "loc": "sec[2].p[0]"
+        }
+      ]
+    },
+    {
+      "index": 13,
+      "title": "Emergency Vet Red Flags: When to Go to the Animal ER Immediately",
+      "slug": "emergency-vet-symptoms-red-flags-petmd",
+      "category": "Health & Vaccines",
+      "seoKeyword": "emergency vet symptoms red flags",
+      "targetLocation": "Global",
+      "featured": false,
+      "searchRankBadge": "Critical Triage",
+      "links": [
+        {
+          "anchor": "toxic foods and pet poison checklist",
+          "url": "/blogs/toxic-foods-dogs-cats-poison-checklist",
+          "loc": "sec[0].p[2]"
+        },
+        {
+          "anchor": "pet first aid kit checklist",
+          "url": "/blogs/pet-first-aid-kit-checklist-emergency-preparedness-plan",
+          "loc": "sec[2].intro"
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "title": "Toxic Foods for Dogs & Cats: Dangerous Dosages & Emergency Action Protocol",
+      "slug": "toxic-foods-dogs-cats-poison-checklist",
+      "category": "Feeding & Nutrition",
+      "seoKeyword": "toxic foods for dogs and cats",
+      "targetLocation": "Global",
+      "featured": false,
+      "searchRankBadge": "Poison Safety",
+      "links": [
+        {
+          "anchor": "emergency vet symptoms guide",
+          "url": "/blogs/emergency-vet-symptoms-red-flags-petmd",
+          "loc": "sec[0].intro"
+        },
+        {
+          "anchor": "pet first aid kit",
+          "url": "/blogs/pet-first-aid-kit-checklist-emergency-preparedness-plan",
+          "loc": "sec[0].p[2]"
+        },
+        {
+          "anchor": "pet calorie calculator",
+          "url": "/tools/pet-calorie-calculator",
+          "loc": "sec[1].intro"
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "title": "Puppy Potty Training Schedule: Hour-by-Hour Routine to Stop Accidents",
+      "slug": "puppy-potty-training-schedule-akc-guide",
+      "category": "Dog Care",
+      "seoKeyword": "puppy potty training schedule",
+      "targetLocation": "Global",
+      "featured": false,
+      "searchRankBadge": "Training Masterclass",
+      "links": [
+        {
+          "anchor": "dog feeding schedule by life stage",
+          "url": "/blogs/dog-feeding-schedule-by-age-puppy-to-adult",
+          "loc": "sec[1].p[1]"
+        },
+        {
+          "anchor": "dog walking schedule by age and breed",
+          "url": "/blogs/dog-walking-schedule-by-age-breed-exercise-guide",
+          "loc": "sec[1].p[5]"
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "title": "Flea, Tick & Heartworm Prevention: American Heartworm Society 12-Month Protocol",
+      "slug": "flea-tick-heartworm-prevention-ahs-protocol",
+      "category": "Health & Vaccines",
+      "seoKeyword": "flea tick heartworm prevention protocol",
+      "targetLocation": "Global",
+      "featured": false,
+      "searchRankBadge": "Preventive Care",
+      "links": [
+        {
+          "anchor": "puppy and kitten vaccination schedule",
+          "url": "/blogs/puppy-kitten-vaccination-schedule-booster-guide-worldwide",
+          "loc": "sec[1].warn"
+        },
+        {
+          "anchor": "emergency vet symptoms guide",
+          "url": "/blogs/emergency-vet-symptoms-red-flags-petmd",
+          "loc": "sec[1].warn"
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "title": "Pet Calorie Calculator: How to Calculate Resting Energy Requirements (RER)",
+      "slug": "pet-calorie-calculator-feeding-guide-apop",
+      "category": "Feeding & Nutrition",
+      "seoKeyword": "pet calorie calculator rer feeding guide",
+      "targetLocation": "Global",
+      "featured": false,
+      "searchRankBadge": "Nutrition Science",
+      "links": [
+        {
+          "anchor": "WSAVA Pet Calorie Calculator",
+          "url": "/tools/pet-calorie-calculator",
+          "loc": "sec[0].p[1]"
+        },
+        {
+          "anchor": "dog feeding schedule by life stage",
+          "url": "/blogs/dog-feeding-schedule-by-age-puppy-to-adult",
+          "loc": "sec[1].intro"
+        },
+        {
+          "anchor": "cat feeding schedule and hydration guide",
+          "url": "/blogs/cat-feeding-schedule-indoor-enrichment-guide",
+          "loc": "sec[1].intro"
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "title": "Cat Feeding Schedule & Indoor Enrichment Guide: Portions, Hydration & Activity by Age",
+      "slug": "cat-feeding-schedule-indoor-enrichment-guide",
+      "category": "Cat Care",
+      "seoKeyword": "cat feeding schedule indoor enrichment guide",
+      "targetLocation": "Global",
+      "featured": true,
+      "searchRankBadge": "Cat Care Pillar",
+      "links": [
+        {
+          "anchor": "pet calorie calculator",
+          "url": "/tools/pet-calorie-calculator",
+          "loc": "sec[0].p[2]"
+        },
+        {
+          "anchor": "Cornell feline kidney disease guide",
+          "url": "/blogs/feline-kidney-disease-dehydration-cornell",
+          "loc": "sec[1].p[1]"
+        },
+        {
+          "anchor": "cat litter box solutions guide",
+          "url": "/blogs/cat-litter-box-problems-causes-solutions-guide",
+          "loc": "sec[2].p[0]"
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "title": "Best Pet Care Apps for 2026: Medication Reminders, Family Coordination & Health Logs",
+      "slug": "best-pet-care-apps-medication-reminders-family-sync",
+      "category": "Family & Routine",
+      "seoKeyword": "best pet care apps medication reminders family sync",
+      "targetLocation": "Global",
+      "featured": true,
+      "searchRankBadge": "App Category Leader",
+      "links": [
+        {
+          "anchor": "WSAVA pet calorie calculator",
+          "url": "/tools/pet-calorie-calculator",
+          "loc": "sec[1].p[6]"
+        },
+        {
+          "anchor": "pet age calculator",
+          "url": "/tools/pet-age-calculator",
+          "loc": "sec[1].p[6]"
+        },
+        {
+          "anchor": "pet health records guide",
+          "url": "/blogs/pet-health-records-medication-schedule-tracker",
+          "loc": "sec[2].p[1]"
+        }
+      ]
+    },
+    {
+      "index": 20,
+      "title": "Dog Separation Anxiety Training: Step-by-Step Desensitization Schedule & Calming Routine",
+      "slug": "dog-separation-anxiety-training-routine-guide",
+      "category": "Dog Care",
+      "seoKeyword": "dog separation anxiety training",
+      "targetLocation": "Global",
+      "featured": true,
+      "searchRankBadge": "Behavioral Pillar",
+      "links": [
+        {
+          "anchor": "rescue dog 3-3-3 decompression timeline",
+          "url": "/blogs/rescue-dog-3-3-3-rule-decompression-routine-guide",
+          "loc": "sec[0].p[1]"
+        },
+        {
+          "anchor": "dog walking schedule by age and breed",
+          "url": "/blogs/dog-walking-schedule-by-age-breed-exercise-guide",
+          "loc": "sec[1].p[0]"
+        },
+        {
+          "anchor": "coordinate routines and avoid mixed departure signals",
+          "url": "/blogs/household-pet-coparenting-feeding-routine-sync-worldwide",
+          "loc": "sec[1].tip"
+        }
+      ]
+    },
+    {
+      "index": 21,
+      "title": "How to Introduce a Kitten to an Older Cat: Step-by-Step Timeline & Protocol",
+      "slug": "how-to-introduce-kitten-to-older-cat-guide",
+      "category": "Cat Care",
+      "seoKeyword": "how to introduce kitten to older cat timetable",
+      "targetLocation": "Global",
+      "featured": false,
+      "searchRankBadge": "Cat Harmony",
+      "links": [
+        {
+          "anchor": "multi-pet household management guide",
+          "url": "/blogs/multiple-pet-management-multi-dog-cat-household-routines",
+          "loc": "sec[0].p[2]"
+        },
+        {
+          "anchor": "cat feeding schedule and indoor enrichment guide",
+          "url": "/blogs/cat-feeding-schedule-indoor-enrichment-guide",
+          "loc": "sec[1].p[0]"
+        }
+      ]
+    },
+    {
+      "index": 22,
+      "title": "Dog Grooming at Home: Complete Beginner Guide to Nail Trimming, Teeth Brushing & Coat Care",
+      "slug": "dog-grooming-at-home-beginners-step-by-step-guide",
+      "category": "Dog Care",
+      "seoKeyword": "dog grooming at home beginners guide",
+      "targetLocation": "Global",
+      "featured": false,
+      "searchRankBadge": "Home Hygiene",
+      "links": [
+        {
+          "anchor": "dog separation anxiety training guide",
+          "url": "/blogs/dog-separation-anxiety-training-routine-guide",
+          "loc": "sec[0].intro"
+        },
+        {
+          "anchor": "pet first aid kit",
+          "url": "/blogs/pet-first-aid-kit-checklist-emergency-preparedness-plan",
+          "loc": "sec[0].warn"
+        },
+        {
+          "anchor": "flea and tick prevention protocol",
+          "url": "/blogs/flea-tick-heartworm-prevention-ahs-protocol",
+          "loc": "sec[1].p[0]"
+        }
+      ]
+    },
+    {
+      "index": 23,
+      "title": "Dog Dental Care: How to Brush Teeth, Prevent Periodontal Disease & Veterinary Cleaning Guide",
+      "slug": "dog-dental-care-brushing-teeth-periodontal-guide",
+      "category": "Health & Vaccines",
+      "seoKeyword": "dog dental care brushing teeth guide",
+      "targetLocation": "Global",
+      "featured": false,
+      "searchRankBadge": "Dental Health",
+      "links": [
+        {
+          "anchor": "pet health records tracker",
+          "url": "/blogs/pet-health-records-medication-schedule-tracker",
+          "loc": "sec[0].p[3]"
+        },
+        {
+          "anchor": "toxic foods poison checklist",
+          "url": "/blogs/toxic-foods-dogs-cats-poison-checklist",
+          "loc": "sec[0].warn"
+        },
+        {
+          "anchor": "emergency vet symptoms guide",
+          "url": "/blogs/emergency-vet-symptoms-red-flags-petmd",
+          "loc": "sec[0].warn"
+        }
+      ]
+    },
+    {
+      "index": 24,
+      "title": "Pet Sitter Instructions & Printable Handover Checklist: Complete Caregiver Guide",
+      "slug": "pet-sitter-instructions-handover-checklist-template",
+      "category": "Family & Routine",
+      "seoKeyword": "pet sitter instructions handover checklist template",
+      "targetLocation": "Global",
+      "featured": false,
+      "searchRankBadge": "Caregiver Hub",
+      "links": [
+        {
+          "anchor": "pet health records medication tracker",
+          "url": "/blogs/pet-health-records-medication-schedule-tracker",
+          "loc": "sec[0].p[1]"
+        },
+        {
+          "anchor": "best pet care apps for family sync",
+          "url": "/blogs/best-pet-care-apps-medication-reminders-family-sync",
+          "loc": "sec[0].p[4]"
+        }
+      ]
+    },
+    {
+      "index": 25,
+      "title": "Senior Dog Care: Mobility, Joint Supplements, Nutrition & Daily Routine Guide",
+      "slug": "senior-dog-care-mobility-nutrition-routine-guide",
+      "category": "Dog Care",
+      "seoKeyword": "senior dog care mobility nutrition guide",
+      "targetLocation": "Global",
+      "featured": false,
+      "searchRankBadge": "Senior Wellness",
+      "links": [
+        {
+          "anchor": "pet age calculator",
+          "url": "/tools/pet-age-calculator",
+          "loc": "sec[0].p[1]"
+        },
+        {
+          "anchor": "dog feeding schedule guide",
+          "url": "/blogs/dog-feeding-schedule-by-age-puppy-to-adult",
+          "loc": "sec[1].p[0]"
+        },
+        {
+          "anchor": "dog walking schedule",
+          "url": "/blogs/dog-walking-schedule-by-age-breed-exercise-guide",
+          "loc": "sec[1].p[0]"
+        }
+      ]
+    },
+    {
+      "index": 26,
+      "title": "Senior Cat Care: Managing Arthritis, Appetite Changes & Cognitive Health",
+      "slug": "senior-cat-care-health-diet-comfort-guide",
+      "category": "Cat Care",
+      "seoKeyword": "senior cat care health diet guide",
+      "targetLocation": "Global",
+      "featured": false,
+      "searchRankBadge": "Senior Cat Care",
+      "links": [
+        {
+          "anchor": "pet age calculator",
+          "url": "/tools/pet-age-calculator",
+          "loc": "sec[0].intro"
+        },
+        {
+          "anchor": "feline kidney disease hydration",
+          "url": "/blogs/feline-kidney-disease-dehydration-cornell",
+          "loc": "sec[1].p[1]"
+        },
+        {
+          "anchor": "cat feeding schedules",
+          "url": "/blogs/cat-feeding-schedule-indoor-enrichment-guide",
+          "loc": "sec[1].p[1]"
+        }
+      ]
+    },
+    {
+      "index": 27,
+      "title": "Dog Walking Schedule by Age, Breed & Weather: Complete Exercise & Safety Guide",
+      "slug": "dog-walking-schedule-by-age-breed-exercise-guide",
+      "category": "Dog Care",
+      "seoKeyword": "dog walking schedule by age and breed",
+      "targetLocation": "Global",
+      "featured": false,
+      "searchRankBadge": "Exercise Matrix",
+      "links": [
+        {
+          "anchor": "puppy potty training schedule",
+          "url": "/blogs/puppy-potty-training-schedule-akc-guide",
+          "loc": "sec[0].p[2]"
+        },
+        {
+          "anchor": "best pet GPS trackers and health wearables",
+          "url": "/blogs/best-pet-gps-trackers-health-wearables-review-worldwide",
+          "loc": "sec[1].p[0]"
+        },
+        {
+          "anchor": "dog separation anxiety training guide",
+          "url": "/blogs/dog-separation-anxiety-training-routine-guide",
+          "loc": "sec[2].p[2]"
+        }
+      ]
+    },
+    {
+      "index": 28,
+      "title": "Cat Litter Box Problems: Why Cats Stop Using the Box & How to Solve It",
+      "slug": "cat-litter-box-problems-causes-solutions-guide",
+      "category": "Cat Care",
+      "seoKeyword": "cat litter box problems causes solutions",
+      "targetLocation": "Global",
+      "featured": false,
+      "searchRankBadge": "Feline Behavior",
+      "links": [
+        {
+          "anchor": "feline kidney disease guide",
+          "url": "/blogs/feline-kidney-disease-dehydration-cornell",
+          "loc": "sec[0].p[2]"
+        },
+        {
+          "anchor": "emergency vet symptoms and red flags guide",
+          "url": "/blogs/emergency-vet-symptoms-red-flags-petmd",
+          "loc": "sec[0].warn"
+        },
+        {
+          "anchor": "cat feeding schedule and indoor enrichment guide",
+          "url": "/blogs/cat-feeding-schedule-indoor-enrichment-guide",
+          "loc": "sec[1].p[3]"
+        }
+      ]
+    },
+    {
+      "index": 29,
+      "title": "Pet Travel Checklist & Regulations: Airline Rules, USDA Health Certificates & Car Safety",
+      "slug": "pet-travel-checklist-flying-car-trips-vet-records",
+      "category": "Family & Routine",
+      "seoKeyword": "pet travel regulations checklist flying car trips",
+      "targetLocation": "Global",
+      "featured": true,
+      "searchRankBadge": "Travel Ready",
+      "links": [
+        {
+          "anchor": "best pet GPS trackers and health wearables",
+          "url": "/blogs/best-pet-gps-trackers-health-wearables-review-worldwide",
+          "loc": "sec[0].p[0]"
+        },
+        {
+          "anchor": "pet health records tracker",
+          "url": "/blogs/pet-health-records-medication-schedule-tracker",
+          "loc": "sec[0].warn"
+        },
+        {
+          "anchor": "pet first aid kit checklist",
+          "url": "/blogs/pet-first-aid-kit-checklist-emergency-preparedness-plan",
+          "loc": "sec[0].warn"
+        }
+      ]
+    },
+    {
+      "index": 30,
+      "title": "Summer Pet Safety: Heatstroke Prevention, Hot Pavement Rules & Hydration Guide",
+      "slug": "summer-pet-safety-heatstroke-prevention-hot-pavement-guide",
+      "category": "Health & Vaccines",
+      "seoKeyword": "summer pet safety heatstroke prevention guide",
+      "targetLocation": "Global",
+      "featured": false,
+      "searchRankBadge": "Seasonal Safety",
+      "links": [
+        {
+          "anchor": "dog walking schedule by age and breed",
+          "url": "/blogs/dog-walking-schedule-by-age-breed-exercise-guide",
+          "loc": "sec[0].p[3]"
+        },
+        {
+          "anchor": "emergency vet symptoms and red flags guide",
+          "url": "/blogs/emergency-vet-symptoms-red-flags-petmd",
+          "loc": "sec[1].p[4]"
+        }
+      ]
+    },
+    {
+      "index": 31,
+      "title": "Winter Pet Care: Hypothermia Signs, Paw Salt Safety & Cold Weather Routines",
+      "slug": "winter-pet-care-cold-weather-paw-safety-guide",
+      "category": "Health & Vaccines",
+      "seoKeyword": "winter pet care cold weather paw safety",
+      "targetLocation": "Global",
+      "featured": false,
+      "searchRankBadge": "Winter Wellness",
+      "links": [
+        {
+          "anchor": "emergency vet symptoms guide",
+          "url": "/blogs/emergency-vet-symptoms-red-flags-petmd",
+          "loc": "sec[0].p[1]"
+        },
+        {
+          "anchor": "pet first aid kit",
+          "url": "/blogs/pet-first-aid-kit-checklist-emergency-preparedness-plan",
+          "loc": "sec[1].p[2]"
+        }
+      ]
+    },
+    {
+      "index": 32,
+      "title": "Multiple Pet Management: Organizing Routines for Multi-Dog and Multi-Cat Homes",
+      "slug": "multiple-pet-management-multi-dog-cat-household-routines",
+      "category": "Family & Routine",
+      "seoKeyword": "multiple pet management multi dog cat household",
+      "targetLocation": "Global",
+      "featured": false,
+      "searchRankBadge": "Multi-Pet Hub",
+      "links": [
+        {
+          "anchor": "household pet co-parenting feeding routine guide",
+          "url": "/blogs/household-pet-coparenting-feeding-routine-sync-worldwide",
+          "loc": "sec[0].p[1]"
+        },
+        {
+          "anchor": "pet health records medication tracker",
+          "url": "/blogs/pet-health-records-medication-schedule-tracker",
+          "loc": "sec[1].p[1]"
+        }
+      ]
+    },
+    {
+      "index": 33,
+      "title": "Pet First Aid Kit Checklist: Emergency Preparedness Plan & Action Protocols",
+      "slug": "pet-first-aid-kit-checklist-emergency-preparedness-plan",
+      "category": "Health & Vaccines",
+      "seoKeyword": "pet first aid kit checklist emergency preparedness",
+      "targetLocation": "Global",
+      "featured": false,
+      "searchRankBadge": "First Aid Action",
+      "links": [
+        {
+          "anchor": "emergency vet symptoms and red flags guide",
+          "url": "/blogs/emergency-vet-symptoms-red-flags-petmd",
+          "loc": "sec[0].intro"
+        }
+      ]
+    },
+    {
+      "index": 34,
+      "title": "Pet Insurance vs. Emergency Savings Fund: Transparent Veterinary Cost Guide",
+      "slug": "pet-insurance-vs-savings-fund-vet-cost-guide",
+      "category": "Family & Routine",
+      "seoKeyword": "pet insurance vs emergency savings fund vet cost",
+      "targetLocation": "Global",
+      "featured": true,
+      "searchRankBadge": "Financial Choice",
+      "links": [
+        {
+          "anchor": "cost of pet care and vet expenses budget guide",
+          "url": "/blogs/monthly-pet-care-cost-vet-expense-budget-worldwide",
+          "loc": "sec[0].intro"
+        },
+        {
+          "anchor": "emergency vet symptoms guide",
+          "url": "/blogs/emergency-vet-symptoms-red-flags-petmd",
+          "loc": "sec[2].intro"
+        }
+      ]
+    },
+    {
+      "index": 35,
+      "title": "Rabbit Feeding Schedule & Daily Routine: Hay Ratios, Leafy Greens & GI Stasis Guide",
+      "slug": "rabbit-feeding-schedule-hay-diet-gi-stasis-guide",
+      "category": "Feeding & Nutrition",
+      "seoKeyword": "rabbit feeding schedule hay diet gi stasis guide",
+      "targetLocation": "Global",
+      "featured": false,
+      "searchRankBadge": "Small Pet Pillar",
+      "links": [
+        {
+          "anchor": "toxic foods poison checklist",
+          "url": "/blogs/toxic-foods-dogs-cats-poison-checklist",
+          "loc": "sec[0].p[1]"
+        },
+        {
+          "anchor": "emergency vet symptoms and red flags guide",
+          "url": "/blogs/emergency-vet-symptoms-red-flags-petmd",
+          "loc": "sec[1].warn"
+        }
+      ]
+    },
+    {
+      "index": 36,
+      "title": "Companion Bird & Parrot Daily Routine: Fresh Chop Diet, UV Hours & 12-Hour Sleep Guide",
+      "slug": "parrot-bird-daily-routine-chop-diet-sleep-guide",
+      "category": "Feeding & Nutrition",
+      "seoKeyword": "parrot bird daily routine chop diet sleep schedule",
+      "targetLocation": "Global",
+      "featured": false,
+      "searchRankBadge": "Avian Care Guide",
+      "links": [
+        {
+          "anchor": "toxic foods poison checklist",
+          "url": "/blogs/toxic-foods-dogs-cats-poison-checklist",
+          "loc": "sec[0].p[1]"
+        },
+        {
+          "anchor": "emergency vet symptoms guide",
+          "url": "/blogs/emergency-vet-symptoms-red-flags-petmd",
+          "loc": "sec[1].b[2].txt"
+        }
+      ]
+    },
+    {
+      "index": 37,
+      "title": "The 3-3-3 Rule for Rescue Dogs: First 3 Days, 3 Weeks & 3 Months Routine Checklist",
+      "slug": "rescue-dog-3-3-3-rule-decompression-routine-guide",
+      "category": "Dog Care",
+      "seoKeyword": "3 3 3 rule rescue dog decompression routine",
+      "targetLocation": "Global",
+      "featured": true,
+      "searchRankBadge": "Adoption Essential",
+      "links": [
+        {
+          "anchor": "dog separation anxiety training guide",
+          "url": "/blogs/dog-separation-anxiety-training-routine-guide",
+          "loc": "sec[0].p[1]"
+        },
+        {
+          "anchor": "dog walking schedule by age and breed",
+          "url": "/blogs/dog-walking-schedule-by-age-breed-exercise-guide",
+          "loc": "sec[1].b[2].txt"
+        }
+      ]
+    },
+    {
+      "index": 38,
+      "title": "Dog & Cat Diabetes Insulin Schedule: 12-Hour Meal Timing, Missed Dose Rules & Family Sync",
+      "slug": "dog-cat-diabetes-insulin-feeding-schedule-guide",
+      "category": "Health & Vaccines",
+      "seoKeyword": "dog cat diabetes insulin feeding schedule",
+      "targetLocation": "Global",
+      "featured": false,
+      "searchRankBadge": "Clinical Protocol",
+      "links": [
+        {
+          "anchor": "pet calorie calculator",
+          "url": "/tools/pet-calorie-calculator",
+          "loc": "sec[0].p[1]"
+        },
+        {
+          "anchor": "emergency vet symptoms guide",
+          "url": "/blogs/emergency-vet-symptoms-red-flags-petmd",
+          "loc": "sec[0].warn"
+        }
+      ]
+    },
+    {
+      "index": 39,
+      "title": "Pet Microchip Registration & Universal Lookup Guide: ISO Standards & Vet Passport Tracking",
+      "slug": "pet-microchip-registration-lookup-guide",
+      "category": "Health & Vaccines",
+      "seoKeyword": "pet microchip registration universal lookup guide",
+      "targetLocation": "Global",
+      "featured": false,
+      "searchRankBadge": "ID & Travel Standard",
+      "links": [
+        {
+          "anchor": "best pet GPS trackers and health wearables",
+          "url": "/blogs/best-pet-gps-trackers-health-wearables-review-worldwide",
+          "loc": "sec[0].intro"
+        },
+        {
+          "anchor": "pet health records tracker",
+          "url": "/blogs/pet-health-records-medication-schedule-tracker",
+          "loc": "sec[0].p[2]"
+        }
+      ]
+    }
+  ]
+}
