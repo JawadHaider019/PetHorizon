@@ -152,7 +152,7 @@ A comprehensive pet medical profile contains far more than just rabies certifica
 
 1. Baseline Vitals & Weight Curves: Tracking monthly body weight is the single most sensitive indicator of feline kidney disease, canine cardiac decline, or endocrine disorders like Cushing’s and diabetes. A 10% weight loss in a cat is equivalent to a 15-pound drop in an adult human and warrants immediate bloodwork.
 
-2. Certified Immunization Records: Municipal pet licensing, residential leases, airline travel, and boarding kennels require verified vaccination records. Keep track of core milestones using our [puppy and kitten vaccination schedule guide](/blogs/puppy-kitten-vaccination-schedule-booster-guide-worldwide).
+2. Certified Immunization Records: Municipal pet licensing, residential leases, airline travel, and boarding kennels require verified vaccination records. Keep track of core milestones using our [puppy and kitten vaccination schedule guide](/blogs/puppy-kitten-vaccination-schedule-booster-guide).
 
 3. Active & Historical Medication Logs: Exact drug names, concentrations (e.g., mg/ml or tablet strength), dosing frequencies, and prescribing clinics must be noted to prevent fatal drug-drug interactions in emergency settings.
 
@@ -1154,7 +1154,7 @@ Phase 4 reaches full independence (2 to 4 hours). Practice random variable sched
 
 > **WARNING - Do Not Use Aversive Bark Collars or Punishment**: Punishing an anxious dog for barking or chewing suppresses outward signs while massively magnifying underlying terror. Shock, citronella, or choke collars increase chronic cortisol levels and often trigger fear-based aggression.
 
-> **ROUTINE TIP - Track Alone-Time Milestones in PetHorizon**: Log every absence duration and dog calm score in the PetHorizon Activity Timeline. Sharing updates across household members helps [coordinate routines and avoid mixed departure signals](/blogs/household-pet-coparenting-feeding-routine-sync-worldwide).
+> **ROUTINE TIP - Track Alone-Time Milestones in PetHorizon**: Log every absence duration and dog calm score in the PetHorizon Activity Timeline. Sharing updates across household members helps [coordinate routines and avoid mixed departure signals](/blogs/household-pet-coparenting-feeding-routine-sync).
 
 ### Environmental Setup, Calming Tools & Veterinary Medication
 While behavioral conditioning rewires neural pathways, environmental management and veterinary pharmaceuticals can accelerate progress and prevent regression.
@@ -1189,7 +1189,7 @@ When a resident cat hears, smells, or sees a new kitten without warning, their s
 
 Kittens lack adult feline social boundaries: they pounce, stalk, and invade personal space, which an adult cat interprets as intolerable disrespect or aggression.
 
-A gradual phased introduction allows both felines to become accustomed to each other’s scent, vocalizations, and presence in micro-doses before physical contact ever occurs. For broader multi-animal dynamics, explore our [multi-pet household management guide](/blogs/multiple-pet-management-multi-dog-cat-households).
+A gradual phased introduction allows both felines to become accustomed to each other’s scent, vocalizations, and presence in micro-doses before physical contact ever occurs. For broader multi-animal dynamics, explore our [multi-pet household management guide](/blogs/multiple-pet-management-multi-dog-cat-household-routines).
 
 > **WARNING - Never Let Them "Fight It Out"**: Allowing cats to engage in a physical fight shatters trust permanently. Once traumatic associations and redirected aggression form, rehabilitating feline relationships can take months of intensive behavioral therapy.
 
@@ -1255,7 +1255,7 @@ If you accidentally nick the quick, don’t panic: dogs react more to owner tens
 | Rotary Dremel / Grinder | All sizes, nervous dogs, black nails | Smooths rough edges, very low risk of quick bleeding | Whirring sound and vibration requires desensitization |
 | Manual Emery Board | Puppies, minor touch-ups | Zero risk, gentle habituation | Very slow for hard adult nails |
 
-> **WARNING - Emergency Styptic Preparation**: Never begin trimming nails without your styptic powder bottle open and a cotton swab ready. If styptic powder is unavailable, cornstarch or baking flour pressed into the nail tip acts as an emergency clotting agent; keep these supplies stocked in your home [pet first aid kit](/blogs/pet-first-aid-kit-checklist-emergency-preparation).
+> **WARNING - Emergency Styptic Preparation**: Never begin trimming nails without your styptic powder bottle open and a cotton swab ready. If styptic powder is unavailable, cornstarch or baking flour pressed into the nail tip acts as an emergency clotting agent; keep these supplies stocked in your home [pet first aid kit](/blogs/pet-first-aid-kit-checklist-emergency-preparedness-plan).
 
 ### Coat Brushing Science: Line Brushing & Mat Prevention by Coat Type
 Surface brushing only grooms the top guard hairs, leaving the dense undercoat to tangle and turn into pelt-like mats against the skin that trap moisture and cause painful hot spots.
@@ -1657,7 +1657,7 @@ Cargo Hold Realities (IATA LAR Compliance): Large dogs that exceed in-cabin limi
 | American Airlines | $150 USD | 19" L x 13" W x 9" H | Required for cargo; state dependent for cabin | Banned from checked baggage |
 | European Union (EU Pet Passport) | €50 – €140 EUR | Varies by European carrier | Mandatory ISO 11784/11785 microchip + rabies vaccine | Carrier specific restrictions |
 
-> **WARNING - The USDA APHIS 10-Day Health Certificate Rule**: Most commercial airlines and international agricultural departments mandate a Certificate of Veterinary Inspection (CVI) signed by an accredited USDA veterinarian within exactly 10 days of departure. Keep digital copies organized in your [pet health records tracker](/blogs/pet-health-records-medication-schedule-tracker) alongside emergency supplies from our [pet first aid kit checklist](/blogs/pet-first-aid-kit-checklist-emergency-preparation).
+> **WARNING - The USDA APHIS 10-Day Health Certificate Rule**: Most commercial airlines and international agricultural departments mandate a Certificate of Veterinary Inspection (CVI) signed by an accredited USDA veterinarian within exactly 10 days of departure. Keep digital copies organized in your [pet health records tracker](/blogs/pet-health-records-medication-schedule-tracker) alongside emergency supplies from our [pet first aid kit checklist](/blogs/pet-first-aid-kit-checklist-emergency-preparedness-plan).
 
 ### Car Road Trips: Crash-Tested Restraints vs. Deadly Projectile Physics
 A 10-pound unrestrained dog in a 30 mph vehicle collision exerts roughly 300 pounds of projectile impact force, endangering the animal, front-seat passengers, and emergency first responders.
@@ -1774,7 +1774,7 @@ Chemical Irritation & Thermal Burns: Standard rock salt (sodium chloride) and ch
 
 Toxic Ingestion via Grooming: When pets return indoors with salt crystals packed between their toes, the stinging burning sensation prompts them to lick their paws obsessively. Ingesting chemical de-icers causes chemical stomatitis, severe vomiting, osmotic diarrhea, and acute hypernatremia (salt toxicity), which triggers cerebral edema, muscle tremors, and seizures.
 
-Post-Walk Paw Rinsing Protocol: Keep a shallow basin of warm water and a clean microfiber towel by your front entryway. Dip and rinse all four paws thoroughly immediately upon entering the house, paying careful attention to dislodge jagged salt crystals from between toes. Follow with a moisturizing pet paw balm containing organic beeswax and shea butter (e.g., Musher’s Secret) to seal micro-fissures, and keep protective wraps handy in your home [pet first aid kit](/blogs/pet-first-aid-kit-checklist-emergency-preparation).
+Post-Walk Paw Rinsing Protocol: Keep a shallow basin of warm water and a clean microfiber towel by your front entryway. Dip and rinse all four paws thoroughly immediately upon entering the house, paying careful attention to dislodge jagged salt crystals from between toes. Follow with a moisturizing pet paw balm containing organic beeswax and shea butter (e.g., Musher’s Secret) to seal micro-fissures, and keep protective wraps handy in your home [pet first aid kit](/blogs/pet-first-aid-kit-checklist-emergency-preparedness-plan).
 
 > **WARNING - Ethylene Glycol Antifreeze: Lethal in Teaspoons**: Automotive antifreeze contains ethylene glycol—a sweet-tasting, odorless liquid that pools under vehicles in winter. As little as 1 teaspoon for a cat or 1 tablespoon for a medium dog causes acute, irreversible renal tubular necrosis. Ethylene glycol is metabolized by alcohol dehydrogenase into toxic glycolate and calcium oxalate monohydrate crystals that shred kidney nephrons. The veterinary antidote (Fomepizole / 4-MP) must be administered within 3 hours in cats and 8 hours in dogs to prevent 100% fatal kidney failure.
 
