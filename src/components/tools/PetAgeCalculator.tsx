@@ -30,6 +30,7 @@ export default function PetAgeCalculator({
   const [petName, setPetName] = useState<string>('Luna');
   const [hasCelebrated, setHasCelebrated] = useState<boolean>(false);
   const lastCompletedKeyRef = useRef<string>('');
+  const lastCompletedTimeRef = useRef<number>(0);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -69,10 +70,16 @@ export default function PetAgeCalculator({
     if (!isValidCalculation) return;
 
     const currentKey = `${petType}-${dogSize}-${years}-${months}`;
+    const isDuplicate =
+      currentKey === lastCompletedKeyRef.current &&
+      (Date.now() - lastCompletedTimeRef.current < 4000 || hasCelebrated);
 
-    if (currentKey !== lastCompletedKeyRef.current) {
-      lastCompletedKeyRef.current = currentKey;
-      trackCalculatorCompleted('pet_age', petType, 'save_sync');
+    if (!isDuplicate) {
+      const dispatched = trackCalculatorCompleted('pet_age', petType, 'save_sync');
+      if (dispatched) {
+        lastCompletedKeyRef.current = currentKey;
+        lastCompletedTimeRef.current = Date.now();
+      }
     }
 
     try {

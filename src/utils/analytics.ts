@@ -36,8 +36,8 @@ export type AnalyticsEvent =
       };
     };
 
-export function trackEvent<E extends AnalyticsEvent>(name: E['name'], params: E['params']): void {
-  if (typeof window === 'undefined') return;
+export function trackEvent<E extends AnalyticsEvent>(name: E['name'], params: E['params']): boolean {
+  if (typeof window === 'undefined') return false;
 
   const currentPath = window.location.pathname;
   const eventPayload = {
@@ -48,6 +48,7 @@ export function trackEvent<E extends AnalyticsEvent>(name: E['name'], params: E[
   try {
     if (typeof window.gtag === 'function') {
       window.gtag('event', name, eventPayload);
+      return true;
     } else {
       window.dataLayer = window.dataLayer || [];
       window.gtag = function () {
@@ -55,22 +56,24 @@ export function trackEvent<E extends AnalyticsEvent>(name: E['name'], params: E[
         window.dataLayer?.push(arguments);
       };
       window.gtag('event', name, eventPayload);
+      return true;
     }
   } catch {
-    // Fail silently in development or ad-blocker environments
+    // Fail safely in development or ad-blocker environments
+    return false;
   }
 }
 
-export function trackPlayStoreClick(buttonLocation: string): void {
-  trackEvent('play_store_click', {
+export function trackPlayStoreClick(buttonLocation: string): boolean {
+  return trackEvent('play_store_click', {
     button_location: buttonLocation,
     page_path: typeof window !== 'undefined' ? window.location.pathname : '/',
     platform: 'android'
   });
 }
 
-export function trackLeadGenerated(formName: string): void {
-  trackEvent('generate_lead', {
+export function trackLeadGenerated(formName: string): boolean {
+  return trackEvent('generate_lead', {
     form_name: formName,
     page_path: typeof window !== 'undefined' ? window.location.pathname : '/'
   });
@@ -80,8 +83,8 @@ export function trackCalculatorCompleted(
   calculatorType: 'pet_calorie' | 'pet_age',
   petType: 'dog' | 'cat',
   completionMethod: 'save_sync' | 'explicit_calculate' = 'save_sync'
-): void {
-  trackEvent('calculator_completed', {
+): boolean {
+  return trackEvent('calculator_completed', {
     calculator_type: calculatorType,
     pet_type: petType,
     completion_method: completionMethod

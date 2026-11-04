@@ -2,12 +2,13 @@
  * Production QA & Regression Test Suite:
  * Calculator Completion Analytics (P0 Final Verification Gate)
  *
- * Test Methodology & Hierarchy:
- * - Level 1: Unit Tests (Mathematical formula validation, RER/MER bounds, payload schema)
- * - Level 2: Component Behavioral & Deduplication Integration (State machine, retries, species switching)
- * - Level 3: Source Code AST & Architecture Guards (Anti-debounce, line-count ceiling)
- * - Level 4: Browser-Level Mock Window DataLayer Pipeline & PII Shield Verification
- * - Level 5: Production Live GA4 Ingestion Protocols (DebugView instructions & boundary distinction)
+ * STRICT TEST CLASSIFICATION:
+ * - Level 1: Mathematical Unit Tests (Pure WSAVA & AAHA algorithms, RER/MER bounds)
+ * - Level 2: Simulated State-Machine Tests (Component controller logic emulation in Node; NOT mounted React components)
+ * - Level 3: Static Source-Code AST & Architectural Safety Guards (Regex & AST checks on source files)
+ * - Level 4: Mock Window DataLayer Pipeline & Non-PII Shield Verification (Synthetic window/gtag queueing tests)
+ *
+ * NOTE: Live GA4 Ingestion cannot be verified in Node; it requires observation in Google Tag Assistant / GA4 DebugView.
  */
 
 import assert from 'node:assert';
@@ -102,9 +103,9 @@ function runTest(category, description, testFn) {
 }
 
 // =============================================================
-// LEVEL 1: UNIT TESTS (MATHEMATICAL ALGORITHMS & BOUNDS)
+// LEVEL 1: MATHEMATICAL UNIT TESTS (PURE ALGORITHMS & BOUNDS)
 // =============================================================
-console.log('--- LEVEL 1: Unit Tests (Mathematical Formulas & Bounds) ---');
+console.log('--- LEVEL 1: Mathematical Unit Tests (Formulas & Bounds) ---');
 
 runTest('Unit', 'WSAVA RER/MER Formula produces accurate, strictly positive values for valid inputs', () => {
   const result = calculatePetCalories(10, 'kg', 1.6, 2);
@@ -129,11 +130,12 @@ runTest('Unit', 'AAHA Pet Age Calculator yields biological progression for dogs 
 });
 
 // =============================================================
-// LEVEL 2: INTEGRATION TESTS (BEHAVIOR, DEDUPLICATION & RETRIES)
+// LEVEL 2: SIMULATED STATE-MACHINE TESTS (CONTROLLER LOGIC EMULATION)
+// (Note: React components are NOT mounted here; controller state machine is emulated)
 // =============================================================
-console.log('\n--- LEVEL 2: Component Behavioral & Deduplication Integration ---');
+console.log('\n--- LEVEL 2: Simulated State-Machine Tests (Controller Emulation) ---');
 
-runTest('Integration', 'PetCalorie: Passive slider and input adjustments dispatch ZERO events', () => {
+runTest('SimulatedState', 'PetCalorie: Passive slider and input adjustments dispatch ZERO events', () => {
   dispatchedEvents.length = 0;
   window.location.pathname = '/tools/pet-calorie-calculator';
 
@@ -147,7 +149,7 @@ runTest('Integration', 'PetCalorie: Passive slider and input adjustments dispatc
   assert.strictEqual(dispatchedEvents.length, 0, 'Dragging sliders must NEVER dispatch analytics');
 });
 
-runTest('Integration', 'PetCalorie: Failed validation blocks celebration and dispatches ZERO events', () => {
+runTest('SimulatedState', 'PetCalorie: Failed validation blocks celebration and dispatches ZERO events', () => {
   dispatchedEvents.length = 0;
   let lastCompletedKey = '';
 
@@ -172,9 +174,10 @@ runTest('Integration', 'PetCalorie: Failed validation blocks celebration and dis
   assert.strictEqual(lastCompletedKey, '', 'lastCompletedKeyRef must remain empty on validation failure');
 });
 
-runTest('Integration', 'PetCalorie: Failed attempt followed by valid retry succeeds and dispatches EXACTLY ONE event', () => {
+runTest('SimulatedState', 'PetCalorie: Failed attempt followed by valid retry succeeds and dispatches EXACTLY ONE event', () => {
   dispatchedEvents.length = 0;
   let lastCompletedKey = '';
+  let lastCompletedTime = 0;
 
   // Attempt 1: Invalid (0 kg)
   let weight = 0;
@@ -192,9 +195,13 @@ runTest('Integration', 'PetCalorie: Failed attempt followed by valid retry succe
   isValid = calculations.mer > 0 && weight > 0 && !isNaN(calculations.mer) && calculations.gramsPerMeal > 0;
 
   const currentKey = `dog-${weight}-kg-adult_neutered-2-105`;
-  if (isValid && currentKey !== lastCompletedKey) {
-    lastCompletedKey = currentKey;
-    trackCalculatorCompleted('pet_calorie', 'dog', 'save_sync');
+  const isDuplicate = currentKey === lastCompletedKey && (Date.now() - lastCompletedTime < 4000);
+  if (isValid && !isDuplicate) {
+    const success = trackCalculatorCompleted('pet_calorie', 'dog', 'save_sync');
+    if (success) {
+      lastCompletedKey = currentKey;
+      lastCompletedTime = Date.now();
+    }
   }
 
   assert.strictEqual(dispatchedEvents.length, 1, 'Retry after correction must dispatch exactly one event');
@@ -202,66 +209,139 @@ runTest('Integration', 'PetCalorie: Failed attempt followed by valid retry succe
   assert.strictEqual(dispatchedEvents[0].payload.pet_type, 'dog');
 });
 
-runTest('Integration', 'PetCalorie: Rapid duplicate clicks on identical calculation are suppressed', () => {
+runTest('SimulatedState', 'PetCalorie: Rapid double-clicks (<4000ms) on identical calculation are suppressed', () => {
   dispatchedEvents.length = 0;
   let lastCompletedKey = '';
+  let lastCompletedTime = 0;
+  let hasCelebrated = false;
 
   const weight = 12;
   const currentKey = `dog-${weight}-kg-adult_neutered-2-105`;
 
-  // First click
-  if (currentKey !== lastCompletedKey) {
-    lastCompletedKey = currentKey;
-    trackCalculatorCompleted('pet_calorie', 'dog', 'save_sync');
-  }
-  assert.strictEqual(dispatchedEvents.length, 1);
-
-  // Mashing button 4 more times rapidly
-  for (let i = 0; i < 4; i++) {
-    if (currentKey !== lastCompletedKey) {
-      lastCompletedKey = currentKey;
-      trackCalculatorCompleted('pet_calorie', 'dog', 'save_sync');
+  const triggerSync = (timestamp, isCelebrating) => {
+    const isDuplicate = currentKey === lastCompletedKey && (timestamp - lastCompletedTime < 4000 || isCelebrating);
+    if (!isDuplicate) {
+      const dispatched = trackCalculatorCompleted('pet_calorie', 'dog', 'save_sync');
+      if (dispatched) {
+        lastCompletedKey = currentKey;
+        lastCompletedTime = timestamp;
+      }
     }
-  }
+  };
 
-  assert.strictEqual(dispatchedEvents.length, 1, 'Duplicate clicks on identical state must be suppressed');
+  // First click at t=1000ms
+  triggerSync(1000, false);
+  hasCelebrated = true;
+  assert.strictEqual(dispatchedEvents.length, 1, 'First click must dispatch');
+
+  // Rapid button spamming at t=1200ms, t=1500ms, t=2000ms
+  triggerSync(1200, hasCelebrated);
+  triggerSync(1500, hasCelebrated);
+  triggerSync(2000, hasCelebrated);
+
+  assert.strictEqual(dispatchedEvents.length, 1, 'Rapid repeat clicks (<4000ms) must be suppressed');
 });
 
-runTest('Integration', 'PetCalorie: Switching pets (Dog -> Cat -> Dog) records distinct legitimate conversions', () => {
+runTest('SimulatedState', 'PetCalorie: Legitimate intentional repeat calculation after cooldown (>4000ms) is allowed', () => {
   dispatchedEvents.length = 0;
   let lastCompletedKey = '';
+  let lastCompletedTime = 0;
+
+  const currentKey = 'dog-12-kg-adult_neutered-2-105';
+
+  const triggerSync = (timestamp, isCelebrating) => {
+    const isDuplicate = currentKey === lastCompletedKey && (timestamp - lastCompletedTime < 4000 || isCelebrating);
+    if (!isDuplicate) {
+      const dispatched = trackCalculatorCompleted('pet_calorie', 'dog', 'save_sync');
+      if (dispatched) {
+        lastCompletedKey = currentKey;
+        lastCompletedTime = timestamp;
+      }
+    }
+  };
+
+  // Initial calculation at t=10000ms
+  triggerSync(10000, false);
+  assert.strictEqual(dispatchedEvents.length, 1);
+
+  // Intentional re-sync after 15 seconds (celebration finished, cooldown elapsed)
+  triggerSync(25000, false);
+  assert.strictEqual(dispatchedEvents.length, 2, 'Intentional repeat after cooldown must dispatch a new completion');
+});
+
+runTest('SimulatedState', 'PetCalorie: Switching pets (Dog -> Cat -> Dog) records distinct legitimate conversions', () => {
+  dispatchedEvents.length = 0;
+  let lastCompletedKey = '';
+  let lastCompletedTime = 0;
+
+  const trigger = (key, petType, time) => {
+    const isDuplicate = key === lastCompletedKey && (time - lastCompletedTime < 4000);
+    if (!isDuplicate) {
+      const dispatched = trackCalculatorCompleted('pet_calorie', petType, 'save_sync');
+      if (dispatched) {
+        lastCompletedKey = key;
+        lastCompletedTime = time;
+      }
+    }
+  };
 
   // 1. Save Dog Calculation (12kg)
-  const dogKey = 'dog-12-kg-adult_neutered-2-105';
-  if (dogKey !== lastCompletedKey) {
-    lastCompletedKey = dogKey;
-    trackCalculatorCompleted('pet_calorie', 'dog', 'save_sync');
-  }
+  trigger('dog-12-kg-adult_neutered-2-105', 'dog', 1000);
   assert.strictEqual(dispatchedEvents.length, 1);
 
   // 2. Switch to Cat (4.5kg)
-  const catKey = 'cat-4.5-kg-cat_adult_neutered-2-105';
-  if (catKey !== lastCompletedKey) {
-    lastCompletedKey = catKey;
-    trackCalculatorCompleted('pet_calorie', 'cat', 'save_sync');
-  }
+  trigger('cat-4.5-kg-cat_adult_neutered-2-105', 'cat', 2000);
   assert.strictEqual(dispatchedEvents.length, 2);
   assert.strictEqual(dispatchedEvents[1].payload.pet_type, 'cat');
 
   // 3. Switch back to Dog (14kg)
-  const newDogKey = 'dog-14-kg-adult_neutered-2-105';
-  if (newDogKey !== lastCompletedKey) {
-    lastCompletedKey = newDogKey;
-    trackCalculatorCompleted('pet_calorie', 'dog', 'save_sync');
-  }
+  trigger('dog-14-kg-adult_neutered-2-105', 'dog', 3000);
   assert.strictEqual(dispatchedEvents.length, 3);
   assert.strictEqual(dispatchedEvents[2].payload.pet_type, 'dog');
 });
 
-runTest('Integration', 'PetAge: Deduplication, slider isolation, and retry behavior operate identically', () => {
+runTest('SimulatedState', 'Analytics Dispatch Failure: Does NOT lock deduplication ref, allowing successful retry', () => {
+  dispatchedEvents.length = 0;
+  let lastCompletedKey = '';
+  let lastCompletedTime = 0;
+  const currentKey = 'dog-12-kg-adult_neutered-2-105';
+
+  // Temporarily force trackCalculatorCompleted failure by overriding window
+  const origGtag = global.window.gtag;
+  global.window.gtag = () => {
+    throw new Error('Simulated network/adblocker failure');
+  };
+
+  const attempt = (time) => {
+    const isDuplicate = currentKey === lastCompletedKey && (time - lastCompletedTime < 4000);
+    if (!isDuplicate) {
+      const dispatched = trackCalculatorCompleted('pet_calorie', 'dog', 'save_sync');
+      if (dispatched) {
+        lastCompletedKey = currentKey;
+        lastCompletedTime = time;
+      }
+    }
+  };
+
+  // Attempt 1: Fails dispatch
+  attempt(1000);
+  assert.strictEqual(lastCompletedKey, '', 'Key must NOT advance if dispatch failed');
+  assert.strictEqual(dispatchedEvents.length, 0);
+
+  // Restore window.gtag
+  global.window.gtag = origGtag;
+
+  // Attempt 2: User retries -> succeeds
+  attempt(1500);
+  assert.strictEqual(lastCompletedKey, currentKey, 'Key advances upon successful retry');
+  assert.strictEqual(dispatchedEvents.length, 1);
+});
+
+runTest('SimulatedState', 'PetAge: Deduplication, slider isolation, and retry behavior operate identically', () => {
   dispatchedEvents.length = 0;
   window.location.pathname = '/tools/pet-age-calculator';
   let lastCompletedKey = '';
+  let lastCompletedTime = 0;
 
   // Dragging age sliders
   let years = 1;
@@ -271,34 +351,36 @@ runTest('Integration', 'PetAge: Deduplication, slider isolation, and retry behav
   }
   assert.strictEqual(dispatchedEvents.length, 0, 'Age sliders must not dispatch events');
 
+  const trigger = (key, petType, time) => {
+    const isDuplicate = key === lastCompletedKey && (time - lastCompletedTime < 4000);
+    if (!isDuplicate) {
+      const dispatched = trackCalculatorCompleted('pet_age', petType, 'save_sync');
+      if (dispatched) {
+        lastCompletedKey = key;
+        lastCompletedTime = time;
+      }
+    }
+  };
+
   // Explicit Sync click
   const ageKey1 = 'dog-large-10-0';
-  if (ageKey1 !== lastCompletedKey) {
-    lastCompletedKey = ageKey1;
-    trackCalculatorCompleted('pet_age', 'dog', 'save_sync');
-  }
+  trigger(ageKey1, 'dog', 1000);
   assert.strictEqual(dispatchedEvents.length, 1);
 
-  // Repeat click suppressed
-  if (ageKey1 !== lastCompletedKey) {
-    lastCompletedKey = ageKey1;
-    trackCalculatorCompleted('pet_age', 'dog', 'save_sync');
-  }
+  // Rapid repeat click suppressed
+  trigger(ageKey1, 'dog', 1500);
   assert.strictEqual(dispatchedEvents.length, 1);
 
   // New age calculation
   const ageKey2 = 'cat-medium-5-6';
-  if (ageKey2 !== lastCompletedKey) {
-    lastCompletedKey = ageKey2;
-    trackCalculatorCompleted('pet_age', 'cat', 'save_sync');
-  }
+  trigger(ageKey2, 'cat', 2000);
   assert.strictEqual(dispatchedEvents.length, 2);
 });
 
 // =============================================================
-// LEVEL 3: SOURCE CODE AST & ARCHITECTURAL SAFETY GUARDS
+// LEVEL 3: STATIC SOURCE CODE AST & ARCHITECTURAL SAFETY GUARDS
 // =============================================================
-console.log('\n--- LEVEL 3: Source Code AST & Architectural Safety Guards ---');
+console.log('\n--- LEVEL 3: Static Source-Code AST & Architectural Safety Guards ---');
 
 runTest('Architecture', 'PetCalorieCalculator.tsx has NO analytics timer, NO debounce effect & includes guard clause', () => {
   const filePath = path.join(rootDir, 'src/components/tools/PetCalorieCalculator.tsx');
@@ -334,9 +416,9 @@ runTest('Architecture', 'Both calculators strictly observe AGENTS.md 250-line ma
 });
 
 // =============================================================
-// LEVEL 4: BROWSER ENVIRONMENT & PII PRIVACY SHIELD
+// LEVEL 4: MOCK BROWSER ENVIRONMENT & NON-PII PRIVACY SHIELD
 // =============================================================
-console.log('\n--- LEVEL 4: Browser Environment & PII Privacy Shield ---');
+console.log('\n--- LEVEL 4: Mock Window DataLayer & Non-PII Shield ---');
 
 runTest('Privacy', 'Event payloads contain zero personal names, zero pet names, and zero emails', () => {
   dispatchedEvents.length = 0;

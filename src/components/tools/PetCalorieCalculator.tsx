@@ -33,6 +33,7 @@ export default function PetCalorieCalculator({
   const [gramsPerCup, setGramsPerCup] = useState<number>(105);
   const [hasCelebrated, setHasCelebrated] = useState<boolean>(false);
   const lastCompletedKeyRef = useRef<string>('');
+  const lastCompletedTimeRef = useRef<number>(0);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -73,10 +74,16 @@ export default function PetCalorieCalculator({
     if (!isValidCalculation) return;
 
     const currentKey = `${petType}-${weight}-${unit}-${selectedStageId}-${mealsPerDay}-${gramsPerCup}`;
+    const isDuplicate =
+      currentKey === lastCompletedKeyRef.current &&
+      (Date.now() - lastCompletedTimeRef.current < 4000 || hasCelebrated);
 
-    if (currentKey !== lastCompletedKeyRef.current) {
-      lastCompletedKeyRef.current = currentKey;
-      trackCalculatorCompleted('pet_calorie', petType, 'save_sync');
+    if (!isDuplicate) {
+      const dispatched = trackCalculatorCompleted('pet_calorie', petType, 'save_sync');
+      if (dispatched) {
+        lastCompletedKeyRef.current = currentKey;
+        lastCompletedTimeRef.current = Date.now();
+      }
     }
 
     try {
