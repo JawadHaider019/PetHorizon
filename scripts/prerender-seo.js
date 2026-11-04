@@ -594,7 +594,7 @@ async function runPostBuild() {
     let articleHtml = `
       <header style="max-width: 840px; margin: 40px auto 20px; padding: 0 16px;">
         <nav aria-label="Breadcrumb" style="font-size: 12px; color: #6b7280; margin-bottom: 16px;">
-          <a href="/">Home</a> &gt; <a href="/blogs">Blogs</a> &gt; <span>${escapeHtml(post.category)}</span>
+          <a href="/">Home</a> &gt; <a href="/blogs">Blogs</a> &gt; <a href="/blogs?category=${encodeURIComponent(post.category)}" style="color: #047857; text-decoration: none; font-weight: 600;">${escapeHtml(post.category)}</a>
         </nav>
         <span style="display: inline-block; background: #ecfdf5; color: #047857; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 9999px; text-transform: uppercase;">${escapeHtml(post.category)}</span>
         <h1 style="font-size: 32px; font-weight: 900; color: #111827; line-height: 1.25; margin: 16px 0;">${escapeHtml(post.title)}</h1>
@@ -767,7 +767,7 @@ async function runPostBuild() {
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
           { '@type': 'ListItem', position: 2, name: 'Blogs', item: `${BASE_URL}/blogs` },
-          { '@type': 'ListItem', position: 3, name: post.category, item: `${BASE_URL}/blogs` },
+          { '@type': 'ListItem', position: 3, name: post.category, item: `${BASE_URL}/blogs?category=${encodeURIComponent(post.category)}` },
           { '@type': 'ListItem', position: 4, name: post.title, item: postUrl }
         ]
       }
