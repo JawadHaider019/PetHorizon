@@ -103,7 +103,7 @@ export const heartwormArticle: FullBlogArticle = {
       ],
       warningBox: {
         title: 'Why Year-Round Prevention is Mandatory',
-        text: 'Monthly heartworm preventatives do not form a protective shield against future mosquito bites; they work RETROACTIVELY by eliminating L3 and L4 larvae acquired during the previous 30 days. Synchronize doses alongside your [puppy and kitten vaccination schedule](/blogs/puppy-kitten-vaccination-schedule-booster-guide) and learn critical toxicity red flags in our [emergency vet symptoms guide](/blogs/emergency-vet-symptoms-red-flags-petmd). Stopping medication during winter leaves larvae free to develop into adult worms.'
+        text: 'Monthly heartworm preventatives do not form a protective shield against future mosquito bites; they work RETROACTIVELY by eliminating L3 and L4 larvae acquired during the previous 30 days. Synchronize doses alongside your [puppy and kitten vaccination schedule](/blogs/puppy-kitten-vaccination-schedule-booster-guide-worldwide) and learn critical toxicity red flags in our [emergency vet symptoms guide](/blogs/emergency-vet-symptoms-red-flags-petmd). Stopping medication during winter leaves larvae free to develop into adult worms.'
       }
     },
     {
