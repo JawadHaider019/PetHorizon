@@ -4,7 +4,7 @@ export const sydneyTrackersArticle: FullBlogArticle = {
   slug: 'best-pet-gps-trackers-health-wearables-review-sydney',
   readTime: '5 min read',
   overviewSummary:
-    'Evaluating pet GPS trackers and health wearables for Sydney dogs navigating coastal surf, bushland reserves, and suburban parks. Compare true IP68 continuous submersion ratings, Australian 4G LTE-M network support across Telstra and Optus coverage, why wearables cannot substitute for manual paralysis tick checks, and NSW Pet Registry legal compliance.',
+    'Evaluating pet GPS trackers and health wearables for Sydney dogs navigating coastal surf, bushland reserves, and suburban parks. Compare true IP68 continuous submersion ratings, Australian cellular IoT (LTE-M Cat-M1) network support, why wearables cannot substitute for manual paralysis tick checks, and NSW Pet Registry legal compliance.',
   sections: [
     {
       id: 'sydney-coastal-bushwalk-testing',
@@ -13,13 +13,13 @@ export const sydneyTrackersArticle: FullBlogArticle = {
         'From Curl Curl Lagoon and Sirius Cove to Ku-ring-gai Chase and the Blue Mountains, Sydney’s geography encompasses coastal headlands, sandstone valleys, and dense eucalyptus bushland that test the limits of tracking technology.',
       paragraphs: [
         'A vital technical distinction for Sydney pet owners is the difference between Bluetooth proximity tags (such as Apple AirTags or Tile) and dedicated GPS cellular devices. Bluetooth tags do not transmit satellite GPS coordinates; instead, they rely entirely on nearby smartphones running the same operating system to relay their location. In dense bushland reserves, national parks, or quiet coastal trails with low foot traffic, a dog pursuing wildlife quickly moves beyond Bluetooth beacon range.',
-        'Dedicated pet GPS collars utilizing Australian 4G LTE-M (Cat-M1) cellular networks offer substantially greater reliability across New South Wales. Telstra and Optus deploy LTE-M over low-frequency spectrum, primarily Band 28 (700 MHz), which provides extended range and superior signal propagation into wooded valleys, sandstone gullies, and coastal pockets where higher-frequency consumer mobile signals frequently drop.',
+        'Dedicated pet GPS collars requiring real-time mobility tracking utilize Low Power Wide Area (LPWA) cellular IoT technology, specifically LTE-M (Cat-M1). In Australia, carrier deployments differ: Telstra operates a nationwide commercial Cat-M1/LTE-M network deployed primarily on low-frequency Band 28 (700 MHz), providing superior signal propagation across wooded valleys and rugged sandstone terrain, while Optus has focused extensive deployment on NB-IoT alongside selective multi-network IoT roaming. Pet owners must verify that a tracker’s built-in eSIM explicitly supports Australian Cat-M1 on Band 28, rather than assuming standard 4G smartphone band coverage.',
         'An active GPS tracker serves as a real-time retrieval tool, not a replacement for statutory companion animal registration; compare device capabilities in our [best pet GPS trackers and wearables worldwide review](/blogs/best-pet-gps-trackers-health-wearables-review-worldwide).'
       ],
       table: {
         headers: ['Technical Specification', 'Sydney Coastal & Bush Suitability', 'Why It Matters Across NSW'],
         rows: [
-          ['Cellular Standard', '4G LTE-M / Cat-M1 (Band 28 700 MHz)', 'Extended propagation in eucalyptus bushland & sandstone gullies'],
+          ['Cellular IoT Standard', '4G LTE-M / Cat-M1 (Band 28 700 MHz support)', 'Low-band propagation in eucalyptus bushland & sandstone gullies'],
           ['Ingress Protection (IP)', 'True IP68 (Continuous Submersion)', 'Protects against heavy surf at dog-friendly harbour & ocean beaches'],
           ['Battery Management', 'Multi-day battery with Wi-Fi power saving', 'Maintains tracking availability during weekend bush walks and camping'],
           ['Activity Telemetry', 'Accelerometer-based rest and motion logs', 'Provides general activity trends; cannot diagnose veterinary illness']

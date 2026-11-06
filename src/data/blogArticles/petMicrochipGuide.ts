@@ -58,11 +58,12 @@ export const petMicrochipGuideArticle: FullBlogArticle = {
     },
     {
       id: 'international-travel-and-digital-storage',
-      heading: 'The Microchip-Before-Rabies Rule & Storing Your ID in PetHorizon',
+      heading: 'International Travel Import Rules: Microchip Timing by Destination',
       intro:
-        'For pet owners traveling internationally, strict biosecurity protocols demand precise chronological alignment between microchipping and rabies immunization.',
+        'For pet owners traveling internationally, biosecurity import rules demand strict attention to the chronological order of microchipping and rabies immunization.',
       paragraphs: [
-        'Under USDA APHIS (US), UK Defra (UK), CFIA (Canada), DAFF (Australia), and EU Animal Health Certificate regulations, your pet’s 15-digit ISO microchip must be scanned and certified on or before the date their rabies vaccination is administered. If a rabies vaccine was administered prior to microchipping, border inspection officers will declare the vaccine legally invalid, requiring revaccination and a mandatory quarantine waiting period. Review complete flight requirements in our [pet travel checklist and regulations guide](/blogs/pet-travel-checklist-flying-car-trips-vet-records) and align booster milestones with our [puppy and kitten vaccination schedule](/blogs/puppy-kitten-vaccination-schedule-booster-guide-worldwide).',
+        'Import protocols vary substantially by destination country and species. Under UK Defra (for Great Britain) and European Union (Regulation EU No 576/2013) animal health laws, dogs, cats, and ferrets must have an ISO 11784/11785 microchip implanted on or before the date of rabies vaccination; any rabies vaccine given before microchipping is legally invalid for UK/EU border clearance. Similarly, Australian biosecurity (DAFF) mandates an ISO microchip verified prior to rabies vaccination and mandatory pre-travel antibody titre testing for both dogs and cats.',
+        'In contrast, United States import regulations updated by the CDC (effective August 2024) require an ISO-compatible microchip implanted prior to travel for all entering dogs, while feline entry rules do not federally mandate microchipping. In Canada, CFIA requires verified rabies documentation for dogs and cats over 3 months, with microchips specifically mandated for commercial or service animals. Always check destination-specific embassy requirements in our [pet travel checklist and regulations guide](/blogs/pet-travel-checklist-flying-car-trips-vet-records) and coordinate booster timelines with our [puppy and kitten vaccination schedule](/blogs/puppy-kitten-vaccination-schedule-booster-guide-worldwide).',
         'In an emergency evacuation or lost pet alert, few owners can produce paper veterinary registration documents on demand. Storing your pet’s verified 15-digit microchip number, manufacturer name, registry URL, and clinic contact inside PetHorizon’s Clinical Health Card ensures instantaneous access and one-tap PDF export.'
       ],
       stepByStep: {
