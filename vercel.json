@@ -71,6 +71,16 @@
       "source": "/blogs/pet-first-aid-kit-checklist-emergency-preparedness",
       "destination": "/blogs/pet-first-aid-kit-checklist-emergency-preparedness-plan",
       "permanent": true
+    },
+    {
+      "source": "/pet-calorie-calculator",
+      "destination": "/tools/pet-calorie-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/pet-age-calculator",
+      "destination": "/tools/pet-age-calculator",
+      "permanent": true
     }
   ],
   "headers": [
