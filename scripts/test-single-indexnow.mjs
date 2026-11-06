@@ -2,8 +2,8 @@ import https from 'node:https';
 
 const payload = JSON.stringify({
   host: 'pethorizon.jawumitech.com',
-  key: 'c987a26f34e142b9a76d8b9e5c1204d8',
-  keyLocation: 'https://pethorizon.jawumitech.com/c987a26f34e142b9a76d8b9e5c1204d8.txt',
+  key: 'ab8f9afc1da84ed896f784c6c330b0d7',
+  keyLocation: 'https://pethorizon.jawumitech.com/ab8f9afc1da84ed896f784c6c330b0d7.txt',
   urlList: ['https://pethorizon.jawumitech.com/']
 });
 
