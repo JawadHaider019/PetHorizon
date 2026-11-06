@@ -10,6 +10,8 @@
 
 import fs from 'fs';
 import path from 'path';
+import process from 'node:process';
+import { Buffer } from 'node:buffer';
 import { fileURLToPath } from 'url';
 import sharp from 'sharp';
 import { createServer } from 'vite';

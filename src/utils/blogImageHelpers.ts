@@ -42,3 +42,4 @@ export function getBlogSectionImage(slug: string, sectionId: string, fallbackUrl
     alt: 'Veterinary care explanation figure'
   };
 }
+
