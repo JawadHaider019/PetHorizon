@@ -98,3 +98,4 @@ content = content.replace(oldDel, newDel);
 
 fs.writeFileSync('scripts/prerender-seo.js', content, 'utf8');
 console.log('Successfully updated prerender-seo.js');
+

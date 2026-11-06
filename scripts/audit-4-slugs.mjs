@@ -42,3 +42,4 @@ for (const [name, set] of Object.entries(results)) {
   console.log('Detailed occurrences:');
   set.forEach(item => console.log('  ', item));
 }
+
