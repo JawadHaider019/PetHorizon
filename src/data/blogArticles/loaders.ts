@@ -51,6 +51,19 @@ export const ARTICLE_LOADERS: Record<string, Loader> = {
 
 export function loadFullBlogArticle(slug: string): Promise<FullBlogArticle | null> {
   const loader = ARTICLE_LOADERS[slug];
-  return loader ? loader() : Promise.resolve(null);
+  if (!loader) return Promise.resolve(null);
+  return loader().catch((err: unknown) => {
+    const errorMsg = (err as Error)?.message || '';
+    const isChunkError = /dynamically imported module|failed to fetch/i.test(errorMsg);
+    if (isChunkError && typeof window !== 'undefined') {
+      const hasReloaded = sessionStorage.getItem('chunk_article_reloaded');
+      if (!hasReloaded) {
+        sessionStorage.setItem('chunk_article_reloaded', 'true');
+        window.location.reload();
+        return new Promise<FullBlogArticle | null>(() => {});
+      }
+    }
+    throw err;
+  });
 }
 

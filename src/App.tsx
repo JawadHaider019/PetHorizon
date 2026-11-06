@@ -1,4 +1,4 @@
-import { useState, lazy, Suspense } from 'react';
+import { useState, Suspense } from 'react';
 import BackgroundCanvas from './components/BackgroundCanvas';
 import CookieBanner from './components/global/CookieBanner';
 import Navbar, { NavView } from './components/Navbar';
@@ -6,18 +6,19 @@ import Hero from './components/Hero';
 import Footer from './components/Footer';
 import { useAppNavigation, ExtendedAppView } from './hooks/useAppNavigation';
 import { usePageSeo } from './hooks/usePageSeo';
+import { lazyWithRetry } from './utils/lazyWithRetry';
 
-// Dynamic code-splitting for below-the-fold homepage & subpage views to maximize FCP, LCP & TBT
-const HomeBelowFold = lazy(() => import('./components/home/HomeBelowFold'));
-const LegalPortal = lazy(() => import('./components/LegalPortal'));
-const BlogHub = lazy(() => import('./components/BlogHub'));
-const BlogArticleDetail = lazy(() => import('./components/BlogArticleDetail'));
-const ChangelogPage = lazy(() => import('./components/changelog/ChangelogPage'));
-const NotFoundPage = lazy(() => import('./components/errors/NotFoundPage'));
-const PetCalorieCalculator = lazy(() => import('./components/tools/PetCalorieCalculator'));
-const PetAgeCalculator = lazy(() => import('./components/tools/PetAgeCalculator'));
-const QrDownloadModal = lazy(() => import('./components/modals/QrDownloadModal'));
-const IosWaitlistModal = lazy(() => import('./components/modals/IosWaitlistModal'));
+// Dynamic code-splitting with stale-chunk reload resilience
+const HomeBelowFold = lazyWithRetry(() => import('./components/home/HomeBelowFold'));
+const LegalPortal = lazyWithRetry(() => import('./components/LegalPortal'));
+const BlogHub = lazyWithRetry(() => import('./components/BlogHub'));
+const BlogArticleDetail = lazyWithRetry(() => import('./components/BlogArticleDetail'));
+const ChangelogPage = lazyWithRetry(() => import('./components/changelog/ChangelogPage'));
+const NotFoundPage = lazyWithRetry(() => import('./components/errors/NotFoundPage'));
+const PetCalorieCalculator = lazyWithRetry(() => import('./components/tools/PetCalorieCalculator'));
+const PetAgeCalculator = lazyWithRetry(() => import('./components/tools/PetAgeCalculator'));
+const QrDownloadModal = lazyWithRetry(() => import('./components/modals/QrDownloadModal'));
+const IosWaitlistModal = lazyWithRetry(() => import('./components/modals/IosWaitlistModal'));
 
 export type { ExtendedAppView };
 
