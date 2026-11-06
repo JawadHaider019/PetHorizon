@@ -3,6 +3,8 @@ import type { FullBlogArticle } from '../../data/blogArticles/types';
 import BlogSectionExtras, { BlogArticleIntroSummary } from './BlogSectionExtras';
 import BlogToolAndLinksCard from './BlogToolAndLinksCard';
 import BlogCitationCard from './BlogCitationCard';
+import BlogResponsiveImage from '../common/BlogResponsiveImage';
+import { getBlogSectionImage } from '../../utils/blogImageHelpers';
 
 interface BlogArticleBodyProps {
   article: BlogPost;
@@ -80,26 +82,29 @@ export default function BlogArticleBody({
             ))}
 
           {/* Section Figure */}
-          {section.figure && (
-            <figure className="my-8 not-prose">
-              <div className="relative aspect-[16/10] sm:aspect-[16/9] max-h-[340px] sm:max-h-[380px] w-full overflow-hidden rounded-2xl border border-slate-200/80 shadow-xs bg-slate-100">
-                <img
-                  src={section.figure.imageUrl}
-                  alt={section.figure.altText || section.figure.caption}
-                  className="w-full h-full object-cover object-[center_35%] transition-transform duration-500 hover:scale-[1.01]"
-                  loading="lazy"
-                  onError={(e) => {
-                    e.currentTarget.src = article.coverImage;
-                  }}
-                />
-              </div>
-              {section.figure.caption && (
-                <figcaption className="text-center text-xs text-slate-500 mt-2.5 italic">
-                  {section.figure.caption}
-                </figcaption>
-              )}
-            </figure>
-          )}
+          {section.figure && (() => {
+            const sectionImg = getBlogSectionImage(article.slug, section.id, section.figure.imageUrl);
+            return (
+              <figure className="my-8 not-prose">
+                <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden rounded-2xl border border-slate-200/80 shadow-xs bg-slate-100">
+                  <BlogResponsiveImage
+                    src={sectionImg.src}
+                    srcSet={sectionImg.srcSet}
+                    alt={sectionImg.alt || section.figure.altText || section.figure.caption || `${section.heading} breakdown`}
+                    width={sectionImg.width || 800}
+                    height={sectionImg.height || 500}
+                    priority={false}
+                    aspectRatio="aspect-[16/10] sm:aspect-[16/9]"
+                  />
+                </div>
+                {section.figure.caption && (
+                  <figcaption className="text-center text-xs text-slate-500 mt-2.5 italic">
+                    {section.figure.caption}
+                  </figcaption>
+                )}
+              </figure>
+            );
+          })()}
 
           {/* Clinical & Specs Timetable */}
           {section.table && (

@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "optimize:images": "node scripts/optimize-blog-images.js",
     "build:seo": "node scripts/prerender-seo.js --pre",
     "build": "node scripts/prerender-seo.js --pre && vite build && node scripts/prerender-seo.js --post",
     "submit:indexnow": "node scripts/submit-indexnow.js",

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Clock, MapPin, Bookmark, Check } from 'lucide-react';
 import { BlogPost } from '../data/blogPosts/authors';
+import { getBlogHeroImage } from '../utils/blogImageHelpers';
 
 interface BlogCardProps {
   post: BlogPost;
@@ -8,9 +9,15 @@ interface BlogCardProps {
   compact?: boolean;
 }
 
-function optimizeCoverImage(url: string, compact: boolean): string {
-  if (!url.includes('images.unsplash.com')) return url;
-  return url
+function getCardImage(post: BlogPost, compact: boolean): string {
+  const meta = getBlogHeroImage(post.slug, post.coverImage);
+  if (meta.src.startsWith('/images/blog/')) {
+    return compact
+      ? meta.src.replace('-1200w.webp', '-480w.webp')
+      : meta.src.replace('-1200w.webp', '-800w.webp');
+  }
+  if (!meta.src.includes('images.unsplash.com')) return meta.src;
+  return meta.src
     .replace(/w=\d+/, compact ? 'w=240' : 'w=600')
     .replace(/h=\d+/, compact ? 'h=168' : 'h=375')
     .replace(/q=\d+/, 'q=75') + '&fm=webp';
@@ -53,12 +60,12 @@ export default function BlogCard({ post, onClick, compact = false }: BlogCardPro
       >
         <div className="w-20 h-14 rounded-xl overflow-hidden shrink-0 bg-slate-100 relative">
           <img
-            src={optimizeCoverImage(post.coverImage, true)}
-            alt={post.title}
+            src={getCardImage(post, true)}
+            alt={`${post.title} — Pet care guide`}
             width={80}
             height={56}
             decoding="async"
-            className="w-full h-full object-cover object-[center_35%] group-hover:scale-105 transition-transform duration-300"
+            className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
             loading="lazy"
             onError={(e) => {
               e.currentTarget.src = '/3d-pets-hero.webp';
@@ -94,12 +101,12 @@ export default function BlogCard({ post, onClick, compact = false }: BlogCardPro
         className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-slate-100 block"
       >
         <img
-          src={optimizeCoverImage(post.coverImage, false)}
-          alt={post.title}
+          src={getCardImage(post, false)}
+          alt={`${post.title} — Pet care guide`}
           width={600}
           height={375}
           decoding="async"
-          className="w-full h-full object-cover object-[center_35%] transition-transform duration-300 group-hover:scale-105"
+          className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
           loading="lazy"
           onError={(e) => {
             e.currentTarget.src = '/3d-pets-hero.webp';

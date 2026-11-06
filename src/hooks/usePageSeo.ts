@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { ViewState } from './useAppNavigation';
 import { BlogPost } from '../data/blogData';
 import { SITE_CONFIG } from '../config/siteConfig';
+import { getBlogHeroImage } from '../utils/blogImageHelpers';
 import {
   clampMetaDescription,
   updateMetaTag,
@@ -20,9 +21,11 @@ export function usePageSeo(viewState: ViewState, currentArticle: BlogPost | null
       const pageTitle = currentArticle.metaTitle || `${currentArticle.title} | PetHorizon Guides`;
       const pageDesc = clampMetaDescription(currentArticle.metaDescription || currentArticle.excerpt);
       const articleUrl = `${baseUrl}/blogs/${currentArticle.slug}`;
-      const absoluteCoverImage = currentArticle.coverImage.startsWith('http')
-        ? currentArticle.coverImage
-        : `${baseUrl}${currentArticle.coverImage}`;
+      const heroMeta = getBlogHeroImage(currentArticle.slug, currentArticle.coverImage);
+      const heroSrc = heroMeta.src;
+      const absoluteCoverImage = heroSrc.startsWith('http')
+        ? heroSrc
+        : `${baseUrl}${heroSrc}`;
 
       document.title = pageTitle;
       updateMetaTag('meta[name="description"]', 'content', pageDesc);
@@ -39,7 +42,10 @@ export function usePageSeo(viewState: ViewState, currentArticle: BlogPost | null
       updateMetaTag('meta[name="twitter:image"]', 'content', absoluteCoverImage);
       updateCanonical(`/blogs/${currentArticle.slug}`);
 
-      updateJsonLd('seo-schema-article', buildArticleSchemas(currentArticle, baseUrl, pageDesc, articleUrl));
+      updateJsonLd(
+        'seo-schema-article',
+        buildArticleSchemas(currentArticle, baseUrl, pageDesc, articleUrl, absoluteCoverImage, heroMeta.alt)
+      );
     } else if (viewState.view === 'blog') {
       const blogTitle = 'PetHorizon Blog — Evidence-Based Pet Care & Health Guides';
       const blogDesc = 'Explore veterinary-verified pet care guides for dog and cat owners: daily feeding schedules, vaccination charts, medication alarms, and family routine sync.';

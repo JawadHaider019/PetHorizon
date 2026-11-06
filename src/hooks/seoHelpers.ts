@@ -56,17 +56,33 @@ export function updateJsonLd(id: string, data: object | object[]): void {
   script.textContent = JSON.stringify(data);
 }
 
-export function buildArticleSchemas(article: BlogPost, baseUrl: string, pageDesc: string, articleUrl: string): object[] {
+export function buildArticleSchemas(
+  article: BlogPost,
+  baseUrl: string,
+  pageDesc: string,
+  articleUrl: string,
+  customImageUrl?: string,
+  customImageAlt?: string
+): object[] {
   const isoPublished = !Number.isNaN(Date.parse(article.publishedAt))
     ? new Date(article.publishedAt).toISOString()
     : '2026-10-26T00:00:00.000Z';
+  const imgUrl = customImageUrl || (article.coverImage.startsWith('http') ? article.coverImage : `${baseUrl}${article.coverImage}`);
+  const imgAlt = customImageAlt || `${article.title} — Evidence-based veterinary care guide`;
   const schemas: object[] = [
     {
       '@context': 'https://schema.org',
       '@type': 'BlogPosting',
       headline: article.title,
       description: pageDesc,
-      image: [article.coverImage],
+      image: {
+        '@type': 'ImageObject',
+        url: imgUrl,
+        contentUrl: imgUrl,
+        width: 1200,
+        height: 750,
+        caption: imgAlt
+      },
       datePublished: isoPublished,
       dateModified: isoPublished,
       author: {
