@@ -41,7 +41,7 @@ export const LOCAL_CITY_POSTS: BlogPost[] = [
     excerpt: 'Balancing the London Underground commute and hybrid work weeks? Discover how multi-caregiver London households manage feeding, walking handoffs, and medications with PetHorizon.',
     category: 'Family & Routine',
     readTime: '5 min read',
-    coverImage: 'https://images.unsplash.com/photo-1513360309081-38f076278fef?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
+    coverImage: 'https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?auto=format&fit=crop&w=1200&h=750&q=85',
     targetLocation: 'London',
     tags: ['London Dogs', 'Pet Routine', 'Tube Commute', 'RCVS Vet', 'Pet Horizon'],
     seoKeyword: 'shared pet care app london',

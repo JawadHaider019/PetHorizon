@@ -75,7 +75,7 @@ export const ROUTINE_POSTS: BlogPost[] = [
     excerpt: 'Cats are masters at hiding pain. Discover subtle signs of feline osteoarthritis, high-moisture senior diets to safeguard kidney nephrons, and low-entry litter box adaptations for older cats.',
     category: 'Cat Care',
     readTime: '5 min read',
-    coverImage: 'https://images.unsplash.com/photo-1513360309081-36f20ca4e829?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
+    coverImage: 'https://images.unsplash.com/photo-1561948955-570b270e7c36?auto=format&fit=crop&w=1200&h=750&q=85',
     featured: false,
     targetLocation: 'Global',
     tags: ['Senior Cat Care', 'Feline Arthritis', 'Senior Cat Diet', 'Cornell Feline Health', 'Pet Horizon'],

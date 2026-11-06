@@ -10,6 +10,8 @@ import BlogArticleBody from './blog/BlogArticleBody';
 import BlogConversionBanner from './blog/BlogConversionBanner';
 import BlogCard from './BlogCard';
 import NotFoundPage from './errors/NotFoundPage';
+import BlogResponsiveImage from './common/BlogResponsiveImage';
+import { getBlogHeroImage } from '../utils/blogImageHelpers';
 
 interface BlogArticleDetailProps {
   articleSlug: string;
@@ -56,6 +58,7 @@ export default function BlogArticleDetail({
   }
 
   const [fullContent, setFullContent] = useState<FullBlogArticle | null>(null);
+  const heroImage = getBlogHeroImage(article.slug, article.coverImage);
 
   useEffect(() => {
     let active = true;
@@ -124,16 +127,17 @@ export default function BlogArticleDetail({
 
       {/* 2. Balanced Editorial Cover Frame */}
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8">
-        <figure className="relative aspect-[16/10] sm:aspect-[16/9] max-h-[360px] sm:max-h-[430px] w-full overflow-hidden rounded-3xl border border-slate-200/80 shadow-sm bg-slate-100">
-          <img
-            src={article.coverImage}
-            alt={article.title}
-            className="w-full h-full object-cover object-[center_35%]"
-            onError={(e) => {
-              e.currentTarget.src = '/3d-pets-hero.jpg';
-            }}
+        <figure className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden rounded-3xl border border-slate-200/80 shadow-sm bg-slate-100">
+          <BlogResponsiveImage
+            src={heroImage.src}
+            srcSet={heroImage.srcSet}
+            alt={heroImage.alt}
+            width={heroImage.width || 1200}
+            height={heroImage.height || 750}
+            priority={true}
+            aspectRatio="aspect-[16/10] sm:aspect-[16/9]"
           />
-          <figcaption className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-auto bg-slate-900/75 backdrop-blur-md text-white text-[11px] font-semibold px-3.5 py-1.5 rounded-xl border border-white/15 inline-flex items-center gap-2 shadow-sm">
+          <figcaption className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-auto bg-slate-900/75 backdrop-blur-md text-white text-[11px] font-semibold px-3.5 py-1.5 rounded-xl border border-white/15 inline-flex items-center gap-2 shadow-sm pointer-events-none">
             <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
             <span className="truncate capitalize">
               {article.category} &bull; {article.seoKeyword}
