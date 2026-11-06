@@ -80,7 +80,7 @@ export const LOCAL_CITY_POSTS: BlogPost[] = [
     searchVolume: '2.8K/mo',
     searchRankBadge: 'Local Guide',
     keyTakeaways: [
-      'Toronto ravine walks require consistent 9-to-12-month tick prevention to guard against Lyme disease.',
+      'Toronto ravine walks require vigilant tick prevention; veterinarians recommend tailored seasonal or year-round coverage based on local exposure.',
       'Salt-treated winter sidewalks require budget allocations for protective boots or paw balms.',
       'PetHorizon Expense Manager tracks receipts in CAD and warns you before exceeding monthly targets.'
     ],
@@ -102,7 +102,7 @@ export const LOCAL_CITY_POSTS: BlogPost[] = [
     id: 'post-trackers-sydney',
     slug: 'best-pet-gps-trackers-health-wearables-review-sydney',
     title: 'Best Pet GPS Trackers & Health Wearables in Sydney: Beach & Bushwalk Testing',
-    excerpt: 'Hands-on evaluation of dog GPS trackers for Sydney pet owners. We test coastal saltwater resistance, paralysis tick monitoring, and PetHorizon activity logs.',
+    excerpt: 'Comparative evaluation of dog GPS trackers for Sydney pet owners. Review coastal saltwater resistance, 4G LTE-M coverage, and PetHorizon activity logs.',
     category: 'Dog Care',
     readTime: '5 min read',
     coverImage: 'https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
@@ -113,7 +113,7 @@ export const LOCAL_CITY_POSTS: BlogPost[] = [
     searchRankBadge: 'Local Guide',
     keyTakeaways: [
       'Subtropical humidity and coastal beach runs demand IP68 waterproof ratings for any dog tracker.',
-      'Pairing daily activity data with PetHorizon helps Australian pet parents spot early lethargy caused by paralysis ticks.',
+      'Wearables cannot replace manual daily paralysis tick searches; year-round veterinary preventatives remain vital across NSW.',
       '4G Telstra/Optus LTE-M coverage provides reliable escape tracking across suburban bushland.'
     ],
     trendingSearches: ['#dog tracker australia', '#sydney pet tech', '#waterproof dog tracker', '#paralysis tick dog alert'],

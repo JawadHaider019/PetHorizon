@@ -4,87 +4,87 @@ export const petDiabetesInsulinArticle: FullBlogArticle = {
   slug: 'dog-cat-diabetes-insulin-feeding-schedule-guide',
   readTime: '5 min read',
   overviewSummary:
-    'Managing diabetes mellitus in dogs and cats hinges on strict 12-hour coordination between measured meals and subcutaneous insulin injections. Administering insulin on an empty stomach—or accidentally delivering a double dose between uncoordinated family members—can trigger fatal hypoglycemic neuroglycopenia within minutes. Review AAHA diabetes management guidelines, U-40 vs U-100 syringe safety, missed-dose decision trees, and PetHorizon’s Anti-Collision Care Lock.',
+    'Managing diabetes mellitus in dogs and cats hinges on strict 12-hour coordination between measured meals and subcutaneous insulin injections. Administering insulin on an empty stomach—or accidentally delivering a double dose between uncoordinated family members—can trigger life-threatening hypoglycemia. Review AAHA diabetes management guidelines, U-40 vs U-100 syringe concentration matching, missed-dose safety protocols, and PetHorizon’s Anti-Collision Care Lock.',
   sections: [
     {
       id: 'twelve-hour-insulin-meal-rule',
       heading: 'The Strict 12-Hour Meal & Insulin Synchronization Protocol',
       intro:
-        'Canine and feline diabetes possess fundamentally different underlying pathophysiologies, yet both demand rigorous 12-hour chronobiology to maintain safe blood glucose levels.',
+        'Canine and feline diabetes possess distinct underlying pathophysiologies, yet both demand rigorous 12-hour consistency to maintain stable blood glucose levels.',
       paragraphs: [
-        'Canine diabetes is almost universally insulin-dependent (resembling human Type 1 diabetes), resulting from autoimmune destruction of pancreatic beta cells. Dogs require lifelong twice-daily exogenous insulin. In contrast, feline diabetes closely mirrors human Type 2 diabetes characterized by insulin resistance and amyloid deposition in the islets of Langerhans. Remarkably, when cats are diagnosed promptly and managed with ultra-low-carbohydrate wet diets alongside glargine or protamine zinc insulin (PZI), up to 30% to 50% achieve clinical diabetic remission within the first 3 to 4 months.',
-        'Regardless of species, the golden veterinary rule is: "Feed First, Confirm Appetite, Then Inject." Your pet must consume at least 50% to 75% of their measured meal before the morning or evening insulin injection is administered. This ensures that exogenous insulin peaks synchronously with intestinal glucose absorption, preventing postprandial hypoglycemia.',
-        'Space injections strictly 12 hours apart (e.g., 7:00 AM and 7:00 PM). A variation of plus or minus 30 minutes is acceptable; shifts beyond 2 hours disrupt the glycaemic curve and require veterinary re-calibration.'
+        'Canine diabetes is almost universally insulin-deficient (similar to human Type 1 diabetes), resulting from loss of pancreatic beta cells, requiring lifelong exogenous insulin. In contrast, feline diabetes frequently resembles human Type 2 diabetes characterized by insulin resistance and islet amyloid deposition. When cats are diagnosed promptly and managed with veterinary-prescribed ultra-low-carbohydrate wet diets alongside appropriate insulin (such as glargine or protamine zinc insulin), a meaningful proportion can achieve clinical diabetic remission.',
+        'Regardless of species, the foundational veterinary rule is: "Feed First, Confirm Appetite, Then Inject." Your pet should consume their veterinary-prescribed meal portion before insulin is administered. This ensures that exogenous insulin action aligns with nutrient absorption from the gastrointestinal tract, preventing acute hypoglycemia.',
+        'Injections are typically scheduled 12 hours apart (e.g., 7:00 AM and 7:00 PM). Always consult your treating veterinarian regarding acceptable schedule windows, as timing adjustments must be individualized to your pet’s specific insulin duration of action.'
       ],
       warningBox: {
-        title: 'Syringe Calibration Warning: Fatal U-40 vs U-100 Errors',
-        text: 'Veterinary insulins (Vetsulin/Caninsulin, ProZinc) are formulated at 40 Units/mL and MUST ONLY be drawn with red-capped U-40 syringes. Human insulins (Glargine/Lantus, Humulin N) are 100 Units/mL and use orange-capped U-100 syringes. Drawing U-40 insulin into a U-100 syringe results in a 2.5-times fatal overdose error. Never interchange syringe types.'
+        title: 'Critical Syringe Safety: Always Match Insulin Concentration',
+        text: 'Insulins are formulated at different concentrations, most commonly U-40 (40 Units/mL, typical for veterinary products) or U-100 (100 Units/mL, typical for human products). U-40 insulin MUST ONLY be measured using a U-40 syringe, and U-100 insulin MUST ONLY be measured using a U-100 syringe. Never rely on syringe cap colors alone, as manufacturing standards vary. Always verify the printed concentration (Units/mL) on both the insulin vial label and the syringe barrel. Using mismatched syringes causes severe underdosing or fatal overdosing.'
       }
     },
     {
       id: 'dietary-architecture-and-calories',
-      heading: 'Dietary Architecture: Fiber vs Ultra-Low Carbohydrate Formulations',
+      heading: 'Dietary Architecture: Fiber vs Low-Carbohydrate Formulations',
       intro:
-        'Dietary macronutrient composition directly dictates the shape and predictability of your pet’s daily blood glucose curve.',
+        'Dietary composition directly impacts the predictability and shape of your pet’s daily blood glucose curve.',
       paragraphs: [
-        'For diabetic dogs, diets enriched with insoluble and soluble fiber (complex carbohydrates like barley, oats, and beet pulp) slow gastric emptying and blunt postprandial glucose surges. Measure exact meal grams using a digital kitchen scale rather than volumetric cups to eliminate portion variability.',
-        'For diabetic cats, the dietary mandate is reversed: cats are obligate carnivores with negligible hepatic glucokinase activity. High-carbohydrate dry kibble inundates feline metabolism with excess glucose. Switching diabetic cats to high-protein, ultra-low-carbohydrate canned food (less than 10% metabolizable energy from carbs) dramatically lowers exogenous insulin requirements and is the single most potent trigger for feline diabetic remission.',
-        'Calculate your pet’s precise daily caloric targets with our [pet calorie calculator](/tools/pet-calorie-calculator) and review clinical formulas in our [pet calorie calculation guide](/blogs/pet-calorie-calculator-feeding-guide-apop) and [dog feeding schedule by age](/blogs/dog-feeding-schedule-by-age-puppy-to-adult). Diabetic cats frequently present with concurrent chronic kidney disease; review hydration balance in our [feline kidney disease hydration protocol](/blogs/feline-kidney-disease-dehydration-cornell).'
+        'For diabetic dogs, diets enriched with balanced soluble and insoluble fiber help slow intestinal carbohydrate absorption and blunt postprandial glucose surges. Measuring meals with a digital kitchen scale rather than volumetric scoops provides consistent caloric intake from day to day.',
+        'For diabetic cats, who are obligate carnivores, commercial dry foods high in carbohydrates can exacerbate glycemic variability. Veterinarians frequently recommend high-protein, ultra-low-carbohydrate canned formulations to reduce insulin requirements and support diabetic remission, provided there are no conflicting medical conditions.',
+        'Calculate your pet’s baseline daily energy requirements with our [pet calorie calculator](/tools/pet-calorie-calculator) and review portioning principles in our [pet calorie calculation guide](/blogs/pet-calorie-calculator-feeding-guide-apop) and [dog feeding schedule by age](/blogs/dog-feeding-schedule-by-age-puppy-to-adult). Diabetic felines often present with concurrent renal disease; review fluid considerations in our [feline kidney disease hydration protocol](/blogs/feline-kidney-disease-dehydration-cornell).'
       ],
       table: {
-        headers: ['Species', 'Primary Diabetes Type', 'Optimal Dietary Architecture', 'Key Clinical Goal'],
+        headers: ['Species', 'Common Diabetes Form', 'Typical Dietary Approach', 'Clinical Goal'],
         rows: [
-          ['Canine (Dog)', 'Type 1 (Absolute deficiency)', 'High complex fiber, moderate protein, low fat', 'Blunt post-meal glucose spike; steady curve'],
-          ['Feline (Cat)', 'Type 2 (Insulin resistance)', 'Ultra-low carb wet food (< 10% ME), high protein', 'Reversal of glucose toxicity; clinical remission']
+          ['Canine (Dog)', 'Insulin-deficient (Type 1-like)', 'Balanced complex fiber, controlled fat', 'Smooth postprandial glucose absorption'],
+          ['Feline (Cat)', 'Insulin-resistant (Type 2-like)', 'High protein, low-carbohydrate wet diet', 'Reduce glucose toxicity; support remission']
         ]
       }
     },
     {
       id: 'missed-dose-and-uncertainty-rules',
-      heading: 'The Missed, Delayed, or Partial Dose Decision Protocol',
+      heading: 'Handling Missed, Delayed, or Incomplete Injections',
       intro:
-        'When daily routines get chaotic, knowing how to react to a missed, vomited, or uncertain injection prevents deadly medication errors.',
+        'Understanding how to proceed during unexpected disruptions prevents dangerous insulin overdose errors. All dosing adjustments must follow your primary veterinarian’s pre-established protocol.',
       paragraphs: [
-        'Hyperglycemia (high blood sugar) damages organs gradually over months, but Hypoglycemia (low blood sugar) kills within minutes. It is far safer for a pet to run moderately high for 12 hours than to receive a double dose or an unverified second injection.',
-        'Never re-inject if the fur feels wet after pushing the plunger ("fur shot"). It is impossible to know how many units entered subcutaneously versus leaked onto the skin. Always wait until the next scheduled 12-hour window.'
+        'In veterinary diabetology, mild transient hyperglycemia is far less dangerous than acute hypoglycemia. While high blood sugar causes clinical signs over weeks or months, severe hypoglycemia can be fatal within minutes to hours. When in doubt, never administer extra insulin without direct veterinary guidance.',
+        'If an injection is suspected to have leaked into the fur ("fur shot"), do not attempt to re-inject a second dose. Because it is impossible to determine how much insulin was absorbed subcutaneously versus lost on the coat, re-dosing creates severe risk of fatal hypoglycemia. Contact your veterinary clinic and document the occurrence.'
       ],
       table: {
-        headers: ['Scenario Encountered', 'Appetite / Dosing Observation', 'AAHA Veterinary Action Protocol'],
+        headers: ['Situation Encountered', 'Appetite / Dose Status', 'Veterinary Protocol Guideline'],
         rows: [
-          ['Normal Meal Consumed', 'Pet eats 100% of measured meal', 'Administer full prescribed dose subcutaneously within 15 mins'],
-          ['Refuses Meal / Vomits', 'Pet eats 0% of meal or vomits within 30 mins', 'DO NOT give full dose; contact vet (often 0% or half-dose advised)'],
-          ['"Fur Shot" / Wet Fur', 'Needle pulled out or fur feels wet', 'NEVER re-dose; record incident and wait for next 12-hour window'],
-          ['Delayed by 1–2 Hours', 'Forgot morning injection until 8:30 AM', 'Administer regular dose and shift evening dose back accordingly'],
-          ['Delayed by > 3 Hours', 'Caregiver returned late at noon', 'Skip dose entirely; resume full regular dose at evening window']
+          ['Normal Meal Eaten', 'Pet finishes prescribed meal', 'Administer prescribed insulin dose subcutaneously per vet instructions'],
+          ['Refuses Food or Vomits', 'Pet eats 0% or vomits meal', 'DO NOT administer regular insulin dose; call your veterinarian for specific instruction'],
+          ['Incomplete / "Fur Shot"', 'Needle slips or fur feels wet', 'NEVER administer a second injection; wait until next scheduled window per vet plan'],
+          ['Delayed Injection', 'Caregiver is late for scheduled dose', 'Follow your veterinarian’s specific schedule-adjustment instructions; never double the next dose']
         ]
       }
     },
     {
       id: 'emergency-hypoglycemia-and-double-dosing',
-      heading: 'Emergency Hypoglycemia Triage & Household Double-Dose Prevention',
+      heading: 'Recognizing Hypoglycemia & Preventing Family Dosing Collisions',
       intro:
-        'Accidental double-dosing by well-meaning spouses or roommates is one of the leading causes of fatal iatrogenic hypoglycemia reported by veterinary poison control centers.',
+        'Accidental double-dosing between uncoordinated family members is one of the most serious causes of iatrogenic hypoglycemia in diabetic pets.',
       paragraphs: [
-        'Hypoglycemia occurs when blood glucose plunges below 60 mg/dL (3.3 mmol/L). Clinical signs progress rapidly from subtle lethargy and glassy eyes to drunken hind-limb ataxia, muscle tremors, head tilt, and full-blown tonic-clonic seizures. Review emergency triage in our [emergency vet symptoms guide](/blogs/emergency-vet-symptoms-red-flags-petmd) and keep oral syringes and Karo syrup stocked in your [pet first aid kit](/blogs/pet-first-aid-kit-checklist-emergency-preparedness-plan).',
-        'Prevent accidental household dosing collisions by synchronizing family routines with PetHorizon’s Anti-Collision Care Lock: the moment one partner checks off the morning insulin dose, all family devices update in real time with an immutable timestamp. Explore household team protocols in our [household pet co-parenting routine guide](/blogs/household-pet-coparenting-feeding-routine-sync-worldwide).'
+        'Hypoglycemia (low blood sugar) occurs when insulin activity exceeds available circulating glucose. Early warning signs include restlessness, glazed eyes, weakness, hind-limb wobbling (ataxia), or profound lethargy. If left untreated, severe hypoglycemia progresses to muscle tremors, hypothermia, seizures, coma, and death. Review emergency clinical signs in our [emergency vet symptoms guide](/blogs/emergency-vet-symptoms-red-flags-petmd) and maintain emergency supplies in your [pet first aid kit](/blogs/pet-first-aid-kit-checklist-emergency-preparedness-plan).',
+        'If your pet exhibits signs of hypoglycemia but is conscious and able to swallow, rub a high-sugar syrup (such as maple syrup, corn syrup, or honey) directly onto their gums with your finger. Do not pour liquids down their throat if they are unconscious or seizing, as this creates a choking and aspiration hazard. Contact your primary veterinarian or transport your pet to an emergency hospital immediately.',
+        'Prevent household double-dosing by using PetHorizon’s Anti-Collision Care Lock: whenever a family member logs an insulin administration, connected household devices display an active timestamped confirmation. Learn more about shared pet care in our [household pet co-parenting routine guide](/blogs/household-pet-coparenting-feeding-routine-sync-worldwide).'
       ],
       stepByStep: {
-        title: 'Emergency Hypoglycemia At-Home Action Steps',
+        title: 'Emergency Hypoglycemia Response Steps (AAHA Aligned)',
         steps: [
           {
             number: 1,
-            title: 'Step 1: Immediate Mucosal Sugar Absorption',
-            description: 'If your pet is conscious but wobbly, rub 1 to 2 tablespoons of Karo syrup, maple syrup, or honey directly onto their gums. Do not force liquids down the throat if seizing.'
+            title: 'Step 1: Check Symptoms & Assess Consciousness',
+            description: 'Observe for lethargy, disorientation, weakness, or tremors. If conscious, proceed with immediate oral sugar.'
           },
           {
             number: 2,
-            title: 'Step 2: Offer High-Protein Canned Food',
-            description: 'Once alertness improves within 5 minutes, offer a small portion of canned wet food to sustain blood glucose levels.'
+            title: 'Step 2: Apply Sugar Syrup to Mucous Membranes',
+            description: 'Carefully rub honey or corn syrup directly onto the gums. If your pet can swallow safely, offer a small portion of their regular food.'
           },
           {
             number: 3,
-            title: 'Step 3: Immediate 24/7 Veterinary ER Transport',
-            description: 'Keep your pet wrapped in warm blankets (hypothermia often accompanies low blood sugar) and transport immediately for IV dextrose monitoring.'
+            title: 'Step 3: Seek Immediate Veterinary Emergency Care',
+            description: 'Even if your pet appears to improve temporarily, veterinary evaluation is essential to stabilize glucose and monitor for rebound hypoglycemia.'
           }
         ]
       },
@@ -96,4 +96,3 @@ export const petDiabetesInsulinArticle: FullBlogArticle = {
     }
   ]
 };
-

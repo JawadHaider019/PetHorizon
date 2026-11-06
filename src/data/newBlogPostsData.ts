@@ -81,10 +81,10 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
     searchVolume: '9.4K/mo',
     searchRankBadge: 'Avian Care Guide',
     keyTakeaways: [
-      'Formulated avian pellets should make up 60%–70% of a parrot’s diet alongside 20%–30% fresh morning vegetable chop.',
-      'Remove fresh chop bowls within 2 hours to prevent bacterial or fungal crop spoilage at room temperature.',
-      'Companion birds require 10 to 12 hours of uninterrupted dark, quiet sleep to regulate photoperiod hormones.',
-      'Weigh birds weekly on a digital gram scale in PetHorizon to detect masked illness before symptoms escalate.'
+      'Formulated pellets provide a balanced baseline for many psittacines, supplemented with fresh morning vegetable chop.',
+      'Remove moist chop bowls within 2 to 4 hours to prevent bacterial or fungal crop spoilage at room temperature.',
+      'Companion birds thrive with 10 to 12 hours of quiet, dark sleep to support stable photoperiod biorhythms.',
+      'Weigh birds regularly on a digital gram scale in PetHorizon to detect masked illness before symptoms escalate.'
     ],
     trendingSearches: ['#parrot chop diet schedule', '#how much sleep do parrots need', '#bird daily care routine', '#avian weight tracking'],
     author: EDITORIAL_AUTHOR,
@@ -123,8 +123,8 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
     searchVolume: '28K/mo',
     searchRankBadge: 'Adoption Essential',
     keyTakeaways: [
-      'First 3 Days: Cortisol levels peak; give your rescue dog a quiet sanctuary space with zero visitors or dog parks.',
-      'First 3 Weeks: Adrenaline fades, true personality emerges, and consistent meal/walk timestamps teach household boundaries.',
+      'First 3 Days: Stress reactivity is elevated; provide a quiet sanctuary space without visitors or dog park visits.',
+      'First 3 Weeks: Apprehension lessens, true personality surfaces, and consistent meal/walk timestamps teach household structure.',
       'First 3 Months: Secure attachment forms and house-training solidifies through predictable daily routines.',
       'PetHorizon Family Hub keeps every household member aligned on exact walk, crate, and meal times.'
     ],

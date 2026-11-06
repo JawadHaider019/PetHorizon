@@ -4,93 +4,88 @@ export const parrotCareArticle: FullBlogArticle = {
   slug: 'parrot-bird-daily-routine-chop-diet-sleep-guide',
   readTime: '5 min read',
   overviewSummary:
-    'Companion parrots—including Cockatiels, Conures, Budgies, African Greys, and Macaws—retain the delicate endocrine systems, high metabolic rates, and natural foraging instincts of wild flock birds. All-seed diets, indoor air toxins, and erratic artificial lighting remain the leading causes of avian fatty liver disease, respiratory failure, and hormonal feather plucking. Master the morning fresh vegetable chop routine, full-spectrum UV-B exposure, and 12-hour dark sleep schedules.',
+    'Companion parrots—including Cockatiels, Conures, Budgies, African Greys, and Macaws—retain the delicate endocrine systems, high metabolic rates, and natural foraging instincts of wild birds. All-seed diets, indoor air toxins, and erratic artificial lighting remain major contributors to avian nutritional deficiencies, respiratory illness, and behavioral distress. Discover evidence-based guidelines for fresh vegetable chop, species-appropriate UVB lighting, photoperiod sleep cycles, and daily routine management.',
   sections: [
     {
       id: 'avian-nutrition-chop-and-pellets',
-      heading: 'Avian Nutrition: Moving Beyond Seeds to Pellets & Morning "Chop"',
+      heading: 'Avian Nutrition: Formulated Diets, Fresh "Chop" & Species Differences',
       intro:
-        'Commercial sunflower and millet seed mixes are dangerously high in lipids (often exceeding 45% fat) while lacking Vitamin A, calcium, and essential amino acids. Chronic seed feeding inevitably leads to hepatic lipidosis (fatty liver disease) and severe vitamin A deficiency.',
+        'All-seed diets composed primarily of sunflower seeds or millet are high in fat and low in essential micronutrients like Vitamin A, calcium, and trace minerals. Over time, exclusive seed feeding predisposes birds to hepatic lipidosis (fatty liver disease) and secondary respiratory infections.',
       paragraphs: [
-        'Avian veterinarians recommend a balanced dietary baseline of 60% formulated, cold-pressed organic pellets (such as Harrison’s, TOP’s, or Roudybush) paired with 25% to 30% freshly diced raw vegetable "chop", and 10% cooked ancient grains, sprouted seeds, or legumes. Loose seed mixes should be strictly reserved as high-value training rewards during flight or recall practice.',
-        'Transitioning a seed-addicted bird requires patience. Birds do not instinctively recognize pellets as food. Begin by pulverizing 20% pellets into a fine powder and dusting it over lightly dampened seeds, or mixing crushed pellets into warm organic sweet potato mash. Compare exotic pet feeding principles in our [rabbit feeding schedule and GI stasis guide](/blogs/rabbit-feeding-schedule-hay-diet-gi-stasis-guide).',
-        'Weigh your bird every morning before breakfast using a digital gram scale. If body weight drops by more than 3% during dietary transition, pause the reduction of seeds and consult an avian veterinarian. Record baseline morning weights in our [pet health records tracker](/blogs/pet-health-records-medication-schedule-tracker).'
+        'For many common companion psittacines, avian veterinarians recommend a baseline diet where formulated, nutritionally complete pellets represent roughly 50% to 70% of daily intake, supplemented with 20% to 30% freshly prepared vegetable "chop", and small amounts of cooked whole grains or legumes. High-fat nuts and seeds are best reserved as positive reinforcement rewards during training.',
+        'However, dietary proportions must always be tailored to the specific species. For example, nectarivorous species such as Lories and Lorikeets require specialized liquid or powdered nectar and fresh fruits, as their digestive systems cannot process dry seed or standard pellets. Eclectus parrots require higher proportions of fresh fiber and produce due to their specialized gastrointestinal anatomy. Conversely, arid-zone ground foragers such as Budgerigars and Cockatiels can incorporate a higher proportion of quality grains and seeds under veterinary guidance. Compare exotic feeding principles in our [rabbit feeding schedule and GI stasis guide](/blogs/rabbit-feeding-schedule-hay-diet-gi-stasis-guide).',
+        'Transitioning a seed-conditioned bird to formulated diets requires gradual steps. Mixing crushed pellets with warm sweet potato or dusting pellets onto dampened food can encourage acceptance. Weigh your bird regularly using a digital gram scale; any unintentional weight loss exceeding 3% to 5% warrants pausing dietary changes and consulting an avian veterinarian. Record baseline weights in our [pet health records tracker](/blogs/pet-health-records-medication-schedule-tracker).'
       ],
       table: {
-        headers: ['Dietary Component', 'Daily Percentage', 'Recommended Ingredients', 'Nutritional Purpose'],
+        headers: ['Dietary Element', 'Typical Proportion (Common Psittacines)', 'Recommended Ingredients', 'Nutritional Role'],
         rows: [
-          ['Organic Pellets', '55% – 65%', 'Cold-pressed formulated pellets', 'Complete vitamins, trace minerals & amino acids'],
-          ['Fresh Veggie "Chop"', '25% – 30%', 'Kale, broccoli, sweet potato, chili peppers', 'Beta-carotene, hydration, natural foraging texture'],
-          ['Sprouts & Grains', '10% – 15%', 'Sprouted lentils, quinoa, buckwheat, farro', 'Living plant enzymes, digestible lean protein'],
-          ['Nuts / Seed Treats', '< 5% Total', 'Raw walnut, pumpkin seed, hemp heart', 'Positive reinforcement rewards for training']
+          ['Formulated Pellets', '50% – 70% (Species-dependent)', 'Accredited avian formulated pellets', 'Balanced vitamins, calcium, and amino acids'],
+          ['Fresh Vegetable "Chop"', '20% – 30%', 'Kale, broccoli, squash, peppers, dark greens', 'Beta-carotene, hydration, natural foraging texture'],
+          ['Grains, Legumes & Sprouts', '10% – 15%', 'Sprouted lentils, quinoa, buckwheat, oats', 'Digestible plant protein, living enzymes'],
+          ['Nuts & Seeds', 'Small reward allowance (< 5%)', 'Raw walnuts, pumpkin seeds, hemp seeds', 'High-value positive reinforcement for training']
         ]
       }
     },
     {
       id: 'chop-prep-and-toxic-dangers',
-      heading: 'Morning Chop Preparation, Safe Ingredients & Airborne Hazards',
+      heading: 'Fresh Chop Preparation, Food Safety & Airborne Hazards',
       intro:
-        'Avian respiratory systems feature complex air sacs extending directly into hollow bones, making birds extraordinarily sensitive to food toxins and aerosolized chemical vapors.',
+        'Avian respiratory anatomy features expansive air sacs that circulate air deeply into hollow bones, making companion birds uniquely vulnerable to aerosolized toxins and spoiled foods.',
       paragraphs: [
-        'An ideal daily chop recipe combines finely diced cruciferous vegetables (broccoli florets, cauliflower, red cabbage), beta-carotene roots (grated butternut squash, sweet potato), leafy greens (kale, dandelion, Swiss chard), and spicy peppers (jalapeño, habanero). Interestingly, birds lack the TRP-V1 heat receptor for capsaicin, allowing them to relish fiery peppers that provide concentrated Vitamin C and carotenoids.',
-        'Always remove fresh chop dishes after 2 hours. Moist vegetables and sprouted legumes rapidly cultivate pathogenic Aspergillus mold and bacterial blooms (Pseudomonas, E. coli) at room temperature, which trigger crop stasis and fatal mycotic pneumonia.',
-        'Airborne toxins in modern kitchens are swiftly fatal. Non-stick cookware containing polytetrafluoroethylene (PTFE/Teflon) releases odorless toxic fluorinated gases when heated above 280°C (536°F), destroying avian lung tissue within minutes. Discard all Teflon pans, air fryer inserts, self-cleaning oven cycles, scented candles, and aerosol sprays.'
+        'Vegetable chop recipes commonly blend cruciferous vegetables (broccoli florets, cabbage), beta-carotene-rich vegetables (sweet potato, carrots, squash), leafy greens, and chili peppers. Birds lack capsaicin receptors and readily consume peppers, which supply dietary carotenoids and Vitamin C.',
+        'Food safety timing: In warm or humid indoor environments, moist vegetables and sprouted legumes can quickly harbor bacteria (*Pseudomonas*, *E. coli*) and fungal molds (*Aspergillus*). Fresh chop dishes should generally be removed within 2 to 4 hours of offering, or sooner in warm temperatures, to protect crop health.',
+        'Airborne hazards in the home represent an urgent danger. Overheated cookware coated with polytetrafluoroethylene (PTFE/Teflon) releases toxic fluorinated fumes that cause fatal pulmonary hemorrhage within minutes. Eliminate non-stick pans, aerosol sprays, plug-in fragrance diffusers, and self-cleaning oven cycles from any home housing birds.'
       ],
       warningBox: {
-        title: 'Emergency Avian Toxic Food Alert',
-        text: 'Never feed avocado (contains persin, which causes fatal cardiac necrosis), chocolate, caffeine, fruit seeds/pits (contain amygdalin which metabolizes into cyanide), onions, or garlic. Cross-check household hazards in our [toxic foods poison checklist](/blogs/toxic-foods-dogs-cats-poison-checklist).'
+        title: 'Toxic Foods to Strictly Avoid',
+        text: 'Never feed avocado (persin can cause fatal heart failure in birds), chocolate, caffeine, fruit seeds/pits containing cyanogenic glycosides (apple seeds, stone fruit pits), onions, or garlic. Cross-check toxic items in our [toxic foods poison checklist](/blogs/toxic-foods-dogs-cats-poison-checklist).'
       }
     },
     {
       id: 'circadian-sleep-photoperiod',
-      heading: 'The 10–12 Hour Uninterrupted Darkness Sleep Requirement',
+      heading: 'Photoperiod Management, Sleep & Species-Specific UVB Guidelines',
       intro:
-        'Most companion parrots originate from equatorial rainforests and savannas where the solar cycle provides roughly 12 hours of sunlight and 12 hours of total darkness year-round.',
+        'Photoperiod (day-length) directly regulates avian reproductive physiology, molt cycles, and behavioral stability.',
       paragraphs: [
-        'Keeping a parrot in an active living room illuminated by television screens, smartphones, and ceiling fixtures until 11:00 PM artificially extends their photoperiod. This tricks their hypothalamus into perceiving an eternal spring breeding season. The clinical fallout includes intense sexual frustration, screaming fits, cage territoriality, feather-destructive plucking, and potentially fatal egg-binding in female birds.',
-        'Provide a dedicated small "sleep cage" located in a quiet, dark, well-ventilated spare room or closet. Cover the sleep cage with a breathable blackout cloth. Ensure 10 to 12 hours of continuous, soundless darkness every single night.'
+        'Many equatorial parrot species thrive on roughly 10 to 12 hours of uninterrupted, quiet darkness each night. Artificial household lighting extending late into the evening can stimulate chronic reproductive hormones, leading to territorial aggression, excessive vocalization, feather-damaging behavior, or egg-binding in females. Providing a separate, covered sleep cage in a quiet, dark room helps preserve circadian rhythms.',
+        'UVB lighting and Vitamin D3 synthesis: While wild birds synthesize Vitamin D3 via natural sunlight, window glass filters out over 95% of beneficial UVB radiation. However, UVB needs differ substantially by species. Forest-canopy species, understory birds, and grassland foragers have distinct UV index (UVI) requirements, generally falling within Ferguson Zones 1 or 2 (target UVI of 0.5 to 1.5 at the primary basking perch).'
       ],
       bulletPoints: [
-        { label: 'Full-Spectrum UV-B Lighting', text: 'Window glass blocks 98% of beneficial UV-B rays. Mount an avian-specific 2.4% to 5.0% UV-B lamp 12–18 inches above their daytime playstand for 3 to 4 hours daily to synthesize active Vitamin D3 for bone and eggshell health.' },
-        { label: 'Foraging Enrichment', text: 'Wild parrots spend 70% of their waking hours hunting for sustenance. Never feed pellets in a plain open bowl; wrap them in untreated paper, wooden foraging blocks, or woven palm puzzles.' },
-        { label: 'Draft & Temperature Stability', text: 'Maintain an ambient room temperature between 68°F and 78°F (20°C–26°C), avoiding drafts from air conditioners or exterior doorways.' }
+        { label: 'UVI vs Bulb Percentage', text: 'Bulb percentages (e.g., 2.4% vs 5.0% UVB) indicate spectral output at the lamp, but the actual UV Index delivered depends on fixture distance, reflectors, and mesh screens. Use a solar meter or follow manufacturer distance guides.' },
+        { label: 'Safe Placement & Shade Gradients', text: 'Mount UVB fixtures overhead rather than from the side to protect retinas. Always provide an accessible shaded area within the cage so your bird can self-regulate UV exposure.' },
+        { label: 'Avoid Excessive Exposure', text: 'Improperly placed or overly intense UVB lamps can cause photokeratitis (corneal burns) and cataracts. Never leave unfiltered high-output lamps operating without an escape gradient.' }
       ]
     },
     {
       id: 'daily-avian-schedule-and-health',
-      heading: 'Daily Avian Care Timetable & Masked Illness Detection',
+      heading: 'Daily Avian Care Timetable & Subtle Illness Recognition',
       intro:
-        'As prey animals, birds instinctively mask clinical illness until compensatory mechanisms collapse. A subtle decline in posture or body weight is frequently your only advance warning.',
+        'Because birds are prey species that mask clinical signs until illness is advanced, subtle shifts in daily activity, posture, or weight provide the earliest warning of medical concern.',
       paragraphs: [
-        'A bird that sits on the cage bottom with fluffed feathers, half-closed eyes, or a tail bobbing rhythmically with each breath is in critical respiratory or metabolic distress. Review urgent veterinary indicators in our [emergency vet symptoms and red flags guide](/blogs/emergency-vet-symptoms-red-flags-petmd) and ensure sterile gauze and styptic powder are stocked in your [pet first aid kit](/blogs/pet-first-aid-kit-checklist-emergency-preparedness-plan).'
+        'Fluffed feathers, sitting on the cage floor, decreased vocalization, or a tail bobbing rhythmically with respiration represent urgent clinical signs requiring immediate avian veterinary evaluation. Review emergency indicators in our [emergency vet symptoms and red flags guide](/blogs/emergency-vet-symptoms-red-flags-petmd) and maintain first-aid supplies in your [pet first aid kit](/blogs/pet-first-aid-kit-checklist-emergency-preparedness-plan).'
       ],
       stepByStep: {
-        title: 'The Master Daily Avian Care Protocol',
+        title: 'Sample Daily Avian Care Flow',
         steps: [
           {
             number: 1,
-            title: '7:00 AM: Wake-Up & Morning Gram Weight',
-            description: 'Uncover sleep cage. Transfer bird to scale perch and log digital gram weight in PetHorizon before serving breakfast.'
+            title: 'Morning: Uncover & Check Baseline Weight',
+            description: 'Uncover sleep cage. Weigh your bird on a digital perch scale before breakfast to log regular weight trends in PetHorizon.'
           },
           {
             number: 2,
-            title: '7:30 AM: Fresh Chop & Medication Delivery',
-            description: 'Serve 2 to 3 tablespoons of freshly diced vegetable chop with clean ceramic water. Administer any prescribed supplements.'
+            title: 'Morning: Offer Fresh Vegetable Chop',
+            description: 'Provide fresh vegetable chop alongside fresh water. Remove unconsumed moist food after 2 to 4 hours.'
           },
           {
             number: 3,
-            title: '9:30 AM: Chop Removal & Pellet Foraging Setup',
-            description: 'Remove moist chop bowl to prevent bacterial growth. Fill foraging toys with measured cold-pressed pellets.'
+            title: 'Daytime: Foraging & Environmental Enrichment',
+            description: 'Set up foraging puzzles with measured formulated pellets. Provide supervised out-of-cage exercise and appropriate overhead UVB exposure.'
           },
           {
             number: 4,
-            title: '1:00 PM: Supervised Out-of-Cage Exercise & UV-B',
-            description: 'Provide 2 to 3 hours of supervised wing exercise, training drills, and full-spectrum UV-B lamp exposure.'
-          },
-          {
-            number: 5,
-            title: '7:00 PM: Evening Bedtime & Dark Sanctuary',
-            description: 'Inspect cage droppings for color and consistency. Transfer bird to sleep cage for 12 hours of quiet, dark rest.'
+            title: 'Evening: Cage Inspection & Bedtime',
+            description: 'Inspect daily droppings for color and consistency. Transfer your bird to their quiet, dark sleeping sanctuary for 10–12 hours of rest.'
           }
         ]
       },
@@ -102,4 +97,3 @@ export const parrotCareArticle: FullBlogArticle = {
     }
   ]
 };
-
