@@ -580,7 +580,7 @@ async function runPostBuild() {
         description: blogDesc,
         publisher: {
           '@type': 'Organization',
-          name: 'Pet Horizon',
+          name: 'Pet Horizon App',
           url: BASE_URL,
           logo: `${BASE_URL}/applogo.png`
         },
@@ -794,7 +794,7 @@ async function runPostBuild() {
         },
         publisher: {
           '@type': 'Organization',
-          name: 'Pet Horizon',
+          name: 'Pet Horizon App',
           url: BASE_URL,
           logo: {
             '@type': 'ImageObject',

@@ -96,7 +96,7 @@ export function buildArticleSchemas(
       },
       publisher: {
         '@type': 'Organization',
-        name: 'Pet Horizon',
+        name: 'Pet Horizon App',
         url: baseUrl,
         sameAs: [
           'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon',
