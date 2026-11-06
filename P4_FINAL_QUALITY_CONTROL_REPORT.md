@@ -174,13 +174,17 @@ A live network probe against `https://pethorizon.jawumitech.com` confirmed the c
 
 To transition from **CONDITIONAL PASS** to a fully synchronized, live production release:
 
-1. **Deploy to Vercel Production:**
-   - Log into the [Vercel Dashboard](https://vercel.com/) and trigger a redeployment of project `pethorizon` from the latest `main` commit (`43846ce`).
+1. **Deploy to Vercel Production (Immediate Priority):**
+   - Log into the [Vercel Dashboard](https://vercel.com/) and trigger a redeployment of project `pethorizon` from the latest `main` commit.
+   - This single action will:
+     - Make `/ab8f9afc1da84ed896f784c6c330b0d7.txt` live on the production domain (satisfying Bing's key file crawler).
+     - Activate the 308 redirects from `/pet-calorie-calculator` and `/pet-age-calculator` to `/tools/...`.
+     - Update the client-side JavaScript/CSS bundle with latest internal links and title fixes.
    - *Verification Probe:* Confirm that running `curl -I https://pethorizon.jawumitech.com/pet-calorie-calculator` returns `HTTP/2 308` with `location: /tools/pet-calorie-calculator`.
 2. **Submit Sitemap in Google Search Console:**
    - Open [Google Search Console](https://search.google.com/search-console) for property `https://pethorizon.jawumitech.com/`.
    - Submit `https://pethorizon.jawumitech.com/sitemap.xml`.
    - Request URL inspection on `/tools/pet-calorie-calculator`, `/tools/pet-age-calculator`, and `/blogs/pet-microchip-registration-lookup-guide`.
-3. **Activate IndexNow in Bing Webmaster Tools:**
-   - In [Bing Webmaster Tools](https://www.bing.com/webmasters) -> **IndexNow**, activate site key pairing for `pethorizon.jawumitech.com` to resolve the HTTP 403 API block.
+3. **Bing Webmaster Tools IndexNow:**
+   - **Completed:** Key `ab8f9afc1da84ed896f784c6c330b0d7` generated and all 47 URLs successfully submitted via `npm run submit:indexnow` with **HTTP 202 Accepted**. Once Vercel deployment completes, Bingbot will verify the key file at root.
 

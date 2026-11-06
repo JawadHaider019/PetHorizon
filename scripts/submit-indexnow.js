@@ -19,7 +19,7 @@ const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 
 const HOST = 'pethorizon.jawumitech.com';
-const INDEXNOW_KEY = 'c987a26f34e142b9a76d8b9e5c1204d8';
+const INDEXNOW_KEY = 'ab8f9afc1da84ed896f784c6c330b0d7';
 const KEY_LOCATION = `https://${HOST}/${INDEXNOW_KEY}.txt`;
 
 function extractUrlsFromSitemap() {

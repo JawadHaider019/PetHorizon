@@ -21,7 +21,7 @@ const publicDir = path.join(rootDir, 'public');
 const distDir = path.join(rootDir, 'dist');
 
 const BASE_URL = 'https://pethorizon.jawumitech.com';
-const INDEXNOW_KEY = 'c987a26f34e142b9a76d8b9e5c1204d8';
+const INDEXNOW_KEY = 'ab8f9afc1da84ed896f784c6c330b0d7';
 
 // 1. Load Data using Vite SSR module loader
 async function loadAppData() {
