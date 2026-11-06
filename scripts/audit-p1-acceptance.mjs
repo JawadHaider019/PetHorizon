@@ -103,12 +103,18 @@ for (const { fullPath, route } of routeFiles) {
   if (!h1Text && route !== '/404') issues.push({ route, issue: 'Missing or empty <h1>' });
 
   // JSON-LD Structured Data
-  const jsonLdMatches = [...content.matchAll(/<script\s+type=["']application\/ld\+json["']>([\s\S]*?)<\/script>/gi)];
+  const jsonLdMatches = [...content.matchAll(/<script\s+[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)];
   const parsedSchemas = [];
   jsonLdMatches.forEach((m, idx) => {
     try {
       const json = JSON.parse(m[1]);
-      parsedSchemas.push(json);
+      if (Array.isArray(json)) {
+        json.forEach(item => parsedSchemas.push(item['@type'] || 'Unknown'));
+      } else if (json['@graph']) {
+        json['@graph'].forEach(item => parsedSchemas.push(item['@type'] || 'Unknown'));
+      } else {
+        parsedSchemas.push(json['@type'] || 'Unknown');
+      }
     } catch (e) {
       issues.push({ route, issue: `Invalid JSON-LD syntax in schema #${idx + 1}: ${e.message}` });
     }
@@ -157,7 +163,7 @@ for (const { fullPath, route } of routeFiles) {
     title,
     descLength: desc ? desc.length : 0,
     h1: h1Text,
-    schemas: parsedSchemas.map(s => s['@type'] || (s['@graph'] ? 'Graph' : 'Unknown')),
+    schemas: parsedSchemas,
     internalLinksCount: pageInternalLinks.length,
     bodyLength: bodyText.length
   });
