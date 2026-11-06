@@ -35,7 +35,7 @@ export function usePageSeo(viewState: ViewState, currentArticle: BlogPost | null
       updateMetaTag('meta[property="og:image"]', 'content', absoluteCoverImage);
       updateMetaTag('meta[property="og:type"]', 'content', 'article');
       updateMetaTag('meta[property="og:url"]', 'content', articleUrl);
-      updateMetaTag('meta[property="og:site_name"]', 'content', 'Pet Horizon');
+      updateMetaTag('meta[property="og:site_name"]', 'content', 'Pet Horizon App');
       updateMetaTag('meta[name="twitter:card"]', 'content', 'summary_large_image');
       updateMetaTag('meta[name="twitter:title"]', 'content', pageTitle);
       updateMetaTag('meta[name="twitter:description"]', 'content', pageDesc);
