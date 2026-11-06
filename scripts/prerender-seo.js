@@ -22,6 +22,15 @@ const distDir = path.join(rootDir, 'dist');
 
 const BASE_URL = 'https://pethorizon.jawumitech.com';
 const INDEXNOW_KEY = 'ab8f9afc1da84ed896f784c6c330b0d7';
+const manifestPath = path.join(rootDir, 'src', 'data', 'blogImagesManifest.json');
+let blogImagesManifest = {};
+if (fs.existsSync(manifestPath)) {
+  try {
+    blogImagesManifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  } catch (e) {
+    console.warn('Failed to parse blogImagesManifest.json:', e.message);
+  }
+}
 
 // 1. Load Data using Vite SSR module loader
 async function loadAppData() {
@@ -83,11 +92,29 @@ function generateSitemap(posts) {
     xml += `    <lastmod>${postLastmod}</lastmod>\n`;
     xml += `    <changefreq>monthly</changefreq>\n`;
     xml += `    <priority>${post.featured ? '0.9' : '0.8'}</priority>\n`;
-    if (post.coverImage) {
-      xml += `    <image:image>\n`;
-      xml += `      <image:loc>${post.coverImage.replace(/&/g, '&amp;')}</image:loc>\n`;
-      xml += `      <image:title>${escapeXml(post.title)}</image:title>\n`;
-      xml += `    </image:image>\n`;
+    const postImages = blogImagesManifest[post.slug];
+    const heroImg = postImages?.hero?.src
+      ? `${BASE_URL}${postImages.hero.src}`
+      : (post.coverImage.startsWith('http') ? post.coverImage : `${BASE_URL}${post.coverImage}`);
+    const heroAlt = postImages?.hero?.alt || post.title;
+
+    xml += `    <image:image>\n`;
+    xml += `      <image:loc>${heroImg.replace(/&/g, '&amp;')}</image:loc>\n`;
+    xml += `      <image:title>${escapeXml(heroAlt)}</image:title>\n`;
+    xml += `      <image:caption>${escapeXml(post.title)}</image:caption>\n`;
+    xml += `    </image:image>\n`;
+
+    if (postImages?.sections) {
+      Object.values(postImages.sections).forEach((sec) => {
+        const secUrl = `${BASE_URL}${sec.src}`;
+        xml += `    <image:image>\n`;
+        xml += `      <image:loc>${secUrl.replace(/&/g, '&amp;')}</image:loc>\n`;
+        xml += `      <image:title>${escapeXml(sec.alt)}</image:title>\n`;
+        if (sec.caption) {
+          xml += `      <image:caption>${escapeXml(sec.caption)}</image:caption>\n`;
+        }
+        xml += `    </image:image>\n`;
+      });
     }
     xml += `  </url>\n`;
   });
@@ -577,7 +604,11 @@ async function runPostBuild() {
     const postTitle = post.metaTitle || `${post.title} | Pet Horizon`;
     const postDesc = post.metaDescription || post.excerpt;
     const postUrl = `${BASE_URL}/blogs/${post.slug}`;
-    const coverImg = post.coverImage.startsWith('http') ? post.coverImage : `${BASE_URL}${post.coverImage}`;
+    const heroMeta = blogImagesManifest[post.slug]?.hero;
+    const heroSrc = heroMeta?.src
+      ? (heroMeta.src.startsWith('http') ? heroMeta.src : `${BASE_URL}${heroMeta.src}`)
+      : (post.coverImage.startsWith('http') ? post.coverImage : `${BASE_URL}${post.coverImage}`);
+    const coverImg = heroSrc;
 
     // Build Table of Contents jump links for Google Search Jump-to Sitelinks
     const tocItems = (full && full.sections ? full.sections : []).map((sec) => ({
@@ -605,7 +636,10 @@ async function runPostBuild() {
 
       <main style="max-width: 840px; margin: 0 auto; padding: 0 16px; font-family: system-ui, sans-serif; line-height: 1.7; color: #374151;">
         <figure style="margin: 0 0 32px 0;">
-          <img src="${coverImg}" alt="${escapeHtml(post.title)}" style="width: 100%; max-height: 440px; object-fit: cover; border-radius: 16px;" />
+          <picture>
+            ${heroMeta?.srcSet ? `<source type="image/webp" srcset="${heroMeta.srcSet}" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px" />` : ''}
+            <img src="${coverImg}" alt="${escapeHtml(heroMeta?.alt || post.title)}" width="1200" height="750" style="width: 100%; aspect-ratio: 16/10; object-fit: cover; object-position: center; border-radius: 16px;" loading="eager" fetchpriority="high" />
+          </picture>
           <figcaption style="font-size: 12px; color: #6b7280; text-align: center; margin-top: 8px;">${escapeHtml(post.title)}</figcaption>
         </figure>
 
@@ -640,6 +674,21 @@ async function runPostBuild() {
           sec.paragraphs.forEach((p) => {
             articleHtml += `<p style="font-size: 16px; line-height: 1.7; color: #374151;">${formatRichTextHtml(p)}</p>`;
           });
+        }
+
+        if (sec.figure) {
+          const secMeta = blogImagesManifest[post.slug]?.sections?.[sec.id];
+          const secImgUrl = secMeta?.src || sec.figure.imageUrl;
+          const secAlt = secMeta?.alt || sec.figure.altText || sec.figure.caption || sec.heading;
+          articleHtml += `
+            <figure style="margin: 24px 0; text-align: center;">
+              <picture>
+                ${secMeta?.srcSet ? `<source type="image/webp" srcset="${secMeta.srcSet}" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px" />` : ''}
+                <img src="${secImgUrl}" alt="${escapeHtml(secAlt)}" width="800" height="500" style="width: 100%; aspect-ratio: 16/10; object-fit: cover; object-position: center; border-radius: 12px;" loading="lazy" decoding="async" />
+              </picture>
+              ${sec.figure.caption ? `<figcaption style="font-size: 12px; color: #6b7280; margin-top: 6px; font-style: italic;">${escapeHtml(sec.figure.caption)}</figcaption>` : ''}
+            </figure>
+          `;
         }
 
         if (sec.table) {
