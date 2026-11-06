@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Star, ShieldCheck, CheckCircle2, ExternalLink } from 'lucide-react';
 import { PLAY_STORE_REVIEWS } from '../data/playStoreReviews';
 import { fadeInUp } from '../config/animationVariants';
+import { trackPlayStoreClick } from '../utils/analytics';
 
 export default function TestimonialsSection() {
   const [isPaused, setIsPaused] = useState(false);
@@ -42,6 +43,7 @@ export default function TestimonialsSection() {
               href="https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackPlayStoreClick('testimonials_section')}
               className="inline-flex items-center gap-1.5 px-4 py-2 bg-slate-900 hover:bg-black text-white rounded-full text-xs font-bold transition-all shadow-2xs group whitespace-nowrap shrink-0"
             >
               <span>View on Play Store</span>
@@ -67,7 +69,7 @@ export default function TestimonialsSection() {
                 </div>
                 <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-800 text-[10px] font-bold whitespace-nowrap shrink-0">
                   <CheckCircle2 className="w-2.5 h-2.5 text-emerald-600 shrink-0" />
-                  <span>Verified</span>
+                  <span>Beta Tester</span>
                 </div>
               </div>
 
@@ -96,7 +98,7 @@ export default function TestimonialsSection() {
             </div>
           ))}
         </div>
-        <p className="text-center text-[10px] text-slate-600 mt-1">Swipe to view more verified reviews</p>
+        <p className="text-center text-[10px] text-slate-600 mt-1">Swipe to view more beta tester feedback</p>
       </div>
 
       {/* DESKTOP VIEW: Continuous Smooth Sliding Marquee (>=sm) */}
@@ -137,7 +139,7 @@ export default function TestimonialsSection() {
                 </div>
                 <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-800 text-[10px] font-bold whitespace-nowrap shrink-0">
                   <CheckCircle2 className="w-2.5 h-2.5 text-emerald-600 shrink-0" />
-                  <span>Verified</span>
+                  <span>Beta Tester</span>
                 </div>
               </div>
 
@@ -190,15 +192,15 @@ export default function TestimonialsSection() {
       <div className="max-w-7xl mx-auto px-5 sm:px-8 mt-10 pt-6 border-t border-slate-200/70 flex flex-wrap items-center justify-center gap-5 sm:gap-10 text-xs font-semibold text-slate-600">
         <div className="flex items-center gap-1.5">
           <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-          <span>100% Genuine Play Store & Tester Reviews</span>
+          <span>Early Access Beta Feedback</span>
         </div>
         <div className="flex items-center gap-1.5">
           <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-          <span>Zero Sponsored or Altered Ratings</span>
+          <span>Real Community Testing Logs</span>
         </div>
         <div className="flex items-center gap-1.5">
-          <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
-          <span>5.0 Star Cumulative Rating</span>
+          <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+          <span>Pet-Care Tools Informed by Established Veterinary Guidance</span>
         </div>
       </div>
     </section>

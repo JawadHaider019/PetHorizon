@@ -14,7 +14,7 @@ export const householdCoParentingArticle: FullBlogArticle = {
       paragraphs: [
         'It is 7:30 PM on a Tuesday. Partner A arrives home from a long workday, exhausted. The family dog, a charming and opportunistic Labrador, sits loyally beside an empty steel bowl, gazing with wide, mournful eyes. Assuming Partner B was delayed at the office or forgot dinner, Partner A scoops a generous cup of premium kibble into the bowl. The dog devours it in ninety seconds with theatrical enthusiasm.',
         'Forty-five minutes later, Partner B unlocks the front door. The dog immediately runs to the entrance, performs an identical routine of joyful begging, and trots over to the bowl. Partner B smiles, remarks on how hungry the dog seems, and serves a second full meal.',
-        'While pets will never complain about receiving double rations, this communication breakdown is one of the single most destructive habits in companion animal care. An extra cup of dry kibble adds roughly 350 surplus calories per day. In a 50-pound dog, that daily caloric surplus results in 10 to 15 pounds of pure fat accumulation over six months—the equivalent of a human gaining 45 pounds in a single season.',
+        'While pets will never complain about receiving double rations, this communication breakdown is one of the single most destructive habits in companion animal care. Calculating your pet’s exact daily caloric target using our [WSAVA pet calorie calculator](/tools/pet-calorie-calculator) gives all caregivers an unyielding baseline. An extra cup of dry kibble adds roughly 350 surplus calories per day. In a 50-pound dog, that daily caloric surplus results in 10 to 15 pounds of pure fat accumulation over six months—the equivalent of a human gaining 45 pounds in a single season.',
         'The consequences are far from cosmetic: canine and feline obesity triggers early-onset osteoarthritis, intervertebral disc disease (IVDD), hepatic lipidosis in felines, chronic pancreatitis, and a documented two-year reduction in overall life expectancy.'
       ],
       figure: {
@@ -29,7 +29,7 @@ export const householdCoParentingArticle: FullBlogArticle = {
       intro:
         'While surplus kibble causes gradual metabolic decline, miscommunication surrounding daily veterinary medications can precipitate sudden medical emergencies.',
       paragraphs: [
-        'Many companion animals manage chronic endocrine, cardiac, or neurological disorders requiring strict dosage schedules. For a canine with idiopathic epilepsy on phenobarbital, or a diabetic cat receiving twice-daily glargine insulin injections, therapeutic blood concentrations depend entirely on consistent 12-hour intervals.',
+        'Many companion animals manage chronic endocrine, cardiac, or neurological disorders requiring strict dosage schedules. For a canine or feline managing diabetes, strict adherence outlined in our [dog and cat diabetes insulin schedule guide](/blogs/dog-cat-diabetes-insulin-feeding-schedule-guide) is critical to prevent fatal hypoglycemia.',
         'When communication breaks down in a shared household, two catastrophic outcomes occur: either both caregivers administer the medication (inducing acute drug toxicity or hypoglycemic coma), or each caregiver assumes the other already handled it (resulting in missed doses, breakthrough seizures, or rebound ketoacidosis).'
       ],
       warningBox: {
@@ -62,7 +62,7 @@ export const householdCoParentingArticle: FullBlogArticle = {
       intro:
         'Most multi-person households attempt to solve chore coordination using informal, ad-hoc methods that inevitably collapse under the weight of modern schedules:',
       paragraphs: [
-        'Ad-hoc group chats on WhatsApp, iMessage, or Messenger are notorious for communication failure. Sending a quick text like "fed the cat" gets buried beneath grocery lists, work chatter, and incoming social memes within twenty minutes. If someone arrives home without checking the chat history, they assume the meal was skipped.',
+        'Ad-hoc group chats on WhatsApp, iMessage, or Messenger are notorious for communication failure. For flatmates in busy transit hubs, see our [London pet co-parenting guide](/blogs/household-pet-coparenting-feeding-routine-sync-london) on coordinating routines across hybrid commute schedules.',
         'Refrigerator magnetic sliders ("Fed / Not Fed") suffer from manual negligence: caregivers routinely feed the pet with both hands full of cans and bowls, fully intending to slide the magnet afterward, only to be interrupted by a phone call or boiling kettle. Once the moment passes, the magnet remains in the wrong state for the rest of the evening.',
         'Furthermore, informal systems leave zero historical audit trail. If your dog begins vomiting at 2:00 AM, the emergency veterinarian will inevitably ask: "What did your dog eat today, how much, and at what exact time?" Without a digital log, household members are left guessing.'
       ],

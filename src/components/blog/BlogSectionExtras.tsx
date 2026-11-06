@@ -1,5 +1,6 @@
 import { AlertTriangle, CheckCircle2 } from 'lucide-react';
 import { BlogContentSection } from '../../data/blogArticles';
+import { trackPlayStoreClick } from '../../utils/analytics';
 
 interface BlogKeyTakeawaysProps {
   takeaways?: string[];
@@ -164,6 +165,7 @@ export default function BlogSectionExtras({ section }: BlogSectionExtrasProps) {
               href="https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackPlayStoreClick('blog_cta_card')}
               className="inline-flex items-center justify-center px-4 py-2 rounded-xl bg-[#126c55] hover:bg-[#0e5644] text-white text-xs font-bold whitespace-nowrap shrink-0 transition-colors"
             >
               {section.routineTip.actionLabel}

@@ -6,8 +6,8 @@
 
 declare global {
   interface Window {
-    dataLayer?: any[];
-    gtag?: (...args: any[]) => void;
+    dataLayer?: unknown[];
+    gtag?: (...args: unknown[]) => void;
   }
 }
 
@@ -32,11 +32,12 @@ export type AnalyticsEvent =
       params: {
         calculator_type: 'pet_calorie' | 'pet_age';
         pet_type: 'dog' | 'cat';
+        completion_method?: 'user_confirmed' | 'explicit_complete';
       };
     };
 
-export function trackEvent<E extends AnalyticsEvent>(name: E['name'], params: E['params']): void {
-  if (typeof window === 'undefined') return;
+export function trackEvent<E extends AnalyticsEvent>(name: E['name'], params: E['params']): boolean {
+  if (typeof window === 'undefined') return false;
 
   const currentPath = window.location.pathname;
   const eventPayload = {
@@ -47,25 +48,32 @@ export function trackEvent<E extends AnalyticsEvent>(name: E['name'], params: E[
   try {
     if (typeof window.gtag === 'function') {
       window.gtag('event', name, eventPayload);
+      return true;
     } else {
       window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push(['event', name, eventPayload]);
+      window.gtag = function () {
+        // eslint-disable-next-line prefer-rest-params
+        window.dataLayer?.push(arguments);
+      };
+      window.gtag('event', name, eventPayload);
+      return true;
     }
   } catch {
-    // Fail silently in development or ad-blocker environments
+    // Fail safely in development or ad-blocker environments
+    return false;
   }
 }
 
-export function trackPlayStoreClick(buttonLocation: string): void {
-  trackEvent('play_store_click', {
+export function trackPlayStoreClick(buttonLocation: string): boolean {
+  return trackEvent('play_store_click', {
     button_location: buttonLocation,
     page_path: typeof window !== 'undefined' ? window.location.pathname : '/',
     platform: 'android'
   });
 }
 
-export function trackLeadGenerated(formName: string): void {
-  trackEvent('generate_lead', {
+export function trackLeadGenerated(formName: string): boolean {
+  return trackEvent('generate_lead', {
     form_name: formName,
     page_path: typeof window !== 'undefined' ? window.location.pathname : '/'
   });
@@ -73,11 +81,13 @@ export function trackLeadGenerated(formName: string): void {
 
 export function trackCalculatorCompleted(
   calculatorType: 'pet_calorie' | 'pet_age',
-  petType: 'dog' | 'cat'
-): void {
-  trackEvent('calculator_completed', {
+  petType: 'dog' | 'cat',
+  completionMethod: 'user_confirmed' | 'explicit_complete' = 'user_confirmed'
+): boolean {
+  return trackEvent('calculator_completed', {
     calculator_type: calculatorType,
-    pet_type: petType
+    pet_type: petType,
+    completion_method: completionMethod
   });
 }
 

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Clock, Smartphone, ExternalLink, Check, Copy } from 'lucide-react';
 import { DISPLAY_SUPPORT_EMAIL, PLAY_STORE_URL } from './contactData';
 import { INSTAGRAM_URL } from '../../config/siteConfig';
+import { trackPlayStoreClick } from '../../utils/analytics';
 
 export default function ContactSidebar() {
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -72,6 +73,7 @@ export default function ContactSidebar() {
               href={PLAY_STORE_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackPlayStoreClick('contact_sidebar')}
               className="text-xs font-bold text-emerald-700 hover:underline inline-flex items-center gap-1"
             >
               <span>Google Play Store</span>

@@ -1,0 +1,717 @@
+[
+  {
+    "path": "/",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 19316
+  },
+  {
+    "path": "/blogs",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 50030
+  },
+  {
+    "path": "/tools/pet-calorie-calculator",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 13485
+  },
+  {
+    "path": "/tools/pet-age-calculator",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 13292
+  },
+  {
+    "path": "/pet-calorie-calculator",
+    "statusCode": 404,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 6462
+  },
+  {
+    "path": "/pet-age-calculator",
+    "statusCode": 404,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 6462
+  },
+  {
+    "path": "/changelog",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 6678
+  },
+  {
+    "path": "/privacy-policy",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 6433
+  },
+  {
+    "path": "/terms-of-service",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 6400
+  },
+  {
+    "path": "/data-deletion",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 6507
+  },
+  {
+    "path": "/404",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 6462
+  },
+  {
+    "path": "/robots.txt",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/plain; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=3600, stale-while-revalidate=86400"
+    },
+    "bodyLength": 824
+  },
+  {
+    "path": "/sitemap.xml",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "application/xml",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=3600, stale-while-revalidate=86400"
+    },
+    "bodyLength": 23408
+  },
+  {
+    "path": "/rss.xml",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "application/xml",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 30443
+  },
+  {
+    "path": "/llms.txt",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/plain; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=3600, stale-while-revalidate=86400"
+    },
+    "bodyLength": 16605
+  },
+  {
+    "path": "/llms-full.txt",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/plain; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=3600, stale-while-revalidate=86400"
+    },
+    "bodyLength": 246074
+  },
+  {
+    "path": "/blogs/dog-feeding-schedule-by-age-puppy-to-adult",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 30072
+  },
+  {
+    "path": "/blogs/puppy-kitten-vaccination-schedule-booster-guide-worldwide",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 31527
+  },
+  {
+    "path": "/blogs/pet-health-records-medication-schedule-tracker",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 31103
+  },
+  {
+    "path": "/blogs/household-pet-coparenting-feeding-routine-sync-worldwide",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 29899
+  },
+  {
+    "path": "/blogs/new-puppy-checklist-first-year-budget-guide",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 31214
+  },
+  {
+    "path": "/blogs/best-pet-gps-trackers-health-wearables-review-worldwide",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 31337
+  },
+  {
+    "path": "/blogs/monthly-pet-care-cost-vet-expense-budget-worldwide",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 31000
+  },
+  {
+    "path": "/blogs/puppy-kitten-vaccination-schedule-booster-guide-new-york",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 24159
+  },
+  {
+    "path": "/blogs/household-pet-coparenting-feeding-routine-sync-london",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 23104
+  },
+  {
+    "path": "/blogs/monthly-pet-care-cost-vet-expense-budget-toronto",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 23340
+  },
+  {
+    "path": "/blogs/best-pet-gps-trackers-health-wearables-review-sydney",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 23529
+  },
+  {
+    "path": "/blogs/feline-kidney-disease-dehydration-cornell",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 30336
+  },
+  {
+    "path": "/blogs/emergency-vet-symptoms-red-flags-petmd",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 28086
+  },
+  {
+    "path": "/blogs/toxic-foods-dogs-cats-poison-checklist",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 31371
+  },
+  {
+    "path": "/blogs/puppy-potty-training-schedule-akc-guide",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 28025
+  },
+  {
+    "path": "/blogs/flea-tick-heartworm-prevention-ahs-protocol",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 27351
+  },
+  {
+    "path": "/blogs/pet-calorie-calculator-feeding-guide-apop",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 28373
+  },
+  {
+    "path": "/blogs/cat-feeding-schedule-indoor-enrichment-guide",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 25859
+  },
+  {
+    "path": "/blogs/best-pet-care-apps-medication-reminders-family-sync",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 29400
+  },
+  {
+    "path": "/blogs/dog-separation-anxiety-training-routine-guide",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 27744
+  },
+  {
+    "path": "/blogs/how-to-introduce-kitten-to-older-cat-guide",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 26871
+  },
+  {
+    "path": "/blogs/dog-grooming-at-home-beginners-step-by-step-guide",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 26620
+  },
+  {
+    "path": "/blogs/dog-dental-care-brushing-teeth-periodontal-guide",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 26478
+  },
+  {
+    "path": "/blogs/pet-sitter-instructions-handover-checklist-template",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 28881
+  },
+  {
+    "path": "/blogs/senior-dog-care-mobility-nutrition-routine-guide",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 28097
+  },
+  {
+    "path": "/blogs/senior-cat-care-health-diet-comfort-guide",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 28186
+  },
+  {
+    "path": "/blogs/dog-walking-schedule-by-age-breed-exercise-guide",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 29140
+  },
+  {
+    "path": "/blogs/cat-litter-box-problems-causes-solutions-guide",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 29796
+  },
+  {
+    "path": "/blogs/pet-travel-checklist-flying-car-trips-vet-records",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 28990
+  },
+  {
+    "path": "/blogs/summer-pet-safety-heatstroke-prevention-hot-pavement-guide",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 28473
+  },
+  {
+    "path": "/blogs/winter-pet-care-cold-weather-paw-safety-guide",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 29316
+  },
+  {
+    "path": "/blogs/multiple-pet-management-multi-dog-cat-household-routines",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 28410
+  },
+  {
+    "path": "/blogs/pet-first-aid-kit-checklist-emergency-preparedness-plan",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 40274
+  },
+  {
+    "path": "/blogs/pet-insurance-vs-savings-fund-vet-cost-guide",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 26756
+  },
+  {
+    "path": "/blogs/rabbit-feeding-schedule-hay-diet-gi-stasis-guide",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 24205
+  },
+  {
+    "path": "/blogs/parrot-bird-daily-routine-chop-diet-sleep-guide",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 23424
+  },
+  {
+    "path": "/blogs/rescue-dog-3-3-3-rule-decompression-routine-guide",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 23951
+  },
+  {
+    "path": "/blogs/dog-cat-diabetes-insulin-feeding-schedule-guide",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 24427
+  },
+  {
+    "path": "/blogs/pet-microchip-registration-lookup-guide",
+    "statusCode": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000",
+      "cache-control": "public, max-age=0, must-revalidate"
+    },
+    "bodyLength": 23865
+  }
+]

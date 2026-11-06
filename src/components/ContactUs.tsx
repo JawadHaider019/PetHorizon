@@ -1,3 +1,4 @@
+import { trackLeadGenerated } from '../utils/analytics';
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, CheckCircle2, AlertCircle, X, ExternalLink } from 'lucide-react';
@@ -85,6 +86,7 @@ export default function ContactUs() {
         message: message.trim(),
         submittedAt: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
+      trackLeadGenerated('contact_form');
       setSubmittedTicket(ticket);
       setToast({
         type: 'success',

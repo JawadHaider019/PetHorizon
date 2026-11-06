@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ArrowUpRight, X } from 'lucide-react';
 import { PLAY_STORE_URL } from '../../config/siteConfig';
+import { trackPlayStoreClick } from '../../utils/analytics';
 
 const STORAGE_KEY = 'ph_announce_dismissed_v1010';
 
@@ -32,6 +33,7 @@ export default function AnnouncementBar() {
           href={PLAY_STORE_URL}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackPlayStoreClick('announcement_bar')}
           className="flex-1 flex items-center justify-center sm:justify-start gap-2 sm:gap-2.5 cursor-pointer group min-w-0"
         >
           {/* Release badge with subtle status dot */}

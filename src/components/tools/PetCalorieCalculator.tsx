@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import { trackCalculatorCompleted } from '../../utils/analytics';
 import { ArrowLeft, Calculator } from 'lucide-react';
 // @ts-expect-error canvas-confetti has no types
@@ -30,7 +30,20 @@ export default function PetCalorieCalculator({
   const [unit, setUnit] = useState<WeightUnit>('kg');
   const [selectedStageId, setSelectedStageId] = useState<string>('adult_neutered');
   const [mealsPerDay, setMealsPerDay] = useState<number>(2);
+  const [gramsPerCup, setGramsPerCup] = useState<number>(105);
   const [hasCelebrated, setHasCelebrated] = useState<boolean>(false);
+  const lastCompletedKeyRef = useRef<string>('');
+  const lastCompletedTimeRef = useRef<number>(0);
+  const celebrationTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return () => {
+      if (celebrationTimerRef.current) {
+        clearTimeout(celebrationTimerRef.current);
+      }
+    };
+  }, []);
 
   const handlePetTypeChange = (type: PetType) => {
     setPetType(type);
@@ -49,8 +62,8 @@ export default function PetCalorieCalculator({
   const currentStage = currentStages.find((s) => s.id === selectedStageId) || currentStages[0];
 
   const calculations = useMemo(
-    () => calculatePetCalories(weight, unit, currentStage, mealsPerDay),
-    [weight, unit, currentStage, mealsPerDay]
+    () => calculatePetCalories(weight, unit, currentStage, mealsPerDay, 375, gramsPerCup),
+    [weight, unit, currentStage, mealsPerDay, gramsPerCup]
   );
 
   const animatedMer = useAnimatedNumber(calculations.mer);
@@ -58,6 +71,27 @@ export default function PetCalorieCalculator({
   const animatedWater = useAnimatedNumber(calculations.dailyWaterMl);
 
   const handleConfettiSync = () => {
+    const isValidCalculation =
+      calculations.mer > 0 &&
+      weight > 0 &&
+      !isNaN(calculations.mer) &&
+      calculations.gramsPerMeal > 0;
+
+    if (!isValidCalculation) return;
+
+    const currentKey = `${petType}-${weight}-${unit}-${selectedStageId}-${mealsPerDay}-${gramsPerCup}`;
+    const isDuplicate =
+      currentKey === lastCompletedKeyRef.current &&
+      (Date.now() - lastCompletedTimeRef.current < 4000 || hasCelebrated);
+
+    if (isDuplicate) return;
+
+    const dispatched = trackCalculatorCompleted('pet_calorie', petType, 'user_confirmed');
+    if (dispatched) {
+      lastCompletedKeyRef.current = currentKey;
+      lastCompletedTimeRef.current = Date.now();
+    }
+
     try {
       confetti({
         particleCount: 45,
@@ -68,20 +102,34 @@ export default function PetCalorieCalculator({
     } catch {
       // safe fallback
     }
+
     setHasCelebrated(true);
-    setTimeout(() => setHasCelebrated(false), 2400);
+    if (celebrationTimerRef.current) {
+      clearTimeout(celebrationTimerRef.current);
+    }
+    celebrationTimerRef.current = setTimeout(() => {
+      setHasCelebrated(false);
+      celebrationTimerRef.current = null;
+    }, 2400);
   };
 
-  useEffect(() => {
-    if (calculations.mer > 0) {
-      const timer = setTimeout(() => {
-        trackCalculatorCompleted('pet_calorie', petType);
-      }, 1500);
-      return () => clearTimeout(timer);
-    }
-  }, [calculations.mer, petType]);
-
   const displayName = petName.trim() ? petName.trim() : petType === 'dog' ? 'Your Dog' : 'Your Cat';
+
+  const handleUnitChange = (val: WeightUnit) => {
+    setUnit(val);
+  };
+  const handleStageChange = (val: string) => {
+    setSelectedStageId(val);
+  };
+  const handleMealsChange = (val: number) => {
+    setMealsPerDay(val);
+  };
+  const handleGramsPerCupChange = (val: number) => {
+    setGramsPerCup(val);
+  };
+  const handleWeightChange = (val: number) => {
+    setWeight(val);
+  };
 
   const adjustWeight = (delta: number) => {
     setWeight((prev) => Math.max(0.5, Math.round((prev + delta) * 10) / 10));
@@ -127,22 +175,24 @@ export default function PetCalorieCalculator({
             setPetName={setPetName}
             displayName={displayName}
             weight={weight}
-            setWeight={setWeight}
+            setWeight={handleWeightChange}
             adjustWeight={adjustWeight}
             unit={unit}
-            setUnit={setUnit}
+            setUnit={handleUnitChange}
             selectedStageId={selectedStageId}
-            setSelectedStageId={setSelectedStageId}
+            setSelectedStageId={handleStageChange}
             currentStages={currentStages}
             currentStage={currentStage}
             mealsPerDay={mealsPerDay}
-            setMealsPerDay={setMealsPerDay}
+            setMealsPerDay={handleMealsChange}
             calculations={calculations}
             animatedMer={animatedMer}
             animatedGrams={animatedGrams}
             animatedWater={animatedWater}
             hasCelebrated={hasCelebrated}
             onSync={handleConfettiSync}
+            gramsPerCup={gramsPerCup}
+            setGramsPerCup={handleGramsPerCupChange}
           />
         </div>
 

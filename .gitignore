@@ -27,3 +27,6 @@ dist-ssr
 AGENTS.md
 agent.md
 .agents/
+
+# Temporary test profiles
+.chrome*

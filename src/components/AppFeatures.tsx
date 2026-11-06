@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { PawPrint, CheckCircle2, ArrowRight, Smartphone } from 'lucide-react';
+import { CheckCircle2, ArrowRight, Smartphone } from 'lucide-react';
 import PhoneFrame from './PhoneFrame';
 import { FEATURES_DATA } from '../data/appFeaturesData';
+import { trackPlayStoreClick } from '../utils/analytics';
 
 export default function AppFeatures() {
   const [activeTab, setActiveTab] = useState<string>('schedules');
@@ -111,6 +112,7 @@ export default function AppFeatures() {
                     href="https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackPlayStoreClick('feature_pages')}
                     className="inline-flex items-center gap-2 text-emerald-700 hover:text-emerald-800 font-bold text-sm group"
                   >
                     <span>Download Pet Horizon to use {activeFeature.tag}</span>

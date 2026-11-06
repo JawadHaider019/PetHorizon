@@ -10,12 +10,12 @@ export const dogDentalCareArticle: FullBlogArticle = {
       id: 'periodontal-disease-pathology',
       heading: 'The Progression of Periodontal Disease: Plaque to Systemic Organ Damage',
       intro:
-        'Canine dental disease starts quietly. Plaque—a sticky biofilm of oral bacteria and salivary glycoproteins—forms across tooth enamel within 24 hours after eating.',
+        'Canine dental disease starts quietly. Plaque—a sticky biofilm of oral bacteria and salivary glycoproteins—forms across tooth enamel within 24 hours after eating, which is why pairing oral hygiene with age-scaled nutrition from our [dog feeding schedule guide](/blogs/dog-feeding-schedule-by-age-puppy-to-adult) is essential.',
       paragraphs: [
         'Within 48 to 72 hours, minerals in canine saliva combine with plaque to form rock-hard calculus (tartar). Tartar provides a porous surface for anaerobic bacteria to migrate under the gumline.',
         'Stage 1 (Gingivitis) is reversible: gums swell, redden, and bleed easily upon contact. At this stage, daily home brushing can restore gum health.',
         'Stages 2 to 4 (Periodontitis) involve irreversible destruction of periodontal ligaments and alveolar bone. Teeth loosen, roots develop abscesses, and jawbones can fracture under minor chewing stress.',
-        'Most dangerously, bacteremia from severe dental disease places continuous inflammatory stress on systemic organs, predisposing dogs to mitral valve endocarditis, hepatic fibrosis, and chronic renal failure.'
+        'Most dangerously, bacteremia from severe dental disease places continuous inflammatory stress on systemic organs, predisposing dogs to mitral valve endocarditis, hepatic fibrosis, and chronic renal failure. Tracking routine cleanings in our [pet health records tracker](/blogs/pet-health-records-medication-schedule-tracker), assessing life-stage vulnerability with our [pet age calculator](/tools/pet-age-calculator), and reviewing specialized senior guidelines in our [senior dog care guide](/blogs/senior-dog-care-mobility-nutrition-routine-guide) helps detect oral deterioration early.'
       ],
       table: {
         headers: ['Periodontal Stage', 'Clinical Signs', 'Bone Loss', 'Treatment Required'],
@@ -28,7 +28,7 @@ export const dogDentalCareArticle: FullBlogArticle = {
       },
       warningBox: {
         title: 'Never Use Human Toothpaste for Dogs',
-        text: 'Human toothpaste contains foaming detergents (sodium lauryl sulfate) that upset canine stomachs, and often includes Xylitol (birch bark sweetener), an artificial sweetener that causes catastrophic hypoglycemic liver failure in dogs within 30 minutes.'
+        text: 'Human toothpaste contains foaming detergents (sodium lauryl sulfate) that upset canine stomachs, and often includes Xylitol (birch bark sweetener), an artificial sweetener that causes catastrophic hypoglycemic liver failure in dogs within 30 minutes. Learn more in our [toxic foods poison checklist](/blogs/toxic-foods-dogs-cats-poison-checklist) and [emergency vet symptoms guide](/blogs/emergency-vet-symptoms-red-flags-petmd).'
       }
     },
     {
@@ -47,7 +47,7 @@ export const dogDentalCareArticle: FullBlogArticle = {
       },
       paragraphs: [
         'Focus on the outer surfaces of the upper teeth where the salivary parotid ducts deposit minerals. Dogs rarely accumulate heavy tartar on the inner tongue side because their rough tongue provides natural mechanical friction.',
-        'Keep sessions short—30 to 60 seconds total—and always end with an enthusiastic verbal reward and a walk or favorite toy play.'
+        'Keep sessions short—30 to 60 seconds total—and always end with an enthusiastic verbal reward and a scheduled stroll following our [dog walking schedule by age and breed](/blogs/dog-walking-schedule-by-age-breed-exercise-guide).'
       ],
       routineTip: {
         title: 'Track Dental Care Milestones in PetHorizon',
@@ -62,7 +62,7 @@ export const dogDentalCareArticle: FullBlogArticle = {
         'With hundreds of dental treats on the market, pet parents must know which products have clinical evidence and which are marketing hype.',
       paragraphs: [
         'Always look for the Veterinary Oral Health Council (VOHC) Seal of Acceptance on chew boxes. The VOHC is an independent clinical panel that verifies whether a product achieves at least a 20% reduction in plaque or calculus under double-blind clinical trials.',
-        'Beware of "anesthesia-free" dental scraping services offered at grooming salons: scraping tartar with hand instruments without anesthesia only cosmeticizes visible crown enamel while leaving subgingival plaque untouched. Worse, it scratches the enamel, creating micro-grooves that accelerate future bacterial colonization.',
+        'Beware of "anesthesia-free" dental scraping services offered at grooming salons: as outlined in our [dog grooming at home guide](/blogs/dog-grooming-at-home-beginners-step-by-step-guide), grooming should focus on brushing, coat hygiene, and nail trims, while scraping tartar with hand instruments without anesthesia only cosmeticizes visible crown enamel while leaving subgingival plaque untouched. Worse, it scratches the enamel, creating micro-grooves that accelerate future bacterial colonization.',
         'A proper veterinary dental procedure requires general endotracheal anesthesia so the veterinarian can probe pocket depths, take full-mouth dental radiographs (x-rays), and scale plaque beneath the gumline where disease truly lives.'
       ],
       bulletPoints: [

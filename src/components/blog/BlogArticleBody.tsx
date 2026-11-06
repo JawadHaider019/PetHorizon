@@ -10,6 +10,29 @@ interface BlogArticleBodyProps {
   onOpenQrModal?: () => void;
 }
 
+function renderFormattedParagraph(text: string) {
+  if (!text || !text.includes('](')) return text;
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  return parts.map((part, i) => {
+    const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (match) {
+      const [, label, href] = match;
+      const isInternal = href.startsWith('/');
+      return (
+        <a
+          key={i}
+          href={href}
+          className="text-emerald-700 hover:text-emerald-800 underline font-medium transition-colors"
+          {...(!isInternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+        >
+          {label}
+        </a>
+      );
+    }
+    return part;
+  });
+}
+
 export default function BlogArticleBody({
   article,
   fullContent,
@@ -41,7 +64,7 @@ export default function BlogArticleBody({
           {/* Section Intro */}
           {section.intro && (
             <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-5 font-normal">
-              {section.intro}
+              {renderFormattedParagraph(section.intro)}
             </p>
           )}
 
@@ -52,7 +75,7 @@ export default function BlogArticleBody({
                 key={pIdx}
                 className="text-base sm:text-lg text-gray-700 leading-relaxed mb-5 font-normal"
               >
-                {para}
+                {renderFormattedParagraph(para)}
               </p>
             ))}
 

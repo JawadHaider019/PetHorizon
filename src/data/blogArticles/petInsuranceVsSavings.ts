@@ -10,9 +10,9 @@ export const petInsuranceVsSavingsArticle: FullBlogArticle = {
       id: 'how-pet-insurance-works',
       heading: 'How Pet Health Insurance Works: Deductibles, Co-Pays & Reimbursement',
       intro:
-        'Unlike human health insurance where insurance companies deal directly with in-network healthcare providers, pet insurance operates almost exclusively on an indemnity reimbursement model.',
+        'Unlike human health insurance where insurance companies deal directly with in-network healthcare providers, pet insurance operates almost exclusively on an indemnity reimbursement model. To plan for both routine maintenance and unexpected hospital bills, cross-reference our [cost of pet care and vet expenses budget guide](/blogs/monthly-pet-care-cost-vet-expense-budget-worldwide) or our localized Canadian breakdown in the [Toronto pet care expense and vet cost guide](/blogs/monthly-pet-care-cost-vet-expense-budget-toronto).',
       paragraphs: [
-        'The Reimbursement Workflow: As the pet owner, you pay the veterinary hospital upfront at the time of discharge using cash, credit, or medical financing. You then upload the finalized itemized invoice and doctor SOAP medical notes to your insurer’s mobile app. If approved, the insurer issues a direct deposit reimbursement.',
+        'The Reimbursement Workflow: As the pet owner, you pay the veterinary hospital upfront at the time of discharge using cash, credit, or medical financing. You then upload the finalized itemized invoice and medical notes (conveniently archived in your [pet health records tracker](/blogs/pet-health-records-medication-schedule-tracker)) to your insurer’s mobile app. If approved, the insurer issues a direct deposit reimbursement.',
         'Annual vs. Per-Incident Deductibles: An annual deductible ($250 to $500 per policy year) must be met once across all covered claims. A per-condition deductible requires you to pay a separate deductible for every unrelated illness throughout your pet’s life.',
         'Reimbursement Percentages: Standard policies allow you to select 70%, 80%, or 90% reimbursement after your deductible has been met. For example, on a $5,000 surgical claim with an 80% plan and a $500 deductible, the insurance pays $3,600 and your out-of-pocket share is $1,400.'
       ],
@@ -33,11 +33,11 @@ export const petInsuranceVsSavingsArticle: FullBlogArticle = {
       paragraphs: [
         'Curable vs. Incurable Conditions: If your dog was treated for a urinary tract infection 2 years ago and has been symptom-free since, most insurers classify it as "curable" and will cover future occurrences. However, chronic conditions like allergic dermatitis, hip dysplasia, asthma, or heart murmurs are deemed permanent and permanently excluded from coverage.',
         'Bilateral Condition Exclusions: If your dog tore their right cranial cruciate ligament (ACL/CCL) before getting insurance, virtually every policy will permanently exclude coverage for the left knee as well, because orthopedic studies prove a 40% to 60% probability that the opposite knee will tear within 18 months.',
-        'The Golden Rule of Pet Insurance: Enroll when your puppy or kitten is 8 to 12 weeks old before their medical history record contains a single notation of diarrhea, limping, or ear scratching.'
+        'The Golden Rule of Pet Insurance: Enroll when your puppy or kitten is 8 to 12 weeks old—as recommended in our [new puppy checklist first-year budget guide](/blogs/new-puppy-checklist-first-year-budget-guide)—before their medical history record contains a single notation of diarrhea, limping, or ear scratching.'
       ],
       warningBox: {
         title: 'Do Not Switch Insurers When Your Pet Ages',
-        text: 'Switching pet insurance companies when your pet is 6 or 8 years old wipes away all previous coverage continuity. Any condition diagnosed under your old policy is now treated as a pre-existing condition by the new insurer and will be rejected!'
+        text: 'Switching pet insurance companies when your pet is 6 or 8 years old wipes away all previous coverage continuity. Check life-stage risk thresholds with our [pet age calculator](/tools/pet-age-calculator) and review chronic management costs in our [senior dog care mobility guide](/blogs/senior-dog-care-mobility-nutrition-routine-guide); any condition previously diagnosed will be treated as an excluded pre-existing condition by the new insurer!'
       },
       routineTip: {
         title: 'Track All Pet Expenses & Vet Invoices in PetHorizon',
@@ -49,7 +49,7 @@ export const petInsuranceVsSavingsArticle: FullBlogArticle = {
       id: 'the-math-emergency-scenarios',
       heading: 'The Financial Breakdown: 3 Real-World Emergency Scenarios',
       intro:
-        'Let’s compare out-of-pocket costs across common veterinary emergency scenarios.',
+        'Let’s compare out-of-pocket costs across common veterinary emergency scenarios (learn how to recognize critical red flags in our [emergency vet symptoms guide](/blogs/emergency-vet-symptoms-red-flags-petmd)).',
       bulletPoints: [
         { label: 'Scenario A: Foreign Body Obstruction (Dog eats sock)', text: 'Emergency diagnostic x-rays, exploratory laparotomy, 2-day ICU: $4,800. With 80% insurance ($500 deductible): Owner pays $1,360 (saves $3,440). With savings fund: Requires $4,800 liquid cash immediately.' },
         { label: 'Scenario B: Canine Cruciate Ligament TPLO Surgery', text: 'Specialist orthopedic surgeon, pre-op CT scan, TPLO titanium plate, post-op rehab: $6,200. With insurance: Owner pays $1,640. With savings fund: Completely wipes out typical multi-year savings balances.' },

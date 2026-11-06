@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Users, Check, Copy, QrCode, Lock, Shield } from 'lucide-react';
+import { Users, Check, QrCode, Lock } from 'lucide-react';
 // @ts-expect-error canvas-confetti has no types
 import confetti from 'canvas-confetti';
 

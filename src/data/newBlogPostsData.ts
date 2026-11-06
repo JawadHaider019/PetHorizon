@@ -23,7 +23,7 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
     excerpt:
       'Rabbits require an 85% grass hay diet to keep their hindgut moving and wear down continuously growing teeth. Learn safe leafy green portions, pellet gram limits, and early GI stasis warning signs.',
     category: 'Feeding & Nutrition',
-    readTime: '3 min read',
+    readTime: '5 min read',
     coverImage:
       'https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
     featured: false,
@@ -43,8 +43,8 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
     sourceName: 'House Rabbit Society (HRS)',
     sourceUrl: 'https://rabbit.org/care/diet/',
     publishedAt: 'October 28, 2026',
-    updatedAt: 'October 30, 2026',
-    metaTitle: 'Rabbit Feeding Schedule, Hay Ratios & GI Stasis Guide | Pet Horizon',
+    updatedAt: 'November 6, 2026',
+    metaTitle: 'Rabbit Feeding Schedule & GI Stasis Prevention | Pet Horizon',
     metaDescription:
       'Complete exotic veterinary rabbit feeding schedule. Learn the 85% hay pyramid, safe daily greens, pellet limits, and how to prevent GI stasis.',
     relatedProductLinks: [
@@ -71,7 +71,7 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
     excerpt:
       'All-seed diets and erratic indoor lighting cause avian fatty liver disease and hormonal plucking. Master the morning vegetable chop routine, UV-B exposure, and 12-hour dark sleep schedules.',
     category: 'Feeding & Nutrition',
-    readTime: '3 min read',
+    readTime: '5 min read',
     coverImage:
       'https://images.unsplash.com/photo-1646291077846-c4ca2ac3d0ce?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
     featured: false,
@@ -81,18 +81,18 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
     searchVolume: '9.4K/mo',
     searchRankBadge: 'Avian Care Guide',
     keyTakeaways: [
-      'Formulated avian pellets should make up 60%–70% of a parrot’s diet alongside 20%–30% fresh morning vegetable chop.',
-      'Remove fresh chop bowls within 2 hours to prevent bacterial or fungal crop spoilage at room temperature.',
-      'Companion birds require 10 to 12 hours of uninterrupted dark, quiet sleep to regulate photoperiod hormones.',
-      'Weigh birds weekly on a digital gram scale in PetHorizon to detect masked illness before symptoms escalate.'
+      'Formulated pellets provide a balanced baseline for many psittacines, supplemented with fresh morning vegetable chop.',
+      'Remove moist chop bowls within 2 to 4 hours to prevent bacterial or fungal crop spoilage at room temperature.',
+      'Companion birds thrive with 10 to 12 hours of quiet, dark sleep to support stable photoperiod biorhythms.',
+      'Weigh birds regularly on a digital gram scale in PetHorizon to detect masked illness before symptoms escalate.'
     ],
     trendingSearches: ['#parrot chop diet schedule', '#how much sleep do parrots need', '#bird daily care routine', '#avian weight tracking'],
     author: EDITORIAL_AUTHOR,
     sourceName: 'Association of Avian Veterinarians (AAV)',
     sourceUrl: 'https://www.aav.org/page/birdowners',
     publishedAt: 'October 28, 2026',
-    updatedAt: 'October 30, 2026',
-    metaTitle: 'Parrot & Bird Daily Routine: Chop Diet & Sleep Schedule | Pet Horizon',
+    updatedAt: 'November 6, 2026',
+    metaTitle: 'Parrot & Bird Daily Routine: Chop Diet & Care | Pet Horizon',
     metaDescription:
       'Evidence-based daily care schedule for parrots, cockatiels, budgies, and conures. Learn fresh chop feeding windows, UV needs, and 12-hour sleep rules.',
     relatedProductLinks: [
@@ -113,7 +113,7 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
     excerpt:
       'Bringing home an adopted shelter dog? Understand the veterinary behavior 3-3-3 decompression timeline and how clockwork feeding and walking routines eliminate post-adoption anxiety.',
     category: 'Dog Care',
-    readTime: '3 min read',
+    readTime: '5 min read',
     coverImage:
       'https://images.unsplash.com/photo-1535930891776-0c2dfb7fda1a?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
     featured: true,
@@ -123,8 +123,8 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
     searchVolume: '28K/mo',
     searchRankBadge: 'Adoption Essential',
     keyTakeaways: [
-      'First 3 Days: Cortisol levels peak; give your rescue dog a quiet sanctuary space with zero visitors or dog parks.',
-      'First 3 Weeks: Adrenaline fades, true personality emerges, and consistent meal/walk timestamps teach household boundaries.',
+      'First 3 Days: Stress reactivity is elevated; provide a quiet sanctuary space without visitors or dog park visits.',
+      'First 3 Weeks: Apprehension lessens, true personality surfaces, and consistent meal/walk timestamps teach household structure.',
       'First 3 Months: Secure attachment forms and house-training solidifies through predictable daily routines.',
       'PetHorizon Family Hub keeps every household member aligned on exact walk, crate, and meal times.'
     ],
@@ -133,8 +133,8 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
     sourceName: 'The Humane Society of the United States (HSUS)',
     sourceUrl: 'https://www.humanesociety.org/resources/how-help-fearful-dog',
     publishedAt: 'October 29, 2026',
-    updatedAt: 'October 30, 2026',
-    metaTitle: '3-3-3 Rule for Rescue Dogs: Decompression & Routine Checklist | Pet Horizon',
+    updatedAt: 'November 6, 2026',
+    metaTitle: '3-3-3 Rule for Rescue Dogs: Daily Routine Guide | Pet Horizon',
     metaDescription:
       'Master the 3-3-3 rule for newly adopted rescue dogs. Learn what to expect in the first 3 days, 3 weeks, and 3 months with a structured daily schedule.',
     relatedProductLinks: [
@@ -161,7 +161,7 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
     excerpt:
       'Managing pet diabetes requires strict 12-hour coordination between weighed meals and insulin injections. Learn the "Feed First, Then Inject" rule, missed dose safety, and how to prevent double-dosing.',
     category: 'Health & Vaccines',
-    readTime: '3 min read',
+    readTime: '5 min read',
     coverImage:
       'https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
     featured: false,
@@ -181,8 +181,8 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
     sourceName: 'American Animal Hospital Association (AAHA) Diabetes Guidelines',
     sourceUrl: 'https://www.aaha.org/aaha-guidelines/diabetes-management/diabetes-management-home/',
     publishedAt: 'October 29, 2026',
-    updatedAt: 'October 30, 2026',
-    metaTitle: 'Dog & Cat Diabetes Insulin & Feeding Schedule Guide | Pet Horizon',
+    updatedAt: 'November 6, 2026',
+    metaTitle: 'Dog & Cat Diabetes Insulin & Feeding Schedule | Pet Horizon',
     metaDescription:
       'AAHA-aligned guide to managing dog and cat diabetes. Master 12-hour meal and insulin timing, missed dose rules, and family double-dose prevention.',
     relatedProductLinks: [
@@ -203,7 +203,7 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
     excerpt:
       'Nearly 40% of microchipped lost pets have unregistered or outdated contact files. Understand 15-digit ISO 11784/11785 standards, the AAHA Universal Microchip Lookup tool, and digital ID storage.',
     category: 'Health & Vaccines',
-    readTime: '3 min read',
+    readTime: '5 min read',
     coverImage:
       'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1200&h=750&crop=faces,focalpoint&fp-y=0.4&q=85',
     featured: false,
@@ -223,8 +223,8 @@ export const NEW_BLOG_POSTS: BlogPost[] = [
     sourceName: 'American Animal Hospital Association (AAHA) Universal Microchip Lookup',
     sourceUrl: 'https://www.aaha.org/your-pet/pet-owner-education/ask-aaha/microchips/',
     publishedAt: 'October 30, 2026',
-    updatedAt: 'October 30, 2026',
-    metaTitle: 'Pet Microchip Registration & Universal Lookup Guide | Pet Horizon',
+    updatedAt: 'November 6, 2026',
+    metaTitle: 'Pet Microchip Registration & Lookup Guide | Pet Horizon',
     metaDescription:
       'Learn how to check and register your dog or cat’s microchip using the AAHA Universal Lookup tool, ISO 15-digit travel rules, and PetHorizon Health Cards.',
     relatedProductLinks: [

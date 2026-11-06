@@ -42,9 +42,19 @@ export default function BlogArticleHeader({
               Blogs
             </a>
             <span className="text-slate-300">/</span>
-            <span className="text-emerald-800 font-bold bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100 whitespace-nowrap shrink-0">
+            <a
+              href={`/blogs?category=${encodeURIComponent(article.category)}`}
+              onClick={(e) => {
+                e.preventDefault();
+                if (typeof window !== 'undefined') {
+                  window.history.pushState({}, '', `/blogs?category=${encodeURIComponent(article.category)}`);
+                }
+                onNavigateBack();
+              }}
+              className="text-emerald-800 font-bold bg-emerald-50 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-100 whitespace-nowrap shrink-0 transition-colors"
+            >
               {article.category}
-            </span>
+            </a>
           </nav>
 
           <div className="flex items-center gap-2 flex-wrap">

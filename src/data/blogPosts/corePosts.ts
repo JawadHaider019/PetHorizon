@@ -132,7 +132,7 @@ export const CORE_POSTS: BlogPost[] = [
     metaTitle: 'Family Pet Routine & Feeding Sync Guide | Pet Horizon',
     metaDescription: 'Eliminate double-feeding and missed walks. Learn how modern families, couples, and roommates sync pet care in real time with Pet Horizon.',
     sourceName: 'Association for Pet Obesity Prevention (APOP)',
-    sourceUrl: 'https://www.petobesityprevention.org/',
+    sourceUrl: 'https://www.petobesityprevention.org/pet-caloric-needs',
     relatedProductLinks: [
       { feature: 'Family Hub QR Pairing', url: 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon', ctaText: 'Invite Family Members', icon: 'QrCode' },
       { feature: 'Live Anti-Collision Care Lock', url: 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon', ctaText: 'Try Anti-Collision Lock', icon: 'CheckCircle' }
@@ -167,7 +167,7 @@ export const CORE_POSTS: BlogPost[] = [
     metaTitle: 'New Puppy Checklist & First-Year Budget | Pet Horizon',
     metaDescription: 'Essential new puppy checklist and transparent first-year expense guide. Get prepared with supply lists, puppy proofing, and budget tracking.',
     sourceName: 'American Kennel Club (AKC) Puppy Care Guide',
-    sourceUrl: 'https://www.akc.org/expert-advice/dog-care/',
+    sourceUrl: 'https://www.akc.org/expert-advice/dog-care/puppy-checklist-supplies-need/',
     relatedProductLinks: [
       { feature: 'New Puppy Routine Starter Pack', url: 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon', ctaText: 'Start Puppy Routine in PetHorizon', icon: 'Calendar' },
       { feature: 'Wallet & Expense Manager', url: 'https://play.google.com/store/apps/details?id=com.anonymous.PetHorizon', ctaText: 'Track First-Year Budget', icon: 'DollarSign' }

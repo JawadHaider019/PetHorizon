@@ -14,7 +14,7 @@ export const emergencyVetArticle: FullBlogArticle = {
       paragraphs: [
         'Level 1 (Resuscitation / Immediate): Catastrophic collapse, respiratory arrest, absent pulse, active status epilepticus (> 5 minutes), or severe traumatic hemorrhage. Patient is taken directly to the ICU crash bay with zero wait time.',
         'Level 2 (Emergent / Life-Threatening): Signs of severe shock, acute GDV bloat, male cat urinary blockage, respiratory distress (dyspnea), open pneumothorax, or penetrating thoracic wounds. Triage goal is veterinary intervention within 15 minutes.',
-        'Level 3 (Urgent): Severe intractable pain, acute blunt trauma with stable vitals, persistent vomiting with dehydration, deep skin lacerations, or suspected toxin ingestion within the decontamination window. Evaluated within 30 to 60 minutes.',
+        'Level 3 (Urgent): Severe intractable pain, acute blunt trauma with stable vitals, persistent vomiting with dehydration, deep skin lacerations, or suspected toxin ingestion (cross-check our [toxic foods and pet poison checklist](/blogs/toxic-foods-dogs-cats-poison-checklist)). Evaluated within 30 to 60 minutes.',
         'Level 4 (Semi-Urgent / Non-Critical): Mild limping, ear infections, localized hot spots, chronic diarrhea with bright demeanor, or minor superficial scrapes. Can be safely examined once emergent patients are stabilized.'
       ],
       table: {
@@ -33,11 +33,11 @@ export const emergencyVetArticle: FullBlogArticle = {
       intro:
         'If your pet exhibits any of the following five conditions, transport them to the nearest 24/7 veterinary emergency hospital immediately without waiting for morning clinic hours:',
       paragraphs: [
-        '1. Gastric Dilatation-Volvulus (GDV Bloat): Primarily affects large, deep-chested dog breeds (Great Danes, German Shepherds, Standard Poodles). The stomach fills with gas and twists on its mesenteric axis, occluding the caudal vena cava, cutting off venous blood return to the heart, and causing stomach wall necrosis. Hallmarks include unproductive retching ("dry heaving"), profound restlessness, excessive drooling, and a visibly distended, hard, drum-like abdomen.',
-        '2. Feline Urethral Obstruction ("Blocked Cat"): Male cats possess a narrow, tapered urethra that easily plugs with inflammatory proteinaceous plugs, struvite crystals, or bladder stones. Within 24 hours, the inability to void urine leads to severe post-renal azotemia and life-threatening hyperkalemia (high blood potassium), inducing fatal cardiac arrhythmias. Look for frequent straining in the litter box, painful crying, licking the penis, and vomiting.',
+        '1. Gastric Dilatation-Volvulus (GDV Bloat): Primarily affects large, deep-chested dog breeds (Great Danes, German Shepherds, Standard Poodles). The stomach fills with gas and twists on its mesenteric axis, occluding the caudal vena cava, cutting off venous blood return to the heart, and causing stomach wall necrosis. Hallmarks include unproductive retching ("dry heaving"), profound restlessness, excessive drooling, and a visibly distended, hard, drum-like abdomen. Review exercise timing and rest precautions in our [dog walking schedule by age and breed](/blogs/dog-walking-schedule-by-age-breed-exercise-guide).',
+        '2. Feline Urethral Obstruction ("Blocked Cat"): Male cats possess a narrow, tapered urethra that easily plugs with inflammatory proteinaceous plugs, struvite crystals, or bladder stones. Within 24 hours, the inability to void urine leads to severe post-renal azotemia and life-threatening hyperkalemia (high blood potassium), inducing fatal cardiac arrhythmias. Look for frequent straining in the litter box, painful crying, licking the penis, and vomiting (see our [cat litter box problems and solutions guide](/blogs/cat-litter-box-problems-causes-solutions-guide)).',
         '3. Respiratory Distress (Dyspnea): Open-mouth panting in a cat is always an emergency. In dogs and cats, exaggerated abdominal heave, extending the neck forward with elbows pointed outward (orthopneic posture), and pale, grey, or cyanotic (blue-purple) tongue membranes indicate oxygen starvation requiring immediate oxygen therapy.',
         '4. Sudden Hind-Limb Paralysis: In cats, sudden screaming accompanied by dragging cold, painful rear legs indicates Feline Aortic Thromboembolism ("Saddle Thrombus") secondary to underlying cardiomyopathy. In chondrodystrophic dogs (Dachshunds, French Bulldogs, Corgis), sudden paralysis points to acute Intervertebral Disc Disease (IVDD) requiring emergency decompression surgery within 24 to 48 hours to prevent permanent loss of deep pain sensation.',
-        '5. Status Epilepticus & Cluster Seizures: A single seizure lasting more than 3 minutes, or two or more seizures within a 24-hour window without regaining normal consciousness between episodes. Prolonged seizures trigger hyperthermia (body temp > 106°F), cerebral edema, and irreversible neurological damage.'
+        '5. Status Epilepticus & Cluster Seizures: A single seizure lasting more than 3 minutes, or two or more seizures within a 24-hour window without regaining normal consciousness between episodes. Prolonged seizures trigger hyperthermia (body temp > 106°F) requiring active cooling protocols from our [summer pet safety heatstroke guide](/blogs/summer-pet-safety-heatstroke-prevention-hot-pavement-guide), cerebral edema, and irreversible neurological damage.'
       ],
       warningBox: {
         title: 'Call the Emergency Clinic While En Route',
@@ -48,7 +48,7 @@ export const emergencyVetArticle: FullBlogArticle = {
       id: 'emergency-transport-and-handling',
       heading: 'Safe Emergency Handling & Transport Protocols',
       intro:
-        'Handling an animal in severe pain requires caution: pain triggers reflexive biting even in gentle, devoted companion animals.',
+        'Handling an animal in severe pain requires caution: pain triggers reflexive biting even in gentle, devoted companion animals. Having supplies prepared in advance from our [pet first aid kit checklist](/blogs/pet-first-aid-kit-checklist-emergency-preparedness-plan) allows safe handling during transit.',
       bulletPoints: [
         { label: 'Improvised Stretcher for Large Dogs', text: 'Slide a rigid ironing board, large wooden board, or taut heavy blanket under a dog with suspected spinal injury or GDV to lift them without twisting the spine or compressing the abdomen.' },
         { label: 'Gentle Towel Wrap for Cats', text: 'Wrap a distressed cat loosely in a thick bath towel ("burrito wrap") to protect their limbs, prevent thrashing, and secure them inside a rigid top-loading carrier.' },
@@ -78,7 +78,7 @@ export const heartwormArticle: FullBlogArticle = {
       paragraphs: [
         'The Mosquito Intermediate Vector: A female mosquito feeds on an infected animal, ingesting circulating microfilariae (L1 stage). Inside the mosquito, microfilariae develop over 10 to 14 days (at temperatures above 57°F / 14°C) into infective third-stage larvae (L3).',
         'Infection & Tissue Molts: When the mosquito bites a dog or cat, L3 larvae are deposited in a drop of hemolymph on the skin and enter through the bite wound. Over the next 70 days, larvae molt through L4 and immature adult (L5) stages in the host’s subcutaneous tissues.',
-        'Pulmonary Artery Colonization: By day 70 to 100, immature worms enter the venous bloodstream and lodge in the small caudal pulmonary arteries. As they mature into 10-to-12-inch adult worms over 6 to 7 months, their presence causes severe proliferative endarteritis, chronic pulmonary thrombosis, right ventricular hypertrophy, and eventually fatal congestive heart failure or caval syndrome.'
+        'Pulmonary Artery Colonization: By day 70 to 100, immature worms enter the venous bloodstream and lodge in the small caudal pulmonary arteries. As they mature into 10-to-12-inch adult worms over 6 to 7 months, their presence causes severe proliferative endarteritis, chronic pulmonary thrombosis, right ventricular hypertrophy, and eventually fatal congestive heart failure. Logging monthly doses in our [pet health records medication tracker](/blogs/pet-health-records-medication-schedule-tracker) eliminates treatment gaps.'
       ],
       table: {
         headers: ['Lifecycle Stage', 'Location in Host', 'Timeline Post-Bite', 'Vulnerability to Monthly Preventatives'],
@@ -103,7 +103,7 @@ export const heartwormArticle: FullBlogArticle = {
       ],
       warningBox: {
         title: 'Why Year-Round Prevention is Mandatory',
-        text: 'Monthly heartworm preventatives do not form a protective shield against future mosquito bites; they work RETROACTIVELY by eliminating L3 and L4 larvae acquired during the previous 30 days. Stopping medication during winter leaves larvae free to develop into adult worms that cannot be killed by preventatives.'
+        text: 'Monthly heartworm preventatives do not form a protective shield against future mosquito bites; they work RETROACTIVELY by eliminating L3 and L4 larvae acquired during the previous 30 days. Synchronize doses alongside your [puppy and kitten vaccination schedule](/blogs/puppy-kitten-vaccination-schedule-booster-guide-worldwide) and learn critical toxicity red flags in our [emergency vet symptoms guide](/blogs/emergency-vet-symptoms-red-flags-petmd). Stopping medication during winter leaves larvae free to develop into adult worms.'
       }
     },
     {
@@ -139,8 +139,8 @@ export const petCaloriesArticle: FullBlogArticle = {
         'Feeding charts printed on commercial pet food bags provide broad population averages that frequently overestimate caloric requirements by 20% to 40%, predisposing indoor and neutered pets to chronic obesity.',
       paragraphs: [
         'Resting Energy Requirement (RER): The baseline energy expenditure of a dog or cat at rest in a thermoneutral environment, supporting vital metabolic processes including cellular ion pumping, cardiac function, respiration, and thermoregulation.',
-        'The Scientific Allometric Equation: The gold-standard equation recognized by the World Small Animal Veterinary Association (WSAVA) and the American College of Veterinary Internal Medicine (ACVIM) is: RER (kcal/day) = 70 × (Body Weight in kg)^0.75.',
-        'The Linear Approximation: For pets weighing between 2 kg and 20 kg (4.4 lbs to 44 lbs), veterinary teams often use the linear approximation: RER (kcal/day) = (30 × Body Weight in kg) + 70. However, for giant breeds (> 25 kg) or toy breeds (< 2 kg), only the exponential 0.75 power formula provides accurate metabolic scaling.'
+        'The Scientific Allometric Equation: The gold-standard equation recognized by the World Small Animal Veterinary Association (WSAVA) and the American College of Veterinary Internal Medicine (ACVIM) is: RER (kcal/day) = 70 × (Body Weight in kg)^0.75. You can calculate your pet’s exact daily baseline instantly using our [WSAVA Pet Calorie Calculator](/tools/pet-calorie-calculator).',
+        'The Linear Approximation: For pets weighing between 2 kg and 20 kg (4.4 lbs to 44 lbs), veterinary teams often use the linear approximation: RER (kcal/day) = (30 × Body Weight in kg) + 70. However, for giant breeds (> 25 kg) or toy breeds (< 2 kg), only the exponential 0.75 power formula provides accurate metabolic scaling. Life stage also changes basal metabolism; check when your pet shifts from pediatric to adult or senior maintenance with our [pet age calculator](/tools/pet-age-calculator).'
       ],
       table: {
         headers: ['Body Weight (lbs / kg)', 'Scientific RER (kcal/day)', 'Neutered Adult Dog (1.6 × RER)', 'Weight Loss Dog (1.0 × RER)', 'Neutered Adult Cat (1.2 × RER)'],
@@ -158,7 +158,7 @@ export const petCaloriesArticle: FullBlogArticle = {
       id: 'mer-lifestage-multipliers',
       heading: 'Maintenance Energy Requirements (MER): Life-Stage & Activity Factors',
       intro:
-        'RER represents coma baseline energy. To calculate total daily calories (Maintenance Energy Requirement / MER), multiply RER by your pet’s physiological life stage factor:',
+        'RER represents baseline energy at rest. To calculate total daily calories (Maintenance Energy Requirement / MER), multiply RER by your pet’s physiological life stage factor. Pair these targets with our [dog feeding schedule by life stage](/blogs/dog-feeding-schedule-by-age-puppy-to-adult) or our [cat feeding schedule and hydration guide](/blogs/cat-feeding-schedule-indoor-enrichment-guide) to divide portions evenly:',
       bulletPoints: [
         { label: 'Neutered Adult Dog', text: 'Factor: 1.6 × RER. Baseline for typical house pets with standard daily 30-to-60 minute leash walks.' },
         { label: 'Intact Adult Dog', text: 'Factor: 1.8 × RER. Unaltered reproductive hormones increase baseline metabolic rate.' },
@@ -182,7 +182,7 @@ export const petCaloriesArticle: FullBlogArticle = {
       paragraphs: [
         'A single extra tablespoon of dry dog kibble per meal in a 15-pound dog is the caloric equivalent of a human eating an extra cheeseburger every day. Over 12 months, this minor human measuring error results in a 3-pound fat gain—a 20% increase in total body mass.',
         'Always read the nutritional label on your pet food bag for metabolizable energy per kilogram (e.g., 3,650 kcal ME/kg = 3.65 kcal per gram). Weighing meals on an inexpensive digital kitchen scale takes 10 seconds and guarantees 100% caloric precision.',
-        'The 10% Treat Boundary: Treats, training morsels, dental chews, and table foods must comprise less than 10% of your pet’s total daily caloric allowance. Treats are not nutritionally complete and balanced; exceeding 10% dilutes essential dietary vitamins, amino acids, and minerals.'
+        'The 10% Treat Boundary: Treats, training morsels, dental chews (cross-reference our [dog dental care guide](/blogs/dog-dental-care-brushing-teeth-periodontal-guide)), and table foods must comprise less than 10% of your pet’s total daily caloric allowance. Treats are not nutritionally complete and balanced; exceeding 10% dilutes essential dietary vitamins, amino acids, and minerals.'
       ],
       routineTip: {
         title: 'Calculate & Log Pet Portions in PetHorizon',

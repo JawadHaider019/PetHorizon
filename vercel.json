@@ -41,45 +41,109 @@
       "source": "/blogs/dog-cat-calorie-calculator-rer-wsava",
       "destination": "/blogs/pet-calorie-calculator-feeding-guide-apop",
       "permanent": true
+    },
+    {
+      "source": "/blogs/household-pet-coparenting-feeding-routine-sync",
+      "destination": "/blogs/household-pet-coparenting-feeding-routine-sync-worldwide",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/puppy-kitten-vaccination-schedule-booster-guide",
+      "destination": "/blogs/puppy-kitten-vaccination-schedule-booster-guide-worldwide",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/best-pet-gps-trackers-health-wearables-review",
+      "destination": "/blogs/best-pet-gps-trackers-health-wearables-review-worldwide",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/monthly-pet-care-cost-vet-expense-budget",
+      "destination": "/blogs/monthly-pet-care-cost-vet-expense-budget-worldwide",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/pet-first-aid-kit-checklist-emergency-preparation",
+      "destination": "/blogs/pet-first-aid-kit-checklist-emergency-preparedness-plan",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/pet-first-aid-kit-checklist-emergency-preparedness",
+      "destination": "/blogs/pet-first-aid-kit-checklist-emergency-preparedness-plan",
+      "permanent": true
+    },
+    {
+      "source": "/pet-calorie-calculator",
+      "destination": "/tools/pet-calorie-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/pet-age-calculator",
+      "destination": "/tools/pet-age-calculator",
+      "permanent": true
     }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
       ]
     },
     {
       "source": "/assets/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/(screenshots|mascots)/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/(.*\\.(?:webp|png|jpg|jpeg|svg|ico))",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=604800, stale-while-revalidate=2592000" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=2592000"
+        }
       ]
     },
     {
       "source": "/(robots.txt|sitemap.xml|llms.txt|llms-full.txt)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, stale-while-revalidate=86400"
+        }
       ]
     },
     {
       "source": "/(favicon.ico|favicon.svg|favicon-.*\\.png|apple-touch-icon.png|manifest.webmanifest)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
       ]
     }
   ],

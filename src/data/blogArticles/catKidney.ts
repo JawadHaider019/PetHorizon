@@ -14,8 +14,8 @@ export const catKidneyArticle: FullBlogArticle = {
       paragraphs: [
         'The International Renal Interest Society (IRIS) classifies feline CKD into four distinct stages based on stable, fasted blood creatinine and symmetric dimethylarginine (SDMA) concentrations, combined with substaging for proteinuria (UPC ratio) and systemic arterial blood pressure.',
         'Stage 1 (Non-Azotemic CKD): Blood creatinine is normal (< 1.6 mg/dL), but blood SDMA is persistently elevated (> 14 mcg/dL) or kidneys show abnormal structural architecture on abdominal ultrasound. Glomerular filtration rate is reduced by 30% to 50%, yet cats show zero outward symptoms.',
-        'Stage 2 (Mild Renal Azotemia): Creatinine ranges from 1.6 to 2.8 mg/dL. The kidneys lose their concentrating ability, causing compensatory polydipsia (excessive thirst) and polyuria (excessive urination).',
-        'Stages 3 and 4 (Moderate to Severe Uremic Azotemia): Creatinine climbs above 2.9 to > 5.0 mg/dL. Waste nitrogen products build up in the bloodstream, triggering uremic gastritis, oral ulcerations, anemia from erythropoietin deficiency, and severe muscle wasting.'
+        'Stage 2 (Mild Renal Azotemia): Creatinine ranges from 1.6 to 2.8 mg/dL. The kidneys lose their concentrating ability, causing compensatory polydipsia (excessive thirst) and polyuria (excessive urination). Transitioning to high-moisture canned diets outlined in our [cat feeding schedule and enrichment guide](/blogs/cat-feeding-schedule-indoor-enrichment-guide) helps alleviate kidney filtration strain.',
+        'Stages 3 and 4 (Moderate to Severe Uremic Azotemia): Creatinine climbs above 2.9 to > 5.0 mg/dL. Waste nitrogen products build up in the bloodstream, triggering uremic gastritis, oral ulcerations, anemia from erythropoietin deficiency, and severe muscle wasting. Archiving lab results and medication times in our [pet health records tracker](/blogs/pet-health-records-medication-schedule-tracker) is vital for monitoring progression.'
       ],
       table: {
         headers: ['IRIS CKD Stage', 'Blood Creatinine (mg/dL)', 'Blood SDMA (mcg/dL)', 'Urine Specific Gravity (USG)', 'Clinical Focus & Management'],
@@ -38,15 +38,15 @@ export const catKidneyArticle: FullBlogArticle = {
       intro:
         'Because cats instinctually hide vulnerability, owners frequently attribute subtle shifts in litter box habits or grooming to "normal aging" until a crisis occurs.',
       paragraphs: [
-        '1. Expanding Litter Box Clump Size: When kidneys lose the ability to concentrate urine, cats produce vast volumes of pale, dilute urine. A litter clump that expands from the size of a golf ball to that of an orange indicates significant loss of concentrating capability.',
+        '1. Expanding Litter Box Clump Size: When kidneys lose the ability to concentrate urine, cats produce vast volumes of pale, dilute urine. A litter clump that expands from the size of a golf ball to that of an orange indicates significant loss of concentrating capability (distinguishing this from behavioral straining covered in our [cat litter box problems guide](/blogs/cat-litter-box-problems-causes-solutions-guide)).',
         '2. The Scruff "Tent" Test (Subclinical Dehydration): Gently pinch the skin along your cat’s shoulder blades and release. In a hydrated cat, it snaps back instantly. If it hesitates, folds, or tents for 2 to 3 seconds, systemic fluid deficits exceed 5% to 7%.',
         '3. Dry or Tacky Oral Mucous Membranes: Run your index finger along the upper gumline above the canine tooth. Healthy gums feel slick, moist, and slippery. Gums that feel sticky, tacky, or dry signify moderate to severe dehydration.',
         '4. Slouching or Hovering Over Water Bowls Without Drinking: Feline uremia causes chronic gastric hyperacidity and nausea. Cats often feel intense thirst yet hesitate or hover over the bowl because looking down triggers esophageal acid reflux.',
-        '5. Gradual Weight Loss Along the Spine (Sarcopenia): Muscle wasting along the dorsal spine and pelvis is a hallmark of protein-energy wasting in advancing CKD. Weighing your senior cat monthly is vital.'
+        '5. Gradual Weight Loss Along the Spine (Sarcopenia): Muscle wasting along the dorsal spine and pelvis is a hallmark of protein-energy wasting in advancing CKD. Comprehensive home monitoring strategies are covered in our [senior cat care guide](/blogs/senior-cat-care-health-diet-comfort-guide). Weighing your senior cat monthly is vital.'
       ],
       warningBox: {
         title: 'Emergency Red Flag: Sudden Blindness or Dilated Pupils',
-        text: 'Over 60% of cats with Stage 2 to 4 CKD develop systemic arterial hypertension (high blood pressure). Sudden bilateral pupil dilation, disoriented vocalizing, or bumping into walls signals acute hypertensive retinal detachment—a veterinary emergency requiring blood pressure reduction within 24 hours to restore sight.'
+        text: 'Over 60% of cats with Stage 2 to 4 CKD develop systemic arterial hypertension (high blood pressure). Sudden bilateral pupil dilation, disoriented vocalizing, or bumping into walls signals acute hypertensive retinal detachment—a veterinary emergency requiring blood pressure reduction within 24 hours to restore sight; review life-threatening markers in our [emergency vet symptoms guide](/blogs/emergency-vet-symptoms-red-flags-petmd).'
       }
     },
     {
@@ -55,7 +55,7 @@ export const catKidneyArticle: FullBlogArticle = {
       intro:
         'Domestic cats descended from the African wildcat (*Felis lybica*) and possess an inherently blunt thirst response. In nature, 70% to 75% of a cat’s water intake comes directly from fresh prey.',
       paragraphs: [
-        'Feeding dry extruded kibble (8% to 10% moisture) forces the feline kidney to work at peak concentration capacity for a lifetime. Switching to moisture-rich canned formulations (78% to 82% water) or adding rehydration toppers instantly doubles total daily fluid throughput, diluting toxic nitrogenous metabolites.',
+        'Feeding dry extruded kibble (8% to 10% moisture) forces the feline kidney to work at peak concentration capacity for a lifetime. To determine when your cat enters their senior renal risk window, convert their chronological age with our [pet age calculator](/tools/pet-age-calculator). Switching to moisture-rich canned formulations portioned via our [WSAVA pet calorie calculator](/tools/pet-calorie-calculator) and [pet calorie calculation guide](/blogs/pet-calorie-calculator-feeding-guide-apop) instantly doubles total daily fluid throughput, diluting toxic nitrogenous metabolites.',
         'Veterinary studies conducted at the Cornell Feline Health Center confirm that flowing, aerated water from stainless steel or ceramic pet fountains increases voluntary feline water consumption by up to 40% compared to stagnant standing bowls.',
         'Subcutaneous Fluid Therapy: In IRIS Stage 3 and 4, veterinary teams instruct pet parents on administering sterile Lactated Ringer’s Solution (LRS) under the skin at home (typically 100 mL every 1 to 3 days). Warming the fluid bag in a warm water bath to body temperature (100°F / 38°C) transforms the procedure into a comfortable, soothing daily routine.'
       ],

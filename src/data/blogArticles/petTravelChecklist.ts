@@ -12,7 +12,7 @@ export const petTravelChecklistArticle: FullBlogArticle = {
       intro:
         'Airlines enforce rigid biological and physical criteria governing pet transit to maintain aircraft safety, cabin hygiene, and animal welfare:',
       paragraphs: [
-        'In-Cabin Travel Regulations: Permitted for cats and small dogs whose combined body weight with their carrier does not exceed airline limits (typically 15 to 20 lbs / 7 to 9 kg). The carrier must fit completely underneath the seat directly in front of you without compressing your pet. The animal must be able to stand up, turn around completely, and lie down in a natural resting posture throughout the flight.',
+        'In-Cabin Travel Regulations: Permitted for cats and small dogs whose combined body weight with their carrier does not exceed airline limits (typically 15 to 20 lbs / 7 to 9 kg). The carrier must fit completely underneath the seat directly in front of you without compressing your pet. The animal must be able to stand up, turn around completely, and lie down in a natural resting posture throughout the flight. If you decide travel is too taxing and arrange home care instead, prepare your caregiver with our [pet sitter instructions handover checklist](/blogs/pet-sitter-instructions-handover-checklist-template). For peace of mind during transit, equip your pet’s collar with devices reviewed in our guide on [best pet GPS trackers and health wearables](/blogs/best-pet-gps-trackers-health-wearables-review-worldwide).',
         'Brachycephalic Breed Bans: Due to high historic mortality rates associated with severe respiratory distress and heat stress at high altitudes, snub-nosed dog breeds (French Bulldogs, Pugs, English Bulldogs, Boxers) and brachycephalic cats (Persians, Himalayans) are strictly prohibited from flying in cargo holds by virtually every major global airline.',
         'Cargo Hold Realities (IATA LAR Compliance): Large dogs that exceed in-cabin limits must fly as manifest cargo or checked baggage in rigid, fiberglass/hard-plastic crates meeting IATA Live Animals Regulations (LAR Container Requirement 1). Crates must feature metal bolt fasteners (never plastic dial clips), exterior water funnels, absorbent bedding, and ventilation on all four sides. Always book non-stop flights during temperate seasons (early morning or late evening in summer; midday in winter) to prevent tarmac thermal extremes.'
       ],
@@ -27,7 +27,7 @@ export const petTravelChecklistArticle: FullBlogArticle = {
       },
       warningBox: {
         title: 'The USDA APHIS 10-Day Health Certificate Rule',
-        text: 'Most commercial airlines and international agricultural departments mandate a Certificate of Veterinary Inspection (CVI) signed by an accredited USDA veterinarian within exactly 10 days of departure. Missing this strict 10-day window results in denied airline boarding at check-in with zero exceptions.'
+        text: 'Most commercial airlines and international agricultural departments mandate a Certificate of Veterinary Inspection (CVI) signed by an accredited USDA veterinarian within exactly 10 days of departure. Keep digital copies organized in your [pet health records tracker](/blogs/pet-health-records-medication-schedule-tracker) alongside emergency supplies from our [pet first aid kit checklist](/blogs/pet-first-aid-kit-checklist-emergency-preparedness-plan).'
       }
     },
     {
@@ -38,7 +38,7 @@ export const petTravelChecklistArticle: FullBlogArticle = {
       paragraphs: [
         'Never permit dogs to ride on your lap, roam freely across back seats, or hang their heads out of moving car windows. Airborne road gravel, insects, and debris frequently cause traumatic corneal lacerations and eye punctures. Furthermore, deploying front-seat airbags strike small pets with devastating, fatal force.',
         'The Center for Pet Safety (CPS) Standard: The Center for Pet Safety is an independent non-profit that conducts dynamic crash tests using instrumented canine crash dummies. The vast majority of retail "dog seatbelts" fail catastrophically during simulated 30 mph impacts. Only crash-certified harnesses (e.g., Sleepypod Clickit Terrain) or crash-tested structural crates (e.g., Gunner Kennels G1) safely distribute crash forces across the chest and pelvic girdle.',
-        'Road Trip Hydration & Rest Cycles: Plan rest stops every 2 to 3 hours for leashed bathroom walks and hydration. Never leave a dog or cat inside a parked car, even with windows cracked: interior vehicle temperatures soar from 70°F to 100°F (38°C) in under 20 minutes on sunny days.'
+        'Road Trip Hydration & Rest Cycles: Plan rest stops every 2 to 3 hours for leashed bathroom walks and hydration. Never leave a dog or cat inside a parked car, even with windows cracked: interior vehicle temperatures soar from 70°F to 100°F (38°C) in under 20 minutes, triggering fatal hyperthermia outlined in our [summer pet safety heatstroke prevention guide](/blogs/summer-pet-safety-heatstroke-prevention-hot-pavement-guide).'
       ],
       stepByStep: {
         title: 'Pre-Travel Desensitization & Preparation Ladder',
@@ -64,7 +64,7 @@ export const petTravelChecklistArticle: FullBlogArticle = {
         { label: 'Familiar Bottled Water', text: 'Pack municipal tap water from home or bottled water; sudden mineral changes in hotel tap water trigger acute osmotic diarrhea.' },
         { label: 'Collapsible Silicone Bowls', text: 'Lightweight, easily sanitized bowls for airport relief areas or highway rest stops.' },
         { label: 'Prescription Medication Vault', text: 'Carry all medications in original pharmacy bottles with veterinarian contact details in your personal carry-on bag.' },
-        { label: 'Microchip ID Verification', text: 'Confirm your pet’s ISO microchip number is registered with your current mobile phone number before leaving.' }
+        { label: 'Microchip ID Verification', text: 'Confirm your pet’s ISO microchip number is registered in national databases following our [pet microchip registration lookup guide](/blogs/pet-microchip-registration-lookup-guide).' }
       ],
       routineTip: {
         title: 'Store Digital Travel Passports in PetHorizon',

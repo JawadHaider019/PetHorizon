@@ -1,3 +1,4 @@
+import { trackLeadGenerated } from '../utils/analytics';
 import { useState } from 'react';
 import { Mail, CheckCircle2 } from 'lucide-react';
 // @ts-expect-error canvas-confetti has no types
@@ -46,6 +47,7 @@ export default function BlogNewsletter({ onNavigateLegal }: BlogNewsletterProps)
 
     setIsSubmitting(false);
     setSubscribed(true);
+    trackLeadGenerated('blog_newsletter');
 
     try {
       confetti({ particleCount: 40, spread: 60, origin: { y: 0.7 } });

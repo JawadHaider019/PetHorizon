@@ -15,7 +15,7 @@ export const summerPetSafetyArticle: FullBlogArticle = {
         'How Dogs Cool Down: Dogs circulate blood through a dense network of blood vessels in their nasal turbinates and tongue. Panting moves air rapidly across these moist mucous membranes, using evaporative heat loss to cool arterial blood heading to the brain. However, as ambient humidity rises, moisture cannot evaporate into the already-saturated air, rendering panting ineffective.',
         'The Cellular Cascade of True Heatstroke (105°F to 107°F+): At sustained temperatures above 105.8°F (41.0°C), cellular proteins denature. The protective vascular endothelial lining collapses, triggering Disseminated Intravascular Coagulation (DIC)—a catastrophic syndrome where microscopic blood clots consume clotting factors, leading to simultaneous systemic thrombosis and uncontrollable internal hemorrhaging.',
         'Gastrointestinal Barrier Collapse: High core temperatures cause ischemic damage to the intestinal mucosal lining, allowing bacteria and endotoxins from the gut lumen to leak directly into the bloodstream (endotoxemia / septic shock). This is why dogs with heatstroke frequently develop bloody diarrhea and vomiting.',
-        'High-Risk Demographics: Brachycephalic breeds (French Bulldogs, Pugs, Boxers, English Bulldogs) face up to 3 times higher risk due to Brachycephalic Obstructive Airway Syndrome (BOAS). Overweight dogs, dark-coated canines, and pets with pre-existing laryngeal paralysis or cardiovascular disease require strict indoor air conditioning during summer heatwaves.'
+        'High-Risk Demographics: Brachycephalic breeds (French Bulldogs, Pugs, Boxers, English Bulldogs) face up to 3 times higher risk due to Brachycephalic Obstructive Airway Syndrome (BOAS). Overweight dogs, dark-coated canines, and pets with pre-existing laryngeal paralysis or cardiovascular disease require strict indoor air conditioning during summer heatwaves; adjust outdoor routines using our [dog walking schedule by age and breed](/blogs/dog-walking-schedule-by-age-breed-exercise-guide) and ensure year-round vector defense with our [flea, tick, and heartworm prevention protocol](/blogs/flea-tick-heartworm-prevention-ahs-protocol).'
       ],
       table: {
         headers: ['Core Body Temp', 'Physiological State', 'Systemic Biological Impact', 'Emergency Clinical Intervention'],
@@ -37,18 +37,18 @@ export const summerPetSafetyArticle: FullBlogArticle = {
         'Step 1: Move Directly Into Air Conditioning. Carry (do not force the dog to walk) into a cool air-conditioned vehicle or building.',
         'Step 2: Apply Cool Water and Continuous Airflow. Wet the paws, inner groin, armpits, and neck with cool tap water. Direct a high-speed car air conditioning vent or electric fan directly over the wet fur to maximize rapid evaporative cooling.',
         'Step 3: Stop Active Cooling at 103.5°F (39.7°C). Check rectal temperature every 3 minutes. Cease active wetting once the temperature drops to 103.5°F to prevent dangerous hypothermic rebound shock.',
-        'Step 4: Transport Immediately to Veterinary ER. Even if the dog seems to recover after cooling, irreversible delayed organ damage (acute renal failure and DIC) can manifest 24 to 48 hours later without intravenous fluid therapy and serial blood chemistry monitoring.'
+        'Step 4: Transport Immediately to Veterinary ER. Even if the dog seems to recover after cooling, irreversible delayed organ damage (acute renal failure and DIC) can manifest 24 to 48 hours later without intravenous fluid therapy; keep emergency supplies prepped from our [pet first aid kit checklist](/blogs/pet-first-aid-kit-checklist-emergency-preparedness-plan) and review life-threatening markers in our [emergency vet symptoms and red flags guide](/blogs/emergency-vet-symptoms-red-flags-petmd).'
       ],
       warningBox: {
         title: 'Parked Car Greenhouse Physics: Fatal in 15 Minutes',
-        text: 'When ambient outdoor temperature is just 70°F (21°C), the interior of a parked car reaches 89°F in 10 minutes and 104°F in 30 minutes, even with windows cracked 2 inches. On an 85°F day, car interior temperatures soar to 120°F in under 20 minutes. Leaving pets in cars in summer is lethal.'
+        text: 'When ambient outdoor temperature is just 70°F (21°C), the interior of a parked car reaches 89°F in 10 minutes and 104°F in 30 minutes, even with windows cracked 2 inches. On an 85°F day, car interior temperatures soar to 120°F in under 20 minutes. Leaving pets in cars in summer is lethal; review transit restraint and vehicle safety protocols in our [pet travel checklist and regulations guide](/blogs/pet-travel-checklist-flying-car-trips-vet-records).'
       }
     },
     {
       id: 'hot-pavement-and-water-intoxication-hazards',
       heading: 'Hidden Summer Hazards: Asphalt Burns & Water Intoxication (Hyponatremia)',
       intro:
-        'Summer walking and lake games conceal two acute hazards that catch well-intentioned pet owners unprepared:',
+        'Summer walking and outdoor games conceal several acute hazards—from asphalt burns to outdoor picnic toxins (detailed in our [toxic foods poison checklist](/blogs/toxic-foods-dogs-cats-poison-checklist))—that catch well-intentioned pet owners unprepared:',
       bulletPoints: [
         { label: 'Hot Pavement Thermal Burns', text: 'Asphalt absorbs solar radiation: at 86°F (30°C) ambient temperature, direct asphalt temperature reaches 135°F (57°C). At this temperature, full-thickness skin blister burns occur in under 60 seconds. Always perform the 7-second bare-hand test before walking.' },
         { label: 'Water Intoxication (Acute Hyponatremia)', text: 'Dogs who bite water obsessively while fetching balls in lakes, swimming in pools, or playing with high-pressure garden hoses ingest massive volumes of water. Excess fluids dilute extracellular sodium ions, causing osmotic fluid shifts into brain cells (cerebral edema). Symptoms include lethargy, vomiting, dilated pupils, bloating, and seizures. Limit continuous water-biting play to 10-minute bursts.' },

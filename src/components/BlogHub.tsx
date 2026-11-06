@@ -16,7 +16,13 @@ interface BlogHubProps {
 const POSTS_PER_PAGE = 9;
 
 export default function BlogHub({ onNavigateHome, onSelectArticle }: BlogHubProps) {
-  const [selectedCategory, setSelectedCategory] = useState<string>('All Stories');
+  const [selectedCategory, setSelectedCategory] = useState<string>(() => {
+    if (typeof window !== 'undefined') {
+      const cat = new URLSearchParams(window.location.search).get('category');
+      if (cat) return decodeURIComponent(cat);
+    }
+    return 'All Stories';
+  });
   const [searchQuery, setSearchQuery] = useState<string>(() => {
     if (typeof window !== 'undefined') {
       const q = new URLSearchParams(window.location.search).get('q');
@@ -30,6 +36,15 @@ export default function BlogHub({ onNavigateHome, onSelectArticle }: BlogHubProp
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
     setCurrentPage(1);
+    if (typeof window !== 'undefined') {
+      const url = new URL(window.location.href);
+      if (category === 'All Stories' || category === 'All Articles') {
+        url.searchParams.delete('category');
+      } else {
+        url.searchParams.set('category', category);
+      }
+      window.history.replaceState({}, '', url.toString());
+    }
   };
 
   const handleSearchChange = (query: string) => {
