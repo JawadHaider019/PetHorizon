@@ -124,3 +124,4 @@ console.log('Incoming to Pet Age Calculator:', report.calculatorIncomingLinks.ag
 const weaklyLinked = articleData.filter(a => a.incomingLinks.length <= 1);
 console.log('Articles with <= 1 incoming internal links:', weaklyLinked.length);
 weaklyLinked.forEach(a => console.log(`- ${a.slug} (incoming: ${a.incomingLinks.length}, outgoing: ${a.outgoingLinks.length})`));
+

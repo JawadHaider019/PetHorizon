@@ -43,3 +43,4 @@ dataRows.forEach(r => {
 console.log('Clusters:', clusters);
 console.log('Markets:', markets);
 console.log('Intents:', intents);
+
